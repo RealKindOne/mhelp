@@ -6,8 +6,12 @@
 <br>
 The <b>$&</b> identifier is a construct which allows you to break up long, single script lines in order to make editing and reading them much easier.
 
-<br><b>Note:</b> $& can touch the end of your line and still be valid, see the example
+<b>$&</b> can touch the end of your line and still be valid, but after $&, only spaces can follow. mIRC will just evaluate the custom identifier $& otherwise.
 
+If it does not touch the line, the space before it will count as character.
+
+
+  
 <H4>Synopsis</H4>
 <pre class ="code">
 $&
@@ -21,9 +25,10 @@ An alias that breaks up a long echo into multiple lines
 <pre class ="code">alias testit {
   echo -a This is a really long$&
     line that is broken up because $&
-    mIRC supports it! The cool thing is $&
-    that mIRC will also format these $&
-    indentations within the script editor!
+    mIRC supports it! It can touch the end the line$&
+    and still work
+  echo -ag $len(a $
+  b) is 3
 }</pre>
 
 Create an alias that has a code block similar to a programming language
@@ -36,7 +41,5 @@ Create an alias that has a code block similar to a programming language
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
-<H4>Notes</H4>
-Non-spaces are not permitted following it on the same line, and this reports there is no such identifier (unless you create a custom identifier named '&')
-//echo -a foo $& bar
+
 <H4>See also</H4>
