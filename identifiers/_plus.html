@@ -5,33 +5,43 @@
 <br>
 <br>
 
-The <b>$+</b> is the [[concatenation]] [[concatenation operator|operator]] in [[mIRC]]. The operator can join together two strings end-to-end. In addition to its normal behavior, the $+ operator has a few special functions when used within {{mirc|evaluation brackets}}.
+<b>$+</b> is a construct, it has the look of an identifier but does not return a value. It concatenates two things together.
+In addition to its normal behavior, $+ has a few special functions when used within evaluation brackets [ ]
 
-In its normal use, the $+ operator can be used to join together two strings end-to-end. For example:
+$+() on the other hand, is an identifier, taking parameters, where the returned value is just the concatenation of the passed parameters.
 
+<H4>Synopsis</H4>
+
+value $+ value1 $+ etc
+
+$+(value,value1,etc)
+
+<H4>Parameters</H4>
+
+You can pass any number of parameter.
+
+<H4>Examples</H4>
+  
 <pre class ="code">
 echo -a A $+ B $+ C
 </pre>
 
 Will result in:
   ABC
-Likewise, the $+ operator can be used with identifiers and {{mirc|variables}} as well:
 
 <pre class ="code">
 var %x = A, %y = B
 echo -a %x $+ %y $+ $day
 </pre>
+  
+Will print (depending on the day of the week) "ABMonday" -- Same example with $+():
 
-Will print (depending on the day of the week):
- ABMonday
-
-This identifier also accepts any number of parameters. The above code can be rewritten (with the same result) as:
 <pre class ="code">
 var %x = A, %y = B
 echo -a $+(%x, %y, $day)
 </pre>
-
+  
 <H4>See also</H4>
-
+Bracket Evaluation
 </body>
 </html>
