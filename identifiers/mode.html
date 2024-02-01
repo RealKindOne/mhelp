@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mode</H1>
+<br>
+<br>
+The <b>$mode</b> identifier returns the Nth nick affected by a channel mode change, this identifier is meant to be used inside event such as <a href="..\events\on_OP.html">on_OP</a>, <a href="..\events\on_rawmode.html">on_rawmode</a>, <a href="..\events\on_mode.html">on_mode</a> etc.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mode(N)[.property]
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth nick affected, you can use N = 0 to get the total number of nick affected
+
+<H4>Properties</H4>
+
+<br><b>.owner</b> - returns the Nth nick which is given the owner status
+<br><b>.deowner</b> - returns the Nth nick which is demoted from the owner status
+<br><b>.op</b> - returns the Nth nick which is given the op status
+<br><b>.deop</b> - returns the Nth nick which is demoted from the op status
+<br><b>.help</b> - returns the Nth nick which is given the help status
+<br><b>.dehelp</b> - returns the Nth nick which is demoted from the help status
+<br><b>.voice</b> - returns the Nth nick which is given the voice status
+<br><b>.devoice</b> - returns the Nth nick which is demoted from the voice status
+<br><b>.ban</b> - returns the Nth nick which is banned
+<br><b>.unban</b> - returns the Nth nick which is unbanned
+
+<H4>Example</H4>
+Although on op only triggers for op status, if you type /mode #chan +ob nick test, $mode(0) is still 2 and you can access all the modes lists
+<pre class ="code">on *:op:#:echo -a $mode(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.6 (03 Jun 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="modefirst.html">$modefirst</a><br>
+<a href="modelast.html">$modelast</a><br>
+
+</body>
+</html>

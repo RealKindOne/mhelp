@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$vnick </H1>
+<br>
+<br>
+The <b>$vnick</b> identifier returns the nickname of a person who was voiced/devoiced during an <a href="..\events\on_Voice.html">on_Voice</a> or an <a href="..\events\on_DeVoice.html">on_DeVoice</a> event.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$vnick
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+A scripted event that will echo the nickname of the person who was just voiced to the active window:
+<pre class ="code">ON *:VOICE:#:echo -a $vnick</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.72 (09 Jan 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Voice.html">on_Voice</a><br>
+<a href="..\events\on_DeVoice.html">on_DeVoice</a><br>
+<a href="hnick.html">$hnick</a><br>
+<a href="opnick.html">$opnick</a><br>
+
+
+</body>
+</html>

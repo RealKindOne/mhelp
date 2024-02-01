@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$remove</H1>
+<br>
+<br>
+The <b>$remove</b> removes all occurrences of the given substring(s) from a string and returns the remainder. '''$removecs''' is the case sensitive version.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$remove(string,substring,substringN)
+</pre>
+
+<H4>Parameters</H4>
+<br><b>string</b> - the original string you want to remove from
+<br><b>substring</b> - the substring you want to remove from the original string, you can
+<br><b>substringN</b> - you can pass multiple substring to be removed from the original string
+
+<H4>Example</H4>
+
+Show the download folder as a relative location only if it's a subfolder of $mircdir
+<pre class ="code">//echo -a $remove($getdir,$mircdir)</pre>
+
+
+Remove the channel from a message
+<pre class ="code">//echo -a $remove($active,$chan)</pre>
+
+Show the download folder as a relative location only if it's a subfolder of $mircdir
+<pre class ="code">//echo -a $remove($getdir,$mircdir)</pre>
+
+<pre class ="code">
+Case-insensitive remove all 'a' from 'aAabcdaaA'
+//echo -a $remove(aAabcdaaA,a)
+returns: bcd
+Case-insensitive remove string 'ac' from 'AaCcX'
+//echo -a $remove(AaCcX,ac)
+returns: AcX
+The first match was at positions 2-3, and no matches were beyond.
+//echo -a $remove(AaCcX,ac,ac)
+... uses string altered by 1st parameter when removing 2nd parameter string. Is equivalent to:
+//echo -a $remove( $remove(AaCcX,ac) , ac)
+</pre>
+
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="replace.html">$replace</a><br>
+<a href="replacex.html">$replacex</a><br><a href="deltok.html">$deltok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+</body>
+</html>

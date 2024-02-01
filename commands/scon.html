@@ -1,0 +1,108 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/scon
+</H1>
+<br>
+<br>
+
+The <b>/scon</b> command can change the connection associated with the current script. When a command is not specified, mIRC changes the connection of the current script to the Nth connection. The rest of the code will continue to execute on that connection. When a command is specified, mIRC will execute the command on the specified connection or connections based on the switches provided. Any active connection changes are restored upon returning to the calling routine. A command can be executed on all or some of the connections depending on their types using the -a or -at<Type> switches.
+
+Connection Type
+
+* 1 = Connected
+* 2 = Disconnected or Connecting
+* 3 = 1+2 = Connected, Disconnected, or Connecting (Same as -a)
+* 4 = Connecting
+* 5 = 1+4 = Connected or Connecting
+* 6 = 2+4 = 2 = Disconnected or Connecting
+* 7 = 3+4 = Disconnected or Connected or Connecting
+* 8 = Disconnected
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/scon -rat<type>s [Nth] [command]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+      - Resets the connection back to what it original was
+<br><b>-s</b>
+      - Prints the current connection number or the new connection number)
+<br><b>-a</b>
+      - Perform on all connections.
+<br><b>-t</b><type>
+      - Perform on all the connections of a specific type, can only be used with -a.
+
+<H4>Parameters</H4>
+
+
+    * - <Nth>
+      - The Nth connection.
+    * - <type>
+      - The connection type, only used with the t switch.
+
+<H4>Example</H4>
+<pre class ="code">
+
+A simple example of using /scon to send a command to all connected connections.
+
+
+    /*
+    ** Global amsg - performs an amsg on all the
+    ** the actives connections you are on.
+    **
+    ** /gamsg &lt;message&gt;
+    */
+    alias gamsg {
+    if (!$1) {
+    echo -gtcse info * /gamsg: insufficient parameters
+    halt
+    }
+    ; all active connections
+    scon -at1 amsg $unsafe($1-)
+    }
+
+Print all the channels you are on from every connection you have:
+
+
+    alias listChans {
+    var %x = 1
+    while ($scon(%x)) {
+    ; switch connection
+    scon %x
+
+    ; iterate over the channels
+    var %c = 1, %chans
+    while ($chan(%c)) {
+    var %chans = $addtok(%chans, $chr(32) $v1, 44)
+    inc %c
+    }
+
+    ; print channels
+    scon -r echo -s $unsafe(Network: $network Channels: %chans)
+
+    ; next connection
+    inc %x
+    }
+    }
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (16 Aug 2002)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\status.html">$status</a><br>
+   <a href="..\identifiers\network.html">$network</a><br>
+   <a href="..\identifiers\scon.html">$scon</a><br>
+   <a href="..\identifiers\scid.html">$scid</a><br>
+   <a href="scid.html">/scid</a><br>
+</body>
+</html>

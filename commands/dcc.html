@@ -1,0 +1,203 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dcc
+</H1>
+<br>
+<br>
+
+DCC is an IRC sub-protocol used to establish a direct connection with another IRC client.
+
+Communication does not go through the IRC server like normal PRIVMSGs. DCC lets you chat as well as send and get files. DCC is usually initiated using the IRC server. DCC requires the use of your IP address to initiate a connection with another client.
+<br>
+<br>
+<b>DCC Chat:</b>
+<br>
+This command lets you initiate a DCC chat connection with another client. The chat service enables users to chat with each other over a DCC connection. This method is more secured and much faster as it does not depend on the IRC server for processing of messages. If a user sends you a DCC chat request, a DCC chat dialog will popup asking you to accept or decline the request. 
+<br>
+<b>Note:</b> that the DCC Chat messages are still sent as plaintext.
+<br>
+<br>
+<b>DCC Get:</b>
+<br>
+This command lets you separate download folders according to their file extinctions. Files not matching any of the extinctions you specified are placed in the default DCC get directory.
+<br>
+<br>
+<b>DCC Reject:</b> 
+<br>
+Lets you rejects a dcc send.
+<br>
+<b>Note:</b> The DCC get/reject command must be called from a CTCP event or the on DCCServer send event.
+<br>
+<br>
+<b>DCC Ignore:</b>
+<br>
+This command is used to add/remove files from the ignore/accept list. mIRC will automatically accept/decline the file when someone sends you if it's in the list.
+<br>
+<br>
+<b>DCC nick:</b>
+<br>
+This command lets you change the name associated with a dcc chat, send, get, or fserver.
+<br>
+<br>
+<b>DCC Passive:</b>
+<br>
+This command lets you turn passive DCC on or off.
+
+<br><b>Note:</b> mIRC uses a passive protocol to establish connection with a client which is behind a firewall.
+<br>
+<br>
+<b>DCC Send:</b>
+<br>
+The DCC send command lets you initiate a DCC send connection with another user. If more than one file is specified, a session for each file will get initiated.
+<br>
+<br>
+<b>DCC Trust</b>
+<br>
+This command allows you to maintain a trust list of users or address whom mIRC can automatically accept a DCC send.
+<br>
+<br>
+<b>DCC Maxcps</b>
+<br>
+This command lets you change the Max Cps value on the fly
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dcc chat &lt;nickname&gt;
+/dcc fserve
+/dcc get &lt;folder&gt;
+/dcc ignore -uM [on | off | accept | ignore]
+/dcc maxcps &lt;N&gt;
+/dcc nick -sgcf &lt;oldnick&gt; &lt;newnick&gt;
+/dcc passive [on | off]
+/dcc reject
+/dcc send [-clmn] &lt;nick&gt; &lt;file1&gt; [file2] ... [fileN]
+/dcc trust [-r] &lt;on|off|nick|address|level&gt;
+</pre>
+<H4>Switches</H4>
+
+<br>
+DCC Nick
+<br>
+
+<br><b>-s</b>
+      - Send
+<br><b>-g</b>
+      - Get
+<br><b>-c</b>
+      - Chat
+<br><b>-f</b>
+      - FServer
+<br>
+<br>
+DCC Send
+<br>
+
+<br><b>-c</b>
+      - Close the DCC send window once transfer is complete
+<br><b>-l</b>
+      - Limits the transfer rate to the max cps limit (see /dcc maxcps)
+<br><b>-m</b>
+      - Minimize the DCC send window
+<br><b>-n</b>
+      - Allows the transfer rate to exceed the max cps limit (see /dcc maxcps)
+<br>
+<br>
+DCC Trust
+<br>
+
+<br><b>-r</b>
+      - removes the user/address from the trusted list
+<br>
+<br>
+DCC Ignore
+<br>
+
+<br><b>-u</b>M
+      - sets the 'turn ignore back on' option on for M minutes
+
+<H4>Parameters</H4>
+
+DCC Chat
+<br>
+<br><b>&lt;nickname&gt;</b>
+      - The name of the user to initiate a DCC chats with
+<br>
+<br>
+DCC Get
+<br>
+<br><b>&lt;folder&gt;</b>
+      - A specific folder to redirect a file into
+<br>
+<br>
+DCC Ignore
+<br>
+<br><b>[on|off]</b>
+      - Turns DCC Ignore on or off
+<br><b>[accept|ignore]</b>
+      - TODO
+<br>
+<br>
+DCC maxcps
+<br>
+<br><b>&lt;N&gt;</b>
+      - new max cps
+<br>
+<br>
+DCC Nick
+<br>
+<br><b>&lt;oldnick&gt;</b>
+      - Original dcc window name
+<br><b>&lt;newnick&gt;</b>
+      - New dcc window name
+<br>
+<br>
+DCC Passive
+<br>
+<br><b>[on|off]</b>
+      - Turns DCC Passive mode on or off
+<br>
+<br>
+DCC Send
+<br>
+<br><b>&lt;nick&gt;</b>
+      - The name of the user to initiate a DCC send with
+<br><b>&lt;file1&gt;</b>
+      - The file name to be sent
+<br><b>[file2] ... [fileN]</b>
+      - Any additional files will have a session of their own
+<br>
+<br>
+DCC Trust
+<br>
+<br><b>&lt;on|off&gt;</b>
+      - Turns DCC Trust list on or off
+<br><b>&lt;nickname|address|level&gt;</b>
+      - NickName/Address/Level of the user to be added to the list
+
+<H4>Example</H4>
+<pre class ="code">
+
+N/A
+
+</pre>
+<H4>Compatibility</H4>
+* chat/send/get: 
+<br>
+Added: mIRC v2.1a (28 Feb 1995)
+<br>
+* server: 
+<br>
+Added: mIRC v5.1 (11 Sep 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\dccignore.html">$dccignore</a><br>
+   <a href="..\identifiers\dccport.html">$dccport</a><br>
+   <a href="dccserver.html">/dccserver</a><br>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$line </H1>
+<br>
+<br>
+The <b>$line</b> identifier returns the Nth line in a window.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$line(win,N,T)
+</pre>
+<H4>Parameters</H4>
+<br><b>win</b> - a channel/query/status or custom window
+<br><b>N</b> - The Nth line, returns the total number of lines if N = 0
+<br><b>T</b> - If T = 1, it references the listbox (nicklist in channel window), T = 0 references the display area
+
+<H4>Properties</H4>
+<br><b>.state</b> - returns selection state for a line in a listbox.
+<br><b>.color</b> - returns the color of the line, if any.
+
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $line($chan(1),1)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sline.html">$sline</a><br>
+<a href="fline.html">$fline</a><br>
+<a href="window.html">$window</a><br>
+
+</body>
+</html>

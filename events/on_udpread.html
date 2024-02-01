@@ -1,0 +1,61 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Udpread - Events}}The '''ON UDPREAD''' triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the {{mIRC|/sockread}} command.
+
+To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each {{mIRC|/sockudp}} command) by using the -k switch of /sockudp.
+
+'''Note:''' If this event triggers but no /sockread is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
+
+mIRC in general only understand $crlf terminated line. With socket, mIRC will stop at {{mIRC|$lf}} terminated line and any {{mIRC|$cr}} before a $lf is removed.
+
+'''Note:''' A single /sockread may not be enough to read the entire buffer. You should keep reading until {{mIRC|$sockbr}} is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on udpread event is re-triggered if:
+
+# you were reading into a &binvar.
+# you were reading into a %var and there is still a terminated line in the buffer waiting to be read.
+
+You can find an example showing how to do that {{mIRC|/sockread#Example|here}}
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:UDPREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+'''&lt;matchtext&gt;'''</span>The name of the socket you want event to trigger on.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Connection State ==
+
+You should be checking for error with $sockerr before reading data, here is a list of the possible value for $sockerr in the on UDPREAD event:
+
+* '''0''' - Data received correctly.
+* '''3''' - Error on connected socket occurred, $sock().wsmsg will contain a more specific error message.
+
+== Examples ==
+
+<pre class ="code">
+on *:udpread:name:{
+  if ($sockerr) { echo -s An error occured while trying to read data: $sock($sockname).wsmsg | return }
+  else {
+    sockread %a
+    echo -s rcvd: %a
+  }
+}
+</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.5}}
+
+== See Also ==
+* {{mIRC|List of on events|mIRC events}}
+* {{mIRC|/sockwrite}}
+* {{mIRC|/sockclose}}
+* {{mIRC|/sockread}}
+* {{mIRC|/sockaccept}}
+* {{mIRC|/sockpause}}
+* {{mIRC|$sock}}
+* {{mIRC|$sockbr}}
+* {{mIRC|$sockerr}}
+
+[[Category:mIRC on events|udpread]]</body>
+</html>

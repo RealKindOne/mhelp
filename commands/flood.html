@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/flood
+</H1>
+<br>
+<br>
+
+The <b>/flood</b> command can be used to change the current flood settings for mIRC.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/flood [&lt;+|-&gt;L] [on|off|clear] &lt;chars&gt; &lt;maxlines&gt; &lt;maxmessages&gt; &lt;ignoretime&gt;
+</pre>
+<H4>Switches</H4>
+
+'+' enable the specific flood option while '-' disable it, L can be:
+
+
+<br><b>-c</b>
+      - ctcp
+<br><b>-m</b>
+      - own messages
+<br><b>-o</b>
+      - op
+<br><b>-q</b>
+      - query
+<br><b>-w</b>
+      - whois
+
+<H4>Parameters</H4>
+
+
+<br><b>[on|off|clear]</b>
+      - turns flood protection on/off or clear the settings
+<br><b>&lt;chars&gt;</b>
+      - maximum number of characters sent before it triggers 
+<br><b>&lt;maxlines&gt;</b>
+       - maximum number of buffered lines
+<br><b>&lt;maxmessages&gt;</b>
+      - maximum number of message allowed per nick 
+<br><b>&lt;ignoretime&gt;</b>
+       - number of seconds nicks are ignored if they exceed <maxmessages>
+
+<H4>Example</H4>
+<pre class ="code">
+/flood 200 10 2 30
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC vmIRC 3.3, 3.4 ()
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$keyrpt</H1>
+<br>
+<br>
+The <b>$keyrpt</b> is filled during an <a href="..\events\on_Keydown.html">on_Keydown</a>, or an <a href="..\events\on_KeyUp.html">on_KeyUp</a> event inside of a {{mirc|custom windows|custom @window}}, it returns $true if the key is held down, $false otherwise..
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$keyrpt
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Example</H4>
+Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
+<pre class ="code">alias keyDownTest {
+  window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
+}
+ON *:KEYDOWN:@myWindow:*: {
+  clear @myWindow
+  drawtext @myWindow 1 3 3 Key value: $iif($keyval,$v1,NA)
+  drawtext @myWindow 1 3 25 Key character: $iif($keychar,$v1,NA)
+  drawtext @myWindow 1 3 47 @myWindow Repeating: $keyrpt
+}</pre>
+
+The following command can now be typed into any mIRC command prompt:
+/keyDownTest
+
+Below is an image reflecting what this example will look like:
+<br>
+<br>
+<img src="..\images\keyup_event.png">
+<br>
+<br>
+Note that this makes use of a [[Picture Windows - mIRC|picture window]], as well as the <a href="..\commands\drawtext.html">/drawtext</a>. These types of [[Picture Windows - mIRC|windows]] and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mirc|custom windows}}
+<a href="..\events\on_Keydown.html">on_Keydown</a><br>
+<a href="..\events\on_KeyUp.html">on_KeyUp</a><br>
+<a href="..\commands\drawtext.html">/drawtext</a><br>
+<a href="keychar.html">$keychar</a><br>
+<a href="keyval.html">$keyval</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/msg
+</H1>
+<br>
+<br>
+
+The <b>/msg</b> command sends a message to a specific channel or person. Many networks support multi-target messages - mIRC will not display the message in all the targets like it would with individual messages.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/msg &lt;nick|channel&gt;name/&lt;nick|channel&gt; &lt;message&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - activate/show the window
+<br><b>-x</b>
+      - maximize the window
+<br><b>-n</b>
+      - minimize the window
+<br><b>-d</b>
+      - open new window as desktop
+
+<H4>Parameters</H4>
+
+
+    * - &lt;nick|channel&gt;name/&lt;nick|channel&gt;
+      - The target channel or person for the message, use the form "=&lt;nickname&gt;" to reference a dcc window, =$nick is accepted.
+<br><b>&lt;message&gt;</b>
+      - The message to be sent
+
+<H4>Example</H4>
+<pre class ="code">
+
+<H4>Example</H4>
+<pre class ="code"> 1
+^^^^^^^^^
+
+
+    on *:text:!moo:#:{
+    ; Message the channel moos back
+    msg $chan moos back
+    }
+
+<H4>Example</H4>
+<pre class ="code"> 2
+^^^^^^^^^
+
+
+    /* Example 2
+    */
+    on ^*:open:?:{
+    if ($away) {
+    msg $nick I am currently away ( $+ $awaymsg $+ ), please leave me a memo: /ms send $me <memo>
+    }
+    halt
+    }
+
+<H4>Example</H4>
+<pre class ="code"> 3
+^^^^^^^^^
+
+Using the equals sign to send *SomeUser* a message via DCC/FSERVE Chat
+
+
+    //msg =SomeUser Hey there, this is going to your open DCC/FSERVE Chat window, instead!
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="ame.html">/ame</a><br>
+   <a href="amsg.html">/amsg</a><br>
+   <a href="describe.html">/describe</a><br>
+   <a href="me.html">/me</a><br>
+   <a href="qme.html">/qme</a><br>
+   <a href="qmsg.html">/qmsg</a><br>
+   <a href="say.html">/say</a><br>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$scid</H1>
+<br>
+<br>
+The <b>$scid''' allows you to get the server id for a connection, or specific details regarding the properties of a certain connection id.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$scid(N)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - Returns connection information based on a specific connection ID. Unlike [[$scon identifier - mIRC|$scon]], '''$scid''' needs the connection id, not the Nth connection. If you specify N as ''0'', the total number of connections is returned.
+
+<H4>Properties</H4>
+'''[.property]'''</span>If you specify a compatible [[List of identifiers - mIRC|identifier]] here, mIRC will provide you with that specific identifier property for the connection id parameter you've passed. See the examples below for more details.
+
+<H4>Example</H4>
+'''Echo the total number of connections to the active window'''
+<pre class ="code">//echo -a $scid(0)</pre>
+
+'''Use the optional identifier-supported property to echo the server name of connection ID 39 to the active window'''
+<pre class ="code">//echo -a $scid(39).server</pre>
+
+'''Use the optional identifier-supported property to echo the network name of connection ID 39 to the active window'''
+<pre class ="code">//echo -a $scid(39).network</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="activecid.html">$activecid</a><br>
+* <a href="cid.html">$cid</a><br>
+* <a href="lactivecid.html">$lactivecid</a><br>
+* <a href="scon.html">$scon</a><br>
+* <a href="..\commands\scid.html">/scid</a><br>
+
+[[Category:mIRC identifiers|scid]]</body>
+</html>

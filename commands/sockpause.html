@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockpause
+</H1>
+<br>
+<br>
+
+The <b>/sockpause</b> command allows mIRC to pause/restart the reading from winsock.
+
+The packet are not lost, it's just that on sockread will stop triggering until you restart the reading.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockpause [-r] &lt;name&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+      - Restarts the reading for the socket.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - The name of the socket to reference.
+
+<H4>Example</H4>
+Resume the incoming data reading for 'mySocket':
+<pre class ="code">
+/sockpause -r mySocket
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+See Also
+
+
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+   <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+   <a href="sockaccept.html">/sockaccept</a><br>
+   <a href="sockclose.html">/sockclose</a><br>
+   <a href="socklist.html">/socklist</a><br>
+   <a href="socklisten.html">/socklisten</a><br>
+   <a href="sockmark.html">/sockmark</a><br>
+   <a href="sockopen.html">/sockopen</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockudp.html">/sockudp</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+</body>
+</html>

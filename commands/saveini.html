@@ -1,0 +1,55 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/saveini
+</H1>
+<br>
+<br>
+
+mIRC might cache settings before they get saved to disk. This command dumps all mIRC saved settings from memory to their respective INI files. The <b>/saveini</b> command should be called before attempting to access any settings from these files.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/saveini
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+
+mIRC settings should be flushed before attempting to access recent data:
+<pre class ="code">
+; returns the last text your searched using Ctrl+F
+alias lastFind {
+  ; flush settings
+  saveini
+  ; return the last find text
+  return $readini($mircini, n, find2, n0)
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (24 Jul 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\mircini.html">$mircini</a><br>
+   <a href="..\identifiers\readini.html">$readini</a><br>
+   <a href="..\identifiers\read.html">$read</a><br>
+   <a href="load.html">/load</a><br>
+   <a href="localinfo.html">/localinfo</a><br>
+   <a href="reload.html">/reload</a><br>
+   <a href="save.html">/save</a><br>
+   <a href="savebuf.html">/savebuf</a><br>
+   <a href="write.html">/write</a><br>
+   <a href="writeini.html">/writeini</a><br>
+</body>
+</html>

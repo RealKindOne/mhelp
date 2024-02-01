@@ -1,0 +1,60 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mouse</H1>
+<br>
+<br>
+The <b>$mouse</b> identifier returns informations about the mouse and its buttons.
+<br>
+<br>
+This identifier almost uniquely takes no parameter but has properties (<a href="insong.html">$insong</a> and the like also have this), it is not possible to use such syntax for custom identifier, $myalias.prop would just call the alias named "$myalias.prop"
+<H4>Synopsis</H4>
+<pre class ="code">
+$mouse[.property]
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+
+
+<br><b>.x and .y</b> - returns the position of the mouse relative to the active window
+<br><b>.mx and .my</b> - returns the position of the mouse relative to the main mIRC window
+<br><b>.dx and .dy</b> - returns the position of the mouse relative to the desktop window
+<br><b>.cx and .cy</b> - returns position relative to the primary monitor.
+<br><b>.win</b> - returns the name of the active window
+<br><b>.lb</b> - returns $true if a mouse event occured over a listbox, $false otherwise.
+<br><b>.key</b> - returns a bitmask, you can use the bitwise & operator to check for button/shift/alt/control state:
+
+<br>
+<br>if ($mouse.key & 1) echo left mouse button is pressed.
+<br>if ($mouse.key & 2) echo control key is pressed.
+<br>if ($mouse.key & 4) echo either left-or-right shift key is pressed.
+<br>if ($mouse.key & 8) echo either alt key is pressed.
+<br>if ($mouse.key & 16) echo right mouse button is pressed.
+<br>if ($mouse.key & 32) echo middle mouse button is pressed.
+<br>if ($mouse.key & 64) echo right shift key is pressed.
+<br>if ($mouse.key & 128) echo right control key is pressed.
+<br>if ($mouse.key & 256) echo right alt key is pressed.
+<br>if ($mouse.key & 512) echo capslock is enabled.
+<br>if ($mouse.key & 1024) echo scroll lock is enabled.
+<br>if ($mouse.key & 2048) echo numlock lock is enabled.
+<br>if ($mouse.key & 4096) echo left shift key is pressed.
+<br>if ($mouse.key & 8192) echo left control key is pressed.
+<br>if ($mouse.key & 16384) echo left alt key is pressed.
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $mouse.x</pre>
+
+<H4>Notes</H4>
+Pressing any of the Ctrl or Alt or Shift keys causes 2 of the above masks to be non-zero, so pressing the right-shift enables both the 4 and 64 bit masks. You can check if the right-shift IS pressed and the left-shift is NOT pressed, by checking whether $and($mouse.key,$calc(4096+64)) == 64
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="click.html">$click</a><br>
+
+</body>
+</html>

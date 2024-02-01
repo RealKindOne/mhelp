@@ -1,0 +1,42 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$network</H1>
+<br>
+<br>
+The <b>$network</b> identifier retrieves the current network name from the IRC server that mIRC is connected to.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$network
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">; Create an alias that echos the current
+; network to the active window
+alias netPlease { echo -a The current network is: $network }</pre>
+
+The above command can be used by typing the following into the mIRC command-line:
+<pre class ="code">
+/netPlease
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Connect.html">on_Connect</a><br>
+<a href="..\events\on_ConnectFail.html">on_ConnectFail</a><br>
+<a href="..\events\on_Disconnect.html">on_Disconnect</a><br>
+<a href="server.html">$server</a><br>
+
+
+</body>
+</html>

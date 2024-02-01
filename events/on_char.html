@@ -1,0 +1,61 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Char</H1>
+<br>
+<br>
+The <b>ON Char</b> event is triggered when a character results from pressing one or more inside of a custom [[custom windows - mIRC|@window]].
+
+See the note about the {{mIRC|on keydown}} event, pressing control + o should result in two keypress being reported from on keydown, and control + o generates the character with code point 15, on char will trigger for that character.
+
+This event fills the following identifiers:
+<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyval}}'''</span>The unicode codepoint of the character resulting from keypresses</div>
+
+<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keychar}}'''</span>The actual character resulting from keypresses</div>
+
+<div style="background-color: rgba(0,0,0,.03); display: block; margin-bottom: 10px;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyrpt}}'''</span>If the key is being held down/repeating</div>
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:char:<@>:<codepoint,...,codepointN>:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''<@>'''</span>The {{mIRC|Custom Windows}} where this event should listen. Can be '''@''' for all windows.
+
+'''<codepoint>'''</span>The specific characters' codepoints to listen for. Can specify multiple codepoints, such as:
+<pre class ="code">ON *:char:@myWindow:38,42,55,78:echo -a $keyval</pre>
+
+<H4>Example</H4>
+Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for resulting character from keypresses and displays the character and if it is repeating:
+<pre class ="code">alias keyDownTest {
+  window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
+}
+ON *:char:@myWindow:*: {
+  clear @myWindow
+  drawtext @myWindow 1 3 3 Codepoint value: $iif($keyval,$v1,NA)
+  drawtext @myWindow 1 3 25 Character: $iif($keychar,$v1,NA)
+  drawtext @myWindow 1 3 47 Repeating: $keyrpt
+}</pre>
+
+The following command can now be typed into any mIRC command prompt:
+<pre>/keyDownTest</pre>
+
+Below is an image reflecting what this example will look like:
+
+[[File:Keyup event.png|This screenshot shows an example of the ON KEYDOWN event custom example.]]
+
+
+<H4>Compatability</H4>
+{{mIRC compatibility|7.62}}
+
+== See Also ==
+<a href="on_keydown.html">on_keydown</a><br>
+* {{mIRC|on keyup}}
+* {{mIRC|$keyval}}
+* {{mIRC|$keychar}}
+* {{mIRC|$keyrpt}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|char]]</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$modefirst</H1>
+<br>
+<br>
+The <b>$modefirst</b> identifier returns <a href="true.html">$true</a> if the channel event is the first to trigger, <a href="false.html">$false</a> otherwise.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$modefirst
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+send /mode #channel +oo nick1 nick2
+<pre class ="code">
+on *:op:#:{
+  echo -a $modefirst
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.6 (03 Jun 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="modelast.html">$modelast</a><br>
+<a href="modespl.html">$modespl</a><br>
+
+</body>
+</html>

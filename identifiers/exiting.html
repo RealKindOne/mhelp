@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$exiting</H1>
+<br>
+<br>
+The <b>$exiting</b> identifier returns whether mIRC is exiting, not exiting, or if it is restarting. The identifier is filled with 1, 0, and 2, respectively.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">$exiting</pre>
+
+== Returns ==
+| 0 | mIRC is not exiting
+| 1 | mIRC is exiting
+| 2 | mIRC is restarting
+}}
+
+<H4>Example</H4>
+<pre class ="code">; Check in an on exit event if mIRC is exiting
+ON *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)</pre>
+
+The above example will return the proper condition for whether or not mIRC is exiting. An example output is below:
+mIRC is not exiting
+
+<H4>Compatibility</H4>
+Added: mIRC v7.23 (19 Mar 2012)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+*{{mIRC|$starting}}
+*{{mIRC|on events/on exit|on exit}}
+
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$puttok</H1>
+<br>
+<br>
+The <b>$puttok</b> identifier replaces the Nth $asc(C)-delimited token in a list.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$puttok(&lt;list&gt;,&lt;Token Data&gt;,&lt;N&gt;,&lt;C&gt;)
+</pre>
+<H4>Parameters</H4>
+<br><b>LIST</b> - Text list delimited by a character into tokens<br />
+'''Token Data:''' - Replacement text which overwrites the existing Nth token<br />
+<br><b>N</b> - The token number to be overwritten<br />
+<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits TEXT into tokens<br />
+
+If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
+
+<H4>Properties</H4>
+None
+
+== Examples ==
+<pre class ="code">//echo -a $puttok(a-b-c-d-e-f,TEST,3,46))
+; returns a-b-TEST-d-e-f</pre>
+
+Shows the unchanged path with the filename changed to TEST.TXT:
+
+<pre class ="code">//echo -a $puttok($mircexe,TEST.TXT,-1,92))</pre>
+
+<pre class ="code">//echo -a $puttok(x11xx33X44x55x66x,TEST,3,120)
+; returns 11x33X44xTESTx66
+; because leading/trailing/duplicate delimiters are removed before evaluating <LIST>. $chr(120) is lower-case x so the capital X is not a delimiter.</pre>
+
+'''Note:''' Unlike CSV format, if C=44 to delimit with commas, double-quotes around filename containing a comma does not allow the entire filename to be a single token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s).
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="findtok.html">$findtok</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="numtok.html">$numtok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$filtered</H1>
+<br>
+<br>
+The <b>$filtered</b> identifier returns the number of matching lines found by the latest filter in the current script thread, if any.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$filtered
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+
+$filtered holds the number only during the current script thread, and knows the result even if the filter was performed in another alias or identifier.
+<br>$filtered returns 0 if no filter command yet performed in that script thread.
+
+<pre class ="code">
+//echo -a previous filter result shows zero $filtered | filter -fk versions.txt noop */* - mirc * | echo -a filter found $filtered matching lines in versions.txt
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (23 Jun 1998)}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="filter.html">$filter</a><br>
+
+</body>
+</html>

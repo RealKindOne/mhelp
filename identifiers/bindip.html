@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$bindip</H1>
+<br>
+<br>
+The <b>$bindip</b> identifier is used to get information regarding an available [[network adapter]].
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$bindip(N|ipaddress)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - Returns the Nth device in the network adapters list. If ''N'' is specified as ''0'', returns the total number of active network adapters.
+
+<br><b>ipaddress</b> - If you specify an IP address, mIRC will try to find the best network adapter to use to connect to that IP.
+
+<H4>Properties</H4>
+<br><b>.name</b> - The name of the network adapter.
+<br><b>.ip</b> - The IP address of the network adapter.
+<br><b>.loopback</b> - Returns ''$true'' if the IP/device has a [[loopback]], otherwise ''$false''.
+
+== Examples ==
+'''Echo to the active window the total number of network adapters'''
+<pre class ="code">//echo -a $bindip(0)</pre>
+
+'''Echo to the active window the name of a local network adapter'''
+<pre class ="code">//echo -a $bindip(192.168.1.1).name</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.0 (02 Apr 2010)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="ip.html">$ip</a><br>
+* <a href="iptype.html">$iptype</a><br>
+* {{mIRC|$portfree}}
+* {{mIRC|/bindip}}
+
+
+</body>
+</html>

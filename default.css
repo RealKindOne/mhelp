@@ -1,0 +1,130 @@
+.code
+	{
+	display: block;
+	padding: 10px;
+	border: 1px solid #bbb;
+	background-color: #eee;
+	color: #000;
+	overflow: auto;
+	border-radius: 2.5px;
+	-moz-border-radius: 2.5px;
+	margin: 0.5em 2em;
+	}
+thing
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-left: -26px;
+	font-size: 14pt;
+	font-weight: bold;
+	color: #000080;
+	}
+body
+	{
+	padding: 0px 0px 0px 26px;
+	background: #ffffff;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	}
+
+div.indent1
+	{
+	margin-left: 12pt;
+	}
+
+h1, h2, h3, h4
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-left: -26px;
+	}
+
+h1
+	{
+	font-size: 145%;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	color: #000080;
+	}
+
+h2
+	{
+	font-size: 130%;
+	margin-top: 1em;
+	margin-bottom: .6em;
+	}
+
+h3
+	{
+	font-size: 115%;
+	margin-top: 1em;
+	margin-bottom: .6em;
+	}
+
+h4
+	{
+	font-size: 100%;
+	margin-top: 1em;
+	margin-bottom: .6em;
+	}
+
+ul p, ol p, dl p
+	{
+	margin-left: 0em;
+	}
+
+p
+	{
+	margin-top: .6em;
+	margin-bottom: .6em;
+	}
+
+pre
+	{
+	margin-top: .6em;
+	margin-bottom: .6em;
+	}
+
+pre,code
+	{
+	font: 100% Courier New, Courier, mono;
+	color: #660000;
+	}
+
+table
+	{
+	width: 90%;
+	background: #999999;
+	margin-top: .6em;
+	margin-bottom: .3em;
+	}
+
+th
+	{
+	padding: 4px 8px;
+	background: #cccccc;
+	text-align: left;
+	font-size: 70%;
+	vertical-align: bottom;
+	}
+
+td
+	{
+	padding: 4px 8px;
+	background: #ffffff;
+	vertical-align: top;
+	font-size: 70%;
+	}
+
+blockquote
+	{
+	margin-left: 3.8em;
+	margin-right: 3.8em;
+	margin-top: .6em;
+	margin-bottom: .6em;
+	}
+
+sup
+	{
+	text-decoration: none;
+	font-size: smaller;
+	}

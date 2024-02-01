@@ -1,0 +1,89 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$caller</H1>
+<br>
+<br>
+The <b>$caller</b> identifier returns a value which indicates the context in which your alias has been called.
+
+<br><b>activex</b> - called from $comcall
+<br><b>command</b> - called from a command
+<br><b>dde</b> - called from a external application using {{mIRC|$dde|DDE}}
+<br><b>dll</b> - called from a {{mIRC|DLL}}
+<br><b>dragdrop</b> - called from a drag'n'drop event
+<br><b>editbox</b> - called from an editbox
+<br><b>event</b> - called from an event (including $devent = mouse)
+<br><b>funckey</b> - called from a function key
+<br><b>identifier</b> - called from an identifier
+<br><b>menu</b> - called from a menu
+<br><b>mouse</b> - called from an alias attached to toolbar menu
+<br><b>play</b> - called from a <a href="..\commands\play.html">/play</a> context
+<br><b>sendmsg</b> - called from a {{mIRC|sendmessage|sendmessage()}} function
+<br><b>timer</b> - called from a timer
+<br><b>http</b> - call back alias from $urlget
+<br><b>tabcomp</b> - called from a tab completion in editbox
+<br><b>other</b> - called from other contexts including:
+# label of popups menu
+# /filter -a sort_alias
+# identifier in dialog table (ie returning one of the x y w h numbers)
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$caller
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+Activex: edit the echo in the alias cbthread in {{mIRC|$comcall}} page to include $caller
+
+Command & Identifier: execute /A or //noop $A
+<pre class ="code">alias A B
+alias B echo -ag $caller</pre>
+
+Editbox:
+execute: /A
+or
+execute: //echo -a $caller
+<pre class ="code">alias A echo -ag $caller</pre>
+
+Event: execute /dns test
+<pre class ="code">on *:dns:echo -a $caller</pre>
+
+Funckey: hit shift + f11 on your keyboad:
+<pre class ="code">alias s11 echo -a caller</pre>
+
+Menu: right click in a channel
+<pre class ="code">menu channel {
+$caller displays in menu label text as other:echo -a $caller displays here as menu
+}</pre>
+
+play: execute in a connected status window //play -as A $mircini | .timer 1 2 play off
+<pre class ="code">alias A echo -sg $caller</pre>
+
+Timer: type in editbox:
+<pre class ="code">
+/timer 1 1 echo -a $caller
+or
+//timer 1 1 echo -a $ $+ caller
+</pre>
+
+<H4>Compatibility</H4>
+<H4>Compatibility</H4>
+Added: mIRC v7.52 (28 Feb 2018)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+* {{mIRC|$fromeditbox}}
+* {{mIRC|$comcall}}
+* <a href="..\commands\toolbar.html">/toolbar</a><br>
+* {{mIRC|/filter}}
+* {{mIRC|$dll}}
+* <a href="dde.html">$dde</a><br>
+* <a href="..\commands\play.html">/play</a><br>
+* <a href="..\commands\timer.html">/timer</a><br>
+* <a href="devent.html">$devent</a><br>
+}}</body>
+</html>

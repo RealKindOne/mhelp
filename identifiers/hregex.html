@@ -1,0 +1,46 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$hregex</H1>
+<br>
+<br>
+The <b>$hregex</b> identifier searches an hash table for the Nth item name which matches the regular expression. Returns item name.
+
+<br>
+<br>
+<b>Note:</b> this identifier is depreciated. Use <a href="hfind.html">$hfind</a> instead.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$hregex(name/N,regex,N)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>name/N</b> - the Nth hash table or the name of it
+<br><b>regex</b> - the regular expression
+<br><b>N</b> - The Nth match, use 0 to get the total number of match
+
+<H4>Properties</H4>
+<br><b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.
+
+<H4>Example</H4>
+None
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="..\commands\hmake.html">/hmake</a><br>
+<a href="..\commands\hadd.html">/hadd</a><br>
+<a href="..\commands\hload.html">/hload</a><br>
+<a href="..\commands\hfree.html">/hfree</a><br>
+<a href="..\commands\hdec.html">/hdec</a><br>
+<a href="..\commands\hinc.html">/hinc</a><br>
+<a href="hget.html">$hget</a><br>
+
+
+</body>
+</html>

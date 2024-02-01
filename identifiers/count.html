@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$count</H1>
+<br>
+<br>
+The <b>$count</b> identifier allows mIRC to return the total count of a matching substring, or set of substrings to a target string.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$count(string,substring,substring2,...)
+</pre>
+<H4>Parameters</H4>
+{{ArgsList
+| string | The target string to match
+| substring | The substring to match within the target
+| substring2,... | The second substring to match, and beyond
+}}
+
+<H4>Example</H4>
+The example string is going to be: '''My string to match'''
+
+Echo the matching substring count for '''str''':
+<pre class ="code">//echo -a Result: $count(My string to match,str)</pre>
+Result: 1
+
+Echo the matching substring count for '''str''' and '''m''':
+<pre class ="code">//echo -a Result: $count(My string to match,str,m)</pre>
+Result: 3
+
+The above returns '''3''' because '''str''' is matched to '''string''' once, and '''m''' is matched to '''My''' and '''match'''; therefore, the total matches is 3.
+
+<H4>Compatibility</H4>
+Added: mIRC v4.6 (07 Sep 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="gettok.html">$gettok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+
+
+[[Category:mIRC identifiers|count]]</body>
+</html>

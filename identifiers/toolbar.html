@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$toolbar</H1>
+<br>
+<br>
+The <b>$toolbar</b> identifier returns <a href="true.html">$true</a> if the toolbar is enabled in mIRC, <a href="false.html">$false</a> otherwise. It also returns information about the items on the toolbar.
+<H4>Synopsis</H4>
+<pre class ="code">
+$toolbar
+$toolbar(name|N)[.property]
+</pre>
+<H4>Parameters</H4>
+None<br />
+or<br />
+Name|N = Name or Nth item in toolbar about which to return information. 0 = total number of toolbar items.
+
+<H4>Properties</H4>
+<br><b>.name</b> - returns TODO
+<br><b>.type</b> - returns TODO
+<br><b>.tip</b> - returns TODO
+<br><b>.alias</b> - returns TODO
+<br><b>.popup</b> - returns TODO
+<br><b>.width</b> - returns TODO
+<br><b>.height</b> - returns TODO
+<br><b>.wide</b> - returns TODO
+<br><b>.enabled</b> - returns TODO
+<br><b>.visible</b> - returns TODO
+<br><b>.checked</b> - returns TODO
+<br><b>.alpha</b> - returns TODO
+
+<H4>Example</H4>
+<pre class ="code">
+//echo -a the toolbar is $iif($toolbar,On,Off) and contains $toolbar(0) items
+//var %i 0 | while (%i < $toolbar(0)) { echo -a %i : $toolbar(%i).name : $toolbar(%i).tip | inc %i }
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.32 (21 May 2008)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="menubar.html">$menubar</a><br>
+<a href="switchbar.html">$switchbar</a><br>
+<a href="treebar.html">$treebar</a><br>
+<a href="..\commands\toolbar.html">/toolbar</a><br>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/updatenl
+</H1>
+<br>
+<br>
+
+The <b>/updatenl</b> command can be used with the on quit/kick/part events to update the IAL and the channel nicknames list right away, otherwise, these are updated when the scripts finish
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/updatenl
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+
+
+Let's suppose only A, B and C are in the channel #example. Suddendly, B parts.
+If we have this event, only triggering when $nick == $me (using the ! event prefix):
+<pre class ="code">
+on !*:part:#example:{
+  echo -a $nick($chan,0)
+} 
+</pre>
+Can you guess the value of $nick($chan,0)? It will be 3, because the update are made after.
+<br>
+Now we change the event to:
+<pre class ="code">
+on !*:part:#example:{
+  echo -a $nick($chan,0)
+  updatenl
+  echo -a $nick($chan,0)
+}
+</pre>
+Which would echo 3 and 2.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (24 Jul 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+    * :doc: `on kick </events/on_kick>`
+    * :doc: `on quit </events/on_quit>`
+    * :doc: `on part </events/on_part>`
+</body>
+</html>

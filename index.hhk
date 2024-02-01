@@ -1,0 +1,3382 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$!">
+		<param name="Local" value="identifiers\_exclamation.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$$">
+		<param name="Local" value="identifiers\_sigil.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$&amp;">
+		<param name="Local" value="identifiers\_lampersand.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$~">
+		<param name="Local" value="identifiers\_tilde.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$+">
+		<param name="Local" value="identifiers\_plus.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$++">
+		<param name="Local" value="identifiers\_plusplus.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$1-">
+		<param name="Local" value="identifiers\1-.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$abook">
+		<param name="Local" value="identifiers\abook.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$abs">
+		<param name="Local" value="identifiers\abs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$acos">
+		<param name="Local" value="identifiers\acos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$active">
+		<param name="Local" value="identifiers\active.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$activecid">
+		<param name="Local" value="identifiers\activecid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$activewid">
+		<param name="Local" value="identifiers\activewid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$adate">
+		<param name="Local" value="identifiers\adate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$address">
+		<param name="Local" value="identifiers\address.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$addtok">
+		<param name="Local" value="identifiers\addtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$addtokcs">
+		<param name="Local" value="identifiers\addtokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$agent">
+		<param name="Local" value="identifiers\agent.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$agentname">
+		<param name="Local" value="identifiers\agentname.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$agentstat">
+		<param name="Local" value="identifiers\agentstat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$agentver">
+		<param name="Local" value="identifiers\agentver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$alias">
+		<param name="Local" value="identifiers\alias.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$and">
+		<param name="Local" value="identifiers\and.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$anick">
+		<param name="Local" value="identifiers\anick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ansi2mirc">
+		<param name="Local" value="identifiers\ansi2mirc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$aop">
+		<param name="Local" value="identifiers\aop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$appactive">
+		<param name="Local" value="identifiers\appactive.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$appstate">
+		<param name="Local" value="identifiers\appstate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$asc">
+		<param name="Local" value="identifiers\asc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$asctime">
+		<param name="Local" value="identifiers\asctime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$asin">
+		<param name="Local" value="identifiers\asin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$atan">
+		<param name="Local" value="identifiers\atan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$atan2">
+		<param name="Local" value="identifiers\atan2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$auto">
+		<param name="Local" value="identifiers\auto.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$avoice">
+		<param name="Local" value="identifiers\avoice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$away">
+		<param name="Local" value="identifiers\away.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$awaymsg">
+		<param name="Local" value="identifiers\awaymsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$awaytime">
+		<param name="Local" value="identifiers\awaytime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$banlist">
+		<param name="Local" value="identifiers\banlist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$banmask">
+		<param name="Local" value="identifiers\banmask.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$base">
+		<param name="Local" value="identifiers\base.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$beta">
+		<param name="Local" value="identifiers\beta.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bfind">
+		<param name="Local" value="identifiers\bfind.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bigfloat">
+		<param name="Local" value="identifiers\bigfloat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bindip">
+		<param name="Local" value="identifiers\bindip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bitoff">
+		<param name="Local" value="identifiers\bitoff.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$biton">
+		<param name="Local" value="identifiers\biton.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bits">
+		<param name="Local" value="identifiers\bits.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bnick">
+		<param name="Local" value="identifiers\bnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bvar">
+		<param name="Local" value="identifiers\bvar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$bytes">
+		<param name="Local" value="identifiers\bytes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$calc">
+		<param name="Local" value="identifiers\calc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$caller">
+		<param name="Local" value="identifiers\caller.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cancel">
+		<param name="Local" value="identifiers\cancel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cb">
+		<param name="Local" value="identifiers\cb.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cbrt">
+		<param name="Local" value="identifiers\cbrt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cd">
+		<param name="Local" value="identifiers\cd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ceil">
+		<param name="Local" value="identifiers\ceil.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chan">
+		<param name="Local" value="identifiers\chan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chanmodes">
+		<param name="Local" value="identifiers\chanmodes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$channel">
+		<param name="Local" value="identifiers\channel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chantypes">
+		<param name="Local" value="identifiers\chantypes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chat">
+		<param name="Local" value="identifiers\chat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chr">
+		<param name="Local" value="identifiers\chr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cid">
+		<param name="Local" value="identifiers\cid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$clevel">
+		<param name="Local" value="identifiers\clevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$click">
+		<param name="Local" value="identifiers\click.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cmdbox">
+		<param name="Local" value="identifiers\cmdbox.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cmdline">
+		<param name="Local" value="identifiers\cmdline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cnick">
+		<param name="Local" value="identifiers\cnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$codepage">
+		<param name="Local" value="identifiers\codepage.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$color">
+		<param name="Local" value="identifiers\color.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$colour">
+		<param name="Local" value="identifiers\colour.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$com">
+		<param name="Local" value="identifiers\com.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$comcall">
+		<param name="Local" value="identifiers\comcall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$comchan">
+		<param name="Local" value="identifiers\comchan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$comchar">
+		<param name="Local" value="identifiers\comchar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$comerr">
+		<param name="Local" value="identifiers\comerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$compact">
+		<param name="Local" value="identifiers\compact.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$compress">
+		<param name="Local" value="identifiers\compress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$comval">
+		<param name="Local" value="identifiers\comval.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cos">
+		<param name="Local" value="identifiers\cos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cosh">
+		<param name="Local" value="identifiers\cosh.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$count">
+		<param name="Local" value="identifiers\count.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$countcs">
+		<param name="Local" value="identifiers\countcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cr">
+		<param name="Local" value="identifiers\cr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$crc">
+		<param name="Local" value="identifiers\crc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$crc64">
+		<param name="Local" value="identifiers\crc64.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$creq">
+		<param name="Local" value="identifiers\creq.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$crlf">
+		<param name="Local" value="identifiers\crlf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ctime">
+		<param name="Local" value="identifiers\ctime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ctimer">
+		<param name="Local" value="identifiers\ctimer.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ctrlenter">
+		<param name="Local" value="identifiers\ctrlenter.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$date">
+		<param name="Local" value="identifiers\date.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$day">
+		<param name="Local" value="identifiers\day.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$daylight">
+		<param name="Local" value="identifiers\daylight.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dbuh">
+		<param name="Local" value="identifiers\dbuh.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dbuw">
+		<param name="Local" value="identifiers\dbuw.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dccignore">
+		<param name="Local" value="identifiers\dccignore.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dccport">
+		<param name="Local" value="identifiers\dccport.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dde">
+		<param name="Local" value="identifiers\dde.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ddename">
+		<param name="Local" value="identifiers\ddename.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$debug">
+		<param name="Local" value="identifiers\debug.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$decode">
+		<param name="Local" value="identifiers\decode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$decompress">
+		<param name="Local" value="identifiers\decompress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$deltok">
+		<param name="Local" value="identifiers\deltok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$devent">
+		<param name="Local" value="identifiers\devent.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dialog">
+		<param name="Local" value="identifiers\dialog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$did">
+		<param name="Local" value="identifiers\did.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$didreg">
+		<param name="Local" value="identifiers\didreg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$didtok">
+		<param name="Local" value="identifiers\didtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$didwm">
+		<param name="Local" value="identifiers\didwm.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dir">
+		<param name="Local" value="identifiers\dir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$disk">
+		<param name="Local" value="identifiers\disk.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dlevel">
+		<param name="Local" value="identifiers\dlevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dll">
+		<param name="Local" value="identifiers\dll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dllcall">
+		<param name="Local" value="identifiers\dllcall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dname">
+		<param name="Local" value="identifiers\dname.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dns">
+		<param name="Local" value="identifiers\dns.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$donotdisturb">
+		<param name="Local" value="identifiers\donotdisturb.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dqwindow">
+		<param name="Local" value="identifiers\dqwindow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$duration">
+		<param name="Local" value="identifiers\duration.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ebeeps">
+		<param name="Local" value="identifiers\ebeeps.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$editbox">
+		<param name="Local" value="identifiers\editbox.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$email">
+		<param name="Local" value="identifiers\email.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$emailaddr">
+		<param name="Local" value="identifiers\emailaddr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$encode">
+		<param name="Local" value="identifiers\encode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$envvar">
+		<param name="Local" value="identifiers\envvar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$error">
+		<param name="Local" value="identifiers\error.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$eval">
+		<param name="Local" value="identifiers\eval.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$evalnext">
+		<param name="Local" value="identifiers\evalnext.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$event">
+		<param name="Local" value="identifiers\event.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$eventid">
+		<param name="Local" value="identifiers\eventid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$eventparms">
+		<param name="Local" value="identifiers\eventparms.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$exists">
+		<param name="Local" value="identifiers\exists.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$exiting">
+		<param name="Local" value="identifiers\exiting.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$factorial">
+		<param name="Local" value="identifiers\factorial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$false">
+		<param name="Local" value="identifiers\false.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$feof">
+		<param name="Local" value="identifiers\feof.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ferr">
+		<param name="Local" value="identifiers\ferr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fgetc">
+		<param name="Local" value="identifiers\fgetc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fibonacci">
+		<param name="Local" value="identifiers\fibonacci.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$file">
+		<param name="Local" value="identifiers\file.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$filename">
+		<param name="Local" value="identifiers\filename.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$filtered">
+		<param name="Local" value="identifiers\filtered.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$finddir">
+		<param name="Local" value="identifiers\finddir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$finddirn">
+		<param name="Local" value="identifiers\finddirn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$findfile">
+		<param name="Local" value="identifiers\findfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$findfilen">
+		<param name="Local" value="identifiers\findfilen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$findtok">
+		<param name="Local" value="identifiers\findtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$findtokcs">
+		<param name="Local" value="identifiers\findtokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fline">
+		<param name="Local" value="identifiers\fline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$flinen">
+		<param name="Local" value="identifiers\flinen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$floor">
+		<param name="Local" value="identifiers\floor.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$font">
+		<param name="Local" value="identifiers\font.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fopen">
+		<param name="Local" value="identifiers\fopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fread">
+		<param name="Local" value="identifiers\fread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$freadex">
+		<param name="Local" value="identifiers\freadex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fromeditbox">
+		<param name="Local" value="identifiers\fromeditbox.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fserv">
+		<param name="Local" value="identifiers\fserv.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fserve">
+		<param name="Local" value="identifiers\fserve.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fulladdress">
+		<param name="Local" value="identifiers\fulladdress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fulldate">
+		<param name="Local" value="identifiers\fulldate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fullname">
+		<param name="Local" value="identifiers\fullname.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fullscreen">
+		<param name="Local" value="identifiers\fullscreen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$fupdate">
+		<param name="Local" value="identifiers\fupdate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$gcd">
+		<param name="Local" value="identifiers\gcd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$get">
+		<param name="Local" value="identifiers\get.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$getdir">
+		<param name="Local" value="identifiers\getdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$getdot">
+		<param name="Local" value="identifiers\getdot.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$gettok">
+		<param name="Local" value="identifiers\gettok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$gmt">
+		<param name="Local" value="identifiers\gmt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$group">
+		<param name="Local" value="identifiers\group.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$halted">
+		<param name="Local" value="identifiers\halted.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hash">
+		<param name="Local" value="identifiers\hash.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$height">
+		<param name="Local" value="identifiers\height.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hfile">
+		<param name="Local" value="identifiers\hfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hfind">
+		<param name="Local" value="identifiers\hfind.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hget">
+		<param name="Local" value="identifiers\hget.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$highlight">
+		<param name="Local" value="identifiers\highlight.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hmac">
+		<param name="Local" value="identifiers\hmac.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hmatch">
+		<param name="Local" value="identifiers\hmatch.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hnick">
+		<param name="Local" value="identifiers\hnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$host">
+		<param name="Local" value="identifiers\host.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hotline">
+		<param name="Local" value="identifiers\hotline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hotlinepos">
+		<param name="Local" value="identifiers\hotlinepos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hotlink">
+		<param name="Local" value="identifiers\hotlink.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hotp">
+		<param name="Local" value="identifiers\hotp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hregex">
+		<param name="Local" value="identifiers\hregex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hypot">
+		<param name="Local" value="identifiers\hypot.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iaddress">
+		<param name="Local" value="identifiers\iaddress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ial">
+		<param name="Local" value="identifiers\ial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ialchan">
+		<param name="Local" value="identifiers\ialchan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ibl">
+		<param name="Local" value="identifiers\ibl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$idle">
+		<param name="Local" value="identifiers\idle.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iel">
+		<param name="Local" value="identifiers\iel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ifmatch">
+		<param name="Local" value="identifiers\ifmatch.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ifmatch2">
+		<param name="Local" value="identifiers\ifmatch2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ignore">
+		<param name="Local" value="identifiers\ignore.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iif">
+		<param name="Local" value="identifiers\iif.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iil">
+		<param name="Local" value="identifiers\iil.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inellipse">
+		<param name="Local" value="identifiers\inellipse.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ini">
+		<param name="Local" value="identifiers\ini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$initopic">
+		<param name="Local" value="identifiers\initopic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inmidi">
+		<param name="Local" value="identifiers\inmidi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inmode">
+		<param name="Local" value="identifiers\inmode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inmp3">
+		<param name="Local" value="identifiers\inmp3.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inpaste">
+		<param name="Local" value="identifiers\inpaste.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inpoly">
+		<param name="Local" value="identifiers\inpoly.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$input">
+		<param name="Local" value="identifiers\input.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inrect">
+		<param name="Local" value="identifiers\inrect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inroundrect">
+		<param name="Local" value="identifiers\inroundrect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$insong">
+		<param name="Local" value="identifiers\insong.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$instok">
+		<param name="Local" value="identifiers\instok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$int">
+		<param name="Local" value="identifiers\int.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$intersect">
+		<param name="Local" value="identifiers\intersect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inwave">
+		<param name="Local" value="identifiers\inwave.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$inwho">
+		<param name="Local" value="identifiers\inwho.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ip">
+		<param name="Local" value="identifiers\ip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iptype">
+		<param name="Local" value="identifiers\iptype.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$iql">
+		<param name="Local" value="identifiers\iql.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isadmin">
+		<param name="Local" value="identifiers\isadmin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isalias">
+		<param name="Local" value="identifiers\isalias.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isbit">
+		<param name="Local" value="identifiers\isbit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isdde">
+		<param name="Local" value="identifiers\isdde.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isdir">
+		<param name="Local" value="identifiers\isdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isfile">
+		<param name="Local" value="identifiers\isfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isid">
+		<param name="Local" value="identifiers\isid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$islower">
+		<param name="Local" value="identifiers\islower.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isnum">
+		<param name="Local" value="identifiers\isnum.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isnumber">
+		<param name="Local" value="identifiers\isnumber.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$istok">
+		<param name="Local" value="identifiers\istok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$istokcs">
+		<param name="Local" value="identifiers\istokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isupper">
+		<param name="Local" value="identifiers\isupper.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$isutf">
+		<param name="Local" value="identifiers\isutf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$keychar">
+		<param name="Local" value="identifiers\keychar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$keylparam">
+		<param name="Local" value="identifiers\keylparam.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$keyrpt">
+		<param name="Local" value="identifiers\keyrpt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$keyval">
+		<param name="Local" value="identifiers\keyval.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$knick">
+		<param name="Local" value="identifiers\knick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lactive">
+		<param name="Local" value="identifiers\lactive.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lactivecid">
+		<param name="Local" value="identifiers\lactivecid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lactivewid">
+		<param name="Local" value="identifiers\lactivewid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lcm">
+		<param name="Local" value="identifiers\lcm.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$left">
+		<param name="Local" value="identifiers\left.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$leftwin">
+		<param name="Local" value="identifiers\leftwin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$leftwincid">
+		<param name="Local" value="identifiers\leftwincid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$leftwinwid">
+		<param name="Local" value="identifiers\leftwinwid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$len">
+		<param name="Local" value="identifiers\len.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$level">
+		<param name="Local" value="identifiers\level.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lf">
+		<param name="Local" value="identifiers\lf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$line">
+		<param name="Local" value="identifiers\line.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lines">
+		<param name="Local" value="identifiers\lines.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$link">
+		<param name="Local" value="identifiers\link.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lock">
+		<param name="Local" value="identifiers\lock.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$locked">
+		<param name="Local" value="identifiers\locked.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lof">
+		<param name="Local" value="identifiers\lof.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$log">
+		<param name="Local" value="identifiers\log.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$log10">
+		<param name="Local" value="identifiers\log10.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$log2">
+		<param name="Local" value="identifiers\log2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$logdir">
+		<param name="Local" value="identifiers\logdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$logstamp">
+		<param name="Local" value="identifiers\logstamp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$logstampfmt">
+		<param name="Local" value="identifiers\logstampfmt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$longfn">
+		<param name="Local" value="identifiers\longfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$longip">
+		<param name="Local" value="identifiers\longip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$lower">
+		<param name="Local" value="identifiers\lower.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ltimer">
+		<param name="Local" value="identifiers\ltimer.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$maddress">
+		<param name="Local" value="identifiers\maddress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mask">
+		<param name="Local" value="identifiers\mask.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$matchkey">
+		<param name="Local" value="identifiers\matchkey.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$matchtok">
+		<param name="Local" value="identifiers\matchtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$matchtokcs">
+		<param name="Local" value="identifiers\matchtokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$max">
+		<param name="Local" value="identifiers\max.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$maxlenl">
+		<param name="Local" value="identifiers\maxlenl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$maxlenm">
+		<param name="Local" value="identifiers\maxlenm.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$maxlens">
+		<param name="Local" value="identifiers\maxlens.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$md5">
+		<param name="Local" value="identifiers\md5.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$me">
+		<param name="Local" value="identifiers\me.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$menu">
+		<param name="Local" value="identifiers\menu.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$menubar">
+		<param name="Local" value="identifiers\menubar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$menucontext">
+		<param name="Local" value="identifiers\menucontext.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$menutype">
+		<param name="Local" value="identifiers\menutype.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mid">
+		<param name="Local" value="identifiers\mid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mididir">
+		<param name="Local" value="identifiers\mididir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$min">
+		<param name="Local" value="identifiers\min.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mircdir">
+		<param name="Local" value="identifiers\mircdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mircexe">
+		<param name="Local" value="identifiers\mircexe.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mircini">
+		<param name="Local" value="identifiers\mircini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mircpid">
+		<param name="Local" value="identifiers\mircpid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mkfn">
+		<param name="Local" value="identifiers\mkfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mklogfn">
+		<param name="Local" value="identifiers\mklogfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mknickfn">
+		<param name="Local" value="identifiers\mknickfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mnick">
+		<param name="Local" value="identifiers\mnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mode">
+		<param name="Local" value="identifiers\mode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$modefirst">
+		<param name="Local" value="identifiers\modefirst.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$modelast">
+		<param name="Local" value="identifiers\modelast.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$modespl">
+		<param name="Local" value="identifiers\modespl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$modinv">
+		<param name="Local" value="identifiers\modinv.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mouse">
+		<param name="Local" value="identifiers\mouse.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mp3">
+		<param name="Local" value="identifiers\mp3.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$mp3dir">
+		<param name="Local" value="identifiers\mp3dir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$msfile">
+		<param name="Local" value="identifiers\msfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$msgstamp">
+		<param name="Local" value="identifiers\msgstamp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$msgtags">
+		<param name="Local" value="identifiers\msgtags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$naddress">
+		<param name="Local" value="identifiers\naddress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$network">
+		<param name="Local" value="identifiers\network.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$newnick">
+		<param name="Local" value="identifiers\newnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nhnick">
+		<param name="Local" value="identifiers\nhnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nick">
+		<param name="Local" value="identifiers\nick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nickmode">
+		<param name="Local" value="identifiers\nickmode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$no">
+		<param name="Local" value="identifiers\no.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nofile">
+		<param name="Local" value="identifiers\nofile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nonstdmsg">
+		<param name="Local" value="identifiers\nonstdmsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nopath">
+		<param name="Local" value="identifiers\nopath.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nopnick">
+		<param name="Local" value="identifiers\nopnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$noqt">
+		<param name="Local" value="identifiers\noqt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$not">
+		<param name="Local" value="identifiers\not.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$notags">
+		<param name="Local" value="identifiers\notags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$notify">
+		<param name="Local" value="identifiers\notify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$null">
+		<param name="Local" value="identifiers\null.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$numbits">
+		<param name="Local" value="identifiers\numbits.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$numeric">
+		<param name="Local" value="identifiers\numeric.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$numtok">
+		<param name="Local" value="identifiers\numtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nvnick">
+		<param name="Local" value="identifiers\nvnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ok">
+		<param name="Local" value="identifiers\ok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$online">
+		<param name="Local" value="identifiers\online.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$onlineserver">
+		<param name="Local" value="identifiers\onlineserver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$onlinetotal">
+		<param name="Local" value="identifiers\onlinetotal.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$onpoly">
+		<param name="Local" value="identifiers\onpoly.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$opnick">
+		<param name="Local" value="identifiers\opnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$or">
+		<param name="Local" value="identifiers\or.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ord">
+		<param name="Local" value="identifiers\ord.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$os">
+		<param name="Local" value="identifiers\os.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parmN">
+		<param name="Local" value="identifiers\parmN.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parms">
+		<param name="Local" value="identifiers\parms.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parseem">
+		<param name="Local" value="identifiers\parseem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parseline">
+		<param name="Local" value="identifiers\parseline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parsetype">
+		<param name="Local" value="identifiers\parsetype.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$parseutf">
+		<param name="Local" value="identifiers\parseutf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$passivedcc">
+		<param name="Local" value="identifiers\passivedcc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$pi">
+		<param name="Local" value="identifiers\pi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$pic">
+		<param name="Local" value="identifiers\pic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$play">
+		<param name="Local" value="identifiers\play.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$pnick">
+		<param name="Local" value="identifiers\pnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$port">
+		<param name="Local" value="identifiers\port.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$portable">
+		<param name="Local" value="identifiers\portable.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$portfree">
+		<param name="Local" value="identifiers\portfree.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$pos">
+		<param name="Local" value="identifiers\pos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$poscs">
+		<param name="Local" value="identifiers\poscs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$powmod">
+		<param name="Local" value="identifiers\powmod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$prefix">
+		<param name="Local" value="identifiers\prefix.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$prop">
+		<param name="Local" value="identifiers\prop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$protect">
+		<param name="Local" value="identifiers\protect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$puttok">
+		<param name="Local" value="identifiers\puttok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$qt">
+		<param name="Local" value="identifiers\qt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$query">
+		<param name="Local" value="identifiers\query.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$questionmark">
+		<param name="Local" value="identifiers\questionmark.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$r">
+		<param name="Local" value="identifiers\r.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$raddress">
+		<param name="Local" value="identifiers\raddress.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rand">
+		<param name="Local" value="identifiers\rand.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rands">
+		<param name="Local" value="identifiers\rands.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rawbytes">
+		<param name="Local" value="identifiers\rawbytes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rawmsg">
+		<param name="Local" value="identifiers\rawmsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$read">
+		<param name="Local" value="identifiers\read.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$readini">
+		<param name="Local" value="identifiers\readini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$readn">
+		<param name="Local" value="identifiers\readn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regbr">
+		<param name="Local" value="identifiers\regbr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regerrstr">
+		<param name="Local" value="identifiers\regerrstr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regex">
+		<param name="Local" value="identifiers\regex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regml">
+		<param name="Local" value="identifiers\regml.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regmlex">
+		<param name="Local" value="identifiers\regmlex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regsub">
+		<param name="Local" value="identifiers\regsub.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$regsubex">
+		<param name="Local" value="identifiers\regsubex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$remote">
+		<param name="Local" value="identifiers\remote.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$remove">
+		<param name="Local" value="identifiers\remove.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$removecs">
+		<param name="Local" value="identifiers\removecs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$remtok">
+		<param name="Local" value="identifiers\remtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$remtokcs">
+		<param name="Local" value="identifiers\remtokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$replace">
+		<param name="Local" value="identifiers\replace.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$replacecs">
+		<param name="Local" value="identifiers\replacecs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$replacex">
+		<param name="Local" value="identifiers\replacex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$replacexcs">
+		<param name="Local" value="identifiers\replacexcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$reptok">
+		<param name="Local" value="identifiers\reptok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$reptokcs">
+		<param name="Local" value="identifiers\reptokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$result">
+		<param name="Local" value="identifiers\result.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rgb">
+		<param name="Local" value="identifiers\rgb.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$right">
+		<param name="Local" value="identifiers\right.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$rnick">
+		<param name="Local" value="identifiers\rnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$round">
+		<param name="Local" value="identifiers\round.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$samepath">
+		<param name="Local" value="identifiers\samepath.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$scid">
+		<param name="Local" value="identifiers\scid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$scon">
+		<param name="Local" value="identifiers\scon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$script">
+		<param name="Local" value="identifiers\script.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$scriptdir">
+		<param name="Local" value="identifiers\scriptdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$scriptline">
+		<param name="Local" value="identifiers\scriptline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sdir">
+		<param name="Local" value="identifiers\sdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$send">
+		<param name="Local" value="identifiers\send.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$server">
+		<param name="Local" value="identifiers\server.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$serverip">
+		<param name="Local" value="identifiers\serverip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$servertarget">
+		<param name="Local" value="identifiers\servertarget.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sfile">
+		<param name="Local" value="identifiers\sfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sha1">
+		<param name="Local" value="identifiers\sha1.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sha256">
+		<param name="Local" value="identifiers\sha256.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sha384">
+		<param name="Local" value="identifiers\sha384.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sha512">
+		<param name="Local" value="identifiers\sha512.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$shortfn">
+		<param name="Local" value="identifiers\shortfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$show">
+		<param name="Local" value="identifiers\show.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$signal">
+		<param name="Local" value="identifiers\signal.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sin">
+		<param name="Local" value="identifiers\sin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sinh">
+		<param name="Local" value="identifiers\sinh.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$site">
+		<param name="Local" value="identifiers\site.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sline">
+		<param name="Local" value="identifiers\sline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$snick">
+		<param name="Local" value="identifiers\snick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$snicks">
+		<param name="Local" value="identifiers\snicks.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$snotify">
+		<param name="Local" value="identifiers\snotify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sock">
+		<param name="Local" value="identifiers\sock.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sockbr">
+		<param name="Local" value="identifiers\sockbr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sockerr">
+		<param name="Local" value="identifiers\sockerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sockname">
+		<param name="Local" value="identifiers\sockname.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sorttok">
+		<param name="Local" value="identifiers\sorttok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sorttokcs">
+		<param name="Local" value="identifiers\sorttokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sound">
+		<param name="Local" value="identifiers\sound.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$speak">
+		<param name="Local" value="identifiers\speak.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sqrt">
+		<param name="Local" value="identifiers\sqrt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sreq">
+		<param name="Local" value="identifiers\sreq.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ssl">
+		<param name="Local" value="identifiers\ssl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslcertsha1">
+		<param name="Local" value="identifiers\sslcertsha1.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslcertsha256">
+		<param name="Local" value="identifiers\sslcertsha256.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslcertvalid">
+		<param name="Local" value="identifiers\sslcertvalid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ssldll">
+		<param name="Local" value="identifiers\ssldll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslhash">
+		<param name="Local" value="identifiers\sslhash.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ssllibdll">
+		<param name="Local" value="identifiers\ssllibdll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslready">
+		<param name="Local" value="identifiers\sslready.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sslversion">
+		<param name="Local" value="identifiers\sslversion.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$star">
+		<param name="Local" value="identifiers\star.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$starting">
+		<param name="Local" value="identifiers\starting.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$status">
+		<param name="Local" value="identifiers\status.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$str">
+		<param name="Local" value="identifiers\str.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$strip">
+		<param name="Local" value="identifiers\strip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$stripped">
+		<param name="Local" value="identifiers\stripped.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$style">
+		<param name="Local" value="identifiers\style.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$submenu">
+		<param name="Local" value="identifiers\submenu.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$switchbar">
+		<param name="Local" value="identifiers\switchbar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sysdir">
+		<param name="Local" value="identifiers\sysdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$tan">
+		<param name="Local" value="identifiers\tan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$tanh">
+		<param name="Local" value="identifiers\tanh.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$target">
+		<param name="Local" value="identifiers\target.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$tempfn">
+		<param name="Local" value="identifiers\tempfn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ticks">
+		<param name="Local" value="identifiers\ticks.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ticksqpc">
+		<param name="Local" value="identifiers\ticksqpc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$time">
+		<param name="Local" value="identifiers\time.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$timeout">
+		<param name="Local" value="identifiers\timeout.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$timer">
+		<param name="Local" value="identifiers\timer.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$timestamp">
+		<param name="Local" value="identifiers\timestamp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$timestampfmt">
+		<param name="Local" value="identifiers\timestampfmt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$timezone">
+		<param name="Local" value="identifiers\timezone.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$tip">
+		<param name="Local" value="identifiers\tip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$tips">
+		<param name="Local" value="identifiers\tips.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$titlebar">
+		<param name="Local" value="identifiers\titlebar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$token">
+		<param name="Local" value="identifiers\token.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$toolbar">
+		<param name="Local" value="identifiers\toolbar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$topic">
+		<param name="Local" value="identifiers\topic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$totp">
+		<param name="Local" value="identifiers\totp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$treebar">
+		<param name="Local" value="identifiers\treebar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$true">
+		<param name="Local" value="identifiers\true.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$trust">
+		<param name="Local" value="identifiers\trust.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ulevel">
+		<param name="Local" value="identifiers\ulevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ulist">
+		<param name="Local" value="identifiers\ulist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$unsafe">
+		<param name="Local" value="identifiers\unsafe.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$upper">
+		<param name="Local" value="identifiers\upper.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$uptime">
+		<param name="Local" value="identifiers\uptime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$url">
+		<param name="Local" value="identifiers\url.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$urlget">
+		<param name="Local" value="identifiers\urlget.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$usermode">
+		<param name="Local" value="identifiers\usermode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$utfdecode">
+		<param name="Local" value="identifiers\utfdecode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$utfencode">
+		<param name="Local" value="identifiers\utfencode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$v1">
+		<param name="Local" value="identifiers\v1.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$v2">
+		<param name="Local" value="identifiers\v2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$var">
+		<param name="Local" value="identifiers\var.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vc">
+		<param name="Local" value="identifiers\vc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vcmd">
+		<param name="Local" value="identifiers\vcmd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vcmdstat">
+		<param name="Local" value="identifiers\vcmdstat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vcmdver">
+		<param name="Local" value="identifiers\vcmdver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$version">
+		<param name="Local" value="identifiers\version.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vnick">
+		<param name="Local" value="identifiers\vnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vol">
+		<param name="Local" value="identifiers\vol.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wavedir">
+		<param name="Local" value="identifiers\wavedir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wid">
+		<param name="Local" value="identifiers\wid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$width">
+		<param name="Local" value="identifiers\width.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wildsite">
+		<param name="Local" value="identifiers\wildsite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wildtok">
+		<param name="Local" value="identifiers\wildtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wildtokcs">
+		<param name="Local" value="identifiers\wildtokcs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$window">
+		<param name="Local" value="identifiers\window.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$wrap">
+		<param name="Local" value="identifiers\wrap.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$xor">
+		<param name="Local" value="identifiers\xor.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$yes">
+		<param name="Local" value="identifiers\yes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$zip">
+		<param name="Local" value="identifiers\zip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/abook">
+		<param name="Local" value="commands\abook.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/action">
+		<param name="Local" value="commands\action.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/action">
+		<param name="Local" value="commands\action.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/add">
+		<param name="Local" value="commands\add.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ajinvite">
+		<param name="Local" value="commands\ajinvite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ajinvite">
+		<param name="Local" value="commands\ajinvite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/alias">
+		<param name="Local" value="commands\alias.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/aline">
+		<param name="Local" value="commands\aline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ame">
+		<param name="Local" value="commands\ame.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/amsg">
+		<param name="Local" value="commands\amsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/anick">
+		<param name="Local" value="commands\anick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/aop">
+		<param name="Local" value="commands\aop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/auser">
+		<param name="Local" value="commands\auser.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/auto">
+		<param name="Local" value="commands\auto.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/autojoin">
+		<param name="Local" value="commands\autojoin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/avoice">
+		<param name="Local" value="commands\avoice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/away">
+		<param name="Local" value="commands\away.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/background">
+		<param name="Local" value="commands\background.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ban">
+		<param name="Local" value="commands\ban.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bcopy">
+		<param name="Local" value="commands\bcopy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/beep">
+		<param name="Local" value="commands\beep.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bigfloat">
+		<param name="Local" value="commands\bigfloat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bindip">
+		<param name="Local" value="commands\bindip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bread">
+		<param name="Local" value="commands\bread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/break">
+		<param name="Local" value="commands\break.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/breplace">
+		<param name="Local" value="commands\breplace.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bset">
+		<param name="Local" value="commands\bset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/btrunc">
+		<param name="Local" value="commands\btrunc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bunset">
+		<param name="Local" value="commands\bunset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/bwrite">
+		<param name="Local" value="commands\bwrite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/channel">
+		<param name="Local" value="commands\channel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/clear">
+		<param name="Local" value="commands\clear.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/clearall">
+		<param name="Local" value="commands\clearall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/clearial">
+		<param name="Local" value="commands\clearial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/cline">
+		<param name="Local" value="commands\cline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/clipboard">
+		<param name="Local" value="commands\clipboard.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/close">
+		<param name="Local" value="commands\close.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/closemsg">
+		<param name="Local" value="commands\closemsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/cnick">
+		<param name="Local" value="commands\cnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/color">
+		<param name="Local" value="commands\color.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/colour">
+		<param name="Local" value="commands\colour.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/comclose">
+		<param name="Local" value="commands\comclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/comlist">
+		<param name="Local" value="commands\comlist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/comopen">
+		<param name="Local" value="commands\comopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/comreg">
+		<param name="Local" value="commands\comreg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/continue">
+		<param name="Local" value="commands\continue.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/copy">
+		<param name="Local" value="commands\copy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/creq">
+		<param name="Local" value="commands\creq.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ctcp">
+		<param name="Local" value="commands\ctcp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ctcpreply">
+		<param name="Local" value="commands\ctcpreply.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ctcps">
+		<param name="Local" value="commands\ctcps.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dcc">
+		<param name="Local" value="commands\dcc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dccserver">
+		<param name="Local" value="commands\dccserver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dde">
+		<param name="Local" value="commands\dde.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ddeserver">
+		<param name="Local" value="commands\ddeserver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/debug">
+		<param name="Local" value="commands\debug.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dec">
+		<param name="Local" value="commands\dec.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/describe">
+		<param name="Local" value="commands\describe.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dialog">
+		<param name="Local" value="commands\dialog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/did">
+		<param name="Local" value="commands\did.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/didtok">
+		<param name="Local" value="commands\didtok.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/disable">
+		<param name="Local" value="commands\disable.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/disconnect">
+		<param name="Local" value="commands\disconnect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dlevel">
+		<param name="Local" value="commands\dlevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dline">
+		<param name="Local" value="commands\dline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dll">
+		<param name="Local" value="commands\dll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dns">
+		<param name="Local" value="commands\dns.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/donotdisturb">
+		<param name="Local" value="commands\donotdisturb.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/dqwindow">
+		<param name="Local" value="commands\dqwindow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawcopy">
+		<param name="Local" value="commands\drawcopy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawdot">
+		<param name="Local" value="commands\drawdot.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawfill">
+		<param name="Local" value="commands\drawfill.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawline">
+		<param name="Local" value="commands\drawline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawpic">
+		<param name="Local" value="commands\drawpic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawrect">
+		<param name="Local" value="commands\drawrect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawreplace">
+		<param name="Local" value="commands\drawreplace.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawrot">
+		<param name="Local" value="commands\drawrot.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawsave">
+		<param name="Local" value="commands\drawsave.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawscroll">
+		<param name="Local" value="commands\drawscroll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawsize">
+		<param name="Local" value="commands\drawsize.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawtext">
+		<param name="Local" value="commands\drawtext.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ebeeps">
+		<param name="Local" value="commands\ebeeps.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/echo">
+		<param name="Local" value="commands\echo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/editbox">
+		<param name="Local" value="commands\editbox.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/else">
+		<param name="Local" value="commands\else.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/elseif">
+		<param name="Local" value="commands\elseif.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/emailaddr">
+		<param name="Local" value="commands\emailaddr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/enable">
+		<param name="Local" value="commands\enable.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/events">
+		<param name="Local" value="commands\events.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/exit">
+		<param name="Local" value="commands\exit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fclose">
+		<param name="Local" value="commands\fclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/filter">
+		<param name="Local" value="commands\filter.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/findtext">
+		<param name="Local" value="commands\findtext.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/finger">
+		<param name="Local" value="commands\finger.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/firewall">
+		<param name="Local" value="commands\firewall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/flash">
+		<param name="Local" value="commands\flash.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/flist">
+		<param name="Local" value="commands\flist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/flood">
+		<param name="Local" value="commands\flood.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/flush">
+		<param name="Local" value="commands\flush.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/flushini">
+		<param name="Local" value="commands\flushini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fnord">
+		<param name="Local" value="commands\fnord.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/font">
+		<param name="Local" value="commands\font.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fopen">
+		<param name="Local" value="commands\fopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fseek">
+		<param name="Local" value="commands\fseek.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fsend">
+		<param name="Local" value="commands\fsend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fserve">
+		<param name="Local" value="commands\fserve.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fullname">
+		<param name="Local" value="commands\fullname.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fupdate">
+		<param name="Local" value="commands\fupdate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/fwrite">
+		<param name="Local" value="commands\fwrite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ghide">
+		<param name="Local" value="commands\ghide.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gload">
+		<param name="Local" value="commands\gload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gmove">
+		<param name="Local" value="commands\gmove.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gopts">
+		<param name="Local" value="commands\gopts.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/goto">
+		<param name="Local" value="commands\goto.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gplay">
+		<param name="Local" value="commands\gplay.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gpoint">
+		<param name="Local" value="commands\gpoint.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gqreq">
+		<param name="Local" value="commands\gqreq.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/groups">
+		<param name="Local" value="commands\groups.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gshow">
+		<param name="Local" value="commands\gshow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gsize">
+		<param name="Local" value="commands\gsize.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gstop">
+		<param name="Local" value="commands\gstop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gtalk">
+		<param name="Local" value="commands\gtalk.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/gunload">
+		<param name="Local" value="commands\gunload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/guser">
+		<param name="Local" value="commands\guser.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hadd">
+		<param name="Local" value="commands\hadd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/halt">
+		<param name="Local" value="commands\halt.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/haltdef">
+		<param name="Local" value="commands\haltdef.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hdec">
+		<param name="Local" value="commands\hdec.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hdel">
+		<param name="Local" value="commands\hdel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/help">
+		<param name="Local" value="commands\help.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hfree">
+		<param name="Local" value="commands\hfree.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hinc">
+		<param name="Local" value="commands\hinc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hload">
+		<param name="Local" value="commands\hload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hmake">
+		<param name="Local" value="commands\hmake.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hop">
+		<param name="Local" value="commands\hop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hotlink">
+		<param name="Local" value="commands\hotlink.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/hsave">
+		<param name="Local" value="commands\hsave.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ial">
+		<param name="Local" value="commands\ial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ialclear">
+		<param name="Local" value="commands\ialclear.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ialfill">
+		<param name="Local" value="commands\ialfill.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ialmark">
+		<param name="Local" value="commands\ialmark.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/identd">
+		<param name="Local" value="commands\identd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/if">
+		<param name="Local" value="commands\if.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ignore">
+		<param name="Local" value="commands\ignore.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/iline">
+		<param name="Local" value="commands\iline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/inc">
+		<param name="Local" value="commands\inc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/iuser">
+		<param name="Local" value="commands\iuser.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/join">
+		<param name="Local" value="commands\join.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/leave">
+		<param name="Local" value="commands\leave.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/linesep">
+		<param name="Local" value="commands\linesep.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/links">
+		<param name="Local" value="commands\links.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/list">
+		<param name="Local" value="commands\list.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/load">
+		<param name="Local" value="commands\load.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/loadbuf">
+		<param name="Local" value="commands\loadbuf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/localinfo">
+		<param name="Local" value="commands\localinfo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/log">
+		<param name="Local" value="commands\log.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/logview">
+		<param name="Local" value="commands\logview.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/mdi">
+		<param name="Local" value="commands\mdi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/me">
+		<param name="Local" value="commands\me.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/menubar">
+		<param name="Local" value="commands\menubar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/mkdir">
+		<param name="Local" value="commands\mkdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/mnick">
+		<param name="Local" value="commands\mnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/mode">
+		<param name="Local" value="commands\mode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/msg">
+		<param name="Local" value="commands\msg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/noop">
+		<param name="Local" value="commands\noop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/notice">
+		<param name="Local" value="commands\notice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/notify">
+		<param name="Local" value="commands\notify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/omsg">
+		<param name="Local" value="commands\omsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/onotice">
+		<param name="Local" value="commands\onotice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/parseline">
+		<param name="Local" value="commands\parseline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/part">
+		<param name="Local" value="commands\part.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/partall">
+		<param name="Local" value="commands\partall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/pdcc">
+		<param name="Local" value="commands\pdcc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/perform">
+		<param name="Local" value="commands\perform.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/play">
+		<param name="Local" value="commands\play.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/playctrl">
+		<param name="Local" value="commands\playctrl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/pop">
+		<param name="Local" value="commands\pop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/privmsg">
+		<param name="Local" value="commands\privmsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/protect">
+		<param name="Local" value="commands\protect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/proxy">
+		<param name="Local" value="commands\proxy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/pvoice">
+		<param name="Local" value="commands\pvoice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/qme">
+		<param name="Local" value="commands\qme.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/qmsg">
+		<param name="Local" value="commands\qmsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/query">
+		<param name="Local" value="commands\query.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/queryrn">
+		<param name="Local" value="commands\queryrn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/quit">
+		<param name="Local" value="commands\quit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/quote">
+		<param name="Local" value="commands\quote.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/raw">
+		<param name="Local" value="commands\raw.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/registration">
+		<param name="Local" value="commands\registration.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/reload">
+		<param name="Local" value="commands\reload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/remini">
+		<param name="Local" value="commands\remini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/remote">
+		<param name="Local" value="commands\remote.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/remove">
+		<param name="Local" value="commands\remove.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/rename">
+		<param name="Local" value="commands\rename.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/renwin">
+		<param name="Local" value="commands\renwin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/reseterror">
+		<param name="Local" value="commands\reseterror.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/resetidle">
+		<param name="Local" value="commands\resetidle.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/return">
+		<param name="Local" value="commands\return.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/returnex">
+		<param name="Local" value="commands\returnex.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/rlevel">
+		<param name="Local" value="commands\rlevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/rline">
+		<param name="Local" value="commands\rline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/rmdir">
+		<param name="Local" value="commands\rmdir.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/run">
+		<param name="Local" value="commands\run.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ruser">
+		<param name="Local" value="commands\ruser.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/save">
+		<param name="Local" value="commands\save.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/savebuf">
+		<param name="Local" value="commands\savebuf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/saveini">
+		<param name="Local" value="commands\saveini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/say">
+		<param name="Local" value="commands\say.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/scid">
+		<param name="Local" value="commands\scid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/scon">
+		<param name="Local" value="commands\scon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/server">
+		<param name="Local" value="commands\server.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/set">
+		<param name="Local" value="commands\set.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/setlayer">
+		<param name="Local" value="commands\setlayer.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/showmirc">
+		<param name="Local" value="commands\showmirc.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/signal">
+		<param name="Local" value="commands\signal.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sline">
+		<param name="Local" value="commands\sline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockaccept">
+		<param name="Local" value="commands\sockaccept.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockclose">
+		<param name="Local" value="commands\sockclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/socklist">
+		<param name="Local" value="commands\socklist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/socklisten">
+		<param name="Local" value="commands\socklisten.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockmark">
+		<param name="Local" value="commands\sockmark.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockopen">
+		<param name="Local" value="commands\sockopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockpause">
+		<param name="Local" value="commands\sockpause.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockread">
+		<param name="Local" value="commands\sockread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockrename">
+		<param name="Local" value="commands\sockrename.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockudp">
+		<param name="Local" value="commands\sockudp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sockwrite">
+		<param name="Local" value="commands\sockwrite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sound">
+		<param name="Local" value="commands\sound.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/speak">
+		<param name="Local" value="commands\speak.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/splay">
+		<param name="Local" value="commands\splay.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/sreq">
+		<param name="Local" value="commands\sreq.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/strip">
+		<param name="Local" value="commands\strip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/switchbar">
+		<param name="Local" value="commands\switchbar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/timer">
+		<param name="Local" value="commands\timer.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/timers">
+		<param name="Local" value="commands\timers.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/timestamp">
+		<param name="Local" value="commands\timestamp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/tip">
+		<param name="Local" value="commands\tip.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/tips">
+		<param name="Local" value="commands\tips.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/titlebar">
+		<param name="Local" value="commands\titlebar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/tnick">
+		<param name="Local" value="commands\tnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/tokenize">
+		<param name="Local" value="commands\tokenize.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/toolbar">
+		<param name="Local" value="commands\toolbar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/topic">
+		<param name="Local" value="commands\topic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/tray">
+		<param name="Local" value="commands\tray.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/treebar">
+		<param name="Local" value="commands\treebar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/ulist">
+		<param name="Local" value="commands\ulist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/unload">
+		<param name="Local" value="commands\unload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/unset">
+		<param name="Local" value="commands\unset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/unsetall">
+		<param name="Local" value="commands\unsetall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/updatenl">
+		<param name="Local" value="commands\updatenl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/url">
+		<param name="Local" value="commands\url.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/username">
+		<param name="Local" value="commands\username.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/uwho">
+		<param name="Local" value="commands\uwho.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/var">
+		<param name="Local" value="commands\var.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vcadd">
+		<param name="Local" value="commands\vcadd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vcmd">
+		<param name="Local" value="commands\vcmd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vcrem">
+		<param name="Local" value="commands\vcrem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vmsg">
+		<param name="Local" value="commands\vmsg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vnotice">
+		<param name="Local" value="commands\vnotice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/vol">
+		<param name="Local" value="commands\vol.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/wallchops">
+		<param name="Local" value="commands\wallchops.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/wallvoices">
+		<param name="Local" value="commands\wallvoices.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/while">
+		<param name="Local" value="commands\while.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/window">
+		<param name="Local" value="commands\window.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/winhelp">
+		<param name="Local" value="commands\winhelp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/write">
+		<param name="Local" value="commands\write.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/writeini">
+		<param name="Local" value="commands\writeini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index">
+		<param name="Name" value="index">
+		<param name="Local" value="index.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_action">
+		<param name="Local" value="events\on_action.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_active">
+		<param name="Local" value="events\on_active.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_agent">
+		<param name="Local" value="events\on_agent.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_appactive">
+		<param name="Local" value="events\on_appactive.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_ban">
+		<param name="Local" value="events\on_ban.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_char">
+		<param name="Local" value="events\on_char.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_chat">
+		<param name="Local" value="events\on_chat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_close">
+		<param name="Local" value="events\on_close.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_connect">
+		<param name="Local" value="events\on_connect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_connectfail">
+		<param name="Local" value="events\on_connectfail.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_ctcpreply">
+		<param name="Local" value="events\on_ctcpreply.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_dccserver">
+		<param name="Local" value="events\on_dccserver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_dehelp">
+		<param name="Local" value="events\on_dehelp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_deop">
+		<param name="Local" value="events\on_deop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_deowner">
+		<param name="Local" value="events\on_deowner.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_devoice">
+		<param name="Local" value="events\on_devoice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_dialog">
+		<param name="Local" value="events\on_dialog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_disconnect">
+		<param name="Local" value="events\on_disconnect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_dns">
+		<param name="Local" value="events\on_dns.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_error">
+		<param name="Local" value="events\on_error.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_exit">
+		<param name="Local" value="events\on_exit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_filercvd">
+		<param name="Local" value="events\on_filercvd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_filesent">
+		<param name="Local" value="events\on_filesent.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_getfail">
+		<param name="Local" value="events\on_getfail.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_help">
+		<param name="Local" value="events\on_help.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_hotlink">
+		<param name="Local" value="events\on_hotlink.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_input">
+		<param name="Local" value="events\on_input.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_invite">
+		<param name="Local" value="events\on_invite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_join">
+		<param name="Local" value="events\on_join.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_keydown">
+		<param name="Local" value="events\on_keydown.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_keyup">
+		<param name="Local" value="events\on_keyup.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_kick">
+		<param name="Local" value="events\on_kick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_load">
+		<param name="Local" value="events\on_load.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_logon">
+		<param name="Local" value="events\on_logon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_midiend">
+		<param name="Local" value="events\on_midiend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_mode">
+		<param name="Local" value="events\on_mode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_mp3end">
+		<param name="Local" value="events\on_mp3end.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_nick">
+		<param name="Local" value="events\on_nick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_nosound">
+		<param name="Local" value="events\on_nosound.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_notice">
+		<param name="Local" value="events\on_notice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_notify">
+		<param name="Local" value="events\on_notify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_op">
+		<param name="Local" value="events\on_op.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_open">
+		<param name="Local" value="events\on_open.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_owner">
+		<param name="Local" value="events\on_owner.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_parseline">
+		<param name="Local" value="events\on_parseline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_part">
+		<param name="Local" value="events\on_part.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_ping">
+		<param name="Local" value="events\on_ping.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_playend">
+		<param name="Local" value="events\on_playend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_pong">
+		<param name="Local" value="events\on_pong.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_quit">
+		<param name="Local" value="events\on_quit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_rawmode">
+		<param name="Local" value="events\on_rawmode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_sendfail">
+		<param name="Local" value="events\on_sendfail.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_serv">
+		<param name="Local" value="events\on_serv.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_servermode">
+		<param name="Local" value="events\on_servermode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_serverop">
+		<param name="Local" value="events\on_serverop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_signal">
+		<param name="Local" value="events\on_signal.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_snotice">
+		<param name="Local" value="events\on_snotice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_sockclose">
+		<param name="Local" value="events\on_sockclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_socklisten">
+		<param name="Local" value="events\on_socklisten.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_sockopen">
+		<param name="Local" value="events\on_sockopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_sockread">
+		<param name="Local" value="events\on_sockread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_sockwrite">
+		<param name="Local" value="events\on_sockwrite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_songend">
+		<param name="Local" value="events\on_songend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_start">
+		<param name="Local" value="events\on_start.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_tabcomp">
+		<param name="Local" value="events\on_tabcomp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_text">
+		<param name="Local" value="events\on_text.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_topic">
+		<param name="Local" value="events\on_topic.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_udpread">
+		<param name="Local" value="events\on_udpread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_udpwrite">
+		<param name="Local" value="events\on_udpwrite.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_unban">
+		<param name="Local" value="events\on_unban.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_unload">
+		<param name="Local" value="events\on_unload.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_unotify">
+		<param name="Local" value="events\on_unotify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_usermode">
+		<param name="Local" value="events\on_usermode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_vcmd">
+		<param name="Local" value="events\on_vcmd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="injection">
+		<param name="Local" value="other\injection.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_voice">
+		<param name="Local" value="events\on_voice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_wallops">
+		<param name="Local" value="events\on_wallops.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_waveend">
+		<param name="Local" value="events\on_waveend.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>

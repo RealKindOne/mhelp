@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/describe
+</H1>
+<br>
+<br>
+
+The <b>/describe</b> command sends an action message to a specific channel or person. This command is the same the <a href="me.html">/me</a> except you can set a destination channel or nick other then the active window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/describe &lt;nick|channel&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;nick|channel&gt;</b>
+      - The destination channel or person for the action message
+<br><b>&lt;message&gt;</b>
+      - The action message to be sent
+
+<H4>Example</H4>
+<pre class ="code">
+; When someone says 'moo', we will reply
+on *:Text:moo:#:{
+  describe $chan moos back!
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.1 (23 Apr 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="ame.html">/ame</a><br>
+   <a href="amsg.html">/amsg</a><br>
+   <a href="me.html">/me</a><br>
+   <a href="msg.html">/msg</a><br>
+   <a href="qme.html">/qme</a><br>
+   <a href="qmsg.html">/qmsg</a><br>
+   <a href="say.html">/say</a><br>
+</body>
+</html>

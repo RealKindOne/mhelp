@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawrot
+</H1>
+<br>
+<br>
+
+The <b>/drawrot</b> command rotates an area of a bitmap by the specified angle.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawrot -hmnpbfc &lt;@win&gt; [color] &lt;angle&gt; [x y w h]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-b</b>
+      - indicates that you have specified the background color value
+<br><b>-f</b>
+      - fits the newly rotated bitmap into the original width/height
+<br><b>-c</b>
+      - centers the rotated image if -f is not specified
+<br><b>-m</b>
+      - changes the stretch mode quality when the picture is resized
+<br><b>-h</b>
+      - highlights the windows icon if it is minimized
+<br><b>-n</b>
+      - prevents the display from being updated immediately
+<br><b>-p</b>
+      - When centering, clip the rotated bitmap: only pixels inside the original bitmap are affected
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@win&gt;</b>
+      - the window's name
+<br><b>[color]</b>
+      - the background color if -b is used, WATCH OUT, there's no -r switch on /drawrot, the color has to be RGB format.
+<br><b>&lt;angle&gt;</b>
+      - the angle of the rotation
+<br><b>[x y w h]</b>
+      - the area to rotate
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

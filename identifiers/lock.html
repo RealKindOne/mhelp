@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$lock </H1>
+<br>
+<br>
+The <b>$lock</b> identifier returns $true or $false depending on the lock setting for the given item in the Lock dialog option.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$lock(item|#chan|N)
+</pre>
+
+<H4>Parameters</H4>
+<br><b>startup</b> - returns the setting for the 'ask for password: on startup' option
+<br><b>sendmessage</b> - returns the setting for the 'enable sendmessage server' option.
+<br><b>dll</b> - returns the setting for the 'disable: dll' option
+<br><b>send</b> - returns the setting for the 'disable: send' option
+<br><b>get</b> - returns the setting for the 'disable: get' option
+<br><b>chat</b> - returns the setting for the 'disable: chat' option
+<br><b>query</b> - returns the setting for the 'disable: query' option
+<br><b>fserve</b> - returns the setting for the 'disable: fserve' option
+<br><b>channels</b> - returns the setting for the checkbox of the 'limits channels to' option, you can access the different channel using the Nth parameter.
+<br><b>tray</b> - returns the setting for the 'hide tray menu window list when locked' option
+<br><b>tips</b> - returns the setting for the 'hide tips when locked' option
+
+<br><b>N</b> - returns the Nth channel in the list of limited channels
+<br><b>#chan</b> - returns the channel setting in the list of limited channels ($true if in the list)
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $lock(tray)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.61 (23 Sep 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+</body>
+</html>

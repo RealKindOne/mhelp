@@ -1,0 +1,63 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dde
+</H1>
+<br>
+<br>
+
+Dynamic Data Exchange (DDE) is a form of communication between two applications on a windows machine. 
+<br>The <b>/dde</b> command can be used to create a dde connection with a dde server. When the topic parameter is required, you can use empty quotes ("") to indicate a blank topic.
+<br>
+Transactions The dde command support three different types of transactions:
+<br>
+<br><b>XTYP_POKE</b> - Used by default, sends unsolicited data to the server.
+<br><b>XTYP_REQUEST</b>  - Used to request data from a server.
+<br><b>XTYP_EXECUTE</b> - Used to send a command string to the server.
+
+The only time the [data] parameter is required is when the XTYP_POKE transaction type is used.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dde [-re] &lt;service&gt; &lt;topic&gt; &lt;item&gt; [data]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+      - uses XTYP_REQUEST transaction
+<br><b>-e</b>
+      - uses XTYP_EXECUTE transaction
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;service&gt;</b>
+      - DDE Server service name
+<br><b>&lt;topic&gt;</b>
+      - DDE Topic
+<br><b>&lt;item&gt;</b>
+      - DDE Item
+<br><b>[data]</b>
+      - Data to be sent
+
+<H4>Example</H4>
+<pre class ="code">
+; Open a new tab in opera, navigate to www.google.com
+/dde -e Opera WWW_OpenURL "www.google.com"
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.9 (06 Jan 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\dde.html">$dde</a><br>
+   <a href="..\identifiers\isdde.html">$isdde</a><br>
+   <a href="..\identifiers\ddename.html">$ddename</a><br>
+   <a href="ddeserver.html">/ddeserver</a><br>
+</body>
+</html>

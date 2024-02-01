@@ -1,0 +1,69 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$asctime</H1>
+<br>
+<br>
+The <b>$asctime''' can be used to return the time and date in an optional text format. The time and date can be taken from the current time, or you can use '''$asctime''' to format a date in relation to <a href="ctime.html">$ctime</a><br>.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$asctime[([N,]format)]
+</pre>
+<H4>Parameters</H4>
+<span style="display: inline-block; width: 65px;">'''N'''</span>This parameter is optional, but normally would point to a value derived from <a href="ctime.html">$ctime</a><br>.
+
+<span style="display: inline-block; width: 65px;">'''format'''</span>This is where the formatting options would go. If you do not specify a <a href="ctime.html">$ctime</a><br> number '''N''' to evaluate, the formatting is performed on the current date and time.
+
+== Formatting Options ==
+{| class="wikitable" style="margin-left: 185px; width: 450px;"
+|-
+! '''Property''' !! Format !! Result
+|-
+| '''Day''' || <span style="display: block;">d</span><span style="display: block;">dd</span><span style="display: block;">ddd</span><span style="display: block;">dddd</span>|| <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Mon</span><span style="display: block;">Monday</span>
+|-
+| '''Month''' || <span style="display: block;">m</span><span style="display: block;">mm</span><span style="display: block;">mmm</span><span style="display: block;">mmmm</span> || <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Jan</span><span style="display: block;">January</span>
+|-
+| '''Year''' || <span style="display: block;">y</span><span style="display: block;">yyyy</span> || <span style="display: block;">14</span><span style="display: block;">2014</span>
+|-
+| '''Hours''' || <span style="display: block;">h</span><span style="display: block;">hh</span><span style="display: block;">H</span><span style="display: block;">HH</span> || <span style="display: block;">5</span><span style="display: block;">05</span><span style="display: block;">13</span><span style="display: block;">13</span>
+|-
+| '''Minutes''' || <span style="display: block;">n</span><span style="display: block;">nn</span> || <span style="display: block;">1</span><span style="display: block;">01</span>
+|-
+| '''Seconds''' || <span style="display: block;">s</span><span style="display: block;">ss</span> || <span style="display: block;">1</span><span style="display: block;">01</span>
+|-
+| '''AM/PM''' || <span style="display: block;">t</span><span style="display: block;">tt</span><span style="display: block;">T</span><span style="display: block;">TT</span> || <span style="display: block;">a/p</span><span style="display: block;">am/pm</span><span style="display: block;">A/P</span><span style="display: block;">AM/PM</span>
+|-
+| '''Ordinal''' || <span style="display: block;">oo</span> || <span style="display: block;">st nd rd th</span>
+|-
+| '''Timezone''' || <span style="display: block;">z</span><span style="display: block;">zz</span><span style="display: block;">zzz</span> || <span style="display: block;">+o</span><span style="display: block;">+oooo</span><span style="display: block;">+oooo GMT</span>
+|}
+
+'''Quick Note:''' All of the formatting parameters can touch each other, and they will be properly converted. For example: '''$asctime(hhnnss)''' would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
+
+== Examples ==
+'''Echo the current date and time'''
+<pre class ="code">//echo -a $asctime</pre>
+
+'''Echo the current date in the format Month Day, Year'''
+<pre class ="code">//echo -a $asctime(mmmm $+(dd,$chr(44)) yyyy)</pre>
+
+'''Using the $ctime of ''840240070'', format to Day Month Year hour:minute<am/pm>'''
+<pre class ="code">//echo -a $asctime(840240070,dd mmmm yyyy hh:nntt)</pre>
+
+'''Using the orbital format, we can add the proper orbitals to date digits'''
+<pre class ="code">//echo -a $asctime(mmmm $+(doo,$chr(44)) yyyy)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="ctime.html">$ctime</a><br>
+* <a href="date.html">$date</a><br>
+* <a href="time.html">$time</a><br>
+
+
+[[Category:mIRC identifiers|asctime]]</body>
+</html>

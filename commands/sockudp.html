@@ -1,0 +1,95 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockudp
+</H1>
+<br>
+<br>
+
+The <b>/sockudp</b> command allows you to send data to a specific address at a specific port destination (See :doc: `UDP sockets </advanced/sockets.html#udp-socket>` ).
+
+<br><b>Note:</b> if /sockudp fails, it sets :doc: `$sock().wserr </identifiers/$sock>` to the error value, and trigger on sockwrite with :doc: `$sockerr </identifiers/$sockerr>` set etc.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockudp -bntkduz [bindip] &lt;name&gt; [port] &lt;ipaddress&gt; &lt;port&gt; [numbytes] [text|&lt;%var&gt;|&binvar]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-b</b>
+      - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise
+<br><b>-n</b>
+      - Appens a :doc: `$crlf </identifiers/$crlf>` to the line being sent if it's not a &binvar or if does not already end with a $crlf
+<br><b>-t</b>
+      - Forces mIRC to send anything beginning with a & as plain text
+<br><b>-k</b>
+      - Keeps the socket opened
+<br><b>-d</b>
+      - Means you have specified the ip address as the bind address
+<br><b>-u</b>
+      - Enables dual stack socket to support both ipv4 and ipv6 for the listening socket, if that is available, you must bind to an ipv6 ip address
+<br><b>-z</b>
+      - Wait for the data to be sent if any and then close the socket
+
+<H4>Parameters</H4>
+
+
+<br><b>[bindip]</b>
+      - If -d has been specified, the ip address you want to use as the bind address.
+<br><b>&lt;name&gt;</b>
+      - The sockname name.
+<br><b>[port]</b>
+      - If specified, the local port to use, otherwise mIRC choose one randomly.
+<br><b>&lt;ipaddress&gt;</b>
+      - The ip address you want to send to information to, use you localhost 127.0.0.1 with -k to create a listening socket.
+<br><b>&lt;port&gt;</b>
+      - The port you want to send to information to, that's your listening port if you create a server.
+<br><b>[numbytes]</b>
+      - If -b has been specified, indicates the number of bytes you want to send.
+<br><b>[text|&lt;%var&gt;|&binvar]</b>
+      - If specified, the message you want to send, can be a binary variable. You don't want to specify that parameter if you create a server.
+
+<H4>Example</H4>
+<pre class ="code">
+alias gettime {
+  ; Set a NULL byte binary variable.
+  bset &null 1 0
+
+  ; Open a UDP connection to Time-a.nist.gov = 129.6.15.28
+  sockudp -k gettime 129.6.15.28 37 &null
+}
+
+ON *:UDPREAD:gettime: {
+  ; Read the reply.
+  sockread -f &time
+
+  var %time $bvar(&time,1,$bvar(&time,0))
+
+  ; Convert to binary, remove spaces.
+  var %bin $regsubex(%time, /(\d+)\s?/g, $base(\1, 10, 2, 8))
+
+  ; Get the current unix time in decimal system.
+  var %time = $base(%bin, 2, 10)
+
+  ; Print the time.
+  echo -ag Currnt Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
+
+  ; Close the socket
+  sockclose $sockname
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (19 Feb 1999)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+    * :doc: `on udpread </events/udp-socket>`
+    * :doc: `on sockwrite </events/on_sockwrite>`
+    * :doc: `$sockerr </identifiers/$sockerr_identifiers>`
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$notify</H1>
+<br>
+<br>
+The <b>$notify</b> identifier returns informations about nick in your notify list
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$notify(N/nick)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>nick</b> - The nickname you want to get information about
+<br><b>N</b> - The Nth nick in the notify list you want to get information about, if N = 0, returns the total number of nicknames in the notify list
+
+<H4>Properties</H4>
+<br><b>.ison</b> - returns $true if the user is on IRC, $false otherwise
+<br><b>.note</b> - returns the note associated for that nickname in the notify list
+<br><b>.sound</b> - returns the online sound setting for that nickname
+<br><b>.sound2</b> - returns the offline sound setting for that nickname
+<br><b>.whois</b> - returns $true if the option 'whois' is set for this nickname
+<br><b>.addr</b> - returns the server adddress entry for this nickname if you used a server format
+<br><b>.network</b> - returns the network entry for this nickname (if you used something that isn't a server format, basically)
+
+Without a property, $notify(nick) returns the Nth position and $notify(N) returns the nickname
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $notify(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\notify.html">/notify</a><br>
+
+</body>
+</html>

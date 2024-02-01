@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$get</H1>
+<br>
+<br>
+The <b>$get</b> identifier can be used to gather various details regarding open "/dcc get" windows, even if the transfers completed.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$get(N/nick[,N])[.property]
+</pre>
+<H4>Parameters</H4>
+| N/nick | Refers to either the Nth open connection, or the connection associated with a specific user's nickname
+| [N] | If a nickname is specified in the primary parameter, the secondary N targets the Nth connection associated with that nickname match
+
+
+When N = 0, $get(N) returns the total number of all transfers, and $get($nick,N) returns total transfers from $nick.<br />
+$get($nick) used without the 2nd N parameter returns $nick if there is at least 1 $get or $null if no transfers.<br />
+When N >=1, $get(N) or $get($nick,N) returns the $nick associated with that transfer.<br />
+When sender changes nick, the $get is still associated with the old nick unless you use: {{mIRC|/dcc|/dcc nick -sgcf <oldnick> <newnick>}}
+
+'''Note''': $get(-1) can be used during the {{mIRC|on events/on filercvd|ON FILERCVD}} and {{mIRC|on events/on getfail|ON GETFAIL}} events, it refers to the 'get' which triggered that event.
+
+<H4>Properties</H4>
+<br><b>.cid</b> - The connection id
+<br><b>.cps</b> - The characters-per-second transfer rate, averages speed during recent time period until transfer finishes, when rate is averaged across entire connection time
+<br><b>.done</b> - Returns <a href="true.html">$true</a> if the transfer has completed, otherwise returns <a href="false.html">$false</a>
+<br><b>.file</b> - The file name of the current transfer
+<br><b>.hwnd</b> - The window handle
+<br><b>.idle</b> - the number of seconds that the file transfer has been idle
+<br><b>.ip</b> - The [[IP Address]] for the remote user
+<br><b>.path</b> - The path of the file name being transferred
+<br><b>.pc</b> - The percentage complete for the transfer
+<br><b>.rcvd</b> - The total amount of bytes received so far including the resume offset received during a previous get
+<br><b>.resume</b> - If the transfer has been resumed, returns the location in the file from where the resume took place. Does not offer a way to discern between a transfer not resumed and a transfer resumed at offset zero
+<br><b>.secs</b> - The total number of seconds the transfer has been connected
+<br><b>.size</b> - The file size in bytes for the transfer
+<br><b>.status</b> - The status of the window; returns: '''sent''', '''active''', '''failed''', '''received''' or '''waiting'''
+<br><b>.wid</b> - The mIRC window id for this window
+
+<H4>Example</H4>
+Echo the total percent completed of the 3rd transfer:
+<pre class ="code">//echo -a $get(3).pc</pre>
+
+Echo the total number of transfers:
+<pre class ="code">//echo -a $get(0)</pre>
+
+Summary of open "/dcc get" windows:
+<pre class ="code">
+//var %i 1 | while ( %i isnum 1- $get(0) ) { echo -a %i nick: $get(%i) file: $get(%i).file size: $get(%i).size status: $get(%i).status | inc %i }
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="chat.html">$chat</a><br>
+<a href="fserve.html">$fserve</a><br>
+<a href="send.html">$send</a><br>
+
+</body>
+</html>

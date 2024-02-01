@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$isnumber</H1>
+<br>
+<br>
+The <b>$isnumber</b> identifier returns $true if text is a number, otherwise returns $false.
+
+'''Note''': switches affects the range number parameters, see the examples
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$isnumber(text,[sd],[I,J])</pre>
+
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - The input string to be checked<br />
+* '''s''' - also permits +- sign to be used
+* '''d''' - also permits the decimal, allowing numbers with fractions
+* '''[I,J]''' - If you pass a third and fourth parameters, they must be valid number (with respect to the switches used) and are used to validate the number in a range.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $isnumber(564)</pre>
+
+will return $true
+
+<pre class ="code">//echo -a $isnumber(abcdefG)</pre>
+
+will return $false because not all the characters are digits
+
+
+//var %a -123 | echo -a $isnumber(%a) vs $isnumber(%a,s)
+result: $false vs $true (using a sign requires 's')
+
+//echo -a $isnumber(3,d,2.1,4) vs $isnumber(3,,2.1,4)
+result: $false vs error, the d switches is required not only to allow decimal in the input, but in each range parameter as well
+
+<H4>Compatibility</H4>
+Added: mIRC v7.58 (17 Nov 2019)<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="calc.html">$calc</a><br>
+* {{mIRC|$isnum}}</body>
+</html>

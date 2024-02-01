@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$feof</H1>
+<br>
+<br>
+The <b>$feof</b> identifier returns 1 if the end of the file was reached from the last file access attempt in any script, 0 otherwise.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$feof
+</pre>
+<H4>Paramters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">//write -c test.txt test | fopen test test.txt | echo -a $fread(test) | echo -a $feof | echo -a > $fread(test) | echo -a $feof | fclose test | remove test.txt</pre>
+Note that when reading a file line by line with $fread, you need one extra evaluation so that $feof is set to 1
+
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (29 Aug 2003)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="ferr.html">$ferr</a><br>
+* <a href="fopen.html">$fopen</a><br>
+* <a href="fread.html">$fread</a><br>
+* <a href="fgetc.html">$fgetc</a><br>
+* <a href="..\commands\flist.html">/flist</a><br>
+* {{mIRC|/fopen}}
+* <a href="..\commands\fclose.html">/fclose</a><br>
+* <a href="..\commands\fwrite.html">/fwrite</a><br>
+* <a href="..\commands\fseek.html">/fseek</a><br>
+
+
+[[Category:mIRC identifiers|feof]]</body>
+</html>

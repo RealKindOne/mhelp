@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/flash
+</H1>
+<br>
+<br>
+
+The <b>/flash</b> command flashes the mIRC titlebar and tray icon. The title of the window can be set if the parameter is provided. mIRC or the window specified must not be the active window for this to work. The N parts of the switches are optional, if not specified the flashing and beeping will repeat continuously.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/flash -wNbNrNc [windowName] [titleText]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-w</b>N
+      - play the flash sound, limit to N times
+<br><b>-b</b>N
+      - beep, limit to N times
+<br><b>-r</b>N
+      - repeat the flashing N times
+<br><b>-c</b>
+      - clear the flash for all windows
+
+<H4>Parameters</H4>
+
+
+<br><b>[titleText]</b>
+      - The text to show up in the titlebar
+<br><b>[windowName]</b>
+      - The window name to flash
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    alias example {
+    ; create a new desktop window, minimize it
+    window -den @example
+    ; flash the window, beep
+    flash -b @example
+    }
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\window.html">$window</a><br>
+   <a href="..\identifiers\ebeeps.html">$ebeeps</a><br>
+   <a href="..\identifiers\vol.html">$vol</a><br>
+   <a href="beep.html">/beep</a><br>
+   <a href="ebeeps.html">/ebeeps</a><br>
+   <a href="vol.html">/vol</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

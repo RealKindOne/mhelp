@@ -1,0 +1,83 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/writeini
+</H1>
+<br>
+<br>
+
+The <b>/writeini</b> command is used to write and update a standard :doc: `initialization file </intermediate/data_storage.html#ini-files>` .
+
+Overview
+
+The Standard INI file has the following format:
+<br>
+
+<br>[Section]
+<br>Item=value
+<br>Item2=value
+<br>;some comment
+<br>[Section2]
+<br>Item=value
+<br>Item2=value
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/writeini [-nz] &lt;inifile&gt; &lt;section&gt; &lt;item&gt; &lt;value&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-n</b>
+      - Forces mIRC to write to an INI file, even if it's bigger then 64k (see note above)
+<br><b>-z</b>
+      - Write an empty value
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;inifile&gt;</b>
+      - The filename to write to
+<br><b>&lt;section&gt;</b>
+      - Section name
+<br><b>&lt;item&gt;</b>
+      - Item name
+<br><b>&lt;value&gt;</b>
+      - The data to store for the item
+
+<H4>Example</H4>
+<pre class ="code">
+; Write a few items to a file
+/writeini abb.ini abbreviations lol Laughing Out Loud
+/writeini abb.ini abbreviations rofl Rolling On the Floor, Laughing
+
+/*
+abb.ini format:
+
+[abbreviations]
+lol=Laughing Out Loud
+rofl=Rolling On the Floor, Laughing
+*/
+
+; Retrieve 'lol'
+//echo -a $readini(abb.ini, n, abbreviations, lol)
+
+; Prints out: Laughing Out Loud
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (06 Jul 1996)
+
+<H4>Notes</H4>
+For mIRC &lt;= 6.35: Writing to a file bigger than 64KB requires the -n switch, otherwise an error will be generated, halting the script. ([http://support.microsoft.com/kb/78346 This is a limitation of the standard Win32 API] GetPrivateProfileString() and WritePrivateProfileString())
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\readini.html">$readini</a><br>
+   <a href="..\identifiers\ini.html">$ini</a><br>
+   <a href="..\identifiers\read.html">$read</a><br>
+   <a href="..\identifiers\mircini.html">$mircini</a><br>
+   <a href="..\identifiers\mircdir.html">$mircdir</a><br>
+   <a href="write.html">/write</a><br>
+</body>
+</html>

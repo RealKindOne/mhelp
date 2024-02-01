@@ -1,0 +1,50 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$avoice</H1>
+<br>
+<br>The <b>$avoice''' identifier allows you to get data from your [[/avoice command - mIRC|Auto-Voice]] list in mIRC.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$avoice(address/N)[.property]
+
+'''Note:''' $avoice by itself returns ''$true'' if auto-voice is enabled, otherwise it returns ''$false''.
+</pre>
+<H4>Parameters</H4>
+'''address'''</span>Returns any match based on the specified address from the auto-voice list.
+
+<br><b>N</b> - Returns any match in the auto-voice list based on the Nth entry in the list. If N is 0, the total amount of addresses in the auto-voice list will be returned.
+
+<H4>Properties</H4>
+'''type'''</span>If a match is found, returns the list of channels associated with its auto-voice.
+
+'''network'''</span>Returns which network the auto-voice is associated with.
+
+== Examples ==
+'''Echo to the active window whether or not auto-voice is enabled'''
+<pre class ="code">//echo -a $avoice</pre>
+
+'''Echo to the active window the total number of addresses in the auto-voice list'''
+<pre class ="code">//echo -a $avoice(0)</pre>
+
+'''Echo to the active window the network that the match is associated with'''
+<pre class ="code">//echo -a $avoice(*testhost.com).network</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$aop}}
+* {{mIRC|$auto}}
+* {{mIRC|/aop}}
+* {{mIRC|/avoice}}
+* {{mIRC|/ignore}}
+* {{mIRC|/pop}}
+* {{mIRC|/pvoice}}
+
+
+[[Category:mIRC identifiers|avoice]]</body>
+</html>

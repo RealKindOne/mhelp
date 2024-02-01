@@ -1,0 +1,46 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$nopnick</H1>
+<br>
+<br>
+The <b>$nopnick</b> identifier returns the Nth nickname that is not an operator on the channel.
+
+<br>
+<br>
+<b>Note:</b> This feature is depricated and has been replaced by <a href="nick.html">$nick</a>.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$nopnick(#channel,N/nick)
+</pre>
+<H4>Parameters</H4>
+<br><b>#channel</b> - The channel you want to check for non-op nickname
+<br><b>N/nick</b> - The Nth non-op nick on the channel, or if you pass a nickname, it returns the number N, where $nopnick(#,N) return the nickname.
+<br>
+<br>
+<b>Note:</b> With a third and fourth parameter, i.e. $nopnick(#,N/nick,aohvr,aohvr), this identifier behaves exactly the same as $nick(#,N/nick,aohvr,aohvr)
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $nopnick($chan,1)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+Nicks returned by $nopnick are those who don't have the 'o' operator status, even if they have the non standard +qa mode/status, it means that if a nickname is only +q, $nopnick() can return that nickname. When used with 2 parameters, it is equivalent to $nick(#,N/nick,a,o)
+<br>
+<br>
+The nickname doesn't have to be strictly an operator to be ignored, it means that someone which is an operator and is voiced won't be returned by $nopnick.
+
+<H4>See also</H4>
+<a href="nick.html">$nick</a><br>
+<a href="opnick.html">$opnick</a><br>
+<a href="hnick.html">$hnick</a><br>
+<a href="nhnick.html">$nhnick</a><br>
+<a href="vnick.html">$vnick</a><br>
+<a href="nvnick.html">$nvnick</a><br>
+</body>
+</html>

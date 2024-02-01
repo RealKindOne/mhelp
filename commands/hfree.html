@@ -1,0 +1,75 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/hfree
+</H1>
+<br>
+<br>
+
+The <b>/hfree</b> command destroys previously created hash table(s) along with all item/data pairs within them. A hash table can be created via the :doc: `/hmake </commands/hmake>` command.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/hfree [-sw] <table>
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - Displays debug information
+<br><b>-w</b>
+      - Treats <table> as a <a href="..\other\wildcard.html">wildcard</a> and deletes all matching tables.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;table&gt;</b>
+      - the table you wish to delete.
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    alias del_hash {
+    ;makes the hash table 'hash'
+    hmake hash
+    echo -a $hget(hash) : $hget(hash).size
+    ;makes the hash table 'h' with 10 buckets
+    hmake h 10
+    ;makes the hash table 'has' with 20 buckets
+    hmake has 20
+    ;deletes hash table 'hash'
+    hfree -s hash
+    echo -a $hget(h) : $hget(h).size - $hget(has) : $hget(has).size
+    ;deletes any hash tables matching h*
+    hfree -sw h*
+    }
+
+
+    //hfree -s test | hfree -s test | echo -a test message
+    * When not using the -w switch, trying to free a non-existent table is an error which halts execution of a script, so the echo does not display
+
+    //hfree -sw test | hfree -sw test | echo -a test message
+    * Using the -w switch allows deleting zero tables matching the wildcard, enabling the echo to display.
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.8 (14 Dec 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="hmake.html">/hmake</a><br>
+   <a href="hload.html">/hload</a><br>
+   <a href="hsave.html">/hsave</a><br>
+    * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>`
+   <a href="hadd.html">/hadd</a><br>
+   <a href="hdel.html">/hdel</a><br>
+   <a href="hinc.html">/hinc</a><br>
+   <a href="hdec.html">/hdec</a><br>
+   <a href="..\identifiers\hget.html">$hget</a><br>
+   <a href="..\identifiers\hfind.html">$hfind</a><br>
+</body>
+</html>

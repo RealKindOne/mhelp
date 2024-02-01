@@ -1,0 +1,71 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dec
+</H1>
+<br>
+<br>
+
+The <b>/dec</b> command decreases the value of a variable by a given value. If no value is specified, mIRC will decrease the variable by one. The /dec command works with both positive and negative values alike.
+
+<br><b>Note:</b> /dec always keeps the unset time if there is one for the current variable, as though there was a -k switch from <a href="set.html">/set</a>, there's no switch to prevent this behavior and unset the time while setting the value.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dec [-crszeuN] &lt;%var&gt; [value]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - Prints out the value of the variable
+
+Global variables only:
+
+
+<br><b>-c</b>
+      - Decreases the variable once per second
+<br><b>-r</b>
+      - Decreases the variable once per second (same as -c)
+<br><b>-z</b>
+      - Decreases the variable every second until it reaches zero at which point the variable will get removed.
+<br><b>-e</b>
+      - Unsets the variable when mIRC exits
+<br><b>-u</b>N
+      - Decrease the variable once and unsets the variable after N seconds.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;%var&gt;</b>
+      - The variable's name
+<br><b>[value]</b>
+      - Optional numeric value to decrease the variable by
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; Create a local variable and set it to 10
+  var %x 10
+  ; Decrease %x by 5
+  dec %x 5
+  ; Print out %x's content
+  echo -a %x
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.0 (20 Mar 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\var.html">$var</a><br>
+   <a href="inc.html">/inc</a><br>
+   <a href="set.html">/set</a><br>
+   <a href="unset.html">/unset</a><br>
+   <a href="var.html">/var</a><br>
+</body>
+</html>

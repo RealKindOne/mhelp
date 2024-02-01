@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/fseek
+</H1>
+<br>
+<br>
+
+The <b>/fseek</b> command sets the read/write pointer to the specified position in the file, position starts at 0.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/fseek -nlwrp &lt;name&gt; &lt;position|N|matchtext&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-l</b>
+      - sets the pointer to the beginning of the Nth line
+<br><b>-n</b>
+      - sets the pointer to the beginning of the next line (from the current position of the read/write pointer)
+<br><b>-w</b>
+      - sets the pointer to the beginning of the line matching the <a href="..\other\wildcard.html">wildcard</a> expression
+<br><b>-r</b>
+      - sets the pointer to the beginning of the line matching the regular expression
+<br><b>-p</b>
+      - sets the pointer to the beginning of the current line, if the pointer is already at the beginning of a line, it sets the pointer to the beginning of the previous line
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - the name of the file handle
+<br><b>&lt;position|N|matchtex&gt;</b>
+      - not required if you use -n, if -l is used: a line number, if -w is used: a <a href="..\other\wildcard.html">wildcard</a> expression, if -r is used: a regular expression, if no switch is used, it's the position in the file (Nth byte)
+
+<br><b>Note:</b> if /fseek is not successful (can't find a match with -w or -r, can't find the Nth line with -l etc), it will set the read/write pointer to the end of the file. $fopen().err is not set, but $fopen().eof is.
+
+<H4>Example</H4>
+<pre class ="code">
+/fseek myfile 42
+/fseek -l myfile 12
+/fseek -n
+/fseek -w *findthis*
+/fseek -r /findthat/
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (17 Feb 2006)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\fread.html">$fread</a><br>
+   <a href="..\identifiers\fopen.html">$fopen</a><br>
+   <a href="..\identifiers\ferr.html">$ferr</a><br>
+   <a href="..\identifiers\feof.html">$feof</a><br>
+   <a href="..\identifiers\fgetc.html">$fgetc</a><br>
+   <a href="fclose.html">/fclose</a><br>
+   <a href="flist.html">/flist</a><br>
+   <a href="fopen.html">/fopen</a><br>
+</body>
+</html>

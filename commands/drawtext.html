@@ -1,0 +1,71 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawtext
+</H1>
+<br>
+<br>
+
+The <b>/drawtext</b> command draws text at the specified co-ordinates. If you use a negative number for the font size, it will match the size of fonts in the font dialog. The /drawtext command will use some default options for anti-aliasing that you cannot change (yet), meaning that a text drawn in black may not be drawn only using the expected color, this can be a real concern when using <a href="drawfill.html">/drawfill</a> to fill an area with text inside it.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawtext -hnrpbocvd &lt;@win&gt; &lt;color&gt; [color] [fontname fontsize] &lt;x y [w h]&gt; &lt;text&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-p</b>
+      - processes and interprets control codes in the text
+<br><b>-b</b>
+      - indicates that you have specified the second color parameter as the background color for the text
+<br><b>-c</b>
+      - means that you have specified the [w h] values as the rectangle in which text should be printed. Text will be clipped if it extends beyond this rectangle
+<br><b>-h</b>
+      - highlights the windows icon if it is minimized
+<br><b>-n</b>
+      - prevents the display from being updated immediately
+<br><b>-r</b>
+      - indicates that the colors are in RGB format
+<br><b>-o</b>
+      - Attempt to draw the text in bold. A $chr(2) is inserted at the beginning of the string and is interpreted (but the others control codes won't be). If you use -p as well as -o, control code will be interpreted and having a $chr(2) in your text will break the bold.
+<br><b>-i</b>
+      - Same as -o but for italic with $chr(29)
+<br><b>-v</b>
+      - Draw text from a binvar
+<br><b>-d</b>
+      - disable tab support
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@win&gt;</b>
+      - the window's name
+<br><b>&lt;color&gt;</b>
+      - the foreground color
+<br><b>[color]</b>
+      - the background color, if -b has been specified
+<br><b>[fontname fontsize]</b>
+      - the name of the font and the size of the font
+<br><b>&lt;x y [w h]&gt;</b>
+      - the coordinate of the text
+<br><b>&lt;text&gt;</b>
+      - the text to be drawn
+
+<H4>Example</H4>
+<pre class ="code">
+/drawtext -rn @mygame 0 verdana 20 30 30 the fps is: 60
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\width.html">$width</a><br>
+   <a href="..\identifiers\height.html">$height</a><br>
+</body>
+</html>

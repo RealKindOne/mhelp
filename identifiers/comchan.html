@@ -1,0 +1,45 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$comchan</H1>
+<br>
+<br>
+The <b>$comchan</b> identifier is used to return the common channels that both the local mIRC client, and a remote user, share.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$comchan(nick,N)[.property]
+</pre>
+<H4>Parameters</H4>
+{{ArgsList
+| nick | The nickname of the user to find common channels with
+| N | The Nth common channel that both the local and remote clients share
+}}
+
+<H4>Properties</H4>
+{{ArgsList
+| op | Returns <a href="true.html">$true</a><br> if the local mIRC client is opped on the matched channel
+| help | Returns <a href="true.html">$true</a><br> if the local mIRC client is a helper on the matched channel
+| voice | Returns <a href="true.html">$true</a><br> if the local mIRC client is voiced on the matched channel
+| owner | Returns <a href="true.html">$true</a><br> if the local mIRC client is owner on the matched channel
+}}
+
+<H4>Example</H4>
+Echo the common channels of the local client, and a remote user nicknamed '''myFriend''':
+<pre class ="code">//echo -a $comchan(myFriend,0)</pre>
+
+Echo the common channels of the local client, and a remote user nicknamed ''myFriend''', and if the local client is opped on the first match:
+<pre class ="code">//echo -a Total common channels: $comchan(myFriend,0) --- Is opped on $comchan(myFriend,1) $+ : $comchan(myFriend,1).op</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (02 Apr 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$channel}}
+* <a href="nick.html">$nick</a><br>
+
+
+</body>
+</html>

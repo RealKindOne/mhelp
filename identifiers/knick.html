@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$knick</H1>
+<br>
+<br>
+The <b>$knick</b> identifier refers to the nickname of a user who has been kicked from a channel. This can also be the local mIRC client nickname if an [[On me - mIRC|ON ME]] TODO kick event is being monitored.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$knick
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Send a notice to a kicked user with information about the kick:
+<pre class ="code">ON *:KICK:#: {
+  .notice $knick You were kicked from $chan by $nick for the following reason: $iif($1-,$1-,No reason given)
+}
+</pre>
+
+The following is an example of the above code:
+You were kicked from #BreakingBad by WalterWhite for the following reason: Stop mass-highlighting!
+
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Ban.html">on_Ban</a><br>
+<a href="..\events\on_Join.html">on_Join</a><br>
+<a href="..\events\on_Part.html">on_Part</a><br>
+<a href="..\events\on_Unban.html">on_Unban</a><br>
+<a href="chan.html">$chan</a><br>
+<a href="nick.html">$nick</a><br>
+
+
+</body>
+</html>

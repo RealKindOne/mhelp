@@ -1,0 +1,45 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Dehelp</H1>
+<br>
+<br>
+The <b>ON DEHELP</b> event triggers whenever a user on a channel has had their helper status (mode -h) removed in a channel.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:DEHELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+* '''<*><#>''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>*</b> - Any channel window
+** '''#''' - Any channel window
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+
+== {{mIRC|local identifiers}} ==
+
+=== {{mIRC|$hnick}} ===
+
+Returns the nickname of the user being dehelped.
+
+<H4>Example</H4>
+Acknowledge when any user has been dehelped on all channels
+<pre class ="code">ON *:DEHELP:#:msg # Sorry to see the helper privilege removed from $hnick $+ .</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.4}}
+
+== See Also ==
+* [[On deop - mIRC|ON DEOP]]
+* [[On deowner - mIRC|ON DEOWNER]]
+* [[On devoice - mIRC|ON DEVOICE]]
+* [[On help - mIRC|ON HELP]]
+* [[On op - mIRC|ON OP]]
+* [[On owner - mIRC|ON OWNER]]
+* [[On voice - mIRC|ON VOICE]]
+* {{mIRC|/mode}}
+* {{mIRC|$mode}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|dehelp]]</body>
+</html>

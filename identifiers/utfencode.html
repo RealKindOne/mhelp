@@ -1,0 +1,62 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$utfencode</H1>
+<br>
+<br>
+The <b>$utfencode</b> identifier returns text encoded to utf8.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$utfencode(text,gdi)
+</pre>
+<H4>Parameters</H4>
+
+<br><b>text</b> - The text you want to encode to utf8
+<br><b>gdi</b> - the gdi charset number representing a codepage, possible value are:
+<br>
+<br><b>000</b>- ANSI_CHARSET
+<br><b>001</b>- DEFAULT_CHARSET
+<br><b>002</b>- SYMBOL_CHARSET
+<br><b>077</b>- MAC_CHARSET
+<br><b>128</b>- SHIFTJIS_CHARSET
+<br><b>129</b>- HANGEUL_CHARSET
+<br><b>130</b>- JOHAB_CHARSET
+<br><b>134</b>- GB2312_CHARSET
+<br><b>136</b>- CHINESEBIG5_CHARSET
+<br><b>161</b>- GREEK_CHARSET
+<br><b>162</b>- TURKISH_CHARSET
+<br><b>163</b>- VIETNAMESE_CHARSET
+<br><b>177</b>- HEBREW_CHARSET
+<br><b>178</b>- ARABIC_CHARSET
+<br><b>186</b>- BALTIC_CHARSET
+<br><b>204</b>- RUSSIAN_CHARSET
+<br><b>222</b>- THAI_CHARSET
+<br><b>238</b>- EASTEUROPE_CHARSET
+<br><b>255</b>- OEM_CHARSET
+
+
+Note: GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using gdi = 1.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $utfencode(é)
+
+; Code point 195 in GREEK_CHARSET is looked up and found to have been assigned the abstract character named GREEK CAPITAL LETTER GAMMA.
+; Unicode's code page is referenced and GREEK CAPITAL LETTER GAMMA is located at code point 915 (U+0393 or $chr(915) in mIRC).
+; Code point 915 is now encoded using the standard procedure for UTF-8 encoding, as though $utfencode($chr(915)) was originally used.
+//echo -a $utfencode($chr(195), 161)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.17 (17 Feb 2006)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="utfdecode.html">$utfdecode</a><br>
+
+</body>
+</html>

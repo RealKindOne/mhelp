@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$send</H1>
+<br>
+<br>
+The <b>$send</b> identifier can be used to gather various details regarding open {{mIRC|DCC Send}} windows.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$send(N/nick[,N])[.property]
+</pre>
+<H4>Parameters</H4>
+
+<b>N/nick</b> - Refers to either the Nth open connection, or the connection associated with a specific user's nickname
+<b>[N]</b> - If a nickname is specified in the primary parameter, the secondary N targets the Nth connection associated with that nickname match
+
+<H4>Properties</H4>
+
+<br><b>.cid</b> - the connection id
+<br><b>.cps</b> - the characters-per-second transfer rate
+<br><b>.done</b> - returns <a href="true.html">$true</a> if the transfer has completed, otherwise returns <a href="false.html">$false</a>
+<br><b>.file</b> - the file name of the current transfer
+<br><b>.hwnd</b> - the window handle
+<br><b>.idle</b> - how long since the file transfer has been idle
+<br><b>.ip</b> - the [[IP Address]] for the remote user
+<br><b>.path</b> - the path of the file name being transferred
+<br><b>.pc</b> - the percentage complete for the transfer
+<br><b>.rcvd</b> - the total amount of bytes received so far
+<br><b>.resume</b> If the transfer has been resumed, returns the location in the file from where the resume took place
+<br><b>.secs</b> - the total number of seconds the transfer has been connected
+<br><b>.size</b> - the file size in bytes for the transfer
+<br><b>.status</b> - the status of the window; returns: '''active''', '''failed''', '''sent''' or '''waiting'''
+<br><b>.wid</b> - the mIRC window id for this window
+
+
+<H4>Example</H4>
+Echo the total percent completed of the 2nd transfer:
+<pre class ="code">//echo -a $send(2).pc</pre>
+
+Echo the total number of transfers:
+<pre class ="code">//echo -a $send(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="chat.html">$chat</a><br>
+<a href="fserve.html">$fserve</a><br>
+<a href="get.html">$get</a><br>
+
+
+</body>
+</html>

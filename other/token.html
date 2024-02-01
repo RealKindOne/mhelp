@@ -1,0 +1,199 @@
+{{mirc title|Token Manipulation}}
+If you are like many people who are coming from another programming language it might come as a surprise to you that there are no true arrays in mSL. This is because the paradigm is a little different: an array in mSL can be thought of as simply a list or vector of tokens. In mSL, a '''token''' is simply a string of characters that is separated by a single, unique character. mIRC provides an extensive set of identifiers and commands to help you manipulate this list of tokens.
+
+== Lists ==
+
+To better understand this concept; let's consider a simple alias that returns the day of the week from a given Nth day. In this case, our list of tokens will look something like this:
+
+<pre>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</pre>
+
+The first thing you can see is that we have the tokens (in this case, the days of the week) separated by a comma. In this example, the comma is called a delimiter. In mSL, a '''delimiter''' is a single character used to specify the boundary between two separate tokens in a list. The example above also has a special name: '''comma-separated values''' ('''CSV''').
+
+One of the most commonly used identifiers is the ''$gettok'' identifier. The ''$gettok'' identifier can be used to retrieve a single token from a list separated by a specific character according to its position. For example, Sunday is the first token and thus position 1. Monday is position 2.
+
+Lets take a look at a working $getday alias. We will talk about the exact syntax of $gettok later on.
+
+<syntaxhighlight lang="mirc">/* $getday(<1-7>) - returns the day of the week
+ */
+alias getday {
+  if ($1 !isnum 1-7) {
+    echo -sce info * Invalid parameters: $!getday
+    halt
+  }
+  var %days = Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+  return $gettok(%days, $1, 44)
+}</syntaxhighlight>
+
+The example above will return the day of the week given its Nth position, for example $getday(1) will return Sunday.  Notice how $gettok took the list of days, the position (first argument), and the delimiter. 44 is the code point for the comma character (U+002C). We will talk about how the $gettok identifier works in more detail later on.
+
+== Delimiter ==
+
+As we said before, a delimiter is a single character used to specify the boundary between two separate tokens in a list. For all the built-in token manipulation commands and identifiers, the delimiter is the <strong>code point</strong> value of the character. For more information, check out Unicode.
+
+It is important to note that you cannot represent a $null or empty token. Additionally, multiple consecutive delimiters are treated as a single delimiter. Leading and trailing delimiters are ignored.
+
+== $N Identifiers ==
+
+You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the [[Aliases - mIRC|aliases tutorial]]. The number of tokens in $N is stored in $0.
+
+It is important to note that you can also populate the $N identifiers via the [[#Tokenizing_a_string|/tokenize command]].
+
+== Adding/Inserting/Replace tokens to a list ==
+
+There are two built-in ways to add or insert a token into a list: the $addtok and $instok identifiers.
+
+<syntaxhighlight lang="mirc">var %newList = $addtok(<list>, <token>, <code_point>)
+var %newList = $instok(<list>, <token>, <Nth_pos>, <code_point>)</syntaxhighlight>
+
+The major difference between $instok and $addtok is that $addtok will not append a token that is already found in the string while $instok will. &lt;Nth_pos&gt; is the position of where the token should be placed. For example 5 will be the 5th element. A negative number can be used as well to indicate the Nth token from the end instead of the begging. For example -1 is the 2nd to last element, or the 1 element before the last element.
+
+<syntaxhighlight lang="mirc">//echo -a $addtok(A B C D, E, 32)
+A B C D E
+;remember $addtok will not add duplicates
+//echo -a $addtok(A B C D, A, 32)
+A B C D
+//echo -a $instok(a b c, @, 1, 32)
+@ a b c
+;instok will add duplicates
+//echo -a $instok(a b c, a, 2, 32)
+a a b c</syntaxhighlight>
+
+A nice application is an auto-joiner script. Using the /ajoin_add command we can add more channels to our auto-join script.
+
+<syntaxhighlight lang="mirc">; add channel to auto-join list
+; /ajoin_add #foo
+alias ajoin_add {
+  set %auto_join $addtok(%auto_join, $1, 44)
+}
+on *:connect:{
+  timer 1 1 join %auto_join
+}</syntaxhighlight>
+
+=== Replacing Tokens ===
+To replace a token you can use $puttok and the $reptok. $puttok replaces by the Nth token while $reptok replaces by the token's value.
+<syntaxhighlight lang="mirc">var %str = $puttok(<list>, <token>, <Nth_pos>, <code_point>)
+var %str = $reptok(<list>, <token>, <newToken>, <Nth_pos>, <code_point>)</syntaxhighlight>
+for example:
+<syntaxhighlight lang="mirc">; mask an ip address
+alias maskIP return $puttok($1, xxx, 3-, 46)
+; //echo -a $maskIP(192.168.1.1)
+; 192.168.xxx.xxx</syntaxhighlight>
+
+=== Removing tokens ===
+
+There are two identifiers that lets you remove tokens from the list: $deltok allows the deletion of tokens by their position while $remtok can be used to delete tokens by their value.
+
+<syntaxhighlight lang="mirc">var %str = $deltok(<list>, <Nth_pos>, <code_point>)
+;$deltok also supports a range of tokens
+var %str = $deltok(<list>, <Nth_pos-N2th_pos>, <code_point>)
+var %str = $remtok(<list>, <token>, <Nth_pos>, <code_point>)</syntaxhighlight>
+
+$deltok can delete a single token or multiple depending on the specified range. $remtok's &lt;Nth_pos&gt; parameter is used to specify the Nth matching token to be removed. If &lt;Nth_pos&gt; is 0, all matching tokens are removed.
+
+<syntaxhighlight lang="mirc">//echo -a $deltok(this is not really cool!, 3-4, 32)
+this is cool!
+//echo -a $deltok(A B C D, -1, 32)
+A B C
+//echo -a $remtok(A:B:C:A:B:C:A:B:C, A, 0, 58)
+B:C:B:C:B:C</syntaxhighlight>
+
+== Practical applications ==
+
+By now, you should be seeing why arrays in other languages can be visualized as a list of tokens in mSL. Below is a practical example of a simple queue (a FIFO, first-in-first-out, data structure). You can run the driver by calling /queue_example.
+
+<syntaxhighlight lang="mirc">/* A very simple queue example
+*/
+alias queue_push {
+  set %queue $instok(%queue, $1, 0, 7)
+}
+alias queue_pop {
+  var %tok = $gettok(%queue, 1, 7)
+  set %queue $deltok(%queue, 1, 7)
+  if (!%queue) unset %queue
+  return %tok
+}
+alias queue_example {
+  queue_push item1
+  queue_push item2
+  queue_push item3
+  while ($queue_pop) echo -a $v1
+}</syntaxhighlight>
+
+The script above uses character with the code point of 7 as its delimiter. The script works pretty well for small values (can store as much as 200 items with an average value length of 20 characters or 20 lines with an average of 200 characters per line). Clearly one of the preconditions is that the value cannot contain any characters with a code point value of 7. This example is clearly not suitable for large queues or queues that must execute really fast. (The reason we've used code point 7 is because it's a control character that means bell signal. This makes it one of the least likely characters to be used as a value).
+
+== Token Searching/Retrieval ==
+
+Sometimes we do not know the position or the entire value of a token. There are a number of built-in identifiers to help search a list for a specific token. To search for a token in a string there are three useful identifiers for that: $findtok, $matchtok, and $wildtok. To retrieve the Nth token from a string there is $gettok.
+<syntaxhighlight lang="mirc">;will return the position of the Nth matching token
+var %pos = $findtok(<list>, <token>, <Nth_pos>, <code_point>)
+var %result = $matchtok(<list>, <substring>, <Nth_pos>, <code_point>)
+var %result = $wildtok(<list>, <wildstring>, <Nth_pos>, <code_point>)
+;to get the Nth token
+var %tok = $gettok(<list>, <N>, <code_point>)</syntaxhighlight>
+$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports {{mirc|wildcard}} characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
+<syntaxhighlight lang="mirc">//echo -a $findtok(a a b c d, a, 0, 32)
+2
+//echo -a $matchtok(this is an example, e, 1, 32)
+example
+//echo -a $wildtok(this is a test, ?e?t, 1, 32)
+test
+//echo -a $gettok(192.168.1.0, 1, 46)
+192</syntaxhighlight>
+
+== Miscellaneous Identifiers ==
+
+In addition to the identifiers we've introduced above, there are a few identifiers that have a more general purpose.
+
+=== Size of list ===
+
+To get the size or number of tokens in a list, you can use the $numtok identifier:
+
+<syntaxhighlight lang="mirc">var %count = $numtok(<list>, <code_point>)</syntaxhighlight>
+
+=== Existence and Sorting ===
+
+The $istok identifier is perhaps the most commonly used identifier in the entire language. It simply returns true or false if the token exists in a list or not.
+
+<syntaxhighlight lang="mirc">var %result = $istok(<list>, <token>, <code_point>)</syntaxhighlight>
+
+Another useful feature is the $sorttok identifier which lets you sort the list of tokens numerically, alphabetically, or according to the channel mode prefix. Using r with any of the options will reverse the order.
+
+<syntaxhighlight lang="mirc">var %result = $sorttok(<list>, <code_point>, <sortingOption>)</syntaxhighlight>
+
+A common application is to validate that a value is one of a few possible options.
+
+<syntaxhighlight lang="mirc">if ($istok(red green blue yellow, $1, 32)) {
+  echo -sce info * Invalid color: $!foobar
+  halt
+}</syntaxhighlight>
+
+The sorting options are <em>n</em> for numeric, <em>c</em> for channel prefix, and <em>a</em> for alphabetical. <em>r</em> can be used with any of the options to reverse the order.
+
+<syntaxhighlight lang="mirc">;reverse numeric sort
+//echo -a $sorttok(456 3 7 2345 78 23 9943 123 54 1 34 -45 -22, 32, nr)
+9943 2345 456 123 78 54 34 23 7 3 1 -22 -45
+;channel prefix
+//echo -a $sorttok(+aa @bb +cc dd @ee, 32, c)
+@bb @ee +aa +cc dd</syntaxhighlight>
+
+=== Tokenizing a string ===
+Recall from an earlier tutorial that when you call an alias as a command, all the parameters you pass to it are stored in $N. It's possible to programmatically create this same result using the /tokenize command. That command lets you break down a string into tokens that will be stored in $N.
+
+<syntaxhighlight lang="mirc">tokenize <code_point> <string></syntaxhighlight>
+
+For example
+
+<syntaxhighlight lang="mirc">//tokenize 32 A B C | echo -a $0 - $3, $2, $1
+3 - C, B, A</syntaxhighlight>
+
+== Case Sensitivity ==
+
+None of the identifiers explained above are case sensitive. If you wish to work with a case sensitive list or tokens, it's still possible. All the identifiers have their counterpart case sensitive version. They follow the same syntax and they names are identifier with the addition of the "cs" at the end.
+
+For example:
+
+* $istok -> $istokcs
+* $matchtok -> $matchtokcs
+* $findtok -> $findtokcs
+
+[[Category:mIRC|token manipulation]]

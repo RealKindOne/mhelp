@@ -1,0 +1,35 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$menu</H1>
+<br>
+<br>
+The <b>$menu</b> identifier return the name of menu in use.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$menu
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+menu nicklist,channel {
+  $iif($menu == nicklist,...):{}
+  $iif($menu == channel,...):{}
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.6 (03 Jun 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="menutype.html">$menutype</a><br>
+<a href="menucontext.html">$menucontext</a><br>
+
+</body>
+</html>

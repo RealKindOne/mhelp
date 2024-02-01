@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$hotlink</H1>
+<br>
+<br>
+The <b>$hotlink</b> identifier returns informations about what triggered the <a href="..\events\on_HotLink.html">on_HotLink</a> event.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$hotlink(item)
+</pre>
+<H4>Parameters</H4>
+<br><b>word</b> - returns the full word which matched the expression and triggered the event, same as $1, except that $hotlink(word) does not strip the word from control code
+<br><b>match</b> - returns the part of the word that was used for a comparison to gives the type of match. For example if you hover an operator on a channel with the word "<@nick>", $hotlink(match) is "nick" where $hotlink(word) is "<@nick>"
+<br><b>event</b> - returns the mouse event which triggered the <a href="..\events\on_HotLink.html">on_HotLink</a> event, can be "mouse", "sclick", "uclick", "dclick", or "rclick"
+<br><b>line</b> - returns the full line which triggered the <a href="..\events\on_HotLink.html">on_HotLink</a> event.
+
+<H4>Properties</H4>
+<br><b>.pos''' - the .pos property can only be used with "line", "word" and "match" items:
+** '''$hotlink(line).pos</b> - returns the line's number in the window
+** '''$hotlink(word).pos</b> - returns the Nth token number of the word in the line (Nth word)
+** '''$hotlink(match).pos</b> - returns the position/index of the matching word in the line (Nth character), starting with an index count of 0.
+*'''.type''' - used only with "match" item, returns the type of match, can be "nick", "channel", "url" and "other"
+
+<H4>Example</H4>
+<pre class ="code">on *:hotlink:*:*:echo -a $hotlink(match)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.24 (26 May 2012)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mIRC|/hotlink}}
+<a href="..\events\on_HotLink.html">on_HotLink</a><br>
+
+</body>
+</html>

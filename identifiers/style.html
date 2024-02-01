@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$style</H1>
+<br>
+<br>
+The <b>$style</b> can be used inside menu definition to create a checked or disabled (or both) menu item.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$style(N)
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - use N = 1 for checked, N = 2 for disabled and N = 3 for both
+
+<H4>Properties</H4>
+None
+
+
+<H4>Example</H4>
+<pre class ="code">menu status {
+  $iif($server == $null,$style(2)) Server Info
+  .$style(1) This line is always checked:halt
+  .Motd:/motd
+  .Time:/time
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+<H4>Notes</H4>
+
+The $style(N) identifier must be the first word in the menu definition.
+
+<H4>See also</H4>
+
+
+</body>
+</html>

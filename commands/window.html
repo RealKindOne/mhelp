@@ -1,0 +1,207 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/window
+</H1>
+<br>
+<br>
+
+The <b>/window</b> command can be used to create :doc: `Custom Windows </intermediate/gui_scripting.html#custom-windows>` and :doc: `Picture Windows </intermediate/gui_scripting.html#picture-windows>` (using the -p switch), or to manipulate an existing custom or channel window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/window [-abBcCdDe[N]fg[N]hHij[N]k[N]l[N]mMn[N]oprRsSuvw[N]xyz] [-tN,..,N] [+bdeflLnstx] &lt;@name&gt; [x y [w h]] [/command] [popup.txt/@popup] [font [size]] [iconfile [N]]
+
+</pre>
+<H4>Switches</H4>
+<br>
+Option Switches
+<br>
+<br><b>-a</b>
+      - Set as the active window
+<br><b>-b</b>
+      - Update horizontal scrollbar width for the listbox
+<br><b>-B</b>
+      - Prevent window from using an internal border
+<br><b>-c</b>
+      - Close window
+<br><b>-C</b>
+      - Center window
+<br><b>-d</b>
+      - Create a separate desktop window (separate button in Windows taskbar) instead of a mIRC mdi window
+<br><b>-D</b>
+      - Enables @window's upper-left system menu choice to toggle @window between mdi/desktop without closing the window
+<br><b>-e</b>[N]
+      - Enable editbox; 0 = single, 1 = multi, 2 = auto, 3 = default
+<br><b>-f</b>
+      - Makes the w h the required width and height of the text display area (instead of the window size)
+<br><b>-g</b>[N]
+      - Set/Unset highlight for window button; 0 = none, 1 = message colour, 2 = highlight colour, 3 = event colour
+<br><b>-h</b>
+      - hide window (from the switchbar / treebar - it is still visible in mIRC's Window menu)
+<br><b>-H</b>
+      - Enables auto-hide for a side-listbox
+<br><b>-i</b>
+      - Associate window with the active connection
+<br><b>-j</b>[N]
+      - Change max lines. If N=0 or -j not used, max lines changes with current setting for mirc-Options/Other/WindowBuffer that defaults as 5000. Adding lines to full window causes lines at top of window to be deleted.
+<br><b>-k</b>[N]
+      - Hides the @ prefix; 0 = hide, 1 = show
+<br><b>-l</b>[N]
+      - Listbox, n - width (character count)
+<br><b>-m</b>
+      - Enable line marker in the window
+<br><b>-M</b>
+      - Trims off the text at tab stops
+<br><b>-n</b>[N]
+      - Minimize window; 2 = Hide auto-expanding @Treebar item
+<br><b>-o</b>
+      - (used with -d) keep the desktop window on top of other windows
+<br><b>-p</b>
+      - Creates a :doc: `Picture Windows </intermediate/gui_scripting.html#picture-windows>`
+<br><b>-r</b>
+      - Restore window
+<br><b>-R</b>
+      - Reset window position to previously saved position
+<br><b>-s</b>
+      - Sorts the main window (can be text or listbox)
+<br><b>-S</b>
+      - Sort the side-listbox
+<br><b>-u</b>
+      - Removes on-top setting (-o)
+<br><b>-v</b>
+      - Close window when associated status window is closed
+<br><b>-w</b>[N]
+      - Show/hide window from treebar or switchbar; 0 = hide from both, 1 = show in switchbar, 2 = show in treebar, 3 = show in both
+<br><b>-x</b>
+      - Maximize window
+<br><b>-y</b>
+      - Disables logging menu for window.
+<br><b>-z</b>[N]
+      - Place window button at end of switchbar; 0 = restore original position, 1 = place window at end. If [N] is not given it defaults to 1
+<br>
+<br>
+Tab Switches
+<br>
+
+<br><b>-t</b>N,..,N
+      - Lets you set custom tab positions in a listbox. If a text contains tabs, it will be spaced out accordingly, if you don't specify at least one tab stop, the window is not created but no error will be displayed.
+
+<br><b>Note:</b> By default a window contains a tab stop every 8 characters and it is possible to use /window -M without using /window -t.
+
+<br><b>Note:</b> It is now possible to use N = 0 if you are using -M, to create an invisible column, which can be useful to hide meta-data for that line.
+
+<br><b>Note:</b> You can update the tab stop position once the window has been created with /window -t @win N N N, which is different from the orignal syntax /window -tN,N,N @win
+<br>
+<br>
+Appearance Switches
+<br>
+Mostly applicable to Desktop windows:
+<br>
+
+<br><b>+b</b>
+      - Border
+<br><b>+d</b>
+      - No border
+<br><b>+e</b>
+      - 3d Edge
+<br><b>+f</b>
+      - Dialog frame
+<br><b>+l</b>
+      - Tool window
+<br><b>+L</b>
+      - Tool window (hide from taskbar)
+<br><b>+n</b>
+      - Minimize window
+<br><b>+s</b>
+      - Sizeable
+<br><b>+t</b>
+      - Titlebar
+<br><b>+x</b>
+      - Maximize window
+
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@name&gt;</b>
+      - The window name, must be prefixed with a @ symbol
+<br><b>x y [w h]</b>
+      - The coordinates for the position and the optional width and height, use -1 for any of the parameters to use default (or existing) value
+<br><b>/command</b>
+      - default command which is used to prepopulate the window's editbox
+<br><b>popup.txt/@popup</b>
+      - popup filename, must be plain text file, or can be the name of a window, representing the popups menu of that window in a remote file
+<br><b>font [size]</b>
+      - font name [font size]
+<br><b>iconfile [N]</b>
+      - sets a custom titlebar icon for the window [index]
+
+<br><b>Note:</b> If you specify -1 for any of the x,y,w,h values, the current value is used for an existing window, or a default value used if you are creating a new window.
+
+<br><b>Note:</b> mIRC does not allow window names @mirc (-2) or @mdi (-3) or @desktop (-1), that's because these names are used internally by mIRC to represent the different mIRC windows for $window(-1), $window(-2) and $window(-3). You can use these names in $window() though, to make things clearer if you want.
+
+<H4>Example</H4>
+Picture window 
+<pre class ="code">
+Alias Example1 {
+  ;Create a desktop + picture window, Coordinates: (250,250), size 300x300
+  window -dep @Example 250 250 300 300
+  ;color it color 3 (default green)
+  drawfill @Example 3 3 1 1 100 100
+  ;draw text "Hello There!"
+  drawtext @Example 1 Arial 30 50 100 Hello There!
+}
+</pre>
+
+Custom window with side listbox 
+<pre class ="code">
+Alias Example2 {
+  ; Create a desktop, Coordinates: (100,100), size 500x350
+  ; Side listbox (width: 15 characters)
+  window -del15 @Example 100 100 500 350
+ 
+  ; Populate the side listbox with 5 items.
+  var %a = 1
+  while (%a < 5) {
+    ;Add an item
+    aline -l $v1 @Example Item $v1
+    inc %a
+  }
+ 
+  ; Add 5 lines to the window buffer
+  var %a = 1
+  while (%a < 5) {
+    ;Add a line of text
+    aline $v1 @Example This is line $v1 $+ .
+    inc %a
+  }
+}
+</pre>
+Making unique window name from $nick while avoiding the 3 protected window names: 
+<pre class ="code">
+//window -ek @ $+ $nick $+ $iif($istok(mdi desktop mirc,$nick,32),$ctime)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (21 Apr 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\window.html">$window</a><br>
+   <a href="..\identifiers\line.html">$line</a><br>
+   <a href="..\identifiers\fline.html">$fline</a><br>
+   <a href="..\identifiers\sline.html">$sline</a><br>
+   <a href="aline.html">/aline</a><br>
+   <a href="cline.html">/cline</a><br>
+   <a href="dline.html">/dline</a><br>
+   <a href="iline.html">/iline</a><br>
+   <a href="renwin.html">/renwin</a><br>
+   <a href="rline.html">/rline</a><br>
+   <a href="sline.html">/sline</a><br>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/clipboard
+</H1>
+<br>
+<br>
+
+The <b>/clipboard</b> command copies text to the clipboard.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/clipboard [-an] [text]
+</pre>
+<H4>Switches</H4>
+
+<br><b>-a</b>
+      - Appends text to the end of the current clipboard's contents
+<br><b>-n</b>
+      - Appends a $crlf to the end of the text
+
+<br><b>Note:</b> Presence or absence of a single trailing $crlf does not affect the lines count of $cb(0)
+
+<H4>Parameters</H4>
+
+<br><b>[text]</b>
+      - Text to be placed in clipboard. If no text parameter used, the clipboard is cleared.
+
+<H4>Example</H4>
+<pre class ="code">
+; Clear the clipboard and put \"Hello world!\" in it
+/clipboard Hello World!
+
+; Put 'abcd' into clipboard then append efgh and carriage return:
+//clipboard abcd | clipboard -an efgh | echo -a $cb(0).len / $cb(1).len / $cb(1)
+; returns: 10 / 8 / abcdefgh
+; (The difference between length of $cb(0) and $cb(1) is the $crlf.
+
+; Clear clipboard contents:
+/clipboard
+
+; Append $crlf to end of current clipboard contents:
+/clipboard -an
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (11 Sep 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\cb.html">$cb</a><br>
+   <a href="..\identifiers\inpaste.html">$inpaste</a><br>
+</body>
+</html>

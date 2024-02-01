@@ -1,0 +1,50 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/enable
+</H1>
+<br>
+<br>
+
+The <b>/enable</b> command enables the specified groups in all scripts. The command also accepts a <a href="..\other\wildcard.html">wildcard</a> value which can be used to enable all matching groups.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/enable &lt;group1 group2 ... groupN&gt;
+/enable &ltwildcard_expression&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;group1 group2 ... groupN&gt;</b>
+      - a list with the name of the groups to be enabled seperated by spaces
+<br><b>&lt;wildcard_expression&gt;</b>
+      - a <a href="..\other\wildcard.html">wildcard</a> expression, all matching groups are disabled
+
+<H4>Example</H4>
+
+First example enables the three groups specified while the second would only enables the first two (#one and #two, assuming that's the only matching groups)
+<pre class ="code">
+/enable #one #two #three
+; or
+/enable #*o*
+; * Group(s) enabled
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.5 (13 Aug 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\group.html">$group</a><br>
+   <a href="disable.html">/disable</a><br>
+   <a href="groups.html">/groups</a><br>
+</body>
+</html>

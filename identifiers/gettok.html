@@ -1,0 +1,101 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$gettok</H1>
+<br>
+<br>
+The <b>$gettok</b> identifier returns the Nth $asc(C)-delimited token from a list.
+
+TODO - $gettokcs()
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
+</pre>
+<H4>Parameters</H4>
+<br><b>LIST</b> - Text list delimited by a character into tokens<br />
+<br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
+<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits TEXT into tokens<br />
+<br>
+If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
+If N is greater than the total number of tokens, returns {{mIRC|$null|$null}} <br />
+If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
+N- returns all tokens beginning with the Nth token.
+N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
+<b>Note:</b> You can reverse the order of the number: $gettok(a b c,3-2,32) is the same as $gettok(a b c,2-3,32)<br />
+<b>Note:</b> N2 can also be negative: $gettok(a b c d e f,-2-3,32) return the token from the 3rd token to the -2th but $gettok(a b c d e f,-2--3,32) return e f, from -3 to -2<br />
+<b>Note:</b> For readability you can also code this as '''$gettok(a-b-c-d-e,2,$asc(-))'''.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+
+Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
+; returns b
+//echo -a $gettok(a-b-c-d-e,2,45)
+
+
+$chr(32) is the space character. Echo the current month to the active window:
+//echo -a The current month is $gettok($asctime,2,32)
+
+This returns ''Mon Tue'' because the space between %x %y becomes the 2nd delimiter:
+//var %x Sun Mon | var %y Tue Wed Thu Fri Sat | echo -a $gettok(%x %y,2-3,32)
+
+$chr(58) is the colon, $chr(92) is the backslash:
+
+//echo -a This $gettok($mircexe,-1,92) is installed on the $gettok($mircexe,1,58) drive letter in a program folder named $gettok($mircexe,-2,92)
+//var %i $gettok($mircexe,0,92) | echo -a $gettok($mircexe,1- $+ $calc(%i -1) ,92) is mIRC's path without the ending backslash
+
+
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2-4,46)
+; returns Mon.Tue.Wed (including the delimiter period between the returned tokens
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,3-,46)
+; returns all tokens beginning with the 3rd: Tue.Wed.Thu.Fri.Sat
+
+//echo -a $gettok(11x22x33x44,3,120)
+; returns 33 because $chr(120) is lower-case x
+//echo -a $gettok(x11xxxx22x33x44x,3,120)
+; also returns 33 because duplicate, leading, and trailing delimiters are stripped before $gettok processes the TEXT
+//echo -a $gettok(11x22X33x44,3,120)
+; returns 44 because the C token is case-sensitive, so capital X isn't a delimiter
+
+$gettok allows the range numbers to be negative
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-4- $+ -2,46)
+; returns the 4th-from-last through 2nd-from-last tokens
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-2-,46)
+; returns the last 2 tokens
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2- $+ -2,46)
+; returns 2nd token through 2nd-from-last token
+
+
+$gettok puts range numbers in the correct order before evaluating them.
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,4-3,46)
+; returns same results as if range 3-4 were used
+//echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-4-3,46)
+; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
+
+
+'''Note:''' $gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
+
+<H4>Compatibility</H4>
+Added: mIRC v4.7 (09 Dec 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="findtok.html">$findtok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="numtok.html">$numtok</a><br>
+<a href="puttok.html">$puttok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dqwindow
+</H1>
+<br>
+<br>
+
+mIRC's DQ (*dedicated query*) window system is a feature that conveniently redirects all incoming queries to a single window. The <b>/dqwindow</b> command can be used to disable or enable as well as show and hide the DQ window.
+
+You can determine if the DQ Window is on or off with this alias:
+
+<pre class ="code">
+alias is_dqwindow {
+  saveini
+  return $iif($gettok($readini($mircini, n, options, n0), 22, 44), $true, $false)
+}
+</pre>
+<H4>Synopsis</H4>
+<pre class ="code">
+/dqwindow [on|off|show|hide|min]
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>on</b>
+      - Turns the DQWindow system on
+<br><b>off</b>
+      - Turns off the DQ window system
+<br><b>show</b>
+      - Displays the DQ window
+<br><b>hide</b>
+      - Hides the DQ window
+<br><b>min </b>
+      - Minimizes the DQ window
+<br><b>close</b>
+      - Closes the DQ window
+
+
+<H4>Example</H4>
+<pre class ="code">
+; Turn on the dedicated query window:
+/dqwindow on
+; Will print:
+; * Dedicated query window is on
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (11 Sep 1997)
+
+<H4>Notes</H4>
+Using this command without parameters displays a message indicating whether the DQ Window is 'on' or 'off'.
+
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\me.html">$me</a><br>
+   <a href="..\identifiers\nick.html">$nick</a><br>
+   <a href="close.html">/close</a><br>
+   <a href="closemsg.html">/closemsg</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mklogfn</H1>
+<br>
+<br>
+The <b>$mklogfn</b> identifier returns a the filename that would be used for such a nickname as a log file, it ensures a valid filename by doing the same underscores replacement as <a href="mkfn.html">$mkfn</a>, and then applying your log setting (adding a network and .log etc)
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mklogfn(text)
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - Text to be made a valid log filename respecting your mIRC log settings
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//var %i 33 | var %f | while (%i isnum 33-126) { var %f %f $+ $chr(%i) | inc %i } | echo -a orig: %f | echo -a mklogfn: $mklogfn(%f)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+While this ensures a string is a valid filename, it does not ensure 2 different strings wouldn't get assigned the same filename, with both having different characters replaced with the same underscore.
+<H4>See also</H4>
+<a href="mknickfn.html">$mknickfn</a><br>
+<a href="mkfn.html">$mkfn</a><br>
+</body>
+</html>

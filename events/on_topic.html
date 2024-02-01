@@ -1,0 +1,36 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Topic</H1>
+<br>
+<br>
+The <b>ON TOPIC</b> event triggers in a channel when the topic is changed.
+
+This event fills '''$1-''' with the new channel topic text.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels to target. Leave as '''#''' to target all channels.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+Send an action to a channel when the topic is changed:
+<pre class ="code">ON *:TOPIC:#:action $chan approves of this new topic!</pre>
+
+<pre class ="code">ON *:TOPIC:#:action $chan approves of this new topic!
+echo 4 $chan topic for # set by $nick to ' $+ $eventparms $+ '
+</pre>
+Note: # and $chan are interchangeable. $parms or $eventparms preserve leading/trailing/consecutive spaces. Otherwise can use $1-
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.7}}
+== See Also ==
+* {{mIRC|local_identifiers}}
+* {{mIRC|access_levels#Event_prefixes}}
+* {{mIRC|On events}}</body>
+</html>

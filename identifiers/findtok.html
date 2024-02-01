@@ -1,0 +1,48 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$findtok</H1>
+<br>
+<br>
+The <b>$findtok</b> identifier returns the position of the Nth matching token in text. <a href="findtokcs.html">$findtokcs</a> is a case sensitive equivalent.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$findtok(&lt;list&gt;,token,N,C)
+</pre>
+<H4>Parameters</H4>
+
+<br><b>&lt;list&gt;</b> - The list of tokens (can be empty)
+<br><b>token</b> - the token used to match
+<br><b>N</b> - The Nth matching token, default to 1, if N is 0, returns the total number of matching tokens.
+<br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Return 2
+<pre class ="code">$findtok(one two three, two, 32)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.7 (09 Dec 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="findtokcs.html">$findtokcs</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="numtok.html">$numtok</a><br>
+<a href="puttok.html">$puttok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+</body>
+</html>

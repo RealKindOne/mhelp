@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Start</H1>
+<br>
+<br>
+The <b>ON start</b> event triggers either when mIRC is started, or a script file is loaded, either through the scripts editor, or via the {{mIRC|/load}} command. Only one '''on start</b> event is allowed per script file.
+
+==Synopsis==
+<pre>on &lt;level&gt;:START:&lt;commands&gt;</pre>
+
+==Parameters==
+<dl>
+    <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;level&gt;</dt>
+    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The [[Mirc access level|access level]] required for the event to trigger.</dd>
+
+    <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;commands&gt;</dt>
+    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The commands to be performed when the event is triggered.</dd>
+</dl>
+
+==Examples==
+Add a pre-typed command to connect to certain networks upon pressing enter to the editbox:
+<pre class ="code">on *:START:{
+  var %c $chr(124) server -m
+  editbox -a //server irc.swiftirc.net %c irc.dal.net %c irc.efnet.org
+}</pre>
+
+
+Create a [[Hash Tables - mIRC|hash table]] named '''''ircpoints''''' and load data from a file named '''''ircpoints.hsh''''' into the table if the file exists:
+<pre class ="code">on *:START:{
+  if (!$hget(ircpoints)) { hmake ircpoints }
+  if ($file(ircpoints.hsh).longfn) { hload ircpoints $v1 }
+}</pre>
+==Compatibility==
+Added: v2.1a
+
+Added on: 28/02/95
+
+==See Also==
+<a href="on_Load.html">On_Load</a></br>
+<a href="on_UnLoad.html">On_UnLoad</a></br>
+<a href="on_Exit.html">On_Exit</a><br>
+[[/load command - mIRC|/load command]]
+{{mIRC on event list}}
+
+</body>
+</html>

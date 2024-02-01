@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$ctime</H1>
+<br>
+<br>
+The <b>$ctime''' allows you to retrieve the amount of seconds elapsed since 00:00:00 GMT, January 1, 1970 based on your system time.<br />
+Optionally, you can request the amount of seconds elapsed between 00:00:00 GMT, January 1, 1970 and a specified time.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$ctime
+$ctime(text)
+</pre>
+<H4>Parameters</H4>
+'''text'''</span>The text can be any date for which you would like to find the '''$ctime'''.
+
+== Examples ==
+<pre class ="code">
+Echo the current $ctime to the active window
+//echo -a $ctime
+Echo the $ctime of a specfic date and time to the active window
+//echo -a $ctime(Thursday 2003-01-09 21:16)
+
+Accepts a variety of formats, but n/n/n string is *always* day/month/year format:
+//echo -a $ctime(January 1 1970 00:00:00) $ctime(3rd August 1987 3:46pm) $ctime(21/4/72 1:30:37) $ctime(Wed 1998-3-27 21:16)
+
+When text is a date only, without a time, the $ctime returned is for the current time on that day.
+
+$ctime returned for a fixed time string varies according to your computer's timezone and daylight saving settings:
+//echo -a Regardless of timezone/daylight settings $ctime(2/1/70 0:0) = 86400 + $timezone + $daylight
+
+Prior to 7.52 beta, max valid ctime as input to $asctime is 2^32-1, but max timestring as input to $ctime is 2^32-2:
+//echo -a $ctime(Mon Jan 18 21:14:06 2038) is the max ctime returned from number string
+
+With introduction of 64bit time related variables, the max time string is the time string which returns 32535244798.
+For USA Pacific zone this is $ctime(31/12/3000 23:59:58) and varies by an hour +east or -west of that zone.
+
+From v7.37 through v7.52, returns ctime too high by 1 month when time string is the last second of any year:
+//var %i 1970 | while (%i isnum 1970-2038) { var %a $ctime(31/12/ $+ %i 23:59:59 ) | if (*Jan 31 23:59:59* !iswm $asctime(%a)) echo -a year %i vs $v2 | inc %i }
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (23 Jun 1998)}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{collist
+|count = 3
+|style = width: 60%; display: inherit;
+|
+* <a href="asctime.html">$asctime</a><br>
+* <a href="date.html">$date</a><br>
+* <a href="adate.html">$adate</a><br>
+* <a href="time.html">$time</a><br>
+* <a href="fulldate.html">$fulldate</a><br>
+* <a href="gmt.html">$gmt</a><br>
+* <a href="ticks.html">$ticks</a><br>
+* <a href="day.html">$day</a><br>
+* <a href="daylight.html">$daylight</a><br>
+* <a href="timezone.html">$timezone</a><br>
+* <a href="duration.html">$duration</a><br>
+* <a href="uptime.html">$uptime</a><br>
+}}</body>
+</html>

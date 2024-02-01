@@ -1,0 +1,75 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$agent</H1>
+<br>
+<br>
+The <b>$agent</b> identifier returns the filename of the Nth available agent installed on your system, or informations about a loaded agent.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$agent(N).property
+$agent(name,[N2]).property
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth agent available on your system
+<br><b>name</b> - The name used in /gload to load the agent
+<br><b>N2</b> - The N2th queued line for a loaded agent.
+
+<H4>Properties</H4>
+
+<br><b>.char</b> - Returns the character name of the Nth agent instead of the filename.
+
+When '''name''' is passed as the first parameter, the following properties are available:
+
+<br><b>.name</b> - Returns the name you gave to this agent
+<br><b>.fname</b> - Returns the filename you gave to this agent, or the filename to the default agent
+<br><b>.visible</b> - Returns <a href="true.html">$true</a> if the agent is visible, <a href="false.html">$false</a> otherwise
+<br><b>.x</b> - Returns the x coordinate of the position of the agent (left)
+<br><b>.y</b> - Returns the y coordinate of the position of the agent (top)
+<br><b>.w</b> - Returns the current width of the agent
+<br><b>.h</b> - Returns the current height of the agent
+<br><b>.ow</b> - Returns the original width of the agent
+<br><b>.oh</b> - Returns the original height of the agent
+<br><b>.speed</b> - Returns the speaking speed of the agent
+<br><b>.pitch</b> - Returns the speaking pitch of the agent
+<br><b>.idle</b> - Returns <a href="true.html">$true</a> if the idle behavior is on, <a href="false.html">$false</a> otherwise
+<br><b>.effects</b> - Returns <a href="true.html">$true</a> if the effects are on, <a href="false.html">$false</a> otherwise
+<br><b>.active</b> - Returns <a href="true.html">$true</a> if the agent is active, <a href="false.html">$false</a> otherwise
+<br><b>.langid</b> - Returns the language ID of the system
+<br><b>.balloons</b> - Returns the balloons settings, can be on, off, size, pace, hide
+<br><b>.hide</b> - Returns the auto hide setting
+<br><b>.anim</b> - Returns the names of the animations available for this agent, you can use '''N2''' to get the N2th animation.
+<br><b>.line</b> - Returns the list of lines currently queued for talking for this agent, you can use '''N2''' to get the N2th line.
+
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $agent(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="agentname.html">$agentname</a><br>
+<a href="agentver.html">$agentver</a><br>
+<a href="agentstat.html">$agentstat</a><br>
+{{mIRC|$notags}}
+<a href="..\commands\gload.html">/gload</a><br>
+<a href="..\commands\gunload.html">/gunload</a><br>
+<a href="..\commands\gtalk.html">/gtalk</a><br>
+<a href="..\commands\gshow.html">/gshow</a><br>
+<a href="..\commands\ghide.html">/ghide</a><br>
+<a href="..\commands\gmove.html">/gmove</a><br>
+<a href="..\commands\gsize.html">/gsize</a><br>
+<a href="..\commands\gplay.html">/gplay</a><br>
+<a href="..\commands\gpoint.html">/gpoint</a><br>
+<a href="..\commands\gstop.html">/gstop</a><br>
+<a href="..\commands\gopts.html">/gopts</a><br>
+<a href="..\commands\gqreq.html">/gqreq</a><br>
+{{mIRC|on events/on agent|on agent}}
+
+</body>
+</html>

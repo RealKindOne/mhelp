@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$fread</H1>
+<br>
+<br>
+The <b>$fread</b> identifier returns the next $crlf delimited line from an open file in file handling.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$fread(N/name) returns the next line
+$fread(N/name,M,&binvar) reads M bytes into the binvar
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth handle to be used
+<br><b>name</b> -The handle name to be used
+<br><b>M</b> - if M is specified then you must specify a binary variable name as the third parameter, it reads M bytes into the binary variable
+<br><b>&binvar</b> - the name of the binary variable
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//fopen test $qt($mircini) | echo -a > $fread(test) | fclose test
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (29 Aug 2003)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\fclose.html">/fclose</a><br>
+<a href="..\commands\fseek.html">/fseek</a><br>
+<a href="..\commands\flist.html">/flist</a><br>
+<a href="..\commands\fwrite.html">/fwrite</a><br>
+<a href="fopen.html">$fopen</a><br>
+<a href="feof.html">$feof</a><br>
+<a href="fgetc.html">$fgetc</a><br>
+<a href="ferr.html">$ferr</a><br>
+</body>
+</html>

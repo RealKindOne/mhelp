@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/else
+</H1>
+<br>
+<br>
+
+The <b>/else</b> command is a :doc: `construct in the mIRC scripting language </intermediate/control_flow_statements.html#conditional_statements>` that perfomes the command if all the previous <a href="if.html">/if</a> or <a href="elseif.html">/elseif</a> failed, must be used after an <a href="if.html">/if</a> or <a href="elseif.html">/elseif</a> statement.
+
+The else statement is used in conjunction with the <a href="if.html">/if</a> statement and the <a href="elseif.html">/elseif</a> statement to jump to certain blocks of code depending on the result of the conditional statement that was executed.
+
+<H4>Synopsis</H4><pre class ="code">
+else &lt;command&gt;
+else { &lt;commands&gt; }
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+<pre class ="code">
+alias test {
+  if ($1 == 1) echo -a 1!
+  elseif ($1 isnum 2-7) echo -a 2-7!
+  else echo -a 8-!
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (06 Jul 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\halted.html">$halted</a><br>
+   <a href="..\identifiers\result.html">$result</a><br>
+   <a href="..\identifiers\alias.html">$alias</a><br>
+   <a href="..\identifiers\isalias.html">$isalias</a><br>
+   <a href="..\identifiers\iif.html">$iif</a><br>
+   <a href="alias.html">/alias</a><br>
+   <a href="goto.html">/goto</a><br>
+   <a href="halt.html">/halt</a><br>
+   <a href="return.html">/return</a><br>
+   <a href="while.html">/while</a><br>
+   <a href="returnex.html">/returnex</a><br>
+   <a href="elseif.html">/elseif</a><br>
+   <a href="else.html">/else</a><br>
+</body>
+</html>

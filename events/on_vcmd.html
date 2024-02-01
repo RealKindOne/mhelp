@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Vcmd</H1>
+<br>
+<br>
+The <b>ON VCMD</b> event triggers when the Speech recognition software matches a word you have spoken to a word in a list of words.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:VCMD:<*|#|?|@>:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+'''<*|#|?|@>'''</span>The location from which you want to listen for spoken word.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+<pre class ="code">
+alias vctest {
+ if ($vcmdver == $null) halt
+ vcmd -c on
+ vcadd connect Dalnet, connect Efnet, connect Undernet, connect IRCnet
+ vcadd Part Channel, Disconnect, List Commands, Moo Cow
+}
+
+on 1:vcmd:connect*:*:server $2
+on 1:vcmd:part channel:*:if ($active ischan) part $active
+on 1:vcmd:disconnect:*:quit
+on 1:vcmd:list commands:*:vcmd -l
+on 1:vcmd:moo cow:*:splay moo.wav
+on 1:vcmd:*:*:echo You said: $1-
+</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.7}}
+
+== See Also ==
+* {{mIRC|List of on events|mIRC events}}
+* {{mIRC|/vcmd}}
+* {{mIRC|/vcadd}}
+* {{mIRC|/vcrem}}
+* {{mIRC|$vcmdver}}
+* {{mIRC|$vcmdstat}}
+* {{mIRC|$vcmd}}
+
+[[Category:mIRC on events|vcmd]]</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$sockbr</H1>
+<br>
+<br>
+The <b>$sockbr</b> identifier returns the number of bytes read from the last /sockread command done for that socket.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$sockbr
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">on *:sockread:name:{
+  if ($sockerr) return
+  var %a
+  ;sockread %a reads one line, or nothing
+  ;we check if we read anything before comparing
+  if (!$sockbr) return
+  if (%a == something) echo -a ok
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sock.html">$sock</a><br>
+<a href="sockname.html">$sockname</a><br>
+<a href="sockerr.html">$sockerr</a><br>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockmark
+</H1>
+<br>
+<br>
+
+The <b>/sockmark</b> command assigns temporary data to a socket to be referenced later using :doc: `$sock </identifiers/$sock>` (&lt;name&gt;).mark. Leaving the [temp data] parameter :doc: `$null </identifiers/$null>` will clear the socket mark. The sockmark command can be used to assign the same data to multiple sockets using a <wild_name> <a href="..\other\wildcard.html">wildcard</a> pattern.
+
+Limitations
+
+The [temp data] is limited to (4,141 - [length of <sock_name>]) characters. I.e. with a socket named "x", you can store up to 4140 characters.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockmark &lt;name&gt; [temp data]
+    /sockmark &lt;wild_name&gt; [temp data]
+
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - The handle name of the socket
+    * - <wild_name>
+      - A <a href="..\other\wildcard.html">wildcard</a> pattern to match
+    * - [temp data]
+      - The temporary socket's data
+
+<H4>Example</H4>
+The example below is a demonstration of how you would use it. It does not actually function.
+
+<pre class ="code">
+; Non-functioning example, shows practical usage only
+on $*:text:/^!foo (\S+)$/Si:#:{
+  ; if ( .. validate input .. ) {
+  sockopen sock1 www.example.com 80
+  sockmark sock1 $regml(1)
+}
+on *:sockopen:sock1:{
+  ; submit the information we got from the user
+  sockwrite -nt $sockname GET /foobar.php?q= $+ sock($sockname).mark HTTP/1.0
+  sockwrite -nt $sockname Host: www.example.com
+  sockwrite -nt $sockname $crlf
+}
+; on *:sockread:sock1: {
+; ....
+; }
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+   <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+   <a href="sockaccept.html">/sockaccept</a><br>
+   <a href="sockclose.html">/sockclose</a><br>
+   <a href="socklist.html">/socklist</a><br>
+   <a href="socklisten.html">/socklisten</a><br>
+   <a href="sockopen.html">/sockopen</a><br>
+   <a href="sockpause.html">/sockpause</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockudp.html">/sockudp</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+</body>
+</html>

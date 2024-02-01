@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$cmdline</H1>
+<br>
+<br>
+The <b>$cmdline</b> return the value passed to the executable when mIRC is ran.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$cmdline
+</pre>
+<H4>Paramters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+on *:start:{
+  if ($cmdline == debug) { echo -a debug }
+}
+;//run $mircexe debug</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+</body>
+</html>

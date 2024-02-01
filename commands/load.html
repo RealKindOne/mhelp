@@ -1,0 +1,102 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/load
+</H1>
+<br>
+<br>
+
+The <b>/load</b> command can be used to load any type of existing file of the types: aliases, popups, remote, users, and variables. Using /load on an already loaded file will update its contents while maintaining its order among other files. 
+
+<br> Note that unlike the <a href="reload.html">/reload</a> command, /load will trigger the ON LOAD and ON START events.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/load -a[N] &lt;filename&gt;
+/load -p&lt;scqnm&gt; &lt;filename&gt;
+/load -r&lt;uvs[N]&gt; &lt;filename&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - load aliases file
+<br><b>-p</b>m
+      - load menubar popups file
+<br><b>-p</b>n
+      - load nicklist popups file
+<br><b>-p</b>q
+      - load query popups file
+<br><b>-p</b>c
+      - load channel popups file
+<br><b>-p</b>s
+      - load status window popups file
+<br><b>-r</b>sN
+      - load remote script file
+<br><b>-r</b>vN
+      - load variable file
+<br><b>-r</b>uN
+      - load users file
+<br><b>-N</b>
+      - if you specify the N value with -rs or -a, it loads the file into the Nth position in the script list or alias list. In the absence of N, the file is loaded into the last position.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;filename&gt;</b>
+      - The script file to load
+
+<br><b>Note:</b> In the absence of a path, assumes the file is located in $mircdir. Paths not beginning with drive letter or \ are relative to the location of $mircdir.<br />
+
+<br><b>Note:</b> You can have samefilename.mrc and scripts\samefilename.mrc loaded at the same time. Do NOT load any script located in the downloads folder where someone can resume-send a script file on top of the file you have already loaded.
+
+<br><b>Note:</b> default aliases file is aliases.ini and default popups file is popups.ini containing all 5 types of popups. Default setup has both filenames in scripts\ subfolder from $mircdir.
+
+<H4>Example</H4>
+Load three remote script files.
+
+<pre class ="code">
+alias load_remote {
+  load -rs foo.mrc
+  load -rs bar.mrc
+  load -rs baz.mrc
+}
+</pre>
+Loads script file into the 2nd position of the 'view' menu in Alt+R editor. If it's already loaded, moves the file to that position. If contains ON LOAD or ON START event handler, this triggers the Initialization Warning and/or performs the event handler.
+<pre class ="code">
+/load -rs2 foobar.mrc
+</pre>
+Loads aliases file into the 1st position of the 'view' menu in Alt+D editor. If it's already loaded, moves the file to that position.
+<pre class ="code">
+/load -a1 C:\Foldername\aliases.mrc
+</pre>
+Load a variables and a users file:
+<pre class ="code">
+alias load_vars_and_users {
+  load -ru users2.ini
+  load -rv vars2.ini
+}
+</pre>
+<br><b>Note:</b> If your aliases.ini was saved to a different file extension such as .mrc, it still needs to have the same scripting format used with the original filename. The only difference is that the disk file no longer is saved in the .ini format with lines beginning like n123=. Same applies with saving your users.ini and vars.ini files to other filetypes. However without the file extension being .ini, it's not possible to edit the 5 types of popups sharing the same filename, and -ru and -rv can't share the same filename either.
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.8 (25 Nov 1995)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\script.html">$script</a><br>
+   <a href="..\identifiers\script.html">$script</a><br>
+   <a href="..\identifiers\window.html">$window</a><br>
+   <a href="filter.html">/filter</a><br>
+   <a href="loadbuf.html">/loadbuf</a><br>
+   <a href="reload.html">/reload</a><br>
+   <a href="save.html">/save</a><br>
+   <a href="savebuf.html">/savebuf</a><br>
+   <a href="unload.html">/unload</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

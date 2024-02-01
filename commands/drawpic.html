@@ -1,0 +1,77 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawpic
+</H1>
+<br>
+<br>
+
+The <b>/drawpic commmand</b> draws a picture at the specified coordinates. The picture can be a graphics file, or an ico/exe/dll file.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawpic -ihmnoftsclgN &lt;@win&gt; [color] &lt;x y [w h]&gt; [x y w h] [N] [M] &lt;filename&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-t</b>
+      - indicates that you have specified the [color] RGB value as a transparent color in the specified bitmap
+<br><b>-s</b>
+      - indicates that you have specified the first [w h] parameters to squeeze/stretch the bitmap
+<br><b>-c</b>
+      - indicates that the bitmap should be cached. This greatly speeds up subsequent references to this bitmap. If you specify -c and the bitmap is already in the cache, it is loaded and used from the cache, otherwise it is reloaded from the file. You can clear the entire cache with /drawpic -c
+<br><b>-l</b>
+      - tiles the picture
+<br><b>-m</b>
+      - changes the stretch mode quality when the picture is resized
+<br><b>-o</b>
+      - indicates that you have specified the [N] value before the filename, representing the index of the icon in the file, or the Nth frame in a GIF file.
+<br><b>-f</b>
+      - used with -o, indicate that you want to use the Mth frame in the Nth icon, eg /drawpic -of [N] [M]
+
+<br><b>Note:</b> The Nth icon and Mth frames indexes starts at 0, not 1
+
+
+<br><b>-g</b>N
+      - attempts to load the large icon in an icon file, if none exists, it loads the small icon. If N is specified, N = 0 loads the small icon, N = 1 loads the large icon, and N = 2 loads the actual icon
+<br><b>-i</b>
+      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b>
+      - highlights the windows icon if it is minimized
+<br><b>-n</b>
+      - prevents the display from being updated immediately
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@win&gt;</b>
+      - the window's name
+    * - [color]
+      - if -t is used, the RGB color used for transparency
+<br><b>&lt;x y [w h]&gt;</b>
+      - the x y coordinates where you want to draw, if -s is used, [w h] is the width/height that will be used to squeeze/stretch the bitmap
+<br><b>[x y w h]</b>
+      - the area in the picture to be drawn
+    * - [N]
+      - if -o is used, the index number of the icon in the file
+    * - [M]
+      - if -fo is used, the index number of the frame in the icon.
+
+
+<br><b>&lt;filename&gt;</b>
+      - the filename for the picture
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

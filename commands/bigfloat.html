@@ -1,0 +1,181 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<h1>
+/bigfloat
+</h1>
+<br>
+<br>
+
+The <b>/bigfloat</b> command either reports whether the script is in 'bigfloat mode', or can force the script in/out of bigfloat mode, where operation of several math identifiers, commands etc are affected.
+Most notably, the results from <a href="..\identifiers\calc.html">$calc</a> are no longer limited to numbers within doubles range, fractions are no longer limited to 6 digits, and $base automatically detects if input is larger than doubles range's max.
+<br>
+<b>Note:</b> alternatively, individual script commands are shifted into bigfloat mode as soon as they encounter a %variable name ending with '.bf', either as the variable being set, or its presence within the command string. The 'on' and 'off' mode can be silenced like .bigfloat on
+
+
+<H4>Synopsis</H4><pre class ="code">
+/bigfloat [on|off]
+/bigfloat
+</pre>
+<H4>Switches</H4>
+
+none
+
+<H4>Parameters</H4>
+
+
+<br><b>[on]</b>
+      - Moves the script's calculations into bigfloat mode.
+<br><b>[off]</b>
+      - Moves the script's calculations out of bigfloat mode.
+
+<H4>Example</H4>
+<pre class ="code">
+//bigfloat on | echo -a bigfloat mode is $bigfloat | bigfloat off | echo -a bigfloat mode is $bigfloat
+//bigfloat off | echo -a bigfloat mode is $bigfloat but $left(%null.bf,0) now bigfloat mode is $bigfloat
+; * bigfloat mode is $false but now bigfloat mode is $true
+</pre>
+
+<H4>Affected</H4>
+<pre class ="code">
+
+
+* Commands:
+/if ()
+/while ()
+When these compare the $v1 and $v2 terms, being in .bigfloat mode causes the comparison to not be in doubles mode. For example, since doubles mode only keeps the most significant 53 bits, if() and while() both think that 2^53 and 2^53+1 are the same number. However this shows that /bigfloat mode is able to see them as different, and the 'match bigfloat' message does not display:
+//var -s %a.bf 2 ^ 53 , %b.bf %a.bf + 1 , %a %a.bf , %b %b.bf , %x $bigfloat , %y.bf $bigfloat, %z $bigfloat , %foo $bigfloat %anything.bf $bigfloat | if (%a.bf == %b.bf) echo -a match bigfloat | if (%a == %b) echo -a match doubles
+Note how each individual varset was in bigfloat mode only if %anything.bf is used, as evidenced by x y z being set to $false $true $false. Using %varname.bf only affects each individual command, so while the 1st if() jumps into bigfloat mode due to using a varname ending with '.bf', that has no effect on the following command. Using %varname.bf only the *remainder* of the command, which was why %foo was set to $false $true. Since "/bigfloat off" is the only way to disable bigfloat mode, there's no way to jump-out-of bigfloat mode for the remainder of that command once %anything.bf has triggered bigfloat mode, so the following shows $false $true $true:
+//echo -a $bigfloat %varname.bf $bigfloat %varname.bx $bigfloat
+The /bigfloat ON|OFF used in the command parm behaves as if a child alias and has no effect on the outer(parent) command, so the following echoes are "$false $false" and "$true $true"
+//echo -a %varname.bx $bigfloat $left($findfile(.,*,1,bigfloat on ),0) $bigfloat
+//echo -a %varname.bf $bigfloat $left($findfile(.,*,1,bigfloat off),0) $bigfloat
+var/set math:
+note how %a.bf causes accurate result beyond doubles range, while the %a.bx variable only has 53 bits accuracy - though using the /bigfloat ON command would have enabled both.
+//var -s %a.bf 2 ^ 64 , %a.bx 2 ^ 64
+* Set %a.bf to 18446744073709551616
+* Set %a.bx to 18446744073709552000
+/inc and /dec and /hinc and /hdec
+//var -s %a.bf $calc(2^53) , %a.bx %a.bf | inc -s %a.bf | inc -s %a.bx
+* Inc %a.bf to 9007199254740993
+* Inc %a.bx to 9007199254740992
+//set %a.bf $calc(2^53) | set %a.bx %a.bf | inc -cs %a.bf | inc -cs %a.bx | timer 1 5 unset % $+ a.bf % $+ a.bx
+* %a.bf continues incrementing past 2^53, while %a.bx remains constant because in non-bigfloat mode, $calc(2^53+1) = $calc(2^53)
+
+Affects identifiers:
+* Longer fractions returned from trig functions $cos $cosh $acos $sin $sinh $asin $tan $tanh $atan $atan2 $hypot and from $log $log2 $log10 $sqrt $cbrt $base $calc $pi $round
+
+* Numbers larger than 2^53 handled without loss of precision. Note that this includes internal subtotals as well as the returned value
+$calc $abs $int $ceil $floor $isnum
+$gcd $modinv $lcm $numbits $powmod
+$rand $min $max $sorttok
+$sqrt $cbrt $log $log2 $log10
+$and $xor $or $not
+$isbit $biton $bitoff
+
+$base may be the only function which autodetects whether the input is larger than 2^53 and automatically jumps into bigfloat results, and the next example does not need to use .bf variables nor be in BIGFLOAT ON mode to return results with more than 53 bits of accuracy:
+
+//echo -a $base($base($sha1(abc),16,10),10,16) same as... | echo -a $upper($sha1(abc))
+
+The scope of bigfloat mode is that the called alias inherits the mode setting from the parent, but the parent is not affected by any changed setting in the child alias. And, enabling /bigfloat ON is only in effect for the duration of that alias until using /bigfloat off, so it's not a global setting that can be applied to all scripts without placing /BIGFLOAT ON at the beginning of each child alias and in each ON EVENT handler. For example, the next alias is called from the editbox...
+
+alias bftestsub { var %mode $bigfloat | bigfloat $1 | return $qt(%mode -> $bigfloat) }
+
+//bigfloat off | bftestsub on | echo -a $bigfloat
+* BigFloat is off
+* BigFloat is on
+$false
+
+//bigfloat off | echo -a $bigfloat $bftestsub(on) $bigfloat
+* BigFloat is off
+* BigFloat is on
+$false "$false -> $true" $false
+
+//bigfloat on | echo -a $bigfloat $bftestsub(off) $bigfloat
+* BigFloat is on
+* BigFloat is off
+$true "$true -> $false" $true
+
+
+</pre>
+
+While it can be simpler to just slap /bigfloat ON at the front of a script and think that's the best solution, be aware of several things before you do.
+One is that the above shows that setting /BIGFLOAT ON in the parent alias does not get inherited into any child aliases unless they also issue the same command.
+Another is that for some usage this can needlessly trigger MAPM math routines which slow down your script to give it accuracy that's not needed, and can sometimes be counterproductive. For example, while your script can be tolerant of the 6 digit fraction from $calc(%a.bx / %b.bx), it may not appreciate the 30 digit fractions from $calc() when not limited by $round.
+Another is that you may need to verify the actual results to see if the bigfloat output is appropriate for your script, such as how in normal doubles mode it knows that $log2(2) is 1, but in .bigfloat mode it thinks the answer is 0.999999999999999985890799396948
+
+While this is named 'bigfloat' it also allows improved accuracy for extremely large 'bigintegers', though calculations can sometimes be very slow when some parameters are huge. However the speed of scripts can be affected by how well the operations can be supported by the MAPM package that is geared toward long and precise fractions, but doesn't have an optimized method for some simple things like bitwise math operations. Also, some functions like $powmod are intended for usage in bigfloat mode, and does not provide accurate math in doubles mode when some parameters are as small as sqrt(2^53). For example, (odd^positive mod even) must always be odd, but the following example returns an even-number result while in doubles mode, but the 3rd powmod being identical to the 1st powmod returns the correct result due to the 2nd powmod having been jumped into bigfloat mode due to using a varname ending with .bf
+//var -s %base.bf 3 , %base %base.bf , %exp 46 , %modulus 2 ^ 32 | echo -a $powmod(%base,%exp,%modulus) $bigfloat $powmod(%base.bf,%exp,%modulus) $bigfloat $powmod(%base,%exp,%modulus)
+By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accurance for some commands that need it, while skipping the slowdown for commands that don't.
+
+<H4>Bitwise</H4>
+<pre class="code">
+In v7.72, your mileage may vary, but beginning v7.73, even if bigfloat mode is enabled and if the numeric result would be expected to be >= 2^32, the bitwise identifiers return the same values as the historical uint32 range, unless the additional 'bitlength' parameter B is ALSO used. This means a 2nd parameter for $not and a 3rd parm for $and $xor $or $biton $bitoff $isbit. The B parameter defaults as 32 when not used, but if it is used, it's expected to be a 2^n value >= 32. But when it is not such a number, $int(B) is rounded up to be the next higher 2^n value.
+
+This ensures that these identifiers return the doubles-mode result unless the script signals their intent to have biginteger results by using the B parameter while in .bf mode. The B parameter is then used as replacement for 32 in a 2^B clipping behavior for the max value.
+
+This mean you will get trash results unless B is/becomes no shorter than the bit-length of the biginteger result. For example, $bitoff($rand(0,$calc(2^512)),1,256) returns the expected even-numbered biginteger if the random value is < 2^256, but if it's >= 2^256, the result is first clipped to be 2^256-1 at which point the bitwise math is done, which in this case is clearing the lowest bit to make the result for those random numbers always be 2^256-1-1.
+
+For biginteger mode involving at least 1 negative input number, the B parm is used to limit the infinite bit length and/or to determine the 2^B value added to the negative number in order to 'cast' it as positive.
+
+For this example in v7.73...
+a.bf is a 512-bit number
+b.bf is the historical 32-bit result because the B parm isn't used
+c.bf is first clipped to 2^B-1 before being xor'ed by 3
+d.bf uses B=96 which is rounded up to B=128, so it's first clipped to 2^128-1 before xor by 3
+e.bf is same as d.bf because B=65 and B=96 are both rounded to B=128
+f.bx is same as b.bf because B parm is ignored because it wasn't in .bf mode
+g.bf used B=512 to cast -3 by +2^512 to a positive before doing the math
+
+//var -s %a.bf $calc(2^256-1) , %a.bx %a.bf , %b.bf $xor(%a.bf,3) , %c.bf $xor(%a.bf,3,256) , %d.bf $xor(%a.bf,3,96) , %e.bf $xor(%a.bf,3,65) , %f.bx $xor(%a.bx,3,512) , %g.bf $xor(-3,3,512)
+
+Being in bigfloat mode also affects $numbits, which cannot return larger than 32 in non-bigfloat mode:
+//echo -a $numbits($calc(2^53)) shows 32 because $bigfloat is false but %null.bf $numbits($calc(2^53)) shows 54 because $bigfloat is true
+</pre>
+<H4>Compatibility</H4>
+
+Added: mIRC v7.72 (27 Nov 2022)
+
+<H4>Notes</H4>
+None<br>
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\abs.html">$abs</a><br>
+   <a href="if.html">/if</a><br>
+   <a href="while.html">/while</a><br>
+   <a href="var.html">/var</a><br>
+   <a href="set.html">/set</a><br>
+   <a href="inc.html">/inc</a><br>
+   <a href="dec.html">/dec</a><br>
+   <a href="hinc.html">/hinc</a><br>
+   <a href="hdec.html">/hdec</a><br>
+   <a href="..\identifiers\calc.html">$calc</a><br>
+   <a href="..\identifiers\abs.html">$abs</a><br>
+   <a href="..\identifiers\floor.html">$floor</a><br>
+   <a href="..\identifiers\int.html">$int</a><br>
+   <a href="..\identifiers\isnum.html">$isnum</a><br>
+   <a href="..\identifiers\rand.html">$rand</a><br>
+   <a href="..\identifiers\min.html">$min</a><br>
+   <a href="..\identifiers\max.html">$max</a><br>
+   <a href="..\identifiers\sorttok.html">$sorttok</a><br>
+   <a href="..\identifiers\pi.html">$pi</a><br>
+   <a href="..\identifiers\sqrt.html">$sqrt</a><br>
+   <a href="..\identifiers\cbrt.html">$cbrt</a><br>
+   <a href="..\identifiers\log.html">$log</a><br>
+   <a href="..\identifiers\log2.html">$log2</a><br>
+   <a href="..\identifiers\log10.html">$log10</a><br>
+   <a href="..\identifiers\and.html">$and</a><br>
+   <a href="..\identifiers\xor.html">$xor</a><br>
+   <a href="..\identifiers\or.html">$or</a><br>
+   <a href="..\identifiers\not.html">$not</a><br>
+   <a href="..\identifiers\isbit.html">$isbit</a><br>
+   <a href="..\identifiers\biton.html">$biton</a><br>
+   <a href="..\identifiers\bitoff.html">$bitoff</a><br>
+   <a href="..\identifiers\gcd.html">$gcd</a><br>
+   <a href="..\identifiers\lcm.html">$lcm</a><br>
+   <a href="..\identifiers\numbits.html">$numbits</a><br>
+   <a href="..\identifiers\modinv.html">$modinv</a><br>
+   <a href="..\identifiers\powmod.html">$powmod</a><br>
+   <a href="..\identifiers\factorial.html">$factorial</a><br>
+   <a href="..\identifiers\fibonacci.html">$fibonacci</a><br>

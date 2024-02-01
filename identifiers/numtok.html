@@ -1,0 +1,55 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$numtok</H1>
+<br>
+<br>
+The <b>$numtok</b> identifier returns the number of $asc(C)-delimited token in a list.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$numtok(&lt;list&gt;,<C>)
+</pre>
+<H4>Parameters</H4>
+<br><b>LIST</b> - Text list delimited by a character into tokens
+<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits LIST into tokens
+
+<H4>Properties</H4>
+None
+
+== Examples ==
+Echo to the active window, the number of tokens delimited by the $chr(45) hyphen:
+
+<pre class ="code">//echo -a $numtok(a-b-c-d-e,45)
+; returns 5</pre>
+
+<pre class ="code">//echo -a $numtok(1x2x3x4,120)
+; returns 4 because $chr(120) is lower-case x
+//echo -a $numtok(x1xxxx2x3x4x,120)
+; also returns 4 because duplicate, leading, and trailing delimiters are stripped before $numtok processes the LIST
+//echo -a $numtok(1x2X3x4,120)
+; returns 3 because the C token is case-sensitive, so capital X isn't a delimiter
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="findtok.html">$findtok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="puttok.html">$puttok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/speak
+</H1>
+<br>
+<br>
+
+The <b>/speak</b> command is used to allow mIRC to speak text audibly.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/speak -spclu [speed] [pitch] [text]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - -Allows you to specify the speed for the text to be spoken (0 - 100).
+<br><b>-p</b>
+      - Controls the pitch at which the text is spoken (0 - 100).
+<br><b>-c</b>
+      - Clear all queued lines of speaking.
+<br><b>-l</b>
+      - Apply the lexicon settings in the speech dialog.
+<br><b>-u</b>
+      - Apply the option settings in the speech dialog.
+
+<H4>Parameters</H4>
+
+
+<br><b>speed</b>
+      - If the <b>-s/</b> switch is invoked, this parameter is where you specify the speed at which the text should be spoken (0 - 100).
+<br><b>[pitch]</b>
+      - If the <b>-p/</b> switch is invoked, this parameter is where you specify the pitch at which the text should be spoken (0 - 100).
+<br><b>[text]</b>
+      - This is the text to be spoken by the speaking system.
+
+<H4>Example</H4>
+Speak the words 'Hello World!
+<pre class ="code">
+/speak Hello World!
+</pre>
+Speak 'Hi there!' at 30 speed with a pitch of 50
+<pre class ="code">
+/speak -sp 30 50 Hi there!
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.8 (25 Nov 1995)
+
+See Also
+
+
+   <a href="gtalk.html">/gtalk</a><br>
+   <a href="splay.html">/splay</a><br>
+   <a href="..\identifiers\speak.html">$speak</a><br>
+</body>
+</html>

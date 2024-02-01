@@ -1,0 +1,119 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/unset
+</H1>
+<br>
+<br>
+
+The <b>/unset</b> command removes any variables by their specified names. If a <a href="..\other\wildcard.html">wildcard</a> pattern was specified, all variables matching that pattern will be removed. The /unset command can be used to remove both local and global variables, however it can only remove one of them per name. Local variables take precedence over a global variable with the same name.
+
+<br><b>Note:</b> /unset has an evaluation issue with dynamic variables, you can read more :doc: `here </beginner/variables.html#special-behaviors-quirks>`
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/unset [-slg] &lt;%var&gt; [%var2 [%var3...]]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - Display an output showing the variables that are unset*
+<br><b>-g</b>
+      - Make sure the global variable is unset if you have both a global and local variable of the same name
+<br><b>-l</b>
+      - Make sure the local variable is unset if you have both a global and local variable of the same name
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+
+
+The most basic usage is to unset a specific variable:
+<pre class ="code">
+/unset %foobar
+</pre>
+Local variables take precedence over a global variable with the same name.
+
+<pre class ="code">
+alias global_local {
+  set %foo 1
+  var %foo 2
+  echo -a %foo
+  unset %foo
+  echo -a %foo
+  unset %foo
+}
+</pre>
+Which will produce the following result:
+
+<pre class ="code">
+2
+1
+</pre>
+/unset can only remove a local or global variable per each name specified, however it’s possible to remove both by specifying the variable name twice, for example:
+<pre class ="code">
+alias global_local2 {
+  set %foo 1
+  var %foo 2
+    
+  ; unset both at once
+  unset %foo %foo
+  
+  ; will print empty quotes
+  echo -a $qt(%foo)
+}
+</pre>
+Which will print empty quotes:
+<pre class ="code">
+""
+</pre>
+No evaluation brackets are needed when unsetting dynamic variables:
+<pre class ="code">
+alias dynamic_vars {
+  var -s %foo. $+ $calc(1+2) Test
+  var -s %bar. $+ $calc(1+3) Test
+ 
+  unset -s %foo. $+ $calc(1+2) %bar. $+ $calc(1+3)
+}
+</pre>
+Which will produce the following results:
+<pre class ="code">
+* Set %foo.3 to Test
+-
+* Set %bar.4 to Test
+-
+* Unset %foo.3
+-
+* Unset %bar.4
+</pre>
+If multiple cleaning 
+<pre class ="code">
+/unset %semple,%foo,%cocorico,%mirc,%ms
+<pre class ="code">
+alias unset {
+  tokenize 44 $1-
+  !.unset $*
+}
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.0 (20 Mar 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\var.html">$var</a><br>
+   <a href="dec.html">/dec</a><br>
+   <a href="inc.html">/inc</a><br>
+   <a href="set.html">/set</a><br>
+   <a href="unsetall.html">/unsetall</a><br>
+   <a href="var.html">/var</a><br>
+</body>
+</html>

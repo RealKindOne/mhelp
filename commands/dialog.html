@@ -1,0 +1,159 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dialog
+</H1>
+<br>
+<br>
+
+The <b>/dialog</b> command is used to create a dialog using a given table. The name is what the script/you will use to refer to the table. The standard dialog created using the /dialog command can be used to create model or modeless dialogs. Modeless it does not return a value when the dialog closes. As a result it does not halt the mIRC scripting engine, letting other script to keep processing. Dialogs can be kept open for as you want.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dialog -mhbpardievon &lt;name&gt; [table]
+/dialog -kcx &lt;name&gt;
+/dilaog -g &lt;name&gt; &lt;newName&gt;
+/dialog -t &lt;name&gt; [text]
+/dialog -s &lt;name&gt; [x y w h]
+/dialog -mhbpardievonts &lt;name&gt; [table] [x y w h] [text]
+
+</pre>
+<H4>Switches</H4>
+
+<br>
+<br>
+Mode:
+<br>
+
+<br><b>-m</b>
+      - Modeless dialog
+<br><b>-b</b>
+      - Size Mode: DBU
+<br><b>-p</b>
+      - Size Mode: Pixels
+<br><b>-h</b>
+      - Dialog work with active server connection
+<br>
+<br>
+Modes used with -m:
+<br>
+
+<br><b>-a</b>
+      - Uses the current window as parent
+<br><b>-d</b>
+      - opens the dialog on the desktop
+<br>
+<br>
+Modes used with -d:
+<br>
+
+<br><b>-i</b>
+      - Minimize dialog
+<br><b>-e</b>
+      - Restores dialog
+<br>
+<br>
+Close:
+<br>
+
+<br><b>-k</b>
+      - clicks the ok button
+<br><b>-c</b>
+      - clicks the cancel button
+<br><b>-x</b>
+      - closes the dialog without triggering any event
+<br>
+<br>
+Change:
+<br>
+
+<br><b>-t</b>
+      - Sets the dialog's title
+<br><b>-s</b>
+      - Sets the dialog's size [X Y W H]
+<br><b>-o</b>
+      - Sets the dialog on top of all windows
+<br><b>-n</b>
+      - Unset -o
+<br><b>-r</b>
+      - Centers the dialog
+<br><b>-v</b>
+      - Sets the dialog as the active window
+<br><b>-g</b>
+      - Renames dialog &lt;name&gt; <new name>
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - Dialog Name
+<br><b>[table]</b>
+      - Table Name
+<br><b>[x y w h]</b>
+      - (x,y) coordinates, width and height
+<br><b>[text]</b>
+      - Text
+
+<H4>Example</H4>
+<pre class ="code">
+Dialog Example1 {
+  title "This is Example 1"
+  size -1 -1 172 129
+  option dbu
+  tab "Tab A", 14, 2 0 165 123
+  tab "Tab B", 15
+  tab "Tab C", 16
+  edit "", 17, 8 16 154 104, tab 16 multi return autohs vsbar
+  menu "&File", 1
+  item "&New", 6, 1
+  item "&Open", 7, 1
+  item break, 8, 1
+  item "&Save", 9, 1
+  item "Save &as", 10, 1
+  menu "&Edit", 2
+  item "&Copy", 11, 2
+  item "P&aste", 12, 2
+  menu "&view", 3
+  item "&All", 13, 3
+  menu "&Help", 4
+  item "&About", 5, 4
+}
+</pre>
+
+
+<pre class ="code">
+; Modeless, Desktop
+/dialog -md Example1 Example1
+</pre>
+<pre class ="code">
+; Change the title of the dialog
+/dialog -t Example1 This is Example 2!
+</pre>
+<pre class ="code">
+; Rename the dialog
+/dialog -g Example1 Example3
+</pre>
+<pre class ="code">
+; Close the dialog, don't trigger any event
+/dialog -x Example3
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (19 Feb 1999)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\dialog.html">$dialog</a><br>
+   <a href="..\identifiers\dname.html">$dname</a><br>
+   <a href="..\identifiers\devent.html">$devent</a><br>
+   <a href="..\identifiers\did.html">$did</a><br>
+   <a href="..\identifiers\didwm.html">$didwm</a><br>
+   <a href="..\identifiers\didreg.html">$didreg</a><br>
+   <a href="..\identifiers\didtok.html">$didtok</a><br>
+   <a href="did.html">/did</a><br>
+   <a href="didtok.html">/didtok</a><br>
+</body>
+</html>

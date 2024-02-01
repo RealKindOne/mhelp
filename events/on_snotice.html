@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Snotice</H1>
+<br>
+<br>
+The <b>ON SNOTICE</b> event triggers when mIRC receives a server notice.
+
+This event fills the '''$1-''' identifier with the text from the server notice.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:SNOTICE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''&lt;matchtext&gt;'''</span>The text that to be matched. Can also be a {{mirc|wildcard}}.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+Halt the default server notice and echo it to the active window in plain text:
+<pre class ="code">ON ^*:SNOTICE:*: {
+  echo -a * Server notice: $1-
+  haltdef
+}</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|3.8}}
+
+== See Also ==
+* [[On notice - mIRC|ON NOTICE]]
+* [[On queryopen - mIRC|ON QUERYOPEN]]
+* [[On text - mIRC|ON TEXT]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|snotice]]</body>
+</html>

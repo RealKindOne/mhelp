@@ -1,0 +1,31 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$eventparms</H1>
+<br>
+<br>
+The <b>$eventparms</b> identifier returns the event-specific parameters passed by the script parser to an executed command. This is nothing but a version of $parms that is 'local', it only exists during an event and it has a global scope: you can access the value from an alias called from the event.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$eventparms
+</pre>
+<H4>Parameters</H4>
+None
+
+== Examples ==
+<pre class ="code">on *:text:*:#:echo -s $parms -- $eventparms | testpm
+alias testpm echo -s $parms -- $eventparms</pre>
+
+<H4>Compatibility</H4>
+coming soon
+{{mIRC compatibility|7.53}}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$parms}}
+
+
+[[Category:mIRC identifiers|$eventparms]]</body>
+</html>

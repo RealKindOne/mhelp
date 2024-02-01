@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Disconnect</H1>
+<br>
+<br>
+The <b>ON DISCONNECT</b> event triggers when mIRC has disconnected from an IRC server.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:DISCONNECT:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== {{mIRC|local identifiers}} ==
+
+=== {{mIRC|$N|$1-}} ===
+
+Returns the server disconnect message that is passed to mIRC.
+
+== Examples ==
+<pre class ="code">; Echo network, and time
+; when mIRC disconnected
+ON *:DISCONNECT:echo -a Disconnected from $network on $asctime(dddd mmmm $+(ddoo,$chr(44), yyyy)) at $asctime(hh:mmtt) $+ . Server disconnect reason: $1-</pre>
+
+The following is an example of what will be displayed when mIRC has disconnected from a server:
+<pre>Disconnected from DALnet on Tuesday June 24th, 2014 at 02:06pm.</pre>
+
+The {{mIRC|$asctime}} identifier has been used here in order to specifically format the current date and time.
+
+<H4>Compatability</H4>
+{{mIRC compatibility|2.1a}}
+
+== See Also ==
+* [[On connect - mIRC|ON CONNECT]]
+* [[On connectfail - mIRC|ON CONNECTFAIL]]
+* {{mIRC|$network}}
+* {{mIRC|$server}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|disconnect]]</body>
+</html>

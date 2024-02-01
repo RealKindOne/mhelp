@@ -1,0 +1,61 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/vol
+</H1>
+<br>
+<br>
+
+The <b>/vol</b> command lets you change the volume on your system. The /vol command can also be used to mute the system volume.
+<br>
+<br><b>Note:</b> originally on Windows, you could set the volume/mute setting for different audio type: wave, midi, and mp3. This is why mIRC had the -wmp switches, to change those different volume/mute settings. Since Windows 7, this is no longer the case, only the master volume remains. But you can now change the volume/mute setting per application in Windows. mIRC does not have a way to change the volume/mute setting per application; using the -wmp switches now only change the volume/mute setting for the mIRC application.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/vol -wmpvuN [volume]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-w</b>
+      - Changes the waves volume (or the mIRC's volume on Windows 7+)
+<br><b>-m</b>
+      - Changes the midis volume (or the mIRC's volume on Windows 7+)
+<br><b>-p</b>
+      - Changes the mp3s volume (or the mIRC's volume on Windows 7+)
+<br><b>-v</b>
+      - Changes the master volume
+<br><b>-u</b>N
+      - Changes mute setting, N = 1 for muting, N = 2 for unmuting, this switch has to be used with at least one of the others switches
+
+<H4>Parameters</H4>
+
+
+<br><b>[volume]</b>
+      - a number ranging from 0 to 65535
+
+<H4>Example</H4>
+<pre class ="code">
+; mute the master volume
+/vol -vu1
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.8 (14 Dec 2000)
+
+See Also
+
+
+    * :doc: `Playing Music </other/playing_music>`
+    * :doc: `ON MIDIEND </events/on_midiend>`
+    * :doc: `ON MP3END </events/on_mp3end>`
+    * :doc: `ON NOSOUND </events/on_nosound>`
+    * :doc: `ON WAVEEND </events/on_waveend>`
+   <a href="..\identifiers\inmidi.html">$inmidi</a><br>
+   <a href="..\identifiers\insong.html">$insong</a><br>
+   <a href="..\identifiers\inwave.html">$inwave</a><br>
+   <a href="..\identifiers\sound.html">$sound</a><br>
+   <a href="..\identifiers\vol.html">$vol</a><br>
+   <a href="splay.html">/splay</a><br>
+</body>
+</html>

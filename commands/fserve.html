@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/fserve
+</H1>
+<br>
+<br>
+
+The <b>/fserve</b> command can initiate a DCC fileserver transaction with a specific user.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/fserve &lt;nickname&gt; &lt;maxgets&gt; &lt;homedirectory&gt; [welcomefile]
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;nickname&gt;</b>
+      - the nickname you want to initiate a fileserver.
+<br><b>&lt;maxgets&gt;</b>
+      - the maximum number of simulataneous files (dcc get) the user can download
+<br><b>&lt;homedirectory&gt;</b>
+      - the home directory for that session
+<br><b>[welcomefile]</b>
+      - if specified, the file is sent when the user first connect
+
+<H4>Example</H4>
+<pre class ="code">
+/fserve goat 5 c:\users\level1 level1.txt
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.3 - 3.4
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

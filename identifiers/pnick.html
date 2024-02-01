@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$pnick</H1>
+<br>
+<br>
+The <b>$pnick</b> identifier return the name of the channel or the nickname you are currently playing to. This is useful with the -c and -a switches of <a href="..\commands\play.html">/play</a>
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$pnick
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+alias test.play {
+  msg $pnick test : $1-
+}</pre>And use
+<pre class ="code">
+//play -a test.play &lt;nick|channel&gt; file.txt
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.72 (24 Oct 1995)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\play.html">/play</a><br>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/timestamp
+</H1>
+<br>
+<br>
+
+The <b>/timestamp</b> command can be used to enable and disable timestamps as well as set their formats.
+
+The -g and -f switches can only be used to set new formats.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/timestamp &lt;on|off|default&gt;
+/timestamp [-sae] &lt;on|off|default&gt;
+/timestamp &lt;on|off|default&gt; [window_name]
+/timestamp -f <format>
+/timestamp -g <format>
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - Turns status window time stamp on or off. This is the same as specifying "Status Window" for [window_name]
+<br><b>-a</b>
+      - Turns timestamp on or off for the active window
+<br><b>-e</b>
+      - Turns timestamp on or off for all windows
+<br><b>-f</b>
+      - Sets timestamp format
+<br><b>-g</b>
+      - Sets log timestamp format
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;on|off&gt;</b>
+      - Turns logging on or off
+<br><b>[window_name]</b>
+      - The name of the window to apply the settings to
+<br><b>&lt;format&gt;</b>
+      - The new timestamp format
+<pre class ="code">
+Formats
+
+Seconds: 
+
+    s       Seconds, no leading zeros              0 to 59
+
+    ss      Seconds, with leading zeros            00 through 59
+
+Minutes:
+
+    n       Minutes, no leading zeros              0 to 59
+
+    nn      Minutes, with leading zeros            00 to 59
+
+Hours:
+
+    h       12-hour format of an hour, no          1 through 12
+
+            leading zeros
+
+    hh      12-hour format of an hour, with        01 through 12
+
+            leading zeros
+
+    H       24-hour format of an hour, no          0 through 23
+
+            leading zeros
+
+    HH      24-hour format of an hour, with        00 through 23
+
+            leading zeros
+
+Year:
+
+    yy      A two-digit representation of a year   98 or 09
+
+    yyyy    A full numeric representation of,      2003 or 2005
+
+            a year
+
+Month:
+
+    m       Numeric representation of a month,     1 through 12
+
+            without leading zeros
+
+    mm      Numeric representation of a month,     01 through 12
+
+            with leading zeros
+
+    mmm     A short textual representation of a    Jan through Dec
+
+            month
+
+    mmmm    A full textual representation of a     January through December
+
+            month
+
+Day:
+
+    d       Day of month, no leading zeros         1 to 31
+
+    dd      Day of month, leading zeros            01 to 31
+
+    ddd     A short textual representation of a    Sun through Sat
+
+            day
+
+    dddd    A full textual representation of a     Sunday through Saturday
+
+            day
+
+AM/PM:
+
+    t       Lowercase Ante meridiem and Post       a or p
+
+            meridiem, single letter                
+
+    tt      Lowercase Ante meridiem and Post       am or pm
+
+            meridiem
+
+    T       Uppercase Ante meridiem and Post       A or P
+
+            meridiem, no leading zeros
+
+    TT      Uppercase Ante meridiem and Post       AM or PM
+
+            meridiem, no leading zeros
+
+Ordinal:
+
+    oo      Adds ordinal to a numeric              12th or 1st
+
+            representation
+
+TimeZone:
+
+    z       Difference to Greenwich time,          +0 or -5
+
+            minimal size
+
+    zz      Difference to Greenwich time           +0000 or -0500
+
+    zzz     Difference to Greenwich time           +0100 GMT or -0500 GMT
+
+            with GMT
+</pre>
+<H4>Example</H4>
+<pre class ="code">
+; set log timestamp
+/timestamp -g [hh:nn - mmoo mmmm, yyyy]
+
+; turn on status window timestamp
+/timestamp -s on
+; or (they are both the same)
+/timestamp on Status Window
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC vmIRC 3.9 ()
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\timestampfmt.html">$timestampfmt</a><br>
+   <a href="..\identifiers\logstampfmt.html">$logstampfmt</a><br>
+   <a href="..\identifiers\logstamp.html">$logstamp</a><br>
+   <a href="..\identifiers\timestamp.html">$timestamp</a><br>
+   <a href="..\identifiers\asctime.html">$asctime</a><br>
+   <a href="..\identifiers\ctime.html">$ctime</a><br>
+   <a href="..\identifiers\date.html">$date</a><br>
+   <a href="..\identifiers\day.html">$day</a><br>
+   <a href="..\identifiers\daylight.html">$daylight</a><br>
+   <a href="..\identifiers\fulldate.html">$fulldate</a><br>
+   <a href="..\identifiers\gmt.html">$gmt</a><br>
+   <a href="..\identifiers\ticks.html">$ticks</a><br>
+   <a href="..\identifiers\time.html">$time</a><br>
+   <a href="..\identifiers\timezone.html">$timezone</a><br>
+</body>
+</html>

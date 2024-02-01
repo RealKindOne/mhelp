@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$fopen </H1>
+<br>
+<br>
+The <b>$fopen</b> identifier returns information about an open file in file handling.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$fopen(N/name)
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - The Nth handle to be used
+<br><b>name</b> -The handle name to be used
+
+<H4>Properties</H4>
+<br><b>.fname</b> - returns the complete filename opened
+<br><b>.pos</b> - returns the position of the pointer in the file
+<br><b>.eof</b> - returns 1 if the end of the file was reached, 0 otherwise
+<br><b>.err</b> - returns 0 if an error occured from the last file access
+<br><b>.bom</b> - returns the encoding of the file, "utf16le", "utf16be", "utf8", or "ascii"
+
+<H4>Example</H4>
+<pre class ="code">//fopen test $qt($mircini) | echo -a > $fread(test) $fopen(test).pos | fclose test
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (29 Aug 2003)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\fclose.html">/fclose</a><br>
+<a href="..\commands\fseek.html">/fseek</a><br>
+<a href="..\commands\flist.html">/flist</a><br>
+<a href="..\commands\fwrite.html">/fwrite</a><br>
+<a href="fread.html">$fread</a><br>
+<a href="feof.html">$feof</a><br>
+<a href="fgetc.html">$fgetc</a><br>
+<a href="ferr.html">$ferr</a><br>
+</body>
+</html>

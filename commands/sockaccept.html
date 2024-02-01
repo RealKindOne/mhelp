@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockaccept
+</H1>
+<br>
+<br>
+
+The <b>/sockaccept</b> command allows mIRC the ability to accept incoming connections on a port that has been opened with the <a href="socklisten.html">/socklisten</a> commmand.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockaccept -n &lt;name&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-n</b>
+      - Disable nagle algorithm on the accepted socket, you can disable nagle algorithm for any accepted socket by using <a href="socklisten.html">/socklisten</a> -n
+
+<H4>Parameters</H4>
+
+<br><b>name</b> 
+      - The name that should be assigned to the accepted connection in order to reference it later.
+
+<H4>Example</H4>
+<pre class ="code">
+; Listen for connections on the socket named mySock
+ON *:SOCKLISTEN:mySock: {
+  ; Accept incoming connection on this socket and name them
+  ; with a combination of the socket's name and the current $ctime
+  sockaccept $+($sockname,$ctime)
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+See Also
+
+
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+   <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+   <a href="sockclose.html">/sockclose</a><br>
+   <a href="socklist.html">/socklist</a><br>
+   <a href="socklisten.html">/socklisten</a><br>
+   <a href="sockmark.html">/sockmark</a><br>
+   <a href="sockopen.html">/sockopen</a><br>
+   <a href="sockpause.html">/sockpause</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockudp.html">/sockudp</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+</body>
+</html>

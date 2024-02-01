@@ -1,0 +1,60 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css"></LINK>
+<H1>
+/abook
+</H1>
+<br>
+<br>
+
+The <b>/abook</b> command is used to open the Address Book dialog window.
+
+The nickname parameter can be used to open the address book to that specific user with the whois tab.[note]
+
+The various switches can be used to set the focus of specific tabs.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/abook -w [nickname]
+/abook -chln
+</pre>
+<H4>Switches</H4>
+<br><b>-w</b>
+      - Open the whois tab
+<br><b>-c</b>
+      - Open the control tab
+<br><b>-h</b>
+      - Open the highlight tab
+<br><b>-l</b>
+      - Open the colors tab
+<br><b>-n</b>
+      - Open the notify tab
+
+<H4>Parameters</H4>
+
+<br><b>&lt;nickname&gt;</b>
+      - If <b>-w</b> is used to open the whois tab, this optional parameter can be used to specify which user from the address book to select. The user must already be in your address book.
+
+<H4>Example</H4>
+<pre class ="code">
+; Open the address book, highlight tab
+/abook -h
+; Open the address book and show Bob's whois info
+/abook -w Bob
+</pre>
+<H4>Compatibility</H4>
+
+Added: mIRC v5.1 (11 Sep 1997)
+
+<H4>Notes</H4>
+The user must already exist in the address book for this option to work.
+<br>
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\abook.html">$abook</a><br>
+   <a href="..\identifiers\cnick.html">$cnick</a><br>
+   <a href="cnick.html">/cnick</a><br>
+   <a href="uwho.html">/uwho</a><br>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$leftwinwid</H1>
+<br>
+<br>
+The <b>$leftwinwid</b> is an identifier that works for mouse events in custom picture windows. Whenever the mouse leaves a picture window, the <b>$leftwinwid</b> stores the window ID for that event.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$leftwinwid
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+Custom script that listens for the mouse leaving <b>@tester</b>
+<pre class ="code">
+alias testscript {
+  $iif($window(@tester),clear @tester,window -p @tester)
+}
+menu @tester {
+  leave:clear @tester | drawtext @tester 1 15 15 Mouse left window with ID $leftwinwid
+}
+</pre>
+
+Once the above example has fired up, the mouse can now be hovered over the <b>@tester</b> window, and then moved outside of the window.
+<br>
+In the top-left corner there will now be some text that says "Mouse left window with ID &lt;WindowID&gt;", where &lt;WindowID&gt; is replaced with the actual window's ID.
+
+<H4>Compatibility</H4>
+Added: mIRC v6.2 (28 Jul 2006)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="activewid.html">$activewid</a><br>
+<a href="lactivewid.html">$lactivewid</a><br>
+<a href="leftwin.html">$leftwin</a><br>
+<a href="leftwincid.html">$leftwincid</a><br>
+
+
+</body>
+</html>

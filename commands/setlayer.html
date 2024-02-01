@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/setlayer
+</H1>
+<br>
+<br>
+
+The <b>/setlayer</b> command can be used to change the transparency of a given window. If no window is provided, the transparency setting will apply to the main MDI window. The setlayer works on all windows as long as the full name is provided, for example "Status Window" for the status window. 
+
+Transparency
+
+Transparency can be between 0 and 255, where 0 = 100% transparency.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/setlayer &lt;0-255&gt; [@window / #channel / query / windowName]
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;0-255&gt;</b>
+      - alpha channel value
+<br><b>[@window / #channel / query / windowName]</b>
+      - The window to apply the transparency to
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; create a new desktop window (with an editbox)
+  window -de @Example
+  ; set @example to 204/255 (%20) transparency
+  setlayer 204 @Example
+  ; a friendly message
+  echo @Example 20% Transparency!
+}
+</pre>
+<pre class ="code">
+; sets the dcc chat window with David to 75% Transparency. (The quotes are not required.)
+setlayer 191 "Chat David"
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (15 Jun 2001)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="window.html">/window</a><br>
+</body>
+</html>

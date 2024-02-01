@@ -1,0 +1,188 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/timer
+</H1>
+<br>
+<br>
+
+The <b>/timer</b> command can be used to create a general purpose timer. A timer is a way to execute code at some specific interval or time and delay. Timers can be named and unnamed. Unnamed timers will get the lowest numeric timer index available. Named timers are specifically useful if you need to recall that timer at a later period - to pause it, resume it, or simply reset it. Starting a timer with a name that already exists will override the old timer. Timers are not blocking command, they 
+only get executed after the alias/event/etc is complete, losing the access to the local scope.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/timers [off]
+/timer[n|name] [off]
+/timer[n|name] [-cdeomhipPrzN] [time] &lt;repetitions&gt; &lt;interval&gt; &lt;code&gt;
+</pre>
+<H4>Switches</H4>
+
+Creation Manipulators
+
+
+<br><b>-o</b>
+      - Creates a offline timer
+<br><b>-c</b>
+      - Creates a catch-up timer
+<br><b>-h</b>
+      - Creates a high-resolution timer (interval is in millisecond just like -m)
+
+Attributes
+
+
+<br><b>-m</b>
+      - Treats the interval parameter as milliseconds instead of seconds
+<br><b>-d</b>
+      - Keeps the order of all -d timers
+<br><b>-i</b>
+      - Dynamically associates itself with the active connection
+
+Manipulator
+
+
+<br><b>-e</b>
+      - Executes the code associated with a timer (note: it decrease the number of repetition of the timer, probably resets the time counter as well)
+<br><b>-p</b>
+      - Pauses a timer, but the countdown is not paused, this switch should serve no real purpose because of the countdown weirdness, -P was added to pause correctly the countdown.
+<br><b>-P</b>
+      - Makes a real pause of the timer, countdown included.
+<br><b>-r</b>
+      - Resumes a timer paused with -p or -P
+<br><b>-z</b>
+      - Resets an online timer; N=2 resets total time, N=1, resets current time, and N=0 is the same as N=1 AND N=2
+
+<H4>Parameters</H4>
+
+
+<br><b>[off]</b>
+      - A literal 'off' keyword, used to turn off a timer.
+<br><b>[n|name]</b>
+      - The name or index of the timer
+<br><b>[time]</b>
+      - Time to activate the timer, for example '15:30' for 3:30PM
+<br><b>&lt;repetitions&gt;</b>
+      - The amount of times the timer should repeat itself. A repetition value of '0' will repeat forever.
+<br><b>&lt;interval&gt;</b>
+      - The delay between two consecutive timer executions
+<br><b>&lt;code&gt;</b>
+      - Code to be executed.
+
+:doc: `$ctimer </identifiers/$ctimer>` & :doc: `$ltimer </identifiers/$ltimer>`
+
+:doc: `$ctimer </identifiers/$ctimer>` can be used to return the name of the timer which triggered the current script while :doc: `$ltimer </identifiers/$ltimer>` returns the name of the last timer which triggered.
+
+Quirks
+------
+
+You can check the :doc: `msl injection </beginner/injection.html>` page to learn more about /timer's double evaluation issues.
+
+/timer also has a special evaluation routine which checks for variable assignement (except /var), for example:
+
+  //timer -ho 1 0 set -s %test 5 $(|) unset -s %test
+
+Works correctly: /timer does not evaluate the variable %test both times as it recognize the assignement.
+
+However this behavior is too intrusive, it is not possible to properly check for variable assigment:
+
+  //var -s %a inc,%b somevalue | timer -ho 1 0 echo -s %a %b
+
+here the variable %b's value disappear completely
+
+<H4>Example</H4>
+<pre class ="code">
+
+If you want the command to work 1 time through 10 seconds, then:
+
+
+    //timer 1 10 echo -a This command worked with a delay of 10 seconds
+
+You can pass the name of an alias that should to work in 10 seconds:
+
+
+    //timer 1 10 test_timer
+
+    alias test_timer {
+    echo -a This command worked with a delay of 10 seconds
+    }
+
+Below is a simple count down timer that uses a call-back alias once per second:
+
+
+    alias example {
+    ; start cou
+    var %reps = 5
+
+    ; call the timer %reps times after 1 second delay each
+    .timer %reps 1 count-down
+
+    ; print the first count
+    count-down
+    }
+    alias -l count-down {
+    echo -a Count: $timer($ltimer).reps
+    }
+
+The above code will generate the following output:
+
+
+    Count: 5
+    Count: 4
+    Count: 3
+    Count: 2
+    Count: 1
+    Count: 0
+
+A more basic example of a message being delayed for 3 seconds:
+
+
+    on *:text:!foo:#foo:{
+    ; delay the message for 3 seconds
+    timer 1 3 msg #foo Bar!
+    }
+
+A repetition of '0' can also be used to mean an repeat forever:
+
+
+    alias cur_time {
+    timer 0 1 echo -s $!time(hh:nn:ss)
+    }
+
+Ending timers by using 'off' parameter, you can also end timers using wildcards.
+
+
+    alias test_timers {
+    ; /test_timers
+
+    ; creating 3 different names timers
+    /timer[test_one] 1 3 echo -a Test one
+    /timer[test_two] 1 6 echo -a Test two
+    /timer[test_three] 1 10 echo -at Test three
+
+    ; End only one of them
+    /timer[test_one] off
+
+    ; Ending all the timers created with 'test_' prefix
+    /timer[test_*] off
+    }
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC vmIRC 3.3, 3.4 ()
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\timer.html">$timer</a><br>
+   <a href="..\identifiers\ctimer.html">$ctimer</a><br>
+   <a href="..\identifiers\ltimer.html">$ltimer</a><br>
+   <a href="..\identifiers\time.html">$time</a><br>
+   <a href="..\identifiers\date.html">$date</a><br>
+   <a href="..\identifiers\gmt.html">$gmt</a><br>
+   <a href="..\identifiers\asctime.html">$asctime</a><br>
+   <a href="scid.html">/scid</a><br>
+   <a href="scon.html">/scon</a><br>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Notify</H1>
+<br>
+<br>
+The <b>ON NOTIFY</b> event triggers when a user in the [[/notify command - mIRC|notify list]] connects to the same server.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:NOTIFY:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+Send a notice to the user when they connect:
+<pre class ="code">ON *:NOTIFY:notice $nick Hey there! Glad to see you again!</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|3.3}}
+
+== See Also ==
+* [[On unotify - mIRC|ON UNOTIFY]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|notify]]</body>
+</html>

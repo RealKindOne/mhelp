@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$isfile</H1>
+<br>
+<br>
+The <b>$isfile(path)</b> identifier returns $true if the specified file exists, otherwise $false, (same as $exists).
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$isfile(path)</pre>
+<H4>Parameters</H4>
+
+<br><b>path</b> - the direction/path of the filename you want to check for.
+
+<H4>Properties</H4>
+
+None
+
+<H4>Example</H4>
+
+It will return $true because is checking if the mirc.exe exists or not, as you using the mIRC it always be true.
+<pre class ="code"
+>//echo -a $isfile($mircexe)</pre>
+
+
+It will return $true if inside your mIRC direction there is an file named as "test.txt", otherwise will be $false.
+<pre class ="code">//echo -a $isfile($mircdirtest.txt)</pre>
+
+
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="exists.html">$exists</a><br>
+<a href="isdir.html">$isdir</a><br>
+<a href="true.html">$true</a><br>
+<a href="false.html">$false</a><br>
+
+</body>
+</html>

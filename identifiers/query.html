@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$query</H1>
+<br>
+<br>
+The <b>$query</b> identifier returns the name of the Nth query window opened.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$query(N/nick)[.property]
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth query window, if N = 0, returns the total number of query window opened.
+<br><b>nick</b> - if a nickname is passed, returns the nickname if you have a query window with that nick, $null otherwise.
+
+<H4>Properties</H4>
+<br><b>.addr</b> - returns the user address, this value might not be correct, you have to get a message from the user to make sure the address is correct
+<br><b>.logfile</b> - returns the file name associated with this query window for logging
+<br><b>.stamp</b> - returns the timestamp setting for that query window
+<br><b>.wid</b> - returns the window ID of that query window
+<br><b>.cid</b> - returns the connection ID of that query window
+<br><b>.hwnd</b> - returns the handle of that query window
+<br><b>.idle</b> - returns the number of second since a message was sent or received for that query window
+
+<H4>Example</H4>
+Print the total number of open query windows for the network.
+<pre class ="code">//echo -a $query(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="chan.html">$chan</a><br>
+
+</body>
+</html>

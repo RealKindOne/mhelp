@@ -1,0 +1,36 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$ltimer</H1>
+<br>
+<br>
+The <b>$ltimer</b> identifier returns the name (timer ID) of last timer created.
+<H4>Synopsis</H4>
+<pre class ="code">
+$ltimer
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+//.timerNAME 1 1 echo -a $!ltimer
+//timerfoobar $+ $rand(1,99) 1 5 noop | echo -a $ltimer
+//timerfoo 1 3 echo -a current timer is $!ctimer last timer created is $!ltimer | timer $+ $rand(11111,99999) 1 2 echo -a current timer is $!ctimer last timer created is $!ltimer
+</pre>
+
+<pre class ="code">
+The 'name' can be numeric, in which case the string returned is the numeric name, and not the 'N' used in $timer(N) used to return the name of the Nth timer.
+//timer $+ $rand(11111,99999) 1 1 noop | echo -a $ltimer</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (28 Aug 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ctimer.html">$ctimer</a><br>
+<a href="timer.html">$timer</a><br>
+<a href="..\commands\timer.html">/timer</a><br>
+</body>
+</html>

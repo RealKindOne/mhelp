@@ -1,0 +1,86 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/copy
+</H1>
+<br>
+<br>
+
+The <b>/copy</b> command can be used to copy a file or an entire directory to another location. Both the source and the destination parameters support directory names. If the source is a directory the entire directory will be copied. The source parameter also supports <a href="..\other\wildcard.html">wildcard</a> characters.
+
+This command is verbose by default.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/copy -aof &lt;source&gt; &lt;destination&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-o</b>
+      - If the file exists, override it
+<br><b>-a</b>
+      - If the file exists, append to it
+<br><b>-f</b>
+      - Flush the copied file to the disk
+
+<H4>Parameters</H4>
+<br><b>&lt;source&gt;</b>
+      - The name of the directory or file to be copied (can be a <a href="..\other\wildcard.html">wildcard</a> name)
+<br><b>&lt;destination&gt;</b>
+      - Destination filename (or directory)
+
+<H4>Example</H4>
+
+You can use the copy command to move the content of entire directories:
+
+<pre class ="code">
+; Copy all the files in directory 'aaa' into directory 'bbb'
+copy aaa bbb
+</pre>
+Below is a simple backup script:
+<pre class ="code">
+;A simple backup script to back up all currently loaded script file.
+; /backup
+Alias backup {
+  var %dir = backup\bkup. $+ $ctime
+
+  ; make sure the user wants to backup
+  if ($input(Are you sure you want to backup all loaded the scripts?, y, Backup Scripts?)) {
+
+    ; make sure the backup directory exists
+    if (!$isdir(backup)) mkdir backup
+
+    ; create the new backup directory, timestamped
+    mkdir %dir
+    echo -ac info [backup] %dir created!
+
+    var %x = 1
+    ; while there is another script file
+    while ($script(%x)) {
+      ; backup the file
+      .copy $qt($v1) %dir
+      echo -ca info [backup] copying $qt($v1)
+      inc %x
+    }
+    ; done!
+    echo -ac info [backup] Backup is complete!
+  }
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\file.html">$file</a><br>
+   <a href="mkdir.html">/mkdir</a><br>
+   <a href="remove.html">/remove</a><br>
+   <a href="rename.html">/rename</a><br>
+   <a href="rmdir.html">/rmdir</a><br>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$timer</H1>
+<br>
+<br>
+The <b>$timer</b> identifier returns informations about the specified timer.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$timer(name/N)[.property]
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth timer, if N = 0 returns the total number of timer
+<br><b>name</b> -the name of a timer
+
+<H4>Properties</H4>
+<br><b>.com</b> - returns the associated command of the timer
+<br><b>.time</b> - return the time parameter if used
+<br><b>.reps</b> - returns the number of repetition left
+<br><b>.delay</b> - returns the delay parameter
+<br><b>.type</b> - returns the online/offline status
+<br><b>.secs</b> - returns the number of second left before the timer is triggered
+<br><b>.ms</b> - returns the number of millisecond left before the timer is triggered (even for non millisecond timer)
+<br><b>.mmt</b> - returns $true if the timer is a multimedia timer (timer -h), $false otherwise
+<br><b>.anysc</b> - returns $true if the /timer -i switch was specified
+<br><b>.wid</b> - returns the window ID value associated with the timer
+<br><b>.cid</b> - returns the connection ID value associated with the timer
+<br><b>.hwnd</b> - returns the handle of the window associated with the timer
+<br><b>.pause</b> - returns $true if /timer -p has been used, $false otherwise
+<br><b>.name</b> - Forces the parameter to be seen as a name instead of the Nth timer if you pass a number.
+
+<H4>Example</H4>
+Echo total number of timers.
+<pre class ="code">//echo -a $timer(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.72 (09 Jan 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\timer.html">/timer</a><br>
+
+</body>
+</html>

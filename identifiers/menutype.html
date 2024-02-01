@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$menutype</H1>
+<br>
+<br>
+The <b>$menutype</b> identifier return the type of menu inside a menu { }.
+
+For status/channel/query/menubar, $menutype returns the same as <a href="menu.html">$menu</a>, which is "status", "channel" etc..
+<br>
+But for custom windows, $menutype returns "custom".
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$menutype
+</pre>
+<H4>Paramters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+menu nicklist,channel,@win,@other {
+  $iif($menutype == nicklist,...):{}
+  $iif($menutype == custom,$iif($menu == @other,stuff,otherstuff)):{}
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.3 (16 Aug 2007)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="menu.html">$menu</a><br>
+<a href="menucontext.html">$menucontext</a><br>
+
+</body>
+</html>

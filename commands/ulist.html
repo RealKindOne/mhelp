@@ -1,0 +1,54 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/ulist
+</H1>
+<br>
+<br>
+
+**/ulist** allows you to list the access levels of users based on a certain criteria.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/ulist [&lt;|&gt;] &lt;level&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>&gt;</b>
+      - Display all users with access greater than or equal to the level parameter specified.
+<br><b>&lt;</b>
+      - Display all users with access less than or equal to the level parameter specified.
+
+<H4>Parameters</H4>
+
+
+<br><b>[N]</b>
+      - This specifies the access level that you wish to list.
+
+<H4>Example</H4>
+List all users with an access level lower than or equal to 10
+<pre class ="code">
+/ulist <10
+</pre>
+List users with access level greater than or equal to 5
+<pre class ="code">
+/list >5
+</pre>
+List users with access level equal to 3
+<pre class ="code">
+/ulist 3
+</pre>
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="auser.html">/auser</a><br>
+   <a href="flush.html">/flush</a><br>
+   <a href="guser.html">/guser</a><br>
+   <a href="iuser.html">/iuser</a><br>
+   <a href="ruser.html">/ruser</a><br>
+</body>
+</html>

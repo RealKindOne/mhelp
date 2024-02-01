@@ -1,0 +1,48 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$pic</H1>
+<br>
+<br>
+The <b>$pic</b> identifier returns size informations about .bmp, .jpg or .png filenames
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$pic(filename,N,M)[.property]
+</pre>
+<H4>Parameters</H4>
+
+<br><b>filename</b> - The filename you want the size informations of
+<br><b>N</b> - The Nth icon in the file, optional if only one icon in the file, used with property
+<br><b>M</b> - The Mth frame for the Nth icon, used with property
+
+<H4>Properties</H4>
+<br><b>.height</b> - returns the height of the picture
+<br><b>.width</b> - returns the width of the picture
+<br><b>.size</b> - Return the product of the width by the height, this value is returned by default if no property is specified (returns file size for .exe)
+<br><b>.frames</b> - returns the number of frames in the Nth icon
+<br><b>.delay</b> - returns the delay for the next frame
+<br><b>.icons</b> - returns the total number of icons in the file
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $pic(C:\K.png)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="window.html">$window</a><br>
+<a href="getdot.html">$getdot</a><br>
+<a href="width.html">$width</a><br>
+<a href="height.html">$height</a><br>
+<a href="inellipse.html">$inellipse</a><br>
+<a href="inrect.html">$inrect</a><br>
+<a href="inroundrect.html">$inroundrect</a><br>
+<a href="inpoly.html">$inpoly</a><br>
+<a href="onpoly.html">$onpoly</a><br>
+<a href="rgb.html">$rgb</a><br>
+<a href="mouse.html">$mouse</a><br>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$ignore</H1>
+<br>
+<br>
+The <b>$ignore</b> identifier returns the Nth address in the ignore list. 
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$ignore
+$ignore(N|address)
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth address in the ignore list, if N = 0, returns the total number of ignored addresses.
+* '''address''' - An address that is currently ignored, the first matching address is used.
+
+
+'''Note''': without a parameter, $ignore returns $true if ignore is on $false otherwise
+
+<H4>Properties</H4>
+<br><b>.type</b> - returns the ignore flag for the ignored address
+<br><b>.secs</b> - returns the number of seconds until ignore is removed if /ignore -uN were used.
+<br><b>.network</b> - returns the network associated with the ignored address
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $ignore(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (28 Aug 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mIRC|/ignore}}
+
+</body>
+</html>

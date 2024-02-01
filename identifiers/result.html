@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$result</H1>
+<br>
+<br>
+The <b>$result</b> identifier returns the value passed to the last <a href="..\commands\return.html">/return</a> (or <a href="..\commands\returnex.html">/returnex</a>) command only if the alias was called as a command (as of 7.51, may be extended to any aliases call in the future).
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$result
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+alias test {
+  return 5
+}
+alias testing {
+  test
+  echo -a $result
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\return.html">/return</a><br>
+<a href="..\commands\returnex.html">/returnex</a><br>
+
+</body>
+</html>

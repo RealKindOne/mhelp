@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/url
+</H1>
+<br>
+<br>
+
+The <b>/url</b> command can be used to completely enable or disable the URL catcher. Additionally it can also be used to show and hide the URL list window as well as modify the items in the list. The URLs can be saved and loaded from an INI file. The URL command can also be used to open URLs in the browser. The URL command uses the default browser application in the system. If the mark is used, it must be a single character - multiple characters will be truncated.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/url &lt;on | off | show | hide | save | load | delete&gt;
+/url -an &lt;URLaddress&gt;
+/url -r &lt;N/mark&gt;
+/url -i &lt;N/Mark&gt; &lt;URLaddress&gt;
+/url -ls &lt;file.ini&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - Attempts to open the URL in the active browser window
+<br><b>-n</b>
+      - Attempts to open the URL in a new window
+<br><b>-r</b>
+      - Removes all items with a specific mark or the Nth item
+<br><b>-i</b>
+      - Insert the URL with a specific mark or at the Nth position
+<br><b>-l</b>
+      - Load all the URLs from a specific INI file
+<br><b>-s</b>
+      - Save all the URLs to a specific INI file
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;on | off | show | hide | load | save | delete&gt;</b>
+      - Show/Hide the URL list window or Enable/Disable the URL catcher, or load/save the url list window; you can pass a filename or a default urls.ini is used. delete should do the same as -r
+<br><b>&lt;URLaddress&gt;</b>
+      - The URL address to use
+<br><b>&lt;N/mark&gt;</b>
+      - A numeric value of a single character mark
+<br><b>&lt;file.ini&gt;</b>
+      - The settings file to save/load the URLs from/into
+
+<H4>Example</H4>
+<pre class ="code">
+; remove all '?' marked URLs
+/url -r ?
+
+; open the website in a new window
+/url -n www.google.com
+
+; show the URL list window
+/url show
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.7 (12 Oct 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\url.html">$url</a><br>
+   <a href="help.html">/help</a><br>
+   <a href="run.html">/run</a><br>
+   <a href="winhelp.html">/winhelp</a><br>
+</body>
+</html>

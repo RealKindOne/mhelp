@@ -1,0 +1,46 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$vcmdstat</H1>
+<br>
+<br>
+The <b>$vcmdstat</b> identifier can be used to get the current status of the voice command listener for mIRC.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$vcmdstat
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+== Results ==
+<br><b>0</b>Service is not available.
+<br><b>1</b>Service is currently off.
+<br><b>2</b>Service is ignoring commands.
+<br><b>3</b>Service is on, and listening for commands.
+
+== Examples ==
+Echo the status of the voice command listener to the active window:
+//echo -a $vcmdstat
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+* <a href="..\commands\vcadd.html">/vcadd</a><br>
+* <a href="..\commands\vcmd.html">/vcmd</a><br>
+* <a href="..\commands\vcrem.html">/vcrem</a><br>
+* <a href="vcmd.html">$vcmd</a><br>
+* <a href="vcmdver.html">$vcmdver</a><br>
+* <a href="..\events\on_VCMD.html">on_VCMD</a><br>
+
+
+</body>
+</html>

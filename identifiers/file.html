@@ -1,0 +1,89 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$file</H1>
+<br>
+<br>
+The <b>$file</b> identifier can be used in two ways:
+
+<br><b>$file(filename).prop</b> return information about a specified file. If no .property is specified, the size in bytes will be returned by default.
+
+<br><b>$file="title" dir</b> this is an old, deprecated syntax, display the select file dialog, use <a href="sfile.html">$sfile</a> instead.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$file(filename)[.property]
+$file="title" dir
+</pre>
+<H4>Parameters</H4>
+<br><b>filename</b> - The filename or directory to any local or networked resource, optionally including absolute or relative path (relative to <a href="mircdir.html">$mircdir</a><br>)
+<br><b>title</b> - the title of the dialog, the quote are optional if you don't use space, this parameter is optional: //echo -a $file c:\*.txt
+<br><b>dir</b> - the directory you want to display, you can put a file at the end which will be used to fill the 'filename' field in the dialog
+
+<H4>Properties</H4>
+When new $file(filename) is used, you can use the following properties:
+<br><b>.size</b> - returns the file's size in bytes. (default) (see: <a href="bytes.html">$bytes</a>)
+<br><b>.ctime</b> - returns the file's creation time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.mtime</b> - returns the file's modification time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.atime</b> - returns the file's last access time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.shortfn</b> - returns the file's short filename (if it has one).
+<br><b>.longfn</b> - returns the file's long filename.
+<br><b>.attr</b> - returns the file (or folder)'s attributes. the returned value is a concatenation of letters representing the attributes.
+
+<br>
+<br>
+Attributes:
+<br>
+
+<br><b>a</b> - archive flag. Is set during normal file-modifying or dir-creation as an indicator to backup programs the file has changed since the last backup, for use with incremental backups. All backups clear this flag for files they archive.
+<br><b>c</b> - if file/folder is compressed.
+<br><b>d</b> - if it is a directory.
+<br><b>e</b> - if the file/folder is encrypted
+<br><b>h</b> - if the file/folder is hidden.
+<br><b>n</b> - if the file/folder is normal, not indexed.
+<!--- https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-sparse --->
+<br><b>o</b> - the file data is physically moved to offline storage (Remote Storage).
+<br><b>p</b> - if the file is sparse.
+<br><b>r</b> - if the file/folder is in read only mode
+<br><b>s</b> - if the file/folder is a system file/folder
+<br><b>t</b> - a file or directory that has an associated reparse point, or a file that is a symbolic link.
+<br><b>x</b> - if you're archiving (a) but are not allowing the indexing of the file/folder's content
+<br><b>y</b> - if the file is temporary
+
+<br>
+<br>
+
+<br><b>.sig</b> - Checks digital signature of an executable/DLL file. (Returns: ok, fail, none)
+<br><b>.ext</b> - returns the extention of the filename if a filename is used, $null otherwise
+<br><b>.path</b> - if a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
+<br><b>.name</b> - returns the name of the folder if a folder is used, or the name of the file without the extention if a filename is used
+<br><b>.version</b> - returns the file's ''file version'' if executable/DLL.
+<br><b>.product</b> - returns the file's ''product version'' if executable/DLL.
+<br><b>.flags</b> - returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
+<br><b>1</b>: DEBUG''' - The file contains debugging information or is compiled with debugging features enabled.
+<br><b>2</b>: PRERELEASE''' - The file is a development version, not a commercially released product.
+<br><b>4</b>: PATCHED''' - The file has been modified and is not identical to the original shipping file of the same version number.
+<br><b>8</b>: PRIVATEBUILD''' - The file was not built using standard release procedures.
+<br><b>16</b>: INFOINFERRED''' - The file's version structure was created dynamically; therefore, some of the members in this structure may be empty or incorrect.
+<br><b>32</b>: SPECIALBUILD''' - The file was built by the original company using standard release procedures but is a variation of the normal file of the same version number.
+
+<br>
+<br>
+See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms646997(v=vs.85).aspx for more informations.
+
+<H4>Example</H4>
+Tells you some information about mIRC's executable.
+<pre class ="code">//echo -a $mircexe is $bytes($file($mircexe),3).suf and was installed on $asctime($file($mircexe).ctime)</pre>
+
+Some more information about mIRC's executable.
+<pre class ="code">//echo -a My copy of mIRC appears to be $iif($file($mircexe).sig == ok,valid.,hacked!)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.71 (07 May 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Midiend</H1>
+<br>
+<br>
+The <b>ON MIDIEND</b> event triggers whenever a [[midi]] file has finished playing via the [[/splay command - mIRC|/splay command]].
+
+This event fills the '''[[$filename identifier - mIRC|$filename identifier]]''', which will be set to the complete location and filename of the sound file that just ended.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:MIDIEND:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Examples ==
+Echo to the active window when the sound file has ended, including its filename:
+<pre class ="code">ON *:MIDIEND:echo -a $nopath($filename) has ended</pre>
+
+The example above will output results similar to the contents below:
+<pre>Chopin - Four Scherzos.midi has ended</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.0}}
+
+== See Also ==
+* [[Playing Music - mIRC|Playing Music]]
+* <a href="on_MP3End.html">On_MP3End</a>
+* <a href="on_NoSound.html">On_NoSound</a>
+* [[On waveend - mIRC|ON WAVEEND]]
+* {{mIRC|$inmidi}}
+* {{mIRC|$insong}}
+* {{mIRC|$inwave}}
+* {{mIRC|$sound}}
+* {{mIRC|$vol}}
+* {{mIRC|/splay}}
+* {{mIRC|/vol}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|midiend]]</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$dqwindow</H1>
+<br>
+<br>
+The <b>$dqwindow</b> identifier returns the state of the single message window. When used in on TEXT/ACTION events, it also returns opening/writing/written states.
+
+The value can be checked using the & bit comparison operator:
+
+* $iif($dqwindow & 1,enabled,not enabled) - the single message window is enabled/disabled
+* $iif($dqwindow & 2,open,not open) - the single message window is open/not open
+* $iif($dqwindow & 4,opening,not opening) - the single message window is going to be opened (or not going to be opened) because of the message received, apply to IRC events only
+* $iif($dqwindow & 8,writing,not writing) - the single message window is going/not going to be written to because of the message received, apply to IRC events only
+* $iif($dqwindow & 16,written,not written) - the message received was written/not written to the single message window, apply to IRC events only.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$dqwindow
+</pre>
+<H4>Paramters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+None
+
+<H4>Compatibility</H4>
+Added: mIRC v7.48 (15 Apr 2017)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mIRC|/dqwindow}}
+
+
+</body>
+</html>

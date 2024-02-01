@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Load</H1>
+<br>
+<br>
+The <b>ON LOAD</b> event is ran whenever a script is first loaded into mIRC's remotes section. Only one of these events may exist per script file.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:LOAD:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+When the following script is loaded, it will give the user an {{mIRC|$input}} popup greeting:
+<pre class ="code">ON *:LOAD:noop $input(Thanks for loading my script!,oi,Script Loaded!)</pre>
+
+'''Note:''' The above example can be executed directly from an mIRC command-line, without the '''ON LOAD''' event, by typing:
+<pre class ="code">//noop $input(Thanks for loading my script!,oi,Script Loaded!)</pre>
+
+The following is what the above will look like upon loading the script for the first time:
+
+[[File:Onload_event_example_-_mIRC.png|Shows the example results.]]
+
+<H4>Compatability</H4>
+{{mIRC compatibility|2.1a}}
+
+== See Also ==
+* [[On start - mIRC|ON START]]
+* <a href="on_UnLoad.html">On_UnLoad</a>
+* {{mIRC|/load}}
+* {{mIRC|/unload}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|load]]</body>
+</html>

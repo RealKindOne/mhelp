@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Unotify</H1>
+<br>
+<br>
+The <b>ON UNOTIFY</b> event triggers when a user in the [[/notify command - mIRC|notify list]] disconnects from the same server.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:UNOTIFY:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+Halt mIRC's default notice and echo the event to the active window:
+<pre class ="code">ON ^*:UNOTIFY: {
+  echo -a * $nick just left $network
+  haltdef
+}</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.0}}
+
+== See Also ==
+* [[On notify - mIRC|ON NOTIFY]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|unotify]]</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Tabcomp</H1>
+<br>
+<br>
+The <b>ON TABCOMP</b> event triggers when you press the tab key in an editbox
+
+'''Note''': This event is not triggered in an empty editbox if you have the 'Tab key changes editbox focus' option enabled in alt + o > other > keys.
+
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:tabcomp:<*><=><!><@><?>#[,#]>:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
+* '''<*><?>&lt;#[,#]&gt;''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>*</b> - Any query/channel window
+<br><b>?</b> - Any query windows
+** '''#''' - Any channel window
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+
+== Examples ==
+None
+
+<H4>Compatability</H4>
+{{mIRC compatibility|6.2}}
+
+== See Also ==
+* [[List of on events - mIRC|mIRC Events]]
+
+[[Category:mIRC on events|tabcomp]]</body>
+</html>

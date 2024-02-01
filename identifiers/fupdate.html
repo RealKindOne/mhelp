@@ -1,0 +1,30 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$fupdate</H1>
+<br>
+<br>
+The <b>$fupdate</b> identifier returns the current integer 0-100 setting for the /fupdate command
+<H4>Synopsis</H4>
+<pre class ="code">
+$fupdate
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+; save current /fupdate setting, then display mirc.ini to status window, then restore previously existing setting:
+//var -s %a fupdate $fupdate | fupdate 99 | filter -fs mirc.ini * | fupdate %fupdate
+</pre>
+
+'''Note:''' The /fupdate setting always reverts to default 0 each time mIRC restarts, so it must be reset each time using an ON START or perform-on-connect command
+== Error Messages ==
+None
+<H4>Compatibility</H4>
+{{mIRC compatibility|7.65}}<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|/fupdate}}</body>
+</html>

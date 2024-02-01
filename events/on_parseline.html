@@ -1,0 +1,70 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Parseline</H1>
+<br>
+<br>
+The <b>ON parseline</b> event triggers before incoming/outgoing IRC server lines are received/sent and allows a script to modify them.
+
+The incoming / outgoing lines are in IRC protocol which is very different to the terminology used in the mIRC front end. For example all messages to channels and individual users are sent / received using PRIVMSG. {{mIRC|/ctcp}} also uses PRIVMSG with a special encoding to indicate it is CTCP. {{mIRC|/me}} action messages are a specific type of CTCP message etc. '''''Use of PARSELINE should therefore be considered advanced scripting and is not for the faint-of-heart.'''''
+
+Because PARSELINE will be called for every matching line, care should be taken to provide the best possible matchtext in order to minimise the number of times it is called, and to keep the processing undertaken to a reasonable level.
+
+<H4>Synopsis</H4>
+<pre class ="code">on &lt;level&gt;:parseline:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<br><b>&lt;level&gt;</b> - The appropriate {{mIRC|access levels}} for the event.
+<br><b>&lt;matchtext&gt;</b> - See the {{mIRC|on text}} event page for a definition of the &lt;matchtext&gt; parameter and related prefixes.
+
+== Notes ==
+'''Note 1:''' For ''out'' lines, the text you are matching against has a $LF as the last character that you need to account for in your match text. e.g.
+<pre class ="code">on *:parseline:out:PRIVMSG *Hello:echo -a $parseline</pre>
+will '''not''' be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
+<pre class ="code">
+on *:parseline:out:PRIVMSG *Hello?:echo -a $parseline
+on *:parseline:out:PRIVMSG *Hello*:echo -a $parseline</pre>
+
+'''Note 2:''' The ":" character is used quite frequently as a separator in IRC raw messages, but it is also used as a separator in mSL's ON statements. You can either use a placeholder for a single character (?) or multiple characters (*) or you can use a calculated match text or a regular expression for the ":" e.g.
+<pre class ="code">
+on *:parseline:out:PRIVMSG *Hello?:echo -a $parseline
+on *:parseline:out:PRIVMSG & ?Hello?:echo -a $parseline
+on *:parseline:out:$(PRIVMSG & :Hello?):echo -a $parseline
+on $*:parseline:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
+</pre>
+
+== {{mIRC|/parseline}} ==
+
+Inside this event, you can use {{mIRC|/parseline}} without the -q switch to change the line.
+
+== Local identifiers ==
+
+The on parseline event exposes 3 local identifiers:
+
+=== {{mIRC|$parsetype}} ===
+
+Return the type of line, "in" or "out"
+
+=== {{mIRC|$parseline}} ===
+
+Return the line being sent/received.
+
+'''Note:''' For ''out'' lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
+<pre class ="code">var %pl $parseline
+if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)</pre>
+
+=== {{mIRC|$parseutf}} ===
+
+Return $true if mIRC is going to decode/encode utf8 the message after the on parseline event
+
+== See also==
+* {{mIRC|/parseline}}
+* {{mIRC|$parseline}}
+* {{mIRC|$parseutf}}
+* [[List of on events - mIRC|List of on events]]
+* [[List of identifiers - mIRC|List of identifiers]]
+* [[List of commands - mIRC|List of commands]]
+
+{{mIRC on event list}}
+
+[[Category:mIRC on events|parseline]]</body>
+</html>

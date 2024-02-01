@@ -1,0 +1,52 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mask</H1>
+<br>
+<br>
+The <b>$mask</b> identifier returns the address with a mask of the specified type.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mask(address,type)
+</pre>
+<H4>Parameters</H4>
+<br><b>address</b> - The address you want the mask of.
+<br><b>type</b> - The type of address, a positive integer between 1-19:
+
+<br>  0: *!user@host
+<br>  1: *!*user@host
+<br>  2: *!*@host
+<br>  3: *!*user@*.host
+<br>  4: *!*@*.host
+<br>  5: nick!user@host
+<br>  6: nick!*user@host
+<br>  7: nick!*@host
+<br>  8: nick!*user@*.host
+<br>  9: nick!*@*.host
+<br>
+<br>
+Type 10-19 are same as types 0-9 except asterisks in host are expanded to the text they replaced, then all numbers are replaced by question marks.
+<br>
+Masks are case-insensitive and assigned by the internet provider, but IRC servers often provide user mode +x to help disguise them.
+
+<H4>Properties</H4>
+
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $mask(nick!user@host,7)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="address.html">$address</a><br>
+<a href="ial.html">$ial</a><br>
+<a href="fulladdress.html">$fulladdress</a><br>
+<a href="site.html">$site</a><br>
+<a href="wildsite.html">$wildsite</a><br>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mkfn</H1>
+<br>
+<br>
+The <b>$mkfn</b> identifier ensures a text string can be a valid filename by replacing characters not allowed in a filename with underscores.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mkfn(text)
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - Text to be made a valid filename by replacing certain characters with underscores
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//var %i 33 | var %f | while (%i isnum 33-126) { var %f %f $+ $chr(%i) | inc %i } | echo -a orig: %f | echo -a mkfn: $mkfn(%f)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+While this ensures a string is a valid filename, it does not ensure 2 different strings wouldn't get assigned the same filename, with both having different characters replaced with the same underscore.
+<H4>See also</H4>
+<a href="mknickfn.html">$mknickfn</a><br>
+<a href="mklogfn.html">$mklogfn</a><br>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/close
+</H1>
+<br>
+<br>
+
+The <b>/close</b> command is used to close all the windows of a specified type and matching a specific name. If no name is used, all the windows with the specified type will close. Names support <a href="..\other\wildcard.html">wildcard</a> characters. You can also close the Nth window for -cfsg, with -cNfNsNgN, if you specify a name, the Nth window matching that name will be closed
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/close [-ticfgmsaxdnu@[ID]] [name1] ...[nameN]
+/close [-cNfNsNgN] [name1] ...[nameN]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-i</b>
+      - Inactive DCC windows (send, get, chat, fserv)
+<br><b>-i</b>t
+      - Inactive Status window (not connected nor connecting)
+<br><b>-t</b>
+      - Status Window
+<br><b>-l</b>
+      - Channel list windows
+<br><b>-k</b>
+      - Link windows
+<br><b>-c</b>
+      - DCC Chat windows
+<br><b>-f</b>
+      - DCC fserve windows
+<br><b>-g</b>
+      - DCC Get windows
+<br><b>-s</b>
+      - DCC Send windows
+<br><b>-m</b>
+      - Query windows
+<br><b>-@</b>
+      - A custom window's name or a window ID
+<br><b>-c</b>N
+      - Nth DCC chat window
+<br><b>-f</b>N
+      - Nth DCC fserve windows
+<br><b>-g</b>N
+      - Nth DCC Get windows
+<br><b>-s</b>N
+      - Nth DCC Send windows
+
+
+<br><b>-a</b>
+      - apply to all server connections
+<br><b>-x</b>
+      - apply to current server connection
+<br><b>-d</b>
+      - apply to single message window
+<br><b>-n</b>
+      - apply to notify list
+<br><b>-u</b>
+      - apply to urls list
+
+<H4>Parameters</H4>
+
+
+<br><b>[nick1]</b>
+      - a nickname for the window to close
+<br><b>[nickN]</b>
+      - Additional nicknames
+
+<H4>Example</H4>
+<pre class ="code">
+;Close all query windows
+/close -m
+
+;Close all custom windows containing \"#\" in their name
+/close -@ @*#*
+
+;Close the 2nd DCC chat window with Dave
+/close -c2 Dave
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.6 (07 Sep 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="clear.html">/clear</a><br>
+   <a href="clearall.html">/clearall</a><br>
+   <a href="debug.html">/debug</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

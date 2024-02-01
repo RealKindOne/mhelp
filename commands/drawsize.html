@@ -1,0 +1,70 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawsize
+</H1>
+<br>
+<br>
+
+The <b>/drawsize</b> command extend the bitmap size of a picture window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawsize &lt;@win&gt; &lt;w&gt; &lt;h&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;w&gt;</b>
+      - new width
+<br><b>&lt;h&gt;</b>
+      - new height
+
+<br>
+/window cannot be used to set the size of the bitmap (-f doesn't guarantee anything even for window area).
+
+While /window or two /window can be used to set the bitmap correctly, /drawsize is better and more consistent.
+
+<br><b>Note:</b> a bitmap cannot be sized to less than the largest point that has been drawn on it (which can be reset with /clear). Once a size has been set, changing the window size will not resize it to less than the set size. can be cleared with /clear
+
+With /drawsize, you can extend the bitmap to make sure your draws are correctly made beyond the size of the window without having the size of the window (what's visible) to be the same (more or less, borders and visual effect put aside) as the size of the bitmap.
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v7.48 (15 Apr 2017)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\window.html">$window</a><br>
+   <a href="..\identifiers\click.html">$click</a><br>
+   <a href="..\identifiers\mouse.html">$mouse</a><br>
+   <a href="..\identifiers\inellipse.html">$inellipse</a><br>
+   <a href="..\identifiers\inrect.html">$inrect</a><br>
+   <a href="..\identifiers\inroundrect.html">$inroundrect</a><br>
+   <a href="..\identifiers\inpoly.html">$inpoly</a><br>
+   <a href="..\identifiers\onpoly.html">$onpoly</a><br>
+   <a href="..\identifiers\rgb.html">$rgb</a><br>
+   <a href="..\identifiers\getdot.html">$getdot</a><br>
+   <a href="..\identifiers\height.html">$height</a><br>
+   <a href="drawcopy.html">/drawcopy</a><br>
+   <a href="drawfill.html">/drawfill</a><br>
+   <a href="drawline.html">/drawline</a><br>
+   <a href="drawpic.html">/drawpic</a><br>
+   <a href="drawrect.html">/drawrect</a><br>
+   <a href="drawreplace.html">/drawreplace</a><br>
+   <a href="drawsave.html">/drawsave</a><br>
+   <a href="drawscroll.html">/drawscroll</a><br>
+   <a href="drawtext.html">/drawtext</a><br>
+</body>
+</html>

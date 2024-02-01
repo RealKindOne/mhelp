@@ -1,0 +1,97 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/debug
+</H1>
+<br>
+<br>
+
+The <b>/debug</b> command outputs raw server messages to a file or a custom window  Incoming messages are prefixed with "<-" and outgoing messages are prefixed with "->".
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/debug [-cinptrNoN] [color_index] [on | off | @window | filename] [identifier]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-c</b>
+      - Turns off debugging (close associated window as well)
+<br><b>-i</b>
+      - Call a specific $identifier and use the returned value as the debug lines
+<br><b>-n</b>
+      - Minimize the custom @window
+<br><b>-p</b>
+      - Wrap the debug lines if it is too long for the @window
+<br><b>-t</b>
+      - Adds timestamp to the debug lines
+<br><b>-r</b>N
+      - Uses the N color index as the line color for received debug lines.
+<br><b>-o</b>N
+      - Uses the N color index as the line color for outbound debug lines.
+
+<H4>Parameters</H4>
+
+
+<br><b>[color]</b>
+      - Optional text color for the debug window (Partly overridden by -rN and/or -oN) Can be color index 0-99
+<br><b>[on|off]</b>
+      - Turns debug on or off
+<br><b>[@window|filename]</b>
+      - outputs to a custom @window or a file
+<br><b>[identifier]</b>
+      - Calls an identifier before logging the debugged line (the returned value if used for the logging)
+
+<H4>Example</H4>
+<pre class ="code">
+; Opens @raw debug window (wrap text+
+//debug -p @Raw
+</pre>
+<pre class ="code">
+; The line can be 'piped' through an alias on its way to the log file.
+; From editbox: /debug -i Log.txt $console
+; From script: /debug -i Log.txt $!console
+
+Alias console {
+  ; split by spaces
+  tokenize 32 $1-
+
+  ; open window if not already opened
+  if (!$window(Console)) window -e @Console
+
+  if (<- == $1) aline -p 9 @Console >> $2-
+  else aline -p 4 @Console << $2-
+
+  ; return the line back to mIRC's log
+  return $1-
+}
+</pre>
+
+
+<pre class ="code">
+
+; This alias opens a debug window shared by all networks. 
+; Outbound lines in red, inbound lines in green. 
+; Note the identifier is listed on command line instead of calling an alias. 
+; The yellow 8 is overridden by defining in/out colors with -rNoN. 
+; Alias uses $time to display seconds without forcing all windows to show seconds in their $timestamp too
+; Raccoon's altered by maroon
+on *:CONNECT:{ debugg }
+alias debugg {
+  window -ze2Dj2000k @debug
+  titlebar @debug active= $+ $scid($window(@debug).cid).network logging: $addtok($gettok($window(@debug).titlebar,3-,32),$network,32)
+  debug -pir44o52 8 @debug $!+([,$time,],[,$network,] $!1-)
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (16 Aug 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\debug.html">$debug</a><br>
+   <a href="..\identifiers\rawmsg.html">$rawmsg</a><br>
+</body>
+</html>

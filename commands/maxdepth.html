@@ -1,0 +1,103 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/maxdepth
+</H1>
+<br>
+<br>
+
+{{Deprecated feature}}
+
+The <b>/maxdepth</b> command could be used to change the maximum allowable recursion limit for a single alias. A depth of 1 indicates no direct recursion is allowed. The maximum depth is 100. Calling an alias from within itself recursively has been disabled.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/maxdepth <depth>
+</pre>
+<H4>Switches</H4>
+
+<H4>Parameters</H4>
+
+
+    * - <depth>
+      - The new recursion depth limit (1-100).
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    example {
+    ;set max recursion depth to 3
+    maxdepth 3
+    set %a 1
+    test
+    }
+    test {
+    echo test %a
+    inc %a
+    test
+    }
+
+Output:
+
+
+    * Max depth is 3
+    -
+    test 1
+    test 2
+    -
+    TEST Unknown command
+    -
+
+Another <H4>Example</H4>
+<pre class ="code">:
+
+
+    example {
+    maxdepth 10
+    set %a 1
+    test
+    }
+    test {
+    echo test %a
+    inc %a
+    test
+    }
+
+Output:
+
+
+    -
+    * Max depth is 10
+    -
+    test 1
+    test 2
+    test 3
+    test 4
+    test 5
+    test 6
+    test 7
+    test 8
+    test 9
+    -
+    TEST Unknown command
+    -
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (06 Jul 1996)
+
+Removed: 07/09/1996
+
+Removed On:mIRC v4.6
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="scid.html">/scid</a><br>
+   <a href="scon.html">/scon</a><br>
+</body>
+</html>

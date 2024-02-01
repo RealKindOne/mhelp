@@ -1,0 +1,84 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$regsubex</H1>
+<br>
+<br>
+The <b>$regsubex</b> identifier performs a regular expression match and then substitute/replace, just like $regsub, but it allows for markers in the replacement and return the substitutions immediatly by default, more information about regex in mIRC (and especially on $regsubex) <a href="..\other\regex.html">regex</a>.
+
+<br>
+<br><b>Note</b>: All the matches are made before the replacements, the total number of matches as well as any capture of any match can be accessed in the replacement with <a href="regmlex.html">$regmlex</a>
+
+<br><b>Note2</b>: $regsubex returns the orignal input if there is no match found, if the /S modifier is used, the control code from the original input will not be returned.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$regsubex([name],input,regex,subtext,%var|&binvar)
+</pre>
+<H4>Parameters</H4>
+<br><b>name</b> -The optional name of the regex, to be used later to retrieve captured group with <a href="regml.html">$regml</a> or <a href="regmlex.html">$regmlex</a>
+<br><b>input</b> - The input text
+<br><b>regex</b> - the regular expression for <a href="..\other\regex.html">regex</a>
+<br><b>subtext</b> - the text to use to replace the match, it can contains the following markers (markers can touch text, they are automatically enclosed in $+ if they touch text):
+<br>
+<br>
+Markers:
+<br>
+<br><b>\0</b> - the total number of captures
+<br><b>\n</b> - the current match number
+<br><b>\t</b> - the 'matchtext', this is the same as $regml(\n), which is often misleading and not useful when you are using /g with multiple captures/backreferences, better to use \1
+<br><b>\a</b> - all match, spaces seperated
+<br><b>\A</b> - a non spaced version of \a
+<br><b>\1 \N etc</b> - returns the same as $regmlex(\n,N), returns the value of the Nth captured group for that match
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//var %a | echo -a $regsubex(abcd,/([a-z])/g,-\n \1-)</pre>
+
+Note how the 1st example below returns the string in red because the input is not altered when there were no matches. However because the 2nd example found at least 1 match, the result excludes any control codes stripped by the /S modifier flag.
+
+<pre class ="code">
+//echo -a $regsubex(foo,$chr(3) $+ 4test,/(z)/gS,x)
+//echo -a $regsubex(foo,$chr(3) $+ 4test,/(.)/gS,x)
+</pre>
+$regsubex does not return a numeric indicator of whether or not there was a match, it simply returns the input string altered by 0 or more matches, though it also does fill the named capture groups seen by $regml and $regmlex.
+<br>
+Example of translating hex strings into the base10 format needed by /bset
+<pre class ="code">
+//var -s %string $sha256(abc) , %pattern /([0-9a-fA-F]{2})\s*/g , %bytevals $regsubex(foo,%string,%pattern,$base(\t,16,10) $+ $chr(32)) | bset -c &binvar 1 %bytevals | echo -a $bvar(&binvar,1-)
+</pre>
+Example of creating a list of the 94 text characters from codepoints 33-126. Note how this is only used for creating the \n token where it increments from the range 1-94, and since there were no capture groups the \t will always be null regardless if there were any matches, and the \t can be removed without changing the result:
+<pre class ="code">
+//echo -a $regsubex(foo,$str(x,94),/x/g,\t $chr($calc(32+ \n)))
+</pre>
+result: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+<br>
+Example of using $regsubex to create a series of 32 byte values. Then assuming there is 256 bits of entropy in the input, uses $regsubex to create a 256-bit key in hex format. Note that the 2nd method is probably preferrable since it allows each of the 32 random byte values to have an effect on each bit of the key, while the 1st method causes each byte value to affect only 8 bits of the key:
+<pre class ="code">
+//var -s %bytevals $regsubex(foo,$str(x,32),/x/g,$rands(0,255) $+ $chr(32)) | echo -a method1: $lower($regsubex(foo,%bytevals,/(\d+)\s*/g,$base(\t,10,16,2))) | echo -a method2: $sha256(%bytevals)
+</pre>
+Example of ROT13 which replaces the a-m range + 13 as n-z, and replaces n-z with a-m. Also the english version of Atbash which replaces each alpha letter with the letter as if the alphabet was flipped backwards. Wizard was possibly created as a word originally due to being itself spelled backwards in this encoding.
+
+<pre class ="code">
+//echo -a $regsubex(maroon 123 FooBar,/([a-zA-Z])/g,$chr( $calc($asc(\t) $iif(\t isin abcdefghijklm,+13,-13) ))))
+//echo -a $regsubex(maroon 456 Wizard,/([a-zA-Z])/g,$chr( $calc(91+64 + $and(32,$asc(\t)) - $asc($upper(\t)))))
+</pre>
+results:
+znebba 123 SbbOne
+nzillm 456 Draziw
+
+<H4>Compatibility</H4>
+Added: mIRC v6.17 (17 Feb 2006)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="regml.html">$regml</a><br>
+<a href="regmlex.html">$regmlex</a><br>
+<a href="regsub.html">$regsub</a><br>
+<a href="regex.html">$regex</a><br>
+<a href="regerrstr.html">$regerrstr</a><br>
+
+</body>
+</html>

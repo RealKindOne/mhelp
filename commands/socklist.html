@@ -1,0 +1,59 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/socklist
+</H1>
+<br>
+<br>
+
+The <b>/socklist</b> command allows mIRC to list all sockets that are currently open open.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/socklist [-tul] [name]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-t</b>ul
+      - These can be a single, or combination, of switches to list open TCP, UDP or listening sockets, respectively.
+
+<H4>Parameters</H4>
+
+
+    * - [name]
+      - The name of the socket to search for. This parameter can also be a <a href="..\other\wildcard.html">wildcard</a> match.
+
+<H4>Example</H4>
+<pre class ="code">
+
+List all TCP sockets that have the begin with **mySock**:
+
+
+    /socklist -t mySock*
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.71 (07 May 2000)
+
+See Also
+
+
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+   <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+   <a href="sockaccept.html">/sockaccept</a><br>
+   <a href="sockclose.html">/sockclose</a><br>
+   <a href="socklisten.html">/socklisten</a><br>
+   <a href="sockmark.html">/sockmark</a><br>
+   <a href="sockopen.html">/sockopen</a><br>
+   <a href="sockpause.html">/sockpause</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockudp.html">/sockudp</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+</body>
+</html>

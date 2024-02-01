@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$gmt</H1>
+<br>
+<br>
+The <b>$gmt</b> identifier return the current GMT time value in <a href="ctime.html">$ctime</a> format. $gmt also accept optional time and/or format parameters, displaying the same format as <a href="asctime.html">$asctime</a>, adjusted by $timezone/$daylight settings.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$gmt
+$gmt(date[,format])
+</pre>
+<H4>Parameters</H4>
+<br><b>no parameters</b> - identifier returns ctime adjusted by the $timezone value
+<br><b>date</b> - Optional ctime number, overrides the default ctime. Returns the GMT time string in $asctime format. Ignores any fractions.
+<br><b>format</b> - Optional format letters same as for <a href="asctime.html">$asctime</a>
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//echo -a $gmt($ctime) is the same as $asctime($calc($ctime + $timezone  ) )
+//echo -a $gmt is same as $calc( $ctime + $timezone )
+//echo -a Current GMT is $gmt($ctime, ddd dd mmmm yyyy hh:nn:sstt)
+</pre>
+
+* Beginning v7.56, changes made to $gmt are:<br>
+1. The z|zz|zzz format strings now return the string for GMT zone instead of the user's zone.<br/>
+2. Fixed bug where $gmt(number) handled all dates as if they were during the same $daylight zone as the current date, resulting in different output for $gmt(0), for most people, when script is run in January vs June.
+<pre class ="code">
+//echo -a $gmt($calc(0+$iif($version isnum 7.56-,0,$daylight))) is Thu Jan 01 00:00:00 1970
+</pre>
+3. New API recognizes larger date range. N can now be numbers which resolve to 1 second after midnight at the beginning of year 1601, through 1 second prior midnight at the end of the last day of year 9999. Returns $null of N is outside that range.
+<pre class ="code">
+//echo -a $gmt($calc(0-86400*365.25*369+86400*3.25+1))) is Mon Jan 01 00:00:01 1601
+//echo -a $gmt($calc(0+86400*365.25*(9999-1970)+86400*304.75-1))) is Fri Dec 31 23:59:59 9999
+valid range is -11644473599 through +253402300799
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="asctime.html">$asctime</a><br>
+<a href="date.html">$date</a><br>
+<a href="adate.html">$adate</a><br>
+<a href="time.html">$time</a><br>
+<a href="ctime.html">$ctime</a><br>
+<a href="fulldate.html">$fulldate</a><br>
+<a href="ticks.html">$ticks</a><br>
+<a href="day.html">$day</a><br>
+<a href="daylight.html">$daylight</a><br>
+<a href="timezone.html">$timezone</a><br>
+<a href="duration.html">$duration</a><br>
+<a href="uptime.html">$uptime</a><br>
+</body>
+</html>

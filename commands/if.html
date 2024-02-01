@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/if
+</H1>
+<br>
+<br>
+
+The :doc: `conditional statements </intermediate/control_flow_statements.html#conditional_statements>` is a built-in construct capable of comparing a value and executing a set of commands based on the result of that condition. The if statement is used in conjunction with the :doc: `/else </commands/else>` statement and the :doc: `/elseif </commands/elseif>` statement to jump to certain blocks of code depending on the result of the conditional statement that was executed. The if statements supports the :doc: `operators </intermediate/control_flow_statements.html#operators>`
+
+<H4>Synopsis</H4><pre class ="code">
+
+
+    if (<condition>) <statement>
+    if (<condition>) { <statements> }
+
+</pre>
+<H4>Switches</H4>
+
+<H4>Parameters</H4>
+
+
+    * - <condition>
+      - a conditional expression to be executed
+
+<H4>Example</H4>
+<pre class ="code">
+
+Below is a simple example of checking for at least five arguments before proceeding.
+
+
+    alias example {
+    if ($0 < 5) { echo -atc info * /example: You must provide at least 5 arguments! | halt }
+    ; do something useful here
+    echo -a works!
+    }
+
+Executing "/example a b c d" will result in:
+
+
+    * /example: You must provide at least 5 arguments!
+
+While, executing "/example a b c d f" will result in:
+
+
+    works!
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (06 Jul 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\halted.html">$halted</a><br>
+   <a href="..\identifiers\result.html">$result</a><br>
+   <a href="..\identifiers\alias.html">$alias</a><br>
+   <a href="..\identifiers\isalias.html">$isalias</a><br>
+   <a href="..\identifiers\iif.html">$iif</a><br>
+   <a href="alias.html">/alias</a><br>
+   <a href="goto.html">/goto</a><br>
+   <a href="halt.html">/halt</a><br>
+   <a href="return.html">/return</a><br>
+   <a href="while.html">/while</a><br>
+   <a href="returnex.html">/returnex</a><br>
+   <a href="elseif.html">/elseif</a><br>
+   <a href="else.html">/else</a><br>
+</body>
+</html>

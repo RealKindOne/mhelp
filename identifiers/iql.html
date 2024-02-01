@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$iql</H1>
+<br>
+<br>
+The <b>$iql</b> identifier returns the Nth address in the internal quiet list.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$iql(#chan,N)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>#chan</b> - the channel you want quiet from
+<br><b>N</b> - the Nth quieted address in the channel, use N = 0 for the total number of address
+
+<H4>Properties</H4>
+<br><b>.by</b> - returns the nickname who set the quiet
+<br><b>.date</b> - returns the date when the quiet was set
+<br><b>.ctime</b> - returns the date when the quiet was set, in <a href="ctime.html">$ctime</a> format
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $iql(#,0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.48 (15 Apr 2017)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ialchan.html">$ialchan</a><br>
+<a href="ial.html">$ial</a><br>
+<a href="iil.html">$iil</a><br>
+<a href="ibl.html">$ibl</a><br>
+<a href="iel.html">$iel</a><br>
+
+</body>
+</html>

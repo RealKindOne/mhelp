@@ -1,0 +1,54 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$tip</H1>
+<br>
+<br>
+The <b>$tip</b> identifier allows you to create scripted tips that are independent of normal tip events.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$tip(&lt;name&gt;,&lt;title&gt;,&lt;text&gt;,delay,iconfn,iconpos,alias,wid)
+create a tip, returns Nth position of tip if successfully created, 0 if not
+$tip(N/name) - returns information about a tip
+</pre>
+<H4>Parameters</H4>
+
+<br><b>name</b> - The name of your tip.
+<br><b>title</b> - The title of your tip.
+<br><b>text</b> - The text appearing inside the tip, can contain colors
+<br><b>delay</b> - The duration of the tip, betwee, 3 and 60
+<br><b>iconfn</b> - the filename of the icon, if you want to use any
+<br><b>iconpos</b> - the position of the icon for a file containing multiple icons
+<br><b>alias</b> - the alias that will be called when the tip is double clicked
+<br><b>wid</b> - the id of the window to which the tip belongs
+<br><b>cid</b> - the id of the connection to which the tip belongs
+<br><b>N</b> - reference the Nth tip.
+
+<H4>Properties</H4>
+When only one parameter is passed to $tip, you can use the following properties:
+<br>
+<br><b>.name</b> - returns the name of the tip (used with the N parameter typically)
+<br><b>.title</b> - return the title of the tip
+<br><b>.text</b> - return the text of the tip
+<br><b>.delay</b> - return the delay of the tip
+<br><b>.iconfn</b> - return the icon filename used if any
+<br><b>.iconpos</b> - return the position of the icon for a file containing multiple icons
+<br><b>.alias</b> - return the name of the alias called when double clicking the tip
+<br><b>.wid</b> - return the id the window to which the tip belongs
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $tip(test,test,test)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.3 (16 Aug 2007)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\tip.html">/tip</a><br>
+<a href="..\commands\tips.html">/tips</a><br>
+<a href="tips.html">$tips</a><br>
+
+</body>
+</html>

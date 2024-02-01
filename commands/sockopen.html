@@ -1,0 +1,91 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockopen
+</H1>
+<br>
+<br>
+
+The <b>/sockopen</b> command initiates a connection to the specified addresses and port; a named address can be substituted for an IP address (which will get resolved to an IP address eventually). On success, the on sockopen event should get executed.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockopen [-de[swap]tn46] [bindip] &lt;name&gt; &lt;address&gt; &lt;port&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-d</b>
+      - the specified IP address is the bind IP address
+<br><b>-e</b>
+      - creates an SSL connection, with this switch you can also use:
+<br><b>-s</b>
+      - skip invalid certificates
+<br><b>-w</b>
+      - display warning dialog
+<br><b>-a</b>
+      - accept invalid certificates
+<br><b>-p</b>
+      - prevent certificate caching
+<br><b>-t</b>
+      - initiates an SSL negotiation on a non-SSL connection (STARTTLS feature), this is not meant to be used when creating the socket but later after the connection has been established, trigger on sockopen a second time with $sock().starttls set to $true
+<br><b>-4</b>
+      - specify the IPv4 context when resolving address (enforce ipv4 when it is disabled entirely because your status window is in 'ipv6 mode'
+<br><b>-6</b>
+      - specify the IPv6 context when resolving address (enforce ipv6)
+<br><b>-n</b>
+      - disable Nagle algorithm on socket
+
+<H4>Parameters</H4>
+
+
+<br><b>[bindip]</b>
+      - bind ip to be used
+<br><b>&lt;name&gt;</b>
+      - socket name (for future reference)
+<br><b>&lt;address&gt;</b>
+      - ip address or server name of the end point
+<br><b>&lt;port&gt;</b>
+      - port of the end point
+
+<H4>Example</H4>
+<pre class ="code">
+Alias irc_connect {
+  ;Initiate a connection with "irc.freenode.org" on port 6669, Secured connection
+  sockopen -e IRC irc.freenode.org +6697
+}
+
+On *:sockopen:IRC:{
+  ;Send our USER and NICK irc commands
+  sockwrite -n IRC USER Tester $+ $rand(1,100) Test Test:mSL Testing $+ $crlf
+  sockwrite -n IRC NICK Tester $+ $rand(1,100) $crlf
+}
+
+;Show all receiving data in a window
+On *:sockread:IRC:{
+  window -de @IRC
+  var %x
+  sockread %x
+  aline -p @IRC $iif(%x,$v1,-)
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="socklist.html">/socklist</a><br>
+   <a href="sockmark.html">/sockmark</a><br>
+   <a href="sockpause.html">/sockpause</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+    * :doc: `on sockopen </events/on_sockopen>`
+</body>
+</html>

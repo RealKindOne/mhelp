@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$remtokcs</H1>
+<br>
+<br>
+The <b>$remtokcs</b> identifier removes the Nth matching token in text using case sensitivity.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$remtokcs(&lt;list&gt;,token,N,C)
+</pre>
+<H4>Parameters</H4>
+
+<br><b>&lt;list&gt;</b> - The list of tokens (can be empty)
+<br><b>token</b> - the token used to match
+<br><b>N</b> - The Nth matching token, default to 1, if N is 0, applies to all matching tokens.
+<br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Returns one two three
+<pre class ="code">$remtokcs(one two three twO, twO, 32) </pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.91 (15 Jun 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="findtok.html">$findtok</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="numtok.html">$numtok</a><br>
+<a href="puttok.html">$puttok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+
+</body>
+</html>

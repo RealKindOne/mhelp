@@ -1,0 +1,78 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dll
+</H1>
+<br>
+<br>
+
+The <b>/dll</b> command can be used to call an exported function from a DLL with the specified parameters.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dll &lt;libName.dll&gt; &lt;funcName&gt; [data]
+/dll -m &lt;callback&gt; &lt;libName.dll&gt; &lt;funcName&gt; [data]
+/dll -u &lt;libName.dll&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-u</b>
+      - Unload the given loaded library.
+<br><b>-m</b>
+      - Call the procname in a new thread and call the alias &lt;callback&gt; when finished
+
+<br><b>Note:</b> if you pass only a filename, (for example "test.dll", instead of /folder/test.dll or c:\fullpath\test.dll), /dll -u will begin with N=1 looking into the whole list of dlls for a match between $nopath($dll(Nth)) instead of looking into $mircdir only or looking in $mircdir first.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;libName.dll&gt;</b>
+      - The name and path of the dynamic link library (DLL) file.
+<br><b>&lt;funcName&gt;</b>
+      - The name of the exported function to call
+<br><b>[data]</b>
+      - The data to pass to that function.
+
+<br><b>Note:</b> If the path or filename contains a space, &lt;libName.dll&gt; MUST be enclosed in doublequotes.
+
+
+Look at the :doc: `dll </advanced/dll>` article to see how to use a dll as well as how to create them.
+
+
+<H4>Example</H4>
+
+
+Silently fails if $dll(1) contains a space:
+<pre class ="code">//if ($dll(1)) dll -u $dll(1)</pre>
+Works whether or not $dll(1) contains a space:
+<pre class ="code">//if ($dll(1)) dll -u $qt($dll(1))</pre>
+
+If $dll(1) is $mircdir $+ subdir\foo.dll and $dll(2) is $mircdir $+ foo.dll
+"/dll -u foo.dll" matches the 1st index matching $nopath(foo.dll), so it removes subdir\foo.dll unless that were loaded last. But "/dll -u $qt($dll(2))" removes the foo.dll not located in the subdir.
+
+<pre class ="code">//dll foo.dll no_such_function | echo -a test</pre>
+If foo.dll does not exist, the script halts with an error, and the echo does not display. If foo.dll does exist but the function does not exist, /dll displays an error to status window, but the script continues executing the echo. It also loads foo.dll even if the function doesn't exist, and remains loaded in memory if the .dll's initialization routine sets mKeep=$true. See the $dll article for keeping the .dll loaded after execution, and for keeping the .dll past 10 minutes of idle time.
+
+While $dll(foo,function,) returns a 3rd parameter even if it's $null, "/dll foo.dll" does not require parm3.
+
+Using
+<pre class ="code">/dll file.dll function string</pre>
+used for loading a dll is roughly equivalent to
+<pre class ="code">noop $dll(file.dll,function,string)</pre>
+
+
+<H4>Compatibility</H4>
+Added: mIRC v5.6 (23 Sep 1999)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\dll.html">$dll</a><br>
+   <a href="..\identifiers\dllcall.html">$dllcall</a><br>
+    * :doc: `sendmessage </advanced/sendmessage>`
+</body>
+</html>

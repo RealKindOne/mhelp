@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$remote</H1>
+<br>
+<br>
+The <b>$remote</b> identifier returns a bitwise integer indicating if ctcps/events/raws are enabled.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$remote
+
+The value are OR'ed together 1 | 2 | 4
+
+0 is returned when remote are off, 7 when everything is enabled, see the example to check one of them manually.
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+if ($remote & 1) echo -a ctcps are enabled
+if ($remote & 2) echo -a events are enabled
+if ($remote & 4) echo -a raws are enabled
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.8 (05 Sep 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|/remote}}
+
+</body>
+</html>

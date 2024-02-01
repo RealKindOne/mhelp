@@ -1,0 +1,67 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/run
+</H1>
+<br>
+<br>
+
+The <b>/run</b> command executes the given file or object using the application associated with its file extension. It can also be used to open directories. The file parameter can be enclosed by a pair of double quotes to separate it from the argument list.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/run -pnhau &lt;file/dir/obj&gt; [arguments]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-h</b>
+      - hide the application in context
+<br><b>-p</b>
+      - changes the working path to the path of the application in context
+<br><b>-n</b>
+      - minimize the window upon opening
+<br><b>-a</b>
+      - run as administrator, prompting you if mIRC is not running as admin, if mIRC is already running as admin, no prompt.
+<br><b>-u</b>
+      - if mIRC is running as admin, runs the program without admin right
+
+<H4>Parameters</H4>
+
+<br><b>&lt;file/dir/obj&gt;</b>
+      - the object/file to execute
+<br><b>[arguments]</b>
+      - arguments list passed to the program
+
+<H4>Example</H4>
+<pre class ="code">
+alias example {
+  ; open a site
+  run www.google.com
+  ; open notepad, minimized
+  run -n notepad.exe
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+<H4>Notes</H4>
+If mIRC is already running as admin and if you're not using <b>-a</b> nor <b>-u</b>, the program will still be running as admin as though you used <b>-a</b>, by default.
+<br>
+In Win7-32 OS, using the <b>-a</b> switch fails if launching a 16-bit DOS executible, regardless of if mIRC is already running in elevated state or not. Workaround is to not use <b>-a</b> if mIRC is already running as admin, but to use <b>-a</b> if it is not.
+
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\isadmin.html">$isadmin</a><br>
+   <a href="..\identifiers\url.html">$url</a><br>
+   <a href="..\identifiers\file.html">$file</a><br>
+   <a href="..\identifiers\findfilen.html">$findfilen</a><br>
+   <a href="..\identifiers\finddir.html">$finddir</a><br>
+   <a href="..\identifiers\finddirn.html">$finddirn</a><br>
+   <a href="..\identifiers\isfile.html">$isfile</a><br>
+   <a href="..\identifiers\isdir.html">$isdir</a><br>
+   <a href="..\identifiers\exists.html">$exists</a><br>
+   <a href="url.html">/url</a><br>
+</body>
+</html>

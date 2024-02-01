@@ -1,0 +1,46 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$max</H1>
+<br>
+<br>
+The <b>$max</b> identifier returns the maximum from a list of tokens. $min and $max are effectively a short-cut to returning either the first or last token from a $sorttok list, and uses different .prop settings to replicate the different switches used by $sorttok. By default, $min and $max sort the tokens with the same rules used by the $sorttok 'n' switch.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$max(&lt;space delimited tokens&gt;)
+$max(&lt;comma,delimited,tokens&gt;)
+</pre>
+<H4>Parameters</H4>
+<br><b>&lt;list&gt;</b> - If only 1 parameter is passed, that parameter must be a list of tokens space delimited. Otherwise each parameter passed represent an element in the list.
+
+<H4>Properties</H4>
+<br><b>.text</b> - sorts tokens using the same text sorting rules used by $sorttok 'a' switch
+<br><b>.textcs</b> - sorts tokens using the same text sorting rules used by $sorttokcs 'a' switch
+<br><b>.nick</b> - sorts tokens using the same text sorting rules used by $sorttok 'c' switch
+
+<H4>Example</H4>
+
+<pre class ="code">//echo -a $max(11 2 3 5 8 13) $max(11,2,3,5,8,13)</pre>
+
+<pre class ="code">//echo -a $max(c C).text vs $max(c C).textcs</pre>
+
+Returns "c vs C" because, as case-insensitive text, 'C' and 'c' are the same, so the leftmost of the pair is returned.
+
+Numeric sorting rules recognize exponential, so $man(1e2 1d2) handles both of them as 100.
+
+<pre class ="code">//echo -a $max( 1:black 02:blue 14:grey 3:green 13:magenta 5:maroon 6:purple 04:red 7:tan 8:yellow 0:white)</pre>
+result: 0:white
+
+
+<H4>Compatibility</H4>
+Added: mIRC v7.62 (29 Jul 2020)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="sorttokcs.html">$sorttokcs</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="min.html">$min</a><br>
+</body>
+</html>

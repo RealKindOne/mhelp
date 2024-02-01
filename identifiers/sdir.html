@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$sdir</H1>
+<br>
+<br>
+The <b>$sdir</b> identifier displays the select folder dialog and returns the selected folder
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$sdir(dir, title, button)
+$sdir="title" &lt;dir&gt;
+;This is the old format still supported by mIRC
+;The quotes are optional if title doesn't contain spaces
+</pre>
+<H4>Parameters</H4>
+<br><b>dir</b> - The directory you want to open
+<br><b>title</b> - The optional title
+<br><b>button</b> - The optional text of the 'open' button on the dialog
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $sdir($mircdir,"choose a folder!,Ok!)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.81 (09 Nov 2000)
+<H4>Notes</H4>
+
+Prior version of mirc (before 7.x'ish) were using a different dialog selection which was allowing the usage of a <a href="..\other\wildcard.html">wildcard</a> to fill in the 'folder' field in the dialog, but mIRC is not longer using that dialog, and therefore it's now no longer possible to pass a <a href="..\other\wildcard.html">wildcard</a> as the 'dir' parameter here.
+
+<H4>See also</H4>
+<a href="sfile.html">$sfile</a><br>
+
+</body>
+</html>

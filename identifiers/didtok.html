@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$didtok</H1>
+<br>
+<br>
+The <b>$didtok</b> identifier returns a tokenized list of the item(s) of a dialog's combo, list, or edit box
+<H4>Synopsis</H4>
+<pre class ="code">
+$didtok(name,id,C)
+</pre>
+<H4>Parameters</H4>
+<br><b>name</b> -Name of the dialog. Must be open
+* '''id''' - The number of the dialog control
+* '''C''' - ASCII value used to separate the returned tokens. 32 is space, 44 is comma, 9 is tab, 46 is period, etc.
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+dialog sample1 {
+  size -1 -1 200 200
+  option dbu
+  combo 987,10 10 50 10, drop
+}
+on *:dialog:sample1:init:*:{
+  var %days Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+  didtok $dname 987 32 %days
+  did -c $dname 987 $findtok(%days,$asctime($ctime,dddd),1,32)
+}
+</pre>
+
+
+<pre class ="code">
+/dialog -ma sample1 sample1
+//echo -a The items in the list are $didtok(sample1,987,10004) and the selected item is $did(sample1,987).seltext
+  The items in the list are Sunday✔Monday✔Tuesday✔Wednesday✔Thursday✔Friday✔Saturday and the selected item is Monday
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+* <a href="..\commands\dialog.html">/dialog</a><br>
+<a href="..\commands\did.html">/did</a><br>
+<a href="did.html">$did</a><br>
+<a href="..\commands\didtok.html">/didtok</a><br>
+[[Category:mIRC identifiers|$didtok]]</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/bunset
+</H1>
+<br>
+<br>
+
+The <b>/bunset</b> command unsets a binary variable. You can unset multiple variables using the space delimiter.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/bunset &binvar [&binvar [&binvar ...]]
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&binvar</b>
+      - The name of the binary variable to unset
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; Create a binary variable
+  bset -t &Example 1 cool text
+  ; Print out its content
+  echo -a $qt($bvar(&Example,1,$bvar(&Example,0)).text)
+  ; Unset the variable
+  bunset &Example
+  ; Print out its content ($null)
+  echo -a $qt($bvar(&Example,1,$bvar(&Example,0)).text)
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\bvar.html">$bvar</a><br>
+   <a href="..\identifiers\bfind.html">$bfind</a><br>
+   <a href="bread.html">/bread</a><br>
+   <a href="breplace.html">/breplace</a><br>
+   <a href="bwrite.html">/bwrite</a><br>
+   <a href="bset.html">/bset</a><br>
+   <a href="bcopy.html">/bcopy</a><br>
+   <a href="btrunc.html">/btrunc</a><br>
+</body>
+</html>

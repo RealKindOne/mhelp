@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$event</H1>
+<br>
+<br>
+The <b>$event</b> identifier will return the event name of any triggered [[List of on events - mIRC|ON Events]]. It will also be filled inside {{mIRC|raw events}} with the numeric or string event's name
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$event
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Example</H4>
+When a user speaks in a channel, echo the event name that is triggered:
+<pre class ="code">ON *:TEXT:*:#:echo -a Event triggered: $event</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* [[List of on events - mIRC|ON Events]]
+<a href="clevel.html">$clevel</a><br>
+<a href="dlevel.html">$dlevel</a><br>
+<a href="ulevel.html">$ulevel</a><br>
+
+</body>
+</html>

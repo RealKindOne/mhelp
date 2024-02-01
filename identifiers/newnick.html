@@ -1,0 +1,41 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$newnick</H1>
+<br>
+<br>
+The <b>$newnick</b> identifier is filled when the <a href="..\events\on_nick.html">on_nick</a> event is triggered on a channel when either a remote user changes their nickname on a channel, or the local mIRC client has changed its nickname.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$newnick
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Example</H4>
+Echo to the channel when the local nickname is changed, and halt mIRC's default message:
+<pre class ="code">ON ME:^*:NICK: {
+  echo $chan You are now ==> $newnick
+
+  ; Halt the default mIRC message
+  haltdef
+}</pre>
+
+The example above should have an output resembling the following:
+You are now ==> whoMe
+
+<H4>Compatibility</H4>
+Added: mIRC v3.2 (02 May 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Join.html">on_Join</a><br>
+<a href="..\events\on_mode.html">on_mode</a><br>
+<a href="..\events\on_part.html">on_part</a><br>
+
+
+</body>
+</html>

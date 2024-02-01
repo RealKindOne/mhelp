@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$strip</H1>
+<br>
+<br>
+The <b>$strip</b> identifier removes colors and/or other control-code formatting from text.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$strip(&lt;text&gt;[,burcimo])
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - text string from which to remove colors or control codes.
+<br>
+
+Optional types to strip from text. Default is $strip(text,burci)
+<br>
+<br><b>b</b> - Bold $chr(2)
+<br><b>u</b> - Underline $chr(31)
+<br><b>r</b> - Reverse Colors $chr(22)
+<br><b>c</b> - Colors $chr(3) followed by N[,N]
+<br><b>i</b> - Italics $chr(29)
+<br><b>m</b> - The Color/Other settings from mIRC-OptionsIRC//Messages
+<br><b>o</b> - The Only-If settings from mIRC-OptionsIRC//Messages/If-more-than
+<br><b>e</b> - StrikeThrough $chr(30)
+
+<br>
+<br>
+Note from the above that the control-code entered at the keyboard is not always the same one sent. For example, you press Control-K to precede numbers in colors, which is also $chr(11), but it actually sends $chr(3) which is same as Ctrl-C. Same goes for entering Ctrl-I for Italics but the text actually contains $chr(29).
+
+<H4>Example</H4>
+Two consecutive ^B's used within a bad word does not alter the display, but prevents a match against the badword list unless $strip is first used on the text
+<pre class ="code">
+on *:TEXT:*:#channelname:{
+  var %i $CheckForBadWords($strip($1-))
+  ; Using Strip to find 'bad words' that could have been disguised by colors and control-codes
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.7 (09 Dec 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="stripped.html">$stripped</a><br>
+
+
+</body>
+</html>

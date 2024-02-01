@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Appactive</H1>
+<br>
+<br>
+The <b>ON APPACTIVE</b> event monitors when the mIRC application has had its active status changed.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:APPACTIVE:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Examples ==
+<pre class ="code">; Listen for mIRC's appactive event, then echo 
+; some information to the active window.
+
+ON *:APPACTIVE:echo -a * mIRC now has an appactive status of $appactive $+ .</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.9}}
+
+== See Also ==
+* [[List of on events - mIRC|mIRC Events]]
+* [[On active - mIRC|ON ACTIVE]]
+* {{mIRC|$active}}
+* {{mIRC|$activecid}}
+* {{mIRC|$activewid}}
+* {{mIRC|$lactive}}
+* {{mIRC|$lactivecid}}
+* {{mIRC|$lactivewid}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|appactive]]</body>
+</html>

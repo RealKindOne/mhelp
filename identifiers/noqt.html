@@ -1,0 +1,42 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$noqt</H1>
+<br>
+<br>
+The <b>$noqt</b> identifier returns the text string with single enclosure double-quotes removed.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$noqt(text)
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - text string from which to remove single enclosure double quotes.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Does not affect double-quotes within the text, only removes a single double-quote at the start/end of text.
+
+<pre class ="code">//var %ini $qt($mircini) echo -a %ini | echo -a $noqt(%ini)
+; 1st line returns path\filename of your mirc.ini with double-quotes around it.
+; 2nd line shows filename with surrounding double-quotes removed
+</pre>
+
+<pre class ="code">
+//echo -a $noqt("""Test""String)
+; returns: ""Test""String
+; No change to internal quotes, removes 1 double-quote from start of string, no alteration of string ending because no double-quote already present.
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.17 (17 Feb 2006)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="qt.html">$qt</a><br>
+
+</body>
+</html>

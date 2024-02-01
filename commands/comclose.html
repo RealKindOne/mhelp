@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/comclose
+</H1>
+<br>
+<br>
+
+The <b>/comclose</b> command closes an existing :doc: `COM connection TODO_LINK_ADVANCED_COM` by a specific handle.
+
+The supplied com handle must have been previously created via the <a href="comopen.html">/comopen</a> or the <a href="..\identifiers\com.html">$com</a> / <a href="..\identifiers\comcall.html">$comcall</a> identifiers.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/comclose &lt;name&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - The name of the connection to close
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; Create a WshShell object
+  comopen Example wscript.shell
+  ; Destroy object
+  comclose Example
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (15 Jun 2001)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\com.html">$com</a><br>
+   <a href="..\identifiers\comcall.html">$comcall</a><br>
+   <a href="..\identifiers\comval.html">$comval</a><br>
+   <a href="comopen.html">/comopen</a><br>
+   <a href="comreg.html">/comreg</a><br>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$appactive</H1>
+<br>
+<br>
+The <b>$appactive</b> identifier returns ''$true'' or ''$false'' depending on whether mIRC is the active window or not.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$appactive
+</pre>
+== Switches ==
+None
+
+== Results ==
+'''$true'''</span>mIRC is currently the active window.
+
+'''$false'''</span>mIRC is currently '''not''' the active window.
+
+<H4>Example</H4>
+Let's say you have a listening event, just to make mIRC beep if someone uses your name in a channel. We call these notifications, as well as highlights. Well, if mIRC is the currently active window, these sounds can be either annoying or meaningless. Therefore, we would set up the listener to check the '''$appactive''' identifier to make sure mIRC is not active before sending out the audible notification.
+
+<pre class ="code">ON *:TEXT:$($+(*,$me,*)):#: {
+  ; Make sure mIRC is not the active application
+  if (!$appactive) {
+
+    ; Execute 5 beeps at 200 millisecond intervals
+    beep 5 200
+  }
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$appstate}}
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$shortfn</H1>
+<br>
+<br>
+The <b>$shortfn(path)</b> identifier returns short version of a long filename.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">$shortfn(path)</pre>
+</pre>
+<H4>Parameters</H4>
+'''Path''' = ''The direction/path that you want to check for.''
+
+<H4>Properties</H4>
+None
+
+== Examples ==
+<pre class ="code">//echo -a $shortfn($longfn($mircdir))</pre>
+
+It will return for example the "'''C:\Users\westor\DOCUME~1\mIRC\'''" short path version of the specified direction.
+
+<pre class ="code">//echo -a $shortfn(C:\Users\westor\Documents\mIRC\)</pre>
+
+It will return "'''C:\Users\westor\DOCUME~1\mIRC\'''" short path version of the long version one that you have specified.
+
+'''Note:''' In order to return the short version of the path, the path MUST exist.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="longfn.html">$longfn</a><br>
+<a href="exists.html">$exists</a><br>
+<a href="isdir.html">$isdir</a><br>
+<a href="mircdir.html">$mircdir</a><br>
+
+</body>
+</html>

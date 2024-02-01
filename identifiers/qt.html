@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$qt</H1>
+<br>
+<br>
+The <b>$qt</b> identifier returns the text string enclosed with double-quotes.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$qt(<TEXT>)
+
+== Switches ==
+None
+</pre>
+<H4>Parameters</H4>
+'''TEXT'''</span>Text string to ensure is enclosed in double quotes.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Does not affect double-quotes within the text, only adds a double-quote to the start/end of TEXT if a double-quote is not already present.
+
+<pre class ="code">//var %ini $qt($mircini) | echo -a %ini | echo -a $qt(%ini)
+; returns path\filename of your mirc.ini with double-quotes around it.
+; no change in 2nd line because quotes already present
+</pre>
+
+//echo -a $qt("""Test""String)
+; returns: """Test""String"
+; No change to internal quotes, no alteration of string start because at least 1 quote already present, only added missing quote to end of string.
+
+
+<H4>Compatibility</H4>
+Added: mIRC v6.17 (17 Feb 2006)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mIRC|$noqt}}
+
+
+</body>
+</html>

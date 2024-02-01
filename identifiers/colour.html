@@ -1,0 +1,41 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$colour</H1>
+<br>
+<br>The <b>$colour''' identifier allows mIRC to return the proper color code associated with the specified target. (same as $color)
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$colour(name/N)[.property]
+</pre>
+<H4>Parameters</H4>
+{{ArgsList
+| name | Returns the color code for the specified name/action/event. Partial matches work as well: '''$colour(action)'''
+| N | Specifies that the color code to be looked up is the RGB value for a specific color box target from the '''CTRL+K''' list.
+}}
+
+<H4>Properties</H4>
+{{ArgsList
+| dd | Allows the color codes to be returned in double-digit format, eg: 02 instead of 2. Does not work on RGB-returned values.
+}}
+
+== Examples ==
+Echo the color code for action events:
+<pre class ="code">//echo -a $colour(action)</pre>
+
+Echo the RGB code for the 4th color box:
+<pre class ="code">//echo -a $colour(4)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|/color}}
+* {{mIRC|$color}}
+
+
+[[Category:mIRC identifiers|colour]]</body>
+</html>

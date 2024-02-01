@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$submenu</H1>
+<br>
+<br>
+The <b>$submenu</b> can be used in popups definition to dynamically create a popup
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$submenu($id($1))
+</pre>
+<H4>Parameters</H4>
+<br><b>$id</b> - The name of the identifier called by mIRC, the parameter passed to it is always $1, used by mIRC to pass information to your identifier.
+<br>
+
+It calls $id first with the parameter "begin" then will pass an incremented integer starting at 1 and will increase as long as you return a correct popups definition, then will send "end"
+<br>
+
+<b>Note:</b>You cannot use this to create nested submenus, it will only build one single submenu.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+menu status {
+  Animal
+  .$submenu($animal($1))
+}
+alias animal {
+  echo -s > $1
+  if ($1 == begin) return -
+  if ($1 == 1) return Cow:echo Cow
+  if ($1 == 2) return Llama:echo Llama
+  if ($1 == 3) return Emu:echo Emu
+  if ($1 == end) return -
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+</body>
+</html>

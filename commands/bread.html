@@ -1,0 +1,85 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/bread
+</H1>
+<br>
+<br>
+
+The <b>/bread</b> command can be used to read a certain amount of bytes from a file at a given position and store it in a binary variable.
+
+<br><b>Note:</b> the beginning of the file is position 0.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/bread -ta &lt;filename&gt; &lt;bytepos&gt; &lt;numbytes&gt; &lt;&bvar&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-t</b>
+      - Reads data preceding the first encountered line ending or EOF, interpreting as UTF8 text
+<br><b>-a</b>
+      - Modifier for -t switch, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;filename&gt;</b>
+      - The file name to read from. Double quotes needed if string contains space
+<br><b>&lt;bytepos&gt;</b>
+      - The starting byte position, **remember, this starts at 0, not 1**.
+<br><b>&lt;numbytes&gt;</b>
+      - The length (bytes) to be read.
+<br><b>&lt;&bvar&gt;</b>
+      - The binary variable to store the data in. If &binvar already exists, contents are replaced.
+
+<H4>Example</H4>
+<pre class ="code">
+; noop $copy Example(FileA,FileB)
+alias copy Example {
+  ; Read the whole file into a binary variable
+  bread $qt($1) 0 $file($1).size &tempFile
+
+  ; Write the bytes form the binary variable to a file
+  bwrite $qt($2) 0 -1 &tempFile
+}
+</pre>
+<pre class ="code">
+; Using -t switch:
+; Line ending is defined as data preceding
+//bset &v 1 233 | bwrite -c test.dat 0 &v | bread test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
+; result: 233 because no switch used
+
+//bset &v 1 233 | bwrite -c test.dat 0 &v | bread -t test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
+; result: 195 169 because -t used without -a interprets as UTF8 encoding of codepoint 233
+
+//bset &v 1 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
+; result: 233 because -ta used AND data read doesn't contain codepoint 256+
+
+//bset &v 1 226 156 148 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
+; result: 226 156 148 195 169 because data read contains codepoint 10004
+; * If bread's offset changed from 0 to 3, result is 233 because the read portion of the line doesn't contain the codepoint above 255
+</pre>
+<pre class ="code">
+    //bread $qt($mircexe) 0 $file($mircexe).size &v | echo -a $md5(&v,1) is the same as $md5($mircexe,2) if enough memory available for binvar
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\file.html">$file</a><br>
+   <a href="bcopy.html">/bcopy</a><br>
+   <a href="breplace.html">/breplace</a><br>
+   <a href="bset.html">/bset</a><br>
+   <a href="btrunc.html">/btrunc</a><br>
+   <a href="bunset.html">/bunset</a><br>
+   <a href="bwrite.html">/bwrite</a><br>
+   <a href="..\identifiers\bvar.html">$bvar</a><br>
+   <a href="..\identifiers\bfind.html">$bfind</a><br>
+</body>
+</html>

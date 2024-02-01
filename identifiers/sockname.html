@@ -1,0 +1,31 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$sockname</H1>
+<br>
+<br>
+The <b>$sockname</b> identifier returns the name given to a connection to identify it. This identifier can be used in events to know which connection an event is related to.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$sockname
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">on *:sockread:*:echo -a $sockname</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sock.html">$sock</a><br>
+<a href="sockbr.html">$sockbr</a><br>
+<a href="sockerr.html">$sockerr</a><br>
+
+</body>
+</html>

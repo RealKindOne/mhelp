@@ -1,0 +1,61 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/btrunc
+</H1>
+<br>
+<br>
+
+The <b>/btrunc</b> command can be used to truncate a file to a specific number of bytes. If The Number of bytes exceeds the size of the file, the file will be zero-pad to that size. If the file does not exist, a new file will be created.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/btrunc &lt;filename&gt; &lt;bytes&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;filename&gt;</b>
+      - Filename of the file to be modified
+<br><b>&lt;bytes&gt;</b>
+      - Number of bytes to extend or trance the file by/to.
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  var %temp = Hello! World
+  ; Write to a variable %temp's content
+  bwrite Example 0 $len(%temp) %temp
+  ; Truncate the file down to 6 bytes
+  btrunc Example 6
+  ; Read the file into a variable
+  bread Example 0 $file(Example).size &Example
+  ; Print out the variable's content
+  echo -a $bvar(&Example,1,$bvar(&Example,0)).text
+  ; Delete the file
+  remove Example
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.8 (14 Dec 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\bvar.html">$bvar</a><br>
+   <a href="..\identifiers\bfind.html">$bfind</a><br>
+   <a href="bcopy.html">/bcopy</a><br>
+   <a href="bread.html">/bread</a><br>
+   <a href="breplace.html">/breplace</a><br>
+   <a href="bset.html">/bset</a><br>
+   <a href="bwrite.html">/bwrite</a><br>
+   <a href="bunset.html">/bunset</a><br>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sockclose
+</H1>
+<br>
+<br>
+
+The <b>/sockclose</b> command allows the closing of any open socket connections, either specifically or by <a href="..\other\wildcard.html">wildcard</a> .
+
+<br><b>Note:</b> if you close a socket inside a socket event, all infos on the socket are lost and $sockname will be set to $null as well.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sockclose &lt;name&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+**&lt;name&gt;**: The specific socket name to be closed. This parameter can also be a <a href="..\other\wildcard.html">wildcard</a> match.
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    /sockclose mySock
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+See Also
+
+
+   <a href="..\identifiers\sock.html">$sock</a><br>
+   <a href="..\identifiers\sockname.html">$sockname</a><br>
+   <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+   <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+   <a href="sockaccept.html">/sockaccept</a><br>
+   <a href="socklist.html">/socklist</a><br>
+   <a href="socklisten.html">/socklisten</a><br>
+   <a href="sockmark.html">/sockmark</a><br>
+   <a href="sockopen.html">/sockopen</a><br>
+   <a href="sockpause.html">/sockpause</a><br>
+   <a href="sockread.html">/sockread</a><br>
+   <a href="sockrename.html">/sockrename</a><br>
+   <a href="sockudp.html">/sockudp</a><br>
+   <a href="sockwrite.html">/sockwrite</a><br>
+</body>
+</html>

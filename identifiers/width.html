@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$width </H1>
+<br>
+<br>
+The <b>$width</b> identifier returns the width of text in pixel in the specified font.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$width(text,font,size,bNiNpNtN)
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - The text you want the width of
+<br><b>font</b> - The name of the font
+<br><b>size</b> - The size of the font, you can specify a negative value to match the size of fonts in the font dialog
+<br>
+Before, there was a 4th 5th and even a 6th true/false parameters (bold, italic, and control code processing), to set some custom measurements, it was changed to a single 4th parameter when tab processing were added:
+<br>
+<br><b>bNiNpNtN</b> - Optional, defines some options for the measurement, N can be 1 or 0 to enable or disable the option:
+<br>
+<br><b>bN</b> - enables/disables bold
+<br><b>iN</b> - enables/disables italic
+<br><b>pN</b> - enables/disables control code (-bi not needed there)
+<br><b>tN</b> - enables/disables tab character
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $width(test,verdana,15)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.31 (04 Jan 1998)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="height.html">$height</a><br>
+<a href="wrap.html">$wrap</a><br>
+
+</body>
+</html>

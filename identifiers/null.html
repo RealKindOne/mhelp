@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$null</H1>
+<br>
+<br>
+The <b>$null</b> identifier does not return a value; just like <a href="true.html">$true</a> or <a href="timeout.html">$timeout</a>, it's a value you can use in comparison in <a href="..\commands\if.html">/if</a> or <a href="..\commands\while.html">/while</a>. An empty variable also returns <b>$null</b>.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$null
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+
+If you created an empty variable without assigning a value, then you can check its existence and emptiness like this:
+<pre class ="code">
+set %somevar
+if ($var(%somevar)) echo -a This variable exists.
+if (%somevar == $null) echo -a This variable is empty and has no value.
+</pre>
+
+
+<pre class ="code">//if ($? != $null) echo -a you entered $v1</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="false.html">$false</a><br>
+<a href="true.html">$true</a><br>
+<a href="var.html">$var</a><br>
+
+</body>
+</html>

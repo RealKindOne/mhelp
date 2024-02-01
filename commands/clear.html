@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/clear
+</H1>
+<br>
+<br>
+
+The <b>/clear</b> command is used to clears the buffer of the current window. If a window name is specified that window's buffer will be cleared.
+
+Additionally, the clear command can also be used to erase the history of the editbox as well as the clicks history of the picture window.
+
+You can use "Status Window" and =nick for the status window and dcc chat windows.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/clear -sghlcn [windowName]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - clears the status window
+<br><b>-g</b>
+      - clears the finger window
+<br><b>-h</b>
+      - clears the editbox command history for a window.
+<br><b>-l</b>
+      - clears the side-listbox in a custom window
+<br><b>-c</b>
+      - clears the click history in a picture window
+<br><b>-n</b>
+      - delay update of display untill a forced redraw (pic window)
+
+<H4>Parameters</H4>
+
+
+<br><b>[windowName]</b>
+      - Window name
+
+<H4>Example</H4>
+<pre class ="code">
+; Clear the status window
+/clear -s
+
+; Clears a custom window called "@Highlight_Log"
+/clear @Highlight_Log
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\line.html">$line</a><br>
+   <a href="..\identifiers\fline.html">$fline</a><br>
+   <a href="clearall.html">/clearall</a><br>
+   <a href="loadbuf.html">/loadbuf</a><br>
+   <a href="savebuf.html">/savebuf</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

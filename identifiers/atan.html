@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$atan</H1>
+<br>
+<br>
+The <b>$atan</b> identifier returns the arctangent of N.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$atan(N)[.deg]
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - The tangent in radians for which you want the arc tangent.
+
+<H4>Properties</H4>
+<br><b>.deg</b> - returns the angle as degrees, default is radians.
+
+<H4>Example</H4>
+<pre class ="code">//echo -a In right triangle where opposite side is 3 and adjacent is 4, angle is $atan( $calc(3/4) ).deg degrees 
+; Returns: In right triangle where opposite side is 3 and adjacent is 4, angle is 36.869898 degrees
+</pre>
+
+<pre class ="code">
+//var %i 60 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
+; returns 60.000003 instead of 60 because the $tan fraction is limited to 6 places
+//var %i 45 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
+//var %i 240 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
+; returns angle in the range of -90 - +90 degrees (-pi/2 - +pi/2 radians)
+//var %i 90 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
+; for 90 degrees, returns a VERY BIG NUMBER instead of infinity
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="cos.html">$cos</a><br>
+<a href="acos.html">$acos</a><br>
+<a href="cosh.html">$cosh</a><br>
+<a href="sin.html">$sin</a><br>
+<a href="asin.html">$asin</a><br>
+<a href="sinh.html">$sinh</a><br>
+<a href="tan.html">$tan</a><br>
+<a href="atan2.html">$atan2</a><br>
+<a href="tanh.html">$tanh</a><br>
+
+</body>
+</html>

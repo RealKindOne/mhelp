@@ -1,0 +1,68 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/sline
+</H1>
+<br>
+<br>
+
+The <b>/sline</b> command is used to select a line, or a specific set of lines, in a specific window. This command works on most custom @windows, as well as channel nickname lists.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/sline [c] -artc[N] <#channel> <N|nick>
+
+
+         /sline [c] -artc[N] &lt;@win&gt; <N>
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - Causes the selection to select the new line while retaining all previous selections
+<br><b>-r</b>
+      - Removes selections from either all lines or the Nth line (cannot unselect specific multiple lines at once).
+<br><b>-t</b>
+      - forces a re-wrap of all lines in a window that have not yet been wrapped to the current window size.
+<br><b>-c</b>[N]
+      - Same as using the [c] parameter to change the color, but via a switch
+
+<H4>Parameters</H4>
+
+
+    * - #channel
+      - Specifies the window that you wish to target.
+    * - N|nick
+      - Tells mIRC which line number you wish to select, if using a channel window, you can pass a nickname to be matched against and that line number will be used
+
+<H4>Example</H4>
+<pre class ="code">s
+
+
+    /sline #example awesomePerson
+    /sline -a #example John
+    /sline -a #example UhOh
+
+
+    /sline @win 1
+
+
+    /sline -r #example awesomePerson
+
+
+    /sline -r #example 1
+
+
+    /sline -r #example
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="aline.html">/aline</a><br>
+   <a href="window.html">/window</a><br>
+    * :doc: `Custom Windows </intermediate/gui_scripting.html#custom-windows>`
+</body>
+</html>

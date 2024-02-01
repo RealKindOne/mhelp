@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$isid</H1>
+<br>
+<br>
+The <b>$isid</b> identifier returns $true if the custom alias is called as an identifier, $false otherwise.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$isid
+</pre>
+<H4>Paramters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+/echo -a IS: $test
+
+/test
+
+<pre class ="code">
+alias test {
+  if ($isid) return $true
+  else echo -a $false
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.6 (03 Jun 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+{{mIRC|/alias}}
+{{mIRC|Aliases}}
+
+
+</body>
+</html>

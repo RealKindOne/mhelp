@@ -1,0 +1,55 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/tray
+</H1>
+<br>
+<br>
+
+The <b>/tray</b> command can be used to change the tray settings for mIRC. The tray command can also be used to change the mIRC tray icon to the icon located at index N in the specific file. For all switches, N can be 0 for disabled or 1  for enabled.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/tray -iN &lt;ico/exe/dll&gt;
+/tray -mNsNtNaNcN
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-i</b>N
+      - The index of the icon in the file
+<br><b>-m</b>N
+      - Always show mIRC icon in system tray
+<br><b>-s</b>N
+      - Minimize mIRC to tray upon startup
+<br><b>-t</b>N
+      - When minimized, place mIRC in the system tray
+<br><b>-a</b>N
+      - Animate icon when there is activity
+<br><b>-c</b>N
+      - Single click on tray icon to open
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;ico/exe/dll&gt;</b>
+      - The file with the icon to use
+
+<H4>Example</H4>
+<pre class ="code">
+alias example {
+  ; always show the mIRC icon
+  tray -m1
+  ; change the icon to a computer chip icon
+  tray -i13 C:\Windows\System32\shell32.dll
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (19 Feb 1999)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/vcmd
+</H1>
+<br>
+<br>
+
+The <b>/vcmd</b> command allows you to enable your voice commands list, for your Speech Recognition Software, within mIRC.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/vcmd -lcar &lt;on | off | sleep&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-l</b>
+      - Lists all of the commands in the voice commands list.
+<br><b>-c</b>
+      - Clears all of the commands from the voice commands list.
+<br><b>-a</b>
+      - Does the same as <a href="vcadd.html">/vcadd</a>
+<br><b>-r</b>
+      - Does the same as <a href="vrem.html">/vrem</a>
+
+<H4>Parameters</H4>
+
+
+<br><b>on</b>
+      - Turns voice command listening on.
+<br><b>off</b>
+      - Turns voice command listening off.
+<br><b>sleep</b>
+      - Temporarily disables voice command listening.
+
+<H4>Example</H4>
+<pre class ="code">
+; Disable voice command listening
+/vcmd off
+; Clear the voice commands list
+/vcmd -c
+</pre>
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="vcadd.html">/vcadd</a><br>
+   <a href="vcrem.html">/vcrem</a><br>
+   <a href="..\identifiers\vcmd.html">$vcmd</a><br>
+   <a href="..\identifiers\vcmdver.html">$vcmdver</a><br>
+   <a href="..\identifiers\vcmdstat.html">$vcmdstat</a><br>
+    * :doc: `ON VCMD Event </events/on_vcmd>`
+</body>
+</html>

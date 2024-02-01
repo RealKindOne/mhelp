@@ -1,0 +1,100 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$input</H1>
+<br>
+<br>
+The <b>$input</b> identifier is used to request immediate user-input.
+<br>
+<br>
+<b>Note:</b> This replaces the deprecated {{mIRC|$?}} identifier.
+
+<H4>Synopsis</H4>
+<pre class ="code">$input(prompt,options,window,title,text)</pre>
+
+Prompts the user for input and returns the result.
+</pre>
+<H4>Parameters</H4>
+<br><b>prompt</b> - Parameter must not be blank. Text displayed inside the input dialog window. The input dialog is extended vertically as needed to display the prompt message if it is very long. You can also make text in the prompt message appear on different lines by using <a href="crlf.html">$crlf</a><br> to separate lines. The input window widens as needed by 1-3 buttons, the edit or combo dropdown, icon, or titlebar text
+<br><b>options</b> - Options can be a combination of the following:
+
+<br><b>e</b> - show input editbox. Content of input editbox returned by clicking leftmost button. Defaults to returning empty string if &lt;esc&gt; out of dialog or pressing 'No' 'Cancel'. Can get $no/$cancel/$timeout by using the forcing 'f switch ('v' switch also required to get $timeout)
+<br><b>p</b> - show input password editbox. Same return strings as 'e'
+<br><b>o</b> - 'ok' button
+<br><b>n</b> - 'yes' 'no' 'cancel' buttons
+<br><b>y</b> - 'yes' 'no' buttons
+<br><b>r</b> - 'retry' 'cancel' buttons
+<br><b>m</b> - indicates that multiple text parameters have been specified. They will be displayed in a combo dropdown box. The first text item is the default item (a reference to an item in the list), the rest are the items in the list. Selected list item is returned from clicking the leftmost button. Dropdown list begins with the 2nd 'text' parameter, and item from list is displayed as default selection only if it has case-insensitive match with the 1st 'text' parameter.
+<br><b>v</b> - Only works when you're not using any of 'pem' switches. makes $input returns $ok, $yes, $no, $cancel, $retry if you press such buttons. Also makes $input returns $timeout if the kN timeout switch is used
+<br><b>f</b> - This switch is the same as the 'v' switches except it works for when you're using any of the 'pem' switches. Exception: if you're using the kN switch with any of the 'pem' switch, then 'f' must be used in conjunction with 'v' to get $timeout
+<br><b>kN</b>  - an N seconds timeout value. On timing out, has default action of returning $false for 'onyr' switches (or no 'pem' switches used, default) or $null for 'pem' switches. Returns $timeout if 'v' switches is used without 'pem', requires both 'f' and 'v' switches if you're using 'pem' and you want $timeout.
+<br><b>g</b> - right-align buttons
+<br><b>b</b> - disables buttons for 1 second when dialog is displayed and clears keyboard buffer
+<br><b>tciqwh</b> - show the goldstar,recycle bin,info, question, warning, and halt icons respectively.
+<br><b>d</b> - play system sound associated with icon switch used: 'di' 'dt' = 'asterisk', 'dq' = 'question', 'dw' 'dc' = 'exclamation', 'dh' = 'critical stop'
+<br><b>s</b> - indicates that window parameter has been specified (making optional 'title' be the 4th parameter)
+<br><b>a</b> - make $input dialog active if mIRC is not the active application
+<br><b>u</b> - use current active window as parent window, including custom dialog window. In the past, the 's' switch could not be used to pass a custom dialog window as the parent, this switch is then technically there for custom dialog support as parent.
+<br><b>window</b> - if option '''s''' is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
+<br><b>title</b> - the titlebar text.
+<br><b>text</b> - default text placed in the input editbox
+
+The options, window, title, and text are optional parameters
+
+By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. '''f''' switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. '''kN''' defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
+
+For the '''options''' parameter, you can also use a number as a combination of value added together, without the presence of any letter switches, which is how $input was originally working:
+
+* '''1'''  - show input editbox (equivalent of the 'e' switch)
+* '''2'''  - show input password editbox (equivalent of 'p' switch)
+* '''4'''  - ok button (equivalent of 'o')
+* '''8'''  - yes/no buttons ('y')
+* '''16''' - yes/no/cancel buttons ('n')
+* '''32''' - return $ok, $yes, $no, $cancel, $retry for buttons. ('v')
+* '''64''' - show the info icon ('i')
+* '''128''' - show the question icon ('q')
+* '''256''' - show the warning icon ('w')
+* '''512''' - show the halt icon ('h')
+* '''1024''' - insert 'window' as the 3rd parameter ('s')
+* '''2048''' - activate the $input dialog when mIRC is not the active application ('a')
+* '''4096''' - show the gold star icon ('t')
+* '''8192''' - retry/cancel buttons ('r')
+* '''16384''' - align buttons to the right ('g')
+* '''32768''' - show the recycle bin icon ('c')
+* '''65536''' - play icon-related sound ('d')
+* '''131072''' - combo dropdown list ('m')
+
+$input(sup,5) is equivalent to $input(sup,eo)
+
+'''Note:''' This identifier '''cannot''' be used in a remote event. One way around this is to use a <a href="..\commands\timer.html">/timer</a><br> to initiate an input request after the script ends. Another way around it is to use {{mirc|/signal}} to trigger an {{mirc|on signal}} event.
+
+<H4>Example</H4>
+
+Echoes whatever the user types into the input field to the active window.
+<pre class ="code">
+alias testme {
+  echo -a $input(Type something for me,e)
+}
+</pre>
+
+Does the same as the first example, except while the user is typing, the characters are replaced by password characters. The typed value, however, is visibly legible when it is echoed to the active window.
+<pre class ="code">
+alias testme {
+  echo -a $input(Enter Password:,p)
+}
+</pre>
+Pops up an input request asking if the user likes chocolate. If they click '''Yes''', it echoes <a href="true.html">$true</a> to the active window; otherwise, it echoes <a href="false.html">$false</a>.
+<pre class ="code">
+alias testme {
+  echo -a $input(Do you like chocolate?,y)
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$?}}</body>
+</html>

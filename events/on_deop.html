@@ -1,0 +1,45 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Deop</H1>
+<br>
+<br>
+The <b>ON DEOP</b> event triggers whenever a user on a channel has had their op privileges (mode -o) removed.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:DEOP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+* '''<*><#>''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>*</b> - Any channel window
+** '''#''' - Any channel window
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+
+== {{mIRC|local identifiers}} ==
+
+=== {{mIRC|$opnick}} ===
+
+Returns the nickname of the user being deopped.
+
+
+<H4>Example</H4>
+Let the channel know when a user's operator privilege has been removed:
+<pre class ="code">ON *:DEOP:#:msg # Oh no, $opnick has had their operator privilege removed :(</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|2.1a}}
+
+== See Also ==
+* [[On deowner - mIRC|ON DEOWNER]]
+* [[On devoice - mIRC|ON DEVOICE]]
+* [[On help - mIRC|ON HELP]]
+* [[On op - mIRC|ON OP]]
+* [[On owner - mIRC|ON OWNER]]
+* [[On voice - mIRC|ON VOICE]]
+* {{mIRC|/mode}}
+* {{mIRC|$mode}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|deop]]</body>
+</html>

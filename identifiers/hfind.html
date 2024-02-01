@@ -1,0 +1,53 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$hfind</H1>
+<br>
+<br>
+The <b>$hfind</b> identifier searches an hash table for the Nth item name which matches text. Returns item name.
+
+'''Note''': <a href="..\commands\halt.html">/halt</a><br> will stop the $hfind search if used from the command parameter (or inside the alias called, naturally) - note that versions prior to 7.59 this didn't work.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$hfind(name/N, text, N, M, @window | command)[.data]
+</pre>
+<H4>Parameters</H4>
+<br><b>name/N</b> - the Nth hash table or the name of it
+<br><b>text</b> - the expression to use to find a match
+<br><b>N</b> - The Nth match, use 0 to get the total number of match or to trigger the @window | command parameter for all matches
+<br><b>M</b> - optional, a letter indicating how to match, default to value normal text comparison (n) below:
+<br><b>n</b> - normal text comparison
+<br><b>w</b> - <a href="..\other\wildcard.html">wildcard</a> expression
+<br><b>W</b> - hash table item/data is <a href="..\other\wildcard.html">wildcard</a> expression, see example below
+<br><b>r</b> - regular expression
+<br><b>R</b> - hash table item/data is regular expression, see example below
+<br><b>command | @win</b> -- if you pass a @win name, the item name that matched is put in the window, otherwise mirc evaluate the command for each match, $1 can be used to access the item name
+
+<H4>Properties</H4>
+<br><b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.
+
+<H4>Example</H4>
+<pre class ="code">
+//hadd -m test test test | echo -a $hfind(test,test,1) | hfree test
+//hadd -m test test test | hadd -m test test test1 | echo -a $hfind(test,test*,0,w) | hfree test
+//hadd -m test t*t | echo -a $hfind(test,this is a test,0,W) | hfree test
+//hadd -m test t.+t | hadd -m test t(?=his) | echo -a $hfind(test,this is a test,0,R,echo -s $1) | hfree test
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.81 (09 Nov 2000)
+
+<H4>See also</H4>
+<a href="..\commands\hmake.html">/hmake</a><br>
+<a href="..\commands\hadd.html">/hadd</a><br>
+<a href="..\commands\hload.html">/hload</a><br>
+<a href="..\commands\hfree.html">/hfree</a><br>
+<a href="..\commands\hdec.html">/hdec</a><br>
+<a href="..\commands\hinc.html">/hinc</a><br>
+<a href="hget.html">$hget</a><br>
+
+
+</body>
+</html>

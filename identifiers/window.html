@@ -1,0 +1,81 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$window </H1>
+<br>
+<br>
+The <b>$window</b> identifier returns information about the specified window for the current connection or returns the name of the @window that is left inside the 'leave' menu {} event.
+
+<H4>Synopsis</H4>
+<pre class ="code">$window(N/name)[.property]
+$window
+</pre>
+</pre>
+<H4>Parameters</H4>
+
+<br><b>N</b> - The Nth @custom window, if N is 0, returns the total number of windows.
+<br><b>Name</b> - The name of query/channel/@custom window, or "status window", "channel list", etc..
+
+<br>
+<b>Note:</b> you can use -1 or @desktop to refer to the screen, -2 or @mirc to refer to the main mIRC window, and -3 or @mdi to refer to the mdi window where all others windows inside mIRC are displayed, these @name are reserved. You can use the .x .y .w .h .dx .dy .dw .dh properties with these parameters to get the size of these windows (or your screen's size)
+
+<H4>Properties</H4>
+<br><b>.x,.y,.w,.h</b> - the left, top positions, and the width and height of the window respectively
+<br><b>.dx,.dy</b> - the left, top positions of the window relative to the desktop
+<br><b>.cx,.cy</b> - the left, top positions of the window relative to the primary monitor
+<br><b>.dw,.dh</b> - the width and height of the text display area
+<br><b>.bw,.bh</b> - the width and height of the bitmap for a graphic window
+<br><b>.mdi</b> -  $true if the window is mdi, otherwise returns $false
+<br><b>.title</b> - text in the titlebar of the window
+<br><b>.state</b> - returns minimized/maximized/hidden/normal
+<br><b>.font</b> -  the name of the window's font
+<br><b>.fontsize</b> - the window's font size
+<br><b>.fontdialogsize</b> - returns the size of the current font in font dialog size
+<br><b>.fontbold</b> - $true if the font is bold, otherwise returns $false
+<br><b>.fontitalic</b> - $true if the font is italic, otherwise returns $false
+<br><b>.fontcs</b> - the character set of the current font
+<br><b>.fullscreen</b> - $true if the window is in fullscreen, $false otherwise
+<br><b>.logfile</b> - the path\filename of the window's logfile if one is open
+<br><b>.stamp</b> - timestamp setting, $true or $false
+<br><b>.icon</b> - returns on/off depending on whether icon is visible
+<br><b>.ontop</b> - returns ontop status for a window, $true or $false
+<br><b>.type</b> -  returns window type: status,channel,custom,query,etc...
+<br><b>.anysc</b> -  returns $true or $false to indicate if the /window was created using the -i switch
+<br><b>.wid</b> - returns the window id number
+<br><b>.cid</b> - returns the connection id number associated with that window. Changes based on active network if @window created using the -i switch
+<br><b>.hwnd</b> - returns the window handle number
+<br><b>.sbtext</b> - sbtext returns the switchbar button text
+<br><b>.sbcolor</b> - the name of the switchbar highlight color, event/message/highlight, or $null if not colored
+<br><b>.sbstate</b> - returns switchbar button state for a window, 0=hidden 1=not hidden
+<br><b>.tbtext</b> - returns the treebar button text
+<br><b>.tbstate</b> - returns treebar button state for a window, 0=hidden 1=not hidden
+<br><b>.idle</b> - returns the number of second elapsed since someone different from you talked in a channel/query
+<br><b>.lb</b> - returns 0 if the window has no listbox, 1 if it has a listbox, or 2 if it has a side listbox
+<br><b>.utf</b> - used to returns the utf mode of the window which could be changed via the /font setting in mIRC 6.17-6.35, 1 = default, 2 = utf8 is displayed (decoded) only, 3 = utf8 is displayed and encoded, nowadays it always seems to return 2, even if you disabled the encoding and decoding of utf8 in main mirc option
+
+<H4>Example</H4>
+
+<pre class ="code">
+//echo -a There are $window(0) custom windows open $iif($window(1),The first custom window listed in 'window' menu is $v1)
+//echo -a Custom window @test $iif($window(@test),Does,Does Not) exist.
+//echo -a Channel named #test $iif($window(#test),is open on this .cid,is not open on this .cid but might be open on other .cid)
+</pre>
+
+<pre class ="code">
+//var %i $window(0) , %list | while (%i) { var %list $window(%i).sbtext %list | dec %i } | echo -a These are the @custom windows as shown in the switchbar: %list (windows listed without @ were created using -k switch)
+//echo -a The font of the active window is: $window($active).font $window($active).fontsize $iif($window($active).fontbold,Bold) $iif($window($active).fontitalic,Italic)
+//window -ea @test | titlebar @test This text appears in the titlebar | [ $iif($window(@test).type == listbox,aline,echo) ] @test The titlebar of this window shows $window(@test).title
+//window -c @test | window -ekaido @test | timertest 99 1 echo @test $!timer(test).reps $!asctime The Connection id $!window(@test).cid $!scid( $!window(@test).cid ).network changes as you click between windows attached to different connections
+</pre>
+
+
+
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (02 Apr 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\window.html">/window</a><br>
+
+</body>
+</html>

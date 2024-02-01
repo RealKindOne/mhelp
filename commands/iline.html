@@ -1,0 +1,82 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/iline
+</H1>
+<br>
+<br>
+
+The <b>/iline</b> command is used to insert a single line of text to a custom window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/iline -sahpi[N]nltc[N] [c] &lt;@name&gt; &lt;N&gt; &lt;text&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - Clears the old selection in a listbox and selects the newly added item
+<br><b>-a</b>
+      - Selects the newly added item while keeping the old selection in a listbox
+<br><b>-h</b>
+      - Highlights the window's node in the treebar is the window is minimized
+<br><b>-p</b>
+      - Forces the line to be wrapped if it's too long to fit in on one line (does not apply to listboxes)
+<br><b>-i</b>[N]
+      - Indent the newly added line (does not apply to listboxes) to N spaces, default to 2 spaces
+<br><b>-n</b>
+      - Prevent the line from being added if it already exists
+<br><b>-l</b>
+      - Specify the action to take place on the side-listbox
+<br><b>-t</b>
+      - forces a re-wrap of all lines in a window that have not yet been wrapped to the current window size.
+<br><b>-c</b>[N]
+      - Same as using [c] parameter to change the color, but via a switch.
+
+<H4>Parameters</H4>
+
+
+<br><b>[c]</b>
+      - An optional color number for the line
+<br><b>&lt;@name&gt;</b>
+      - The name of the window
+><br><b>&lt;N&gt;</b>
+      - The number of the line you want to insert the text into
+<br><b>&lt;text&gt;</b>
+      - The text to be inserted
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; open a desktop custom window (main window is a listbox, no side-listbox and with an editbox)
+  Window -lde @Foo
+
+  ; Add a line, line colored in yellow (8)
+  Aline 8 @Foo Line A
+
+  ; insert at line 1, color Dark Green (3), selected, clear old selection
+  iline -s 3 @Foo 1 Line B
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (21 Apr 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\line.html">$line</a><br>
+   <a href="..\identifiers\fline.html">$fline</a><br>
+   <a href="..\identifiers\sline.html">$sline</a><br>
+   <a href="cline.html">/cline</a><br>
+   <a href="dline.html">/dline</a><br>
+   <a href="echo.html">/echo</a><br>
+   <a href="aline.html">/aline</a><br>
+   <a href="rline.html">/rline</a><br>
+   <a href="sline.html">/sline</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

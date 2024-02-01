@@ -1,0 +1,35 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$unsafe </H1>
+<br>
+<br>
+The <b>$unsafe</b> identifier is designed to be used with, for example, external user input in commands that may evaluate text later on, such as /timer commands. It delays evaluation of text for one level of evaluation.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$unsafe(text)
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - a string
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//tokenize 32 $!me | timer -ho 1 0 echo -a $unsafe($1-)
+</pre>
+
+See <a href="..\other\injection.html">injection</a> for more informations.
+
+<H4>Compatibility</H4>
+Added: mIRC v7.44 (25 Mar 2016)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+</body>
+</html>

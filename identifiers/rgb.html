@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$rgb</H1>
+<br>
+<br>
+The <b>$rgb</b> identifier converts between R,G,B vs color-number, or returns system colors.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$rgb(&lt;R,G,B&gt; | &lt;N&gt; | &lt;SystemColorName&gt; )
+</pre>
+<H4>Parameters</H4>
+;Method#1 - Converting R,G,B to single RGB Color Number
+{{ArgsList
+<br><b>R</b> - Red Color intensity from 0-255
+<br><b>G</b> - Green Color intensity from 0-255
+<br><b>B</b> - Blue Color intensity from 0-255
+}}
+;Method#2 - Converting Color Number to R,G,B
+{{ArgsList
+| N | Decimal RGB Color Number from 0 through 2^24-1
+}}
+;Method#3 - Return RGB Color Number for System Color Settings
+{{ArgsList
+| SystemColorName | Must be a name from the following list: face, shadow, hilight, 3dlight, frame, and text, and returns an RGB color value.
+}}
+
+<H4>Properties</H4>
+
+None
+
+<H4>Example</H4>
+
+<pre class ="code">
+//echo -a The RGB color number for #7 (olive) is $color(7) with R,G,B values $rgb($color(7))
+; The RGB color number for #7 (olive) is 32764 with R,G,B values 252,127,0
+//echo -a $color(7) converted to hex is $base($color(7),10,16,6) which shows mIRC's RGB color number is actually combined as B,G,R
+; 32764 converted to hex is 007FFC which shows mIRC's RGB color number is actually combined as B,G,R
+</pre>
+
+; If you want to get the RGB number for color Goldenrod, which is RGB color #DAA520, you can use $rgb to convert the 3 RGB 0-255 numbers into the single 24-bit decimal number
+<pre class ="code">
+//var %c DAA520 | echo -a       $base($left(%c,2),16,10,2)   $base($mid(%c,3,2),16,10,2)   $base($right(%c,2),16,10,2)
+//var %c DAA520 | echo -a $rgb( $base($left(%c,2),16,10,2) , $base($mid(%c,3,2),16,10,2) , $base($right(%c,2),16,10,2) )
+; converts 218,165,32 into 2139610 by using $calc(32*65536 + 165*256 + 218*1 )
+</pre>
+
+;RGB can also return the 24-bit RGB decimal number for system color names:
+
+<pre class ="code">
+//var %i 1 | var %list face shadow hilight 3dlight frame text | while (%i isnum 1-6) { var %n $gettok(%list,%i,32) | echo -a system color for %n is $rgb(%n) or $rgb( $rgb(%n) ) | inc %i }
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (13 Dec 1997)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|$color}}
+* {{mIRC|/color}}
+
+
+[[Category:mIRC identifiers|rgb]]</body>
+</html>

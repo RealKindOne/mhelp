@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$isadmin</H1>
+<br>
+<br>
+The <b>$isadmin</b> identifier returns $true if mIRC is running in an elevated, administrator state, otherwise $false.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$isadmin
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">//echo -a $isadmin</pre>
+<H4>Compatibility</H4>
+Added: mIRC v7.58 (17 Nov 2019)
+
+<H4>Notes</H4>
+
+If mIRC is running in elevated 'run as administrator' state:
+<br>
+All executables launched with /run will also have elevated state, even if /run's -a switch is not used.
+<br>
+The UAC prompt will not appear when using /run -a to launch a program.
+<H4>See also</H4>
+<a href="..\commands\run.html">/run</a><br>
+</body>
+</html>

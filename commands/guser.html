@@ -1,0 +1,59 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/guser
+</H1>
+<br>
+<br>
+
+The <b>/guser</b> command looks up the address of the specified nick and adds it to the user list. It does this by doing a <a href="userhost.html">/userhost</a> on the given nickname, and returning an address in the format specified by [type]. If [type] is not specified then a default address format is selected.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/guser [-a] &lt;levels&gt; &lt;nick&gt; [type] [info]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - if the user already exists, the specified levels are added to the current levels the user has
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;levels&gt;</b>
+      - a list of levels seperated by commas
+<br><b>&lt;nick&gt;</b>
+      - the nickname you want to add the address from
+<br><b>[type]</b>
+      - if not specified, mIRC use a default type: 6
+<br><b>[info]</b>
+      - append text to the entry that is added to the users list
+
+<H4>Example</H4>
+<pre class ="code">
+alias F12 {
+  ; Adds $1 to Users - Level 20
+  guser 20 $$1 2 $1   
+  ; Toggles nick color to Yellow in the Users List             
+  cline -hlm 8 $chan $1             
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.3 - 3.4 ()
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\ulevel.html">$ulevel</a><br>
+   <a href="auser.html">/auser</a><br>
+   <a href="flush.html">/flush</a><br>
+   <a href="iuser.html">/iuser</a><br>
+   <a href="rlevel.html">/rlevel</a><br>
+   <a href="ruser.html">/ruser</a><br>
+   <a href="ulist.html">/ulist</a><br>
+</body>
+</html>

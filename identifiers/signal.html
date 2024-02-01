@@ -1,0 +1,33 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$signal</H1>
+<br>
+<br>
+The <b>$signal</b> identifier returns the name of the signal that caused the signal event to trigger.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$signal
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+on *:signal:test:{
+  echo -a $signal
+}</pre>//signal test
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* {{mIRC|on signal}}
+* {{mIRC|/signal}}
+
+</body>
+</html>

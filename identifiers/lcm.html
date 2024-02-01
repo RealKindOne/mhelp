@@ -1,0 +1,31 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$lcm</H1>
+<br>
+<br>
+The <b>$lcm</b> identifier returns the Least Common Multiple for 2 or more integers.
+
+== Details ==
+The Least Common Multiple is the smallest positive integer that is divisible by each non-zero input number. For 2 non-zero numbers, the LCM is the absolute value of their product divided by their <a href="gcd.html">$gcd</a><br>
+<H4>Synopsis</H4>
+<pre class ="code">
+$lcm(N1,N2[,N3]...)
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - Integers 
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+//echo -a the smallest number divisible by each of 35 49 and 75 is $lcm(35,49,75)
+//echo -a the lcm of 35 and 25 is $calc( $abs($calc(35*25)) / $gcd(35,25) )
+</pre>
+<H4>Compatibility</H4>
+{{mIRC compatibility|7.72}}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="gcd.html">$gcd</a><br>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/gopts
+</H1>
+<br>
+<br>
+
+The **gopts</b> command is used to sets various option of a loaded agent
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/gopts -b &lt;name&gt; &lt;on | off | size | pace | hide | nosize | nopace | nohide&gt;
+/gopts -i &lt;name&gt; &lt;on | off&gt;
+/gopts -e &lt;name&gt; &lt;on | off&gt;
+/gopts -q &lt;name&gt; (undocumented)
+/gopts -n &lt;name&gt; &lt;langid&gt;
+/gopts -h &lt;name&gt; <on | off&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-b</b>
+      - Turns balloons on or off, but you can instead specify &lt;size&gt;/&ltnosize&gt; to enable/disable the balloons to fit the text being spoken, &lt;pace&gt;/&lt;nopace&gt; to enable/disable the display of text word by word as it is being spoken, and &lt;hide&gt;/&lt;nohide&gt; to hide/show the balloons when no text is being spoken.
+<br><b>-i</b>
+      - Turns idle effects on or off.
+<br><b>-e</b>
+      - Turns sound effects on or off.
+<br><b>-n</b>
+      - Allows you to set a language id
+<br><b>-h</b>
+      - Turns the auto-hide feature on or off (see /gload for more info).
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - The name used in /gload to reference that agent
+<br><b>&lt;on | off&gt;</b>
+      - The state for that option
+<br><b>&lt;size | pace | hide | nosize | nopace | nohide&gt;</b>
+      - Can be used with -b instead of &lt;on | off&gt; to change the way the balloon is displayed
+<br><b>&lt;langid&gt;</b>
+      - Used with -n, the hex id value for the language
+
+<H4>Example</H4>
+<pre class ="code">
+; Load the default agent on your system
+/gload myagent default
+; Turns off sound effect
+/gopts -e myagent off
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="ghide.html">/ghide</a><br>
+   <a href="gunload.html">/gunload</a><br>
+   <a href="gshow.html">/gshow</a><br>
+   <a href="gload.html">/gload</a><br>
+   <a href="gsize.html">/gsize</a><br>
+   <a href="gtalk.html">/gtalk</a><br>
+   <a href="gplay.html">/gplay</a><br>
+   <a href="gpoint.html">/gpoint</a><br>
+   <a href="gstop.html">/gstop</a><br>
+   <a href="gmove.html">/gmove</a><br>
+   <a href="gqreq.html">/gqreq</a><br>
+   <a href="..\identifiers\agentver.html">$agentver</a><br>
+   <a href="..\identifiers\agentstat.html">$agentstat</a><br>
+   <a href="..\identifiers\agentname.html">$agentname</a><br>
+   <a href="..\identifiers\agent.html">$agent</a><br>
+</body>
+</html>

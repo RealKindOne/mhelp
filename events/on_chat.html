@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Chat</H1>
+<br>
+<br>
+The <b>ON Chat''' event, much like the [[On serv - mIRC|ON Serv]] event, is triggered when a message is sent via a {{mIRC|/dcc|dcc chat}} window.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:CHAT:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+<br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== {{mIRC|Local identifiers}} ==
+
+You can use {{mIRC|identifiers/{{=}}$nick|{{=}}$nick}} to refer to the dcc chat window, rather than a query window.
+
+== Examples ==
+<pre class ="code">; This event waits for any user on a DCC Chat to use the
+; command !time and then relays back to them the current time
+
+ON *:CHAT:!time:msg =$nick The current time is: $time(hh:nntt)</pre>
+
+In the above example, the message is sent to the dcc chat window
+
+<H4>Compatability</H4>
+{{mIRC compatibility|3.8}}
+
+== See Also ==
+* [[On serv - mIRC|ON SERV]]
+* [[On text - mIRC|ON TEXT]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|chat]]</body>
+</html>

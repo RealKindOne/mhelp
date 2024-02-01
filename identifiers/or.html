@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$or</H1>
+<br>
+<br>
+The <b>$or</b> identifier returns the binary OR of 2 numbers.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$or(&lt;N1&gt;,&lt;N2&gt;)
+</pre>
+<H4>Parameters</H4>
+<br><b>&lt;N1&gt;</b>, <b>&lt;N2&gt;</b> - The numbers, in base10/decimal
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $or(14,27)
+; returns 31</pre>
+
+Bits which are both 0 return 0, otherwise the bit is 1
+
+<pre class ="code">//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($or(%n1,%n2),10,2,8)</pre>
+returns:<br>
+00001110<br>
+00011011<br>
+--------<br>
+00011111<br>
+<br>
+$or returns the answer as a decimal number, so the answer 31 is the decimal representation of binary 11111.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.61 (23 Sep 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="and.html">$and</a><br>
+<a href="biton.html">$biton</a><br>
+<a href="bitoff.html">$bitoff</a><br>
+<a href="isbit.html">$isbit</a><br>
+<a href="not.html">$not</a><br>
+<a href="xor.html">$xor</a><br>
+
+
+</body>
+</html>

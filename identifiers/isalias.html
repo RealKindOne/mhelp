@@ -1,0 +1,39 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$isalias</H1>
+<br>
+<br>
+The <b>$isalias</b> identifier returns informations about aliases.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$isalias(name,[N])[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>name</b> -The name of the alias
+<br><b>N</b> - returns the Nth line of a multiline alias, to be used with the .alias property
+
+<H4>Properties</H4>
+<br><b>.fname</b> - returns the filename in which the alias exists
+<br><b>.ftype</b> - returns the type of alias, if it's stored in a "remote" file or in an "alias" file
+<br><b>.alias</b> - returns the alias definition, you can access a multiline alias with the N parameter.
+
+
+
+'''Note''': If you have an alias named "test" inside a remote file A and another alias with the same name in another remote file B, even in B is loaded after A, if you execute the alias from an alias/event/etc inside file B, it will execute your alias in file B, you may be expecting this but the author here wasn't until recently. I was thinking it would always execute the first found alias in the order of loaded file unless the alias in B is local here. $isalias behaves the same way, if you call $isalias from a remote file, it will always use the alias defined inside that remote file if it exists, this suggests that alias are always local to a remote script, the -l switch when defining alias with the alias keyword wouldn't be that useful?
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $isalias(join)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (23 Jun 1998)}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="script.html">$script</a><br>
+<a href="alias.html">$alias</a><br>
+
+</body>
+</html>

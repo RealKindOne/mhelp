@@ -1,0 +1,35 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mknickfn</H1>
+<br>
+<br>
+The <b>$mknickfn</b> identifier creates a valid filename from a nickname by removing characters which are not valid in a filename from text.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mknickfn(nickname)
+</pre>
+<H4>Parameters</H4>
+<br><b>nickname</b> - The nickname to be made a valid filename
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//var %i 33 | var %f | while (%i isnum 33-126) { var %f %f $+ $chr(%i) | inc %i } | echo -a orig: %f | echo -a mknk: $mknickfn(%f)
+</pre>
+
+<br><b>Note:</b> While this ensures a string is a valid filename, it does not ensure 2 different strings wouldn't get assigned the same filename, with both having different characters removed.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="mkfn.html">$mkfn</a><br>
+<a href="mklogfn.html">$mklogfn</a><br>
+</body>
+</html>

@@ -1,0 +1,49 @@
+The '''ON AGENT''' triggers when an Agent has finished speaking.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:AGENT:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - This is the area in which you want to perform the commands to execute after an Agent has finished speaking.
+
+== {{mIRC|local identifiers}} ==
+
+The on agent event expose one local identifier:
+
+=== {{mIRC|$agentname}} ===
+
+Return the name of the agent triggering the event
+
+<H4>Example</H4>
+
+'''After an Agent finishes speaking, echoes that it finished'''''
+<pre class ="code">ON *:AGENT:echo -s agent $agentname finished talking</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.9}}
+
+== See Also ==
+* [[List of on events - mIRC|mIRC Events]]
+
+* {{mIRC|/gload}}
+* {{mIRC|/gunload}}
+* {{mIRC|/gshow}}
+* {{mIRC|/ghide}}
+* {{mIRC|/gmove}}
+* {{mIRC|/gsize}}
+* {{mIRC|/gtalk}}
+* {{mIRC|/gplay}}
+* {{mIRC|/gpoint}}
+* {{mIRC|/gstop}}
+* {{mIRC|/gopts}}
+* {{mIRC|/gqreq}}
+* {{mIRC|$agent}}
+* {{mIRC|$agentname}}
+* {{mIRC|$agentstat}}
+* {{mIRC|$agentver}}
+* [[List of on events - mIRC|mIRC Events]]
+
+[[Category:mIRC on events|agent]]</body>
+</html>

@@ -1,0 +1,180 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/server
+</H1>
+<br>
+<br>
+
+The <b>/server</b> command can be used to initiate a new server connection. Using /server with no parameters will connect to the last server you used. If you use the server command while still connected, you will be disconnected with your normal quit message and will then connect to the specified server. It can also be used to manage the mIRC servers list
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/server -sar [server] [-p port] [-g group] [-w password] [-d description]] [-l [method [password]]] [-key [filename.pem]] [-keytype &lt;global|local&gt;] [-i nick anick email name] [-itype local|global] [-encoding [CodePageNumber]]
+/server [-46demnpfocztu] &lt;server/groupname/N&gt; [ -p port] [-l method [password]] [-key file] [-i nick anick email name] [-jn #channel pass]
+
+</pre>
+<H4>Switches</H4>
+
+If any of the -sar switches are used, the listed -switchnames are valid. Also see more details in the later section describing -sar parameters:
+
+
+<br><b>-s</b>
+      - sorts the servers list
+<br><b>-a</b>
+      - adds a server to the server list, if it exists, it is updated: mIRC first tries to update a match against the -d 'description' if that switch is used, before trying to match against the SERVER string. This means there's no way to add/update a new item to give it -d "Random Server" because it will instead match against the 1st serverlist item matching that description, even if the server address and -g GROUP do not match. To determine whether an item was added or updated, you can either look at the result string, or can use $ini($readini($mircini,n,files,servers),servers,0) to see whether the item count in your serverlist changed or not.
+<br><b>-r</b>
+      - removes a server from the server list. This does not try to match against the -d description the way -a does.
+<br><b>-g</b>
+      - changes the group.
+<br><b>-w</b>
+      - changes the server password.
+<br><b>-d</b>
+      - changes the description
+<br><b>-p</b>
+      - sets the port number.
+<br><b>-l</b>
+      - define the method to use for logging into your nickserv account.
+<br><b>-keytype</b>
+      - sets the local/global type of client certificate.pem.
+<br><b>-key</b>
+      - defines the filename.pem for an optional client certificate.pem.
+<br><b>-i</b>
+      - defines the nick/altnick/email/name fields filled into the 'logon' tab of that item in the serverlist. a 'name' string containing a space must be enclosed in doublequotes.
+<br><b>-itype</b>
+      - defines the local/global source for the info fields used at that server.
+<br><b>-encoding</b>
+      - allows overriding the default behavior of interpreting server messages as UTF8 encoding, and instead using a codepage number.
+<br>
+<br>
+Otherwise:
+<br>
+
+<br><b>-4</b>
+      - allows a connection to an IPv4 server
+<br><b>-6</b>
+      - allows a connection to an IPv6 server
+<br><b>-d</b>
+      - allows setting the current status window's connection details without connecting
+<br><b>-e</b>
+      - initiates a secure connection to an SSL capable server, alternatively you can prefix the port number with a plus sign
+<br><b>-m</b>
+      - creates a new server window for that connection and connects to the server
+<br><b>-n</b>
+      - creates a new server window for that connection but does not connect to the server
+<br><b>-p</b>
+      - prevents the perform from being applied
+<br><b>-f</b>
+      - prevents the favorites folder from poping up
+<br><b>-o</b>
+      - prevents the autojoining of channels from being applied
+<br><b>-c</b>
+      - prevents the on connect from being triggered
+<br><b>-z</b>
+      - minimizes the new server window
+<br><b>-t</b>
+      - initiates a secure connection to a STARTTLS capable server
+<br><b>-u</b>
+      - prevent the STS secure connection feature from IRCv3 to be used
+
+<H4>Parameters</H4>
+
+if any of the -sar switches are used:
+
+
+    * - [server]
+      - if specified, mIRC use that information to match for existing server entry, with -a giving priority to the -d parameter if used.
+    * - [-p port]
+      - specified the port number to be used, you can put different ports by separating them with commas, prefix the port with a **+** for **SSL**, and prefix it with ***** for a STARTTLS capable server. If no parameter used, the 'default port' from options/connect/options is used.
+    * - [-g group]
+      - specifies the group for the server, if the value is 'none', it clears the setting. There are multiple mIRC behaviors which will work best for you if this GROUP name exactly matches the string returned by $network while connected to that serverlist item. For the vast majority of networks this will be identical to the NETWORK= string displayed by the '/raw VERSION' command, however mIRC will create $network by stripping all characters out of this string that are not within $noqt(a-zA-Z0-9._-)
+    * - [-w pass]
+      - specifies the password for the server. If the value is 'none', it clears the setting. This is *NOT* the place for your nickserv password, and is most commonly the place where you would put the Twitch server's oath:token
+    * - [-d desc]
+      - specifies the description for the server, if the value is 'none', it clears the setting. Must use doublequotes if your description contains a space. See above warning with -a before trying to use "Random Server"
+    * - [-l method [password]]
+      - changes the login method and the password field corresponding to the login method (even if the given method won't be using that corresponding password field, if you use "pass" for example). See below for more information about the **-l** method parameter
+<br><b>-keytype [local|global]</b>
+      - The parameter being either 'local' or 'global' controls whether the 'use global certificate' box is checked.
+<br><b>-key [filename.pem]</b>
+      - defines the path/filename for the filename containing the public/private keys for an optional local client certificate, but does not report an error if the filename does not exist, until you actually attempt to connect using a non-existent cert.pem file. If you have a global client cert, but do not define a local cert file, "-key -keytype local" allows connecting to that server without using either a local OR the global cert, and instead behaves at that network as if no global or local client cert exist.
+<br><b>-i nick altnick email name</b>
+      - defines the nick/altnick/email/name fields filled into the 'logon' tab of that item in the serverlist. If the 'name' string containing a space, it must be enclosed in doublequotes. These settings are cleared if -i uses no parameters.
+<br><b>-itype [local|global]</b>
+      - configures whether to use the local info fields as can be defined with the -i switch, or to use the global fields listed at the top of the alt+E serverlist editor.
+<br><b>-encoding [CodePageNumber]</b>
+      - allows overriding the default behavior of interpreting server messages as UTF8 encoding, and instead using a codepage number for servers who use a regional codepage instead of UTF8. For example, '-encoding 857' configures that serverlist entry to use the Turkish codepage. If the codepage number is missing or is a number not recognized by your OS, the entry is set to 'Default' i.e. UTF8 encoding. Users who still use v6.35 because of using a server that does not support UTF8 'should' be able to use this setting to update to a modern mIRC version v7.69 or newer.
+
+Otherwise:
+
+
+    * - <server/groupname/N>
+      - either a server address, or if you give a groupname, it will cycle through all the servers in the server list which have that group name until it connects to one of them, if you give a number, mIRC will try to connect to the Nth server in the server list in the connect dialog. However, it gives priority to the servernames having the highest connection counts in the 'success' [section] of servers.ini
+<br><b>[port]</b>
+      - if specified, the port number, you can put different ports by separating them with commas, prefix the port with a + for SSL, and prefix it with * for a STARTTLS capable server
+<br><b>[password]</b>
+      - if specified, the password of the server, if any.
+<br><b>[-i [nick [anick [email [name]]]]]</b>
+      - if specified, tells mIRC the different parameters to be used for the USER login sequence, parameters are in order and can't be omitted unless they are last: you cannot specify [anick] without specifying [nick] (see examples)
+<br><b>[-jn &lt;#channels&gt; [passwords]]</b>
+      - if -j is specified, it will join the channels, if -n is specified, it will join them minimized. The [passwords] syntax depends on the IRC server you are using, it will simply use '/join &lt;#channel&gt; [passwords]', but typically, it's a comma seperated list of password where * can be used to specify that no password should be used for that channel.
+<br><b>[-key file]</b>
+      - specify the private key client certificate file.pem to use for SSL
+<br><b>[-l method password]</b>
+      - specify the method to be used to identify to nickserv/service, **method** can be:
+
+** <code>pass</code> - using this method means that the **[password]** parameter (the server password) is what contains your nickname's password (default if you don't use -l, typically IRC server will try to identify you to service such as nickserv using your current nickname and the server password provided)
+
+** <code>sasl</code> - using this method means that mIRC will use SASL PLAIN to identify you. The next parameter can be:
+
+*** **nick:password** - nick is the registered nick/account and password is the password for that account (this indeed means that you can connect to IRC server with a nickname that is different from the nickserv nickname/account and still be logged to that account)
+
+*** **password** - a password only, mIRC will use your current nickname to auth you
+
+*** mIRC will first interpret this parameter as nick:pass if a ':' is present and only if that fails it will try that value as a password only, using your current nickname to auth.
+
+** <code>external</code> - This method uses a TLS client certificate and have services recognize it automatically. You must connect over SSL. This can either use the global certificate.pem you created and configured in options/connect/options/ssl, or can be a local certificate.pem created to be used at only specific server(s). Even though the serverlist window will fill in a password if using the password parameter, it is not used by SASL EXTERNAL. This login method must be enabled before it's in effect, usually by being connected to the server while "//whois $me" shows you are using a client certificate and then using "/nickserv cert ADD" while logged into your nickserv account. Even if your login method is set to something else besides EXTERNAL, the network will log you into your nickserv account by simply connecting to the network using a client certificate whose fingerprint matches a cert that's been added to your nickserv account. 
+
+** <code>msg</code> - This method means that mIRC will use '/msg nickserv identify' once the raw 001 is received. You must specify your password (without a nickname/account of the form nick:pass, just the password) after the method
+
+** <code>nickserv</code> - This method means that mIRC will use '/nickserv identify' once the raw 001 is received. You must specify your password (without a nickname/account of the form nick:pass, just the password) after the method
+
+** <code>scram password</code> - This uses SCRAM-SHA-256 in IRCv3 to login your nickserv account
+
+** <code>ecdsa password</code> - This uses ECDSA-NIST256P-CHALLENGE to login your nickserv account
+
+<H4>Example</H4>
+<pre class ="code">
+; Specify the [nick] and [anick]
+/server irc.someirc.com -i nick anick
+; Impossible: specifying the [email] without specifying [nick] and [anick] first
+/server irc.someirc.com -i * * emailtouse
+</pre>
+Additional servers.ini sections
+
+The serverlist in the Alt+E window is contained in the [servers] section of servers.ini, but there can be additional [sections] which can affect how some /server commands behave. For example, you can sort the serverlist by either using the '/server -s' command, or can use the 'sort' choice in the serverlist's hamburger icon. While these sort your serverlist alphabetically by GROUP name, you can override this by adding or removing GROUP names to/from the 'Networks' [section]. If there are GROUP names listed in that section, serverlist items for those groups are sorted to the top of the serverlist in the order they appear in 'Networks', after which the remaining serverlist items are sorted alphabetically by their GROUP name.
+
+Each time you make an SSL connection via the serverlist or the /server or /sockopen commands, an entry is either inserted-at or moved-to the top of the 'sslcache' section which indicates the server's ssl fingerprint, hostname, ip address, and whether you have enabled the override to auto-accept that certificate being 'invalid'. This can cause your servers.ini to become quite large, especially if you use a network having local servers whose DNS ip-address changes frequently. If the [sslcache] section has grown quite large, it should be safe to prune most if not all of the lowest entries if their last parameter is '0' indicating that you are not enabling that as an invalid cert.
+
+There is also a 'recent' section containing info from the 20 serverlist items most recently used to make a successful connection.
+
+There is a 'success' section of servers.ini which appears to behave as an undocumented override for the 'options/connect/options/move to top on connect' setting when the /server command chooses which which of several items in the serverlist that "/server GROUPNAME" will connect to. For example, if you have network groupname FOOBAR where you have recently been given IRCOP Admin privileges at a local foo.foobar.org server, and you want to give preference to that specific local server while still being able to connect to the irc.foobar.org round-robin address if you can't connect to foo.foobar.org, you might think that you could create a 2nd serverlist entry for foo.foobar.org, then connect to it so it's at the top of your serverlist, then uncheck the 'move to top on connect' setting. However, instead of '/server FOOBAR' connecting first to the topmost item in the serverlist having that GROUPNAME, it instead gives preference to whichever servertarget in the FOOBAR 'group' has the highest connections count in the 'success' [section] regardless whether it's the 1st or 99th server target in that GROUP. However, if you edit servers.ini and find the [success] section where foo.foobar.org is listed, you can edit the integer connections count for foo.foobar.org to a larger number and/or edit irc.foobar.org down to 1 or 0, and the /server GROUPNAME command will then give preference to the servertarget having the highest success count. If your script needs to connect to the topmost servername in GROUPNAME, instead of merely using the GROUPNAME parameter, you must instead use $server(1,GROUPNAME) as the server address.
+
+
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\server.html">$server</a><br>
+   <a href="..\identifiers\serverip.html">$serverip</a><br>
+   <a href="..\identifiers\servertarget.html">$servertarget</a><br>
+   <a href="..\identifiers\ssl.html">$ssl</a><br>
+   <a href="..\identifiers\sslcertvalid.html">$sslcertvalid</a><br>
+    * :doc: `$sslhash </identifiers/hash-tables>`
+</body>
+</html>

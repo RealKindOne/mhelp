@@ -1,0 +1,23 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<h1>$++</H1>
+<br>
+<br>
+The <b>$++</b> is a very old construct, similar to <b>$+</b> concatenator, which allowed a 'delay' to the $+ behavior.
+The example :
+
+" $+ $read c:\test.txt $++ "
+
+can be found in the changelog of mIRC, suggesting that if that $+ were used instead of a $++, it would concatenate the " to the filename before the file could be read but nowadays the above example works with $+ and $++
+
+However $++ does differ from $+, inside brackets. As you may know, $+ inside bracket evaluation [ ] is not really behaving like it is outside them, $++ will act as though $+ was used, but it will behave the way $+ does outside the bracket evaluation, for example [ $ $++ me ] will produce plain text $me instead of [ $ $+ me ] producing your nickname
+
+<H4>Compatibility</H4>
+
+{{mIRC compatibility|4.1}}
+
+<H4>See also</H4>
+{{mIRC|$+}}
+</body>
+</html>

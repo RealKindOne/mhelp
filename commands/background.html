@@ -1,0 +1,102 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/background
+</H1>
+<br>
+<br>
+
+The <b>/background</b> command is used to change the background picture setting for a specific window including a channel window. This is the same as changing the background via the system window (to access the system menu simply right click the small window icon located on the upper left corner of the window)
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/background -abemsgdluhcfnrtpx [window] [filename]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-e</b>
+      - set as default
+<br><b>-x</b>
+      - no background picture
+<br>
+<br>
+Window Switches:
+<br>
+<br><b>-a</b>
+      - active window
+<br><b>-m</b>
+      - main mIRC window
+<br><b>-s</b>
+      - status window
+<br><b>-g</b>
+      - finger window
+<br><b>-d</b>
+      - single message window
+<br>
+<br>
+Picture Switches:
+<br>
+<br><b>-c</b>
+      - center
+<br><b>-f</b>
+      - fill
+<br><b>-n</b>
+      - normal
+<br><b>-r</b>
+      - stretch
+<br><b>-t</b>
+      - tile
+<br><b>-p</b>
+      - photo
+<br>
+<br>
+Bar Switches:
+<br>
+
+<br><b>-l</b>
+      - toolbar
+<br><b>-u</b>
+      - toolbar buttons
+<br><b>-h</b>
+      - switchbar
+<br><b>-b</b>
+      - treebar
+
+<H4>Parameters</H4>
+
+
+<br><b>[window]</b>
+      - A window name should only used if no window switches were specified.
+<br><b>[filename]</b>
+      - The filename of the picture to be used (The filename must be enclosed by a pair of double quotes if it contains spaces).
+
+<H4>Example</H4>
+<pre class ="code">
+; Setting one of window vista's sample pictures as the background for the active window
+; Since the filename's path contain spaces it must be enclosed by a pair of double quotes
+/background -a "C:\Users\Public\Pictures\Sample Pictures\Desert Landscape.jpg\"
+; Remove the background picture from the active window
+/background -xa
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (24 Jul 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\toolbar.html">$toolbar</a><br>
+   <a href="..\identifiers\color.html">$color</a><br>
+   <a href="..\identifiers\treebar.html">$treebar</a><br>
+   <a href="..\identifiers\menubar.html">$menubar</a><br>
+   <a href="..\identifiers\switchbar.html">$switchbar</a><br>
+   <a href="color.html">/color</a><br>
+   <a href="menubar.html">/menubar</a><br>
+   <a href="switchbar.html">/switchbar</a><br>
+   <a href="toolbar.html">/toolbar</a><br>
+   <a href="treebar.html">/treebar</a><br>
+</body>
+</html>

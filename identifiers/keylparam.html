@@ -1,0 +1,41 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$keylparam</H1>
+<br>
+<br>
+The <b>$keylparam</b> identifier is filled during an <a href="..\events\on_Keydown.html">on_Keydown</a>, <a href="..\events\on_KeyUp.html">on_KeyUp</a>, or <a href="..\events\on_Char.html">on_Char</a> event inside of a {{mirc|custom windows|custom @window}}. This value is the value returned by Windows itself to mIRC when these events occurs, the lParam value is an array of bit containing informations such as extended key, repeat count etc.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$keylparam
+</pre>
+<H4>Parameters</H4>
+None
+
+
+== Meaning ==
+
+* '''0-15''' -    The repeat count for the current message. The value is the number of times the keystroke is autorepeated as a result of the user holding down the key. If the keystroke is held long enough, multiple messages are sent. However, the repeat count is not cumulative.
+* '''16-23''' -	The scan code. The value depends on the OEM.
+* '''24''' -	Indicates whether the key is an extended key, such as the right-hand ALT and CTRL keys that appear on an enhanced 101- or 102-key keyboard. The value is 1 if it is an extended key; otherwise, it is 0.
+* '''25-28''' -    Reserved; do not use.
+* '''29''' -	The context code. The value is 1 if the ALT key is held down while the key is pressed; otherwise, the value is 0.
+* '''30''' -	The previous key state. The value is 1 if the key is down before the message is sent, or it is 0 if the key is up.
+* '''31''' -	The transition state. The value is 1 if the key is being released, or it is 0 if the key is being pressed.
+
+
+<H4>Compatibility</H4>
+Added: mIRC v7.69 (18 Jul 2022)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_KeyUp.html">on_KeyUp</a><br>
+<a href="..\events\on_Keydown.html">on_Keydown</a><br>
+<a href="..\events\on_Char.html">on_Char</a><br>
+<a href="keychar.html">$keychar</a><br>
+<a href="keyval.html">$keyval</a><br>
+
+</body>
+</html>

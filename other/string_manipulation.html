@@ -1,0 +1,226 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>String manipulation</H1>
+<br>
+<br>
+
+ String manipulation is the building block of many of today's utilities and algorithms. Everything from formatting and validation to analysis and manipulation requires heavy use of string manipulation. Fortunately for you, the language provides powerful string manipulation facilities.
+
+<H4>Basic String Operations</H4>
+Since everything is a string in mSL, just assigning it to a variable is enough.
+
+<pre class ="code">var %x = This is an example string.</pre>
+
+We often want to get the length of such string. The {{mirc|$len}} identifier can be used to get that. 
+
+<pre class ="code">//echo -a $len(apples and oranges)
+18</pre>
+
+It is often desired to join two strings together. Such operation is called a '''string concatenation'''. The {{mirc|$+}} operator can be used to concatenate two string together. For example:
+
+<pre class ="code">//echo -a A $+ B
+AB</pre>
+
+It's important to note that both identifiers and variables can be substituted instead of A and B. For example:
+
+<pre class ="code">alias hello {
+  var %x = Hello World
+  var %x = %x $+ !
+  echo -a %x
+}</pre>
+
+The output after executing the above code (/hello) is "Hello World!"
+
+<H4>Substrings</H4>
+A substring is a string that is part of a longer string. There are a number of built-in identifiers that can be used to retrieve a smaller portion of the original string.
+
+=== $left() and $right() ===
+The first two identifiers you should be familiar with are the {{mIRC|$left}} and {{mIRC|$right}} identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
+
+<pre class ="code">$left(<string>, <length>)
+$right(<string>, <length>)</pre>
+
+$left always return text starting from the very left side while {{mIRC|$right}} always return text starting from the right side.
+
+If the length specified is a positive number, {{mIRC|$left}} and {{mIRC|$right}} will return up to that many characters from their respective sides. For example:
+
+<pre class ="code">//echo -a $left(abcdefg, 4) $right(abcdefg, 4)
+;Left: |abcd|efg
+;Right: abc|defg|</pre>
+
+If the length specified is a negative number, {{mirc|$left}} and {{mirc|$right}} return the entire text minus that many characters from their respective sides. For example:
+
+<pre class ="code">//echo -a $left(abcdefg, -4) $right(abcdefg, -4)
+;Left: |abc|defg
+;Right: abcd|efg|</pre>
+
+Here is one last example before we move on:
+
+<pre class ="code">echo -a $left(Hello There!, 5) $right(Hi World!, 6)</pre>
+
+This gets the five left-most characters ("Hello") and the five right-most characters ("World!"). The final output is:
+
+<pre>Hello World!</pre>
+
+=== $mid() ===
+{{mirc|$left}}() and {{mirc|$right}}() are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the {{mirc|$mid}}() identifier is a more powerful alternative. {{mirc|$mid}}() has the following syntax: 
+
+<pre class ="code">$mid(<string>, <start>)
+$mid(<string>, <start>, <length>)</pre>
+
+Start is the start of the substring from the left. A negative value indicates a start from the right. In both case, an optional length can be specified. A negative length can be used to remove that many characters from the end.
+
+<pre class ="code">alias example {
+  var %str = I have not failed. I've just found 10,000 ways that won't work.
+  echo -a $mid(%str, 53, 10)
+}</pre>
+
+Will output "won't work".
+
+<H4>Case Transformation</H4>
+The {{mirc|$islower}} and {{mirc|$isupper}} identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters ({{mIRC|$true}}), or else they return {{mIRC|$false}}. The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
+
+<pre class ="code">alias case_example {
+  var %x = Some random line!
+  echo -a %x = $isupper(%x) $islower(%x)
+  var %x = $upper(%x)
+  echo -a %x = $isupper(%x) $islower(%x)
+  var %x = $lower(%x)
+  echo -a %x = $isupper(%x) $islower(%x)
+}</pre>
+
+Will generate the following output:
+
+<pre>Some random line! = $false $false
+SOME RANDOM LINE! = $true $false
+some random line! = $false $true</pre>
+
+=== $lower() and $upper() ===
+The {{mirc|$lower}}() and {{mirc|$upper}}() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
+
+<pre class ="code">//echo -a $upper(HeLlO tHeRe)
+//echo -a $lower(HeLlO tHeRe)</pre>
+
+Will produce:
+
+<pre>HELLO THERE
+hello there</pre>
+
+<H4>Searching</H4>
+There are a number of identifiers that can be used to search for a substring within a string. The first one is the $pos identifier which has the following syntax:
+
+<pre class ="code">$pos(<string>, <substring>)
+$pos(<string>, <substring>, <occurrence>)</pre>
+
+The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, {{mirc|$pos}} will return the total number of substring found within the string. 
+
+'''Note:''' {{mirc|$poscs}} is a case-sensitive version of {{mirc|$pos}}; it has the same syntax. 
+
+If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
+
+<pre class ="code">$count(<string>, <substring>[, <substring2>, ...])</pre>
+
+Multiple substrings can be counted at once. Here is a simple example:
+
+<pre class ="code">$count(Apples and Oranges, apple, orange)</pre>
+
+Which will print "2".
+
+'''Note:''' {{mirc|$countcs}} is a case-sensitive version of {{mirc|$count}}; it has the same syntax.
+
+<H4>Substring Replacement and Removal</H4>
+
+=== Replacement ===
+There are two built-in string replacement identifiers, {{mirc|$replace}} and {{mirc|$replacex}}. The major difference between the two is that the later one will not apply replacement to any of the replaced strings. 
+
+It should be noted that both will replace ALL ocurrences of a substring within a string, not just the 1st encountered.
+
+The syntax for both of them is:
+
+<pre class ="code">$replace(<string>, <substring>, <replacement>[, <substring2>, <replacement2>, ...])
+$replacex(<string>, <substring>, <replacement>[, <substring2>, <replacement2>, ...])</pre>
+
+Let's start off with a small example:
+
+<pre class ="code">echo -a $replace(Hello World!, world, there)</pre>
+
+Which will print "Hello there!". Below is a simple example. Note the difference between $replace and $replacex.
+
+<pre class ="code">alias rep {
+  var %str = 1 2 3 4
+  ; Each replacement will replace the previous one
+  echo -a $replace(%str, 1, 2, 2, 3, 3, 4, 4 , 5)
+  ; Exclusive replacements
+  echo -a $replacex(%str, 1, 2, 2, 3, 3, 4, 4, 5)
+}</pre>
+
+Executing /rep will produce the following results:
+
+<pre>5 5 5 5
+2 3 4 5</pre>
+
+An example of replacing ALL occurances can be seen in:
+
+<pre class ="code">//echo -s $replace(This is a test of the replace function, $chr(32), .)</pre>
+
+which will output (in this case to the status window [-s]): 
+<pre>This.is.a.test.of.the.replace.function</pre>
+
+$replacex will provide the same in this case.
+
+'''Note:''' {{mirc|$replacecs}}/{{mirc|$replacexcs}} are case-sensitive versions of {{mirc|$replace}}/{{mirc|$replacex}}; it has the same syntax.
+
+=== Substring Removal ===
+$remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
+
+<pre class ="code">$remove(<string>, <substring>[, <substring2>, <substring3>, ...])</pre>
+
+A small example is:
+
+<pre class ="code">//echo -a $remove(aa bb cc dd ee aa bb cc dd ee, bb, dd)</pre>
+
+Produces:
+
+<pre>aa cc ee aa cc ee</pre>
+
+<H4>Miscellaneous Identifiers</H4>
+
+Two more identifiers you should be aware of are {{mirc|$str}}() and {{mirc|$strip}}().
+
+=== $str() ===
+$str returns the same exact string repeated N amount of times. The syntax is:
+
+<pre class ="code">$str(<string>, <N>)</pre>
+
+For example:
+
+<pre class ="code">//echo -a $str(Example, 10)</pre>
+
+Produces: 
+
+<pre>ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
+
+=== $strip() ===
+The $strip identifier can remove control codes from a string. The syntax for it is:
+
+<pre class ="code">;Removes all control codes (bold/underline/italics/color/reverse)
+$strip(<string>)
+;Removes any combination of control codes
+$strip(<string>, buricmo)</pre>
+
+* b = bold
+* u = underline
+* r = reverse
+* i = italics
+* c = color
+* m = use messages option settings
+
+<H4>Using {{mirc|Token Manipulation}}</H4>
+Whilst the {{mirc|token manipulation}} functionality is designed to be used for maintaining lists of delimited tokens, they can also be used for string manipulation. For example, extracting a channel from a string can be done with: 
+
+<pre class ="code">//echo -a # $+ $gettok($gettok(Why not join #superheros now?,2,35),1,32)
+#superheros</pre>
+
+</body>
+</html>

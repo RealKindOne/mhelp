@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$atan2</H1>
+<br>
+<br>
+The <b>$atan2</b> identifier returns the arctangent of the 2 short sides of a right triangle.
+<H4>Synopsis</H4>
+<pre class ="code">
+$atan2(&lt;O&gt;,&lt;A&gt;)[.deg]
+</pre>
+<H4>Parameters</H4>
+<br><b>O</b> - The length of the Opposite side of the right triangle.
+<br><b>A</b> - The length of the Adjacent side of the right triangle.
+<H4>Properties</H4>
+<br><b>.deg</b> - returns the angle as degrees, default is radians.
+<H4>Example</H4>
+
+Returns: In right triangle where opposite side is length 3 and adjacent side is length 4 - angle is 36.869898 degrees
+<pre class ="code">//var %opposite 3, %adjacent 4 | echo -a In right triangle where opposite side is length %opposite and adjacent side is length %adjacent - angle is $atan2( %opposite , %adjacent ).deg degrees
+</pre>
+
+<pre class ="code">
+//var %opposite 4 | var %adjacent 3 | echo -a except for rounding $atan2(%opposite,%adjacent).deg is the same as $atan( $calc( %opposite / %adjacent ) ).deg
+; ATAN2 accepts the side lengths while ATAN accepts the tangent ratio of those sides
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.33 (27 May 2014)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="cos.html">$cos</a><br>
+<a href="acos.html">$acos</a><br>
+<a href="cosh.html">$cosh</a><br>
+<a href="sin.html">$sin</a><br>
+<a href="asin.html">$asin</a><br>
+<a href="sinh.html">$sinh</a><br>
+<a href="tan.html">$tan</a><br>
+<a href="atan.html">$atan</a><br>
+<a href="tanh.html">$tanh</a><br>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/savebuf
+</H1>
+<br>
+<br>
+
+The <b>/savebuf</b> command saves the specified number of lines from the end of the buffer of the specified window into the specified filename.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/savebuf -sgaolp [lines] <window | dialog id> &lt;filename&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - Appends the lines to the output file
+<br><b>-s</b>
+      - Saves the status window buffer
+<br><b>-g</b>
+      - Saves the finger window buffer (removed feature)
+<br><b>-o</b>
+      - Indicates that you have specified the [dialog id] parameters instead of a window name in order to load lines into a custom dialog control
+<br><b>-p</b>
+      - Strip control code from saved lines
+<br><b>-l</b>
+      - Save the content of the side listbox of the window if there is one (can be used to save the nicklist of a channel quickly)
+<br><b>-n</b>
+      - Treat the wrapped lines as a single line
+
+<H4>Parameters</H4>
+
+
+    * - [lines]
+      - If specified, the number of lines to add from the end the file or a range of lines N-N2, otherwise the whole content of the file is added.
+    * - <window | dialog id>
+      - The window's name or the dialog's name and an id to adds the lines to.
+<br><b>&lt;filename&gt;</b>
+      - The filename you want to add lines from.
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (21 Apr 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="loadbuf.html">/loadbuf</a><br>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/gplay
+</H1>
+<br>
+<br>
+
+The <br>gplay</b> command makes an agent play one of its animation.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/gplay -h &lt;name&gt; &lt;anim | N&gt; [timeout]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-h</b>
+      - Prevents the agent from poping up if mIRC is minimized and -h has been used in /gload to load that agent
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - The name used in /gload to reference that agent
+<br><b>&lt;anim | N&gt;</b>
+      - Either the name of the animation or the Nth animation
+<br><b>[timeout]</b>
+      - Some animations are looping animations, which repeat continuously, and prevent an agent from doing anything else until you /gstop the agent. The [timeout] value allows you to specify a timeout for an animation after which it is automatically stopped, and the agent will then perform any remaining queued requests. If you do not specify a timeout value, the default is 5 seconds. If no play or talk requests are pending, the looping animation continues beyond the timeout until there are.
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    ;Load the default agent on your system
+    /gload myagent default
+    ;Plays the 2nd animationi
+    /gplay myagent 2
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="ghide.html">/ghide</a><br>
+   <a href="gunload.html">/gunload</a><br>
+   <a href="gshow.html">/gshow</a><br>
+   <a href="gload.html">/gload</a><br>
+   <a href="gsize.html">/gsize</a><br>
+   <a href="gtalk.html">/gtalk</a><br>
+   <a href="gmove.html">/gmove</a><br>
+   <a href="gpoint.html">/gpoint</a><br>
+   <a href="gstop.html">/gstop</a><br>
+   <a href="gopts.html">/gopts</a><br>
+   <a href="gqreq.html">/gqreq</a><br>
+   <a href="..\identifiers\agentver.html">$agentver</a><br>
+   <a href="..\identifiers\agentstat.html">$agentstat</a><br>
+   <a href="..\identifiers\agentname.html">$agentname</a><br>
+   <a href="..\identifiers\agent.html">$agent</a><br>
+</body>
+</html>

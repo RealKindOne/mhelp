@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$iptype</H1>
+<br>
+<br>
+The <b>$iptype</b> identifier returns "ipv4" or "ipv6" if the parameter is a valid IP address format.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$iptype(text)[.property]
+</pre>
+<H4>Parameters</H4>
+
+<br><b>text</b> - The string you want to know the ip type of
+
+<H4>Properties</H4>
+If an ipv6 is given, you can use the following properties:
+<br><b>.compress</b> - returns the compressed version of the ip address
+<br><b>.expand</b> - returns the expanded version of the ip address
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $iptype(5.6.7.8)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.0 (02 Apr 2010)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ip.html">$ip</a><br>
+
+</body>
+</html>

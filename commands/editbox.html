@@ -1,0 +1,64 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/editbox
+</H1>
+<br>
+<br>
+
+The <b>/editbox</b> command provides the ability to edit the editbox of a window according to the switches. To specify a dcc chat window, prefix the nickname with an equal sign '='.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/editbox [-saf[N]nopbNeNvqN] [window] &lt;text&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-s</b>
+      - specifies the Status window
+<br><b>-a</b>
+      - specifies the Active window
+<br><b>-f</b>N
+      - if N = 1 sets focus, if N = 2 uses editbox with focus
+<br><b>-p</b>
+      - indicates that a space should be appended to text
+<br><b>-n</b>
+      - fills the editbox and presses the enter key in the editbox
+<br><b>-o</b>
+      - applies the command to the second editbox in a channel window
+<br><b>-b</b>N
+      - set the start of the selection
+<br><b>-e</b>N
+      - set the end of the selection
+<br><b>-v</b>
+      - used with -f and -q, prevents the editbox contents from being changed
+<br><b>-q</b>N
+      - disables the second editbox with N = 0, enables it with N = 1, and toggles the state if N = 2
+
+<H4>Parameters</H4>
+
+
+<br><b>[window]</b>
+      - if the switch doesn't involve a window to be used, you must provide it
+<br><b>&lt;text&gt;</b>
+      - the text used for the edition
+
+<H4>Example</H4>
+<pre class ="code">
+; A popup example
+; Add a smileyface to the second edit box:
+/editbox -oq ☺ $+ editbox($chan,1)
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (11 Sep 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\editbox.html">$editbox</a><br>
+</body>
+</html>

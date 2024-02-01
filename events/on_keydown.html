@@ -1,0 +1,66 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Keydown</H1>
+<br>
+<br>
+The <b>ON KEYDOWN</b> event is triggered when a key is pressed down inside of a custom [[custom windows - mIRC|@window]].
+
+'''Note''': Before version 7.62, on keydown was broken, it was incorrectly trying to do two things at once, reporting keypress and the resulting character of keypresses.
+The idea was to report the key being pressed in $keyval, and the resulting character in $keychar. From the very beginning, $keyval was incorrect because it returned the ASCII value of the character being pressed instead of the corresponding keycode which comes with the internal WM_KEYDOWN windows message, which has a different value for letters than ASCII. And then, if you needed to press two keys to get a character, something related to 'dead key' as well, you couldn't get the resulting character properly. For example if you press control + o, you need to get the control key being pressed, the 'o' key being pressed, and the resulting character, which is a $chr(15). It was not even possible to change on keydown to report things correctly because keypresses and resulting character comes from two differents message, and the resulting character is only known in the second one, which is always sent second. So on keydown was changed to only report keypress, which is way more correct. The event now to get the resulting character no matter what, like if you're trying to script a visual editbox in a picture window, you need to use the new created event, {{mIRC|on char}}
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:KEYDOWN:<@>:<keycode,...,keycodeN>:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''<@>'''</span>The [[custom windows - mIRC|custom window]] where this event should listen. Can be '''@''' for all windows.
+
+'''<keycode>'''</span>The specific key, or keys to listen for. Can specify multiple keys, such as:
+<pre class ="code">ON *:KEYDOWN:@myWindow:38,42,55,78:echo -a $keyval</pre> see https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for a list of key code
+
+== Identifiers ==
+
+This event fills the following identifiers:
+<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyval}}'''</span>The Windows keycode value of the key pressed, this has nothing to do with ascii or unicode code point, the list can be found here https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes</div>
+
+<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keychar}}'''</span>The actual character pressed if there is one, see the note above, this is kept for backward compatibility reason, scripters should not use this value inside on keydown</div>
+
+<div style="background-color: rgba(0,0,0,.03); display: block; margin-bottom: 10px;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyrpt}}'''</span>If the key is being held down/repeating</div>
+
+<H4>Example</H4>
+Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
+<pre class ="code">alias keyDownTest {
+  window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
+}
+ON *:KEYDOWN:@myWindow:*: {
+  clear @myWindow
+  drawtext @myWindow 1 3 3 Key value: $iif($keyval,$v1,NA)
+  drawtext @myWindow 1 3 25 Key character: $iif($keychar,$v1,NA)
+  drawtext @myWindow 1 3 47 @myWindow Repeating: $keyrpt
+}</pre>
+
+The following command can now be typed into any mIRC command prompt:
+<pre>/keyDownTest</pre>
+
+Below is an image reflecting what this example will look like:
+
+[[File:Keyup event.png|This screenshot shows an example of the ON KEYDOWN event custom example.]]
+
+Note that this makes use of a [[Picture Windows - mIRC|picture window]], as well as the [[/drawtext command - mIRC|drawtext command]]. These types of [[Picture Windows - mIRC|windows]] and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.8}}
+
+== See Also ==
+* [[custom windows - mIRC|Custom Windows]]
+* {{mIRC|/drawtext}}
+* [[on keyup - mIRC|ON KEYUP]]
+* {{mIRC|$keyval}}
+* {{mIRC|$keychar}}
+* {{mIRC|$keyrpt}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|keydown]]</body>
+</html>

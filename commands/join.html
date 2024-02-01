@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/join
+</H1>
+<br>
+<br>
+
+The <b>/join</b> command is used when you want to join a channel.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/join [-inxmd] [#] [key]
+
+    ***Note:** All switches are optional.*
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-i</b>
+      - join the last channel you were invited to.
+<br><b>-n</b>
+      - joins the channel minimized
+<br><b>-x</b>
+      - joins the channel maximized
+<br><b>-m</b>
+      - joins the channel in mdi state
+<br><b>-d</b>
+      - joins the channel in desktop state.
+
+<H4>Parameters</H4>
+
+* *#channel* - name of the channel
+
+
+    * - [key]
+      - channel key (password)
+
+<H4>Example</H4>
+<pre class ="code">s
+
+**Join channel**
+
+
+    /join #mIRC
+
+**Join multiple channels**
+
+
+    /join #mIRC,#help
+
+**Join channel minimized**
+
+
+    /join -n #mIRC
+
+**Join channel with a key (password)**
+
+
+    /join #mIRC password
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.7a (18 Mar 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

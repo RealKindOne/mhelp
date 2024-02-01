@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$uptime</H1>
+<br>
+<br>
+The <b>$uptime</b> identifier returns the number of milliseconds since the indicated event.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$uptime(&lt;mirc&gt;|&lt;server&gt;|&lt;system&gt;[,N])
+</pre>
+<H4>Parameters</H4>
+<br><b>mirc</b> - the time period counts since mIRC started
+<br><b>server</b> - the time period counts since connected to that server.
+<br><b>system</b> - the time period counts since windows booted up.
+<br>
+<br>
+Optional Parameter N is an integer 0-3:
+<br>
+<br><b>0</b> - Default. Returns time as an integer number of milliseconds
+<br><b>1</b> - Instead of returning time as an integer number of milliseconds, is Ndays Nhrs Nmins Nsecs
+<br><b>2</b> - Same as N 1 except omits the Nsecs
+<br><b>3</b> - Same as N 0, except returns number of seconds, dropping the last 3 digits.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//echo -a $uptime(system,0) is the same as $ticks
+//echo -a $uptime(system,3) is the same as $left($ticks,-3)
+//echo -a mIRC has been running for $uptime(mirc,2)
+//echo -a mIRC has been connected to $network server $server for $uptime(server,2)
+//echo -a Windows has been running for $uptime(system,2) since booting up $asctime( $calc($ctime - $uptime(system,3) ) )
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ticks.html">$ticks</a><br>
+<a href="ctime.html">$ctime</a><br>
+
+
+</body>
+</html>

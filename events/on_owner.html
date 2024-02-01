@@ -1,0 +1,42 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Owner</H1>
+<br>
+<br>
+The <b>ON OWNER</b> event triggers whenever a user on a channel has been elevated to the level of [[Channel owner - IRC|channel owner]]. You can use {{mIRC|$opnick}} to get the nickname being given owner status.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:OWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger..
+
+'''&lt;matchtext&gt;'''</span>The text to match in the event..
+
+<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels where the event listens.
+
+<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 105px; margin-right: 25px; width: 60px;">'''#'''</span>Any channel if left by itself, otherwise refers to a specific channel</div>
+
+<div style="background-color: rgba(0,0,0,.06); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 105px; margin-right: 25px; width: 60px;">'''[,#]'''</span>List of specific channel names</div>
+
+<H4>Example</H4>
+Message the channel where the event occurs:
+<pre class ="code">ON *:OWNER:#:msg # $opnick $+ : Congratulations on becoming an owner of # $+ !</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.61}}
+
+== See Also ==
+* [[On deop - mIRC|ON DEOP]]
+* [[On deowner - mIRC|ON DEOWNER]]
+* [[On devoice - mIRC|ON DEVOICE]]
+* [[On help - mIRC|ON HELP]]
+* [[On op - mIRC|ON OP]]
+* [[On voice - mIRC|ON VOICE]]
+* {{mIRC|/mode}}
+* {{mIRC|$mode}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|owner]]</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$floor</H1>
+<br>
+<br>The <b>$floor''' identifier will calculate and return a numerical value rounded to the next lowest integer.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">$floor(N)</pre>
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - The number to be rounded down. Decimals cause the value to round down, while integers are returned the same.
+
+You can use the letter 'e' or 'd' as *10^N, $floor(5e6) = $floor($calc(5*10^6))
+
+'''Note''': $floor(N) is the same as $int(N) for N >= 0.
+
+<H4>Example</H4>
+Echo to the active window '''9.318''' rounded to the next lowest integer:
+<pre class ="code">//echo -a $floor(9.318)
+
+//var %a $pi | echo -a floor: $floor(%a) int: $int(%a) ceil: $ceil(%a) abs: $abs(%a)
+result: floor: 3 int: 3 ceil: 4 abs: 3.141593
+//var %a -1.5 | echo -a floor: $floor(%a) int: $int(%a) ceil: $ceil(%a) abs: $abs(%a)
+result: floor: -2 int: -1 ceil: -1 abs: 1.5
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (29 Aug 2003)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="abs.html">$abs</a><br>
+<a href="ceil.html">$ceil</a><br>
+<a href="int.html">$int</a><br>
+<a href="round.html">$round</a><br>
+<a href="calc.html">$calc</a><br>
+</body>
+</html>

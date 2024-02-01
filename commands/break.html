@@ -1,0 +1,71 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/break
+</H1>
+<br>
+<br>
+
+The <b>/break</b> command terminates the execution of the nearest enclosing loop in which it appears.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/break
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+<pre class ="code">
+/*
+Assume we have the following global variables:
+%foo = foobar
+%bar = example
+
+$isValue(testing) -> $false
+$isValue(foobar) -> %foo
+*/
+Alias isValue {
+  ; Declare a counter variable and a returning variable
+  var %count 1, %found $false
+
+  ; Loop through all the variables
+  while (%count <= $var(*)) {
+    /*
+    If we found one matching our argument,
+    get the value and break out of the loop
+    */
+    if ($var(*,$v1).value == $1-) {
+      %found = $var(*,%count)
+      ;break
+      break
+    }
+    inc %count
+  }
+  ;return value
+  return %found
+}
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="continue.html">/continue</a><br>
+   <a href="goto.html">/goto</a><br>
+   <a href="halt.html">/halt</a><br>
+   <a href="if.html">/if</a><br>
+   <a href="return.html">/return</a><br>
+   <a href="while.html">/while</a><br>
+</body>
+</html>

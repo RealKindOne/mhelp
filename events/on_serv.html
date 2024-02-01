@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Serv</H1>
+<br>
+<br>
+The <b>ON SERV''' event, much like the [[On chat - mIRC|ON CHAT]] event, is triggered when a message is sent via an [[/fserve command - mIRC|FSERVE]] window.
+
+This event fills the '''[[$cd identifier - mIRC|$cd identifier]]''' with the current folder that the user is in within the [[/fserve command - mIRC|FSERVE]].
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:SERV:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''&lt;matchtext&gt;'''</span>The text that to be matched. Much like the [[On text - mIRC|ON TEXT]] event, this can be any combination of text letters, numbers, and [[wildcards]].
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Examples ==
+<pre class ="code">; This event waits for any user on a DCC Chat to use the
+; command !time and then relays back to them the current time
+
+ON *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
+
+In the above example, the '''msg''' is not simply followed by the '''{{mIRC|$nick}}''' identifier. Instead, the {{mIRC|=$nick}} identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
+
+The next example will send the user the current folder they are in if they type '''!folder''':
+<pre class ="code">; Listen for !folder on the SERV event
+ON *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|3.8}}
+
+== See Also ==
+* {{mIRC|$cd}}
+* [[On chat - mIRC|ON CHAT]]
+* [[On text - mIRC|ON TEXT]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|serv]]</body>
+</html>

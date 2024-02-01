@@ -1,0 +1,105 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/scid
+</H1>
+<br>
+<br>
+
+The <b>/scid</b> command can change the connection associated with the current script. When a command is not specified, mIRC changes the connection of the current script to the connection associated with the given Connecion ID. The rest of the code will continue to execute on that connection. When a command is specified, mIRC will execute the command on the connection specified by the Connection ID or the connections based on the switches provided. Any active connection changes are restored upon returning to the calling routine. A command can be executed on all or some of the connections depending on their types using the -a or -at<Type> switches.
+
+Connection Type
+
+<br><b>1<b> = Connected
+<br><b>2<b> = Disconnected or Connecting
+<br><b>3<b> = 1+2 = Connected, Disconnected, or Connecting (Same as -a)
+<br><b>4<b> = Connecting
+<br><b>5<b> = 1+4 = Connected or Connecting
+<br><b>6<b> = 2+4 = 2 = Disconnected or Connecting
+<br><b>7<b> = 3+4 = Disconnected or Connected or Connecting
+<br><b>8<b> = Disconnected
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/scid -rats&lt;type&gt; [Connection ID] [command]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+      - Resets the connection back to what it original was.
+<br><b>-s</b>
+      - Prints the current connection ID or the new connection ID.
+<br><b>-a</b>
+      - Perform on all connections.
+<br><b>-t</b><type>
+      - Perform on all the connections of a specific type, can only be used with -a.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;ID&gt;</b>
+      - The connection ID.
+<br><b>&lt;type&gt;</b>
+      - The connection type, used with the -t switch.
+
+<H4>Example</H4>
+A simple example of using /scid to send a command to all connected connections.
+
+<pre class ="code">
+/*
+** Global amsg - performs an amsg on all the
+** the actives connections you are on.
+**
+** /gamsg &lt;message&gt;
+*/
+alias gamsg {
+  if (!$1) {
+    echo -gtcse info * /gamsg: insufficient parameters
+    halt
+  }
+  ; all active connections
+  ; if you don't use $unsafe, $1- is evaluated twice, watch out!
+  scid -at1 amsg $unsafe($1-)
+}
+</pre>
+Print all the channels you are on from every connection you have:
+<pre class ="code">
+alias listChans {
+  var %x = 1
+  while ($scid(%x)) {
+    ; switch connection
+    scid %x
+
+    ; iterate over the channels
+    var %c = 1, %chans
+    while ($chan(%c)) {
+      var %chans = $addtok(%chans, $chr(32) $v1, 44)
+      inc %c
+    }
+
+    ; print channels
+    ; again, safer to use $unsafe
+    scon -r echo -s $unsafe(Network: $network Channels: %chans)
+
+    ; next connection
+    inc %x
+  }
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (16 Aug 2002)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\status.html">$status</a><br>
+   <a href="..\identifiers\network.html">$network</a><br>
+   <a href="..\identifiers\scon.html">$scon</a><br>
+   <a href="..\identifiers\scid.html">$scid</a><br>
+   <a href="scon.html">/scon</a><br>
+</body>
+</html>

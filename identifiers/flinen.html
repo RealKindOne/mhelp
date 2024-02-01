@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$flinen</H1>
+<br>
+<br>
+The <b>$flinen</b> identifier returns the number of the line matching with $fline, which is meant to be used when you use the .text property of $fline().
+
+'''Note''': $flinen has a global value like $readn, always returning the value for the last search. Returns 0 if no search has been made, or if the most recent search failed to find a match.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$flinen
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">//echo -a $fline($chan(1),*mirc*) $flinen</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.59 (08 Feb 2020)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="sline.html">$sline</a><br>
+* {{mIRC|$line}}
+* <a href="window.html">$window</a><br>
+* <a href="fline.html">$fline</a><br>
+</body>
+</html>

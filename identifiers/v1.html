@@ -1,0 +1,66 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$v1</H1>
+<br>
+<br>
+The <b>$v1</b> identifier returns the value of the left-hand operand of the most recently executed conditional statement. This identifier is equivalent to the deprecated <a href="ifmatch.html">$ifmatch</a> identifier.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$v1
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+
+<H4>Example</H4>
+
+This will echo 1 for $v1 instead of "a" because $test is evaluated before $v1, so the $iif is the last statement made when $v1 evaluates.
+<pre class ="code">
+alias test return $iif($1 == 1,1,2)
+alias testing if (a != b) echo -a $test(1) $v1
+</pre>
+
+
+List the names of any hash tables currently in use upon calling an alias '''/hlist''':
+<pre class ="code">alias hlist {
+  if (!$hget(0)) { echo -qgaec i * No hash tables in use }
+  else {
+    var %i 1
+    while ($hget(%i) != $null) {
+      echo -ga $v1
+    }
+  }
+  echo -qgaec i End of /hlist.
+}</pre>
+
+Check if two random numbers between 1 and 5 are equivalent, and echo the matching numbers if so:
+<pre class ="code">//echo -ga $iif($rand(1,5) == $rand(1,5),Yes! $v1 == $v2,No! $v1 != $v2) $+ !</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.16 (07 Jul 2004)
+<H4>Notes</H4>
+Just like $ifmatch, $v2 and $ifmatch2, this identifier returns one of the operands from the last conditional statement executed. Conditional statements include:
+<br>
+<a href="..\commands\if.html">/if</a><br>
+<a href="iif.html">$iif</a><br>
+<a href="..\commands\while.html">/while</a><br>
+
+<H4>See also</H4>
+[[Conditional statements - mIRC|If then else]] TODO <br>
+{{mIRC|While loops}} TODO <br>
+<a href="v2.html">$v2</a><br>
+<a href="ifmatch.html">$ifmatch</a><br>
+<a href="ifmatch2.html">$ifmatch2</a><br>
+<a href="..\commands\if.html">/if</a><br>
+<a href="iif.html">$iif</a><br>
+<a href="..\commands\while.html">/while</a><br>
+
+
+</body>
+</html>

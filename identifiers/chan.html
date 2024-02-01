@@ -1,0 +1,80 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$chan</H1>
+<br>
+<br>
+The <b>$chan</b> identifier is filled during events which trigger on a channel.
+<br>
+The <b>$chan</b> identifier can also be used to get information regarding a specific channel the local mIRC client is in.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$chan
+$chan[(@wid/#/N).property]
+</pre>
+<H4>Parameters</H4>
+<br><b>(@wid/#/N)</b> - The window id of the channel, a specific channel, or a channel number referencing the channel.
+
+<H4>Properties</H4>
+<br><b>.banlist</b> - returns <a href="true.html">$true</a> if mode +b has been seen already, or <a href="false.html">$false</a> if not, or <a href="inmode.html">$inmode</a> if currently in a mode +b listing.
+<br><b>.cid</b> - returns the connection ID for the channel.
+<br><b>.hwnd</b> - returns the [[Operating system|operating system's]] actual [[hWnd|window handle]] for the channel.
+<br><b>.ial</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if the {{mirc|Internal address list|IAL}} has been updated for the channel.
+<br><b>.ibl</b> - returns the same as banlist
+<br><b>.iql</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if the {{mirc|Internal quiet list|IQL}} has been updated for the channel
+<br><b>.idle</b> - returns the amount of time the channel has been idle. This does not include entries made from the local mIRC client.
+<br><b>.iel</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if the local mIRC client is on the channel's internal exempt list.
+<br><b>.iil</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if local mIRC client is on the channel's internal invite list.
+<br><b>.inwho</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if a <a href="..\commands\who.html">/who</a> has been performed on the channel, and the results are still being processed.
+<br><b>.key</b> - returns the channel's key.
+<br><b>.limit</b> - returns the amount of users the channel is limited to.
+<br><b>.logfile</b> - returns the location of the current channel's [[log file - mIRC|log file]], if any.
+<br><b>.mode</b> - returns the current modes set in the channel.
+<br><b>.stamp</b> - returns <a href="true.html">$true</a> or <a href="false.html">$false</a> if [[time stamping - mIRC|time stamping]] is enabled on the channel.
+<br><b>.status</b> - returns: "joining", "joined", or "kicked".
+<br><b>.topic</b> - returns the channel topic.
+<br><b>.wid</b> - returns the mIRC application's [[window id]] for the channel window.
+
+<H4>Example</H4>
+
+Create an alias that opens a custom window which loads some basic information about the active channel:
+<pre class ="code">alias getDetails {
+  if ($active ischan) {
+  var %c = $active
+    window @getDetails 350 350 650 200
+    clear @getDetails
+    echo @getDetails Channel: %c
+    echo @getDetails $crlf $crlf
+    echo @getDetails Topic: $chan(%c).topic
+    echo @getDetails $crlf $crlf
+    echo @getDetails Modes: $chan(%c).mode
+    echo @getDetails $crlf $crlf
+    echo @getDetails Key: $iif($chan(%c).key,$v1,No key set)
+  }
+}</pre>
+
+This alias can now be executed using the following command in a channel command-line:
+<pre class ="code">
+/getDetails
+</pre>
+<br>
+The results of this command will look similar to the results below:
+<br>
+<img src="..\images\chan_example.png">
+
+<H4>Compatibility</H4>
+Added: mIRC v4.7 (09 Dec 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Join.html">on_Join</a><br>
+<a href="..\events\on_part.html">on_part</a><br>
+<a href="ial.html">$ial</a><br>
+<a href="ibl.html">$ibl</a><br>
+<a href="nick.html">$nick</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/dline
+</H1>
+<br>
+<br>
+
+The **dline</b> command is used to delete lines of text from a custom window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/dline -hlcNt &lt;@name&gt; &lt;N[-N2]&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-h</b>
+      - Highlights the window's node in the treebar if the window is minimized
+<br><b>-l</b>
+      - Specify the action to take place on the side-listbox
+<br><b>-t</b>
+      - forces a re-wrap of all lines in a window that have not yet been wrapped to the current window size.
+<br><b>-c</b>[N]
+      - as using the [c] parameter to change the color, but via a switch
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@name&gt;</b>
+      - The name of the window
+<br><b>&lt;N[-N2]&gt;</b>
+      - The range to be deleted, (negative values are NOT accepted)
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; open a desktop custom window (listbox and with an editbox)
+  Window -lde @Foo
+
+  ; Add a line, line colored in yellow (8)
+  Aline 8 @Foo Line A
+
+  ; Add a line, color Dark Green (3), selected, clear old selection (x3)
+  Aline -s 3 @Foo Line B
+  Aline -s 3 @Foo Line C
+  Aline -s 3 @Foo Line D
+  ; Delete line 2 and 3 with range 2-3, only A D remain
+  Dline @Foo 2-3
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (21 Apr 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\line.html">$line</a><br>
+   <a href="..\identifiers\fline.html">$fline</a><br>
+   <a href="..\identifiers\sline.html">$sline</a><br>
+   <a href="cline.html">/cline</a><br>
+   <a href="dline.html">/dline</a><br>
+   <a href="echo.html">/echo</a><br>
+   <a href="iline.html">/iline</a><br>
+   <a href="rline.html">/rline</a><br>
+   <a href="sline.html">/sline</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$bnick</H1>
+<br>
+<br>
+The <b>$bnick''' refers to the nickname of the user either banned, or unbanned, during both an [[On ban - mIRC|ON BAN Event]], and an [[On unban - mIRC|ON UNBAN Event]].
+
+''Note:'' '''$bnick''' is not always set, because sometimes nicknames aren't even added to a certain ban/banmask.
+
+
+<H4>Parameters</H4>
+None
+
+<H4>Example</H4>
+Message any channel when a user has been banned
+<pre class ="code">ON *:BAN:#: {
+
+  ; We use this check to make sure the $bnick identifier
+  ; has been filled, that way there are no unforeseen issues.
+  if ($bnick) {
+    msg # Looks like $bnick has been banned.
+  }
+}</pre>
+
+Message any channel when a user has been unbanned
+<pre class ="code">ON *:UNBAN:#: {
+
+  ; We use this check to make sure the $bnick identifier
+  ; has been filled, that way there are no unforeseen issues.
+  if ($bnick) {
+    msg # Awesome! $bnick is now unbanned :)
+  }
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.6 (07 Sep 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="banmask.html">$banmask</a><br>
+<a href="ibl.html">$ibl</a><br>
+<a href="..\commands\ban.html">/ban</a><br>
+<a href="..\events\on_ban.html">on_ban</a><br>
+<a href="..\events\on_unban.html">on_unban</a><br>
+
+</body>
+</html>

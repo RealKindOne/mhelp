@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/rename
+</H1>
+<br>
+<br>
+
+The <b>/rename</b> command can be used to rename and/or move a file or a directory. If the path contains spaces, you must enclose the path in a pair of double quotes ( :doc: `$qt </identifiers/$qt>` ).
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/rename -fo &lt;filename&gt; <new_filename>
+    /rename <dirname> <new_dirname>
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-f</b>
+      - Flush the renamed file to the disk
+<br><b>-o</b>
+      - when renaming a file, allow to overwrite any existing file with the new filename
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;filename&gt;</b>
+      - The path of the file or directory to rename or move
+    * - <new_filename>
+      - The new path of the file or directory
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    /rename E:\example.txt E:\renamed.txt
+
+Will produce the following result:
+
+
+    * Renamed 'E:\example.txt' to 'E:\renamed.txt'
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\read.html">$read</a><br>
+   <a href="..\identifiers\readini.html">$readini</a><br>
+   <a href="..\identifiers\fopen.html">$fopen</a><br>
+   <a href="copy.html">/copy</a><br>
+   <a href="fclose.html">/fclose</a><br>
+   <a href="fopen.html">/fopen</a><br>
+   <a href="mkdir.html">/mkdir</a><br>
+   <a href="remove.html">/remove</a><br>
+   <a href="rmdir.html">/rmdir</a><br>
+   <a href="write.html">/write</a><br>
+   <a href="writeini.html">/writeini</a><br>
+</body>
+</html>

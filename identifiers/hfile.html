@@ -1,0 +1,30 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$hfile</H1>
+<br>
+<br>{{Deprecated feature|new=<a href="sfile.html">$sfile</a><br>}}'''$hfile''' could be used in the past to display a selection file dialog just like the old "{{mIRC|$file|$file='text dir}}" identifier, but would lay out the file in the dialog horizontally. Nowadays it returns the same <a href="sfile.html">$sfile</a><br>
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$hfile="title" dir
+</pre>
+<H4>Parameters</H4>
+* '''title''' - the title of the dialog, the quote are optional if you don't use space, this parameter is optional: //echo -a $hfile c:\*.txt
+* '''dir''' - the directory you want to display, you can put a file at the end which will be used to fill the 'filename' field in the dialog
+
+
+<H4>Example</H4>
+<pre class ="code">//echo -a > $hfile="select" c:\</pre>
+
+<H4>Compatibility</H4>
+{{mIRC compatibility|4.1}}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sfile.html">$sfile</a><br>
+
+
+</body>
+</html>

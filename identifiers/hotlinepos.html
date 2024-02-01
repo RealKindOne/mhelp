@@ -1,0 +1,32 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$hotlinepos</H1>
+<br>
+<br>{{Deprecated feature|new={{mIRC|$hotlink|$hotlink()}}}}The '''$hotlinepos''' identifier returns the line number and the position of the word in that line that triggered an an <a href="..\events\on_HotLink.html">on_HotLink</a> event.
+
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$hotlinepos
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Example</H4>
+
+<pre class ="code">ON *:HOTLINK:*hoverme*:*:if ($1 == hoverme) echo -s $hotlinepos</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.15 (03 Jun 2004)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="..\events\on_HotLink.html">on_HotLink</a><br>
+* {{mIRC|$hotline}}
+* {{mIRC|$hotlink|$hotlink()}}
+
+
+</body>
+</html>

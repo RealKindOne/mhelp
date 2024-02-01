@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Unban</H1>
+<br>
+<br>
+The <b>ON UNBAN</b> event is triggered much like the [[On ban - mIRC|ON BAN]] event, however it triggers when a ban is removed from a channel's ban list.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:UNBAN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+<br><b>&lt;#[,#]&gt;</b> - Thechannel name(s) where the ban was removed.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Examples ==
+<pre class ="code">; Unban event that listens on all channels
+; and responds by messaging the channel.
+
+ON *:UNBAN:#:msg # Hey, look, the address $banmask was just removed from the channel's ban list!</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|4.5}}
+
+== See Also ==
+* {{mIRC|$banmask}}
+* {{mIRC|$bnick}}
+* {{mIRC|$ibl}}
+* {{mIRC|/ban}}
+* {{mIRC|on events/on ban|On Ban Event}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|unban]]</body>
+</html>

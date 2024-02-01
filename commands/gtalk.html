@@ -1,0 +1,71 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/gtalk
+</H1>
+<br>
+<br>
+
+The <b>/gtalk</b> command makes an Agent speak the specified text.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/gtalk -kwlu &lt;name&gt; &lt;text | &lt;wavefile&gt; &lt;text&gt;&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-h</b>
+      - Prevents the agent from popping up if mIRC is minimized *and* -h has been used in <a href="gload.html">/gload</a> to load that agent.
+<br><b>-k</b>
+      - Makes the agent think the text in a balloon without speaking it.
+<br><b>-l</b>
+      - Applies the lexicon settings in the lexicon dialog to the text.
+<br><b>-u</b>
+      - Applies the speech settings in the speech options dialog.
+<br><b>-w</b>
+      - Allows you to play a wave sound filename along with Agent text to speak.
+
+<H4>Parameters</H4>
+
+
+<br><b>name</b>
+      - The name used in /gload to reference that agent
+<br><b>text</b>
+      - The text to be spoken
+<br><b>&lt;wavefile&gt; &lt;text&gt;</b>
+      - The sound filename, must be wave format, and the text to be spoken while playing the file
+
+<H4>Example</H4>
+<pre class ="code">
+; Load the default agent on your system
+/gload myagent default
+; make the agent plays 'lol.wav' and speak "text"
+/gtalk -w myagent lol.wav text
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="ghide.html">/ghide</a><br>
+   <a href="gunload.html">/gunload</a><br>
+   <a href="gshow.html">/gshow</a><br>
+   <a href="gload.html">/gload</a><br>
+   <a href="gsize.html">/gsize</a><br>
+   <a href="gmove.html">/gmove</a><br>
+   <a href="gplay.html">/gplay</a><br>
+   <a href="gpoint.html">/gpoint</a><br>
+   <a href="gstop.html">/gstop</a><br>
+   <a href="gopts.html">/gopts</a><br>
+   <a href="gqreq.html">/gqreq</a><br>
+   <a href="..\identifiers\agentver.html">$agentver</a><br>
+   <a href="..\identifiers\agentstat.html">$agentstat</a><br>
+   <a href="..\identifiers\agentname.html">$agentname</a><br>
+   <a href="..\identifiers\agent.html">$agent</a><br>
+</body>
+</html>

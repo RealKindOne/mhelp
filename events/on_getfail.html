@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Getfail</H1>
+<br>
+<br>
+The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via {{mIRC|/dcc|DCC send}} and it fails.
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:GETFAIL:<filename[,filename]>:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+* '''<filename>''' - The filename(s) that should match the received file. Seperate multiple values by commas. These can be {{mIRC|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== {{mIRC|local identifiers}} ==
+
+=== {{mIRC|$filename}} ===
+
+Returns the complete filename of the received file.
+
+== Examples ==
+Echo the name of the filename, along with both the user's nickname and address if available:
+<pre class ="code">ON *:GETFAIL:*:echo -a Failed to receive $filename $iif($nick,from $nick - ,from) Address: $address</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.0}}
+
+== See Also ==
+* [[/dcc command - mIRC|/DCC SEND]]
+* [[On filercvd - mIRC|ON FILERCVD]]
+* [[On filesent - mIRC|ON FILESENT]]
+* [[On sendfail - mIRC|ON SENDFAIL]]
+{{mIRC on event list}}
+
+[[Category:mIRC on events|getfail]]</body>
+</html>

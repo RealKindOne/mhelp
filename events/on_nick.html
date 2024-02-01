@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Nick</H1>
+<br>
+<br>
+The <b>ON NICK</b> event triggers when a user is on the same channel as you, and they change their nickname.
+
+This event fills the '''{{mIRC|$newnick}}''' and '''{{mIRC|$nick}}''' identifiers.
+
+{| class="wikitable" style="line-height: 25px; margin-left: 75px;"
+|-
+! Identifier !! Description
+|-
+| '''$newnick''' || The new nickname of the user. You can use it with $comchan for example.
+|-
+| '''$nick''' || The user's previous nickname.
+|}
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:NICK:&lt;commands&gt;</pre>
+
+<H4>Example</H4>
+Echo the nickname change, and disregard mIRC's default nick change message:
+<pre class ="code">ON ^*:NICK: {
+  echo $comchan($newnick,1) * $nick |==> $newnick
+
+  ; Halt the default mIRC message
+  haltdef
+}</pre>
+
+The results of the above example resemble the following:
+<pre>* Mr_SOCKS |==> noLaundry</pre>
+
+Echo to the channel when the local nickname is changed, and halt mIRC's default message:
+<pre class ="code">ON ME:^*:NICK: {
+  echo $comchan($newnick,1) You are now ==> $newnick
+
+  ; Halt the default mIRC message
+  haltdef
+}</pre>
+
+The example above should have an output resembling the following:
+<pre>You are now ==> whoMe</pre>
+
+<pre class ="code">
+Because ON NICK is not associated with # or $chan, to show a nick change message in all channels you share with that nick, you can use $comchan. You can simulate mIRC's default Nick Change message in channels with:
+
+ON ^*:NICK:{
+  var %i $comchan($newnick,0)
+  while (%i) {
+    echo -ctg nick $chan(%i) * # $iif($nick == $me,Your nick # is now,$nick is now known as) $newnick
+    dec %i
+  }
+ ; You can precede HALTDEF with a semi-colon to compare this messages with the default
+ haltdef
+}
+</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|2.1a}}
+
+== See Also ==
+* [[On join - mIRC|ON JOIN]]
+* [[On mode - mIRC|ON MODE]]
+* [[On part - mIRC|ON PART]]
+* {{mIRC|$newnick}}
+* {{mIRC|$nick}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|nick]]</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/protect
+</H1>
+<br>
+<br>
+
+The <b>/protect</b> command can be used to manage the protect list, which allows you to protect nicknames (deop the user if the protected nickname is deopped, and kicked back if kicked)
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/protect [-rwal] <on|off|nick> [#channel1,#channel2,...] [type] [network]
+
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+      - Removes the entry from the list.
+<br><b>-w</b>
+      - Makes the protect apply to all network.
+<br><b>-a</b>
+      - add the entry (default)
+<br><b>-l</b>
+      - list all of the protect entries.
+
+<H4>Parameters</H4>
+
+
+    * - <on|off|nick>
+      - If you specify on/off, turns the feature on/off. Otherwise you must give a nickname.
+    * - [#channel1,#channel2]
+      - If specified, a list of channels you want to protect the nickname on, otherwise the protect apply on all channels.
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\protect.html">$protect</a><br>
+</body>
+</html>

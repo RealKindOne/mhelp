@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$lactive</H1>
+<br>
+<br>
+The <b>$lactive</b> identifier will return the full name of the last window that was active.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$lactive
+</pre>
+<H4>Paramaters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo the value of $lactive to the active window
+<pre class ="code">
+//echo -a $lactive
+</pre>
+
+ Listen for an active window change, then echo the last active window
+<pre class ="code">
+ON *:ACTIVE:*:echo -a * Active window is now $active $+ . Previous active window was $lactive</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Active.html">on_Active</a><br>
+<a href="active.html">$active</a><br>
+<a href="activecid.html">$activecid</a><br>
+<a href="activewid.html">$activewid</a><br>
+<a href="lactive.html">$lactive</a><br>
+<a href="lactivecid.html">$lactivecid</a><br>
+<a href="lactivewid.html">$lactivewid</a><br>
+
+</body>
+</html>

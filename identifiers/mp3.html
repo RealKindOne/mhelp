@@ -1,0 +1,102 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mp3</H1>
+<br>
+<br>
+
+The <b>$mp3</b> identifier returns various information about sound files.
+<br>
+<br>
+<b>Note:</b> This feature is depreacted. Use <a href="sound.html">$sound</a> instead.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mp3(&lt;type&gt;)
+</pre>
+
+<H4>Paramaters</H4>
+<br>
+For &lt;type&gt;
+<br>
+<br><b>mp3</b> -Return the mp3 folder
+<br><b>midi</b> - Return the midi folder
+<br><b>wave</b> - Return the wave folder
+
+
+<H4>Paramaters</H4>
+
+<pre class ="code">
+$mp3(filename)[.property]
+</pre>
+<H4>Properties</H4>
+If used with a music filename, the following properties are available:
+<br>
+<b>Note:</b> Only mp3, ogg, and wma files currently support the following properties. Keep in mind that not all properties may have been set. Each property returns the id3v1 values. For id3v2, use the ''.tag'', and ''.tags'' properties.
+<br>
+<br><b>.album</b> - Retrieves the specified album name sound file.
+<br><b>.title</b> - Returns the song title for the file.
+<br><b>.artist</b> - Returns the artist name for the file.
+<br><b>.year</b> - Returns the year associated with the song release.
+<br><b>.comment</b> - Returns any comments made by the file creator.
+<br><b>.genre</b> - Grabs the genre for the file, if set.
+<br><b>.track</b> - Retrieves the track number associated with the song.
+<br><b>.length</b> - Returns the full length of the song in milliseconds.
+<br><b>.version</b> - Gets the version number of the song, or track.
+<br><b>.bitrate</b> - Returns the [[bitrate]] for the file.
+<br><b>.vbr</b> - Gets the [[variable bit rate]] for the file.
+<br><b>.sample</b> - Returns the [[sampling frequency]].
+<br><b>.mode</b> - Returns the mode: ''mono'', ''stereo'', etc.
+<br><b>.copyright</b> - Returns any copyright information.
+<br><b>.private</b> - Returns ''$true'' or ''$false'' for the private tag.
+<br><b>.crc</b> - Returns ''$true'' or ''$false'' if crc is found.
+<br><b>.id3</b> - Returns the [[id3]] tag information.
+<br><b>.tag</b> - Used to retrieve [[id3v2]] information.
+<br><b>.tags</b> - Used to retrieve [[id3v2]] information.
+
+<H4>Example</H4>
+Echo the artist name of the currently playing mp3 file to the active window:
+<pre class ="code">//echo -a $mp3($insong.fname).artist</pre>
+
+Create a small alias that will open a window, @id3info, and echo some basic info about the currently playing song to it:
+<pre class ="code">alias id3info {
+
+  ; First, we check to make sure we currently have an mp3, ogg, or wma file playing
+  if ($insong) {
+
+    ; If the @id3info window is open, clear it, otherwise create it.
+    $iif($window(@id3info),clear @id3info,window @id3info)
+
+    echo @id3info Artist: $mp3($insong.fname).artist
+    echo @id3info Track: $mp3($insong.fname).track
+    echo @id3info Title: $mp3($insong.fname).title
+    echo @id3info Album: $mp3($insong.fname).album
+
+    ; The below calculation converts the milliseconds for the sound
+    ; file length into the format mm:ss, or minutes:seconds. Note that
+    ; this does not properly support lengths over 59 minutes and 59
+    ; seconds long.
+    echo @id3info Length: $replace($round($calc($mp3($insong.fname).length / 1000 / 60),2),.,:)
+    echo @id3info Year: $mp3($insong.fname).year
+  }
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.8 (05 Sep 2000)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\other\playing_music.html">playing_music</a><br>
+<a href="..\events\on_midiend.html">on_midiend</a><br>
+<a href="..\events\on_mp3end.html">on_mp3end</a><br>
+<a href="..\events\on_nosound.html">on_nosound</a><br>
+<a href="..\events\on_waveend.html">on_waveend</a><br>
+<a href="inmidi.html">$inmidi</a><br>
+<a href="insong.html">$insong</a><br>
+<a href="inwave.html">$inwave</a><br>
+<a href="vol.html">$vol</a><br>
+<a href="..\commands\splay.html">/splay</a><br>
+<a href="..\commands\vol.html">/vol</a><br>
+
+</body>
+</html>

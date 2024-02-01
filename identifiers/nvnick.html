@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$nvnick</H1>
+<br>
+<br>
+
+The <b>$nvnick</b> identifier returns the Nth nickname that has no status on the channel.
+
+<br>
+<br>
+<b>Note:</b> This feature is depricated and has been replaced by <a href="nick.html">$nick</a>.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$nvnick(#channel,N/nick)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>#channel</b> - The channel you want to check for non-voice nickname
+<br><b>N/nick</b> - The Nth 'regular' nick on the channel, or if you pass a nickname, it returns the number N, where $nvnick(#,N) return the nickname.
+
+<br>
+<br>
+
+<b>Note:</b> When 2 parameters are used, it's the equivalent of $nick(#,N,r). With a third and fourth parameter, i.e. $nvnick(#,N/nick,aohvr,aohvr), this identifier behaves exactly the same as $nick(#,N/nick,aohvr,aohvr)
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $nvnick($chan,1)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+<H4>Notes</H4>
+
+$nvnick(#,N) always returns a nickname which has a status below voice.
+
+<H4>See also</H4>
+<a href="nick.html">$nick</a><br>
+<a href="opnick.html">$opnick</a><br>
+<a href="hnick.html">$hnick</a><br>
+<a href="nhnick.html">$nhnick</a><br>
+<a href="vnick.html">$vnick</a><br>
+<a href="nopnick.html">$nopnick</a><br>
+</body>
+</html>

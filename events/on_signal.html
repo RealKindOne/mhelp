@@ -1,0 +1,33 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Signal</H1>
+<br>
+<br>
+The <b>ON SIGNAL</b> event triggers after a call to the {{mirc|/signal}} command. This is a mechanism used to signal events in multiple script at the same time
+
+You can use {{mirc|$signal}} to refer to the name of signal triggering the event and you can use {{mIRC|$1-}} to refer to the parameters passed to /signal
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:signal:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''&lt;matchtext&gt;'''</span>The matchtext for the event to trigger.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Example</H4>
+<pre class ="code">ON *:signal:*:echo -s $signal -- $1-</pre>
+
+<H4>Compatability</H4>
+{{mIRC compatibility|6.0}}
+
+== See Also ==
+{{mirc|$signal}}
+{{mirc|/signal}}
+
+
+[[Category:mIRC on events|signal]]</body>
+</html>

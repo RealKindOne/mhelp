@@ -1,0 +1,45 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$sorttokcs</H1>
+<br>
+<br>
+The <b>$sorttokcs</b> identifier sorts the token in text using case sensitivity. See <a href="sorttok.html">$sorttok</a> for case-insensitive sort
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$sorttokcs(&lt;list&gt;,&lt;C&gt;[,nrca])
+</pre>
+<H4>Parameters</H4>
+<br><b>&lt;list&gt;</b> - The list of tokens (can be empty)
+<br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
+<br><b>ncra</b> - default is alphabetical sort (ASCII sort) if 3rd parameter not used, n = numeric sort; c = channel prefix sort; r = reverse; a = alphanumeric (ASCII) sort
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $sorttokcs(C a c b A B,32)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.91 (15 Jun 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="sorttok.html">$sorttok</a><br>
+<a href="addtok.html">$addtok</a><br>
+<a href="deltok.html">$deltok</a><br>
+<a href="findtok.html">$findtok</a><br>
+<a href="gettok.html">$gettok</a><br>
+<a href="instok.html">$instok</a><br>
+<a href="istok.html">$istok</a><br>
+<a href="matchtok.html">$matchtok</a><br>
+<a href="numtok.html">$numtok</a><br>
+<a href="puttok.html">$puttok</a><br>
+<a href="remtok.html">$remtok</a><br>
+<a href="reptok.html">$reptok</a><br>
+<a href="wildtok.html">$wildtok</a><br>
+
+
+</body>
+</html>

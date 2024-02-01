@@ -1,0 +1,142 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Dialog</H1>
+<br>
+<br>
+The <b>ON DIALOG</b> event listens for events which take place inside of custom [[Dialogs - mIRC|dialog windows]].
+
+<H4>Synopsis</H4>
+<pre>ON &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+
+* '''&lt;name&gt;''' - The dialog name that this event triggers for, {{mIRC|wildcard}} accepted.
+
+* '''&lt;event&gt;''' - The dialog event that this event triggers for, {{mIRC|wildcard}} accepted.
+
+* '''&lt;id&gt;''' - The id name of the dialog item to listen for, {{mIRC|wildcard}} accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
+
+== {{mIRC|local identifiers}} ==
+
+=== {{mIRC|$dname}} ===
+
+Returns the name of the dialog.
+
+=== {{mIRC|$devent}} ===
+
+Returns the name of the event.
+
+=== {{mIRC|$did}} ===
+
+Returns the ID of the control.
+
+== Events ==
+{| style="line-height: 30px;" class="wikitable"
+|-
+! Event !! Description
+|-
+| '''active'''<span style="margin-right: 15px;"></span> || </span>Triggers when the dialog is made active.
+|-
+| '''close'''<span style="margin-right: 15px;"></span> || </span>Triggered when a dialog has been closed.
+|-
+| '''dclick''' || Occurs when a double left-click has occurred in a list box or combo box, as well as on the dialog itself.
+|-
+| '''drop''' || Triggers when an item has been dragged and dropped with the mouse.
+|-
+| '''edit''' || When text in an editbox or a combo box has changed.
+|-
+| '''init''' || This event ID is 0, and triggers before a dialog is displayed. This allows initialization time for the dialog and its items.
+|-
+| '''menu''' || Whenever a menu-item is selected.
+|-
+| '''mouse''' || When the mouse is moved.
+|-
+| '''rclick''' || Works when the mouse right-clicks.
+|-
+| '''sclick''' || Occurs during a single-click in a list box/combo box, during check/uncheck of radio/check buttons, or during the click of a button.
+|-
+| '''scroll''' || A scroller control position has changed.
+|-
+| '''uclick''' || Left mouse button has been released/gone up.
+|}
+
+== Examples ==
+Here we will create an alias that launches a dialog. This dialog has a '''mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
+<pre class ="code">; To use this example, simply type: /mouseListener
+alias mouseListener dialog - $+ $iif($dialog(mouseListener),v,m) mouseListener mouseListener
+dialog -l mouseListener {
+  title "Mouse Listener"
+  size -1 -1 184 120
+  option dbu
+  text "Move Your Mouse In Here!", 1, 56 32 73 8
+  text "X", 2, 56 48 5 8
+  text "0", 3, 64 48 25 8
+  text "Y", 4, 95 48 5 8
+  text "0", 5, 103 48 25 8
+  button "&Close", 6, 139 99 37 16, ok
+}
+ON *:DIALOG:mouseListener:mouse:*: {
+  did -ra $dname 3 $mouse.x
+  did -ra $dname 5 $mouse.y
+}</pre>
+
+In the example above, we have created an [[Aliases - mIRC|alias]], '''mouseListener''', to handle a local [[Dialogs - mIRC|dialog]], which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
+
+This example can be triggered by typing the following command:
+<pre>/mouseListener</pre>
+
+Once the demo has begun, the mouse event will now listen. When the mouse begins moving around inside of the dialog, the X and Y positions of the mouse are represented inside of the ''text'' components of ID 3, and 5, respectively.
+
+Clicking the ''Close'' button will close the dialog and halt event listening.
+
+Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom [[Aliases - mIRC|alias]] called ''/whatEvents'' which will open up the local [[Dialogs - mIRC|dialog]] ''whatEvents'':
+<pre class ="code">alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
+dialog -l whatEvents {
+  title "Events? What Events?"
+  size -1 -1 136 112
+  option dbu
+  text "Event Type", 1, 8 8 73 8
+  text "", 2, 82 8 49 8
+  text "Event Item ID", 3, 8 18 73 8
+  text "", 4, 82 18 49 8
+  text "Event Item Caption/Value", 5, 8 28 73 8
+  text "", 6, 82 28 49 7
+  button "Click me", 7, 8 40 37 12
+  edit "Type in me", 8, 48 40 66 13
+  check "Check/Uncheck Me", 9, 8 64 58 10
+  text "0", 10, 8 73 58 10
+  text "Scroll Me", 11, 72 64 57 8, center
+  scroll "", 12, 72 72 58 8, range 0 100 horizontal bottom
+  button "&Close", 13, 93 90 37 16, ok
+}
+ON *:DIALOG:whatEvents:*:*: {
+  did -ra $dname 2 $devent
+  did -ra $dname 4 $did
+  did -ra $dname 6 $iif($did == 0,NA,$iif($did($did),$v1,$iif($did($did).sel,$v1,$iif($did($did) == 0,0,NA))
+  did -ra $dname 10 $did(9).state
+}</pre>
+
+Once saved into a script file inside of the mIRC remotes, the above example can be executed by typing the following command:
+<pre>/whatEvents</pre>
+
+Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.
+
+<H4>Compatability</H4>
+{{mIRC compatibility|5.5}}
+
+== See Also ==
+* {{mIRC|$dname}}
+* {{mIRC|$devent}}
+* {{mIRC|$did}}
+* {{mIRC|$didwm}}
+* {{mIRC|$didreg}}
+* {{mIRC|$didtok}}
+* {{mIRC|/dialog}}
+* {{mIRC|/did}}
+* {{mIRC|/didtok}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|dialog]]</body>
+</html>

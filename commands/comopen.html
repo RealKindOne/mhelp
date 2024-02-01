@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/comopen
+</H1>
+<br>
+<br>
+
+The <b>/comopen</b> command opens a COM connection to specified programmatic identifier with the assigned name. Your script should check <a href="..\identifiers\comerr.html">$comerr</a> after opening the connection to make sure the connection was established successfully.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/comopen &lt;name&gt; &lt;progid&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;name&gt;</b>
+      - Connection name to be used
+<br><b>&lt;progid&gt;</b>
+      - Programmatic Identifier
+
+<H4>Example</H4>
+<pre class ="code">
+Alias Example {
+  ; Create a WshShell object
+  comopen Example wscript.shell
+
+  ;Destroy object
+  comclose Example
+}
+</pre>
+<pre class="code">
+; see more documentation at: https://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys(v=vs.110).aspx
+; and be careful about mIRC interpreting % & and other special characters
+; //sendkeys {ESC}%o{END}{UP 2}%bText In mIRC Titlebar+{TAB}{ENTER}
+alias sendkeys {
+  ; trying to create unique WshShell object
+  var %name sendkeys $+ $ticks $+ $rand(111,9999)
+  .comopen %name WScript.Shell
+  if (!$comerr) {
+    var %result $com(%name,SendKeys,3,bstr,$1-)
+    ; Destroy object when finished with it
+    .comclose %name
+    return %result
+  }
+  return 0
+}
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (15 Jun 2001)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\com.html">$com</a><br>
+   <a href="..\identifiers\comcall.html">$comcall</a><br>
+   <a href="..\identifiers\comval.html">$comval</a><br>
+   <a href="..\identifiers\comerr.html">$comerr</a><br>
+   <a href="comclose.html">/comclose</a><br>
+   <a href="comreg.html">/comreg</a><br>
+   <a href="comlist.html">/comlist</a><br>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$script</H1>
+<br>
+<br>
+The <b>$script</b> can be used to return the filename of the Nth loaded script file or the script file the identifier is being called from. If you specify a filename, it returns $null if the file is not loaded; otherwise it returns the file's name.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$script
+$script(N/filename)
+</pre>
+
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - The Nth script file you want to check. If N is 0, this will return the total number of script files currently loaded.
+<br><b>filename</b> - Specify an actual filename if you want to explicitly check if a script file is loaded. This will return $null if no file is loaded, otherwise it returns the file name.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo script files this identifier is being called from: /test
+<pre class ="code">
+alias test {
+  echo -a $script
+}
+</pre>
+Echo the total number of script files currently loaded to the active window:
+<pre class ="code">//echo -a $script(0)</pre>
+
+Echo the 2nd script file name to the active window:
+<pre class ="code">//echo -a $script(2)</pre>
+
+Echo if ''myfile.mrc'' is currently a loaded script to the active window:
+<pre class ="code">//echo -a $script(myfile.mrc)</pre>
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="alias.html">$alias</a><br>
+
+</body>
+</html>

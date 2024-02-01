@@ -1,0 +1,38 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<h1>$$</H1>
+<br>
+<br>
+The <b>$$</b> is a construct which allows you to halt the script if the identifier returns $null. If used correctly it's a very short and simple way to halt a routine if a parameter is $null.
+
+'''Note''': $$ is not executing a /halt, it's effectively a way to halt completely the script execution, just like /halt, except that /halt also implies /haltdef, whereas $$ does not. This can be used inside events to /halt without /haltdef'ing. You can use the construct '$$null' for example.
+<H4>Synopsis</H4>
+<pre class ="code">
+$$identifier
+</pre>
+
+
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+
+<H4>Examples</H4>
+Halts the echo unless the active window is a channel:
+<pre class ="code">//echo -a $$chan test</pre>
+
+* Note: $$ without any following non-spaces touching it behaves as if an identifier returning the literal $$ string, however it does not recognize $$$ as if halting the $$ identifier. $$3 halts the script if $3 is null. Only the final command here is an error:
+
+<pre class ="code">//tokenize 32 parm1 parm2 parm3 | echo 3 -a $ $$ | echo 4 -a $$3 | echo 5 -a $$3a,b | echo 5 -a $$,b</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.8c (26 Mar 1995)
+
+<H4>Notes</H4>
+None
+
+<H4>See Also</H4>
+<a href="..\commands\halt.html">/halt</a><br>
+<a href="..\commands\haltdef.html">/haltdef</a><br>
+</body>
+</html>

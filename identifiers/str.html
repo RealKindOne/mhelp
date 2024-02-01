@@ -1,0 +1,55 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$str</H1>
+<br>
+<br>
+The <b>$str</b> identifier duplicates the specified text string n times.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$str(&lt;text&gt;,&lt;N&gt;)
+</pre>
+<H4>Parameters</H4>
+<br><b>Text</b> - The text string that is being replicated.
+<br><b>N</b> - Integer 1+ is the number of times Text is replicated.
+
+Returns $null if N is $null or is not greater than or equal to 1.
+
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">
+//echo -a $str(Yes,3)
+; returns: YesYesYes
+//echo -a $str(Yes $+ $chr(32) ,3)
+; returns: Yes Yes Yes
+</pre>
+
+Identifier makes it easier to replicate long strings, or strings of variable lengths.
+
+<pre class ="code">
+//echo -a $str(=+ ,39) $+ =
+//echo -a %Title
+//echo -a $str($chr(45),$len(%Title))
+</pre>
+
+<pre class ="code">
+; Initialize a 20-token comma-separated array
+//set %values $str(0 $+ $chr(44),19) $+ 0
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+
+<H4>Notes</H4>
+Version 5.0 changed syntax from $str(N,text)
+
+
+<H4>See also</H4>
+
+</body>
+</html>

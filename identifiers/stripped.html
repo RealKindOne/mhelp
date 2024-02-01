@@ -1,0 +1,31 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$stripped</H1>
+<br>
+<br>
+The <b>$stripped</b> identifier returns the number of control codes that were stripped from an incoming message, if any, due to the settings in mIRC-options/IRC/Messages/"Strip codes from incoming messages". This can be used in any script event that triggers when a message is received from a user, including <a href="..\events\on_Text.html">on_Text</a>, <a href="..\events\on_action.html">on_action</a>, and {{mIRC|ctcp events|CTCP}}.
+
+'''Note:''' It does '''NOT''' count control codes stripped by the <a href="strip.html">$strip</a> identifier.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$stripped
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">on *:text:*:#:echo -a $stripped</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* <a href="strip.html">$strip</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$mid</H1>
+<br>
+<br>
+The <b>$mid</b> identifier is a <a href="..\other\String_Manupulation.html">String Manupulation</a> identifier used to return a sub-string portion of a string.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$mid(&lt;text&gt;,S[,N])
+</pre>
+<H4>Parameters</H4>
+<br><b>text</b> - String from which to return a portion
+<br><b>S</b> - Position within Text. If S is negative, position is relative to the end of Text instead of the beginning. Using Zero behaves same as position 1.
+<br><b>N</b> - Optional Length. If Length parameter not used, returns entire remainder of the string. If N is zero, returns the numeric length of the string. If N is negative, returns the string beginning at position S except for the LAST $Abs(N) characters.
+
+<H4>Properties</H4>
+
+None
+
+<H4>Examples</H4>
+returns 3 characters beginning at position 2
+<pre class ="code">//echo -a $mid(abcdefghij,2,3)
+</pre>
+
+
+both return ALL characters beginning at position 2. Omitting N avoids the need to use N as a too-large number like 9999
+
+<pre class ="code">
+//echo -a $mid(abcdefghij,2)
+//echo -a $mid(abcdefghij,2,9999)
+</pre>
+
+returns 2 characters beginning at position 6th from the end. Is equivalent to:
+<pre class ="code">
+//echo -a $mid(abcdefghij,-6,2)
+//echo -a $left($right(abcdefghij,6) ,2)
+</pre>
+
+returns ALL characters beginning at position 6th from the end.
+<pre class ="code">
+//echo -a $mid(abcdefghij,-6)
+</pre>
+returns ALL characters beginning at position 3 EXCEPT for the last 2 characters.
+<pre class ="code">
+//echo -a $mid(abcdefghij,3,-2)
+</pre>
+
+returns the length of the string beginning at position 3.
+<pre class ="code">
+//echo -a $mid(abcdefghij,3,0)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\other\String_Manupulation.html">String Manupulation</a><br>
+<a href="left.html">$left</a><br>
+<a href="right.html">$right</a><br>
+<a href="pos.html">$pos</a><br>
+<a href="str.html">$str</a><br>
+</body>
+</html>

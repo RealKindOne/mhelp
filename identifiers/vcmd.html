@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$vcmd</H1>
+<br>
+<br>
+The <b>$vcmd</b> identifier is used to retrieve commands in the voice command list.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$vcmd(N)
+</pre>
+<H4>Parameters</H4>
+<br><b>N</b> - used to specify the Nth command in the list, or can be 0 to retrieve the total amount of commands in the voice command list.
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo the total amount of voice commands to the active window:
+<pre class ="code">//echo -a $vcmd(0)</pre>
+
+Echo the 3rd command in the voice command list to the active window:
+<pre class ="code">//echo -a $vcmd(3)</pre>
+
+Echo the entire list of voice commands to the active window:
+<pre class ="code">//var %i = 1 | while (%i <= $vcmd(0)) { echo -a $vcmd(%i) | inc %i }</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\commands\vcadd.html">/vcadd</a><br>
+<a href="..\commands\vcmd.html">/vcmd</a><br>
+<a href="..\commands\vcrem.html">/vcrem</a><br>
+<a href="vcmdver.html">$vcmdver</a><br>
+<a href="vcmdstat.html">$vcmdstat</a><br>
+<a href="..\events\on_VCMD.html">on_VCMD</a><br>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/while
+</H1>
+<br>
+<br>
+
+The <b>/while</b> command is a :doc: `construct in the mIRC scripting language </intermediate/control_flow_statements.html#while_loops>` that can perform repetitive operations. The block of statement inside the while loop will get executed as long as the condition is true. You can manually break out of a loop by using the Cltr+Break key combinations.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+while (condition) {
+  /statements
+  /statements
+  /statements
+}
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+
+How to iterate over lines of a file
+<pre class ="code">
+; Read all lines of a file:
+var %file file.txt
+var %i 1 | while (%i <= $lines(%file)) {
+  echo -a line %i - $read(%file,nt,%i)
+  inc %i
+}
+
+; Read from line 5 and stop at line 10:
+var %file file.txt
+var %i 5 | while (%i <= $lines(%file)) {
+  echo -a line %i - $read(%file,nt,%i)
+  if (%i == 10) break
+  inc %i
+}
+
+; Note: These are the code snippets that you should use inside your alias or script.
+</pre>
+Other examples of using a loop
+
+Example 1:
+<pre class ="code">
+;Example 1
+
+Alias CountToTen {
+  ; Create a counter variable, set it to one
+  var %Counter = 1
+
+  ; Loop while the counter variable is less than or equal to ten.
+  while (%Counter <= 10) {
+
+    ; Print out the value of the counter variable
+    echo -a Count Number: %Counter
+
+    ; Increase the counter variable by 1
+    inc %Counter
+  }
+}
+</pre>
+The above example will output:
+<pre class ="code">
+Count Number: 1
+Count Number: 2
+Count Number: 3
+Count Number: 4
+Count Number: 5
+Count Number: 6
+Count Number: 7
+Count Number: 8
+Count Number: 9
+Count Number: 10
+</pre>
+Example 2:
+<pre class ="code">
+; Example 2
+Alias ListVars {
+  ; Check if there are any variables set
+  if (!$var(*,0)) {
+    echo -a There Are No Variables.
+    halt
+  }
+  ; Set a counter variable
+  var %a 1
+
+  ; Loop while the counter variable is less than or equal to the total number of variables
+  while (%a <= $var(*,0)) {
+
+    ; Print out the variable and its value
+    echo -a $v1 $+ ) $var(*,$v1) = $var(*,$v1).value
+
+    ; Increase the variable by one
+    inc %a
+  }
+}
+</pre>
+The above example will output something like this:
+<pre class ="code">
+1) %Foo = FooBar
+2) %Bar = BarFoo
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="break.html">/break</a><br>
+   <a href="continue.html">/continue</a><br>
+   <a href="if.html">/if</a><br>
+   <a href="return.html">/return</a><br>
+   <a href="returnex.html">/returnex</a><br>
+</body>
+</html>

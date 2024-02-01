@@ -1,0 +1,64 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/remove
+</H1>
+<br>
+<br>
+
+The <b>/remove</b> command can be used to delete a file permanently or sends it to the recycle bin. The filename cannot be a wildcard pattern. This command prints "* Removed '&lt;filename&gt;'", to avoid that message, use the dot prefix (i.e. use /.remove).
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/remove -b &lt;filename&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-b</b>
+      - Send the file to the recycle bin
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;filename&gt;</b>
+      - the file to remove. Your filename can be case-insensitive, but cannot include ?* wildcards. In the absence of a full path, filenames are assumed to be relative to $mircdir. If the &lt;filename&gt; contains any spaces, it must be enclosed in quotes.
+
+<br><b>Note:</b> If filename contains 2+ consecutive spaces, this command searches for a filename without the duplicate space, and deletes that file instead, if it exists.
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    create and write to a file:
+    /write foo.txt Hello There
+    remove the file:
+    /remove foo.txt
+    delete a filename containing space from downloads subfolder:
+    //.remove $qt(downloads\test filename.txt)
+
+<br><b>Note:</b> The dot prefix hides both the success message and the "no such file" error.
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v4.0 (20 Mar 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\mircdir.html">$mircdir</a><br>
+   <a href="..\identifiers\scriptdir.html">$scriptdir</a><br>
+   <a href="..\identifiers\read.html">$read</a><br>
+   <a href="..\identifiers\findfile.html">$findfile</a><br>
+   <a href="..\identifiers\finddir.html">$finddir</a><br>
+   <a href="copy.html">/copy</a><br>
+   <a href="mkdir.html">/mkdir</a><br>
+   <a href="rename.html">/rename</a><br>
+   <a href="rmdir.html">/rmdir</a><br>
+   <a href="run.html">/run</a><br>
+   <a href="write.html">/write</a><br>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$regmlex</H1>
+<br>
+<br>
+The <b>$regmlex</b> identifier returns the Mth backreference of the Nth match from a regex match.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$regmlex([name],N,M,[&binvar])
+</pre>
+<H4>Parameters</H4>
+<br><b>name</b> -The optional name given to the regex match
+<br><b>M</b> - The Mth match, if M = 0, returns the total number of match
+<br><b>N</b> - Optional, the Nth capturing group, default to 1
+<br><b>&binvar</b> - If the last parameter is a binvar, the result is copied to the binvar and $regmlex() returns the length of the result.
+
+<H4>Properties</H4>
+<br><b>.pos</b> - returns the starting position of the backrefence
+
+<H4>Example</H4>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.9 (26 Apr 2001)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="regex.html">$regex</a><br>
+<a href="regsubex.html">$regsubex</a><br>
+<a href="regmlex.html">$regmlex</a><br>
+
+</body>
+</html>

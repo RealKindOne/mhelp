@@ -1,0 +1,51 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$vol</H1>
+<br>
+<br>
+The <b>$vol</b> identifier can be used to retrieve the current volume, from the Windows audio control, for the specified sound type parameter.
+
+'''Note:''' This command is also a part of the <a href="..\other\music.html">Playing Music</a> section.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$vol(wave | midi | song | master)[.property]
+</pre>
+<H4>Parameters</H4>
+<br><b>wave</b> - Returns the current volume for wave files.
+<br><b>midi</b> - Returns the current volume for midi files.
+<br><b>song</b> - Returns the current volume for mp3, ogg, and wma files.
+<br><b>master</b> - This returns the master control volume setting for overall system volume.
+
+<H4>Properties</H4>
+<br><b>.mute</b> - Returns the current 'mute' settings for the specified sound type parameter.
+
+<H4>Example</H4>
+Echo the mute status for mp3 files to the active window:
+<pre class ="code">//echo -a $vol(song).mute</pre>
+
+Echo the current master system volume to the active window:
+<pre class ="code">//echo -a $vol(master)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\other\music.html">Playing Music</a><br>
+<a href="..\events\on_MidiEnd.html">on_MidiEnd</a><br>
+<a href="..\events\on_MP3End.html">on_MP3End</a><br>
+<a href="..\events\on_NoSound.html">on_NoSound</a><br>
+<a href="..\events\on_WaveEnd.html">on_WaveEnd</a><br>
+<a href="inmidi.html">$inmidi</a><br>
+<a href="insong.html">$insong</a><br>
+<a href="inwave.html">$inwave</a><br>
+<a href="sound.html">$sound</a><br>
+<a href="..\commands\splay.html">/splay</a><br>
+<a href="..\commands\vol.html">/vol</a><br>
+
+
+</body>
+</html>

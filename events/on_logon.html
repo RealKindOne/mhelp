@@ -1,0 +1,47 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>On Logon</H1>
+<br>
+<br>
+The <b>ON LOGON</b> event triggers immediately after mIRC has begun connection to a server, and has sent the standard [[Pass - IRC|PASS]], [[Nick - IRC|NICK]], and [[User - IRC|USER]] information to the server.
+
+'''Note:''' This event can be prefixed with the '''^''' character to cause the event to trigger ''before'' the [[Pass - IRC|PASS]], [[Nick - IRC|NICK]], and [[User - IRC|USER]] information is sent to the server. Utilizing this '''^''' character, the events can even be [[/halt command - mIRC|halted]], and no information sent to the server; this will most-likely cause a connection interruption, or disconnection entirely.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+on &lt;level&gt;:logon:<servername>:&lt;commands&gt;
+</pre>
+
+<H4>Parameters</H4>
+<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+
+'''<servername>'''</span>this parameter is based on the network name. If a network name cannot be found, it uses the group name, and if that cannot be found, it uses the server address as a last resort. Can be a {{mirc|wildcard}}. The order is important, for example if you use an ip address for this parameter and connect the first time, it will trigger, but mIRC will associate a network value and the network will be used next time, which wouldn't match the ip address, you can use * for this parameter and handle {{mIRC|$servertarget}} to tie the event to a specific server target value.
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+== Examples ==
+Echo to the active window some information before the login information is sent, using the '''^''' prefix:
+<pre class ="code">on ^*:logon:*:echo -a Connecting to $server through the $network network...</pre>
+
+Create a popup window which shows up after a successful connection is established:
+<pre class ="code">on ^*:logon:*:noop $input(Successfully connected to: $server $+ !,io,Connection Successful)</pre>
+
+The event above will generate a popup-window much like the one in the screenshot below:
+
+[[File:Onlogon event - mIRC.png|Displays a screenshot for the Onlogon event example.]]
+
+<H4>Compatability</H4>
+{{mIRC compatibility|6.03}}
+
+== See Also ==
+* [[On connect - mIRC|ON CONNECT]]
+* [[On disconnect - mIRC|ON DISCONNECT]]
+* [[On quit - mIRC|ON QUIT]]
+* {{mIRC|/disconnect}}
+* {{mIRC|/quit}}
+* {{mIRC|/server}}
+{{mIRC on event list}}
+
+[[Category:mIRC on events|logon]]</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawdot
+</H1>
+<br>
+<br>
+
+The <b>/drawdot</b> command draws a dot to the specified coordinates with a specific color in a specific picture window
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawdot -ihnr @ &lt;color&gt; &lt;size&gt; &lt;x y&gt [&lt;x y&gt;...]
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-r</b>
+- use RGB color instead of the mIRC standard colors
+<br><b>-i</b>
+      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b>
+      - highlights the windows icon if it's minimized.
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;color&gt;</b>
+      - mIRC Color to draw with (unless -r is used, then RGB color is used)
+<br><b>&lt;size&gt;</b>
+      - radius
+<br><b>&lt;x y&gt;</b>
+      - coordinates
+<br><b>[&lt;x y&gt;...]</b>
+      - more optional coordinates
+
+<H4>Example</H4>
+<pre class ="code">
+; draws a small black dot in the top left of the window
+/drawdot @PicWin 1 1 10 10
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\window.html">$window</a><br>
+   <a href="..\identifiers\click.html">$click</a><br>
+   <a href="..\identifiers\mouse.html">$mouse</a><br>
+   <a href="..\identifiers\inellipse.html">$inellipse</a><br>
+   <a href="..\identifiers\inrect.html">$inrect</a><br>
+   <a href="..\identifiers\inroundrect.html">$inroundrect</a><br>
+   <a href="..\identifiers\inpoly.html">$inpoly</a><br>
+   <a href="..\identifiers\onpoly.html">$onpoly</a><br>
+   <a href="..\identifiers\rgb.html">$rgb</a><br>
+   <a href="..\identifiers\getdot.html">$getdot</a><br>
+   <a href="..\identifiers\height.html">$height</a><br>
+   <a href="drawcopy.html">/drawcopy</a><br>
+   <a href="drawfill.html">/drawfill</a><br>
+   <a href="drawline.html">/drawline</a><br>
+   <a href="drawpic.html">/drawpic</a><br>
+   <a href="drawrect.html">/drawrect</a><br>
+   <a href="drawreplace.html">/drawreplace</a><br>
+   <a href="drawsave.html">/drawsave</a><br>
+   <a href="drawscroll.html">/drawscroll</a><br>
+   <a href="drawtext.html">/drawtext</a><br>
+</body>
+</html>

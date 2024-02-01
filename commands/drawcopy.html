@@ -1,0 +1,68 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/drawcopy
+</H1>
+<br>
+<br>
+
+The <b>/drawcopy</b> command copies part of a picture to a different position in the same window or to another window.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawcopy -ihmnt &lt;@win&gt; [color] &lt;x y w h&gt; &lt;@win&gt; &lt;x y [w h]&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-t</b>
+      - indicates that you have specified the [color] RGB value as a transparent color in the source bitmap
+<br><b>-m</b>
+      - changes the stretch mode quality when the picture is resized
+<br><b>-i</b>
+      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b>
+      - highlights the windows icon if it is minimized
+<br><b>-n</b>
+      - prevents the display from being updated immediately
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;@win&gt;</b>
+      - the window's name to copy from
+<br><b>[color]</b>
+      - if -t is used, the RGB color used for transparency
+<br><b>&lt;x y w h&gt;</b>
+      - portion to copy
+<br><b>&lt;@win&gt;</b>
+      - the window's name to copy to
+<br><b>&lt;x y [w h]&gt;</b>
+      - the coordinate where to draw, if [w h] are specified, the picture is squeed/stretched to fit, they can be negative value to get a mirror effect:
+
+<br>
+TODO
+<br>
+-@win has a bitmap area of 16*16 pixels containing this picture: [[File:Drawpic&copy_negative.png]]
+
+-@win1 has a bitmap area of 48*16 pixels
+
+-If you copy the whole @win over @win1 at coordinate **16**,0 you would get (drawcopy @win 0 0 @win1 16 0): [[File:Drawpic&copy_negative1.png]]
+
+-Now we use a negative width of -16 to flip horizontally the bitmap (drawcopy @win 0 0 16 16 @win1 16 0 -16 16): [[File:Drawpic&copy_negative2.png]]
+
+One issue: the flipped bitmap is drawn at x + 1 instead of x, you have to draw at x - 1 or y - 1 when you flip.
+
+<H4>Example</H4>
+<pre class ="code">
+None
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.3 (04 Jan 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$keychar</H1>
+<br>
+<br>
+The <b>$keychar</b> is filled during an <a href="..\events\on_Keydown.html">on_Keydown</a>, <a href="..\events\on_KeyUp.html">on_KeyUp</a> or <a href="..\events\on_Char.html">on_Char</a> event inside of a {{mirc|custom windows|custom @window}}, it returns the characters that was inputted if any.
+
+
+'''/!\''' This identifier is broken by design inside the <a href="..\events\on_Keydown.html">on_Keydown</a> and <a href="..\events\on_KeyUp.html">on_KeyUp</a> events.
+These two events have been trying for years to report AND keypresses, AND resulting characters but their implementation was wrong.
+On newer version of mIRC, this was fixed, <a href="..\events\on_Keydown.html">on_Keydown</a> and <a href="..\events\on_KeyUp.html">on_KeyUp</a> only trigger for keypresses.
+
+To get the resulting character, one should use the <a href="..\events\on_Char.html">on_Char</a> event. $keychar is still filled inside <a href="..\events\on_Keydown.html">on_Keydown</a> and <a href="..\events\on_KeyUp.html">on_KeyUp</a> for backward compatibility purpose. To get an idea, both events will correctly fill $keychar with the character when you press 'A', because it's one keypress corresponding to one character, but the main issue was that some keyboard/language requires you to press two keys to generate a character, sometimes mores.
+
+To sum up, checking $keychar inside <a href="..\events\on_Keydown.html">on_Keydown</a> and <a href="..\events\on_KeyUp.html">on_KeyUp</a> is incorrect and won't work for any language/keyboard, those two events are to be used to look for keypresses only with $keyval, use $keychar inside <a href="..\events\on_Char.html">on_Char</a> only, to get characters.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$keychar
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
+<pre class ="code">alias keyDownTest {
+  window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
+}
+ON *:KEYDOWN:@myWindow:*: {
+  clear @myWindow
+  drawtext @myWindow 1 3 3 Key value: $keyval
+  drawtext @myWindow 1 3 47 @myWindow Repeating: $keyrpt
+}
+on *:char:@mywindow:*:{
+  drawtext @myWindow 1 3 25 Key character: $keychar
+}</pre>
+
+The following command can now be typed into any mIRC command prompt:
+/keyDownTest
+
+Below is an image reflecting what this example will look like:
+<br>
+<br>
+<img src="..\images\keychar_example.png">
+<br>
+<br>
+Note that this makes use of a {{mirc|picture window}}, as well as the <a href="..\commands\drawtext.html">/drawtext</a>. These types of {{mirc|picture windows|windows}} and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
+
+<H4>Compatibility</H4>
+Added: mIRC v5.5 (08 Jan 1999)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="..\events\on_Char.html">on_Char</a><br>
+<a href="keyrpt.html">$keyrpt</a><br>
+<a href="keyval.html">$keyval</a><br>
+
+
+</body>
+</html>

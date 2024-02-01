@@ -1,0 +1,109 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/fopen
+</H1>
+<br>
+<br>
+
+The <b>/fopen</b> command opens &lt;filename&gt; and assigns it a handle. The file is opened for both writing and reading: see :doc: `file handling </intermediate/data_storage.html#file-handling>` . If an error occurred, processing does not halt. You must check that <a href="..\identifiers\fopen.html">$fopen</a> (<handle>).err or <a href="..\identifiers\ferr.html">$ferr</a> is not true.
+
+<br><b>Note:</b> mIRC keeps the handle even after a fail, you must always /fclose the handle you /fopen yourself.
+
+If -x is not used, the file that is opened is also in shared read/write, meaning that an external application (a second mIRC) can also open the file at the same time, read and write to it, affecting the content of the file you're using.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/fopen [-nox] &lt;handle&gt; &lt;filename&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-n</b>
+      - Create a new file, fails if already exists
+<br><b>-o</b>
+      - Creates a new file, overriding an old one if exists
+<br><b>-x</b>
+      - Opens the file in exclusive mode (will fail to open if already in use)
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;handle&gt;</b>
+      - A handle associated with an open file.
+<br><b>&lt;filename&gt;</b>
+      - The filename to open.
+
+<H4>Example</H4>
+
+
+A simple example that prints one line to a new file:
+
+<pre class ="code">
+; simple fopen example
+alias fopen_example {
+  .fopen -n h hello.txt
+  ; error check
+  if ($ferr) {
+    echo -sce info * /fopen_example: example.txt already exists!
+    halt
+  }
+  ; print text
+  .fwrite h Hello There
+  ; close the handle
+  .fclose h
+  ; open file in default editor
+  run hello.txt
+}
+</pre>
+A script that prints all the permutations of there-characters to a file.
+<pre class ="code">
+; print permutations [aaa]-[zzz]
+alias perm_example {
+  .fopen -n h example.txt
+  ; error check
+  if ($ferr) {
+    echo -sce info * /fopen_example: example.txt already exists!
+    halt
+  }
+  ;print all the permutations to the file
+  var %x = 97
+  while (%x < 123) {
+    var %y = 97
+    while (%y < 123) {
+      var %z = 97
+      while (%z < 123) {
+        .fwrite -n h $+($chr(%x), $chr(%y), $chr(%z))
+        inc %z
+      }
+      inc %y
+    }
+    inc %x
+  }
+  ; close the handle
+  .fclose h
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v6.1 (17 Feb 2006)
+
+<H4>Notes</H4>
+
+In 7.22 /fopen left the handle open even after it failed. The compatibility change stated above was changed back to the old behavior in mIRC 7.24.
+ 
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\fopen.html">$fopen</a><br>
+   <a href="..\identifiers\fread.html">$fread</a><br>
+   <a href="..\identifiers\fgetc.html">$fgetc</a><br>
+   <a href="..\identifiers\feof.html">$feof</a><br>
+   <a href="..\identifiers\ferr.html">$ferr</a><br>
+   <a href="..\identifiers\file.html">$file</a><br>
+   <a href="fclose.html">/fclose</a><br>
+   <a href="flist.html">/flist</a><br>
+   <a href="fseek.html">/fseek</a><br>
+   <a href="fwrite.html">/fwrite</a><br>
+</body>
+</html>

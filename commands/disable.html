@@ -1,0 +1,49 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/disable
+</H1>
+<br>
+<br>
+
+The <b>/disable</b> command disables the specified groups in all scripts. You can also specify a <a href="..\other\wildcard.html">wildcard</a> to disable all matching groups.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/disable &lt;group1 group2 ... groupN&gt;
+/disable &lt;wilcard_expression&gt;
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;group1 group2 ... groupN&gt;</b>
+      - a list with complete name of the groups to be disabled seperated by spaces
+<br><b>&lt;wildcard_expression&gt;</b>
+      - a <a href="..\other\wildcard.html">wildcard</a> expression, all matching groups are disabled
+
+<H4>Example</H4>
+<pre class ="code">
+/disable #one #two #three
+; or
+/disable #*o*
+; * Group(s) disabled
+; First example disables the three groups specified while the second would only disables the first two (#one and #two, assuming that's the only matching groups)
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.5 (13 Aug 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\group.html">$group</a><br>
+   <a href="enable.html">/enable</a><br>
+   <a href="groups.html">/groups</a><br>
+</body>
+</html>

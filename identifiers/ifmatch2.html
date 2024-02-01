@@ -1,0 +1,44 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$ifmatch2</H1>
+<br>
+<br>{{Deprecated feature|new=<a href="v2.html">$v2</a><br>}}}'''$ifmatch2''' return the second part of the last conditional statement made.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$ifmatch2
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Properties</H4>
+
+None
+
+== Notes ==
+
+Just like $v1 $v2 and $ifmatch, this identifier return the value from the very last statement made:
+<pre class ="code">
+alias test return $iif($1 == 1,1,2)
+alis testing if (a != b) echo -a $test(1) $ifmatch2
+</pre>
+This will echo 1 as $ifmatch2 because $test is evaluated before $ifmatch2, so the $iif is the last statement made when $ifmatch2 evaluates.
+
+<H4>Example</H4>
+<pre class ="code">//if (a != b) echo -a $ifmatch2</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (23 Jun 1998)}
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ifmatch.html">$ifmatch</a><br>}
+<a href="v1.html">$v1</a><br>}
+<a href="v2.html">$v2</a><br>}
+<a href="..\commands\if.html">/if</a><br>
+<a href="..\commands\while.html">/while</a><br>
+[[Category:mIRC identifiers|ifmatch2]]</body>
+</html>

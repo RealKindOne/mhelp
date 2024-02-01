@@ -1,0 +1,56 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/iuser
+</H1>
+<br>
+<br>
+
+The <b>/iuser</b> command can be used to set or remove the info appended to an user list entry.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/iuser &lt;nick|address&gt; [info]
+</pre>
+<H4>Switches</H4>
+
+None
+
+<H4>Parameters</H4>
+
+
+<br><b>&lt;nick|address&gt;</b>
+      - The exact nick or address to be used
+<br><b>[info]</b>
+      - If not provided, clear the info
+
+<H4>Example</H4>
+<pre class ="code">
+
+
+    ;Add an address; Info can be retrieved using $ulist(*!*@Example.com).info
+    /auser 5 *!*@example.com Cool people
+
+    ;Update the info
+    /iuser *!*@example.com Uncool!
+
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v2.1a (28 Feb 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\ulevel.html">$ulevel</a><br>
+   <a href="..\identifiers\ulist.html">$ulist</a><br>
+   <a href="flush.html">/flush</a><br>
+   <a href="guser.html">/guser</a><br>
+   <a href="auser.html">/auser</a><br>
+   <a href="rlevel.html">/rlevel</a><br>
+   <a href="ruser.html">/ruser</a><br>
+   <a href="ulist.html">/ulist</a><br>
+</body>
+</html>

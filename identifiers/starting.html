@@ -1,0 +1,34 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$starting</H1>
+<br>
+<br>
+The <b>$starting</b> identifier return 1 in the <a href="..\events\on_Start.html">on_Start</a> event if mIRC is really starting, (on start could trigger after a /load command), 0 otherwise.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$starting
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+<H4>Example</H4>
+<pre class ="code">
+on *:start:{
+  echo -s $starting
+}</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.23 (19 Mar 2012)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="exiting.html">$exiting</a><br>
+<a href="..\events\on_Start.html">on_Start</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/font
+</H1>
+<br>
+<br>
+
+The <b>/font</b> command allows you to change the font for the current window. If no parameters are specified, the font dialog pops up, otherwise the specified parameters are used.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/font [-asbegilunkdmz|window] &lt;fontsize&gt; &lt;fontname&gt;
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-a</b>
+      - applies the setting to the active window
+<br><b>-s</b>
+      - applies the setting to the status window
+<br><b>-b</b>
+      - makes the font bold
+<br><b>-i</b>
+      - makes the font italic
+<br><b>-l</b>
+      - applies the setting to the channel list window
+<br><b>-u</b>
+      - applies the setting to the url list window
+<br><b>-n</b>
+      - applies the setting to the notify list window
+<br><b>-k</b>
+      - applies the setting to the links window (/links)
+<br><b>-g</b>
+      - applies the setting to the finger window (old feature that has been removed)
+<br><b>-m</b>
+      - applies the setting to the message window (/dqwindow)
+<br><b>-d</b>
+      - makes the font the default for that type of window
+<br><b>-e</b>
+      - clears the font entry for that window
+<br><b>-z</b>
+      - clears all font settings and sets all windows to the specified font. If no font is specified, all windows are set to default font settings
+
+<H4>Parameters</H4>
+
+
+<br><b>[window]</b>
+      - if none of the -azs switch is used, you must provide the name of a window instead
+<br><b>&lt;fontsize&gt;</b>
+      - the size of the font, can be negative: it will then match the size of fonts in the font dialog
+<br><b>&lt;fontname&gt;</b>
+      - the name of the font
+
+<H4>Example</H4>
+<pre class ="code">
+/font -z -8 Verdana
+/font -d "Status Window" -8 Fixedsys
+/font -s 12 Verdana
+</pre>
+<pre class ="code">
+; An officially undocumented way to change the font for Switchbar:
+; After entering the command must restart mIRC.
+/font switchbar -9 "Comic Sans MS"
+/font switchbar -8 Tahoma
+/font -b switchbar -10 Calibri
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v3.92 (06 Jan 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+</body>
+</html>

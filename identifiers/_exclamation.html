@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<h1>$!</H1>
+<br>
+<br>
+The <b>$!</b> identifier returns the input value that the script was just given via user input ($input, $? etc). This identifier may avoid using a variable.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$!
+</pre>
+
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+After you execute the alias, via <b>/testme</b>, you will be prompted by an input box. Whatever input you put in that box, upon clicking OK, will be immediately echoed to your active window.
+<pre class ="code">
+alias testme {
+  $?="Type something"
+  echo -a $!
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v3.2 (02 May 1995)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+</body>
+</html>

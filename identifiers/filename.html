@@ -1,0 +1,36 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>$filename</H1>
+<br>
+<br>The <b>$filename</b> identifier is filled when an event's trigger deals with a file, such as [[On playend - mIRC|ON PLAYEND]], [[On filercvd - mIRC|ON FILERCVD]], [[On filesent - mIRC|ON FILESENT]], etc.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$filename
+
+<H4>Properties</H4>
+None
+
+== Examples ==
+Echo the name of the filename, along with both the user's nickname and address if available, after a [[/dcc command - mIRC|DCC Get]] has successfully finished:
+<pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
+
+Echo the name of the file that finished playing to the active window:
+<pre class ="code">ON *:PLAYEND:echo -a * $filename has just finished playing.</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+* [[On filercvd - mIRC|ON FILERCVD]]
+* [[On filesent - mIRC|ON FILESENT]]
+* [[On playend - mIRC|ON PLAYEND]]
+* <a href="..\commands\dcc.html">/dcc</a><br>
+* <a href="..\commands\play.html">/play</a><br>
+
+
+[[Category:mIRC identifiers|filename]]</body>
+</html>

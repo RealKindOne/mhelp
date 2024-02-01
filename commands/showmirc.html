@@ -1,0 +1,76 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+/showmirc
+</H1>
+<br>
+<br>
+
+The <b>/showmirc</b> command can be used to manipulate the main  mIRC window. Full screen mode (-f) switch can also be activated via the F11 shortcut key.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/showmirc -xrsfop
+/showmirc -ltnm
+</pre>
+<H4>Switches</H4>
+
+
+<br><b>-x</b>
+      - maximize window
+<br><b>-r</b>
+      - restore window
+<br><b>-s</b>
+      - show window
+<br><b>-f</b>
+      - go into full-screen mode
+
+Minimize Options
+
+
+<br><b>-n</b>
+      - minimize window
+<br><b>-t</b>
+      - minimize to tray
+<br><b>-m</b>
+      - minimize to tray according to tray settings.
+<br><b>-l</b>
+      - lock when minimizing
+
+On Top Settings
+
+
+<br><b>-o</b>
+      - set on top settings
+<br><b>-p</b>
+      - remove on top settings
+
+<H4>Parameters</H4>
+
+None
+
+<H4>Example</H4>
+<pre class ="code">
+alias example {
+  ; restore mIRC after 2 seconds
+  .timer 1 2 showmirc -r
+  ; hide it for now
+  showmirc -t
+}
+</pre>
+<H4>Compatibility</H4>
+Added: mIRC v5.4 (24 Jul 1998)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+
+
+   <a href="..\identifiers\fullscreen.html">$fullscreen</a><br>
+   <a href="..\identifiers\appstate.html">$appstate</a><br>
+   <a href="..\identifiers\appactive.html">$appactive</a><br>
+   <a href="exit.html">/exit</a><br>
+   <a href="window.html">/window</a><br>
+</body>
+</html>
