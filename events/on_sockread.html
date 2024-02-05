@@ -4,28 +4,28 @@
 <H1>On Sockread</H1>
 <br>
 <br>
-The <b>ON SOCKREAD''' triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the {{mIRC|/sockread}} command.
+The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a><br> command.
 
-'''Note''': If this event triggers but no {{mIRC|/sockread}} is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
+'''Note''': If this event triggers but no <a href="..\commands\sockread.html">/sockread</a><br> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
 <H4>Synopsis</H4>
 <pre>ON &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-'''&lt;matchtext&gt;'''</span>The name of the socket you want the event to trigger on.
+<br><b>&lt;matchtext&gt;</b> - The name of the socket you want the event to trigger on.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 == Connection State ==
 
-It's important to check the value of {{mIRC|$sockerr}} to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
+It's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a><br> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
 
 * '''0''' - Data received correctly.
 * '''3''' - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.
 
-== Examples ==
+<H4>Example</H4>
 
-You can find more information and examples in the {{mIRC|/sockread}} command page.
+You can find more information and examples in the <a href="..\commands\sockread.html">/sockread</a><br> command page.
 
 Here is a basic outline:
 <pre class ="code">
@@ -54,23 +54,23 @@ on *:sockread:example:{
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|3.5}}
+Added: mIRC v3.5 (07 Aug 1995)
 
-== See Also ==
-* {{mirc|on events/on sockopen|on sockopen}}
-* {{mirc|on events/on sockwrite|on sockwrite}}
-* {{mirc|on events/on socklisten|on socklisten}}
-* {{mirc|on events/on sockclose|on sockclose}}
+<H4>See also</H4>
+* <a href="On_SockOpen.html">On_SockOpen</a><br>
+* <a href="On_SockWrite.html">On_SockWrite</a><br>
+* <a href="On_SockListen.html">On_SockListen</a><br>
+* <a href="On_SockClose.html">On_SockClose</a><br>
 * {{mIRC|/sockopen}}
-* {{mIRC|/sockwrite}}
-* {{mIRC|/sockread}}
-* {{mIRC|/sockclose}}
-* {{mIRC|/sockaccept}}
-* {{mIRC|/sockpause}}
+* <a href="..\commands\sockwrite.html">/sockwrite</a><br>
+* <a href="..\commands\sockread.html">/sockread</a><br>
+* <a href="..\commands\sockclose.html">/sockclose</a><br>
+* <a href="..\commands\sockaccept.html">/sockaccept</a><br>
+* <a href="..\commands\sockpause.html">/sockpause</a><br>
 * {{mIRC|$sockname}}
-* {{mIRC|$sock}}
-* {{mIRC|$sockbr}}
-* {{mIRC|$sockerr}}
+* <a href="..\identifiers\sock.html">$sock</a><br>
+* <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+* <a href="..\identifiers\sockerr.html">$sockerr</a><br>
 
-[[Category:mIRC on events|sockread]]</body>
+</body>
 </html>

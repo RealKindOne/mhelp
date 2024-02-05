@@ -6,7 +6,7 @@
 <br>
 The <b>ON FILERCVD</b> event triggers whenever a file is received successfully via {{mIRC|/dcc|dcc send}}.
 
-This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and {{mIRC|$nick}} with the filename, user's address, and the user's nickname (if available), respectively.
+This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and <a href="..\identifiers\nick.html">$nick</a><br> with the filename, user's address, and the user's nickname (if available), respectively.
 
 <H4>Synopsis</H4>
 <pre>ON &lt;level&gt;:FILERCVD:<filename[,filename]>:&lt;commands&gt;</pre>
@@ -24,7 +24,7 @@ This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and {{mIRC|$nick}} with 
 
 Returns the complete filename of the received file.
 
-== Examples ==
+<H4>Example</H4>
 Echo the name of the filename received to the active window:
 <pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename</pre>
 
@@ -34,7 +34,7 @@ Echo the name of the filename, along with both the user's nickname and address i
 <H4>Compatability</H4>
 {{mIRC compatibility|4.5}}
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|/dcc|/dcc send}}
 * {{mIRC|on events/on filesent|on filesent}}
 * {{mIRC|on events/on filesent|on getfail}}

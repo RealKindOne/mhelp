@@ -4,27 +4,27 @@
 <H1>On Action</H1>
 <br>
 <br>
-The <b>ON ACTION</b> event triggers on an action ({{mIRC|/me}} or {{mIRC|/describe}}) events inside of a channel, or a query window.
+The <b>ON ACTION</b> event triggers on an action (<a href="..\commands\me.html">/me</a> or {{mIRC|/describe}}) events inside of a channel, or a query window.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:ACTION:&lt;matchtext&gt;:<*><?>&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre>ON &lt;level&gt;:ACTION:&lt;matchtext&gt;:&lt;*&gt;&lt;?&gt;&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
-* '''<*><?>&lt;#[,#]&gt;''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>&lt;*&gt;&lt;?&gt;&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
 <br><b>*</b> - Any query/channel window
 <br><b>?</b> - Any query windows
-** '''#''' - Any channel window
+<br><b>#</b> - Any channel window
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
-== Examples ==
+<H4>Example</H4>
 '''Listens for if anyone uses the word ''slap'' anywhere in an action inside of any channel'''
 <pre class ="code">ON *:ACTION:* slap *:#:msg # $nick $+ ! Why would you slap anyone?!?!?</pre>
 
 The above code listens for the action event, looks for if the user used the word ''slap'' in any channel, and then responds accordingly.
 
-'''Note:''' The {{mirc|wildcard}} search, with a space between them and the word, means this event will not trigger if any other characters are touching the word ''slap''. This includes words such as: ''slaps'', ''slapper'', ''myslap'', etc.
+'''Note:''' The <a href="..\other\wildcard.html">wildcard</a><br> search, with a space between them and the word, means this event will not trigger if any other characters are touching the word ''slap''. This includes words such as: ''slaps'', ''slapper'', ''myslap'', etc.
 
 '''Listen for any action inside of a private message and responds'''
 <pre class ="code">ON *:ACTION:*:?:msg $nick Well, I have no idea why I'm responding to this automatically, $nick $+ . You said: $1-</pre>
@@ -32,10 +32,10 @@ The above code listens for the action event, looks for if the user used the word
 This code will listen for ''any'' action event in a private message, and respond with a silly message.
 
 <H4>Compatability</H4>
-{{mIRC compatibility|3.5}}
+Added: mIRC v3.5 (07 Aug 1995)
 
-== See Also ==
+<H4>See also</H4>
 * [[List of on events - mIRC|mIRC Events]]
 
-[[Category:mIRC on events|action]]</body>
+</body>
 </html>

@@ -4,7 +4,7 @@
 <H1>$asctime</H1>
 <br>
 <br>
-The <b>$asctime''' can be used to return the time and date in an optional text format. The time and date can be taken from the current time, or you can use '''$asctime''' to format a date in relation to <a href="ctime.html">$ctime</a><br>.
+The <b>$asctime</b> identifier can be used to return the time and date in an optional text format. The time and date can be taken from the current time, or you can use '''$asctime''' to format a date in relation to <a href="ctime.html">$ctime</a>.
 
 
 <H4>Synopsis</H4>
@@ -12,15 +12,13 @@ The <b>$asctime''' can be used to return the time and date in an optional text f
 $asctime[([N,]format)]
 </pre>
 <H4>Parameters</H4>
-<span style="display: inline-block; width: 65px;">'''N'''</span>This parameter is optional, but normally would point to a value derived from <a href="ctime.html">$ctime</a><br>.
+<br><b>N</b> - This parameter is optional, but normally would point to a value derived from <a href="ctime.html">$ctime</a>.
 
-<span style="display: inline-block; width: 65px;">'''format'''</span>This is where the formatting options would go. If you do not specify a <a href="ctime.html">$ctime</a><br> number '''N''' to evaluate, the formatting is performed on the current date and time.
+<br><b>format</b> - This is where the formatting options would go. If you do not specify a <a href="ctime.html">$ctime</a> number '''N''' to evaluate, the formatting is performed on the current date and time.
 
-== Formatting Options ==
-{| class="wikitable" style="margin-left: 185px; width: 450px;"
-|-
-! '''Property''' !! Format !! Result
-|-
+
+
+
 | '''Day''' || <span style="display: block;">d</span><span style="display: block;">dd</span><span style="display: block;">ddd</span><span style="display: block;">dddd</span>|| <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Mon</span><span style="display: block;">Monday</span>
 |-
 | '''Month''' || <span style="display: block;">m</span><span style="display: block;">mm</span><span style="display: block;">mmm</span><span style="display: block;">mmmm</span> || <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Jan</span><span style="display: block;">January</span>
@@ -42,17 +40,19 @@ $asctime[([N,]format)]
 
 '''Quick Note:''' All of the formatting parameters can touch each other, and they will be properly converted. For example: '''$asctime(hhnnss)''' would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
 
-== Examples ==
-'''Echo the current date and time'''
+
+<H4>Example</H4>
+
+Echo the current date and time
 <pre class ="code">//echo -a $asctime</pre>
 
-'''Echo the current date in the format Month Day, Year'''
+Echo the current date in the format Month Day, Year
 <pre class ="code">//echo -a $asctime(mmmm $+(dd,$chr(44)) yyyy)</pre>
 
-'''Using the $ctime of ''840240070'', format to Day Month Year hour:minute<am/pm>'''
+Using the $ctime of ''840240070'', format to Day Month Year hour:minute &lt;am/pm&gt;
 <pre class ="code">//echo -a $asctime(840240070,dd mmmm yyyy hh:nntt)</pre>
 
-'''Using the orbital format, we can add the proper orbitals to date digits'''
+Using the orbital format, we can add the proper orbitals to date digits
 <pre class ="code">//echo -a $asctime(mmmm $+(doo,$chr(44)) yyyy)</pre>
 
 <H4>Compatibility</H4>
@@ -60,10 +60,9 @@ Added: mIRC v4.5 (30 Jun 1996)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-* <a href="ctime.html">$ctime</a><br>
-* <a href="date.html">$date</a><br>
-* <a href="time.html">$time</a><br>
+<a href="ctime.html">$ctime</a><br>
+<a href="date.html">$date</a><br>
+<a href="time.html">$time</a><br>
 
-
-[[Category:mIRC identifiers|asctime]]</body>
+</body>
 </html>

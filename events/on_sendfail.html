@@ -6,7 +6,7 @@
 <br>
 The <b>ON SENDFAIL</b> event triggers whenever mIRC fails to send a remote user [[Dcc - mIRC|DCC]].
 
-This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and {{mIRC|$nick}} with the filename, user's address, and the user's nickname (if available), respectively.
+This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and <a href="..\identifiers\nick.html">$nick</a> with the filename, user's address, and the user's nickname (if available), respectively.
 
 <H4>Synopsis</H4>
 <pre>ON &lt;level&gt;:SENDFAIL:<filename[,filename]>:&lt;commands&gt;</pre>
@@ -18,14 +18,14 @@ This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and {{mIRC|$nick}} with 
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Examples ==
+<H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:
 <pre class ="code">ON *:SENFAIL:*:echo -a Failed to send $filename $iif($nick,to $nick - ,to) Address: $address</pre>
 
 <H4>Compatability</H4>
 {{mIRC compatibility|5.0}}
 
-== See Also ==
+<H4>See also</H4>
 * [[/dcc command - mIRC|/DCC SEND]]
 * [[On filercvd - mIRC|ON FILERCVD]]
 * [[On filesent - mIRC|ON FILESENT]]

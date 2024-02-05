@@ -13,10 +13,10 @@ $token(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 <H4>Parameters</H4>
 <br><b>LIST</b> - Text list delimited by a character into tokens<br />
 <br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
-<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits TEXT into tokens<br />
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 
 If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
-If N is greater than the total number of tokens, returns {{mIRC|$null|$null}} <br />
+If N is greater than the total number of tokens, returns <a href="null.html">$null</a> <br />
 If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
 N- returns all tokens beginning with the Nth token.
 N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
@@ -27,7 +27,7 @@ N1-N2 returns all tokens in the range of those 2 numbers, including the between 
 <H4>Properties</H4>
 None
 
-== Examples ==
+<H4>Example</H4>
 Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
 
 //echo -a $token(a-b-c-d-e,2,45)

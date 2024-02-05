@@ -13,7 +13,7 @@ $filename
 <H4>Properties</H4>
 None
 
-== Examples ==
+<H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available, after a [[/dcc command - mIRC|DCC Get]] has successfully finished:
 <pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 

@@ -6,7 +6,7 @@
 <br>
 The <b>ON parseline</b> event triggers before incoming/outgoing IRC server lines are received/sent and allows a script to modify them.
 
-The incoming / outgoing lines are in IRC protocol which is very different to the terminology used in the mIRC front end. For example all messages to channels and individual users are sent / received using PRIVMSG. {{mIRC|/ctcp}} also uses PRIVMSG with a special encoding to indicate it is CTCP. {{mIRC|/me}} action messages are a specific type of CTCP message etc. '''''Use of PARSELINE should therefore be considered advanced scripting and is not for the faint-of-heart.'''''
+The incoming / outgoing lines are in IRC protocol which is very different to the terminology used in the mIRC front end. For example all messages to channels and individual users are sent / received using PRIVMSG. <a href="..\commands\ctcp.html">/ctcp</a> also uses PRIVMSG with a special encoding to indicate it is CTCP. <a href="..\commands\me.html">/me</a> action messages are a specific type of CTCP message etc. '''''Use of PARSELINE should therefore be considered advanced scripting and is not for the faint-of-heart.'''''
 
 Because PARSELINE will be called for every matching line, care should be taken to provide the best possible matchtext in order to minimise the number of times it is called, and to keep the processing undertaken to a reasonable level.
 
@@ -66,5 +66,5 @@ Return $true if mIRC is going to decode/encode utf8 the message after the on par
 
 {{mIRC on event list}}
 
-[[Category:mIRC on events|parseline]]</body>
+</body>
 </html>

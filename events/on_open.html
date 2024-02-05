@@ -26,11 +26,11 @@ Much like the [[On close - mIRC|ON CLOSE]] event, the '''ON OPEN</b> event trigg
 
 <br><b>*</b> - All window types.
 
-'''&lt;matchtext&gt;'''</span>The text that should be matched. Can be a {{mirc|wildcard}}. Specifically for this event, this text will most-likely be from a private message query window opening up. The reason is that this will allow interaction with the text, during the event of a query window opening, immediately, rather than waiting for an [[On text - mIRC|ON TEXT]] event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The text that should be matched. Can be a <a href="..\other\wildcard.html">wildcard</a><br>. Specifically for this event, this text will most-likely be from a private message query window opening up. The reason is that this will allow interaction with the text, during the event of a query window opening, immediately, rather than waiting for an [[On text - mIRC|ON TEXT]] event to trigger.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">; When a query window opens, recognize if
 ; the user has typed the !yourserver command, which will
 ; relay to the user the current server for the mIRC client
@@ -38,9 +38,9 @@ Much like the [[On close - mIRC|ON CLOSE]] event, the '''ON OPEN</b> event trigg
 ON *:OPEN:?:!yourserver:msg $nick Current IRC Server: $server $+ .</pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.3}}
+Added: mIRC v5.3 (13 Dec 1997)
 
-== See Also ==
+<H4>See also</H4>
 [[On close - mIRC|ON CLOSE]]
 {{mIRC on event list}}
 

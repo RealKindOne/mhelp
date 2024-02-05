@@ -54,7 +54,7 @@ But what if we didn't have $day? what if we had something like $2? Let's conside
 
 <pre class ="code">on *:text:!reminder & *:#:{
  if ($2 !isnum) {
-    notice $nick [Reminder] Syntax Error: !reminder <seconds> <message>
+    notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
   }
   .timer 1 $2 notice $nick [Reminder] $3- (Set $2 seconds ago)
@@ -214,7 +214,7 @@ on !*:join:#:{
 
 Let's see what happens:
 
-<pre>
+<pre class ="code">
 <Mike> !setgreet
 -Bot- Syntax Error: !setgreet <greet>
 <Mike> !setgreet Two things are certain in life, death and taxes. - Benjamin Franklin

@@ -12,11 +12,11 @@ The <b>ON DIALOG</b> event listens for events which take place inside of custom 
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
 
-* '''&lt;name&gt;''' - The dialog name that this event triggers for, {{mIRC|wildcard}} accepted.
+* '''&lt;name&gt;''' - The dialog name that this event triggers for, <a href="..\other\wildcard.html">wildcard</a><br> accepted.
 
-* '''&lt;event&gt;''' - The dialog event that this event triggers for, {{mIRC|wildcard}} accepted.
+* '''&lt;event&gt;''' - The dialog event that this event triggers for, <a href="..\other\wildcard.html">wildcard</a><br> accepted.
 
-* '''&lt;id&gt;''' - The id name of the dialog item to listen for, {{mIRC|wildcard}} accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
+* '''&lt;id&gt;''' - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a><br> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
 
 == {{mIRC|local identifiers}} ==
 
@@ -62,7 +62,7 @@ Returns the ID of the control.
 | '''uclick''' || Left mouse button has been released/gone up.
 |}
 
-== Examples ==
+<H4>Example</H4>
 Here we will create an alias that launches a dialog. This dialog has a '''mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
 <pre class ="code">; To use this example, simply type: /mouseListener
 alias mouseListener dialog - $+ $iif($dialog(mouseListener),v,m) mouseListener mouseListener
@@ -124,9 +124,9 @@ Once saved into a script file inside of the mIRC remotes, the above example can 
 Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.5}}
+Added: mIRC v5.5 (08 Jan 1999)
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|$dname}}
 * {{mIRC|$devent}}
 * {{mIRC|$did}}

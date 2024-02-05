@@ -4,7 +4,7 @@
 <H1>$msfile</H1>
 <br>
 <br>
-The <b>$msfile''' Opens dialog to select 1 or more files.
+The <b>$msfile</b> identifier opens dialog to select 1 or more files.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -12,11 +12,11 @@ The <b>$msfile''' Opens dialog to select 1 or more files.
 * '''$msfile(N)'''	After dialog closes, for N>=1 returns the Nth selected filename. For N=0 returns the count of returned filenames.
 </pre>
 <H4>Parameters</H4>
-* '''path'''	Starting folder for the file select dialog. Can be a relative path to $mircdir. Ignores the last "\" delimited token if path doesn't end with "\" or "/". Error if path ends with \\.
-* '''title'''	Optional string placed in the titlebar of the select dialog
-* '''OpenButtonText'''	Optional string to replace 'Open' on that button of the select dialog. You cannot set this parameter without first defining the the title parameter to a non-null string.
+<br><b>path<b> - Starting folder for the file select dialog. Can be a relative path to $mircdir. Ignores the last "\" delimited token if path doesn't end with "\" or "/". Error if path ends with \\.
+<br><b>title<b> - Optional string placed in the titlebar of the select dialog
+<br><b>OpenButtonText<b> - Optional string to replace 'Open' on that button of the select dialog. You cannot set this parameter without first defining the the title parameter to a non-null string.
 
-* '''N'''	When N>=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
+<br><b>N<b> - When N>=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
 
 Note: The returned count of filenames is limited to the number of filenames returned, which can be less than the number of files actually selected. The number of returned filenames varies, and seems to be limited to not allowing the sum of $msfile(0) plus the length of $nopath(filename) strings to be more than somewhere around 1000-1024 bytes. Longer filenames causes fewer filenames to be returned.
 

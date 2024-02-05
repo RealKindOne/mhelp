@@ -3,17 +3,18 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <H1>$base</H1>
 <br>
-<br>The <b>$base''' identifier converts numbers between different number bases, or zero-pads numbers to the desired length.
+<br>The <b>$base</b> identifier converts numbers between different number bases, or zero-pads numbers to the desired length.
+
 <H4>Synopsis</H4>
 <pre class ="code">
-$base(<N>,<InBase>,<OutBase>[,Zero-pad][,Precision])
+$base(&lt;N&gt;,&lt;InBase&gt;,&lt;OutBase&gt;[,Zero-pad][,Precision])
 </pre>
 <H4>Parameters</H4>
-<span style="display: inline-block; width: 100px;">'''N'''</span>The Number being converted.<br />
-<span style="display: inline-block; width: 100px;">'''InBase'''</span>The Number Base in which N is being expressed.<br />
-<span style="display: inline-block; width: 100px;">'''OutBase'''</span>The Number Base to which N is being converted. Can be same as InBase.<br />
-<span style="display: inline-block; width: 100px;">'''ZeroPad'''</span>The output's minimum number of non-fraction digits by adding 0's if needed. Accepts up to 100.<br />
-<span style="display: inline-block; width: 100px;">'''Precision'''</span>Shortens the output's maximum number of fraction digits, limited by mIRC's base-10 precision of 6.<br />
+<br><b>N</b> - The Number being converted.
+<br><b>InBase</b> - The Number Base in which N is being expressed.
+<br><b>OutBase</b> - The Number Base to which N is being converted. Can be same as InBase.
+<br><b>ZeroPad</b> - The output's minimum number of non-fraction digits by adding 0's if needed. Accepts up to 100.
+<br><b>Precision</b> - Shortens the output's maximum number of fraction digits, limited by mIRC's base-10 precision of 6.
 
 * '''Note:''' Beginning v7.72 $base supports the larger integer accuracy of bigfloat mode without needing to use %varname.bf or /bigfloat on, and no longer limits zero padding to 100 digits. But extra precision for fractional input requires bigfloat mode.
 * '''Note:''' InBase & Outbase can be any integer from 2-36, with Base 17-36 extending hexadecimal to use as many letters as needed from the G-Z range. Letters A-Z used by number bases 11 through 36 accept case-insensitive input, but always outputs uppercase.
@@ -97,11 +98,14 @@ result: 0.1
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.7 (02 Feb 2000)<H4>Notes</H4>
+Added: mIRC v5.7 (02 Feb 2000)
+
+<H4>Notes</H4>
 None
+
 <H4>See also</H4>
-* <a href="calc.html">$calc</a><br>
+<a href="calc.html">$calc</a><br>
 <a href="encode.html">$encode</a><br>
-* <a href="bytes.html">$bytes</a><br>
+<a href="bytes.html">$bytes</a><br>
 </body>
 </html>

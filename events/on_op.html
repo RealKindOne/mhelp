@@ -6,7 +6,7 @@
 <br>
 The <b>ON OP</b> event triggers whenever a user on a channel has been elevated to a [[Channel operator - IRC|channel operator]].
 
-This event also fills the {{mIRC|$opnick}} identifier with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The {{mIRC|$nick}} identifier points to the user who added them.
+This event also fills the {{mIRC|$opnick}} identifier with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The <a href="..\identifiers\nick.html">$nick</a><br> identifier points to the user who added them.
 
 <H4>Synopsis</H4>
 <pre>ON &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
@@ -14,7 +14,7 @@ This event also fills the {{mIRC|$opnick}} identifier with the nickname of the u
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The level for the event to trigger..
 
-'''&lt;matchtext&gt;'''</span>The text to match in the event..
+<br><b>&lt;matchtext&gt;</b> - The text to match in the event..
 
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels where the event listens.
 
@@ -29,7 +29,7 @@ Acknowledge when a user has been elevated to a channel operator:
 <H4>Compatability</H4>
 {{mIRC compatibility|2.1a}}
 
-== See Also ==
+<H4>See also</H4>
 * [[On deop - mIRC|ON DEOP]]
 * [[On deowner - mIRC|ON DEOWNER]]
 * [[On devoice - mIRC|ON DEVOICE]]
@@ -38,7 +38,7 @@ Acknowledge when a user has been elevated to a channel operator:
 * [[On serverop - mIRC|ON SERVEROP]]
 * [[On voice - mIRC|ON VOICE]]
 * {{mIRC|/mode}}
-* {{mIRC|$mode}}
+* <a href="..\identifiers\mode.html">$mode</a><br>
 {{mIRC on event list}}
 
 [[Category:mIRC on events|op]]</body>

@@ -9,13 +9,13 @@ The '''$compress''' identifier performs compression of a disk file or binary var
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$compress( <filename | BinaryVariable> ,[b][lN][mN] )
+$compress( &lt;filename | BinaryVariable&gt; ,[b][lN][mN] )
 </pre>
 <H4>Parameters</H4>
-'''Data'''</span>First parameter can be either a disk file (default) or a Binary Variable<br />
-'''b'''</span>Informs that first parameter should be treated as a Binary Variable instead of filename.<br />
-'''lN'''</span>Default compression level is 6 within the range 0-9. lN overrides to use compression level N, where N is integer 0-9. (l0 does not compress, is not the same as the absence of the l switch)<br />
-'''mN'''</span>Default compression method is 2 (zlib). mN overrides to use compression method N, where N = 1 is raw, N = 2 is zlib (the default), and N = 3 is gzip. (0 uses default m2, invalid 4+ uses m3)
+<br><b>Data</b> - First parameter can be either a disk file (default) or a Binary Variable
+<br><b>b</b> - Informs that first parameter should be treated as a Binary Variable instead of filename.
+<br><b>lN</b> - Default compression level is 6 within the range 0-9. lN overrides to use compression level N, where N is integer 0-9. (l0 does not compress, is not the same as the absence of the l switch)
+<br><b>mN</ - Default compression method is 2 (zlib). mN overrides to use compression method N, where N = 1 is raw, N = 2 is zlib (the default), and N = 3 is gzip. (0 uses default m2, invalid 4+ uses m3)
 
 <H4>Example</H4>
 
@@ -59,7 +59,7 @@ version 7.51 expanded lN from 1-6 to 0-9, and introduced mN
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-* {{mIRC|$decompress}}
+{{mIRC|$decompress}}
 
-[[Category:mIRC identifiers|compress]]</body>
+</body>
 </html>

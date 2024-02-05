@@ -3,7 +3,7 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <H1>$dccignore</H1>
 <br>
-<br>The <b>$dccignore''' identifier will return either <a href="true.html">$true</a><br> or <a href="false.html">$false</a><br> depending on the the [[/dcc command - mIRC|DCC]] ignore option within mIRC. This identifier can also be used to retrieve certain DCC ignore file type options, also from within the DCC ignore options window.
+<br>The <b>$dccignore</b> identifier will return either <a href="true.html">$true</a> or <a href="false.html">$false</a> depending on the the <a href="..\commands\dcc.html">/dcc</a> ignore option within mIRC. This identifier can also be used to retrieve certain DCC ignore file type options, also from within the DCC ignore options window.
 
 
 <H4>Synopsis</H4>
@@ -11,16 +11,17 @@
 $dccignore[(N/filename)]
 </pre>
 <H4>Parameters</H4>
-{{ArgsList
-| N | Matches the Nth file name/ignore type within the DCC ignore options list
-| filename | This can be a <a href="..\other\wildcard.html">wildcard</a>, and matches the specific filename/extension in the DCC ignore options list
-}}
+<br><b>N</b> - Matches the Nth file name/ignore type within the DCC ignore options list
+<br><b>filename</b> - This can be a <a href="..\other\wildcard.html">wildcard</a>, and matches the specific filename/extension in the DCC ignore options list
+
+<H4>Properties</H4>
+None
 
 <H4>Example</H4>
 Echo to the active window the total number of DCC ignore list items:
 <pre class ="code">//echo -a $dccignore(0)</pre>
 
-Echo to the active window if '''*.exe''' is in the DCC ignore list:
+Echo to the active window if "*.exe" is in the DCC ignore list:
 <pre class ="code">//echo -a $dccignore(*.exe)</pre>
 
 Echo to the active window the last item in the DCC ignore list:
@@ -31,8 +32,8 @@ Added: mIRC v5.61 (23 Sep 1999)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-* [[/dcc command - mIRC|DCCs]]
+<a href="..\commands\dcc.html">/dcc</a><br>
 
 
-[[Category:mIRC identifiers|dccignore]]</body>
+</body>
 </html>

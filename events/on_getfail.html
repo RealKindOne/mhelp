@@ -22,14 +22,14 @@ The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via {{m
 
 Returns the complete filename of the received file.
 
-== Examples ==
+<H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:
 <pre class ="code">ON *:GETFAIL:*:echo -a Failed to receive $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 
 <H4>Compatability</H4>
 {{mIRC compatibility|5.0}}
 
-== See Also ==
+<H4>See also</H4>
 * [[/dcc command - mIRC|/DCC SEND]]
 * [[On filercvd - mIRC|ON FILERCVD]]
 * [[On filesent - mIRC|ON FILESENT]]

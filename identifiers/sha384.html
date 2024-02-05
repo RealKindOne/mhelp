@@ -4,15 +4,12 @@
 <H1>$sha384</H1>
 <br>
 <br>
-The <b>$sha384''' calculates the sha384 hash of a text string, {{mirc|binary variables|binary variable}}, or disk file. The hash digest is 384-bits, shown as 96 lower-case hexadecimal characters.
+The <b>$sha384</b> identifier calculates the sha384 hash of a text string, {{mirc|binary variables|binary variable}}, or disk file. The hash digest is 384-bits, shown as 96 lower-case hexadecimal characters.
 <H4>Synopsis</H4>
 <pre class ="code">$sha384(plaintext|&binaryvar|filename,[N])</pre>
-</pre>
 <H4>Parameters</H4>
 <br><b>plaintext</b> - Used with N = 0, the string for which you want the sha384 hash
-
 <br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha384 hash of the content of the binvar
-
 <br><b>filename</b> - A filename, used with N = 2, returns the sha384 hash of the content of the file
 
 '''N:''' Default 0. Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
@@ -55,14 +52,14 @@ Either using a zero-length/non-existent binary variable or specifying an N outsi
 Both above errors halt execution of the script
 
 <H4>Compatibility</H4>
-Added: mIRC v7.42 (17 Jul 2015)<H4>Notes</H4>
+Added: mIRC v7.42 (17 Jul 2015)
+
+<H4>Notes</H4>
 None
+
 <H4>See also</H4>
-{{collist
-|count = 3
-|style = width: 60%; display: inherit;
-|
-* <a href="sha1.html">$sha1</a><br>
+
+<a href="sha1.html">$sha1</a><br>
 <a href="sha256.html">$sha256</a><br>
 <a href="sha512.html">$sha512</a><br>
 <a href="hmac.html">$hmac</a><br>
@@ -70,5 +67,5 @@ None
 <a href="totp.html">$totp</a><br>
 <a href="md5.html">$md5</a><br>
 <a href="crc.html">$crc</a><br>
-}}</body>
+</body>
 </html>

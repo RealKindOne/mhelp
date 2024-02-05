@@ -4,7 +4,7 @@
 <H1>On Udpwrite</H1>
 <br>
 <br>
-The <b>ON UDPWRITE''' is an event which was added in mIRC with UDP, but never has been documented. The event was meant to be used as the {{mIRC|on sockwrite}} event for TCP, however the actual design ended up being that:
+The <b>ON UDPWRITE</b> is an event which was added in mIRC with UDP, but never has been documented. The event was meant to be used as the {{mIRC|on sockwrite}} event for TCP, however the actual design ended up being that:
 * on sockwrite triggers for UDP socket if no error happened
 * on udpwrite will trigger if an error occurred.
 
@@ -16,12 +16,12 @@ The <b>ON UDPWRITE''' is an event which was added in mIRC with UDP, but never ha
 
 == Writing more ==
 
-It is possible that the data hasn't sent successfuly, especially with UDP, you should be checking for error with {{mIRC|$sockerr}} before trying to do anything, here is a list of the possible value for $sockerr in the on UDPWRITE event:
+It is possible that the data hasn't sent successfuly, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on UDPWRITE event:
 
 * '''0''' - The data has been written sucessfuly.
 * '''3''' - Error occurred while trying to send the data, $sock().wsmsg will contain a more specific error message.
 
-== Examples ==
+<H4>Example</H4>
 
 <pre class ="code">
 on *:udpwrite:name:{
@@ -30,22 +30,22 @@ on *:udpwrite:name:{
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.5}}
+Added: mIRC v5.5 (08 Jan 1999)
 
 Removed: mIRC v7.33
 
 Removed On:27/05/2014
 
-== See Also ==
-* {{mIRC|List of on events|mIRC events}}
-* {{mIRC|/sockwrite}}
-* {{mIRC|/sockclose}}
-* {{mIRC|/sockread}}
-* {{mIRC|/sockaccept}}
-* {{mIRC|/sockpause}}
-* {{mIRC|$sock}}
-* {{mIRC|$sockbr}}
-* {{mIRC|$sockerr}}
+<H4>See also</H4>
 
-[[Category:mIRC on events|udpwrite]]</body>
+<a href="..\commands\sockwrite.html">/sockwrite</a><br>
+<a href="..\commands\sockclose.html">/sockclose</a><br>
+<a href="..\commands\sockread.html">/sockread</a><br>
+<a href="..\commands\sockaccept.html">/sockaccept</a><br>
+<a href="..\commands\sockpause.html">/sockpause</a><br>
+<a href="..\identifiers\sock.html">$sock</a><br>
+<a href="..\identifiers\sockbr.html">$sockbr</a><br>
+<a href="..\identifiers\sockerr.html">$sockerr</a><br>
+
+</body>
 </html>

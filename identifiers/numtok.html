@@ -9,16 +9,16 @@ The <b>$numtok</b> identifier returns the number of $asc(C)-delimited token in a
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$numtok(&lt;list&gt;,<C>)
+$numtok(&lt;list&gt;,&lt;C&gt;)
 </pre>
 <H4>Parameters</H4>
 <br><b>LIST</b> - Text list delimited by a character into tokens
-<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits LIST into tokens
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits LIST into tokens
 
 <H4>Properties</H4>
 None
 
-== Examples ==
+<H4>Example</H4>
 Echo to the active window, the number of tokens delimited by the $chr(45) hyphen:
 
 <pre class ="code">//echo -a $numtok(a-b-c-d-e,45)

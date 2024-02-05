@@ -11,7 +11,7 @@ The <b>/loadbuf</b> command loads the specified number of lines from the end of 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/loadbuf [lines] [-apiNrsglecNnomt&lt;topic&gt;] <window | dialog id> &lt;filename&gt;
+/loadbuf [lines] [-apiNrsglecNnomt&lt;topic&gt;] &lt;window | dialog id&gt; &lt;filename&gt;
 </pre>
 <H4>Switches</H4>
 
@@ -48,19 +48,18 @@ The <b>/loadbuf</b> command loads the specified number of lines from the end of 
 <H4>Parameters</H4>
 
 
-    * - [lines]
+<br><b>[lines]</b>
       - If specified, the number of lines to add from the end the file, otherwise the whole content of the file is added.
-    * - <window | dialog id>
+<br><b>&lt;window | dialog id&gt;</b>
       - The window's name or the dialog's name and an id to adds the lines to.
 <br><b>&lt;filename&gt;</b>
       - The filename you want to add lines from.
 
 <H4>Example</H4>
 <pre class ="code">
-
-<code>//window @test | loadbuf $lines($mircini) @test $qt($mircini)</code>
-
+//window @test | loadbuf $lines($mircini) @test $qt($mircini)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (21 Apr 1997)
 
@@ -69,7 +68,7 @@ None
 <H4>See also</H4>
 
 
-   <a href="filter.html">/filter</a><br>
-   <a href="savebuf.html">/savebuf</a><br>
+<a href="filter.html">/filter</a><br>
+<a href="savebuf.html">/savebuf</a><br>
 </body>
 </html>

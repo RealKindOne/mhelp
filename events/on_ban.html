@@ -14,7 +14,7 @@ The <b>ON BAN</b> event is triggered whenever a user on a channel has been banne
 <br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
 * '''<*>&lt;#[,#]&gt;''' - The place, or places where the event listens, you can seperate them by comma.
 <br><b>*</b> - Any channel window
-** '''#''' - Any channel window
+<br><b>#</b> - Any channel window
 ** '''#channel[,#]''' - one or more specific channels, seperate them by comma
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
@@ -41,9 +41,9 @@ In this situation, if the banners level is larger than or equal to the banned us
 
 Otherwise, it defaults to the second ON BAN line which indicates that it is an illegal ban. Remember, this is comparing the banners and banned users levels and has nothing to do with the level 2 in the definition.
 
-Remember that $banmask is usually a {{mirc|wildcard}} string which means that it will match both wildcard and non-wildcard user strings in your remote users section.
+Remember that $banmask is usually a <a href="..\other\wildcard.html">wildcard</a><br> string which means that it will match both wildcard and non-wildcard user strings in your remote users section.
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">; This ban event listens for a ban
 ; on all channels, and responds by messaging the channel.
 
@@ -59,11 +59,11 @@ ON *:BAN:#myChannel,#myOtherChannel:msg # Wow, so $iif($bnick,$bnick just got in
 <H4>Compatability</H4>
 {{mIRC compatibility|4.5}}
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|$banmask}}
 * {{mIRC|$bnick}}
 * {{mIRC|$ibl}}
-* {{mIRC|/ban}}
+* <a href="..\commands\ban.html">/ban</a><br>
 * {{mIRC|on events/on unban|on unban event}}
 {{mIRC on event list}}
 

@@ -8,11 +8,12 @@ The <b>$hmac</b> identifier returns an HMAC (keyed-Hash Message Authentication C
 <H4>Synopsis</H4>
 <pre class ="code">
 $hmac(text|&binvar|filename, key, hash, N)
+</pre>
 <H4>Parameters</H4>
-* '''text|&binvar|filename''' - the input
-* '''key''' - the key
+<br><b>text|&binvar|filename</b> - the input
+<br><b>key</b> - the key
 <br><b>N</b> - the type of input, use N = 0 if input is plain text, N = 1 for &binvar, and 2 for filename
-* '''hash''' - optional, hashing algorithm, can be md5, sha1 (default), sha256, sha384, or sha512.
+<br><b>hash</b> - optional, hashing algorithm, can be md5, sha1 (default), sha256, sha384, or sha512.
 
 Due to algorithm design:
 * output is a hash digest that's the same length as the digest for the hash parameter (default sha1)
@@ -42,16 +43,18 @@ From v7.54 back through at least v6.35, $hmac corrupts the &binvar if the length
 Through v7.53, $hmac using hash method sha512 or sha384 and a key whose length is 65-128 returned an incorrect HMAC due to replacing the key with its own hash for lengths 65+ instead of only for 129+. This also affects $hotp and $totp using the same combination of key length and hashname.
 //echo -a $hmac(message,$str(z,65),sha512) should be 9268b9d645082fc13c54f4590883961ab2adf80b169614d4eb90fe5a645f7d4aed13b9e3151623a7fb0ef2480182879ed7d530f1d169d352ad311054ef4d14f1
 <H4>Compatibility</H4>
-Added: mIRC v7.42 (17 Jul 2015)<H4>Notes</H4>
+Added: mIRC v7.42 (17 Jul 2015)
+
+<H4>Notes</H4>
 None
 <H4>See also</H4>
 
-* <a href="hotp.html">$hotp</a><br>
+<a href="hotp.html">$hotp</a><br>
 <a href="totp.html">$totp</a><br>
 <a href="sha1.html">$sha1</a><br>
 <a href="sha256.html">$sha256</a><br>
 <a href="sha512.html">$sha512</a><br>
 <a href="sha384.html">$sha384</a><br>
 <a href="md5.html">$md5</a><br>
-}}</body>
+</body>
 </html>

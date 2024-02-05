@@ -15,7 +15,7 @@ $gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 <H4>Parameters</H4>
 <br><b>LIST</b> - Text list delimited by a character into tokens<br />
 <br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
-<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits TEXT into tokens<br />
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 <br>
 If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
 If N is greater than the total number of tokens, returns {{mIRC|$null|$null}} <br />
@@ -32,22 +32,24 @@ None
 <H4>Example</H4>
 
 Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
+<pre class ="code">
 ; returns b
 //echo -a $gettok(a-b-c-d-e,2,45)
-
+</pre>
 
 $chr(32) is the space character. Echo the current month to the active window:
 //echo -a The current month is $gettok($asctime,2,32)
 
 This returns ''Mon Tue'' because the space between %x %y becomes the 2nd delimiter:
 //var %x Sun Mon | var %y Tue Wed Thu Fri Sat | echo -a $gettok(%x %y,2-3,32)
-
+<br>
 $chr(58) is the colon, $chr(92) is the backslash:
-
+<pre class ="code">
 //echo -a This $gettok($mircexe,-1,92) is installed on the $gettok($mircexe,1,58) drive letter in a program folder named $gettok($mircexe,-2,92)
 //var %i $gettok($mircexe,0,92) | echo -a $gettok($mircexe,1- $+ $calc(%i -1) ,92) is mIRC's path without the ending backslash
+</pre>
 
-
+<pre class ="code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2-4,46)
 ; returns Mon.Tue.Wed (including the delimiter period between the returned tokens
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,3-,46)
@@ -74,7 +76,7 @@ $gettok puts range numbers in the correct order before evaluating them.
 ; returns same results as if range 3-4 were used
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-4-3,46)
 ; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
-
+</pre>
 
 '''Note:''' $gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
 

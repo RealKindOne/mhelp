@@ -28,48 +28,32 @@ The <b>/msg</b> command sends a message to a specific channel or person. Many ne
 <H4>Parameters</H4>
 
 
-    * - &lt;nick|channel&gt;name/&lt;nick|channel&gt;
+<br><b>&lt;nick|channel&gt;name/&lt;nick|channel&gt;</b>
       - The target channel or person for the message, use the form "=&lt;nickname&gt;" to reference a dcc window, =$nick is accepted.
 <br><b>&lt;message&gt;</b>
       - The message to be sent
 
 <H4>Example</H4>
 <pre class ="code">
+on *:text:!moo:#:{
+  ; Message the channel moos back
+  msg $chan moos back
+}</pre>
 
-<H4>Example</H4>
-<pre class ="code"> 1
-^^^^^^^^^
-
-
-    on *:text:!moo:#:{
-    ; Message the channel moos back
-    msg $chan moos back
-    }
-
-<H4>Example</H4>
-<pre class ="code"> 2
-^^^^^^^^^
-
-
-    /* Example 2
-    */
-    on ^*:open:?:{
-    if ($away) {
-    msg $nick I am currently away ( $+ $awaymsg $+ ), please leave me a memo: /ms send $me <memo>
-    }
-    halt
-    }
-
-<H4>Example</H4>
-<pre class ="code"> 3
-^^^^^^^^^
-
-Using the equals sign to send *SomeUser* a message via DCC/FSERVE Chat
-
-
-    //msg =SomeUser Hey there, this is going to your open DCC/FSERVE Chat window, instead!
-
+<pre class ="code">
+/* Example 2
+*/
+on ^*:open:?:{
+  if ($away) {
+    msg $nick I am currently away ( $+ $awaymsg $+ ), please leave me a memo: /ms send $me &lt;memo&gt;
+  }
+  halt
+}
 </pre>
+
+Using the equals sign to send "SomeUser" a message via DCC/FSERVE Chat
+<pre class ="code">//msg =SomeUser Hey there, this is going to your open DCC/FSERVE Chat window, instead!</pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
 

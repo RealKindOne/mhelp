@@ -10,7 +10,7 @@ The <b>ON SOCKLISTEN</b> event triggers when a connection is made on a listening
 <pre>ON &lt;level&gt;:SOCKLISTEN:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-'''&lt;matchtext&gt;'''</span>The name of the socket you want event to trigger on.
+<br><b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
@@ -29,7 +29,7 @@ You should be checking for $sockerr before accepting the connection to see if an
 * '''2''' - Error accepting new socket, $sock().wsmsg will contain a more specific error message.
 * '''4''' - Not enough memory for new socket. Note that getting this error is considered rare.
 
-== Examples ==
+<H4>Example</H4>
 
 <pre class ="code">
 on *:socklisten:name:{
@@ -41,22 +41,22 @@ on *:socklisten:name:{
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|3.5}}
+Added: mIRC v3.5 (07 Aug 1995)
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|on events|mIRC events}}
-* {{mirc|on events/on sockopen|on sockopen}}
-* {{mirc|on events/on sockread|on sockread}}
-* {{mirc|on events/on sockwrite|on sockwrite}}
-* {{mirc|on events/on sockclose|on sockclose}}
-* {{mIRC|/sockwrite}}
-* {{mIRC|/sockclose}}
-* {{mIRC|/sockread}}
-* {{mIRC|/sockaccept}}
-* {{mIRC|/sockpause}}
-* {{mIRC|$sock}}
-* {{mIRC|$sockbr}}
-* {{mIRC|$sockerr}}
+* <a href="On_SockOpen.html">On_SockOpen</a><br>
+* <a href="On_SockRead.html">On_SockRead</a><br>
+* <a href="On_SockWrite.html">On_SockWrite</a><br>
+* <a href="On_SockClose.html">On_SockClose</a><br>
+* <a href="..\commands\sockwrite.html">/sockwrite</a><br>
+* <a href="..\commands\sockclose.html">/sockclose</a><br>
+* <a href="..\commands\sockread.html">/sockread</a><br>
+* <a href="..\commands\sockaccept.html">/sockaccept</a><br>
+* <a href="..\commands\sockpause.html">/sockpause</a><br>
+* <a href="..\identifiers\sock.html">$sock</a><br>
+* <a href="..\identifiers\sockbr.html">$sockbr</a><br>
+* <a href="..\identifiers\sockerr.html">$sockerr</a><br>
 
-[[Category:mIRC on events|socklisten]]</body>
+</body>
 </html>

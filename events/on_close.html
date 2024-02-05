@@ -13,7 +13,7 @@ The <b>ON CLOSE</b> event triggers within mIRC when a specific window type is cl
 
 * '''<*><#><?><@><=><!>''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
 <br><b>*</b> - Any channel/query/dcc/custom windows
-** '''#''' - Any #channel windows
+<br><b>#</b> - Any #channel windows
 <br><b>?</b> - Any query windows
 ** '''=''' - Any dcc chat windows
 ** '''!''' - Any dcc server windows
@@ -23,7 +23,7 @@ The <b>ON CLOSE</b> event triggers within mIRC when a specific window type is cl
 
 {{mIRC|$target}} is filled with the name of the window related to the event.
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">; When Channel window are closed, print a message to
 ; the "Status Window".
 
@@ -44,9 +44,9 @@ ON *:CLOSE:*: {
 }</pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.3}}
+Added: mIRC v5.3 (13 Dec 1997)
 
-== See Also ==
+<H4>See also</H4>
 [[On open - mIRC|ON OPEN]]
 {{mIRC on event list}}
 

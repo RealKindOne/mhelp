@@ -4,36 +4,36 @@
 <H1>$calc</H1>
 <br>
 <br>
-The <b>$calc''' can be used to perform mathematical calculations from the mIRC editbox line, or from inside of a custom script. The accuracy of results is limited to that of the 53-bit 'doubles' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
+The <b>$calc</b> can be used to perform mathematical calculations from the mIRC editbox line, or from inside of a custom script. The accuracy of results is limited to that of the 53-bit 'doubles' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
 <H4>Synopsis</H4>
 <pre class ="code">
 $calc(operations)
-
-The '''$calc''' identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view. '''$calc''' can also be used to calculate variables in mIRC, as well as other custom identifiers that return numerical values.
 </pre>
+The <b>$calc</b> identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view. '''$calc''' can also be used to calculate variables in mIRC, as well as other custom identifiers that return numerical values.
+
 <H4>Parameters</H4>
-'''operations'''</span>These are a specific set of mathematical operations for '''$calc''' to perform.
+<br><b>operations</b> - These are a specific set of mathematical operations for '''$calc''' to perform.
 
 == Operators ==
 '''The TLDR version of most of this is: Use plenty of parenthesis, which improves readability as well as ensuring the operations are performed in the order you wish.'''
 
 When parenthesis are not used to override the order of evaluation, these are the operators and the order in which they are used in calculating the result:<br />
 
-'''()'''</span>1. Parenthesis
+<br><b>()</b> 1. Parenthesis
 
-'''^'''</span>2. Exponent
+<br><b>^</b> 2. Exponent
 
-'''//'''</span>3. Floor division, X // Y same as $floor($calc(X / Y)) (Added v7.41)
+<br><b>//</b> 3. Floor division, X // Y same as $floor($calc(X / Y)) (Added v7.41)
 
-'''%'''</span>3. Modulus X % Y is remainder when dividing X / Y
+<br><b>%</b> 3. Modulus X % Y is remainder when dividing X / Y
 
-'''*'''</span>3. Multiplication
+<br><b>*</b> 3. Multiplication
 
-'''/'''</span>3. Division
+<br><b>/</b> 3. Division
 
-'''+'''</span>4. Addition
+<br><b>+</b> 4. Addition
 
-'''-'''</span>4. Subtraction
+<br><b>-</b> 4. Subtraction
 
 
 '''Parenthesis used to demonstrate the order. Operations at the same level are executed left-to-right:'''
@@ -43,7 +43,7 @@ Then it splits the formula into separate groups delimited by either + add or - s
 Then the level#3 operations within each group are performed left-to-right.
 Finally the + and - groups groups are added/subtracted together from left-to-right order. 
 
-== Examples ==
+<H4>Example</H4>
 '''Echo a simple addition calculation to the active window'''
 <pre class ="code">//echo -a $calc(3 + 5)</pre>
 
@@ -146,21 +146,45 @@ In this case, the first result rounded to the nearest 9 decimal places is 10.000
 </pre>
 See also the $calc section at {{mIRC|msl_injection#$calc()}}
 
-== Compatability ==
-Added: mIRC v5.1 (28 Aug 1997)<H4>Notes</H4>
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (28 Aug 1997)
+<H4>Notes</H4>
 None
 <H4>See also</H4>
-* <a href="base.html">$base</a><br>
-<a href="abs.html">$abs</a><br>, <a href="int.html">$int</a><br>, <a href="ceil.html">$ceil</a><br>, <a href="floor.html">$floor</a><br>, <a href="round.html">$round</a><br>
-<a href="and.html">$and</a><br>, <a href="not.html">$not</a><br>, <a href="or.html">$or</a><br>, <a href="xor.html">$xor</a><br>
-* {{mIRC|$sqrt}}
-* {{mIRC|$pi}}
-* <a href="rand.html">$rand</a><br>
-* <a href="log.html">$log</a><br>, <a href="log10.html">$log10</a><br>
-* <a href="sin.html">$sin</a><br>, <a href="asin.html">$asin</a><br>, <a href="sinh.html">$sinh</a><br>
-<a href="cos.html">$cos</a><br>, <a href="acos.html">$acos</a><br>, <a href="cosh.html">$cosh</a><br>
-<a href="tan.html">$tan</a><br>, <a href="atan.html">$atan</a><br>, <a href="atan2.html">$atan2</a><br>, <a href="tanh.html">$tanh</a><br>
-<a href="biton.html">$biton</a><br>, <a href="bitoff.html">$bitoff</a><br>, <a href="isbit.html">$isbit</a><br>
-* {{mIRC|$hypot}}, {{mIRC|$intersect}}
-* <a href="inrect.html">$inrect</a><br>, <a href="inroundrect.html">$inroundrect</a><br>, <a href="inellipse.html">$inellipse</a><br>, <a href="inpoly.html">$inpoly</a><br>, <a href="onpoly.html">$onpoly</a><br>,</body>
+<a href="base.html">$base</a><br>
+<a href="abs.html">$abs</a><br>
+<a href="int.html">$int</a><br>
+<a href="ceil.html">$ceil</a><br>
+<a href="floor.html">$floor</a><br>
+<a href="round.html">$round</a><br>
+<a href="and.html">$and</a><br>
+<a href="not.html">$not</a><br>
+<a href="or.html">$or</a><br>
+<a href="xor.html">$xor</a><br>
+<a href="sqrt.html">$sqrt</a><br>
+<a href="pi.html">$pi</a><br>
+<a href="rand.html">$rand</a><br>
+<a href="log.html">$log</a><br>
+<a href="log10.html">$log10</a><br>
+<a href="sin.html">$sin</a><br>
+<a href="asin.html">$asin</a><br>
+<a href="sinh.html">$sinh</a><br>
+<a href="cos.html">$cos</a><br>
+<a href="acos.html">$acos</a><br>
+<a href="cosh.html">$cosh</a><br>
+<a href="tan.html">$tan</a><br>
+<a href="atan.html">$atan</a><br>
+<a href="atan2.html">$atan2</a><br>
+<a href="tanh.html">$tanh</a><br>
+<a href="biton.html">$biton</a><br>
+<a href="bitoff.html">$bitoff</a><br>
+<a href="isbit.html">$isbit</a><br>
+<a href="hypot.html">$hypot</a><br>
+<a href="intersect.html">$intersect</a><br>
+<a href="inrect.html">$inrect</a><br>
+<a href="inroundrect.html">$inroundrect</a><br>
+<a href="inellipse.html">$inellipse</a><br>
+<a href="inpoly.html">$inpoly</a><br>
+<a href="onpoly.html">$onpoly</a><br>
+</body>
 </html>

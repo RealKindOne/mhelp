@@ -4,7 +4,7 @@
 <H1>$comcall</H1>
 <br>
 <br>
-The <b>$comcall''' calls a member of an open COM connection with the specified method and parameter, it is multithreaded and won't halt the script, an alias is called once the call returns.
+The <b>$comcall</b> identifier calls a member of an open COM connection with the specified method and parameter, it is multithreaded and won't halt the script, an alias is called once the call returns.
 
 If $comcall() fails when calling an object and $com() does not, this means that the object is not compatible with the threading model of mIRC, so $com() must be used. You can check the $comerr value in the alias to determine if a $comcall() failed or not.
 
@@ -16,33 +16,21 @@ $comcall(name,alias,member,method,type1,value1,...,typeN,valueN)
 </pre>
 <H4>Parameters</H4>
 <br><b>name</b> -The name of the connection or the Nth connection
-* '''alias''' - The name of an alias that will be called once the call returns
-* '''member''' - The name of the function of the object
-* '''method''' - A combination of the following value added together:
-{| class="wikitable"
-|-
-! Value !! Method
-|-
+<br><b>alias</b> - The name of an alias that will be called once the call returns
+<br><b>member</b> - The name of the function of the object
+<br><b>method</b> - A combination of the following value added together:
+
 | 1 || DISPATCH_METHOD - Call a member of an object
-|-
 | 2 || DISPATCH_PROPERTYGET - Return a value
-|-
 | 3 || (1+2) Call a member and return a value *
-|-
 | 4 || DISPATCH_PROPERTYPUT - Set a property
-|-
 | 5 || (1+4) Set a property with a member call *
-|-
 | 6 || (2+4) Set a property and return a value *
-|-
 | 7 || (1+2+4) Set a property and return a value with a member call *
-|-
 | 8 || DISPATCH_PROPERTYPUTREF - Set a property by reference
-|-
 | 9 || (1+8) Set a property by reference with a member call *
-|-
 | 10 || (2+8) Set a property by reference and return a value *
-|}
+
 
 * '''type1''' - The variable type, can be:
 {| class="wikitable"
@@ -119,10 +107,10 @@ Added: mIRC v5.9 (26 Apr 2001)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-* {{mIRC|$comval}}
-* {{mIRC|$comerr}}
-* {{mIRC|/comopen}}
-* {{mIRC|/comclose}}
+<a href="comval.html">$comval</a><br>
+<a href="comerr.html">$comerr</a><br>
+<a href="..\commands\comopen.html">/comopen</a><br>
+<a href="..\commands\comclose.html">/comclose</a><br>
 
-[[Category:mIRC identifiers|com]]</body>
+</body>
 </html>

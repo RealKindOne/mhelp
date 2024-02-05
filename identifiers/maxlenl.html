@@ -4,7 +4,7 @@
 <H1>$maxlenl</H1>
 <br>
 <br>
-The <b>$maxlenl''' return the maximum number of characters that can safely be used in a statement in a script.
+The <b>$maxlenl</b> identifier return the maximum number of characters that can safely be used in a statement in a script.
 
 The current value is 10240
 
@@ -27,7 +27,7 @@ $maxlenl
 <H4>Parameters</H4>
 None
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">//echo -a $maxlenl</pre>
 
 Note that many identifiers chop strings at $maxlenl+100 instead of chopping at $maxlenl, which makes it difficult to use the output in a script. This next command shows that the output from $utfencode is chopped at $maxlenl+100, which does not leave any remaining room for anything else on the command line. The method for creating %c is one way to prevent the error which happens when trying to create %d:<br/>
@@ -50,9 +50,11 @@ result: binvar now has 10340 bytes from 10 lines of clipboard with reported tota
 
 
 <H4>Compatibility</H4>
-{{mIRC compatibility|7.53}}<H4>Notes</H4>
+Added: mIRC v7.53 (29 Nov 2018)
+<H4>Notes</H4>
 None
 <H4>See also</H4>
-* {{mIRC|$maxlens}}
-* {{mIRC|$maxlenm}}</body>
+<a href="maxlens.html">$maxlens</a><br>
+<a href="maxlenm.html">$maxlenm</a><br>
+</body>
 </html>

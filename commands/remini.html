@@ -6,44 +6,41 @@
 </H1>
 <br>
 <br>
-
-The <b>/remini</b> command deletes a whole section or a single item in an INI file
-
-<br><b>Note:</b> you shouldn't be using this on the INI files used by mIRC but that should work.
+The <b>/remini</b> command deletes a whole section or a single item in an INI file.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/remini <inifile> <section> [item]
-
+/remini &lt;inifile&gt; &lt;section&gt; [item]
 </pre>
-<H4>Switches</H4>
 
+
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
 
-
-    * - <inifile>
+<br><b>&lt;inifile&gt;</b>
       - The filename of the ini file
-    * - <section>
+<br><b>&lt;section&gt;</b>
       - The section of the ini file you want to delete
-    * - [item]
+<br><b>[item]</b>
       - If speficied, the item you want to delete in the section, otherwise the whole section is deleted
 
 <H4>Example</H4>
 <pre class ="code">
-
+/remini foobar.ini example
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)
 
 <H4>Notes</H4>
-None
+You should NOT be using this on the INI files used by mIRC but that should work.
+
+
 <H4>See also</H4>
-
-
-   <a href="writeini.html">/writeini</a><br>
-   <a href="..\identifiers\readini.html">$readini</a><br>
-   <a href="..\identifiers\ini.html">$ini</a><br>
+<a href="writeini.html">/writeini</a><br>
+<a href="..\identifiers\readini.html">$readini</a><br>
+<a href="..\identifiers\ini.html">$ini</a><br>
 </body>
 </html>

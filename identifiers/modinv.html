@@ -15,7 +15,7 @@ Returns -1 if no inverse exists
 </pre>
 <H4>Parameters</H4>
 <br><b>N</b> - Integer
-* '''modulus''' - divisor used for obtaining the inverse of N
+<br><b>modulus</b> - divisor used for obtaining the inverse of N
 <H4>Properties</H4>
 None
 <H4>Example</H4>
@@ -27,10 +27,12 @@ Note: modinv(1,2017) = 1 because (1 * 1) is greater than (0*2017)
 //var %i 9 | var %a $rand(1,999) , %m $rand(1,999) | if ($gcd(%a,%m) > 1) echo 4 -a GCD( %a , %m ) = $v1 is greater than 1, so there is no mod inv(A,M): $modinv(%A,%M) | else echo 3 -a GCD( %A , %M ) = $gcd(%a,%m) so there is a mod inverse (A,M) and it is $modinv(%a,%m)
 </pre>
 <H4>Compatibility</H4>
-{{mIRC compatibility|7.72}}<H4>Notes</H4>
+Added: mIRC v7.72 (27 Nov 2022)
+<H4>Notes</H4>
 None
 <H4>See also</H4>
-* <a href="gcd.html">$gcd</a><br>
-* <a href="lcm.html">$lcm</a><br>
-* {{mIRC|$powmod}}</body>
+<a href="gcd.html">$gcd</a><br>
+<a href="lcm.html">$lcm</a><br>
+<a href="powmod.html">$powmod</a><br>
+</body>
 </html>

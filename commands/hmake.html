@@ -24,11 +24,10 @@ Because the hash table uses chaining to resolve collisions and due to the fact m
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/hmake [-smNhL] <table_name> [num_buckets]
-
+/hmake [-smNhL] &lt;table_name&gt; [num_buckets]
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 
 <br><b>-s</b>
       - displays a successful creation, or reports the table already exists
@@ -37,22 +36,22 @@ Because the hash table uses chaining to resolve collisions and due to the fact m
 <br><b>-h</b>L
       - - Specify the name of the algorithm to be used for the hash function for this table, the value of L is a letter, it can be:
 
-** **r** - rot
+<br><b>r</b> - rot
 
-** **f** - fnv1a
+<br><b>f</b> - fnv1a
 
-** **l** - lookup3
+<br><b>l</b> - lookup3
 
-** **m** - murmur3
+<br><b>m</b> - murmur3
 
-** **x** - xxhash
+<br><b>x</b> - xxhash
 
 <H4>Parameters</H4>
 
 
-    * - <table_name>
+<br><b>&lt;table_name&gt;</b>
       - The name of the table you wish to make.
-    * - [num_buckets]
+<br><b>[num_buckets]</b>
       - The number of buckets to use as the table's capacity (If no number is specified, the default is 100 (effectively 101 buckets))
 
 <H4>Example</H4>

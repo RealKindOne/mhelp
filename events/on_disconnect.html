@@ -20,7 +20,7 @@ The <b>ON DISCONNECT</b> event triggers when mIRC has disconnected from an IRC s
 
 Returns the server disconnect message that is passed to mIRC.
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">; Echo network, and time
 ; when mIRC disconnected
 ON *:DISCONNECT:echo -a Disconnected from $network on $asctime(dddd mmmm $+(ddoo,$chr(44), yyyy)) at $asctime(hh:mmtt) $+ . Server disconnect reason: $1-</pre>
@@ -33,7 +33,7 @@ The {{mIRC|$asctime}} identifier has been used here in order to specifically for
 <H4>Compatability</H4>
 {{mIRC compatibility|2.1a}}
 
-== See Also ==
+<H4>See also</H4>
 * [[On connect - mIRC|ON CONNECT]]
 * [[On connectfail - mIRC|ON CONNECTFAIL]]
 * {{mIRC|$network}}

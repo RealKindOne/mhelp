@@ -14,14 +14,14 @@ $istok(&lt;list&gt;,&lt;token&gt;,&lt;C&gt;)
 <H4>Parameters</H4>
 <br><b>LIST</b> - Text list delimited by a character into tokens<br />
 '''Token:''' - The token searched for in LIST<br />
-<br><b>C</b> - The {{mIRC|$asc|$asc()}} value which splits TEXT into tokens<br />
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 
 The search is for entire token, not partials, and the search is NOT case-sensitive. If you need the token search to be case-sensitive, use {{mIRC|$istokcs|$istokcs}} which has the same syntax}}
 
 <H4>Properties</H4>
 None
 
-== Examples ==
+<H4>Example</H4>
 //if ($event isin DISCONNECT JOIN) goto LABEL
 
 If this alias is executed in the <a href="..\events\on_Connect.html">on_Connect</a><br> and <a href="..\events\on_Disconnect.html">on_Disconnect</a><br> events, this triggers on BOTH events because {{mIRC|isin|isin}} matches on CONNECT being a substring of DISCONNECT. Better is:

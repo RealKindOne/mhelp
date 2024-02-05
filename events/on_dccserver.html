@@ -14,14 +14,14 @@ When triggered by a '''Send''', this event fills the {{mIRC|$filename}} identifi
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.s
 
-* '''<Chat|Send|Fserve>''' - The text that to be matched. Can also be a {{mIRC|wildcard}}.
+* '''<Chat|Send|Fserve>''' - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
 ** '''Chat''' - Triggers if the event is caused by a DCCSERVER Chat.
 ** '''Send''' - Triggers if the event is caused by a DCCSERVER Send.
 ** '''Fserve''' - Triggers if the event is caused by a DCCSERVER Fserve.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Examples ==
+<H4>Example</H4>
 Echo to the active screen some information when a {{mIRC|/dcc|dcc send}} is being received:
 <pre class ="code">ON *:DCCSERVER:Send:echo User $nick ( $+ $address $+ ) is attempting to send: $filename</pre>
 
@@ -34,9 +34,9 @@ Echo when a user attempts to initiate a {{mIRC|/dcc|DCC Chat}}:
 <pre class ="code">ON *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.3}}
+Added: mIRC v5.3 (13 Dec 1997)
 
-== See Also ==
+<H4>See also</H4>
 * [[On chat - mIRC|ON CHAT]]
 * [[On sendfail - mIRC|ON SENDFAIL]]
 {{mIRC on event list}}

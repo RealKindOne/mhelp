@@ -11,10 +11,8 @@ The <b>/sline</b> command is used to select a line, or a specific set of lines, 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/sline [c] -artc[N] <#channel> <N|nick>
-
-
-         /sline [c] -artc[N] &lt;@win&gt; <N>
+/sline [c] -artc[N] &lt;#channel&gt; &lt;N|nick&gt;
+/sline [c] -artc[N] &lt;@win&gt; &lt;N&gt;
 </pre>
 <H4>Switches</H4>
 
@@ -31,31 +29,29 @@ The <b>/sline</b> command is used to select a line, or a specific set of lines, 
 <H4>Parameters</H4>
 
 
-    * - #channel
+<br><b>#channel</b>
       - Specifies the window that you wish to target.
-    * - N|nick
+<br><b>[N|nick]</b>
       - Tells mIRC which line number you wish to select, if using a channel window, you can pass a nickname to be matched against and that line number will be used
 
 <H4>Example</H4>
-<pre class ="code">s
-
-
-    /sline #example awesomePerson
-    /sline -a #example John
-    /sline -a #example UhOh
-
-
-    /sline @win 1
-
-
-    /sline -r #example awesomePerson
-
-
-    /sline -r #example 1
-
-
-    /sline -r #example
-
+<pre class ="code">
+/sline #example awesomePerson
+/sline -a #example John
+/sline -a #example UhOh
+</pre>
+<pre class ="code">
+/sline @win 1
+</pre>
+<pre class ="code">
+/sline -r #example awesomePerson
+</pre>
+<pre class ="code">
+/sline -r #example 1
+</pre>
+<pre class ="code">
+/sline -r #example
+</pre>
 <H4>Notes</H4>
 None
 <H4>See also</H4>

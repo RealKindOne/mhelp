@@ -4,7 +4,7 @@
 <H1>$dll</H1>
 <br>
 <br>
-The <b>$dll''' call a function of a dll, and eventually returns a value if the function is made to return a value. More informations about dll {{mIRC|dll|here}}
+The <b>$dll</b> identifier call a function of a dll, and eventually returns a value if the function is made to return a value. More informations about dll {{mIRC|dll|here}} TODO
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -16,16 +16,14 @@ $dll(name[.dll],procname,data)
 <br><b>data</b> - a text string/parameter passed to the function, which .dll sees as 0x00-terminated, even if procname does not require a data string, you must still pass a null or dummy string. If data should contain a comma, best to place it in a %var or use $chr(44) instead of trying to pass as a literal string.
 <H4>Properties</H4>
 None
-== Notes ==
-1. Beginning v7.56, filename and filename.dll are both loaded into the $dll(N) list once as filename.dll. Previously they were loaded as 2 different $dll(N) items with 2 different filenames, yet referencing both filename|filename.dll used the memory image associated with the lowest Nth item in the $dll(N) list of the pair.
 <H4>Example</H4>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)
 <H4>Notes</H4>
-None
+Beginning v7.56, filename and filename.dll are both loaded into the $dll(N) list once as filename.dll. Previously they were loaded as 2 different $dll(N) items with 2 different filenames, yet referencing both filename|filename.dll used the memory image associated with the lowest Nth item in the $dll(N) list of the pair.
 <H4>See also</H4>
 <a href="dllcall.html">$dllcall</a><br>
-{{mIRC|/dll}}
+<a href="..\commands\dll.html">/dll</a><br>
 </body>
 </html>

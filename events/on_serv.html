@@ -14,17 +14,17 @@ This event fills the '''[[$cd identifier - mIRC|$cd identifier]]''' with the cur
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The level for the event to trigger.
 
-'''&lt;matchtext&gt;'''</span>The text that to be matched. Much like the [[On text - mIRC|ON TEXT]] event, this can be any combination of text letters, numbers, and [[wildcards]].
+<br><b>&lt;matchtext&gt;</b> - The text that to be matched. Much like the [[On text - mIRC|ON TEXT]] event, this can be any combination of text letters, numbers, and [[wildcards]].
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">; This event waits for any user on a DCC Chat to use the
 ; command !time and then relays back to them the current time
 
 ON *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
 
-In the above example, the '''msg''' is not simply followed by the '''{{mIRC|$nick}}''' identifier. Instead, the {{mIRC|=$nick}} identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
+In the above example, the '''msg''' is not simply followed by the '''<a href="..\identifiers\nick.html">$nick</a><br>''' identifier. Instead, the {{mIRC|=$nick}} identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
 
 The next example will send the user the current folder they are in if they type '''!folder''':
 <pre class ="code">; Listen for !folder on the SERV event
@@ -33,7 +33,7 @@ ON *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
 <H4>Compatability</H4>
 {{mIRC compatibility|3.8}}
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|$cd}}
 * [[On chat - mIRC|ON CHAT]]
 * [[On text - mIRC|ON TEXT]]

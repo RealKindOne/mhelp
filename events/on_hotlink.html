@@ -23,7 +23,7 @@ The event triggers for various mouse events: sclick, dclick, rclick, mouse, ucli
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The level for the event to trigger.
 
-'''&lt;matchtext&gt;'''</span>The text that to be matched. Can also be a {{mirc|wildcard}}.
+<br><b>&lt;matchtext&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
 '''<*#?=!@>'''</span>The window type that this event should monitor.
 
@@ -41,7 +41,7 @@ The event triggers for various mouse events: sclick, dclick, rclick, mouse, ucli
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Examples ==
+<H4>Example</H4>
 Monitor all windows for the a word matchting '*hoverme*' and echo to the active window the word that was hovered:
 <pre class ="code">ON *:HOTLINK:*hoverme*:*:echo -a $1 was just hovered!</pre>
 
@@ -63,7 +63,7 @@ This implementation was very limited and is deprecated, {{mirc|$hotline}} and {{
 <H4>Compatability</H4>
 {{mIRC compatibility|5.61}}
 
-== See Also ==
+<H4>See also</H4>
 * {{mIRC|$hotline}}
 * {{mIRC|$hotlinepos}}
 * {{mIRC|$hotlink}}

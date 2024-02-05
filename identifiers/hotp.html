@@ -60,7 +60,7 @@ alias fake_hotp {
 This is not due to the weakness in the hash output of md5, but instead is caused by how the 32-bit 'truncate' value is chosen from within the shorter md5 hash, often at offsets where - not only are there not 8 hex digits available at that position, but often one of the 8 hex digits used is the same digit used to determine the location of the 31-bit value. When using md5 as the hash, every implementation of HOTP i've seen appends hex digit 0's when there are only 2/4/6 hex digits available at that offset in the hash digests, causing some outputs to appear much more often than they should. SHA1 is a long enough hash digest which doesn't need to append the 0's and doesn't ever re-use the locator hex-digit as part of the 31-bit value. 
 </pre>
 
-== Examples ==
+<H4>Example</H4>
 <pre class ="code">
 ; //noop $handshake($nick,#channel)
 
