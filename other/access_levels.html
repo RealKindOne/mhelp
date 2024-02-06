@@ -1,0 +1,173 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>Access Levels</H1>
+<br>
+<br>
+
+<b>Access levels</b> in mIRC are a mechanism by which events can be restricted to certain user levels or named groups. Almost all [[On events - mIRC|events]] have a level parameter that specifies the event's access level.
+
+== User list ==
+The list of users and their access is stored in the "users" tab of the script editor. Only a single address is stored per line and must follow the following syntax:
+
+ &lt;levels&gt;:&lt;address&gt; &lt;additional info&gt;
+
+Access levels are comma-delimited values that define the levels of the user. Although usually, the levels are numeric, you can use a name instead like "botAdmin" or "friends".
+
+The &lt;additional info&gt; parameter is an optional parameter that can be used to store some additional information about the user or other useful miscellaneous data.
+
+ 10,20:some!one@example.com
+ friend:dan!z@some.isp.net high school friend
+
+=== Adding users ===
+There are two commands that can be used to add a user to the access list, {{mIRC|/auser}} and {{mIRC|/guser}}. They follow this syntax:
+
+<pre class ="code">
+/auser [-a] &lt;levels&gt; &lt;name|address&gt; [info]
+/guser [-a] &lt;levels&gt; &lt;name&gt; [addressType] [info]
+</pre>
+
+Both {{mIRC|/auser}} and {{mIRC|/guser}} do the same thing, they add a specific user to the user list with the access levels specified (Comma delimited). The -a switch can be used to simply add additional access levels to an existing user, otherwise all the old levels gets replaced with the new ones. The fundamental difference between /auser and /guser is that {{mIRC|/guser}} can be used to look up the address of a user while {{mIRC|/auser}} requires you to provide it beforehand.
+
+<pre class ="code">
+;Add joe (address mask type 2), access level 'friend'
+/guser friend joe 2 neighbor
+</pre>
+
+=== Removing users ===
+The {{mIRC|/ruser}} command can be used to remove a user completely from the access list or simply remove one of his levels.
+
+<pre class ="code">
+/ruser [levels] &lt;name|address&gt; [type]
+</pre>
+
+For example:
+<pre class ="code">
+/ruser madman 2
+/ruser 2,10 foobar
+</pre>
+
+=== Changing users' info ===
+The user info parameter can be changed at any time using the {{mIRC|/iuser}} command:
+
+<pre class ="code">
+/iuser &lt;name|address&gt; [info]
+</pre>
+
+== Event prefixes ==
+mIRC offers a lot of prefixes to slightly alter how the event activates.
+
+=== * prefix ===
+The * prefix is the most commonly used prefix, and allows any user to activate the event regardless of their access level.
+
+For example:
+<pre class ="code">
+on *:text:!time:#:{
+  notice $nick the time for me is $time
+}
+</pre>
+
+=== Numeric prefixes ===
+Numeric prefixes allow any user with an access level >= the prefix to activate the event.
+
+For example:
+<pre class ="code">
+on +5:text:.h:#myChan:{
+  mode $chan +h $nick
+}
+</pre>
+can be executed by any user with access level 5 or greater.
+
+=== ^ prefix === 
+
+By default, your event are triggered after mIRC has processed this event itself. For example if someone talks to you in a query, mIRC will display the text in that window, triggers the various beep and flash option if any, and only then trigger on text.
+
+The ^ prefix tells mIRC to process your event before it processes the event itself. This prefix typically only works with IRC event but here is a full list of supported events: {{mIRC|on action}}, {{mIRC|on ban}}, {{mIRC|on chat}}, {{mIRC|on dehelp}}, {{mIRC|on deop}}, {{mIRC|on devoice}}, {{mIRC|on help}}, {{mIRC|on invite}}, {{mIRC|on join}}, {{mIRC|on kick}}, {{mIRC|on mode}}, {{mIRC|on nick}}, {{mIRC|on notice}}, {{mIRC|on op}}, {{mIRC|on open}}, {{mIRC|on part}}, {{mIRC|on ping}}, {{mIRC|on text}}, {{mIRC|on unban}}, {{mIRC|on usermode}}, {{mIRC|on voice}}, {{mIRC|on quit}}, {{mIRC|on serv}}, {{mIRC|on servermode}}, {{mIRC|on serverop}}, {{mIRC|on snotice}}, {{mIRC|on tabcomp}}, {{mIRC|on topic}}, {{mIRC|on wallops}}.
+
+This prefix, coupled with {{mIRC|/halt}} or {{mIRC|/haltdef}}, allows you to display your own message for a given event, or it allows you to prevent a query window from opening with {{mIRC|on open}}, or to prevent a nick completion in {{mIRC|on tabcomp}}
+
+=== + prefix ===
+By default, the numeric prefix means that level and any level higher can trigger that event. Using the + prefix, you can limit the event to be exactly the level specified.
+
+For example:
+<pre class ="code">
+on +5:text:.h:#myChan:{
+  mode $chan +h $nick
+}
+</pre>
+will only work for users with access level of exactly 5. Any user with higher access level will not activate that event.
+
+=== ! prefix ===
+The exclamation mark prefix can be used to prevent an event from being activated by you (if ($nick != $me)).
+
+For example:
+<pre class ="code">
+on !1:join:#support:{
+  msg $chan Hello $nick $+ , do you need help?
+}
+</pre>
+will never get activated by you joining #support, only other people.
+
+=== @ prefix===
+The @ symbol can be used as a prefix to indicate that the event can only be activated if you are an operator in the channel. You can think of it as "if ($me isop $chan) {"
+
+For example:
+<pre class ="code">
+on @10:text:.op:#myChan:{
+  mode $chan +o-v $nick $nick
+}
+</pre>
+will only work if you are an operator in #myChan at the time the user typed ".o".
+
+=== & prefix ===
+The '''& prefix''' can be used to prevent the event from being executed if the previous event called the {{mIRC|/haltdef }} or {{mIRC|/halt}} commands (if $halted is $true).
+
+For example, given the following two on TEXT events placed in separate files...
+
+<cite>script1.mrc</cite>
+<pre class ="code">on *:TEXT:!test:?:haltdef</pre>
+
+<cite>script2.mrc</cite>
+<pre class ="code">on &*:TEXT:*:?:echo -ga I triggered because $!halted == $halted $+ !</pre>
+
+The second event will trigger upon recieving any msg sent via query ''except'' '''!test''', because the first event calls the ''haltdef'' command upon receiving '''!test'''.
+
+=== $ prefix ===
+This event prefix means the matchtext of the event is a regular expression, the delimiter are required.
+
+<pre class ="code">
+on $*:text:/^([!@.])test$/:#myChan:{
+  msg $chan $nick triggered test with $regml(1)
+}
+</pre>
+
+=== Named access levels ===
+Sometimes it's beneficial to give an access group a name instead of a numeric value. A good example is bot admins, friends, or even channel members. You can define such groups using the normal {{mIRC|/guser}} and {{mIRC|/auser}} commands:
+
+<pre class ="code">
+/guser BotAdmin Mike123 2
+/guser BotAdmin Joe73 2
+/guser BotAdmin Dave12 2
+</pre>
+
+With that you can use the named group level in events, for example:
+
+<pre class ="code">
+on BotAdmin:text:!example:#:{
+  msg $chan Hello Bot Admin!
+}
+</pre>
+
+=== me prefix ===
+The 'me' prefix can be used to get an event to trigger when you meet the criteria (only if $nick == $me). The 'me' prefix is a bit special; it requires a new colon before others prefixes.
+
+For example:
+<pre class ="code">
+on me:*:join:#support:{
+  msg $chan Hello $chan $+ , I need help!
+}</pre>
+
+'''Note:''' Many events are '''not''' triggered when you meet the criteria and you need to code a separate 'me' event to handle it.
+
+</body>
+</html>

@@ -48,7 +48,7 @@ Notes
 <pre class ="code">
 
 
-//hfree -w test | hload -im1n test $nopath($mircini) colors | var %tot $hget(test,0).item , %i 1 | while (%i <= %tot) { echo -a $ord(%i) item is $hget(test,%i).item containing $hget(test,$hget(test,%i).item) | inc %i }
+//hfree -w test | hload -im1n test $nopath($mircini) colors | var %tot $hget(test,0).item , %i 1 | while (%i &lt;= %tot) { echo -a $ord(%i) item is $hget(test,%i).item containing $hget(test,$hget(test,%i).item) | inc %i }
 * Loads color scheme names and event colors into items named after the integers 1 and greater. These are contained in the colors section of mirc.ini. If the 'n' switch were not used, the item names would instead be named the same as the items in mirc.ini; n0 n1 etc.
 * If using the -n switch, do not expect the same values to be loaded into the same integer item names from which they were /hsave'ed to disk, even if using 1 bucket.
 
@@ -74,15 +74,15 @@ If /hload into a table containing existing items, any match between existing ite
 <H4>See also</H4>
 
 
-   <a href="hmake.html">/hmake</a><br>
-   <a href="hfree.html">/hfree</a><br>
-   <a href="hsave.html">/hsave</a><br>
+<a href="hmake.html">/hmake</a><br>
+<a href="hfree.html">/hfree</a><br>
+<a href="hsave.html">/hsave</a><br>
     * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>`
-   <a href="hadd.html">/hadd</a><br>
-   <a href="hdel.html">/hdel</a><br>
-   <a href="hinc.html">/hinc</a><br>
-   <a href="hdec.html">/hdec</a><br>
-   <a href="..\identifiers\hget.html">$hget</a><br>
-   <a href="..\identifiers\hfind.html">$hfind</a><br>
+<a href="hadd.html">/hadd</a><br>
+<a href="hdel.html">/hdel</a><br>
+<a href="hinc.html">/hinc</a><br>
+<a href="hdec.html">/hdec</a><br>
+<a href="..\identifiers\hget.html">$hget</a><br>
+<a href="..\identifiers\hfind.html">$hfind</a><br>
 </body>
 </html>

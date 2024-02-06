@@ -11,8 +11,8 @@ The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If th
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/hdec [-m[N]szuN] ‹table› &lt;item&gt; [num]
-    /hdec -b[m[N]szuN] ‹table> &lt;item&gt; &lt;&bvar&gt;
+/hdec [-m[N]szuN] &lt;table&gt; &lt;item&gt; [num]
+/hdec -b[m[N]szuN] &lt;table&gt; &lt;item&gt; &lt;&bvar&gt;
 </pre>
 <H4>Switches</H4>
 
@@ -37,36 +37,34 @@ The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If th
       - The handle name of the table containing the 'item'
 <br><b>&lt;item&gt;</b>
       - The item name associated with the data value
-    * - [num]
+<br><b>[num]</b>
       - The optional value by which to decrease the data value. If not present, decreases by 1.0
 <br><b>&lt;&bvar&gt;</b>
       - The binary variable containing the value by which to decrease the 'item'
 
+
+<br><b>Note:</b> For more examples see the <a href="hinc.html">/hinc</a> page. /hdec is the same as /hinc except for decrementing by [num] instead of incrementing.
+
 <H4>Example</H4>
 <pre class ="code">
-
-<br><b>Note:</b> For more examples see the :doc: `/hinc </commands/hinc>` page. /hdec is the same as /hinc except for decrementing by [num] instead of incrementing.
-
-
-    alias countdown {
-    ;adds the item down with a value of 10 to the table count
-    hadd -m count down 10
-    echo -a $hget(count,down) $+ !
-    :repeat
-    ;checks if the value of down returns true
-    if ($hget(count,down) > 1) {
-    ;decreases down by 1
+alias countdown {
+  ; adds the item down with a value of 10 to the table count
+  hadd -m count down 10
+  echo -a $hget(count,down) $+ !
+  :repeat
+  ; checks if the value of down returns true
+  if ($hget(count,down) > 1) {
+    ; decreases down by 1
     hdec count down
-    ;echos the current count
+    ; echos the current count
     echo -a $hget(count,down) $+ !
-    ;repeats
+    ; repeats
     goto repeat
-    }
-    ;if the previous if statement returns false it carries on with this.
-    else echo -a 0, Hurray!
-    hfree -s count
-    }
-
+  }
+  ; if the previous if statement returns false it carries on with this.
+  else echo -a 0, Hurray!
+  hfree -s count
+}
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (16 Aug 2002)
@@ -74,16 +72,15 @@ Added: mIRC v6.0 (16 Aug 2002)
 None
 <H4>See also</H4>
 
-
-   <a href="hmake.html">/hmake</a><br>
-   <a href="hfree.html">/hfree</a><br>
-   <a href="hload.html">/hload</a><br>
-   <a href="hsave.html">/hsave</a><br>
-   <a href="hadd.html">/hadd</a><br>
-   <a href="hdel.html">/hdel</a><br>
-   <a href="hinc.html">/hinc</a><br>
-    * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>`
-   <a href="..\identifiers\hget.html">$hget</a><br>
-   <a href="..\identifiers\hfind.html">$hfind</a><br>
+<a href="hmake.html">/hmake</a><br>
+<a href="hfree.html">/hfree</a><br>
+<a href="hload.html">/hload</a><br>
+<a href="hsave.html">/hsave</a><br>
+<a href="hadd.html">/hadd</a><br>
+<a href="hdel.html">/hdel</a><br>
+<a href="hinc.html">/hinc</a><br>
+ * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>` TODO <br>
+<a href="..\identifiers\hget.html">$hget</a><br>
+<a href="..\identifiers\hfind.html">$hfind</a><br>
 </body>
 </html>

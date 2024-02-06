@@ -7,10 +7,10 @@
 The <b>ON PONG</b> event is triggered when the server replies with a PONG after the local mIRC client sent a [[Ping - IRC|PING]] response.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:PONG:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:PONG:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
@@ -34,11 +34,11 @@ on ^*:PONG:{ echo -ctgs info * PONG from $1 $+ : $2 | haltdef }
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.7}}
+Added: mIRC v5.7 (02 Feb 2000)
 
 <H4>See also</H4>
 * [[On ping - mIRC|ON PING]]
-{{mIRC on event list}}
+
 
 [[Category:mIRC on events|pong]]</body>
 </html>

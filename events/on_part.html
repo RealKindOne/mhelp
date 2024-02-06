@@ -7,15 +7,12 @@
 The <b>ON PART</b> event triggers when the mIRC client, or a remote user, parts/leaves a channel.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:PART:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:PART:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
-
-'''<#,[,#]>'''</span>The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
-
-<div style="background-color: rgba(0,0,0,.06); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 105px; margin-right: 25px; width: 60px;">'''[,#]'''</span>Specific channel names</div>
-
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;#,[,#]&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
+<br><b>[,#]</b> - Specific channel names
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -31,9 +28,9 @@ When a user leaves, send them a notice:
 {{mIRC compatibility|2.1a}}
 
 <H4>See also</H4>
-* [[on join - mIRC|ON JOIN]]
-* {{mIRC|on events|List of on events}}
-{{mIRC on event list}}
+<a href="On_Join.html">On_Join</a><br>
 
-[[Category:mIRC on events|part]]</body>
+
+
+</body>
 </html>

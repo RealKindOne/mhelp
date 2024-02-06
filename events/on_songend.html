@@ -9,10 +9,10 @@ The <b>ON songend</b> event triggers whenever a file has finished playing via th
 This event fills the '''[[$filename identifier - mIRC|$filename identifier]]''', which will be set to the complete location and filename of the sound file that just ended.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:songend:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:songend:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -20,24 +20,23 @@ Echo to the active window when the sound file has ended, including its filename:
 <pre class ="code">ON *:songend:echo -a $nopath($filename) has ended</pre>
 
 The example above will output results similar to the contents below:
-<pre>Chopin - Four Scherzos.mp3 has ended</pre>
+<pre class = "code">Chopin - Four Scherzos.mp3 has ended</pre>
 
 <H4>Compatability</H4>
 {{mIRC compatibility|5.8}}
 
 <H4>See also</H4>
-* <a href="..\other\playing_music.html">Playing_Music</a><br>
-* <a href="on_MidiEnd.html">On_MidiEnd</a>
-* <a href="on_NoSound.html">On_NoSound</a>
-* [[On waveend - mIRC|ON WAVEEND]]
-* <a href="..\identifiers\inmidi.html">$inmidi</a>
-* <a href="..\identifiers\insong.html">$insong</a><br>
-* <a href="..\identifiers\inwave.html">$inwave</a><br>
-* <a href="..\identifiers\sound.html">$sound</a><br>
-* <a href="..\identifiers\vol.html">$vol</a><br>
-* <a href="..\commands\splay.html">/splay</a>
-* <a href="..\commands\vol.html">/vol</a>
-{{mIRC on event list}}
 
+<a href="..\other\playing_music.html">Playing_Music</a><br>
+<a href="on_MidiEnd.html">On_MidiEnd</a><br>
+<a href="on_NoSound.html">On_NoSound</a><br>
+<a href="On_WaveEnd.html">On_WaveEnd</a><br>
+<a href="..\identifiers\inmidi.html">$inmidi</a><br>
+<a href="..\identifiers\insong.html">$insong</a><br>
+<a href="..\identifiers\inwave.html">$inwave</a><br>
+<a href="..\identifiers\sound.html">$sound</a><br>
+<a href="..\identifiers\vol.html">$vol</a><br>
+<a href="..\commands\splay.html">/splay</a><br>
+<a href="..\commands\vol.html">/vol</a><br>
 </body>
 </html>

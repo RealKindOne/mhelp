@@ -14,8 +14,8 @@ None
 
 <H4>Example</H4>
 Message any channel when a user has been banned
-<pre class ="code">ON *:BAN:#: {
-
+<pre class ="code">
+ON *:BAN:#: {
   ; We use this check to make sure the $bnick identifier
   ; has been filled, that way there are no unforeseen issues.
   if ($bnick) {
@@ -24,8 +24,8 @@ Message any channel when a user has been banned
 }</pre>
 
 Message any channel when a user has been unbanned
-<pre class ="code">ON *:UNBAN:#: {
-
+<pre class ="code">
+ON *:UNBAN:#: {
   ; We use this check to make sure the $bnick identifier
   ; has been filled, that way there are no unforeseen issues.
   if ($bnick) {

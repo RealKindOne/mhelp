@@ -21,7 +21,7 @@ For a command, the interesting rule used by the parser to make it working is to 
 <pre class ="code">
 echo -a $me
 </pre>
-Here {{mIRC|$me}} is evaluated, then -a is passed as the first parameter and the value of {{mIRC|$me}} is passed as the second parameter to the /echo command.
+Here <a href="..\identifiers\me.html">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="..\identifiers\me.html">$me</a> is passed as the second parameter to the /echo command.
 
 == Nested command ==
 
@@ -42,11 +42,11 @@ Because of this, you must pass a new command to be executed after the delay to t
 <pre class ="code">
 //.timer 1 1 echo -a $day
 </pre>
-Which will execute "echo -a <value of {{mIRC|$day}}>" one time, after waiting 1 second.
+Which will execute "echo -a &lt;value of <a href="..\identifiers\day.html">$day</a>&gt;" one time, after waiting 1 second.
 
-What happens here is that the parameters passed to the /timer command are evaluated once as we saw, so {{mIRC|$day}} gets evaluated once, producing the current day.
+What happens here is that the parameters passed to the /timer command are evaluated once as we saw, so <a href="..\identifiers\day.html">$day</a> gets evaluated once, producing the current day.
 
-The timer will register that its associated command to be executed when the delay has passed is "echo -a <{{mIRC|$day}}'s value>"
+The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="..\identifiers\day.html">$day</a>'s value&gt;"
 
 When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because {{mIRC|$day}} can only return a day of the week. If {{mIRC|$day}} is monday, evaluating the plain text monday will always produce monday.
 

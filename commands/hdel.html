@@ -32,7 +32,7 @@ The <b>/hdel</b> command deletes an item/data-value pair from an existing hash t
 <H4>Example</H4>
 <pre class ="code">
 alias hdel_example {
-  ;add items
+  ; add items
   hadd -m example academic a
   hadd example academy a
   hadd example accelerate a
@@ -41,17 +41,17 @@ alias hdel_example {
   hadd example access a
   hadd example accident a
   hadd example because b
- 
-  ;number of items
+
+  ; number of items
   echo -a $hget(example, 0).item
- 
-  ;remove everything by one
+
+  ; remove everything by one
   hdel -w example a*
- 
-  ;number of items
+
+  ; number of items
   echo -a $hget(example, 0).item
- 
-  ;free table
+
+  ; free table
   hfree example
 }
 </pre>
@@ -68,16 +68,15 @@ Added: mIRC v5.8 (14 Dec 2000)
 None
 <H4>See also</H4>
 
-
-   <a href="hmake.html">/hmake</a><br>
-   <a href="hfree.html">/hfree</a><br>
-   <a href="hload.html">/hload</a><br>
-   <a href="hsave.html">/hsave</a><br>
-   <a href="hadd.html">/hadd</a><br>
-   <a href="hinc.html">/hinc</a><br>
-   <a href="hdec.html">/hdec</a><br>
-    * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>`
-   <a href="..\identifiers\hget.html">$hget</a><br>
-   <a href="..\identifiers\hfind.html">$hfind</a><br>
+<a href="hmake.html">/hmake</a><br>
+<a href="hfree.html">/hfree</a><br>
+<a href="hload.html">/hload</a><br>
+<a href="hsave.html">/hsave</a><br>
+<a href="hadd.html">/hadd</a><br>
+<a href="hinc.html">/hinc</a><br>
+<a href="hdec.html">/hdec</a><br>
+ * :doc: `Hash Tables </intermediate/data_storage.html#hash-tables>` TODO <br>
+<a href="..\identifiers\hget.html">$hget</a><br>
+<a href="..\identifiers\hfind.html">$hfind</a><br>
 </body>
 </html>

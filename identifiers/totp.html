@@ -5,25 +5,25 @@
 <br>
 <br>
 The <b>$totp</b> identifier returns  a TOTP (Time-based One-time Password) based on the specified parameters.
-
+<br>
 See the Wikipedia page for TOTP for more details.
-
+<br>
 TOTP allows proving that you know a pre-shared secret in a public communications path without actually sending the secret. It assumes that both parties have a clock that is reasonably well in synch, which allows them both to calculate a value based on the secret and the current time, with little better than random chance of replying with the correct number unless you have the 'secret'. This method is most commonly used by Google Authenticator where the most common secret is a randomly generated 160-bit value. While a 6 digit number has only 20 bits of strength against a lucky guess, knowledge of 6 digit numbers within past or future time intervals does not help an observer determine the correct digits for the current interval, except for knowing which of the 2^160 possible keys didn't work in the past.
-
+<br>
 For security, the verifier should limit how many retries are accepted within each timestep interval, and also limit how many nearby timestep responses are accepted when allowing for the other clock being out of synch. Because the secret is based on $calc(time//timestep), changing the timestep should not be allowed without changing the key and/or hashname. i.e. allowing timestep to change from 30 to 31 seconds means someone observing the timestep=30 response made now would be able to make a correct response at $asctime($calc($ctime * 31/30)) in the future. If both parties need to prove themselves to each other, either both parties should use separate unrelated pre-shared secrets to prove themselves, or if they need to use the same secret, each should use different hashnames in making their response.
-
-Due to a slight bias toward the smallest numbers, it is not appropriate to consider this to be a random N digit number, with the bias increasing as 'digits' increases. The number is created from an <a href="hmac.html">$hmac</a><br> digest based on combining a secret and the time interval, and reduces a 31-bit portion of the digest to a base10 integer. Because the max 31-bit value is 2147483647, there is a slight bias in an N-digit number toward the numbers <= the rightmost N digits of the 31-bit max. For this reason, digits <= 9 offers 10^digits of security, while digits=10 offers 2^31.
-
+<br>
+Due to a slight bias toward the smallest numbers, it is not appropriate to consider this to be a random N digit number, with the bias increasing as 'digits' increases. The number is created from an <a href="hmac.html">$hmac</a> digest based on combining a secret and the time interval, and reduces a 31-bit portion of the digest to a base10 integer. Because the max 31-bit value is 2147483647, there is a slight bias in an N-digit number toward the numbers &lt;= the rightmost N digits of the 31-bit max. For this reason, digits <= 9 offers 10^digits of security, while digits=10 offers 2^31.
+<br>
 Also causing bias is choosing to use MD5 as the hashname. HOTP/TOTP were originally designed using SHA1 as the hashname, which happened to be the mimimul length where the same bit is never used by the 31-bit value and by the byte used to determine which bytes to use as the 31-bit value. Example below demonstrates this.
-
+<br>
 Because this uses HMAC to generate the secret, a longer key is not always better. The internal block length for sha256 and shorter hashes is 512 bits, and is 1024 bits for sha384 and longer (32 or 64 binary bytes). If the secret is longer than that 512 or 1024 bits, the secret is then replaced by the binary hashdigit of that longer secret, which reduces the strength. HMAC always pads keys shorter than the 512 or 1024 by appending 0x00 bytes, so all hex keys shorter than the 512 or 1024 are equivalent to longer keys created by '0' right-padding the shorter key. To prevent equivalent keys, either always consistently use the same shorter length, or if allowing for a variable length key, then always include a length-byte with your key while staying within the 512/1024 limit.
-
+<br>
 Because hex lengths 128 and 256 support the 512 and 1024 bit block lengths, and the longest base32 length of 32 is a 160-bit key, hex format is a universal encoding format, and base32 keys longer than 160 bits must be translated to hex format as described below.
-
+<br>
 The description here applies to changes as of v7.72, where there were key changes to how key format was guessed and interpreted. Prior versions had timestep range 1-3600, digits range 3-9, lengths for hex and base32 included optional spaces, with hex lengths being 40,64,128 and base32 lengths being all multiples of 8 >= 16. Hex keys were modified by stripping all 0x00 bytes then UTF8 encoding the remaining bytes individually even if the string was already UTF8 text. For prior versions, base32 was the universal key format where hex keys needed to be translated to base32 then having enough 'A' digits appended to make the string length be a multiple of 8.
-
+<br>
 The /help description states that the key is required, but $totp($null) is accepted, even though the purpose of TOTP is to prove that you know a secret. To defend against %key being accidentally blank, see example below. Also, timestep is restructed to max 48 hours, so using larger valid timesteps requires using timestep=1 then calculating the 'time' parameter as demonstrated below.
-
+<br>
 You can prevent your text passphrase from being interpreted as base-insensitive base32 by avoiding having the 3 counts of base32 symbols, or by using at least 1 non-space character that is not in the base32 alphabet (A-Za-z2-7). Base32 and hex keys ignore spaces and are case-insensitive, so you can confirm your text key is not seen otherwise by changing the case on one of the letters or moving a space to a different position, and verify this cause the code to change (use a fixed 'time' because the TOTP code changes every 'timestep' seconds)
 
 <H4>Synopsis</H4>
@@ -31,11 +31,11 @@ You can prevent your text passphrase from being interpreted as base-insensitive 
 $totp(key[, time[, hash[, digits[, timestep]]]])
 </pre>
 <H4>Parameters</H4>
-* '''key''' - the key is optional and can be hex or base32 format where the key parameter, excluding spaces, is either a hex string of 40, 64, 128 or 256 digits - or is a base32 string of either 16, 26 or 32 length; otherwise the key parameter is plain UTF8 text. (base32 cannot have '=' padding)
-* '''time''' - optional integer [0,2^64-1], default to $ctime
-* '''hash''' - optional, hashing algorithm, default to sha1 (Other possibles: sha256, sha384, sha512, md5 )
-* '''digits''' - optional, number of digits of output, default to 6 (Valid: 3 thru 10) (The return string is always 'digits' length, left-padded with 0's if needed)
-* '''timestep''' - optional floor divisor for the 'time' integer, which causes the result to remain constant for the 'timestep' duration of time. default to 30 when parameter is not a number 1-172800 (48 hours)
+<br><b>key</b> - the key is optional and can be hex or base32 format where the key parameter, excluding spaces, is either a hex string of 40, 64, 128 or 256 digits - or is a base32 string of either 16, 26 or 32 length; otherwise the key parameter is plain UTF8 text. (base32 cannot have '=' padding)
+<br><b>time</b> - optional integer [0,2^64-1], default to $ctime
+<br><b>hash</b> - optional, hashing algorithm, default to sha1 (Other possibles: sha256, sha384, sha512, md5 )
+<br><b>digits</b> - optional, number of digits of output, default to 6 (Valid: 3 thru 10) (The return string is always 'digits' length, left-padded with 0's if needed)
+<br><b>timestep</b> - optional floor divisor for the 'time' integer, which causes the result to remain constant for the 'timestep' duration of time. default to 30 when parameter is not a number 1-172800 (48 hours)
 
 * Note: "Optional" parameters other than the key are not allowed to be $null when defining later parameters, and cause the return string to be $null.
 
@@ -114,11 +114,8 @@ Added: mIRC v7.42 (17 Jul 2015)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-{{collist
-|count = 2
-|style = width: 50%; display: inherit;
-|
-* <a href="hotp.html">$hotp</a><br>
+
+<a href="hotp.html">$hotp</a><br>
 <a href="hmac.html">$hmac</a><br>
 <a href="encode.html">$encode</a><br>
 <a href="sha1.html">$sha1</a><br>
@@ -126,5 +123,5 @@ None
 <a href="sha512.html">$sha512</a><br>
 <a href="sha384.html">$sha384</a><br>
 <a href="md5.html">$md5</a><br>
-}}</body>
+</body>
 </html>

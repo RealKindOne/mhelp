@@ -9,7 +9,7 @@ The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the spe
 '''Note''': If this event triggers but no <a href="..\commands\sockread.html">/sockread</a><br> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <br><b>&lt;matchtext&gt;</b> - The name of the socket you want the event to trigger on.

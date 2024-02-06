@@ -6,7 +6,7 @@
 <br>
 The <b>ON KICK</b> event is triggered when the local mIRC client, or remote users, are kicked from a channel.
 
-This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''{{mIRC|$nick}}''' identifiers.
+This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''<a href="..\identifiers\nick.html">$nick</a><br>''' identifiers.
 
 {| class="wikitable" style="margin-left: 75px;"
 |-
@@ -20,12 +20,12 @@ This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''{{mIRC|
 |}
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels, for the event to listen for. Can also be a {{mirc|wildcard}}.
+<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels, for the event to listen for. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
 {| class="wikitable" style="margin-left: 105px;"
 |-
@@ -58,13 +58,13 @@ Created On: 28/02/95
 
 <H4>See also</H4>
 * [[On ban - mIRC|ON BAN]]
-* [[On join - mIRC|ON JOIN]]
-* [[On part - mIRC|ON PART]]
+* <a href="On_Join.html">On_Join</a><br>
+* <a href="On_part.html">On_part</a><br>
 * [[On unban - mIRC|ON UNBAN]]
 * {{mIRC|$chan}}
 * {{mIRC|$knick}}
-* {{mIRC|$nick}}
-{{mIRC on event list}}
+* <a href="..\identifiers\nick.html">$nick</a><br>
+
 
 [[Category:mIRC on events|kick]]</body>
 </html>

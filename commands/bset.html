@@ -129,7 +129,7 @@ Binary variables are not limited to 4150 length. To fill a 7mb binary variable w
 
 alias fill_with_ones {
   if ($1 !isnum 1-) return | bset &var 1 1
-  while ($1 > $bvar(&var,0)) {
+  while ($1 &gt; $bvar(&var,0)) {
     bset &var -1 $str(0 $chr(32),$iif($calc($1 - $bvar(&var,0)) > 999,$v2,$v1))
     echo -a current length: $bvar(&var,0)
   }
@@ -155,7 +155,7 @@ alias fake_bset-t {
   bset -t &bin1 1 &lt;%var&gt;
   echo 4 -a $bvar(&bin1,1-)
   var %i 0
-  while (%i < $len(&lt;%var&gt;)) {
+  while (%i &lt; $len(&lt;%var&gt;)) {
     inc %i
     if ($mid(&lt;%var&gt;,%i,1) == $chr(32)) bset &bin2 -1 32 | else bset -t &bin2 -1 $mid(%var,%i,1)
   }
@@ -173,7 +173,7 @@ If you change the "bset -t &bin2" into bset -ta &bin2" the green method mimics "
 Instead, this alias passes "&dummy" as a parameter, and the alias uses that variable name for its own use. The display from running /fake_bset-ta shows that - unlike /var - the binary variables exist outside an alias where they are set or changed. The last 3 of 6 bytes are from $chr(10004) which UTF8-encodes as a 3 byte string.
 <pre class ="code">
 alias fake-bset-ta-sub {
-  if ($asc($2) < 256) return $v1
+  if ($asc($2) &lt; 256) return $v1
   bset -ta $1 1 $2
   return $bvar($1,1-)
 }
@@ -195,15 +195,15 @@ None
 <H4>See also</H4>
 
 
-   <a href="..\identifiers\bvar.html">$bvar</a><br>
-   <a href="bcopy.html">/bcopy</a><br>
-   <a href="bread.html">/bread</a><br>
-   <a href="bwrite.html">/bwrite</a><br>
-   <a href="breplace.html">/breplace</a><br>
-   <a href="..\identifiers\replace.html">$replace</a><br>
-   <a href="..\identifiers\bfind.html">$bfind</a><br>
-   <a href="bunset.html">/bunset</a><br>
-   <a href="btrunc.html">/btrunc</a><br>
-   <a href="..\identifiers\regsubex.html">$regsubex</a><br>
+<a href="..\identifiers\bvar.html">$bvar</a><br>
+<a href="bcopy.html">/bcopy</a><br>
+<a href="bread.html">/bread</a><br>
+<a href="bwrite.html">/bwrite</a><br>
+<a href="breplace.html">/breplace</a><br>
+<a href="..\identifiers\replace.html">$replace</a><br>
+<a href="..\identifiers\bfind.html">$bfind</a><br>
+<a href="bunset.html">/bunset</a><br>
+<a href="btrunc.html">/btrunc</a><br>
+<a href="..\identifiers\regsubex.html">$regsubex</a><br>
 </body>
 </html>

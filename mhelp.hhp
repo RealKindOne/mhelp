@@ -53,6 +53,7 @@ commands\cline.html
 commands\clipboard.html
 commands\close.html
 commands\closemsg.html
+commands\commands.html
 commands\cnick.html
 commands\color.html
 commands\colour.html
@@ -281,6 +282,7 @@ commands\window.html
 commands\winhelp.html
 commands\write.html
 commands\writeini.html
+commands\xyzzy.html
 identifiers\1-.html
 identifiers\abook.html
 identifiers\abs.html
@@ -855,11 +857,17 @@ events\on_vcmd.html
 events\on_voice.html
 events\on_wallops.html
 events\on_waveend.html
+other\access_levels.html
 other\aliases.html
+other\injection.html
+other\music.html
+other\playing_music.html
+other\regex.html
+other\string_manipulation.html
 other\token.html
 other\variables.html
 other\wildcard.html
-other\injection.html
+
 
 [INFOTYPES]
 

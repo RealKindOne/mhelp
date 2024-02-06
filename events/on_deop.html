@@ -7,11 +7,11 @@
 The <b>ON DEOP</b> event triggers whenever a user on a channel has had their op privileges (mode -o) removed.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:DEOP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:DEOP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
-* '''<*><#>''' - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;*&gt;&lt;#&gt;</b> - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
 <br><b>*</b> - Any channel window
 <br><b>#</b> - Any channel window
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
@@ -31,15 +31,15 @@ Let the channel know when a user's operator privilege has been removed:
 {{mIRC compatibility|2.1a}}
 
 <H4>See also</H4>
-* [[On deowner - mIRC|ON DEOWNER]]
-* [[On devoice - mIRC|ON DEVOICE]]
-* [[On help - mIRC|ON HELP]]
-* [[On op - mIRC|ON OP]]
-* [[On owner - mIRC|ON OWNER]]
-* [[On voice - mIRC|ON VOICE]]
-* {{mIRC|/mode}}
+* <a href="On_DEOWNER.html">On_DEOWNER</a><br>
+* <a href="On_VOICE.html">On_VOICE</a><br>
+* <a href="On_Help.html">On_Help</a><br>
+* <a href="On_OP.html">On_OP</a><br>
+* <a href="On_OWNER.html">On_OWNER</a><br>
+* <a href="On_Voice.html">On_Voice</a><br>
+* <a href="..\commands\mode.html">/mode</a><br>
 * <a href="..\identifiers\mode.html">$mode</a><br>
-{{mIRC on event list}}
+
 
 [[Category:mIRC on events|deop]]</body>
 </html>

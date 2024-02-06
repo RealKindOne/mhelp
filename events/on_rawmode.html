@@ -4,16 +4,14 @@
 <H1>On Rawmode</H1>
 <br>
 <br>
-The <b>ON RAWMODE''' allows a script to intercept and interpret the modes of a channel directly, avoiding mIRC's messages and notifications altogether.
+The <b>ON RAWMODE</b> allows a script to intercept and interpret the modes of a channel directly, avoiding mIRC's messages and notifications altogether.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:RAWMODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:RAWMODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
-
-'''#[,#]'''</span>The channel, or channel names, to listen on.
-
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>#[,#]</b> - The channel, or channel names, to listen on.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 
@@ -30,7 +28,6 @@ Intercept all '''RAWMODE''' events, echo them to the target window in plain text
 <H4>See also</H4>
 * [[On mode - mIRC|ON MODE]]
 * [[Raw Events - mIRC|RAW Events]]
-{{mIRC on event list}}
 
-[[Category:mIRC on events|rawmode]]</body>
+</body>
 </html>

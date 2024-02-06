@@ -6,13 +6,13 @@
 <br>
 The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the {{mIRC|/halt}} command.
 
-When triggered by a '''Send''', this event fills the {{mIRC|$filename}} identifier with the file name attempting to be received.
+When triggered by a '''Send''', this event fills the <a href="..\identifiers\filename.html">$filename</a><br> identifier with the file name attempting to be received.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:DCCSERVER:<Chat|Send|Fserve>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:DCCSERVER:<Chat|Send|Fserve>:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.s
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
 
 * '''<Chat|Send|Fserve>''' - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
@@ -39,7 +39,7 @@ Added: mIRC v5.3 (13 Dec 1997)
 <H4>See also</H4>
 * [[On chat - mIRC|ON CHAT]]
 * [[On sendfail - mIRC|ON SENDFAIL]]
-{{mIRC on event list}}
+
 
 [[Category:mIRC on events|dccserver]]</body>
 </html>

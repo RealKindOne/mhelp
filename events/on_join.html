@@ -9,14 +9,14 @@ The <b>ON JOIN</b> event triggers when the mIRC client, or a remote user, joins 
 '''Note''': When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you won't be opped inside the on join event, and should use ON OP event instead.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:JOIN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:JOIN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-'''<#,[,#]>'''</span>The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
+<br><b>&lt;#,[,#]&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 
-<div style="background-color: rgba(0,0,0,.06); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 105px; margin-right: 25px; width: 60px;">'''[,#]'''</span>Specific channel names</div>
+<br><b>[,#]</b> - Specific channel names
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
@@ -40,12 +40,10 @@ on ^*:JOIN:*:{
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|2.1a}}
+Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>See also</H4>
-* [[on part - mIRC|ON PART]]
-* {{mIRC|on events|List of on events}}
-{{mIRC on event list}}
 
-[[Category:mIRC on events|join]]</body>
+<a href="On_part.html">On_part</a><br>
+</body>
 </html>

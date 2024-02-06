@@ -13,17 +13,15 @@ The <b>/inc</b> command increases the numeric value of a variable by a given val
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/inc [-scrzeuN] <%var> [value]
-
+/inc [-scrzeuN] &lt;%var&gt; [value]
 </pre>
 <H4>Switches</H4>
 
-
 <br><b>-s</b>
       - Prints out the value of the variable
-
+<br>
+<br>
 Global variables only:
-
 
 <br><b>-c</b>
       - Increases the variable by 1 every second
@@ -39,36 +37,33 @@ Global variables only:
 <H4>Parameters</H4>
 
 
-    * - %var
+<br><b>%var</b>
       - The variable's name
-    * - [value]
+<br><b>[value]</b>
       - Optional numeric value to increase the variable by. Default is 1 if [value] not used
 
 <H4>Example</H4>
 <pre class ="code">
+Alias Example {
+  ;Create a local variable and set it to 5
+  var %x 5
+  ;Increase %x by 5
+  inc %x 5
+  ;Print out %x's content
+  echo -a %x
+}
+</pre>
 
+<br><b>Note:</b> if script or timer execution lasts longer than 1 second, -c and -z can skip increments or decrements:
+<pre class ="code">
+//set %i 10 | inc -z %i | timertest 5 1 echo -a $!timer(test).reps $!asctime i= $eval(%i,0) $(|) var $eval(%j,0) 99999 $(|) while ( $eval(%j,0) ) $chr(123) var $eval(%k,0) $!rand(1,999) $(|) dec $eval(%j,0) $chr(125) | echo -a com: $timer(test).com | timer
 
-    Alias Example {
-    ;Create a local variable and set it to 5
-    var %x 5
-    ;Increase %x by 5
-    inc %x 5
-    ;Print out %x's content
-    echo -a %x
-    }
+//var %i 1 | inc %i 0 | echo -a this did not change i= %i | var %j $null | inc %i | echo -a this changed by 1 because [value] is null i= %i
+this did not change i= 1
+this changed by 1 because [value] is null i= 2
+this incremented by 3 i= 5
 
-
-    <br><b>Note:</b> if script or timer execution lasts longer than 1 second, -c and -z can skip increments or decrements:
-
-    //set %i 10 | inc -z %i | timertest 5 1 echo -a $!timer(test).reps $!asctime i= $eval(%i,0) $(|) var $eval(%j,0) 99999 $(|) while ( $eval(%j,0) ) $chr(123) var $eval(%k,0) $!rand(1,999) $(|) dec $eval(%j,0) $chr(125) | echo -a com: $timer(test).com | timer
-
-    //var %i 1 | inc %i 0 | echo -a this did not change i= %i | var %j $null | inc %i | echo -a this changed by 1 because [value] is null i= %i
-    this did not change i= 1
-    this changed by 1 because [value] is null i= 2
-    this incremented by 3 i= 5
-
-    //var %i foo | inc %i | inc %i 5 | echo -a inc does not alter non-numeric values i= %i
-
+//var %i foo | inc %i | inc %i 5 | echo -a inc does not alter non-numeric values i= %i
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v4.0 (20 Mar 1996)
@@ -77,11 +72,11 @@ None
 <H4>See also</H4>
 
 
-   <a href="..\identifiers\var.html">$var</a><br>
-   <a href="dec.html">/dec</a><br>
-   <a href="inc.html">/inc</a><br>
-   <a href="set.html">/set</a><br>
-   <a href="unset.html">/unset</a><br>
-   <a href="var.html">/var</a><br>
+<a href="..\identifiers\var.html">$var</a><br>
+<a href="dec.html">/dec</a><br>
+<a href="inc.html">/inc</a><br>
+<a href="set.html">/set</a><br>
+<a href="unset.html">/unset</a><br>
+<a href="var.html">/var</a><br>
 </body>
 </html>

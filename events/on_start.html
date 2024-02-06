@@ -4,7 +4,7 @@
 <H1>On Start</H1>
 <br>
 <br>
-The <b>ON start</b> event triggers either when mIRC is started, or a script file is loaded, either through the scripts editor, or via the {{mIRC|/load}} command. Only one '''on start</b> event is allowed per script file.
+The <b>ON start</b> event triggers either when mIRC is started, or a script file is loaded, either through the scripts editor, or via the <a href="..\commands\load.html">/load</a><br> command. Only one '''on start</b> event is allowed per script file.
 
 ==Synopsis==
 <pre>on &lt;level&gt;:START:&lt;commands&gt;</pre>
@@ -31,17 +31,16 @@ Create a [[Hash Tables - mIRC|hash table]] named '''''ircpoints''''' and load da
   if (!$hget(ircpoints)) { hmake ircpoints }
   if ($file(ircpoints.hsh).longfn) { hload ircpoints $v1 }
 }</pre>
-==Compatibility==
-Added: v2.1a
+<H4>Compatibility</H4>
+Added: mIRC v5.0 (02 Apr 1997)
 
-Added on: 28/02/95
 
 ==See Also==
 <a href="on_Load.html">On_Load</a></br>
 <a href="on_UnLoad.html">On_UnLoad</a></br>
 <a href="on_Exit.html">On_Exit</a><br>
 [[/load command - mIRC|/load command]]
-{{mIRC on event list}}
+
 
 </body>
 </html>

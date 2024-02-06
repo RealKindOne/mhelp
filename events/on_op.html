@@ -9,10 +9,10 @@ The <b>ON OP</b> event triggers whenever a user on a channel has been elevated t
 This event also fills the {{mIRC|$opnick}} identifier with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The <a href="..\identifiers\nick.html">$nick</a><br> identifier points to the user who added them.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger..
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
 
 <br><b>&lt;matchtext&gt;</b> - The text to match in the event..
 
@@ -30,16 +30,16 @@ Acknowledge when a user has been elevated to a channel operator:
 {{mIRC compatibility|2.1a}}
 
 <H4>See also</H4>
-* [[On deop - mIRC|ON DEOP]]
-* [[On deowner - mIRC|ON DEOWNER]]
-* [[On devoice - mIRC|ON DEVOICE]]
-* [[On help - mIRC|ON HELP]]
-* [[On owner - mIRC|ON OWNER]]
+* <a href="On_DEOP.html">On_DEOP</a><br>
+* <a href="On_DEOWNER.html">On_DEOWNER</a><br>
+* <a href="On_VOICE.html">On_VOICE</a><br>
+* <a href="On_Help.html">On_Help</a><br>
+* <a href="On_OWNER.html">On_OWNER</a><br>
 * [[On serverop - mIRC|ON SERVEROP]]
-* [[On voice - mIRC|ON VOICE]]
-* {{mIRC|/mode}}
+* <a href="On_Voice.html">On_Voice</a><br>
+* <a href="..\commands\mode.html">/mode</a><br>
 * <a href="..\identifiers\mode.html">$mode</a><br>
-{{mIRC on event list}}
+
 
 [[Category:mIRC on events|op]]</body>
 </html>

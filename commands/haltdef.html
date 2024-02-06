@@ -25,25 +25,22 @@ None
 None
 
 <H4>Example</H4>
+
+
+With '^' prefix on event:
 <pre class ="code">
+on ^*:op:#mIRC:{
+  haltdef
+  echo -t #mIRC OP : $opnick by $nick
+}
+</pre>
 
-With '^' prefix on event
-
-
-    on ^*:op:#mIRC:{
-    haltdef
-    echo -t #mIRC OP : $opnick by $nick
-    }
-
-And without '^' prefix 
-
-
-    raw 312:*: {
-    haltdef
-
-    echo -at $2 using $3 - ( $+ $4- $+ )
-    }
-
+And without '^' prefix:
+<pre class ="code">
+raw 312:*: {
+  haltdef
+  echo -at $2 using $3 - ( $+ $4- $+ )
+}
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (24 Jul 1998)
@@ -52,8 +49,7 @@ Added: mIRC v5.4 (24 Jul 1998)
 None
 <H4>See also</H4>
 
-
-   <a href="halt.html">/halt</a><br>
-   <a href="return.html">/return</a><br>
+<a href="halt.html">/halt</a><br>
+<a href="return.html">/return</a><br>
 </body>
 </html>

@@ -178,7 +178,7 @@ on *:sockread:urlget.client.*:{
 }
 
 alias -l sockwrite {
-  echo 12 -ag < $3-
+  echo 12 -ag &lt; $3-
   sockwrite $1-
 }
 

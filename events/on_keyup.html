@@ -7,21 +7,23 @@
 The <b>ON KEYUP</b> event is triggered when a key has been pressed, but subsequently released, inside of a custom {{mirc|custom windows|@window}}.
 
 This event fills the following identifiers:
-<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyval}}'''</span>The Windows keycode value of the key being released, see https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for a list of keycodes</div>
+<br>
+<a href="..\identifiers\keyval.html">$keyval</a> - The Windows keycode value of the key being released, see https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for a list of keycodes
 
-<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keychar}}'''</span>The actual character released, this is not useful and you should not be relying on this, it won't work when you needed two keypresses to get the character</div>
-
-<div style="background-color: rgba(0,0,0,.03); display: block; margin-bottom: 10px;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyrpt}}'''</span>it always returns ''$true''</div>
+<br>
+<a href="..\identifiers\keychar.html">$keychar</a> - The actual character released, this is not useful and you should not be relying on this, it won't work when you needed two keypresses to get the character
+<br>
+<a href="..\identifiers\keyrpt.html">$keyrpt</a> - it always returns ''$true''</div>
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:KEYUP:<@>:<keycode,...,keycodeN>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-'''<@>'''</span>The {{mirc|custom windows|custom window}} where this event should listen. Can be '''@''' for all windows.
+<br><b>&lt;@&gt;</b> - The {{mirc|custom windows|custom window}} where this event should listen. Can be '''@''' for all windows.
 
-'''<keycodes>'''</span>The specific key, or keys to listen for. Can specify multiple keys, such as:
+<br><b>&lt;keycodes&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
 <pre class ="code">ON *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval</pre>
 
 <H4>Example</H4>
@@ -48,10 +50,12 @@ Note that this makes use of a {{mirc|picture windows|picture window}}, as well a
 {{mIRC compatibility|5.8}}
 
 <H4>See also</H4>
-* {{mirc|custom windows}}
-* {{mIRC|/drawtext}}
+
+{{mirc|custom windows}}
+<a href="..\commands\drawtext.html">/drawtext</a><br>
 <a href="on_keydown.html">on_keydown</a><br>
-* {{mIRC|$keyval}}
-* {{mIRC|$keychar}}
-* {{mIRC|$keyrpt}}</body>
+<a href="..\identifiers\keyval.html">$keyval</a><br>
+<a href="..\identifiers\keychar.html">$keychar</a><br>
+<a href="..\identifiers\keyrpt.html">$keyrpt</a><br>
+</body>
 </html>

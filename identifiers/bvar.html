@@ -19,10 +19,10 @@ $bvar(&binvar, [ N [ ,M] ] )
 <H4>Properties</H4>
 <br><b>.text</b> - returns a string from the bytes, bytes are decoded from utf8
 <br><b>.ansi</b> - returns a string from the bytes, bytes are not decoded from utf8
-<br><b>.word''' - Outputs decimal value of a 2-byte word, seeing bytes in little-endian byte order (low value first)
-<br><b>.nword''' - Outputs decimal value of a 2-byte word, seeing bytes in big-endian byte order (high value first)
-<br><b>.long''' - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in little-endian byte order (low value first)
-<br><b>.nlong''' - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in big-endian byte order (high value first)
+<br><b>.word</b> - Outputs decimal value of a 2-byte word, seeing bytes in little-endian byte order (low value first)
+<br><b>.nword</b> - Outputs decimal value of a 2-byte word, seeing bytes in big-endian byte order (high value first)
+<br><b>.long</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in little-endian byte order (low value first)
+<br><b>.nlong</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in big-endian byte order (high value first)
 
 
 '''Note''': word/nword/long/nlong return non-byte values ONLY when M is not used and N is a positive integer without a hyphen, and do not return a series of numbers from a lengthy variable. They return the value from the 2 or 4 bytes beginning at the Nth byte, and returns $null if there are not the needed 2 or 4 bytes to completely fill the word/long.

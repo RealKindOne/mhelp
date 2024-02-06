@@ -2166,6 +2166,10 @@
 		<param name="Local" value="commands\comlist.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/commands">
+		<param name="Local" value="commands\commands.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/comopen">
 		<param name="Local" value="commands\comopen.html">
 		</OBJECT>
@@ -3060,6 +3064,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/writeini">
 		<param name="Local" value="commands\writeini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/xyzzy">
+		<param name="Local" value="commands\xyzzy.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="index">

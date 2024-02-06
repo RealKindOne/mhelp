@@ -6,23 +6,17 @@
 <br>
 The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevated to [[Voice channel - IRC|voice]].
 
-This event also fills the {{mIRC|$vnick}} identifier with the nickname of the user who was added to [[Channel voice - IRC|Channel voice]] status. The <a href="..\identifiers\nick.html">$nick</a><br> identifier points to the user who added them.
+This event also fills the {{mIRC|$vnick}} identifier with the nickname of the user who was added to [[Channel voice - IRC|Channel voice]] status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the user who added them.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger..
-
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
 <br><b>&lt;matchtext&gt;</b> - The text to match in the event..
-
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels where the event listens.
-
-
-'''#'''</span>Any channel if left by itself, otherwise refers to a specific channel</div>
-
-
-'''[,#]'''</span>List of specific channel names</div>
+<br><b>#</b> - Any channel if left by itself, otherwise refers to a specific channel
+<br><b>[,#]</b> - List of specific channel names
 
 <H4>Example</H4>
 Acknowledge when a user has had their user level elevated to voice:
@@ -32,15 +26,15 @@ Acknowledge when a user has had their user level elevated to voice:
 Added: mIRC v4.72 (09 Jan 1997)
 
 <H4>See also</H4>
-* [[On deop - mIRC|ON DEOP]]
-* [[On deowner - mIRC|ON DEOWNER]]
-* [[On devoice - mIRC|ON DEVOICE]]
-* [[On help - mIRC|ON HELP]]
-* [[On op - mIRC|ON OP]]
-* [[On owner - mIRC|ON OWNER]]
-* {{mIRC|/mode}}
-* <a href="..\identifiers\mode.html">$mode</a><br>
-{{mIRC on event list}}
+<a href="On_DEOP.html">On_DEOP</a><br>
+<a href="On_DEOWNER.html">On_DEOWNER</a><br>
+<a href="On_VOICE.html">On_VOICE</a><br>
+<a href="On_Help.html">On_Help</a><br>
+<a href="On_OP.html">On_OP</a><br>
+<a href="On_OWNER.html">On_OWNER</a><br>
+<a href="..\commands\mode.html">/mode</a><br>
+<a href="..\identifiers\mode.html">$mode</a><br>
+
 
 </body>
 </html>

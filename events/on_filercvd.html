@@ -6,13 +6,13 @@
 <br>
 The <b>ON FILERCVD</b> event triggers whenever a file is received successfully via {{mIRC|/dcc|dcc send}}.
 
-This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and <a href="..\identifiers\nick.html">$nick</a><br> with the filename, user's address, and the user's nickname (if available), respectively.
+This event fills <a href="..\identifiers\filename.html">$filename</a><br>, <a href="..\identifiers\address.html">$address</a><br>, and <a href="..\identifiers\nick.html">$nick</a><br> with the filename, user's address, and the user's nickname (if available), respectively.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:FILERCVD:<filename[,filename]>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:FILERCVD:<filename[,filename]>:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 * '''<filename>''' - The filename(s) that should match the received file. Seperate multiple values by commas. These can be {{mIRC|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
 
@@ -20,7 +20,7 @@ This event fills {{mIRC|$filename}}, {{mIRC|$address}}, and <a href="..\identifi
 
 == {{mIRC|local identifiers}} ==
 
-=== {{mIRC|$filename}} ===
+=== <a href="..\identifiers\filename.html">$filename</a><br> ===
 
 Returns the complete filename of the received file.
 
@@ -39,7 +39,7 @@ Echo the name of the filename, along with both the user's nickname and address i
 * {{mIRC|on events/on filesent|on filesent}}
 * {{mIRC|on events/on filesent|on getfail}}
 * {{mIRC|on events/on filesent|on sendfail}}
-{{mIRC on event list}}
+
 
 [[Category:mIRC on events|filercvd]]</body>
 </html>

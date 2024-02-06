@@ -10,10 +10,13 @@
 The <b>/server</b> command can be used to initiate a new server connection. Using /server with no parameters will connect to the last server you used. If you use the server command while still connected, you will be disconnected with your normal quit message and will then connect to the specified server. It can also be used to manage the mIRC servers list
 
 <H4>Synopsis</H4>
+Editing:
 <pre class ="code">
 /server -sar [server] [-p port] [-g group] [-w password] [-d description]] [-l [method [password]]] [-key [filename.pem]] [-keytype &lt;global|local&gt;] [-i nick anick email name] [-itype local|global] [-encoding [CodePageNumber]]
+</pre>
+Connecting:
+<pre class ="code">
 /server [-46demnpfocztu] &lt;server/groupname/N&gt; [ -p port] [-l method [password]] [-key file] [-i nick anick email name] [-jn #channel pass]
-
 </pre>
 <H4>Switches</H4>
 
@@ -80,20 +83,20 @@ Otherwise:
 
 <H4>Parameters</H4>
 
-if any of the -sar switches are used:
+If any of the -sar switches are used:
 
 
-    * - [server]
+<br><b>[server]</b>
       - if specified, mIRC use that information to match for existing server entry, with -a giving priority to the -d parameter if used.
-    * - [-p port]
+<br><b>[-p port]</b>
       - specified the port number to be used, you can put different ports by separating them with commas, prefix the port with a **+** for **SSL**, and prefix it with ***** for a STARTTLS capable server. If no parameter used, the 'default port' from options/connect/options is used.
-    * - [-g group]
+<br><b>[-g group]</b>
       - specifies the group for the server, if the value is 'none', it clears the setting. There are multiple mIRC behaviors which will work best for you if this GROUP name exactly matches the string returned by $network while connected to that serverlist item. For the vast majority of networks this will be identical to the NETWORK= string displayed by the '/raw VERSION' command, however mIRC will create $network by stripping all characters out of this string that are not within $noqt(a-zA-Z0-9._-)
-    * - [-w pass]
+<br><b>[-w pass]</b>
       - specifies the password for the server. If the value is 'none', it clears the setting. This is *NOT* the place for your nickserv password, and is most commonly the place where you would put the Twitch server's oath:token
-    * - [-d desc]
+<br><b>[-d desc]</b>
       - specifies the description for the server, if the value is 'none', it clears the setting. Must use doublequotes if your description contains a space. See above warning with -a before trying to use "Random Server"
-    * - [-l method [password]]
+<br><b>[-l method [password]]</b>
       - changes the login method and the password field corresponding to the login method (even if the given method won't be using that corresponding password field, if you use "pass" for example). See below for more information about the **-l** method parameter
 <br><b>-keytype [local|global]</b>
       - The parameter being either 'local' or 'global' controls whether the 'use global certificate' box is checked.
@@ -105,11 +108,11 @@ if any of the -sar switches are used:
       - configures whether to use the local info fields as can be defined with the -i switch, or to use the global fields listed at the top of the alt+E serverlist editor.
 <br><b>-encoding [CodePageNumber]</b>
       - allows overriding the default behavior of interpreting server messages as UTF8 encoding, and instead using a codepage number for servers who use a regional codepage instead of UTF8. For example, '-encoding 857' configures that serverlist entry to use the Turkish codepage. If the codepage number is missing or is a number not recognized by your OS, the entry is set to 'Default' i.e. UTF8 encoding. Users who still use v6.35 because of using a server that does not support UTF8 'should' be able to use this setting to update to a modern mIRC version v7.69 or newer.
-
+<br>
 Otherwise:
+<br>
 
-
-    * - <server/groupname/N>
+<br><b>&lt;server/groupname/N&gt;</b>
       - either a server address, or if you give a groupname, it will cycle through all the servers in the server list which have that group name until it connects to one of them, if you give a number, mIRC will try to connect to the Nth server in the server list in the connect dialog. However, it gives priority to the servernames having the highest connection counts in the 'success' [section] of servers.ini
 <br><b>[port]</b>
       - if specified, the port number, you can put different ports by separating them with commas, prefix the port with a + for SSL, and prefix it with * for a STARTTLS capable server
@@ -170,11 +173,11 @@ None
 <H4>See also</H4>
 
 
-   <a href="..\identifiers\server.html">$server</a><br>
-   <a href="..\identifiers\serverip.html">$serverip</a><br>
-   <a href="..\identifiers\servertarget.html">$servertarget</a><br>
-   <a href="..\identifiers\ssl.html">$ssl</a><br>
-   <a href="..\identifiers\sslcertvalid.html">$sslcertvalid</a><br>
+<a href="..\identifiers\server.html">$server</a><br>
+<a href="..\identifiers\serverip.html">$serverip</a><br>
+<a href="..\identifiers\servertarget.html">$servertarget</a><br>
+<a href="..\identifiers\ssl.html">$ssl</a><br>
+<a href="..\identifiers\sslcertvalid.html">$sslcertvalid</a><br>
     * :doc: `$sslhash </identifiers/hash-tables>`
 </body>
 </html>

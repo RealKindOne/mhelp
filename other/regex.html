@@ -92,7 +92,7 @@ You may see a negative value being returned if an error occured, the list below 
 * -26 - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
 === $regml ===
-<source lang=mIRC>$regml([name],N)</pre>
+<pre class ="code">$regml([name],N)</pre>
 ''$regml'' can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if ''0'' is specified as the Nth reference, then the total number of backreferences is returned.
 
 $regml also has a ''.pos'' property, which returns the position within the input where the capture occurred.
@@ -105,15 +105,15 @@ Below is an example of a regular expression, using ''name'' as the optional ''[N
 You can now access the Nth captured group for a given match number with {{mIRC|$regmlex}}.
 
 === $regmlex ===
-<source lang=mIRC>$regmlex([name],M,N)</pre>
+<pre class ="code">$regmlex([name],M,N)</pre>
 
 
 As stated above for $regml, when /g is used, $regml can be inconvenient: you cannot get all the captured group for a given match number for sure when you don't know about the pattern or input string in advance, this identifier allows you to retrieve these captured groups (backreferences). M is the Mth match and N is the Nth capturing group, N default to 1 if not specified. It supports the same properties as $regml.
 
 
 === $regsub ===
-<pre class ="code">$regsub([name], &lt;input&gt;, &lt;regex&gt;, &lt;subtext&gt;, <%varname>)</pre>
-Performs a regular expression match, like $regex, and then performs a substitution using &lt;subtext&gt;. Returns the number of substitution made and fills <%varname> with the resulting text
+<pre class ="code">$regsub([name], &lt;input&gt;, &lt;regex&gt;, &lt;subtext&gt;, &lt;%varname&gt;)</pre>
+Performs a regular expression match, like $regex, and then performs a substitution using &lt;subtext&gt;. Returns the number of substitution made and fills &lt;%varname&gt; with the resulting text
 
 <pre class ="code">//var %res | noop $regsub(name,test,/([es])/g,t,%res) | echo -a $regml(name,0) : $regml(name,1) -- $regml(name,2) : %res</pre>
 
@@ -128,31 +128,35 @@ This time, &lt;subtext&gt; is evaluated during substitution so you can use %vari
 ==== Markers, $1- and Nested $regsubex calls ====
 
 Special markers can be used inside the &lt;subtext&gt; parameter of $regsubex:
+<pre class ="code">
+  \0 - Returns the number of captures.
+  \n - Returns the current match number.
+  \t - Returns the current match text (same as $regml(\n)).
+  \a - Returns all matching items.
+  \A - Returns a non-spaced version of \a.
+  \1 \2 \N ... - Returns the Nth back-reference made for a given match
+</pre>
 
-* \0 - Returns the number of captures.
-* \n - Returns the current match number.
-* \t - Returns the current match text (same as $regml(\n)).
-* \a - Returns all matching items.
-* \A - Returns a non-spaced version of \a.
-* \1 \2 \N ... - Returns the Nth back-reference made for a given match
-
-<pre class ="code">$regsubex(a@bc@ef,/([a-z])([a-z])/g,<\1><\n><\t><\a><\A><\2>)</pre>
+<pre class ="code">$regsubex(a@bc@ef,/([a-z])([a-z])/g,&lt;\1&gt;&lt;\n&gt;&lt;\t&gt;&lt;\a&gt;&lt;\A&gt;&lt;\2&gt;)</pre>
 
 Here you have two matches with two backreferences made per match:
 
 First match is on 'bc':
-* \1 is 'b'
-* \2 is 'c'
-* \n is 1 because it's the first match.
-* \t is the current matchtext (same as $regml(\n)), which is 'b'
-* \a is "b c" while \A is "bc"
+<pre class ="code">
+  \1 is 'b'
+  \2 is 'c'
+  \n is 1 because it's the first match.
+  \t is the current matchtext (same as $regml(\n)), which is 'b'
+  \a is "b c" while \A is "bc"
+</pre>
 Second match is on 'ef':
-* \1 is 'e'
-* \2 is 'f'
-* \n is 2 because it's the second match.
-* \t is the current matchtext (same as $regml(\n)), which is 'c' and not 'e' (\n is 2), it is important to note that when you have more than one backreference and more than one match (because of the /g modifier), \t is a bit meaningless.
-* \a is "e f" while \A is "ef"
-
+<pre class ="code">
+  \1 is 'e'
+  \2 is 'f'
+  \n is 2 because it's the second match.
+  \t is the current matchtext (same as $regml(\n)), which is 'c' and not 'e' (\n is 2), it is important to note that when you have more than one backreference and more than one match (because of the /g modifier), \t is a bit meaningless.
+  \a is "e f" while \A is "ef"
+</pre>
 The way mIRC evaluates those markers is special, it is important at this point to talk about the main steps happening when evaluating $identifiers:
 * Process '''[ ]''', which evaluates any variables/identifiers inside of the brackets once, and '''[[ ]]''', which turns into '''[ ]'''.
 * Separates the identifier's parameters and evaluates each parameter once. These evaluations take place in order from left to right.
@@ -182,7 +186,7 @@ And now mIRC evaluates that for each match and use it as a replacement.
 '''Note''': If the form '''\N''' is used in the subtext, where N is a positive number greater-than or equal to 1 (such as '''\1'''), and there is no such back-reference number in the pattern, mIRC will use the value of '''$regml(\n + N - 1)'''.
 
 An example of this is shown below:
-<pre class ="code">$regsubex(abcdefgij,/([a-z])/g,<\6>)</pre>
+<pre class ="code">$regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)</pre>
 Here we have a break-down of the results of this regex:
 * The '''\6''' doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
 * When ''a'' is matched, '''\n''' is ''1'', and only one marker is used. Therefore, '''$1''' (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''

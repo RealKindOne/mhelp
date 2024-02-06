@@ -54,7 +54,7 @@ You width is then 300 and you'd start displaying text at 50 + some margin:
   var %n $wrap($1-,verdana,10,$calc(%w - 10),1,0)
   ;the margin
   var %xstart %x + 5 ,%ystart %y + 5,%a 1
-  while (%a <= %n) {
+  while (%a &lt;= %n) {
     drawtext -r @chat 0 verdana 10 %xstart %ystart $wrap($1-,verdana,10,$calc(%w - 10),1,%a)
     inc %a
     ;increase a constant value for y, this example isn't about $height after all!, but eventually you would be using $height with a margin too

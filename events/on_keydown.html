@@ -10,24 +10,24 @@ The <b>ON KEYDOWN</b> event is triggered when a key is pressed down inside of a 
 The idea was to report the key being pressed in $keyval, and the resulting character in $keychar. From the very beginning, $keyval was incorrect because it returned the ASCII value of the character being pressed instead of the corresponding keycode which comes with the internal WM_KEYDOWN windows message, which has a different value for letters than ASCII. And then, if you needed to press two keys to get a character, something related to 'dead key' as well, you couldn't get the resulting character properly. For example if you press control + o, you need to get the control key being pressed, the 'o' key being pressed, and the resulting character, which is a $chr(15). It was not even possible to change on keydown to report things correctly because keypresses and resulting character comes from two differents message, and the resulting character is only known in the second one, which is always sent second. So on keydown was changed to only report keypress, which is way more correct. The event now to get the resulting character no matter what, like if you're trying to script a visual editbox in a picture window, you need to use the new created event, {{mIRC|on char}}
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:KEYDOWN:<@>:<keycode,...,keycodeN>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:KEYDOWN:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;@&gt;</b> - The [[custom windows - mIRC|custom window]] where this event should listen. Can be '''@''' for all windows.
 
-'''<@>'''</span>The [[custom windows - mIRC|custom window]] where this event should listen. Can be '''@''' for all windows.
+<br><b>&lt;keycode&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
 
-'''<keycode>'''</span>The specific key, or keys to listen for. Can specify multiple keys, such as:
 <pre class ="code">ON *:KEYDOWN:@myWindow:38,42,55,78:echo -a $keyval</pre> see https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for a list of key code
 
 == Identifiers ==
 
 This event fills the following identifiers:
-<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyval}}'''</span>The Windows keycode value of the key pressed, this has nothing to do with ascii or unicode code point, the list can be found here https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes</div>
+<a href="..\identifiers\keyval.html">$keyval</a><br> The Windows keycode value of the key pressed, this has nothing to do with ascii or unicode code point, the list can be found here https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes</div>
 
-<div style="background-color: rgba(0,0,0,.03); display: block;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keychar}}'''</span>The actual character pressed if there is one, see the note above, this is kept for backward compatibility reason, scripters should not use this value inside on keydown</div>
+<a href="..\identifiers\keychar.html">$keychar</a><br> The actual character pressed if there is one, see the note above, this is kept for backward compatibility reason, scripters should not use this value inside on keydown</div>
 
-<div style="background-color: rgba(0,0,0,.03); display: block; margin-bottom: 10px;"><span style="border-right: 1px dashed rgba(0,0,0,.15); display: inline-block; margin-left: 35px; margin-right: 10px; width: 70px;">'''{{mIRC|$keyrpt}}'''</span>If the key is being held down/repeating</div>
+<a href="..\identifiers\keyrpt.html">$keyrpt</a><br> If the key is being held down/repeating</div>
 
 <H4>Example</H4>
 Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
@@ -55,12 +55,11 @@ Note that this makes use of a [[Picture Windows - mIRC|picture window]], as well
 
 <H4>See also</H4>
 * [[custom windows - mIRC|Custom Windows]]
-* {{mIRC|/drawtext}}
-* [[on keyup - mIRC|ON KEYUP]]
-* {{mIRC|$keyval}}
-* {{mIRC|$keychar}}
-* {{mIRC|$keyrpt}}
-{{mIRC on event list}}
+* <a href="..\commands\drawtext.html">/drawtext</a><br>
+* <a href="On_keyup.html">On_keyup</a><br>
+* <a href="..\identifiers\keyval.html">$keyval</a><br>
+* <a href="..\identifiers\keychar.html">$keychar</a><br>
+* <a href="..\identifiers\keyrpt.html">$keyrpt</a><br>
 
-[[Category:mIRC on events|keydown]]</body>
+</body>
 </html>

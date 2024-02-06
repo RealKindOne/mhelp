@@ -6,13 +6,13 @@
 <br>
 The <b>ON SERVEROP</b> event triggers when a server ops a user on a channel.
 
-This event also fills the [[$opnick identifier - mIRC|$opnick identifier]] with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The {{mIRC|$nick}} identifier points to the server.
+This event also fills the [[$opnick identifier - mIRC|$opnick identifier]] with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The <a href="..\identifiers\nick.html">$nick</a><br> identifier points to the server.
 
 <H4>Synopsis</H4>
-<pre>ON &lt;level&gt;:SERVEROP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:SERVEROP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The level for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels to listen on. Can be '''#''' to target all channels.
 
@@ -26,9 +26,8 @@ Acknowledge when a user has been elevated to channel operator by the server:
 {{mIRC compatibility|3.3}}
 
 <H4>See also</H4>
-* [[On deop - mIRC|ON DEOP]]
-* [[On op - mIRC|ON OP]]
-{{mIRC on event list}}
+<a href="On_DEOP.html">On_DEOP</a><br>
+<a href="On_OP.html">On_OP</a><br>
 
-[[Category:mIRC on events|serverop]]</body>
+</body>
 </html>

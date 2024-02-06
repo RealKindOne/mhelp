@@ -36,14 +36,14 @@ The most basic on text event is the normal <a href="..\other\wildcard.html">wild
 
 <pre class ="code">on *:text:!help:#:{
   notice $nick For Help just state your question and pastebin any relevant code.
-}</syntaxhighlight>
+}</pre>
 
 Sometimes we want to get the user's input. We can use the & to match a single word (in this case it will be a name, although it doesn't matter)
 
 <pre class ="code">on *:text:!color &:?:{
   var %color = $gettok(white black red blue brown yellow orange green, $rand(1, 8), 32)
   msg $chan $2's random color is: %color $+ .
-}</syntaxhighlight>
+}</pre>
 
 === RegEx text pattern ===
 The matchtext parameter can also be a Regular Expression Pattern by using the {{mIRC|Access levels#Level_prefixes|'$' event prefix}}. 
@@ -52,7 +52,7 @@ Example:
 
 <pre class ="code">on $*:text:/^!test$/i:#:{
   msg $chan Test Worked!
-}</syntaxhighlight>
+}</pre>
 
 === Dynamic text pattern ===
 Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier. 
@@ -61,13 +61,13 @@ Example:
 
 <pre class ="code">on *:text:$(*slaps $me $+ *):#:{
   describe $chan Slaps $nick with dried-up sandwich!
-}</syntaxhighlight>
+}</pre>
 
 Or 
 
 <pre class ="code">on *:text:$(!example * $+ %match $+ *):#:{
   describe $chan This is an example, $+ $nick $+ !
-}</syntaxhighlight>
+}</pre>
 
 If the entire match text pattern contains a SINGLE variable, the $() is not required, this technique can also be used for any other parameter of an event. 
 
@@ -76,13 +76,13 @@ Example:
 <pre class ="code">;Assume %text is set to !cool
 on *:text:%text:#:{
   msg $chan I am the coolest! 
-}</syntaxhighlight>
+}</pre>
 
 It is also possible to use regular expressions with dynamic match text.
 
 <pre class ="code">on $*:text:$(/^!slaps $me $+ /Si):#:{
   describe $chan Slaps $nick with dried-up sandwich!
-}</syntaxhighlight>
+}</pre>
 
 == Target ==
 The target parameter of the event defines the locations of where the event can be triggered from. For example, the on text event can be triggered by a channel message or by a query.
@@ -97,7 +97,7 @@ Example:
 <pre class ="code">;let %chan equal #mSL,#help,#support
 on *:text:!hi:%chan:{
   notice $nick Hello!
-}</syntaxhighlight>
+}</pre>
 
 Example 2:
 
@@ -106,7 +106,7 @@ Example 2:
 alias -l channels { return #mSL,#help,#support }
 on *:text:!hi:$($channels):{
   notice $nick Hello!
-}</syntaxhighlight>
+}</pre>
 
 == Local $identifier available in the on text event ==
 
@@ -118,7 +118,7 @@ The on text event support the common IRC related local identifiers
 * [[List of commands - mIRC|List of commands]]
 
 {{DEFAULTSORT:text, on mIRC}}
-{{mIRC on event list}}
+
 
 </body>
 </html>

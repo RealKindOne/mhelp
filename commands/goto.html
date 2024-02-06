@@ -12,10 +12,8 @@ The <b>/goto</b> command allows you to jump to another part of the code. The got
 <br><b>Note:</b> A goto cannot jump to a label that was skipped earlier in the code.
 
 <H4>Synopsis</H4><pre class ="code">
-
-
-    :<label>
-    /goto <label>
+:&lt;label&gt;
+/goto &lt;label&gt;
 </pre>
 <H4>Switches</H4>
 
@@ -27,42 +25,39 @@ None
 
 <H4>Example</H4>
 <pre class ="code">
-
-
-    ; /is_even <1-9>
-    ;
-    ; <H4>Example</H4>
-<pre class ="code">: /is_even 2
-    ; 2 is an even number.
-    ; 2 is a prime number.
-    alias is_even {
-    goto $1
-    :0 | echo -a You typed zero. | return
-    :4 | echo -a $1 is an even number.
-    :1 | :9 | echo -a $1 is a perfect square. | return
-    :2 | echo -a $1 is an even number.
-    :3 | :5 | :7 | echo -a $1 is a prime number. | return
-    :6 | :8 | echo -a $1 is an even number. | return
-    :error
-    echo -a Only single-digit numbers are allowed!
-    reseterror
-    }
-
+; /is_even <1-9>
+;
+; Example: /is_even 2
+;   2 is an even number.
+;   2 is a prime number.
+alias is_even {
+  goto $1
+  :0 | echo -a You typed zero. | return
+  :4 | echo -a $1 is an even number.
+  :1 | :9 | echo -a $1 is a perfect square. | return
+  :2 | echo -a $1 is an even number.
+  :3 | :5 | :7 | echo -a $1 is a prime number. | return
+  :6 | :8 | echo -a $1 is an even number. | return
+  :error
+  echo -a Only single-digit numbers are allowed!
+  reseterror
+}
+</pre>
 Note that skipped labels cannot be jumped into.
-
-
-    ; This example shows that a goto point not being parsed previously by mIRC cannot be reached.
-    ;
-    alias testing_goto {
-    if (1) echo -a 1
-    elseif (1) { echo -a 2 | :test }
-    goto test
-    }
+<pre class ="code">
+; This example shows that a goto point not being parsed previously by mIRC cannot be reached.
+;
+alias testing_goto {
+  if (1) echo -a 1
+  elseif (1) { echo -a 2 | :test }
+  goto test
+}
+</pre>
 
 The script above will produce the following error:
-
-
-    * /goto: 'test' not found (line 3, scriptfile.mrc)
+<pre class ="code">
+* /goto: 'test' not found (line 3, scriptfile.mrc)
+</pre>
 
 </pre>
 <H4>Compatibility</H4>
@@ -72,11 +67,10 @@ Added: mIRC v4.5 (06 Jul 1996)
 None
 <H4>See also</H4>
 
-
-   <a href="break.html">/break</a><br>
-   <a href="continue.html">/continue</a><br>
-   <a href="if.html">/if</a><br>
-   <a href="return.html">/return</a><br>
-   <a href="while.html">/while</a><br>
+<a href="break.html">/break</a><br>
+<a href="continue.html">/continue</a><br>
+<a href="if.html">/if</a><br>
+<a href="return.html">/return</a><br>
+<a href="while.html">/while</a><br>
 </body>
 </html>
