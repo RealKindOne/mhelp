@@ -3,7 +3,7 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <H1>$decode</H1>
 <br>
-<br>The <b>$decode''' identifier allows you to decode literal text, or text in {{mIRC|Variables|%vars}} or {{mIRC|binary variables|&binvars}}. The '''$decode''' identifier uses either [[Uuencode]] or [[Base64|MIME]] or [[Base32]] to decode.
+<br>The <b>$decode</b> identifier allows you to decode literal text, or text in {{mIRC|Variables|%vars}} or {{mIRC|binary variables|&binvars}}. The '''$decode''' identifier uses either [[Uuencode]] or [[Base64|MIME]] or [[Base32]] to decode.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -13,32 +13,33 @@ $decode(text/%var/&binvar, amubt, N)
 ; encryption
 $decode(text/%var/&binvar, celirznp, key[, salt/iv])
 
-* See * <a href="encode.html">$encode</a><br> for more info, as this identifier's purpose is to reverse the encoding or encryption in strings created by $encode.
+See <a href="encode.html">$encode</a> for more info, as this identifier's purpose is to reverse the encoding or encryption in strings created by $encode.
 </pre>
 <H4>Parameters</H4>
-===Decoding===
-{{ArgsList
-| %var/&binvar | The target to be decoded
-| a | Target should be decoded using base32
-| m | Target should be decoded using [[Mime]]
-| u | Target should be decoded using [[Uuencode]] (this is default decode type)
-| b | Target is a {{mIRC|binary variables|&binvars}}, this output the result to the &binvar and $decode returns the total number of characters written to the binvar
-| t | Target is text (this is default target type)
-| N | Reference index for the Nth chunk in the output 60-character mem/UUencode encoded chunk (72 for base32)
+<br>
+<b>Decoding</b>
+
+<br><b>%var/&binvar</b> - The target to be decoded
+<br><b>a</b> - Target should be decoded using base32
+<br><b>m</b> - Target should be decoded using [[Mime]]
+<br><b>u</b> - Target should be decoded using [[Uuencode]] (this is default decode type)
+<br><b>b</b> - Target is a {{mIRC|binary variables|&binvars}}, this output the result to the &binvar and $decode returns the total number of characters written to the binvar
+<br><b>t</b> - Target is text (this is default target type)
+<br><b>N</b> - Reference index for the Nth chunk in the output 60-character mem/UUencode encoded chunk (72 for base32)
 }}
 
-===Encryption===
-{{ArgsList
-| c | CBC encryption mode (either c or e)
-| e | ECB encryption mode (either c or e)
-| l | Literal key, a 56-byte key
-| s | salt 
-| i | [[initialization vector]] (IV)
-| r | random IV
-| z | [[0x00 zero padding]]
-| n | ones and zeros padding
-| p | spaces padding
-}}
+<br>
+<b>Encryption</b>
+
+<br><b>c</b> - CBC encryption mode (either c or e)
+<br><b>e</b> - ECB encryption mode (either c or e)
+<br><b>l</b> - Literal key, a 56-byte key
+<br><b>s</b> - salt
+<br><b>i</b> - [[initialization vector]] (IV)
+<br><b>r</b> - random IV
+<br><b>z</b> - [[0x00 zero padding]]
+<br><b>n</b> - ones and zeros padding
+<br><b>p</b> - spaces padding
 
 <H4>Example</H4>
 Echo to the active screen the following decoded text, using the [[Mime]] type:
@@ -127,12 +128,15 @@ alias randsalt returnex $regsubex($str(x,8),/x/g,$chr($rand(1,255))))
 $encode does not reject invalid salt/iv strings longer than 8, and instead ignores the portion beyond length 8. This means that using the length 10 $ctime string as the salt or IV results in the identical key being used across a span of 100 seconds:
 
 /.timerfoo 120 1 echo -a $encode(message,mcs,key,$ctime) * $ctime
+
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)
+
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
-* <a href="encode.html">$encode</a><br>
+<a href="encode.html">$encode</a><br>
 <a href="base.html">$base</a><br>
 </body>
 </html>

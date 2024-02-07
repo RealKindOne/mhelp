@@ -3,30 +3,35 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <H1>$exists</H1>
 <br>
-<br>The <b>$exists</b> identifier can be used to determine whether a specified file, or folder, exists. If the file/folder exists, or does not exist, the identifier will return <a href="true.html">$true</a><br> or <a href="false.html">$false</a><br>, respectively.
+<br>The <b>$exists</b> identifier can be used to determine whether a specified file, or folder, exists. If the file/folder exists, or does not exist, the identifier will return <a href="true.html">$true</a> or <a href="false.html">$false</a>, respectively.
 
 
 <H4>Synopsis</H4>
-<pre class ="code">$exists(File/Folder)</pre>
+<pre class ="code">
+$exists(File/Folder)
+</pre>
+
 <H4>Parameters</H4>
-{{ArgsList
-| File/Folder | The file or folder to check for
-}}
+<br><b>File/Folder</b> - The file or folder to check for
+
+<H4>Properties</H4>
+None
 
 <H4>Example</H4>
-Echo to the active screen if '''mirc.ini''' exists
+Echo to the active screen if "mirc.ini" exists
 <pre class ="code">//echo -a $exists(mirc.ini)</pre>
 
 The above executed line should return the following:
 <pre class ="code">$true</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v4.6 (07 Sep 1996)<H4>Notes</H4>
+Added: mIRC v4.6 (07 Sep 1996)
+
+<H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="isfile.html">$isfile</a><br>
 <a href="isdir.html">$isdir</a><br>
-* 
-
-[[Category:mIRC identifiers|exists]]</body>
+</body>
 </html>
