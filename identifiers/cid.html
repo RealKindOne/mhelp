@@ -4,7 +4,7 @@
 <H1>$cid</H1>
 <br>
 <br>
-The <b>$cid</b> identifier returns the connection id to the script that requests it.
+The <b>$cid</b> identifier returns the current connection ID. Cid uniquely represent a status window/connection.
 
 
 <H4>Synopsis</H4>
@@ -20,11 +20,6 @@ None
 <H4>Example</H4>
 Echo to the currently active window the connection ID it is related to
 <pre class ="code">//echo -a $cid</pre>
-
-Code an alias to echo to the active window the connection ID for that script
-<pre class ="code">alias showcid {
-  echo -a $cid
-}</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)
