@@ -12,8 +12,8 @@ The <b>$biton</b> identifier returns N with the Bth bit set to 1.
 $biton(&lt;N&gt;,&lt;B&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - the number, in base10/decimal
-<br><b>B</b> - The Bth bit to be set
+<br><b>N</b> - the number, in base10/decimal, if N is 2^32 or greater, 2^32-1 will be used as the number. If N -2^32 or less, 2^32-1 is also used as the number
+<br><b>B</b> - The Bth bit to turn on
 
 <H4>Properties</H4>
 None
@@ -36,9 +36,6 @@ None
 ------------------------87654321
 00000000000000000000000000001110 14
 
-
-If N is 2^32 or greater, returns 2^32 -1<br />
-If N is less than -2^31+1, returns 2^(B-1) +1
 
 Using $biton and $bitoff, you can store several variables as bits within a single variable, instead of creating a separate variable for each.<br />
 The /window switch -wN uses bit settings, with default 3 if N not used.
