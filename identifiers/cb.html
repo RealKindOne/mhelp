@@ -3,7 +3,7 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <H1>$cb</H1>
 <br>
-<br>The <b>$cb</b> identifier allows mIRC to return the contents of the Windows Clipboard.
+<br>The <b>$cb</b> identifier allows mIRC to return the contents of the Windows Clipboard (text).
 
 
 <H4>Synopsis</H4>
@@ -13,13 +13,13 @@ $cb(N,[u],[%var|&binvar])[.property]
 </pre>
 
 <H4>Parameters</H4>
-<br><b>N</b> - The Nth <a href="crlf.html">$crlf</a> delimited line in the clipboard, you can use -1 to get the full clipboard with newline included.
+<br><b>N</b> - The Nth <a href="crlf.html">$crlf</a> or <a href="crlf.html">$lf</a> delimited line in the clipboard, you can use -1 to get the full clipboard with newline included.
 <br><b>u</b> - Return the text encoded to utf8
-<br><b>%var|&binvar</b> - You can pass a variable or a binary variable to be filled instead of being returned by $cb, using a binvar allow you to handle more than the current line lenght limit of 8292 char.
+<br><b>%var|&binvar</b> - You can pass a variable or a binary variable to be filled instead of being returned by $cb, using a binvar allow you to handle more than the current line lenght limit.
 
 <H4>Properties</H4>
 <br><b>.len</b> - returns the length of the Nth line
-<br><b>.utflen</b> - returns the len of the text encoded to utf8, same as .len with the 'u' parameter
+<br><b>.utflen</b> - only for $cb, not $cb(), returns the len of the text encoded to utf8, same as .len with the 'u' parameter
 <br><b>.utf</b> - This property appears in the source code but does not work, it looks like the source code is not checking the proper variable handling the prop name. It would naturally return the text encoded to utf8
 
 
