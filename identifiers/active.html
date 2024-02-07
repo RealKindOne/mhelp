@@ -4,8 +4,9 @@
 <H1>$active</H1>
 <br>
 <br>
-The <b>$active</b> identifier will return the full name of the currently active window.
+The <b>$active</b> identifier will return the full name of the currently active window in mIRC, excluding all dialogs and the script editor.
 
+Some window name can have spaces in them, namely "Status Window" can be returned, if you use $active in your script inside command taking a window parameter, don't forget to use $qt($active).
 
 <H4>Synopsis</H4>
 <pre class ="code">
