@@ -14,8 +14,8 @@ $bvar(&binvar, [ N [ ,M] ] )
 </pre>
 <H4>Parameters</H4>
 <br><b>&binvar</b> - A binary variable name which begins with the & symbol.
-<br><b>N</b> - The beginning position within the binary variable. N=0 returns the length of the binary variable. Can also be range, N- or N1-N2. (First byte is pos 1 not offset 0)
-<br><b>M</b> - Optional length of the number of values to return. If there are not M bytes beginning at the Nth position, returns all the remaining bytes beginning at the Nth position.
+<br><b>N</b> - The beginning position within the binary variable. N=0 returns the length of the binary variable. Can also be range, N- or N1-N2 (N2 is a position then) but cannot be negative to start from the end. (First byte is index 1)
+<br><b>M</b> - Optional number of values to get from the binvar at position N, this is not a position in the binvar but an offset starting at N. If there are not M bytes beginning at the Nth position, returns all the remaining bytes beginning at the Nth position. if M is used, the form N1-N2 for N is ignored and only N1 is used as though $bvar(&,N,M) was used.
 <H4>Properties</H4>
 <br><b>.text</b> - returns a string from the bytes, bytes are decoded from utf8
 <br><b>.ansi</b> - returns a string from the bytes, bytes are not decoded from utf8
