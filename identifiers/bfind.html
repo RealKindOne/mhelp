@@ -5,6 +5,9 @@
 <br>
 <br>
 The <b>$bfind</b> identifier searches &binvar for a matching value. Returns the Nth byte position in the binvar unless .regex prop is used, in which case it returns the number of matches.
+
+The search starts at index = 1, but $bfind accept index 0 as well. Searches for text are case-insensitive by default
+  
 <H4>Synopsis</H4>
 <pre class ="code">
 $bfind(&binvar, N , M , [name])
@@ -18,9 +21,7 @@ $bfind(&binvar, N , M , [name])
 <br><b>.text</b> - Treats a numeric N as text instead of bytes value, also decode bytes from utf8 before searching.
 <br><b>.textcs</b> - When M is recognized as text, search is performed as case-sensitive
 <br><b>.ansi</b> - the bytes of the binvar are not decoded from utf8 before searching.
-<br><b>.regex</b> - performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts,  so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
-
-Note: Searches for text are case-insensitive by default.
+<br><b>.regex</b> - performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts, so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
 
 <H4>Example</H4>
 <pre class ="code">//bset -t &var 1 test wavmIRC32WAV test | echo -a space beginning pos1: $bfind(&var,1,32) / space beginning pos11: $bfind(&var,11,32) / finds string '32' instead of chr(32) $bfind(&var,1,32).text / case-sensitive: $bfind(&var, 1, $asc(W) $asc(A) $asc(V) ) / case-insensitive: $bfind(&var,1,WAV).text / case-sensitive: $bfind(&var,1,WAV).textcs / not found: $bfind(&var,1,abc).text
