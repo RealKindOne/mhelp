@@ -4,8 +4,7 @@
 <H1>$chr</H1>
 <br>
 <br>
-The <b>$chr</b> identifier returns the character attached to a specified ascii number.
-
+The <b>$chr</b> identifier returns the character associated with a code point
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -13,7 +12,10 @@ $chr(&lt;N&gt;)
 </pre>
 
 <H4>Parameters</H4>
-<br><b>N</b> - This is the value that you wish to retrieve the character for.
+<br><b>N</b> - The code point, up to 65535
+
+If you want to learn more about why 65535 is the limit and/or if you want to get an unicode character whose codepoint is greater than that, see the <a href="unicode.html">Unicode</a> page
+
 
 <H4>Properties</H4>
 None
