@@ -21,11 +21,13 @@ $bindip(N|ipaddress)[.property]
 <br><b>.loopback</b> - Returns ''$true'' if the IP/device has a loopback, otherwise ''$false''.
 
 <H4>Example</H4>
-'''Echo to the active window the total number of network adapters'''
+Echo to the active window the total number of network adapters
 <pre class ="code">//echo -a $bindip(0)</pre>
-
-'''Echo to the active window the name of a local network adapter'''
+Echo to the active window the name of a local network adapter
 <pre class ="code">//echo -a $bindip(192.168.1.1).name</pre>
+Test ipv6 connectivity
+<pre class ="code">//if ($bindip(::)) { sockopen ipv6.hostonly.org }</pre>
+  
 
 <H4>Compatibility</H4>
 Added: mIRC v7.0 (02 Apr 2010)
