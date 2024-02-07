@@ -11,13 +11,8 @@ The <b>$appactive</b> identifier returns ''$true'' or ''$false'' depending on wh
 <pre class ="code">
 $appactive
 </pre>
-== Switches ==
+<h4>Parameters</h4>
 None
-
-== Results ==
-'''$true'''</span>mIRC is currently the active window.
-
-'''$false'''</span>mIRC is currently '''not''' the active window.
 
 <H4>Example</H4>
 Let's say you have a listening event, just to make mIRC beep if someone uses your name in a channel. We call these notifications, as well as highlights. Well, if mIRC is the currently active window, these sounds can be either annoying or meaningless. Therefore, we would set up the listener to check the '''$appactive''' identifier to make sure mIRC is not active before sending out the audible notification.
