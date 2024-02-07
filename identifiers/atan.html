@@ -12,10 +12,10 @@ The <b>$atan</b> identifier returns the arctangent of N.
 $atan(N)[.deg]
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - The tangent in radians for which you want the arc tangent.
+<br><b>N</b> - The tangent for which you want the arc tangent, in radians.
 
 <H4>Properties</H4>
-<br><b>.deg</b> - returns the angle as degrees, default is radians.
+<br><b>.deg</b> - means that the <b>N</b> parameter value is in degrees.
 
 <H4>Example</H4>
 <pre class ="code">//echo -a In right triangle where opposite side is 3 and adjacent is 4, angle is $atan( $calc(3/4) ).deg degrees 
@@ -24,7 +24,7 @@ $atan(N)[.deg]
 
 <pre class ="code">
 //var %i 60 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
-; returns 60.000003 instead of 60 because the $tan fraction is limited to 6 places
+; returns 60.000003 instead of 60 because the $tan fraction is limited to 6 places, though note that as of 7.76 bigfloat still doesn't return 60 but 60.000000000000000000000000000002
 //var %i 45 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
 //var %i 240 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
 ; returns angle in the range of -90 - +90 degrees (-pi/2 - +pi/2 radians)
