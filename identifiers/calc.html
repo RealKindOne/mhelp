@@ -4,18 +4,15 @@
 <H1>$calc</H1>
 <br>
 <br>
-The <b>$calc</b> can be used to perform mathematical calculations from the mIRC editbox line, or from inside of a custom script. The accuracy of results is limited to that of the 53-bit 'doubles' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
+The <b>$calc</b> can be used to perform mathematical calculations. The accuracy of results is limited to that of the 53-bit 'double' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
 <H4>Synopsis</H4>
 <pre class ="code">
 $calc(operations)
 </pre>
-The <b>$calc</b> identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view. '''$calc''' can also be used to calculate variables in mIRC, as well as other custom identifiers that return numerical values.
+The <b>$calc</b> identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view.
 
 <H4>Parameters</H4>
 <br><b>operations</b> - These are a specific set of mathematical operations for '''$calc''' to perform.
-
-== Operators ==
-'''The TLDR version of most of this is: Use plenty of parenthesis, which improves readability as well as ensuring the operations are performed in the order you wish.'''
 
 When parenthesis are not used to override the order of evaluation, these are the operators and the order in which they are used in calculating the result:<br />
 
@@ -23,7 +20,7 @@ When parenthesis are not used to override the order of evaluation, these are the
 
 <br><b>^</b> 2. Exponent
 
-<br><b>//</b> 3. Floor division, X // Y same as $floor($calc(X / Y)) (Added v7.41)
+<br><b>//</b> 3. Floor division, X // Y same as $floor($calc(X / Y))
 
 <br><b>%</b> 3. Modulus X % Y is remainder when dividing X / Y
 
@@ -36,7 +33,7 @@ When parenthesis are not used to override the order of evaluation, these are the
 <br><b>-</b> 4. Subtraction
 
 
-'''Parenthesis used to demonstrate the order. Operations at the same level are executed left-to-right:'''
+Parenthesis used to demonstrate the order. Operations at the same level are executed left-to-right:
 //echo -a $calc( 99 - 77 * 2 // 4 ^ .5 ^ 3 + 11 % 3 * 2 + 1) is same as $calc( 99 - (((( 77 * 2) // ((4 ^ .5) ^3)))) + (( 11  % 3) * 2) + 1)
 This first performs exponentiation left-to-right, so 4^.5^3 is 4 raised to .5 and that result of '2' is then cubed.
 Then it splits the formula into separate groups delimited by either + add or - subtract.
@@ -98,9 +95,6 @@ Integers outside the range -2^53 through +2^53 lose precision. Some of those 53 
 
 $calc has reduced accuracy for larger integers, and even lower accuracy for fractions of smaller numbers. This inaccuracy is often reflected in other identifiers which use same stored values used by $calc.
 
-For example, $base can't be trusted to be accurate when handling values larger than 2^53.
-//echo -a $base($str(f,14),16,16) returns 100000000000000
-
 Even numbers much smaller than 2^53 can return inaccurate results in their fraction, if the number to the left of the decimal is at least as large as 2^33:
 
 //echo -a $calc( 8589934592 + .999999) => 8589934592.999998
@@ -144,7 +138,7 @@ In the above example, sometimes the result is rounded up to the next integer, an
 result: 10 vs 9 vs 9
 In this case, the first result rounded to the nearest 9 decimal places is 10.000000, so the fraction and the decimal were stripped. The input for $int would have been 10, so the wrong result would not be caused by $int. The accuracy of the 'floor divide' operator provides the accurate result because the floor divide happens before the result is rounded to 6 decimal places. The last method is a way to return accurate results without using the floor divide.
 </pre>
-See also the $calc section at {{mIRC|msl_injection#$calc()}}
+See also the $calc section at <a href="../other/msl_injection#$calc().html">$xor</a><br>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (28 Aug 1997)
