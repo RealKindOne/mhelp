@@ -4,18 +4,17 @@
 <H1>$and</H1>
 <br>
 <br>
-The <b>$and</b> identifier returns the AND operation of two numbers.
+The <b>$and</b> identifier returns the AND operation of two numbers. The numbers need to be provided in decimal, and are then converted to binary, the AND operation applied, and the answer converted back to decimal.
 
-'''Note:''' The numbers need to be provided in decimal, and are then converted to binary, the AND operation applied, and  the answer converted back to decimal.
+The AND operation returns a 1 when both matching binary bits are 1, otherwise returns 0
 
-Valid range for N1 and N2 are -4294967295 through +4294967295. See <a href="xor.html">$xor</a> for description of handling out-of-range and negative numbers.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $and(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;N1&gt;</b>, <b>&lt;N2&gt;</b> - The numbers, in decimal
+<br><b>&lt;N1&gt;</b>, <b>&lt;N2&gt;</b> - The numbers, in decimal. valid range for N1 and N2 are 32 bits -4294967295 through +4294967295. See <a href="xor.html">$xor</a> for description of handling out-of-range and negative numbers.
 <H4>Properties</H4>
 None
 
@@ -26,8 +25,6 @@ None
 ; 27 is 00011011 when converted to binary
 ; AND   00001010 which is 10 when converted back to decimal
 </pre>
-
-The AND operation returns a 1 when both matching binary bits are 1, otherwise returns 0
 
 <pre class ="code">//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($and(%n1,%n2),10,2,8) -> $and(%n1,%n2)
 returns:
