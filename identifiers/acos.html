@@ -15,11 +15,11 @@ $acos(N)[.deg]
 <br><b>N</b> The cosine in radians for which you want the arc cosine.
 
 <H4>Properties</H4>
-<br><b>.deg</b> Returns the angle as degrees, default is radians.
+<br><b>.deg</b> if you use .deg, it means the parameter <b>N</b> is in degree, not in radian.
 
 <H4>Example</H4>
 
-Returns $null because cosine can only be in range of -1.0 through +1.0
+Returns $null because cosine can only be in range of -1.0 through +1.0 in radian
 <pre class ="code">
 //echo -a $acos(5)
 </pre>
@@ -32,7 +32,7 @@ Returns: In right triangle where opposite side is 4 and hypotenuse is 5, angle i
 <pre class ="code">
 //var %i 60 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
 //var %i 45 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
-; returns 44.999982 instead of 45 because the $cos fraction is limited to 6 places
+; returns 44.999982 instead of 45 because the $cos fraction is limited to 6 places, though note that as of 7.76, bigfloat also doesn't return 45, just more decimal 44.999999999999999999999999999988
 //var %i 270 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
 ; returns angle in the range of 0-180 degrees (0-pi radians)
 </pre>
