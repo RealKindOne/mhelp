@@ -3375,6 +3375,10 @@
 		<param name="Local" value="other\injection.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Eval Brackets">
+		<param name="Local" value="other\eval_brackets.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_voice">
 		<param name="Local" value="events\on_voice.html">
 		</OBJECT>
