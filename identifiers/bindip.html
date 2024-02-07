@@ -4,7 +4,7 @@
 <H1>$bindip</H1>
 <br>
 <br>
-The <b>$bindip</b> identifier is used to get information regarding an available [[network adapter]].
+The <b>$bindip</b> identifier is used to get information regarding an available etwork adapter.
 
 
 <H4>Synopsis</H4>
@@ -13,8 +13,7 @@ $bindip(N|ipaddress)[.property]
 </pre>
 <H4>Parameters</H4>
 <br><b>N</b> - Returns the Nth device in the network adapters list. If ''N'' is specified as ''0'', returns the total number of active network adapters.
-
-<br><b>ipaddress</b> - If you specify an IP address, mIRC will try to find the best network adapter to use to connect to that IP.
+<br><b>ipaddress</b> - If you specify an IP address, mIRC will try to find the best network adapter to use to connect to that IP. This can be used to test if you have ipv6 connectivity with $bindip(::)
 
 <H4>Properties</H4>
 <br><b>.name</b> - The name of the network adapter.
@@ -35,9 +34,8 @@ None
 <H4>See also</H4>
 * <a href="ip.html">$ip</a><br>
 * <a href="iptype.html">$iptype</a><br>
-* {{mIRC|$portfree}}
-* {{mIRC|/bindip}}
-
+* <a href="portfree.html">$portfree</a><br>
+* <a href="../commands/bindip.html">/bindip</a><br>
 
 </body>
 </html>
