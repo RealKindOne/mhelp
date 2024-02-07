@@ -4,8 +4,18 @@
 <H1>$caller</H1>
 <br>
 <br>
-The <b>$caller</b> identifier returns a value which indicates the context in which your alias has been called.
+The <b>$caller</b> identifier returns a value which indicates the context in which your routine has been called.
 
+<H4>Synopsis</H4>
+<pre class ="code">
+$caller
+</pre>
+<H4>Parameters</H4>
+None
+<H4>Properties</H4>
+None
+
+The return value can be:
 <br><b>activex</b> - called from $comcall
 <br><b>command</b> - called from a command
 <br><b>dde</b> - called from a external application using {{mIRC|$dde|DDE}}
@@ -25,16 +35,8 @@ The <b>$caller</b> identifier returns a value which indicates the context in whi
 <br><b>other</b> - called from other contexts including:
 # label of popups menu
 # /filter -a sort_alias
-# identifier in dialog table (ie returning one of the x y w h numbers)
-
-<H4>Synopsis</H4>
-<pre class ="code">
-$caller
-</pre>
-<H4>Parameters</H4>
-None
-<H4>Properties</H4>
-None
+# identifier in dialog table (ie returning one of the x y w h numbers)  
+  
 <H4>Example</H4>
 Activex: edit the echo in the alias cbthread in <a href="comcall.html">$comcall</a><br> page to include $caller
 
