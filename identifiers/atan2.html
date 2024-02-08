@@ -4,7 +4,7 @@
 <H1>$atan2</H1>
 <br>
 <br>
-The <b>$atan2</b> identifier returns the arctangent of the ration of two numbers (equivalent to $atan($calc(N/M)) but $atan2 is more precise).
+The <b>$atan2</b> identifier returns the arctangent of the ration of two numbers (equivalent to $atan($calc(N/M)) but $atan2 is more precise), in radians.
 <H4>Synopsis</H4>
 <pre class ="code">
 $atan2(&lt;O&gt;,&lt;A&gt;)[.deg]
@@ -12,8 +12,11 @@ $atan2(&lt;O&gt;,&lt;A&gt;)[.deg]
 <H4>Parameters</H4>
 <br><b>O</b> - The length of the Opposite side of the right triangle.
 <br><b>A</b> - The length of the Adjacent side of the right triangle.
+
+$atan2 support scientific notation in O and A parameter, you can use the letter 'e' to express *10^,  $atan2(1e5,5).deg = $atan2($calc(1*10^5),5).deg
+  
 <H4>Properties</H4>
-<br><b>.deg</b> - means the returned angle is in degree
+<br><b>.deg</b> - means the returned angle is in degree instead of radians
 <H4>Example</H4>
 
 Returns: In right triangle where opposite side is length 3 and adjacent side is length 4 - angle is 36.869898 degrees
