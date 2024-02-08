@@ -4,18 +4,16 @@
 <H1>On Signal</H1>
 <br>
 <br>
-The <b>ON SIGNAL</b> event triggers after a call to the {{mirc|/signal}} command. This is a mechanism used to signal events in multiple script at the same time
+The <b>ON SIGNAL</b> event triggers after a call to the <a href="..\commands\signal.html">/signal</a> command. This is a mechanism used to signal events in multiple script at the same time
 
-You can use {{mirc|$signal}} to refer to the name of signal triggering the event and you can use {{mIRC|$1-}} to refer to the parameters passed to /signal
+You can use <a href="..\identifiers\signal.html">$signal</a> to refer to the name of signal triggering the event and you can use <a href="..\identifiers\1-.html">$1-</a> to refer to the parameters passed to /signal
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:signal:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-
 <br><b>&lt;matchtext&gt;</b> - The matchtext for the event to trigger.
-
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -25,9 +23,8 @@ You can use {{mirc|$signal}} to refer to the name of signal triggering the event
 {{mIRC compatibility|6.0}}
 
 <H4>See also</H4>
-{{mirc|$signal}}
-{{mirc|/signal}}
+<a href="..\identifiers\signal.html">$signal</a><br>
+<a href="..\commands\signal.html">/signal</a><br>
 
-
-[[Category:mIRC on events|signal]]</body>
+</body>
 </html>

@@ -9,10 +9,8 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br>
 <b>Note:</b> This replaces the deprecated {{mIRC|$?}} identifier.
 
-<H4>Synopsis</H4>
+<H4>Synopsis</H4>Prompts the user for input and returns the result.
 <pre class ="code">$input(prompt,options,window,title,text)</pre>
-
-Prompts the user for input and returns the result.
 </pre>
 <H4>Parameters</H4>
 <br><b>prompt</b> - Parameter must not be blank. Text displayed inside the input dialog window. The input dialog is extended vertically as needed to display the prompt message if it is very long. You can also make text in the prompt message appear on different lines by using <a href="crlf.html">$crlf</a><br> to separate lines. The input window widens as needed by 1-3 buttons, the edit or combo dropdown, icon, or titlebar text
@@ -38,35 +36,37 @@ Prompts the user for input and returns the result.
 <br><b>window</b> - if option '''s''' is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
 <br><b>title</b> - the titlebar text.
 <br><b>text</b> - default text placed in the input editbox
-
+<br>
 The options, window, title, and text are optional parameters
-
+<br>
 By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. '''f''' switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. '''kN''' defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
-
+<br>
 For the '''options''' parameter, you can also use a number as a combination of value added together, without the presence of any letter switches, which is how $input was originally working:
 
-* '''1'''  - show input editbox (equivalent of the 'e' switch)
-* '''2'''  - show input password editbox (equivalent of 'p' switch)
-* '''4'''  - ok button (equivalent of 'o')
-* '''8'''  - yes/no buttons ('y')
-* '''16''' - yes/no/cancel buttons ('n')
-* '''32''' - return $ok, $yes, $no, $cancel, $retry for buttons. ('v')
-* '''64''' - show the info icon ('i')
-* '''128''' - show the question icon ('q')
-* '''256''' - show the warning icon ('w')
-* '''512''' - show the halt icon ('h')
-* '''1024''' - insert 'window' as the 3rd parameter ('s')
-* '''2048''' - activate the $input dialog when mIRC is not the active application ('a')
-* '''4096''' - show the gold star icon ('t')
-* '''8192''' - retry/cancel buttons ('r')
-* '''16384''' - align buttons to the right ('g')
-* '''32768''' - show the recycle bin icon ('c')
-* '''65536''' - play icon-related sound ('d')
-* '''131072''' - combo dropdown list ('m')
-
+<br><b>1</b>  - show input editbox (equivalent of the 'e' switch)
+<br><b>2</b>  - show input password editbox (equivalent of 'p' switch)
+<br><b>4</b>  - ok button (equivalent of 'o')
+<br><b>8</b>  - yes/no buttons ('y')
+<br><b>16</b> - yes/no/cancel buttons ('n')
+<br><b>32</b> - return $ok, $yes, $no, $cancel, $retry for buttons. ('v')
+<br><b>64</b> - show the info icon ('i')
+<br><b>128</b> - show the question icon ('q')
+<br><b>256</b> - show the warning icon ('w')
+<br><b>512</b> - show the halt icon ('h')
+<br><b>1024</b> - insert 'window' as the 3rd parameter ('s')
+<br><b>2048</b> - activate the $input dialog when mIRC is not the active application ('a')
+<br><b>4096</b> - show the gold star icon ('t')
+<br><b>8192</b> - retry/cancel buttons ('r')
+<br><b>16384</b> - align buttons to the right ('g')
+<br><b>32768</b> - show the recycle bin icon ('c')
+<br><b>65536</b> - play icon-related sound ('d')
+<br><b>131072</b> - combo dropdown list ('m')
+<br>
+<pre class ="code">
 $input(sup,5) is equivalent to $input(sup,eo)
+</pre>
 
-'''Note:''' This identifier '''cannot''' be used in a remote event. One way around this is to use a <a href="..\commands\timer.html">/timer</a><br> to initiate an input request after the script ends. Another way around it is to use {{mirc|/signal}} to trigger an {{mirc|on signal}} event.
+'''Note:''' This identifier '''cannot''' be used in a remote event. One way around this is to use a <a href="..\commands\timer.html">/timer</a> to initiate an input request after the script ends. Another way around it is to use <a href="..\commands\signal.html">/signal</a> to trigger an <a href="..\events\On_Signal.html">On_Signal</a> event.
 
 <H4>Example</H4>
 

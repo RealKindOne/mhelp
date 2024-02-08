@@ -6,17 +6,13 @@
 <br>
 The <b>ON start</b> event triggers either when mIRC is started, or a script file is loaded, either through the scripts editor, or via the <a href="..\commands\load.html">/load</a><br> command. Only one '''on start</b> event is allowed per script file.
 
-==Synopsis==
-<pre>on &lt;level&gt;:START:&lt;commands&gt;</pre>
+<H4>Synopsis</H4>
+<pre class ="code">on &lt;level&gt;:START:&lt;commands&gt;</pre>
 
-==Parameters==
-<dl>
-    <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;level&gt;</dt>
-    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The [[Mirc access level|access level]] required for the event to trigger.</dd>
+<H4>Parameters</H4>
 
-    <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;commands&gt;</dt>
-    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The commands to be performed when the event is triggered.</dd>
-</dl>
+<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event is triggered.
 
 ==Examples==
 Add a pre-typed command to connect to certain networks upon pressing enter to the editbox:
@@ -27,20 +23,20 @@ Add a pre-typed command to connect to certain networks upon pressing enter to th
 
 
 Create a [[Hash Tables - mIRC|hash table]] named '''''ircpoints''''' and load data from a file named '''''ircpoints.hsh''''' into the table if the file exists:
-<pre class ="code">on *:START:{
+<pre class ="code">
+on *:START:{
   if (!$hget(ircpoints)) { hmake ircpoints }
   if ($file(ircpoints.hsh).longfn) { hload ircpoints $v1 }
-}</pre>
+}
+</pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)
 
+<H4>See also</H4>
 
-==See Also==
 <a href="on_Load.html">On_Load</a></br>
 <a href="on_UnLoad.html">On_UnLoad</a></br>
 <a href="on_Exit.html">On_Exit</a><br>
-[[/load command - mIRC|/load command]]
-
-
+<a href="..\commands\load.html">/load</a><br>
 </body>
 </html>

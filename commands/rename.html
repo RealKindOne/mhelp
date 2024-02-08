@@ -7,12 +7,12 @@
 <br>
 <br>
 
-The <b>/rename</b> command can be used to rename and/or move a file or a directory. If the path contains spaces, you must enclose the path in a pair of double quotes ( :doc: `$qt </identifiers/$qt>` ).
+The <b>/rename</b> command can be used to rename and/or move a file or a directory. If the path contains spaces, you must enclose the path in a pair of double quotes (<a href="..\identifiers\qt.html">$qt</a>).
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/rename -fo &lt;filename&gt; <new_filename>
-    /rename <dirname> <new_dirname>
+/rename -fo &lt;filename&gt; &lt;new_filename&gt;
+/rename &lt;dirname&gt; &lt;new_dirname&gt;
 </pre>
 <H4>Switches</H4>
 
@@ -27,19 +27,15 @@ The <b>/rename</b> command can be used to rename and/or move a file or a directo
 
 <br><b>&lt;filename&gt;</b>
       - The path of the file or directory to rename or move
-    * - <new_filename>
+<br><b>&lt;new_filename&gt;</b>
       - The new path of the file or directory
 
 <H4>Example</H4>
+
+<br>Will produce the following result:
+<br>* Renamed 'E:\example.txt' to 'E:\renamed.txt'
 <pre class ="code">
-
-
-    /rename E:\example.txt E:\renamed.txt
-
-Will produce the following result:
-
-
-    * Renamed 'E:\example.txt' to 'E:\renamed.txt'
+/rename E:\example.txt E:\renamed.txt
 
 </pre>
 <H4>Compatibility</H4>
@@ -47,6 +43,7 @@ Added: mIRC v5.3 (04 Jan 1998)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 

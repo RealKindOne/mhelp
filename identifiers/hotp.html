@@ -122,14 +122,15 @@ These produce a different string than the all-zeroes hex string does, showing th
 Through v7.53, $hmac and $hotp and $totp using hash method sha512 or sha384 and a key whose length is 65-128 returned an incorrect value due to replacing the key with its own hash for lengths 65+ instead of only for 129+.
 //echo -a $hotp($str(z,65),0,sha512,9) should be 187092660
 <H4>Compatibility</H4>
-Added: mIRC v7.42 (17 Jul 2015)<H4>Notes</H4>
+Added: mIRC v7.42 (17 Jul 2015)
+<H4>Notes</H4>
 None
 <H4>See also</H4>
 {{collist
 |count = 3
 |style = width: 60%; display: inherit;
 |
-* <a href="totp.html">$totp</a><br>
+<a href="totp.html">$totp</a><br>
 <a href="hmac.html">$hmac</a><br>
 <a href="encode.html">$encode</a><br>
 <a href="encode.html">$encode</a><br>

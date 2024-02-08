@@ -78,10 +78,10 @@ Of course! Here is the list:
 ** '''Property:''' If the .mute property is used, it returns a $true/$false value, the mute setting for that type.
 * $inwave, $inmidi, $insong - Return $true if the specified wave, midi, mp3/wma/ogg type is playing, $false otherwise.
 ** '''Properties:''' 
-** .fname - Returns the complete filename
-** .pos - Returns the current position in the file
-** .length - Returns the length of the song
-** .pause - Returns $true if the song is paused
+<br><b>.fname</b> - Returns the complete filename
+<br><b>.pos</b> - Returns the current position in the file
+<br><b>.length</b> - Returns the length of the song
+<br><b>.pause</b> - Returns $true if the song is paused
 * $sound(<type>) - Returns the directory specified in the Sound Requests section of the Options dialog, where type can be wave, midi, mp3, wma, or ogg.
 * $sound(<filename>) - Returns either the directory for that file type, as above, or information about the sound file. Currently, only mp3 files are supported.
 ** '''Properties:''' .album, .title, .artist, .year, .comment, .genre, .track, .length, .version, .bitrate, .vbr, .sample, .mode, .copyright, .private, .crc, .id3, .tag, .tags
@@ -102,7 +102,7 @@ Of course! Here is the list:
  <source lang="mIRC">
  ;Play the mp3 file, if an mp3 file is already playing, it is stopped before.
  /splay C:\Directory_To_Music_File\MusicFile.mp3
- 
+
  ;Play a mp3 file at a specific point (1500 milliseconds from the beginning)
  /splay C:\My Music\file.mp3 1500
 

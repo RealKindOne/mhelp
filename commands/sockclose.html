@@ -7,7 +7,7 @@
 <br>
 <br>
 
-The <b>/sockclose</b> command allows the closing of any open socket connections, either specifically or by <a href="..\other\wildcard.html">wildcard</a> .
+The <b>/sockclose</b> command allows the closing of any open socket connections, either specifically or by <a href="..\other\wildcard.html">wildcard</a>.
 
 <br><b>Note:</b> if you close a socket inside a socket event, all infos on the socket are lost and $sockname will be set to $null as well.
 
@@ -21,20 +21,19 @@ None
 
 <H4>Parameters</H4>
 
-**&lt;name&gt;**: The specific socket name to be closed. This parameter can also be a <a href="..\other\wildcard.html">wildcard</a> match.
+<br><b>&lt;name&gt;</b> - the specific socket name to be closed. This parameter can also be a <a href="..\other\wildcard.html">wildcard</a> match.
 
 <H4>Example</H4>
 <pre class ="code">
-
-
-    /sockclose mySock
-
+/sockclose mySock
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
-See Also
+<H4>Notes</H4>
+None
 
+<H4>See also</H4>
 
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>

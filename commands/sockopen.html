@@ -52,7 +52,7 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
 <H4>Example</H4>
 <pre class ="code">
 Alias irc_connect {
-  ;Initiate a connection with "irc.freenode.org" on port 6669, Secured connection
+  ; Initiate a connection with "irc.freenode.org" on port 6669, Secured connection
   sockopen -e IRC irc.freenode.org +6697
 }
 
@@ -62,7 +62,7 @@ On *:sockopen:IRC:{
   sockwrite -n IRC NICK Tester $+ $rand(1,100) $crlf
 }
 
-;Show all receiving data in a window
+; Show all receiving data in a window
 On *:sockread:IRC:{
   window -de @IRC
   var %x
@@ -75,8 +75,8 @@ Added: mIRC v5.3 (04 Jan 1998)
 
 <H4>Notes</H4>
 None
-<H4>See also</H4>
 
+<H4>See also</H4>
 
 <a href="..\identifiers\sockname.html">$sockname</a><br>
 <a href="..\identifiers\sock.html">$sock</a><br>
@@ -86,6 +86,7 @@ None
 <a href="sockread.html">/sockread</a><br>
 <a href="sockrename.html">/sockrename</a><br>
 <a href="sockwrite.html">/sockwrite</a><br>
-    * :doc: `on sockopen </events/on_sockopen>`
+<a href="..\events\On_SockOpen.html">On SockOpen</a><br>
+
 </body>
 </html>

@@ -25,25 +25,25 @@ None
 <H4>Example</H4>
 
 
-Play the file mywav.wav located in the Sounds directory of mIRC 
+Play the file mywav.wav located in the Sounds directory of mIRC
 <pre class ="code">
 /wavplay mywav.wav
 </pre>
 Short alias script that will ask you which wav file you want to play
 <pre class ="code">
 alias playwav {
- 
+
   ; First, we create a variable, %file, to hold our
   ; user-selected wav file. Note that this is surrounded
   ; by the $qt() identifier which makes sure that the
   ; entire selection is surrounded by quotes. This is
   ; for older Windows' backward-compatibility.
   var %file = $qt($sfile(sounds\*.wav,Choose Wav,OK))
- 
+
   ; Check to make sure the %file variable contains a
   ; real file.
   if ($isfile(%file)) {
- 
+
     ; Now we simply play the wav file using /wavplay
     wavplay %file
   }
@@ -56,10 +56,11 @@ Removed: mIRC v5.51 (19 Feb 1999)
 <br>
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="splay.html">/splay</a><br>
 <a href="vol.html">/vol</a><br>
 <a href="..\identifiers\sound.html">$sound</a><br>
-<a href="..\identifiers\vol.html">$vol</a><br>   
+<a href="..\identifiers\vol.html">$vol</a><br>
 </body>
 </html>

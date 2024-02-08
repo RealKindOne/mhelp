@@ -26,7 +26,7 @@ Because ON QUIT is not associated with # or $chan, to show a quit message in all
 on ^*:QUIT:{
   var %i $comchan($nick,0)
   while (%i) {
-    echo -ctg quit $comchan($nick,%i) * $nick $+($chr(40),$address,$chr(41)) Quit $iif($1,$+($chr(40),$1-,$chr(41))) 
+    echo -ctg quit $comchan($nick,%i) * $nick $+($chr(40),$address,$chr(41)) Quit $iif($1,$+($chr(40),$1-,$chr(41)))
     dec %i
   }
   haltdef
@@ -34,13 +34,13 @@ on ^*:QUIT:{
 </pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|2.1a}}
+Added: mIRC v3.7 (12 Oct 1995)
 
 <H4>See also</H4>
-* <a href="On_disconnect.html">On_disconnect</a><br>
-* <a href="On_Join.html">On_Join</a><br>
-* <a href="On_part.html">On_part</a><br>
+<a href="On_disconnect.html">On_disconnect</a><br>
+<a href="On_Join.html">On_Join</a><br>
+<a href="On_part.html">On_part</a><br>
 
 
-[[Category:mIRC on events|quit]]</body>
+</body>
 </html>

@@ -12,7 +12,6 @@ The <b>/noop</b> command simply discards all the values after evaluating its arg
 <H4>Synopsis</H4>
 <pre class ="code">
 /noop [args]
-
 </pre>
 <H4>Switches</H4>
 
@@ -20,26 +19,23 @@ None
 
 <H4>Parameters</H4>
 
-
-    * - [args]
+<br><b>[args]</b>
       - Arguments to evaluate
 
 <H4>Example</H4>
 <pre class ="code">
-
-
-    alias noop_example {
-    ; discard the value we get from $tip
-    noop $tip(<H4>Example</H4>
-<pre class ="code">, Hello, Hello there)
-    }
-
+alias test {
+  if ($1 == 1) echo -a 1!
+  elseif ($1 isnum 2-7) echo -a 2-7!
+  else echo -a 8-!
+}
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v6.17 (17 Feb 2006)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 

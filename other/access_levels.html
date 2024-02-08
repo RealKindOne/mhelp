@@ -20,14 +20,14 @@ The &lt;additional info&gt; parameter is an optional parameter that can be used 
  friend:dan!z@some.isp.net high school friend
 
 === Adding users ===
-There are two commands that can be used to add a user to the access list, {{mIRC|/auser}} and {{mIRC|/guser}}. They follow this syntax:
+There are two commands that can be used to add a user to the access list, <a href="..\commands\auser.html">/auser</a> and <a href="..\commands\guser.html">/guser</a>. They follow this syntax:
 
 <pre class ="code">
 /auser [-a] &lt;levels&gt; &lt;name|address&gt; [info]
 /guser [-a] &lt;levels&gt; &lt;name&gt; [addressType] [info]
 </pre>
 
-Both {{mIRC|/auser}} and {{mIRC|/guser}} do the same thing, they add a specific user to the user list with the access levels specified (Comma delimited). The -a switch can be used to simply add additional access levels to an existing user, otherwise all the old levels gets replaced with the new ones. The fundamental difference between /auser and /guser is that {{mIRC|/guser}} can be used to look up the address of a user while {{mIRC|/auser}} requires you to provide it beforehand.
+Both <a href="..\commands\auser.html">/auser</a> and <a href="..\commands\guser.html">/guser</a> do the same thing, they add a specific user to the user list with the access levels specified (Comma delimited). The -a switch can be used to simply add additional access levels to an existing user, otherwise all the old levels gets replaced with the new ones. The fundamental difference between /auser and /guser is that <a href="..\commands\guser.html">/guser</a> can be used to look up the address of a user while <a href="..\commands\auser.html">/auser</a> requires you to provide it beforehand.
 
 <pre class ="code">
 ;Add joe (address mask type 2), access level 'friend'
@@ -35,7 +35,7 @@ Both {{mIRC|/auser}} and {{mIRC|/guser}} do the same thing, they add a specific 
 </pre>
 
 === Removing users ===
-The {{mIRC|/ruser}} command can be used to remove a user completely from the access list or simply remove one of his levels.
+The <a href="..\commands\ruser.html">/ruser</a> command can be used to remove a user completely from the access list or simply remove one of his levels.
 
 <pre class ="code">
 /ruser [levels] &lt;name|address&gt; [type]
@@ -48,7 +48,7 @@ For example:
 </pre>
 
 === Changing users' info ===
-The user info parameter can be changed at any time using the {{mIRC|/iuser}} command:
+The user info parameter can be changed at any time using the <a href="..\commands\iuser.html">/iuser</a> command:
 
 <pre class ="code">
 /iuser &lt;name|address&gt; [info]
@@ -82,9 +82,9 @@ can be executed by any user with access level 5 or greater.
 
 By default, your event are triggered after mIRC has processed this event itself. For example if someone talks to you in a query, mIRC will display the text in that window, triggers the various beep and flash option if any, and only then trigger on text.
 
-The ^ prefix tells mIRC to process your event before it processes the event itself. This prefix typically only works with IRC event but here is a full list of supported events: {{mIRC|on action}}, {{mIRC|on ban}}, {{mIRC|on chat}}, {{mIRC|on dehelp}}, {{mIRC|on deop}}, {{mIRC|on devoice}}, {{mIRC|on help}}, {{mIRC|on invite}}, {{mIRC|on join}}, {{mIRC|on kick}}, {{mIRC|on mode}}, {{mIRC|on nick}}, {{mIRC|on notice}}, {{mIRC|on op}}, {{mIRC|on open}}, {{mIRC|on part}}, {{mIRC|on ping}}, {{mIRC|on text}}, {{mIRC|on unban}}, {{mIRC|on usermode}}, {{mIRC|on voice}}, {{mIRC|on quit}}, {{mIRC|on serv}}, {{mIRC|on servermode}}, {{mIRC|on serverop}}, {{mIRC|on snotice}}, {{mIRC|on tabcomp}}, {{mIRC|on topic}}, {{mIRC|on wallops}}.
+The ^ prefix tells mIRC to process your event before it processes the event itself. This prefix typically only works with IRC event but here is a full list of supported events: <a href="..\events\On_Action.html">On_Action</a>, <a href="..\events\On_Ban.html">On_Ban</a>, <a href="..\events\On_Chat.html">On_Chat</a>, <a href="..\events\On_DeHelp.html">On_DeHelp</a>, <a href="..\events\On_DeOp.html">On_DeOp</a>, {{mIRC|on devoice}}, <a href="..\events\On_Help.html">On_Help</a>, <a href="..\events\On_Invite.html">On_Invite</a>, <a href="..\events\On_Join.html">On_Join</a>, <a href="..\events\On_Kick.html">On_Kick</a>, <a href="..\events\On_Mode.html">On_Mode</a>, {{mIRC|on nick}}, {{mIRC|on notice}}, {{mIRC|on op}}, <a href="..\events\On_Open.html">On_Open</a>, <a href="..\events\On_Part.html">On_Part</a>, {{mIRC|on ping}}, {{mIRC|on text}}, {{mIRC|on unban}}, {{mIRC|on usermode}}, <a href="..\events\On_Voice.html">On_Voice</a>, <a href="..\events\On_Quit.html">On_Quit</a>, <a href="..\events\On_Serv.html">On_Serv</a>, {{mIRC|on servermode}}, {{mIRC|on serverop}}, <a href="..\events\On_SNotice.html">On_SNotice</a>, {{mIRC|on tabcomp}}, {{mIRC|on topic}}, {{mIRC|on wallops}}.
 
-This prefix, coupled with {{mIRC|/halt}} or {{mIRC|/haltdef}}, allows you to display your own message for a given event, or it allows you to prevent a query window from opening with {{mIRC|on open}}, or to prevent a nick completion in {{mIRC|on tabcomp}}
+This prefix, coupled with <a href="..\commands\halt.html">/halt</a> or <a href="..\commands\haltdef.html">/haltdef</a>, allows you to display your own message for a given event, or it allows you to prevent a query window from opening with <a href="..\events\On_Open.html">On_Open</a>, or to prevent a nick completion in {{mIRC|on tabcomp}}
 
 === + prefix ===
 By default, the numeric prefix means that level and any level higher can trigger that event. Using the + prefix, you can limit the event to be exactly the level specified.
@@ -120,7 +120,7 @@ on @10:text:.op:#myChan:{
 will only work if you are an operator in #myChan at the time the user typed ".o".
 
 === & prefix ===
-The '''& prefix''' can be used to prevent the event from being executed if the previous event called the {{mIRC|/haltdef }} or {{mIRC|/halt}} commands (if $halted is $true).
+The '''& prefix''' can be used to prevent the event from being executed if the previous event called the {{mIRC|/haltdef }} or <a href="..\commands\halt.html">/halt</a> commands (if $halted is $true).
 
 For example, given the following two on TEXT events placed in separate files...
 
@@ -142,7 +142,7 @@ on $*:text:/^([!@.])test$/:#myChan:{
 </pre>
 
 === Named access levels ===
-Sometimes it's beneficial to give an access group a name instead of a numeric value. A good example is bot admins, friends, or even channel members. You can define such groups using the normal {{mIRC|/guser}} and {{mIRC|/auser}} commands:
+Sometimes it's beneficial to give an access group a name instead of a numeric value. A good example is bot admins, friends, or even channel members. You can define such groups using the normal <a href="..\commands\guser.html">/guser</a> and <a href="..\commands\auser.html">/auser</a> commands:
 
 <pre class ="code">
 /guser BotAdmin Mike123 2

@@ -6,7 +6,7 @@
 <br>
 The <b>ON UDPREAD</b> triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
 
-To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each {{mIRC|/sockudp}} command) by using the -k switch of /sockudp.
+To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each <a href="..\commands\sockudp.html">/sockudp</a> command) by using the -k switch of /sockudp.
 
 '''Note:''' If this event triggers but no /sockread is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 

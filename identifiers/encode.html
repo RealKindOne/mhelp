@@ -240,10 +240,11 @@ When using a salted key ('c' without 'r' or 'i' switches) the hash method has so
 While the encryption does not include authentication, that issue can be largely mitigated. Authentication would involve a lengthening of the ciphertext which can make it less likely that the encoded encrypted string can fit within the limited length of an IRC message. However, when using a salt, both the per-message key and per-message IV are a hash result that's shielded from trivial tampering. To defend against the ciphertext being chopped short, if the ciphertext is in a &binvar, you can determine the decrypted padded-message-length inside the ciphertext based on the length of the mime string, so if the decoded string length indicates that no padding was removed, that indicates that the ciphertext was not created by $encode. There is still a small chance that padding can be removed from a truncated message without containing spurious characters, but you can also do something like ending your plaintext always with a string that you never put into the message, like XYZ, and then can check that your decrypted message ends with your magic label.
 
 <H4>Compatibility</H4>
-Added: mIRC v5.8 (05 Sep 2000)<H4>Notes</H4>
+Added: mIRC v5.8 (05 Sep 2000)
+<H4>Notes</H4>
 None
 <H4>See also</H4>
-* <a href="encode.html">$encode</a><br>
+<a href="encode.html">$encode</a><br>
 <a href="rand.html">$rand</a><br>
 <a href="rands.html">$rands</a><br>
 </body>

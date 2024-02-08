@@ -4,7 +4,7 @@
 <H1>On Sockopen</H1>
 <br>
 <br>
-The <b>ON SOCKOPEN</b> event triggers when a TCP socket connection initiated with {{mIRC|/sockopen}} is either successfull or failed. This event also trigger after an SSL negociation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negociation was successful.
+The <b>ON SOCKOPEN</b> event triggers when a TCP socket connection initiated with <a href="..\commands\sockopen.html">/sockopen</a><br> is either successfull or failed. This event also trigger after an SSL negociation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negociation was successful.
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SOCKOPEN:&lt;matchtext&gt;:&lt;commands&gt;</pre>
@@ -53,20 +53,20 @@ on *:sockopen:example:{
 Added: mIRC v3.5 (07 Aug 1995)
 
 <H4>See also</H4>
-* <a href="On_SockRead.html">On_SockRead</a><br>
-* <a href="On_SockWrite.html">On_SockWrite</a><br>
-* <a href="On_SockListen.html">On_SockListen</a><br>
-* <a href="On_SockClose.html">On_SockClose</a><br>
-* {{mIRC|/sockopen}}
-* <a href="..\commands\sockwrite.html">/sockwrite</a><br>
-* <a href="..\commands\sockread.html">/sockread</a><br>
-* <a href="..\commands\sockclose.html">/sockclose</a><br>
-* <a href="..\commands\sockaccept.html">/sockaccept</a><br>
-* <a href="..\commands\sockpause.html">/sockpause</a><br>
-* {{mIRC|$sockname}}
-* <a href="..\identifiers\sock.html">$sock</a><br>
-* <a href="..\identifiers\sockbr.html">$sockbr</a><br>
-* <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="On_SockRead.html">On_SockRead</a><br>
+<a href="On_SockWrite.html">On_SockWrite</a><br>
+<a href="On_SockListen.html">On_SockListen</a><br>
+<a href="On_SockClose.html">On_SockClose</a><br>
+<a href="..\commands\sockopen.html">/sockopen</a><br>
+<a href="..\commands\sockwrite.html">/sockwrite</a><br>
+<a href="..\commands\sockread.html">/sockread</a><br>
+<a href="..\commands\sockclose.html">/sockclose</a><br>
+<a href="..\commands\sockaccept.html">/sockaccept</a><br>
+<a href="..\commands\sockpause.html">/sockpause</a><br>
+<a href="..\identifiers\sockname.html">$sockname</a><br>
+<a href="..\identifiers\sock.html">$sock</a><br>
+<a href="..\identifiers\sockbr.html">$sockbr</a><br>
+<a href="..\identifiers\sockerr.html">$sockerr</a><br>
 
 </body>
 </html>

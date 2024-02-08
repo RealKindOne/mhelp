@@ -12,55 +12,39 @@ The <b>ON DIALOG</b> event listens for events which take place inside of custom 
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-* '''&lt;name&gt;''' - The dialog name that this event triggers for, <a href="..\other\wildcard.html">wildcard</a><br> accepted.
+<br><b> &lt;name&gt;<b> - The dialog name that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
 
-* '''&lt;event&gt;''' - The dialog event that this event triggers for, <a href="..\other\wildcard.html">wildcard</a><br> accepted.
+<br><b> &lt;event&gt;<b> - The dialog event that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
 
-* '''&lt;id&gt;''' - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a><br> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
+<br><b> &lt;id&gt;<b> - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
 
 == {{mIRC|local identifiers}} ==
 
-=== {{mIRC|$dname}} ===
-
+<b>$dname</b>
+<br>
 Returns the name of the dialog.
-
-=== {{mIRC|$devent}} ===
-
+<br>
+<b>$devent</b>
+<br>
 Returns the name of the event.
-
-=== {{mIRC|$did}} ===
-
+<br>
+<b>$did</b>
+<br>
 Returns the ID of the control.
+<br>
+<br><b>active</b>  Triggers when the dialog is made active.
+<br><b>close</b>  Triggered when a dialog has been closed.
+<br><b>dclick</b>  Occurs when a double left-click has occurred in a list box or combo box, as well as on the dialog itself.
+<br><b>drop</b>  Triggers when an item has been dragged and dropped with the mouse.
+<br><b>edit</b>  When text in an editbox or a combo box has changed.
+<br><b>init</b>  This event ID is 0, and triggers before a dialog is displayed. This allows initialization time for the dialog and its items.
+<br><b>menu</b>  Whenever a menu-item is selected.
+<br><b>mouse</b>  When the mouse is moved.
+<br><b>rclick</b>  Works when the mouse right-clicks.
+<br><b>sclick</b>  Occurs during a single-click in a list box/combo box, during check/uncheck of radio/check buttons, or during the click of a button.
+<br><b>scroll</b>  A scroller control position has changed.
+<br><b>uclick</b>  Left mouse button has been released/gone up.
 
-== Events ==
-{| style="line-height: 30px;" class="wikitable"
-|-
-! Event !! Description
-|-
-| '''active'''<span style="margin-right: 15px;"></span> || </span>Triggers when the dialog is made active.
-|-
-| '''close'''<span style="margin-right: 15px;"></span> || </span>Triggered when a dialog has been closed.
-|-
-| '''dclick''' || Occurs when a double left-click has occurred in a list box or combo box, as well as on the dialog itself.
-|-
-| '''drop''' || Triggers when an item has been dragged and dropped with the mouse.
-|-
-| '''edit''' || When text in an editbox or a combo box has changed.
-|-
-| '''init''' || This event ID is 0, and triggers before a dialog is displayed. This allows initialization time for the dialog and its items.
-|-
-| '''menu''' || Whenever a menu-item is selected.
-|-
-| '''mouse''' || When the mouse is moved.
-|-
-| '''rclick''' || Works when the mouse right-clicks.
-|-
-| '''sclick''' || Occurs during a single-click in a list box/combo box, during check/uncheck of radio/check buttons, or during the click of a button.
-|-
-| '''scroll''' || A scroller control position has changed.
-|-
-| '''uclick''' || Left mouse button has been released/gone up.
-|}
 
 <H4>Example</H4>
 Here we will create an alias that launches a dialog. This dialog has a '''mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
@@ -127,16 +111,15 @@ Almost all events are accounted for. The dialog properly tracks mouse movements,
 Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>See also</H4>
-* {{mIRC|$dname}}
-* {{mIRC|$devent}}
-* {{mIRC|$did}}
-* {{mIRC|$didwm}}
-* {{mIRC|$didreg}}
-* {{mIRC|$didtok}}
-* {{mIRC|/dialog}}
-* {{mIRC|/did}}
-* {{mIRC|/didtok}}
 
-
-[[Category:mIRC on events|dialog]]</body>
+<a href="..\identifiers\dname.html">$dname</a><br>
+<a href="..\identifiers\devent.html">$devent</a><br>
+<a href="..\identifiers\did.html">$did</a><br>
+<a href="..\identifiers\didwm.html">$didwm</a><br>
+<a href="..\identifiers\didreg.html">$didreg</a><br>
+<a href="..\identifiers\didtok.html">$didtok</a><br>
+<a href="..\commands\dialog.html">/dialog</a><br>
+<a href="..\commands\did.html">/did</a><br>
+<a href="..\commands\didtok.html">/didtok</a><br>
+</body>
 </html>

@@ -4,9 +4,9 @@
 <H1>On Sockread</H1>
 <br>
 <br>
-The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a><br> command.
+The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
 
-'''Note''': If this event triggers but no <a href="..\commands\sockread.html">/sockread</a><br> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
+'''Note''': If this event triggers but no <a href="..\commands\sockread.html">/sockread</a> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
@@ -57,20 +57,20 @@ on *:sockread:example:{
 Added: mIRC v3.5 (07 Aug 1995)
 
 <H4>See also</H4>
-* <a href="On_SockOpen.html">On_SockOpen</a><br>
-* <a href="On_SockWrite.html">On_SockWrite</a><br>
-* <a href="On_SockListen.html">On_SockListen</a><br>
-* <a href="On_SockClose.html">On_SockClose</a><br>
-* {{mIRC|/sockopen}}
-* <a href="..\commands\sockwrite.html">/sockwrite</a><br>
-* <a href="..\commands\sockread.html">/sockread</a><br>
-* <a href="..\commands\sockclose.html">/sockclose</a><br>
-* <a href="..\commands\sockaccept.html">/sockaccept</a><br>
-* <a href="..\commands\sockpause.html">/sockpause</a><br>
-* {{mIRC|$sockname}}
-* <a href="..\identifiers\sock.html">$sock</a><br>
-* <a href="..\identifiers\sockbr.html">$sockbr</a><br>
-* <a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="On_SockOpen.html">On_SockOpen</a><br>
+<a href="On_SockWrite.html">On_SockWrite</a><br>
+<a href="On_SockListen.html">On_SockListen</a><br>
+<a href="On_SockClose.html">On_SockClose</a><br>
+<a href="..\commands\sockopen.html">/sockopen</a><br>
+<a href="..\commands\sockwrite.html">/sockwrite</a><br>
+<a href="..\commands\sockread.html">/sockread</a><br>
+<a href="..\commands\sockclose.html">/sockclose</a><br>
+<a href="..\commands\sockaccept.html">/sockaccept</a><br>
+<a href="..\commands\sockpause.html">/sockpause</a><br>
+<a href="..\identifiers\sockname.html">$sockname</a><br>
+<a href="..\identifiers\sock.html">$sock</a><br>
+<a href="..\identifiers\sockbr.html">$sockbr</a><br>
+<a href="..\identifiers\sockerr.html">$sockerr</a><br>
 
 </body>
 </html>

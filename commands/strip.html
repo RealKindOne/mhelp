@@ -7,12 +7,11 @@
 <br>
 <br>
 
-The '*/strip* command is used to essentially enable or disable certain control-code stripping within mIRC.
+The <b>/strip</b> command is used to essentially enable or disable certain control-code stripping within mIRC.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /strip [+-burc]
-
 </pre>
 <H4>Switches</H4>
 
@@ -21,43 +20,45 @@ You can chain +letter and -letter combo where + enables and - disables
 
 <br><b>[accept|ignore]</b>
       - Turns off stripping entirely
-    * - b
+<br><b>b</b>
       - Bold
-    * - u
+<br><b>u</b>
       - Underline
 <br><b>[accept|ignore]</b>
       - Reverse
 <br><b>[c]</b>
       - Color
-<br><b>[nick1]</b>
+<br><b>[i]</b>
       - Italic
 <br><b>e</b>
       - StrikeThrough
 
 <H4>Parameters</H4>
-
 None
 
 <H4>Example</H4>
-<pre class ="code">s
 
-**Disable all control code stripping**
+Disable all control code stripping
+<pre class ="code">
+/strip -burc
+</pre>
+Enable stripping on bold, disable on color codes**
+<pre class ="code">
+/strip -b+c
+</pre>
+Enable stripping on reverse and underline, disable on bold and color codes**
+<pre class ="code">
+/strip +ru-bc
+</pre>
 
-
-    /strip -burc
-
-**Enable stripping on bold, disable on color codes**
-
-
-    /strip -b+c
-
-**Enable stripping on reverse and underline, disable on bold and color codes**
-
-
-    /strip +ru-bc
+<H4>Compatability</H4>
+Added: mIRC v4.7 (09 Dec 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
+
+<a href="..\identifiers\strip.html">$strip</a><br>
 </body>
 </html>

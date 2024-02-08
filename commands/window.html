@@ -12,7 +12,6 @@ The <b>/window</b> command can be used to create :doc: `Custom Windows </interme
 <H4>Synopsis</H4>
 <pre class ="code">
 /window [-abBcCdDe[N]fg[N]hHij[N]k[N]l[N]mMn[N]oprRsSuvw[N]xyz] [-tN,..,N] [+bdeflLnstx] &lt;@name&gt; [x y [w h]] [/command] [popup.txt/@popup] [font [size]] [iconfile [N]]
-
 </pre>
 <H4>Switches</H4>
 <br>
@@ -143,7 +142,7 @@ Mostly applicable to Desktop windows:
 <br><b>Note:</b> mIRC does not allow window names @mirc (-2) or @mdi (-3) or @desktop (-1), that's because these names are used internally by mIRC to represent the different mIRC windows for $window(-1), $window(-2) and $window(-3). You can use these names in $window() though, to make things clearer if you want.
 
 <H4>Example</H4>
-Picture window 
+Picture window
 <pre class ="code">
 Alias Example1 {
   ;Create a desktop + picture window, Coordinates: (250,250), size 300x300
@@ -155,13 +154,13 @@ Alias Example1 {
 }
 </pre>
 
-Custom window with side listbox 
+Custom window with side listbox
 <pre class ="code">
 Alias Example2 {
   ; Create a desktop, Coordinates: (100,100), size 500x350
   ; Side listbox (width: 15 characters)
   window -del15 @Example 100 100 500 350
- 
+
   ; Populate the side listbox with 5 items.
   var %a = 1
   while (%a < 5) {
@@ -169,7 +168,7 @@ Alias Example2 {
     aline -l $v1 @Example Item $v1
     inc %a
   }
- 
+
   ; Add 5 lines to the window buffer
   var %a = 1
   while (%a < 5) {
@@ -179,7 +178,7 @@ Alias Example2 {
   }
 }
 </pre>
-Making unique window name from $nick while avoiding the 3 protected window names: 
+Making unique window name from $nick while avoiding the 3 protected window names:
 <pre class ="code">
 //window -ek @ $+ $nick $+ $iif($istok(mdi desktop mirc,$nick,32),$ctime)
 </pre>
@@ -189,6 +188,7 @@ Added: mIRC v5.0 (21 Apr 1997)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 
