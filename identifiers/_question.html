@@ -23,7 +23,7 @@ There are four ways you can use this identifier:
 :: ''Displays a password input request: the input is treated as a password field. The input is shown as •••''
 * '''$?!="Give Me Input"'''
 :: ''Displays an input request with a Yes & No button, with the words 'Give Me Input' above them.''
-::: - If you click '''Yes''', the input returns ''$true'', otherwise it returns ''$false'', <span style="color: #B30000;">even if you don't click '''No'''</span> and exit out other ways.
+::: - If you click '''Yes''', the input returns <a href="true.html">$true</a>, otherwise it returns <a href="false.html">$false</a>, <span style="color: #B30000;">even if you don't click '''No'''</span> and exit out other ways.
 * '''$?N="Give me input!'''
 :: ''Where N is a positive number > 1 representing the $N identifier, If the value of $N is $null, you are asked to provide it, otherwise $N is returned.
 * '''$?#="Give me input!'''
@@ -70,7 +70,7 @@ alias testme {
   echo -a $?!="Do you like chocolate?"
 }
 </pre>
-: ''Pops up an input request asking if the user likes chocolate. If they click '''Yes''', it echoes '''$true''' to the active window; otherwise, it echoes '''$false'''.''
+: ''Pops up an input request asking if the user likes chocolate. If they click '''Yes''', it echoes '<a href="true.html">$true</a>' to the active window; otherwise, it echoes '<a href="false.html">$false</a>'.''
 <pre class ="code">
 alias testme {
   tokenize 32 A B

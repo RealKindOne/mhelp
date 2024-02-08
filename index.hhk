@@ -10,6 +10,10 @@
 		<param name="Local" value="identifiers\_exclamation.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$?">
+		<param name="Local" value="identifiers\_question.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$$">
 		<param name="Local" value="identifiers\_sigil.html">
 		</OBJECT>
@@ -1428,10 +1432,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$query">
 		<param name="Local" value="identifiers\query.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$questionmark">
-		<param name="Local" value="identifiers\questionmark.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$r">
