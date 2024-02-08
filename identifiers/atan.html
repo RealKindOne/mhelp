@@ -14,8 +14,10 @@ $atan(N)[.deg]
 <H4>Parameters</H4>
 <br><b>N</b> - The cos/sin ratio you want the arc tangent of
 
+$atan supports scientific notation, you can use the letter 'e' in N to expression *10^, $atan(1e5) = $atan($calc(1*10^5))
+
 <H4>Properties</H4>
-<br><b>.deg</b> - makes $atan return an angle in degrees instead
+<br><b>.deg</b> - makes $atan return an angle in degrees instead of radians
 
 <H4>Example</H4>
 <pre class ="code">//echo -a In right triangle where opposite side is 3 and adjacent is 4, angle is $atan( $calc(3/4) ).deg degrees 
