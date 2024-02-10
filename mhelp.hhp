@@ -859,7 +859,9 @@ events\on_wallops.html
 events\on_waveend.html
 other\access_levels.html
 other\aliases.html
+other\conditional_statements.html
 other\eval_brackets.html
+other\hash_tables.html
 other\injection.html
 other\music.html
 other\playing_music.html

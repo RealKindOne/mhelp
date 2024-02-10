@@ -1,0 +1,450 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>Hash Tables</H1>
+<br>
+<br>
+<b>Hash tables</b> is an associative array with item-data pairing. That is, data stored in the table is associated with a specific item. Logically speaking, a basic table would like something like this:
+
+{| class="wikitable"
+! Item !! Data
+|-
+|Item1 || Data1
+|-
+|Item2 || Data2
+|-
+|Item3 || Data3
+|}
+
+mIRC provides facilities for manipulating the table and the values in a variety of ways.
+
+== General Details ==
+
+Hash tables, unlike INI files, are stored completely in memory and are never written to disk (unless the /hsave command is used), making them much faster when it comes to storing and retrieving information. The performance gain is much more obvious with a large amount of item/data pairs.
+
+'''Note:''' Because hash tables are only in memory, it must be saved to a disk file using /hsave if mIRC needs to have the hashtable in memory after an exit then restart. You can reload the table from a file after mIRC restarts.
+
+== Creating a table ==
+
+A hash table must be created before you can work with it. This also applies to loading a hash table from a file. To create a table you need to use the /hmake command. The syntax is:
+
+<pre class = "code">
+hmake &lt;table_name&gt;
+hmake &lt;table_name&gt; <buckets>
+;hmake also have an -s switch which prints debug info
+</pre>
+
+If you don't specify the number of buckets (or "slots"), the default is used, which is 101. If you do specify the number of buckets from 1-10000, for any number greater than 1 which is not prime, mIRC increases the number of buckets to be the next greater prime from 3-10007. Which is why the default 100 uses 101 bucket. Assuming that you are going to look up a specific item by name using <a href="..\identifiers\hget.html">$hget</a>, then generally speaking the number of buckets should be decided based on the following equation:
+
+<math>
+  \text{buckets} = \frac{\text{number of items that will be used}}{0.78}
+</math>
+
+For example: a table with 101 buckets is optimal for 79 items. For 1000 items, 1282 buckets is best (which mIRC increases to the prime 1283). '''Note:''' The maximum valid number for the buckets parameter is 10000, which mIRC increases to the next available prime number, 10007.
+
+Or to put this another way, the optimum number of buckets is 1.282x the number of items you are going to store in the hash table.
+
+'''Note:''' See the notes at the bottom of the page for explanation why it can be helpful for buckets to be greater than the number of items in the table.
+
+== Adding Items ==
+
+The /hadd command is used to add an item/data pair to the table. The syntax is:
+
+<pre class = "code">hadd &lt;table_name&gt; &lt;item&gt; &lt;data&gt;
+or
+hadd -b &lt;table_name&gt; &lt;item&gt; &lt;&bvar&gt;
+An item can be added to the table with null data:
+hadd &lt;table_name&gt; &lt;item&gt;
+If it's possible the table is not yet created, use the -m switch, which creates the table if it doesn't exist
+hadd -m &lt;table_name&gt; &lt;item&gt;
+</pre>
+
+Let's consider a table of favorite colors:
+
+<pre class = "code">
+/hadd -sm100 colors Mary Green
+/hadd -s colors John Blue
+/hadd -s colors Lisa Red
+/hadd -s colors Gary Orange
+</pre>
+
+The -s switch is needed to "show" the action, otherwise these commands are silent. The code above will produce the following result:
+
+<pre class = "code">
+* Made hash table 'colors' (101)
+* Added item 'Mary' to hash table 'colors'
+* Added item 'John' to hash table 'colors'
+* Added item 'Lisa' to hash table 'colors'
+* Added item 'Gary' to hash table 'colors'
+</pre>
+
+{| class="wikitable"
+|+ "Colors" Hash Table
+! Item !! Data
+|-
+|Mary || Green
+|-
+|John || Blue
+|-
+|Lisa || Red
+|-
+|Gary || Orange
+|}
+
+If you add an item name which already exists in the table, the new data replaces the existing item's data.
+
+<pre class = "code">
+/hadd Colors Gary Yellow
+</pre>
+
+This updates the Colors table, changing the item 'Gary' to contain the data 'Yellow' instead of 'Orange'.
+
+== Value retrieval ==
+To get a data value associated with a given item we will use the $hget identifier which has the following syntax:
+
+<pre class = "code">$hget(&lt;table_name&gt;, &lt;item&gt;)</pre>
+
+For example, if we were to check what is Mary's favorite color from our table; we will use the following piece of code:
+
+<pre class = "code">//echo -a Mary's favorite color is $hget(colors, Mary)
+;Mary's favorite color is Green</pre>
+
+The $hget identifier can also be used to check if a table exists using the following syntax:
+
+<pre class = "code">$hget(&lt;table_name&gt;)
+; returns $null if the table does not exist</pre>
+; If the table does exist, returns N for the Nth existing table
+Note: If $hget(colors) returns 2 indicating colors is the 2nd table, deleting the 1st table causes this command to return 1.
+
+== Iterating Over a Hash Table ==
+The $hget identifier can be used to iterate over the hash table. The syntax is:
+
+<pre class = "code">
+; Total Number of items in the table:
+$hget(&lt;table_name&gt;, 0).item
+; Get the Nth Item
+$hget(&lt;table_name&gt;, &lt;Nth&gt;).item
+; Get the value associated with the Nth Item
+$hget(&lt;table_name&gt;, &lt;Nth&gt;).data
+</pre>
+
+'''Note:''' Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
+
+An example of looping over every value in our Colors table will look like this:
+
+<pre class = "code">Alias print_fav_colors {
+  var %i = 1
+  echo Colors Table:
+  ; iterate over each item
+  while ($hget(Colors, %i).item) {
+    ; print the item/value pair
+    echo -a %i $+ ) $v1 => $hget(Colors, $v1)
+    inc %i
+  }
+}</pre>
+
+The execution of the alias (/print_fav_colors) will produce the following result:
+
+<pre class = "code">Colors Table:
+1) Lisa => Red
+2) Mary => Green
+3) Gary => Yellow
+4) John => Blue
+(Gary shows Yellow instead of Orange because it was changed above)
+</pre>
+
+This listing is almost always not in the same order they're added, because items are first listed according to the bucket they are placed into, before items within the bucket are listed. This is the listing order for v7.53, while the order in v7.52 is 1)Gary 2)Mary 3) Lisa 4) John. The listing order can also change if you change the number of 'buckets' within the same mIRC version, and the order of any items assigned to the same bucket can also be affected by the order in which those items are added or whether items in that bucket were deleted or added. Therefore, you should not depend on Mary being listed before Gary. More details in a later Technical section.
+
+== Deleting Items ==
+To delete pairs from the table, you need to use the /hdel command. Its syntax is:
+
+<pre class = "code">hdel &lt;table_name&gt; &lt;item&gt;
+hdel -w &lt;table_name&gt; &lt;wild_item&gt;
+;hdel has a -s switch which is the same as /hadd's</pre>
+
+If the -w switch is used, a {{mirc|wildcard}} pattern for the item can be specified to delete multiple items at once. If we go back to our example:
+
+<pre class = "code">/hdel -s colors Lisa</pre>
+Will leave our table looking like this:
+
+{| class="wikitable"
+|+ "Colors" Hash Table
+! Item !! Data
+|-
+|Mary || Green
+|-
+|John || Blue
+|-
+|Gary || Orange
+|}
+
+But we can add Lisa again:
+
+<pre class = "code">
+/hadd -s colors Lisa Red
+</pre>
+
+If you repeat the /print_fav_colors list of items again, Lisa returns to her original position in the iterating list because her item name was assigned to a lower bucket number than the other names.
+
+== Saving/Loading Hash Table to/from file ==
+Because a hash table is stored exclusively in memory, it is important to save it to a file if one wishes to keep its content after a reboot or shut down. If a hash table is not stored in a file before mIRC closes, it will be gone for good.
+
+mIRC offers the /hsave and /hload commands to handle the saving and loading of hash tables from your hard disk.
+
+The syntax for the /hsave command is:
+
+<pre class = "code">/hsave &lt;table_name&gt; &lt;filename&gt;
+; The -s switch shows debug information
+; The -a switch will append to an existing file, instead of the default overwriting
+; The -i switch will create an ini file
+; The -n switch saves the file containing only the data and not the item names.
+; The -u switch avoids skipping temporary items created with /hadd's -uN switch.
+; The -b switch will treat the file as a binary file, making it possible to save things like carriage returns and line feeds. It can save tables which do not contain any items containing binary data longer than 65535 bytes.
+; The -B switch is the same as the -b switch, except it stores item/data pairs in a binary format which supports items having data length up to 4294967295 bytes.
+</pre>
+
+If we wanted to save our little colors table to an INI file, we could use the following piece of code.:
+
+<pre class = "code">/hsave -i Colors colors.ini
+;colors.ini will have:
+;  [hashtable]
+;  Lisa=Red
+;  Mary=Green
+;  Gary=Orange
+;  John=Blue
+</pre>
+
+The /hsave command always overwrites any existing file unless you use the -a append switch.
+
+To load a hash table we use the following syntax:
+
+<pre class = "code">; NOTE: The table must exists. I.e. you must have called /hmake first, or use the -m switch.
+/hload &lt;table_name&gt; &lt;filename&gt;
+; The -s switch shows debug information
+; The -i switch will read from an ini file containing lines of item=data
+; The -n switch interprets the file as if it were /hsave'ed with the -n switch to contain only data, assigning item names as sequential integers beginning with 1.
+; The -m[N] switch creates the hashtable if it does not already exist, optionally giving it N buckets different than the default 100 buckets.
+; The -b switch will treat the file as a binary file in the format created by the /hsave -b switch.
+; The -B switch will treat the file as a binary file in the format created by the /hsave -B switch.
+</pre>
+
+To load the table we've just saved we would use the following code:
+
+<pre class = "code">/hload -i Colors colors.ini</pre>
+
+If you /hload a saved file into a hashtable, it behaves the same way that /hadd does. It creates item names that do not yet exist, and updates the data values of any item names which already exist.
+
+== Deleting a Table ==
+To complete destroy a table and all its values, you can use the hfree command:
+
+<pre class = "code">/hfree &lt;table_name&gt;
+/hfree -w &lt;*wild*table*&gt;
+;hfree has a -s switch which shows the action taken, as the other hashtable commands have</pre>
+
+With the -w switch you can specify a {{mirc|wildcard}} pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
+
+== Searching for a Item and value pair ==
+The $hfind identifier can be used to search the table for a particular pair.
+
+<pre class = "code">; The Nth Item name that matches the wildcard pattern
+$hfind(&lt;table_name&gt;, &lt;pattern&gt;, &lt;Nth&gt;, w)
+; The Nth Item that matches the RegExp pattern
+$hfind(&lt;table_name&gt;, &lt;pattern&gt;, &lt;Nth&gt;, r)
+; The Nth Item that wildcard matches the text
+$hfind(&lt;table_name&gt;, &lt;text&gt;, &lt;Nth&gt;, W)
+; The Nth Item that RegExp matches the text
+$hfind(&lt;table_name&gt;, &lt;text&gt;, &lt;Nth&gt;, R)
+; $hfind(...).data will search the data instead of the item name.</pre>
+
+If you specify 0 for Nth Item, the total number of matches will be returned instead. An example from our Colors table would be:
+
+<pre class = "code">//echo -a $hfind(Colors, *ary*, 1, w)</pre>
+
+Which will return "Mary". because Mary appeared before Gary in the iteration list of items. Prior to v7.53 it returned "Gary" because that name appeared first in the iteration list.
+
+'''Note 1:''' Using a non-hashed method for finding an item or data using <a href="..\identifiers\hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="..\identifiers\hget.html">$hget</a> using its item name.
+
+'''Note 2:''' Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using {{mIRC|$hget|$hget(table,n)}} because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
+
+== Technical Explanation ==
+mIRC's hash tables are implemented as follows.
+
+# When you create a hash table, it is created with a defined number of "slots" (or "buckets").
+# When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
+# When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
+# When you get an item by position using {{mIRC|$hget|$hget(table,position)}}, or use $hfind to search data or search using {{mirc|wildcard|wildcards}} or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
+
+If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
+
+* For a lookup of an existing item, on average mIRC will have to iterate over 50% of the bucket entries before locating the one you want
+* If you try to find a non-existent item, mIRC will need to iterate over the whole bucket list before determining that the item doesn't exist.
+
+As you might imagine, mIRC iterating over a large number of hash table entries to find the item needed is CPU intensive and mIRC might start to feel unresponsive.
+
+So for look-ups by item name, the best performance will be achieved when mIRC's hashing algorithm points to a bucket with a single table entry (or failing that - a small number of entries). Worst case scenario is if your hash table has only a single bucket, then all entries are stored in a single linked-list and every look-up needs to be iterated. On the other hand, if you have a large number of bucket (much greater than the number of items in the hash table), then the likelihood is that every item will be stored in its own bucket, so the hash function will take you to a bucket with a single entry, and no iteration will be needed to find the item. 101 buckets was recommended for 79 items because it's unlikely that picking 79 random numbers in the range 1-79 would have each number chosen only 1 time, but choosing 79 random numbers in the range 1-101 is much less likely that any number would be chosen more than 1 time.
+
+All that said, even with a large number of buckets, you cannot guarantee that every item in the table will have a unique hash / bucket number. As an analogy, consider a class of 30 students. What is the probability that all students have birthdays on different days of the year? This is equivalent to asking whether a hash table with 365 buckets and 30 entries will have every entry using a different bucket. It turns out that in a class of 30 students there is significantly more than 50% probability that at least two students will share a birthday - indeed it only takes 23 students for the probability to be more than 50%. This seems weird - but for the mathematically inclined, the probability can be calculated by determining what the probability is that M students have all different birthdays:
+
+The first student can have any birthday.
+The second student can have 364 of 365 days and still be different.
+The third student can have 363 of 365 days and still be different.
+
+So the probability that M students all have different birthdays is therefore:
+
+<math>
+\frac{364}{365}*\frac{363}{365}*\frac{362}{365} ... \frac{\text{365-M+1}}{365}
+=
+\frac{(365-1)(365-2)...(365-M+1)}{365^{(M-1)}}
+=
+\frac{365!}{(365-M)! * 365^M}
+</math>
+
+Returning to hash tables and buckets, the equivalent formula for a table with M entries and N buckets is:
+
+<math>
+\frac{(N-1)(N-2)...(N-M+1)}{N^{(M-1)}}
+=
+\frac{N!}{(N-M)! * N^M}
+</math>
+
+Using the student birthday example for simplicity and relating it to hash tables and buckets, if we turn it on its head then we can say that if we have a hash table holding 23 entries, and we want to have a probability that each entry has its own bucket > 50%, then we need to have more than 365 buckets. '''I bet you weren't expecting that!!''' Fortunately the performance overhead of iterating over a relatively short linked-list is also small, and equally fortunately a bucket only uses 4-bytes (which is very small indeed compared to the size of a table entry, which consists of the item name and the data and the overhead of storing these and linking them into a list). Indeed mIRC's maximum bucket size is 10,007, requiring c. 40KB of memory - which in today's PCs with several GB of memory is relatively small.
+
+'''Summary:''' If you are doing any lookups by item name on a frequent basis on a large table, then you should use the largest sensible bucket size to avoid mIRC iterating over long linked-lists when doing these lookups.
+
+'''HOWEVER...'''
+
+Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using {{mIRC|$hget|$hget(table,n)}}, or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
+
+'''Summary:''' If you are doing only lookup by position or are using $hfind, then you should use a bucket size of 1 to save memory and avoid the small overhead of iterating over empty buckets.
+
+Finally, if you have a large hash table (perhaps several thousand records) that you want to search flexibly, then you might wish to consider whether something like mIRC SQLlite might suit your needs better.
+
+== Hash Algorithm ==
+
+This section describes the iteration sort order for hash tables. The algorithm used to sort tables has changed for v7.53, and will probably change in the future. Items are sorted into buckets differently in v6.35, then changed somewhere prior to v7.52. It changed again for v7.53, and there were probably different algorithms at other times in the past.
+
+<pre class = "code">
+alias bucket_sort {
+  hfree -sw table? | var %buckets 1 , %i 0 , %size 20
+  hmake -s table1 %buckets | hmake -s table2 %buckets | hmake -s table3 %buckets
+  while (%i &lt; %size) { inc %i | hadd table1 item $+ %i }
+  hadd table1 Suzy
+  hadd table1 Kate
+  hsave -s table1 test1.txt | hload -s table2 test1.txt
+  hsave -s table2 test2.txt | hload -s table3 test2.txt
+  var %j 0 | while (%j &lt; $hget(table1,0).item) {
+    inc %j
+    echo -a $ord(%j) item in table1: $hget(table1,%j).item table2: $hget(table2,%j).item table3: $hget(table3,%j).item $iif($hget(table1,%j).item != $hget(table3,%j).item, *1vs3 diff*)
+  }
+  run notepad test1.txt | run notepad test2.txt
+}
+</pre>
+
+If you run this bucket_sort alias in all 3 versions mentioned above, the items are listed in the same way in each version. The item names are listed in descending order in table1, ascending order in table2, then back to the same descending order in table3. The reason for this preservation of order is that $hget(table,N).item is listing these items in order by bucket, then within buckets it's listing them in reverse order of creation, with the older items listed last, and the newest additions listed first. Since this example used buckets=1, everything is in the same bucket, listed in reverse order of creation.
+
+When items are /hsave'd to disk, buckets=1 saves in the same $hget(table,N).item order that's the inverse of creation order. $hget(table,1).item is the first item written to disk even though in this example it was the last item created. Note that the pair of notepad windows opened are showing the items in the 2 saved files in opposite order compared to each other, even though there were no items created or deleted between the hsave's.
+
+But when the items are /hload'ed from disk into an empty table, they are loaded from the disk as if you /hadd'ed the first lines of the disk file first, then /hadd'ed the last lines of the disk file last. However since $hget(table,N).item lists items in the reverse order from when they're added, this causes table2 to have an order within the bucket which is the opposite of table1's, and is now listing the items in the ascending order they were created. This reversal also occurs again when table2 is saved to disk then loaded into table3, giving table3 the same $hget(table,N).item order as table1.
+
+If you need to create a table which has $hget(table,N).item listing items in the creation order, you must:
+
+1. Create the table using buckets=1 and create all the item names.<br />
+2. hsave     table_name diskfilename<br />
+3. hfree -w  table_name<br />
+4. hload -m1 table_name diskfilename<br />
+
+Step 3 is important, because if you /hload items into an existing table containing an item of the same name being hload'ed, it takes the existing position within the bucket instead of being added to the front as a fresh item. Without Step 3, the iteration order after Steps 1 and 4 would always be identical.
+
+If table contains items #1-#20 in order of creation, but then items #21-#25 are added to the table, there are multiple steps required to put the table entirely into reverse creation order so they can be hsave'ed to disk in a way that lets them be hload'ed from disk into creation order:
+
+1. hmake -m1 temptable<br />
+2. search from 1 through the last item $hget(temptable,0).item, until finding item#1.<br />
+3. Then save that location to be used later<br />
+4. From that position through end-of-file, clone the items and their data from maintable to temptable.<br />
+5. In descending N order toward N=1, clone the items preceding the above #3 location from maintable to temptable.<br />
+6. hsave temptable to disk<br />
+
+From this lengthy process, you can see how hashtables are ill-suited for preserving the creation order, especially when new items are added. If you need to preserve creation order in buckets=1, you might be forced to use slower methods such as holding data in a hidden @window or keeping an index to the data in the hidden @window, which is used to locate the longer data kept in the hashtable.
+
+--
+
+If you edit the above bucket_sort alias to change %buckets to be 101 instead of 1, you'll see the display is no longer in either ascending or descending order. That's because the order is displayed in order of their bucket placement first, before listing these items within buckets in reverse order in which they were created. Note that table2 keeps the same order as table 1, except for Kate and Suzy. These names were chosen because the v7.53 method of hashing item names assigns them to the same bucket when buckets=101, while items named Item1 through Item20 do not have more than 1 item assigned to the same bucket. Because Kate and Suzy were in the same bucket in the group of 101 buckets, they appear in reverse order of creation within table1, but their order is reversed again after loading from disk into table2, then reversed again when loaded from the 2nd disk file into table3.
+
+The purpose of the hash algorithm is to distribute the items into the different buckets so searches for item names can be faster. If you have 1010 items in a hash table using buckets=1, it can take anywhere from 1 to 1010 tests before finding the position where an existing item is located. If the table uses 101 buckets, and if the algorithm evenly distributed the items to all buckets, the search would instead calculate the bucket which would be the destination for that item name, then check for a match only against the 10 items assigned to that bucket.
+
+Starting with v7.53, mIRC changed the algorithm used to assign items to buckets. It now uses an algorithm replicated by the following alias.
+
+<pre class = "code">
+alias fnv1a-32-mod-alt {
+  var %len $len($1) , %i 0 , %hash 2166136261 , %input $upper($1)
+  while (%i &lt; %len) {
+    !inc %i
+    !var %hash $xor(%hash,$asc($mid(%input,%i,1)))
+    !var %hash $calc(( (%hash % 256) * 16777216 + %hash * 403) % 4294967296 )
+  }
+  var %hash $calc((%hash * 8193) % 4294967296)
+  var %hash $calc(($xor(%hash,$calc(%hash /128))    *    9) % 4294967296)
+  var %hash $calc(($xor(%hash,$calc(%hash /131072)) *   33) % 4294967296)
+  if (h isin $2) return $base(%hash,10,16,8) | return %hash
+} ; by maroon 2018
+; If not for the 2^52 limit, the MUL could have been $calc((%hash * 16777619) % 4294967296)
+; because the bits of the product above 2^32 aren't needed. $fnv1a-32-mod-alt(string,[h]) h=hash as hex
+; is identical to original FNV1a except adding the following operations after the string is hashed, and in handling of codepoints 256+.
+;  hash += hash << 13; (same as hash * 8193)
+;  hash ^= hash >> 7;
+;  hash += hash << 3; (same as hash * 9)
+;  hash ^= hash >> 17;
+;  hash += hash << 5; (same as hash * 33)
+alias assigned_to_bucket { return $calc(1+($fnv1a-32-mod-alt($upper($1)) % $$2)) }
+
+//echo -a When buckets=101, item named foobar is assigned to bucket $assigned_to_bucket(foobar,101)
+</pre>
+
+This fnv1a-32-mod-alt alias performs the 32-bit variant of the FNV1a hash against a text string. The FNV1a hash has been modified by mixing steps suggested by Brett Mulvey, and are performed by the 3 lines following the while loop. Note that this alias is non-standard because it adds codepoints 256-65535 as numbers larger than 8-bit values, but the FNV1a algorithm and the Mulvey mixing steps are designed where input is limited to 8 bits.
+
+This algorithm attemps to create a hash whose output is well distributed across the 2^32 possible 32-bit values, and has significantly different values for input strings very similar to each other. If buckets=101, the hash output value is divided by 101, and the remainder is in the range 0-100. That remainder is used to assign the item to a bucket. When a script later searches for that item name, the hash is performed against the item name to identify which bucket it would have been assigned to, allowing mIRC to shrink the search to just the small fraction of items assigned to that same bucket.
+
+<pre class = "code">
+alias bucket_sort2 {
+  var %size 30 , %buckets 101 , %N 1 , %i 0 , %a 0
+  hfree -sw table | hmake -s table %buckets
+  while (%i &lt; %size) {
+    inc %i
+    hadd table Item $+ %i
+  }
+  ; hdel -s table Item9 | hdel -s table item 23 | hadd -s table Item23 | hadd -s table Item9
+  ; hdel -s table Item9 | hdel -s table item 23 | hadd -s table Item9  | hadd -s table Item23
+  while ($hget(table,%N).item) {
+    var %item $v1 , %prev %a , %a $calc(1+($fnv1a-32-mod-alt($upper($v1)) % %buckets))
+    echo 4 -a $ord(%N) item is %item bucket: %a $iif(%prev > %a,*out of sequence*)
+    inc %N
+  }
+}
+</pre>
+
+This /bucket_sort2 alias uses the above FNV1a-32-mod-alt alias to calculate the bucket each item was assigned. It wasn't until the 23rd item name until an item was assigned to a bucket that wasn't already empty.
+
+For v7.53, this displays the items with a bucket number that sequentially increases. For earlier versions, the bucket number displayed is in a jumbled order because this is not the algorithm used in those versions. It's possible that future mIRC versions will use a different algorithm or use FNV1a in a different manner, so you should not count on items being assigned to the same buckets in past or future mIRC versions.
+
+And even if item names are assigned to the same bucket, the iteration order can list them differently. Note that Item9 and Item23 are both assigned to bucket 13 of 101, and they're listed in table1 in reverse order than their creation order. However it appears that once an item has been deleted from a bucket, future items added to that bucket may not always be be listed in reverse creation order. For example, the 2 comment lines delete Item9 and Item23, but differ in the order those item names are created again. If you remove the semi-colon from 1 of the 2 comment lines, the order lists Item9 before Item23, regardless which semi-colon you remove. Notice above how the "Gary" and "Mary" example using $hfind to find the 1st match could return a different item name, depending which one appeared first in the iteration list, which can vary depending on several factors.
+
+The FNV1a hash is performed against the upper-case string of the hash name, allowing $hget and $hfind /hdel to locate items in a case-insensitive manner, and allows /hadd to avoid creating a duplicate of an existing item name. However /hadd and the hashing algorithm have different definitions of what 'upper' means. /hadd recognizes only A-Z and a-z as being case-insensitive equivalents of each other. When /hadd is asked to create an item name as each of the codepoints 1-65535, it creates 65535-26=65509 items because only the a-z vs A-Z items are considered duplicates.
+
+That means that it's possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
+
+<H4>See Also</H4>
+More detailed information can be found at the pages for each hashtable-related command and identifier.
+<a href="..\commands\hmake.html">/hmake</a><br>
+<a href="..\commands\hfree.html">/hfree</a><br>
+<a href="..\commands\hload.html">/hload</a><br>
+<a href="..\commands\hsave.html">/hsave</a><br>
+<a href="..\commands\hadd.html">/hadd</a><br>
+<a href="..\commands\hdel.html">/hdel</a><br>
+<a href="..\commands\hinc.html">/hinc</a><br>
+<a href="..\commands\hdec.html">/hdec</a><br>
+<a href="..\identifiers\hget.html">$hget</a><br>
+<a href="..\identifiers\hfind.html">$hfind</a><br>
+
+
+</body>
+</html>
