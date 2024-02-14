@@ -10,18 +10,19 @@ The <b>$maddress</b> identifier return the address that was matched for the even
 <br>
 <b>Note:</b> This feature has essentially been replaced by <a href="ulist.html">$ulist</a>.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $maddress
 $maddress(&lt;address&gt;,[L,&lt;N&gt;]).[property]
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;address&gt;</b> - the address used to match, you can specify * for all address, non complete address are completed with wildcards
+<b>&lt;address&gt;</b> - the address used to match, you can specify * for all address, non complete address are completed with wildcards
 <br><b>L</b> - if you specify L, only matching addresses that contain the specified level L are returned. Optional, but if you provide L, you must provide N below
 <br><b>N</b> - returns the Nth match, optional.
 
 <H4>Properties</H4>
-<br><b>.info</b> - returns information about that user in the user list
+<b>.info</b> - returns information about that user in the user list
 
 <H4>Example</H4>
 To get the address from the event:
@@ -31,6 +32,7 @@ And for the user list: //echo -a $maddress(*,1)
 
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -6,26 +6,24 @@
 </H1>
 <br>
 <br>
-
 The <b>/sockmark</b> command assigns temporary data to a socket to be referenced later using <a href="..\identifiers\sock.html">$sock</a> (&lt;name&gt;).mark. Leaving the [temp data] parameter <a href="..\identifiers\null.html">$null</a> will clear the socket mark. The sockmark command can be used to assign the same data to multiple sockets using a &lt;wild_name&gt; <a href="..\other\wildcard.html">wildcard</a> pattern.
 
 Limitations
 
 The [temp data] is limited to (4,141 - [length of &lt;sock_name&gt;]) characters. I.e. with a socket named "x", you can store up to 4140 characters.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockmark &lt;name&gt; [temp data]
 /sockmark &lt;wild_name&gt; [temp data]
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The handle name of the socket
 <br><b>&lt;wild_name&gt;</b>
       - A <a href="..\other\wildcard.html">wildcard</a> pattern to match
@@ -52,6 +50,7 @@ on *:sockopen:sock1:{
 ; ....
 ; }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
@@ -59,7 +58,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>

@@ -6,18 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/echo</b> command prints text to the specified window. This command does not send anything to the server; text is only shown in the window.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /echo [colour-number] [-deghi[N]tsaqlbfnmr] [window] &lt;text&gt;
 /echo -c[deghi[N]tsaqlbfnmr] &lt;colour-name&gt; [window] &lt;text&gt;
 </pre>
+
 <H4>Switches</H4>
 
-<br>
-Target window switches 
+Target window switches
 <br>
 
 
@@ -30,7 +30,7 @@ Target window switches
       - prints to the single message window
 <br>
 <br>
-Settings Related: 
+Settings Related:
 <br>
 
 
@@ -45,7 +45,7 @@ Settings Related:
       - Applies the flash settings to the window (to flash the mIRC System Tray icon) as defined in mIRC Options / IRC / Options and any individual window override.
 <br>
 <br>
-Other switches 
+Other switches
 <br>
 
 
@@ -70,16 +70,14 @@ Other switches
       - Treats the line as an user message, colours the window button in the switchbar/treebar with the "Message" colour defined in the option alt+o>Display.
 
 <H4>Parameters</H4>
-
-
-<br><b>[colour-number]</b>
+<b>[colour-number]</b>
       - A numeric colour value (0 to 99) Note: 99 is $colour(listbox text) instead of $colour(normal) even in #channel and Status window where background is $colour(background). If $colour(listbox text) is the same index as $colour(background), 99 tries $colour(normal) then $colour(gray) searching for a colour that doesn't match the background colour.
 <br><b>&lt;colour-name&gt;</b>
       - When the -c switch is used, the next parameter must be one of the following: action, ctcp, highlight, info, info2, invite, join, kick, mode, nick, normal, notice, notify, other, own, part, quit, topic, wallops, whois, "listbox text", gray, listbox, "treebar text", treebar Note: Quotes are needed for items which are 2 words. Note: If colour for that name matches $colour(background) it is displayed as $colour(normal) until the colour index for background is changed.
      <br>Note: If colour name not in the list of recognized names, defaults to 'normal'. Note: If you later change the colour index for a colour name, the echoed lines change to that colour.
 <br><b>[window]</b>
-      - The target @window/#channel/query 
-<br><b>Note:</b> If you use /echo to send text to a custom @window which has been opened by <a href="window.html">/window -s</a> , the line will be added at the bottom of the window rather than being inserted in the correct sort position. 
+      - The target @window/#channel/query
+<br><b>Note:</b> If you use /echo to send text to a custom @window which has been opened by <a href="window.html">/window -s</a> , the line will be added at the bottom of the window rather than being inserted in the correct sort position.
 <br><b>Note:</b> If target is a listbox @window created using the -l switch, the output echoes to the Status Window instead.
 <br><b>&lt;text&gt;</b>
       - The text to be printed
@@ -158,6 +156,7 @@ on ^*:JOIN:#:{
 ; Echo a blank line because it contains only non-printable characters:
 //echo -a $crlf
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.7 (24 Oct 1995)
 
@@ -165,7 +164,6 @@ Added: mIRC v3.7 (24 Oct 1995)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\colour.html">$colour</a><br>
 <a href="..\identifiers\color.html">$color</a><br>

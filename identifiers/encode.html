@@ -5,6 +5,7 @@
 <br>
 <br>
 The <b>$encode</b> identifier allows you to encode literal text, or text in {{mIRC|Variables|%vars}} or {{mIRC|binary variables|&binvars}}. The '''$encode''' identifier uses either [[Uuencode]] or [[Base64|MIME]] or Base32 or Z85 to encode. Additionally, $encode is capable of utilizing [[Blowfish]] to encrypt the target before encoding using u/m/a/v encoding.
+
 <H4>Synopsis</H4>
 <pre class ="code">
 ; encoding only
@@ -14,8 +15,7 @@ $encode(text/%var/&binvar [, btumav] [, N] )
 $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 </pre>
 <H4>Parameters</H4>
-
-<br><b>text/%var/&binvar</b> - The target to be encoded
+<b>text/%var/&binvar</b> - The target to be encoded
 <br><b>b</b> - Target is a {{mIRC|binary variables|&binvar}}
 <br><b>t</b> - Target is text (this is default target type)
 <br><b>u</b> - Target should be encoded using [[Uuencode]] (this is default encode type when 'tuma' not used)
@@ -53,7 +53,7 @@ Random IV/Salt created in the absence of Parameter#4 can contain 0x00 bytes in a
 }}
 
 Notes:
-* Using the 'v' Z85 encoding added in v7.73 has the advantage that it encodes the Blowfish binary into shorter strings than mime, due to encoding 4 binary as 5 text instead of encoding 3 binary as 4 text. For example, a ciphertext of 336 bytes which encodes as length 448 using 'm' mime would encode as length 420 using 'v' Z85, and would have a better chance of fitting within the fixed limit of an IRC message. However, because the Z85 alphabet contains characters such as $ % # etc, you must be careful to avoid using it in contexts where it could be double-evaluated in places such as a timer command string other other places described in <a href="..\other\injection.html">injection</a><br>
+* Using the 'v' Z85 encoding added in v7.73 has the advantage that it encodes the Blowfish binary into shorter strings than mime, due to encoding 4 binary as 5 text instead of encoding 3 binary as 4 text. For example, a ciphertext of 336 bytes which encodes as length 448 using 'm' mime would encode as length 420 using 'v' Z85, and would have a better chance of fitting within the fixed limit of an IRC message. However, because the Z85 alphabet contains characters such as $ % # etc, you must be careful to avoid using it in contexts where it could be double-evaluated in places such as a timer command string other other places described in <a href="..\other\injection.html">injection</a>
 * 'N' chunk parameter uses the same rules as non-encryption. It's an optional extra parameter past those required by the presence of other switches ('ec' require Parm3 <key>, 'c(s|i)' also require Parm4 <salt|iv>)
 * 'e' ECB mode is invalid syntax with switches 's|i|r'. In ECB mode, same key always encrypts identical groups of 8 plaintext bytes into the same 8 ciphertext bytes. Key is always literal UTF-8 'key' parameter of 0-72 bytes, except 'l' switch limits literal ECB key to 56.
 * 'c' default random salt allows same key to create different session-key:IV each time salt differs. If 8-byte random salt is randomly distributed across all 2^64 values, would require more than 2^32 messages before 50% probability of any 2 matching 'salt' values.
@@ -77,7 +77,7 @@ maroon conclusion: Popular choice should be:<br/>
 1. Avoid using Blowfish function prior to v7.58, as it fixes several weaknesses and security vulnerabilities mentioned here. v7.72 also has a fix that should not affect people who do not use extremely long key parameter strings<br/>
 2. Use either no-padding-switches or 'n' to avoid false matching the original message as if padding.
 3. If using v7.56+, use 'c' without the 's' switch to have a random salt. If worried about the 'Salted__" header, you can script the removal/reinstatement of the header as in example below.<br/>
-4. If using <= v7.55, use 'c' WITH the 's' switch, but use the $randsalt alias to define a random salt string which cannot contain embedded 0x00's. This avoids a bug where embedded 0x00 bytes in the Salt causes many unique salt strings to generate identical salted keys. Be sure to avoid non-literal keys longer than 56 bytes in v7.52-7.55, as bytes 57+ are silently ignored. Later versions silently ignored key parameter strings longer than 612 bytes, <br/>
+4. If using &lt;= v7.55, use 'c' WITH the 's' switch, but use the $randsalt alias to define a random salt string which cannot contain embedded 0x00's. This avoids a bug where embedded 0x00 bytes in the Salt causes many unique salt strings to generate identical salted keys. Be sure to avoid non-literal keys longer than 56 bytes in v7.52-7.55, as bytes 57+ are silently ignored. Later versions silently ignored key parameter strings longer than 612 bytes, <br/>
 5. Always avoid using 'r' and/or 'i' switches without the 'l' switch, because the method used to hash the key parameter lowers the strength of the key parameter down to 'only' 128 bits. Even a literal key of 56 hex digits with the 'l' switch would've had 2^224 possible combos.<br/>
 6. Avoid using the 'ci' without 'r' switch combo. The broken design for $decode can cause a GPF crash in versions 7.57+earlier, or incorrect decryption in v7.58+.
 
@@ -144,14 +144,14 @@ alias fake_secret_chat1 {
   if ($event == input) {
     bset -tc &secret_chat_msg 1 $encode($1-,mc,$me %main_key) | noop $decode(&secret_chat_msg,bm)
     bcopy -c &secret_chat_msg 1 &secret_chat_msg 9 -1 | noop $encode(&secret_chat_msg,bm)
-    msg # = $+ $bvar(&secret_chat_msg,1-).text | echo 3 -tc own # Channel sees Encryption of: $+(<,$nick($chan,$me).pnick,>) $1-
+    msg # = $+ $bvar(&secret_chat_msg,1-).text | echo 3 -tc own # Channel sees Encryption of: $+(&lt;,$nick($chan,$me).pnick,&gt;) $1-
     halt
   }
   else {
     bset -tc &secret_chat_msg 1 $mid($1,2) | noop $decode(&secret_chat_msg,bm)
     bcopy &secret_chat_msg 9 &secret_chat_msg 1 -1
     bset -t &secret_chat_msg 1 Salted__ | noop $encode(&secret_chat_msg,bm) $decode(&secret_chat_msg,bmc,$nick %main_key)
-    echo -tcl normal # Decoded $+(<,$nick,>,:) $bvar(&secret_chat_msg,1-).text
+    echo -tcl normal # Decoded $+(&lt;,$nick,&gt;,:) $bvar(&secret_chat_msg,1-).text
   }
 }
 
@@ -173,7 +173,7 @@ alias fake_secret_chat2 { if (!$chan) return
     var -p %iv $regsubex(foo,$bvar(&secret_chat_digest,1-8),/(\d+)\s?/g,$chr(\t))
     noop $encode(&secret_chat_digest,bm)
     var %session_key $bvar(&secret_chat_digest,12,56).text , %text $encode($1-,mcli,%session_key,%iv)
-    var %msg $+(=,%msg.salt,%text) | msg # %msg | echo 3 -tc own # Channel sees Encryption of: $+(<,$nick($chan,$me).pnick,>) $1-
+    var %msg $+(=,%msg.salt,%text) | msg # %msg | echo 3 -tc own # Channel sees Encryption of: $+(&lt;,$nick($chan,$me).pnick,&gt;) $1-
     halt
   }
   else {
@@ -241,6 +241,7 @@ While the encryption does not include authentication, that issue can be largely 
 
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -6,24 +6,20 @@
 </H1>
 <br>
 <br>
-
 The <b>/gmove</b> command moves an agent.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /gmove -h &lt;name&gt; &gt;x&gt; &gt;y&gt; [speed]
-
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-h</b>
+<b>-h</b>
       - Prevents the agent from poping up if mIRC is minimized and -h has been used in /gload to load that agent
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The name used in /gload to reference that agent
 <br><b>&lt;x&gt;</b>
       - The 'x' coordinate
@@ -33,12 +29,15 @@ The <b>/gmove</b> command moves an agent.
       - If a speed is not specified, it uses a default speed. If you specify a speed of 0, it moves instantly to the new position.
 
 <H4>Example</H4>
+Load the default agent on your system:
 <pre class ="code">
-;Load the default agent on your system
 /gload myagent default
-;Move the agent to coordinate 42,42 with a speed of 2
+</pre>
+Move the agent to coordinate 42,42 with a speed of 2:
+<pre class ="code">
 /gmove myagent 42 42 2
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (07 May 2000)
 
@@ -46,7 +45,6 @@ Added: mIRC v5.7 (07 May 2000)
 None
 
 <H4>See also</H4>
-
 
 <a href="ghide.html">/ghide</a><br>
 <a href="gunload.html">/gunload</a><br>

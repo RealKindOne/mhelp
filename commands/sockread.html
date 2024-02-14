@@ -6,36 +6,33 @@
 </H1>
 <br>
 <br>
-
 The <b>/sockread</b> command reads bytes from the receive buffer of a socket connection into a specified variable. This command must be and is to be used inside socket events.
 
-mIRC in general only understand :doc: `$crlf </identifiers/$crlf>` terminated line. With socket, mIRC only understands :doc: `$lf </identifiers/$lf>` terminated line (any :doc: `$cr </identifiers/$cr>` before a :doc: `$lf </identifiers/$lf>` is removed).
+mIRC in general only understand <a href="..\identifiers\crlf.html">$crlf</a> terminated line. With socket, mIRC only understands <a href="..\identifiers\lf.html">$lf</a> terminated line (any <a href="..\identifiers\cr.html">$cr</a> before a <a href="..\identifiers\lf.html">$lf</a> is removed).
 
-The number of bytes waiting to be read can be retrieved using :doc: `$sock(name).rq </identifiers/$sock>`
-
+The number of bytes waiting to be read can be retrieved using <a href="..\identifiers\sock.html">$sock(name).rq</a>
+<br>
 By default:
-
+<br>
 * /sockread &lt;%var&gt; reads a terminated line into the variable, if the received buffer does not contain a terminated line, no byte are read into the variable.
-* /sockread &var try to read 4096 bytes into the variable.
+<br>* /sockread &var try to read 4096 bytes into the variable.
 
-The real number of bytes read by /sockread can be retrieved using :doc: `$sockbr </identifiers/$sockbr>` .
+The real number of bytes read by /sockread can be retrieved using <a href="..\identifiers\sockbr.html">$sockbr</a>.
+
 
 <H4>Synopsis</H4><pre class ="code">
 /sockread [-fn] &lt;&lt;%var&gt;|&binvar&gt;
 /sockread [numbytes] &lt;&lt;%var&gt;|&binvar&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-f</b>
+<b>-f</b>
       - When reading a terminated line (/sockread &lt;%var&gt; or /sockread -n &var), forces mIRC to fill the variable with whatever text is in the receive buffer, even if it does not end in a terminated line.
 <br><b>-n</b>
-      - Reads a terminated line into a :doc: `&binvars </intermediate/data_storage.html#binary-variables>` . If the incoming line does not contain a terminated line, no byte will be read into the :doc: `&binvars </intermediate/data_storage.html#binary-variables>` , unless you specify the **-f** switch.
+      - Reads a terminated line into a <a href="..\other\binary_variables.html">Binary Variables</a>. If the incoming line does not contain a terminated line, no byte will be read into the <a href="..\other\binary_variables.html">Binary Variables</a> , unless you specify the **-f** switch.
 
 <H4>Parameters</H4>
-
-
-<br><b>[numbytes]</b>
+<b>[numbytes]</b>
       - The number of bytes to read from the receive buffer.
 <br><b>[&lt;%var&gt;/&binvar]</b>
       - The name of the variable to read the socket buffer into.
@@ -43,15 +40,15 @@ The real number of bytes read by /sockread can be retrieved using :doc: `$sockbr
 
 <H4>Reading</H4>
 
-A single /sockread may not be enough to read the entire buffer (if you are reading line by line for example). You might want to keep reading until :doc: `$sockbr </identifiers/$sockbr>` (the number of bytes read) is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on sockread event is re-triggered if:
+A single /sockread may not be enough to read the entire buffer (if you are reading line by line for example). You might want to keep reading until <a href="..\identifiers\sockbr.html">$sockbr</a> (the number of bytes read) is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on sockread event is re-triggered if:
 
     a) you were reading into a &binvar.
 
-    b) you were reading into a &lt;%var&gt; and there is still a terminated line in the buffer waiting to be read. 
+    b) you were reading into a &lt;%var&gt; and there is still a terminated line in the buffer waiting to be read.
 
 This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, :doc: `see below </commands/sockread#last_line_not_showing_up>` .
 
-<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, :doc: `on sockclose </events/on_sockclose>` will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
+<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, <a href="..\events\On_SockClose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
 
 It is important to note that the data received will vary in size. Practically speaking, we receive several kilobytes per second, it is easy to assume that the data you want is going to be sent and received the same way and above all, the way you want, but that's incorrect, you might receive very small packet at a very small speed.
 
@@ -93,14 +90,14 @@ on *:sockread:name:{
  }
 }
 </pre>
-And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the :doc: `on sockclose </events/on_sockclose>` event), should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check :doc: `$sockbr </identifiers/$sockbr>` to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
+And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="..\events\On_SockClose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="..\identifiers\sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
 
 <pre class ="code">
 alias testHTTP {
 sockclose testHTTP
 sockopen testHTTP mirc.com 80
 }
- 
+
 on *:sockopen:testHTTP:{
  if (!$sockerr) {
   sockwrite -n $sockname GET / HTTP/1.1
@@ -127,7 +124,7 @@ Getting problem because you are not checking properly for $sockbr is very unlike
 
 Another solution consists in making a buffer by yourself and adding what you are reading to it, until you get the correct portion you want (a terminated line in these examples).
 
-If you are reading the whole content of the received buffer with one /sockread using binary variable or just large portion of the received buffer in a binary variable, you are more likely to see the 
+If you are reading the whole content of the received buffer with one /sockread using binary variable or just large portion of the received buffer in a binary variable, you are more likely to see the
 
 issue because you are basically reading the buffer as fast as mIRC fills it (or faster than line by line for large portion). The same solutions exists for binary variables, use /sockread -n to read a terminated line into the binvar, check $sockbr to make sure you read something etc. Using $bfind is the correct way to parse, unless you have very good evidence about the length of the lines you are going to receive and you want to go the easy way: if (text operator $bvar(&a,1,4096)) or similar.
 
@@ -260,11 +257,14 @@ on *:SOCKREAD:socket: {
   }
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
-See Also
+<H4>Notes</H4>
+None
 
+<H4>See also</H4>
 
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>

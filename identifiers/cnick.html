@@ -6,18 +6,16 @@
 <br>
 The <b>$cnick</b> identifier returns the 'Nick or address' field from the Edit dialog of the Nth entry in the Nick Colors dialog, or if a nick/address is specified, returns the Nth position of the item in list that matches the nick. If the nick/address does not match any items, returns zero.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $cnick(N/nick, M)[.property]
 </pre>
 <H4>Parameters</H4>
-
-<br><b>&lt;N/nick&gt;</b> - a number representing the Nth item in the Nick Color dialog or a nickname/address used as a match against the field 'Nick or address' in Nick Color Edit dialog
+<b>&lt;N/nick&gt;</b> - a number representing the Nth item in the Nick Color dialog or a nickname/address used as a match against the field 'Nick or address' in Nick Color Edit dialog
 <br><b>M</b> - if you use the .color property and no item is found via a nick/address match, the 'Normal Text' color is returned, if M is 1, the 'Listbox text' is color is returned
 
 <H4>Properties</H4>
-<br><b>.color </b>/<b> .colour</b> - return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned
+<b>.color </b>/<b> .colour</b> - return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned
 <br><b>.modes</b> - return the 'Channel modes' field
 <br><b>.levels</b> - return the 'User levels' field
 <br><b>.method</b> - return the 'Method' field
@@ -40,6 +38,5 @@ Added: mIRC v5.9 (26 Apr 2001)}
 None
 <H4>See also</H4>
 <a href="..\commands\cnick.html">/cnick</a><br>
-
 </body>
 </html>

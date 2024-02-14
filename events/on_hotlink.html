@@ -9,6 +9,7 @@ The <b>ON HOTLINK</b> event triggers when you use your mouse over a specific wor
 The '''ON HOTLINK</b> event is very intensive, in that it monitors and tracks all mouse movements.
 Therefore any commands executed in the event must be as quick, efficient, and small as possible. If the commands take too long to proceede, mIRC will begin to lag a great deal.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:HOTLINK:&lt;matchtext&gt;:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
 
@@ -21,7 +22,7 @@ $1 returns the word that matched, stripped from its control code.
 The event triggers for various mouse events: sclick, dclick, rclick, mouse, uclick, you can use {{mIRC|$hotlink|$hotlink()}} to get the mouse event as well as informations about the line number, the word position etc..
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 <br><b>&lt;*#?=!@&gt;</b> - The window type that this event should monitor.
 <br><b>*</b> - Any window
@@ -53,6 +54,9 @@ This implementation was very limited and is deprecated, <a href="..\identifiers\
 
 <H4>Compatability</H4>
 Added: mIRC v5.61 (23 Sep 1999)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="..\identifiers\hotline.html">$hotline</a><br>

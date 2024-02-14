@@ -8,13 +8,14 @@ The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DC
 
 When triggered by a '''Send''', this event fills the <a href="..\identifiers\filename.html">$filename</a><br> identifier with the file name attempting to be received.
 
+
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DCCSERVER:<Chat|Send|Fserve>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:DCCSERVER:&lt;Chat|Send|Fserve&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
 
-* '''<Chat|Send|Fserve>''' - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
+<br><b>&lt;Chat|Send|Fserve&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 
 ** '''Chat''' - Triggers if the event is caused by a DCCSERVER Chat.
 ** '''Send''' - Triggers if the event is caused by a DCCSERVER Send.
@@ -35,6 +36,9 @@ Echo when a user attempts to initiate a {{mIRC|/dcc|DCC Chat}}:
 
 <H4>Compatability</H4>
 Added: mIRC v5.3 (13 Dec 1997)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_Chat.html">On_Chat</a><br>

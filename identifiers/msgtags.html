@@ -6,15 +6,14 @@
 <br>
 The <b>$msgtags</b> identifier returns the full @ prefixed tags line (IRCv3 message tags) which are removed from incoming server messages. $msgtags() returns informations about specifics tags
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $msgtags
-$msgtags(tag|N)
-
+$msgtags(tag|N)[.property]
 </pre>
+
 <H4>Parameters</H4>
-* '''tag</b> - returns the tag if it exists, $null otherwise
+<b>tag</b> - returns the tag if it exists, $null otherwise
 <br><b>N</b> - returns the Nth tag, if N = 0, returns the total number of tags
 
 <H4>Properties</H4>
@@ -29,8 +28,10 @@ ON *:TEXT:*:#: { echo $chan INFO: $nick -> $msgtags(account) -> $msgtags(msgid).
 
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)
+
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 </body>

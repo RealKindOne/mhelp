@@ -1,19 +1,18 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>$crc</H1>
+<H1>$crc64</H1>
 <br>
 <br>
-The <b>$crc64''' calculates the [[64-bit checksum]] of a text, {{mirc|binary variables|binary variable}}, or file. Hash is 64-bits, shown as 16 upper-case hexadecimal characters.
+The <b>$crc64</b> calculates the [[64-bit checksum]] of a text, {{mirc|binary variables|binary variable}}, or file. Hash is 64-bits, shown as 16 upper-case hexadecimal characters.
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $crc64(plaintext|&binaryvar|filename[,N])
 </pre>
 <H4>Parameters</H4>
-<br><b>plaintext</b> - Used with N = 0, just the string for which you want the CRC-64 checksum
-
+<b>plaintext</b> - Used with N = 0, just the string for which you want the CRC-64 checksum
 <br><b>&binaryvar</b> - A binary variable, used with N = 1, return the CRC-64 checksum of the content of the binary variable
-
 <br><b>filename</b> - A filename, used with N = 2, return the CRC-64 checksum of the content of the file
 
 '''N:''' Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
@@ -80,10 +79,11 @@ When given invalid N outside the 0-2 range, they use default 2 instead of haltin
 
 <H4>Compatibility</H4>
 Added: mIRC v7.68 (02 Apr 2022)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-* {{mIRC|$crc}
+* <a href="crc.html">$crc</a><br>
 * {{mIRC|$hash}}
 <a href="sha1.html">$sha1</a><br>
 <a href="md5.html">$md5</a><br>

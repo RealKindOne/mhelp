@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/ialmark</b> command marks the IAL entry for a nickname with the specified text with an optional alternate name for the mark. In effect, it's like a hashtable for each nick where each item must have a string attached to it
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /ialmark [-nrw] &lt;nickname&gt; [text]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-n</b>
+<b>-n</b>
       - the [name] of the mark. If -n is not used, the default name 'default' is used.
 <br><b>-r</b>
       - removes the mark
@@ -28,9 +27,7 @@ Marks can be accessed using <a href="..\identifiers\ialmark.html">$ialmark</a> a
 Marks are removed if the nick is removed from the nicklist, either from no longer being in a channel with them, or by /ialclear or by being disconnected from that server. You cannot have a named-mark without it having a value. The mark does follow the nick to the new nick after a nick change.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;nickname&gt;</b>
+<b>&lt;nickname&gt;</b>
       - The nickname you want to mark
 <br><b>[text]</b>
       - The text you want to add. If not specified, the mark is cleared
@@ -53,6 +50,7 @@ Marks are removed if the nick is removed from the nicklist, either from no longe
 ; informs whether the named-mark 'foo' exists, and if so whether it contains a mark value
 //ialmark $me foo
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (15 Jun 2001)
 
@@ -60,7 +58,6 @@ Added: mIRC v5.9 (15 Jun 2001)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\ialmark.html">$ialmark</a><br>
 <a href="ialclear.html">/ialclear</a><br>

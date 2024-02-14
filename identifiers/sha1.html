@@ -5,12 +5,13 @@
 <br>
 <br>
 The <b>$sha1</b> identifier calculates the [[sha1 hash]] of a text, {{mirc|binary variables|binary variable}}, or file. Hash is 160-bits, shown as 40 lower-case hexadecimal characters.
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $sha1(plaintext|&binaryvar|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<br><b>plaintext</b> - Used with N = 0, just the string you want the sha1 hash of
+<b>plaintext</b> - Used with N = 0, just the string you want the sha1 hash of
 <br><b>&binaryvar</b> - A binary variable, used with N = 1, return the sha1 hash of the content of the binvar
 <br><b>filename</b> - A filename, used with N = 2, return the sha1 hash of the content of the file
 
@@ -76,6 +77,7 @@ Note: even though an SHA1 hash collision has been found between 2 different stri
 
 <H4>Compatibility</H4>
 Added: mIRC v6.3 (16 Aug 2007)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

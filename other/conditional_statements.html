@@ -5,7 +5,7 @@
 <br>
 <br>
 
-A <b>conditional statement</b> is a [[control flow]] construct in mIRC that can execute a set of commands only after comparing or testing a ''condition''. A condition in mIRC has a false [[truth value]] if it's {{mIRC|$null}}, [[$false - identifier - mIRC|$false]], or 0.
+A <b>conditional statement</b> is a [[control flow]] construct in mIRC that can execute a set of commands only after comparing or testing a ''condition''. A condition in mIRC has a false [[truth value]] if it's {{mIRC|$null}}, {{mIRC|$false}}, or 0.
 
 == Intro ==
 You almost never want a script to simply do the same exact thing over and over. In many occasions, you want it to compare two things and decide what to do upon the result of that comparison. For example:
@@ -67,7 +67,7 @@ In the example above, we used an if statement to check if the user input ($1) wa
 
 == Else ==
 
-The else statement gives you the ability to execute a block of code when the conditional statement of the if part was false. Notice the else part does not have a conditional statement of its own, it simply acts upon the result of the if statement. 
+The else statement gives you the ability to execute a block of code when the conditional statement of the if part was false. Notice the else part does not have a conditional statement of its own, it simply acts upon the result of the if statement.
 
 The basic syntax is:
 
@@ -94,7 +94,7 @@ Alias greet {
 
 == ElseIf ==
 
-I am sure at this point you are already thinking what If you had more than one condition that needs to go to a different block of code. An elseif statement is when you have multiple conditional statement that each needs to do something different. If the initial if statement returned false, mIRC will then move on to the elseif and evaluate its condition just like if it was a normal if. If the condition was true, it will execute its body. If the condition of the elseif was false, it will move on to the next elseif or else. 
+I am sure at this point you are already thinking what If you had more than one condition that needs to go to a different block of code. An elseif statement is when you have multiple conditional statement that each needs to do something different. If the initial if statement returned false, mIRC will then move on to the elseif and evaluate its condition just like if it was a normal if. If the condition was true, it will execute its body. If the condition of the elseif was false, it will move on to the next elseif or else.
 
 The basic syntax is:
 
@@ -150,15 +150,15 @@ Will have the following output:
 
 == IIF Identifier ==
 
-IIF, inline if, is a built in identifier that evaluates a condition, similar to /if statement, and returns one of two values if the condition was true or false. 
+IIF, inline if, is a built in identifier that evaluates a condition, similar to /if statement, and returns one of two values if the condition was true or false.
 
 Syntax:
 
-<pre class = "code">$iif(condition, <code for true>)
-  
+<pre class = "code">$iif(condition, &lt;code for true&gt;)
+
 ;or
-  
-$iif(condition, <code for true>, <code for false>)</pre>
+
+$iif(condition, &lt;code for true&gt;, &lt;code for false&gt;)</pre>
 
 '''Note:''' Unlike a normal identifier, only the true or only the false part of the identifier gets evaluated depending on the condition.
 

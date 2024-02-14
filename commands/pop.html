@@ -6,23 +6,21 @@
 </H1>
 <br>
 <br>
-
 The <b>/pop</b> command performs a delayed op on a nickname. The purpose of this command is to prevent a channel window filling up with op mode changes whenever several users have the same nickname in their auto-op section.
 
 Before performing the op it checks if the user is already opped.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /pop &lt;delay&gt; [#channel] &lt;nickname&gt;
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;delay&gt;</b>
+<b>&lt;delay&gt;</b>
       - mIRC will pause around &lt;delay&gt; seconds before performing the op. If &lt;delay&gt; is zero, it does an immediate op.
 <br><b>[#channel]</b>
       - If specified, the channel you want to op the nickname on, otherwise the current channel is used
@@ -33,6 +31,7 @@ None
 <pre class ="code">
 None
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.42 (29 Jun 1995)
 

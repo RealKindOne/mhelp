@@ -1,0 +1,221 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+Picture Windows
+</H1>
+<br>
+<br>
+The <b>Picture Windows</b> in [[mIRC]] are a special type of [[Custom windows - mIRC|custom windows]] that is used as a drawing canvas. mIRC provides a set of [[list of commands - mIRC|commands]], [[list of identifiers - mIRC|identifiers]], and [[on events - mIRC|events]] for manipulating them. Picture windows provide an alternative mean of creating a graphical user interface.
+
+== Creating a picture window ==
+Picture windows can be created via the <a href="..\commands\window.html">/window</a> command in combination with the -p switch which creates a bitmap.
+
+'''Note:''' -p only creates the bitmap, the size used in /window will by default set the window's size, to sets the size of the bitmap, you need to use the -f switch, which will automatically resize the size of the window for you.
+
+'''Note 1:''' One way to get a window size bigger than your actual maximum screen resolution is to open the window once using the switches +Lt and then to call /window -f again with the actual width and height.
+
+A simple example:
+
+<pre class ="code">
+//window -dep @example -1 -1 500 400
+</pre>
+
+will create a desktop picture window named <code>@example</code> with an editbox and a size of 500x400, the actual size of the bitmap is not 500*400, it will be close, you can check its size with: <pre class ="code">
+//echo -a $window(@example).bw $window(@example).bh
+</pre>
+
+A better example would be:
+
+<pre class ="code">
+//window -dfep @example -1 -1 500 400
+</pre>
+
+Now the bitmap has the desired size.
+
+== Drawing ==
+
+There are 11 commands to draw to a picture window, all of them support the -n switch, which prevents mIRC from painting the change you just made to that window, this allows you to make smooth draws: if you make several draws at the same time or periodically without using the -n switch, you'll see a flicker between the draw, using -n on all your draws and then allowing mIRC to paint the changes 'merged' once will get rid of these flickers, it is not faster to draw with -n and vice versa.
+
+Once you have made all your draws and are ready to paint the changes, any call to one of these /draw commands without the -n switch will do it (makes sense when we know not using the -n switch always paint the changes, causing flickers). You naturally want to use the simple /drawdot @mywin for that.
+
+'''Note''': this section won't give full details about the commands, click on a command to see more informations about that command.
+
+'''{{mIRC|/drawdot}}''' can be used to draw dots at specific coordinates with a specific size and color.
+
+'''{{mIRC|/drawline}}''' can be used to draw lines at specific coordinates with a specific size and color, if more than four points are given, the next line is drawn from the end of the last line to that point, chaining lines.
+
+'''{{mIRC|/drawrect}}''' can be used to draw rectangles or ellipses at specific coordinates with a specific size and color, you can specify more than one set of coordinate and size parameters and they are drawn seperately.
+
+'''{{mIRC|/drawfill}}''' can be used to fill an area with the specified color starting at a specific coordinate, you can either use this to keep filling as long as the color is the one you specified (surface fill) or to keep filling as long as the color is not the one you specified (border fill).
+
+'''{{mIRC|/drawtext}}''' can be used to draw text at the specified coordinate, using the specified font name and font size, it supports basic formating via switches.
+
+'''{{mIRC|/drawsave}}''' which actually can't be used to draw to a bitmap, is used to save an area to a .bmp or .jpg file.
+
+'''{{mIRC|/drawscroll}}''' can be used to scroll an area inside rectangles by specific distances, you can specify more than one set of scrolling area and distances.
+
+'''{{mIRC|/drawcopy}}''' can be used to copy an area to a specific coordinate from a window to another (can be the same window).
+
+'''{{mIRC|/drawpic}}''' can be used to load and draw a picture file at a specific coordinates, the file can be an icon from an ico/exe/dll file.
+
+'''{{mIRC|/drawrot}}''' can be used to rotate an area by a specific angle.
+
+'''{{mIRC|/drawreplace}}''' can be used to replace a color with another in a specific area
+
+== /draw* example ==
+
+Here is a simple alias using all of the command above except /drawsave and /drawpic.
+
+<pre class ="code">
+alias picwin_example {
+window -dpfB @test -1 -1 300 300
+;draw a red dot (rgb = 255), size = 5, x y = 50 50
+drawdot -r @test 255 5 50 50
+;draw a red line size = 3, first point = 25 50, second point 75 50
+.timer 1 2 drawline -r @test 255 3 25 50 75 50
+;draw a non filled red rectangle, size = 8, x y w h = 25 25 75 75
+.timer 1 4 drawrect -r @test 255 8 25 25 75 75
+;fill the whole window with a border fill: as long as the starting pixel(0 0)'s color isn't the border color (255), that pixel is made the filling color (rgb = 12345, green)
+.timer 1 6 drawfill -r @test 1234567 255 0 0
+;draw "test" in rgb color 65498, at coordinate 65 65, font name verdana and font size 12
+.timer 1 8 drawtext -r @test 65498 verdana 12 65 65 test
+;scroll the whole window, by 30 pixels on the right, and 20 pixels upward
+.timer 1 10 drawscroll @test 30 -20 0 0 300 300
+;copy the rectangle '50 50 100 100' at coordinate '200 60'
+.timer 1 12 drawcopy @test 50 50 100 100 @test 200 60
+;rotate the whole window by 12°
+.timer 1 14 drawrot -m @test 12
+;replace all the pixel with the rgb color 255 by the rgb color 6598743
+.timer 1 16 drawreplace -r @test 255 6598743
+}
+</pre>
+
+Result in:
+
+[[File:Draw_.gif|drawing example]]
+
+== Mouse Events ==
+
+Mouse events can be defined in a {{mIRC|custom windows#Custom Window's Menu|script menu definition}}, a picture window support the following mouse events:
+
+* '''mouse''' - mouse moved at a new coordinate, you can check {{mIRC|$mouse|$mouse.x}} and {{mIRC|$mouse|$mouse.y}} to get the new coordinate of the mouse.
+* '''sclick''' - clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+* '''dclick''' - double clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+* '''uclick''' - mouse released at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+* '''rclick''' - right clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+* '''lbclick''' - selected a line in the listbox, you can check $1 to get the line number of the selected line.
+* '''leave''' - mouse left the window, you can check {{mIRC|$leftwin}} if the menu doesn't trigger for a static name.
+* '''drop''' - mouse drag and dropped at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+
+== Keyboard Events ==
+
+You can catch keyboard input using the {{mIRC|on events/on keydown|on keydown}} and {{mIRC|on events/on keyup|on keyup}} events, which triggers when a key is pressed and released respectively.
+
+Synopsis:
+<pre class ="code">
+on &lt;level&gt;:&lt;keydown|keyup&gt;:&lt;@window&gt;:&lt;keys&gt;:&lt;command&gt;
+</pre>
+&lt;keys&gt; can be a comma sepereated list of key, which are nothing more than number, representing a key, {{mIRC|$keyval}} returns the key code while {{mIRC|$keychar}} returns the actual character of the key. {{mIRC|$keyrpt}} returns $true if the event is triggering because the key is being held down (on keydown only).
+
+== The $mouse identifier ==
+
+The {{mIRC|$mouse}} identifier doesn't take any parameter, but has the following properties:
+
+=== Indirect events ===
+
+Using $mouse.key, you get a value which when using the AND operator, yield useful informations:
+
+* if ($mouse.key & 1) is true if the left mouse button is pressed.
+* if ($mouse.key & 2) is true if the control key is pressed.
+* if ($mouse.key & 4) is true if the shift key is pressed.
+* if ($mouse.key & 8) is true if the alt key is pressed.
+* if ($mouse.key & 16) is true if the right mouse button is pressed.
+
+Others useful properties:
+
+* '''.win''' - returns the name of the active window.
+* '''.x & .y''' - returns the coordinate of the mouse on the x/y axis, relative to the active window.
+* '''.mx & .my''' - returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
+* '''.dx & .dy''' - returns the coordinate of the mouse on the x/y axis, relative to the desktop.
+* '''.lb''' - returns $true if a mouse event occured over a listbox, $false if it did not.
+
+== The {{mIRC|$click}} identifier ==
+
+Synopsis: $click(@window,N)
+
+mIRC store a history of x,y value when you click on a window, $click() returns the Nth x,y click.
+
+== The {{mIRC|$inellipse}} identifier ==
+
+Synopsis: $inellipse(x,y,x,y,w,h)
+
+Returns $true if the first point x y is inside the ellipse specified by the 'x y w h' parameters, and $false if it is not.
+
+== The {{mIRC|$inrect}} identifier ==
+
+Synopsis: $inrect(x,y,x,y,w,h)
+
+Returns $true if the first point x y is inside the rectangle specified by the 'x y w h' parameters, and $false if it is not.
+
+== The {{mIRC|$inroundrect}} identifier ==
+
+Synopsis: $inroundrect(x,y,x,y,w,h,w,h)
+
+Returns $true if the first point x y is inside the rounded rectangle specified by the 'x y w h' parameters, where the extra 'w h' parameters represent the value used in /drawrect to get the rounded corner, and $false if it is not.
+
+== The {{mIRC|$inpoly}} identifier ==
+
+Synopsis: $inpoly(x,y,x1,y1,x2,y2,...)
+
+Returns $true if the first point x y is inside the polygon defined by the specified points 'x1 y1 x2 y2 ...' parameters, and $false if it is not.
+
+== The {{mIRC|$onpoly}} identifier ==
+
+Synopsis: $onpoly(n1,n2,x1,y1,x2,y2,x3,y3,...)
+
+Returns $true if two polygon overlap, $false otherwise. The first n1 and n2 parameters represent the number of points in the first and in the second polygon respectively. The rest of the parameters are the x,y points used for each polygon.
+
+== The {{mIRC|$rgb}} identifier ==
+
+Synopsis: $rgb(R,G,B), $rgb(N)
+
+$rgb(R,G,B) returns the RGB value formed with the specified Red, Green and Blue values.
+
+$rgb(N) return the R,G,B format used to form the specified RGB color value.
+
+== The {{mIRC|$getdot}} identifier ==
+
+Synopsis: $getdot(@window,x,y)
+
+Returns the RGB value of the pixel at the specified coordinate in the specified window.
+
+== The {{mIRC|$height}} identifier ==
+
+Synopsis: $height(@text,fontname,fontsize)
+
+Returns height of text in pixels for the specified font.
+
+== The {{mIRC|$width}} identifier ==
+
+Synopsis: $width(text,fontname,fontsize,B,C)
+
+Returns width of text in pixels for the specified font, B can be non zero for a bold font, C can be non zero if you want control codes to be processed.
+
+== The {{mIRC|$window}} identifier ==
+
+Synopsis: $window, $window(&lt;@&lt;name|wid&gt;|N&gt;,N)
+
+'''$window''' itself returns the name of the window which was just left in the '''leave''' mouse event in a menu definition.
+
+When used with arguments, if you use a name, it can be a {{mirc|wildcard}} and can be used with the N parameter to represent the Nth window matching.
+As far as picture window are concerned, $window() has only one couple of properties you can use, '''.bw & .bh''' will return the width & height of the bitmap.
+
+== The {{mIRC|$pic}} identifier ==
+
+Synopsis: $pic(filename).[height|width|size]
+
+Can returns the size, width and height of a .bmp, .jpg or .png file
+
+</body>
+</html>

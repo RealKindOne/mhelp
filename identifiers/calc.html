@@ -5,6 +5,7 @@
 <br>
 <br>
 The <b>$calc</b> can be used to perform mathematical calculations. The accuracy of results is limited to that of the 53-bit 'double' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $calc(operations)
@@ -12,7 +13,7 @@ $calc(operations)
 The <b>$calc</b> identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view.
 
 <H4>Parameters</H4>
-<br><b>operations</b> - These are a specific set of mathematical operations for '''$calc''' to perform.
+<b>operations</b> - These are a specific set of mathematical operations for '''$calc''' to perform.
 
 When parenthesis are not used to override the order of evaluation, these are the operators and the order in which they are used in calculating the result:<br />
 
@@ -142,6 +143,7 @@ See also the $calc section at <a href="../other/msl_injection#$calc().html">$xor
 
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (28 Aug 1997)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -6,19 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/reload</b> command reloads the specified alias/remote/popup file, you can only load one section of a popups file at a time. If reloading a remote script, the ON LOAD or ON START even within are not triggered.
 
 <br><b>Note:</b> since mIRC v7.31, if you use the monitoring file options ( alt + r + r + o ) and a file warning dialog is opened for the file you are reloading, the dialog is automatically closed.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
-/reload <-a|-pscqnm|-ruvsN> &lt;filename&gt;
+/reload &lt;-a|-pscqnm|-ruvsN&gt; &lt;filename&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-a</b>
+<b>-a</b>
       - Specify an alias file.
 <br><b>-p</b>S
       - Specify a popup file, you must specify the S value which is 's' for a status window popup, 'c' for a channel popup, 'q' for query, 'n' for nicklist and 'm' for the menubar.
@@ -26,9 +25,7 @@ The <b>/reload</b> command reloads the specified alias/remote/popup file, you ca
       - Specify a remote/user/variable file, you must specify the T value which is 'u' for an user file, 's' for a remote (script) file and 'v' for variable, the N value is optional: if specified, reload the file into the Nth position in the script list.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;filename&gt;</b>
+<b>&lt;filename&gt;</b>
       - The filename to be reloaded.
 
 <H4>Example</H4>
@@ -40,6 +37,7 @@ Loads scriptfile.mrc without triggering ON START or ON LOAD events. If it's alre
     /reload -rs1 scriptfile.mrc
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (24 Jul 1998)
 
@@ -48,9 +46,8 @@ None
 
 <H4>See also</H4>
 
-
 <a href="load.html">/load</a><br>
-    * :doc: `on load </events/on_load>`
-    * :doc: `on start </events/on_start>`
+<a href="..\events\On_Load.html">On Load</a><br>
+<a href="..\events\On_Start.html">On Start</a><br>
 </body>
 </html>

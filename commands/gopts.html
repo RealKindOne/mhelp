@@ -6,8 +6,8 @@
 </H1>
 <br>
 <br>
-
 The <b>/gopts</b> command is used to sets various option of a loaded agent
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -18,10 +18,9 @@ The <b>/gopts</b> command is used to sets various option of a loaded agent
 /gopts -n &lt;name&gt; &lt;langid&gt;
 /gopts -h &lt;name&gt; &lt;on | off&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-b</b>
+<b>-b</b>
       - Turns balloons on or off, but you can instead specify &lt;size&gt;/&ltnosize&gt; to enable/disable the balloons to fit the text being spoken, &lt;pace&gt;/&lt;nopace&gt; to enable/disable the display of text word by word as it is being spoken, and &lt;hide&gt;/&lt;nohide&gt; to hide/show the balloons when no text is being spoken.
 <br><b>-i</b>
       - Turns idle effects on or off.
@@ -33,9 +32,7 @@ The <b>/gopts</b> command is used to sets various option of a loaded agent
       - Turns the auto-hide feature on or off (see /gload for more info).
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The name used in /gload to reference that agent
 <br><b>&lt;on | off&gt;</b>
       - The state for that option
@@ -45,12 +42,15 @@ The <b>/gopts</b> command is used to sets various option of a loaded agent
       - Used with -n, the hex id value for the language
 
 <H4>Example</H4>
+Load the default agent on your system:
 <pre class ="code">
-; Load the default agent on your system
 /gload myagent default
-; Turns off sound effect
+</pre>
+Turns off sound effect:
+<pre class ="code">
 /gopts -e myagent off
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (07 May 2000)
 

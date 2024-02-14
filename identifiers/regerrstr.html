@@ -16,6 +16,7 @@ This value actually comes from the exec function, this is for convenience. $rege
 <br>
 -14 is supposed to mean an internal pcre error, but this is only the case if $regerrstr is not set, then. You can find more info about on the regex page
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $regerrstr
@@ -27,10 +28,11 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $regex($str(a,2700),/(?<=a*)/) $regerrstr</pre>
+<pre class ="code">//echo -a $regex($str(a,2700),/(?&lt;=a*)/) $regerrstr</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
+
 <H4>Notes</H4>
 
 <br>
@@ -60,7 +62,7 @@ Added: mIRC v5.9 (26 Apr 2001)
 <br> 21:  failed to get memory
 <br> 22:  unmatched parentheses
 <br> 23:  internal error: code overflow
-<br> 24:  unrecognized character after (?<
+<br> 24:  unrecognized character after (?&lt;
 <br> 25:  lookbehind assertion is not fixed length
 <br> 26:  malformed number or name after (?(
 <br> 27:  conditional group contains more than two branches
@@ -109,7 +111,7 @@ Added: mIRC v5.9 (26 Apr 2001)
 <br> 70:  internal error: unknown opcode in find_fixedlength()
 <br> 71:  \N is not supported in a class
 <br> 72:  too many forward references
-<br> 73:  disallowed Unicode code point (>= 0xd800 && <= 0xdfff)
+<br> 73:  disallowed Unicode code point (>= 0xd800 && &lt;= 0xdfff)
 <br> 74:  invalid UTF-16 string (specifically UTF-16)
 <br> 75:  name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)
 <br> 76:  character value in \u.... sequence is too large
@@ -127,6 +129,5 @@ Added: mIRC v5.9 (26 Apr 2001)
 
 <H4>See also</H4>
 <a href="regex.html">$regex</a><br>
-
 </body>
 </html>

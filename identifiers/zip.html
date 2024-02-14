@@ -14,7 +14,7 @@ $zip(file.zip,t[p,password])
 $zip(file.zip,e[po],&lt;extractdir&gt; [,password])
 </pre>
 <H4>Parameters</H4>
-<br><b>file.zip</b>
+<b>file.zip</b>
     - the zip filename you want to create/test/list/extract from
 <br><b>p</b>
     - specify that the [password] parameter has been provided and should be used for the zip file
@@ -36,7 +36,7 @@ $zip(file.zip,e[po],&lt;extractdir&gt; [,password])
 <br><b>[password]</b> - password used to encrypt or decrypt each file added to zip. Can contain spaces. Valid only when using the 'p' switch.
 
 <H4>Properties</H4>
-<br><b>.size</b>
+<b>.size</b>
      - used with <b>l</b> only, makes $zip returns the size of the file (or 0 for a folder) instead of the filename
 <br><b>.mtime</b>
      - used with <b>l</b> only, makes $zip returns the timestamp of the file instead of the filename, as an integer which can be changed to date format using $asctime
@@ -110,6 +110,7 @@ Note that the 1st item was the name of the folder, indicated by the trailing bac
 
 <H4>Compatibility</H4>
 Added: mIRC v7.55 (08 Feb 2019)
+
 <H4>Notes</H4>
 You cannot edit an existing zip file currently.
 

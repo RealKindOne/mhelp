@@ -62,7 +62,7 @@ But what if we didn't have $day? what if we had something like $2? Let's conside
 
 When the correct input is provided, this script works wonderfully. For example:
 
-<pre><Mike> !reminder 18000 jill's birthday tomorrow!
+<pre class ="code"><Mike> !reminder 18000 jill's birthday tomorrow!
 -Bot- [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)</pre>
 
 Indeed, /timer evaluated the parameter once: $2 is evaluated to 18000 and $3- to "jill's birthday tomorrow!"
@@ -71,7 +71,7 @@ The associated command of the timer is correctly <code>notice Mike [Reminder] ji
 
 Although this script might seem simple, let's take a look at what happens when someone provides incorrect or even malicious input as in this case:
 
-<pre><Mike> !reminder 0 . | ns drop nick | quit hacked!
+<pre class ="code"><Mike> !reminder 0 . | ns drop nick | quit hacked!
 -Bot- [Reminder] . (Set 0 seconds ago)
 * Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
 
@@ -89,7 +89,7 @@ The spacing is very important. Our new !reminder script now looks like this:
 
 <pre class ="code">on *:text:!reminder & *:#:{
   if ($2 !isnum) {
-    notice $nick [Reminder] Syntax Error: !reminder <seconds> <message>
+    notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; <message>
     return
   }
   .timer 1 $2 notice $nick [Reminder] $safe($3-) (Set $safe($2) seconds ago)
@@ -97,14 +97,14 @@ The spacing is very important. Our new !reminder script now looks like this:
 
 Let's take a look at what happens now:
 
-<pre><Mike> !reminder 0 . | ns drop nick | quit hacked!
+<pre class ="code"><Mike> !reminder 0 . | ns drop nick | quit hacked!
 -Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)</pre>
 
 And Mike now can't do anything harmful.
 
-/timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code>{{mIRC|$decode}}( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code>{{mIRC|$decode}}( MTgwMDA= ,m)</code>.
+/timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
-The command associated with the timer now becomes <code>{{mIRC|/notice}} Mike [Reminder] {{mIRC|$decode}}( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set {{mIRC|$decode}}( MTgwMDA= ,m) seconds ago)</code> and those {{mIRC|$decode}}, when evaluated once by {{mIRC|/notice}}, will produce the correct result (the original input of Mike).
+The command associated with the timer now becomes <code>{{mIRC|/notice}} Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by {{mIRC|/notice}}, will produce the correct result (the original input of Mike).
 
 Now you don't need to do that for any {{mIRC|/timer}} command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
@@ -138,7 +138,7 @@ on !*:join:#:{
 
 Everything works just fine under normal conditions. But Mike knows better than to test things under normal conditions:
 
-<pre>* Now talking in #$($bot_pass)
+<pre class ="code">* Now talking in #$($bot_pass)
 /invite foobar #$($bot_pass)
 * Bot joined #$($bot_pass)
 /hop #$($bot_pass)
@@ -289,7 +289,7 @@ Like most people, this user has an on connect event to register his user and a s
 
 Let's see what Mike can do to him:
 
-<pre><Mike> !calc 3*5+55
+<pre class ="code"><Mike> !calc 3*5+55
 <Wiz126> [Calc] 3*5+55 = 70
 <Mike> !calc %password
 <Wiz126> [Calc] %password = 123456</pre>
@@ -409,7 +409,7 @@ on *:FILERCVD:*:{
 = Injection via server command =
 
 IRC servers accept strings containing $crlf $lf or $cr and will execute text following the line-ending as a 2nd server command using whatever permissions belong to your nick at that time.
-<pre>
+<pre class ="code">
 //msg #channel message $crlf mode #home +o Mallory
 </pre>
 When the server  receives this message from mIRC, it uses the $crlf to split this into 2 commands. The first command displays the message to #channel, and the 2nd command tells the server to give @op status in channel #home to Mallory. If you do not have permissions in #home to give @ops, or if a nick Mallory is not in that channel, nothing happens. But if both are true, then you have just given op status to Mallory.
@@ -424,14 +424,14 @@ In addition to executing commands to give @op privileges to someone, the malicio
 
 To defend against such an exploit, any command sent to the server (not only a channel message) containing text that could come from a source which contains line-ending characters should be sanitized to remove/disable them.
 
-<pre>
+<pre class ="code">
 $remove(string,$cr,$lf)
 </pre>
 This sanitizing would cause both strings to be combined as a single string, so if the first message is a plausible channel message, the hidden message is displayed as part of the channel message
 
 However, this is not sufficient if the first server command is able to cause damage even if combined with additional text, such as when the first command is the give-them-@ops command. The better defense is to halt the server command if the string contains a $cr and/or $lf that shouldn't be there:
 
-<pre>
+<pre class ="code">
 if ($cr isin $replace(string,$lf,$cr)) { echo -a string exploit attempt: $2 | halt }
 </pre>
 

@@ -12,7 +12,7 @@ Since everything is a string in mSL, just assigning it to a variable is enough.
 
 <pre class ="code">var %x = This is an example string.</pre>
 
-We often want to get the length of such string. The {{mirc|$len}} identifier can be used to get that. 
+We often want to get the length of such string. The <a href="..\identifiers\len.html">$len</a> identifier can be used to get that.
 
 <pre class ="code">//echo -a $len(apples and oranges)
 18</pre>
@@ -36,20 +36,20 @@ The output after executing the above code (/hello) is "Hello World!"
 A substring is a string that is part of a longer string. There are a number of built-in identifiers that can be used to retrieve a smaller portion of the original string.
 
 === $left() and $right() ===
-The first two identifiers you should be familiar with are the {{mIRC|$left}} and {{mIRC|$right}} identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
+The first two identifiers you should be familiar with are the <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
 
-<pre class ="code">$left(<string>, <length>)
-$right(<string>, <length>)</pre>
+<pre class ="code">$left(&lt;string&gt;, &lt;length&gt;)
+$right(&lt;string&gt;, &lt;length&gt;)</pre>
 
-$left always return text starting from the very left side while {{mIRC|$right}} always return text starting from the right side.
+$left always return text starting from the very left side while <a href="..\identifiers\right.html">$right</a> always return text starting from the right side.
 
-If the length specified is a positive number, {{mIRC|$left}} and {{mIRC|$right}} will return up to that many characters from their respective sides. For example:
+If the length specified is a positive number, <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> will return up to that many characters from their respective sides. For example:
 
 <pre class ="code">//echo -a $left(abcdefg, 4) $right(abcdefg, 4)
 ;Left: |abcd|efg
 ;Right: abc|defg|</pre>
 
-If the length specified is a negative number, {{mirc|$left}} and {{mirc|$right}} return the entire text minus that many characters from their respective sides. For example:
+If the length specified is a negative number, <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> return the entire text minus that many characters from their respective sides. For example:
 
 <pre class ="code">//echo -a $left(abcdefg, -4) $right(abcdefg, -4)
 ;Left: |abc|defg
@@ -64,10 +64,10 @@ This gets the five left-most characters ("Hello") and the five right-most charac
 <pre>Hello World!</pre>
 
 === $mid() ===
-{{mirc|$left}}() and {{mirc|$right}}() are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the {{mirc|$mid}}() identifier is a more powerful alternative. {{mirc|$mid}}() has the following syntax: 
+<a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the {{mirc|$mid}}() identifier is a more powerful alternative. {{mirc|$mid}}() has the following syntax:
 
-<pre class ="code">$mid(<string>, <start>)
-$mid(<string>, <start>, <length>)</pre>
+<pre class ="code">$mid(&lt;string&gt;, &lt;start&gt;)
+$mid(&lt;string&gt;, &lt;start&gt;, &lt;length&gt;)</pre>
 
 Start is the start of the substring from the left. A negative value indicates a start from the right. In both case, an optional length can be specified. A negative length can be used to remove that many characters from the end.
 
@@ -110,16 +110,16 @@ hello there</pre>
 <H4>Searching</H4>
 There are a number of identifiers that can be used to search for a substring within a string. The first one is the $pos identifier which has the following syntax:
 
-<pre class ="code">$pos(<string>, <substring>)
-$pos(<string>, <substring>, <occurrence>)</pre>
+<pre class ="code">$pos(&lt;string&gt;, &lt;substring&gt;)
+$pos(&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;)</pre>
 
-The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, {{mirc|$pos}} will return the total number of substring found within the string. 
+The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, {{mirc|$pos}} will return the total number of substring found within the string.
 
-'''Note:''' {{mirc|$poscs}} is a case-sensitive version of {{mirc|$pos}}; it has the same syntax. 
+'''Note:''' {{mirc|$poscs}} is a case-sensitive version of {{mirc|$pos}}; it has the same syntax.
 
 If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
 
-<pre class ="code">$count(<string>, <substring>[, <substring2>, ...])</pre>
+<pre class ="code">$count(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, ...])</pre>
 
 Multiple substrings can be counted at once. Here is a simple example:
 
@@ -132,14 +132,14 @@ Which will print "2".
 <H4>Substring Replacement and Removal</H4>
 
 === Replacement ===
-There are two built-in string replacement identifiers, {{mirc|$replace}} and {{mirc|$replacex}}. The major difference between the two is that the later one will not apply replacement to any of the replaced strings. 
+There are two built-in string replacement identifiers, {{mirc|$replace}} and {{mirc|$replacex}}. The major difference between the two is that the later one will not apply replacement to any of the replaced strings.
 
 It should be noted that both will replace ALL ocurrences of a substring within a string, not just the 1st encountered.
 
 The syntax for both of them is:
 
-<pre class ="code">$replace(<string>, <substring>, <replacement>[, <substring2>, <replacement2>, ...])
-$replacex(<string>, <substring>, <replacement>[, <substring2>, <replacement2>, ...])</pre>
+<pre class ="code">$replace(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])
+$replacex(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])</pre>
 
 Let's start off with a small example:
 
@@ -164,7 +164,7 @@ An example of replacing ALL occurances can be seen in:
 
 <pre class ="code">//echo -s $replace(This is a test of the replace function, $chr(32), .)</pre>
 
-which will output (in this case to the status window [-s]): 
+which will output (in this case to the status window [-s]):
 <pre>This.is.a.test.of.the.replace.function</pre>
 
 $replacex will provide the same in this case.
@@ -174,7 +174,7 @@ $replacex will provide the same in this case.
 === Substring Removal ===
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
 
-<pre class ="code">$remove(<string>, <substring>[, <substring2>, <substring3>, ...])</pre>
+<pre class ="code">$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, <substring3>, ...])</pre>
 
 A small example is:
 
@@ -191,33 +191,33 @@ Two more identifiers you should be aware of are {{mirc|$str}}() and {{mirc|$stri
 === $str() ===
 $str returns the same exact string repeated N amount of times. The syntax is:
 
-<pre class ="code">$str(<string>, <N>)</pre>
+<pre class ="code">$str(&lt;string&gt;, <N>)</pre>
 
 For example:
 
 <pre class ="code">//echo -a $str(Example, 10)</pre>
 
-Produces: 
+Produces:
 
-<pre>ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
+<pre class ="code">ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
 
 === $strip() ===
 The $strip identifier can remove control codes from a string. The syntax for it is:
 
 <pre class ="code">;Removes all control codes (bold/underline/italics/color/reverse)
-$strip(<string>)
+$strip(&lt;string&gt;)
 ;Removes any combination of control codes
-$strip(<string>, buricmo)</pre>
-
+$strip(&lt;string&gt;, buricmo)</pre>
+<pre class ="code">
 * b = bold
 * u = underline
 * r = reverse
 * i = italics
 * c = color
 * m = use messages option settings
-
+</pre>
 <H4>Using {{mirc|Token Manipulation}}</H4>
-Whilst the {{mirc|token manipulation}} functionality is designed to be used for maintaining lists of delimited tokens, they can also be used for string manipulation. For example, extracting a channel from a string can be done with: 
+Whilst the {{mirc|token manipulation}} functionality is designed to be used for maintaining lists of delimited tokens, they can also be used for string manipulation. For example, extracting a channel from a string can be done with:
 
 <pre class ="code">//echo -a # $+ $gettok($gettok(Why not join #superheros now?,2,35),1,32)
 #superheros</pre>

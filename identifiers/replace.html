@@ -8,7 +8,6 @@ The <b>$replace</b> identifier performs search/replace on text strings. '''$repl
 
 $replace can replace an already replaced string, it searches all substrings at every position in the text and start from the beginning of the string whenever there is a replacement made, {{mIRC|$replacex}} can be used to prevent what has already been replaced from being checked again
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 
@@ -17,7 +16,7 @@ $replacecs(text , substring, replace, stringN, replaceN)
 
 </pre>
 <H4>Parameters</H4>
-<br><b>text</b> - The string you want to replace from
+<b>text</b> - The string you want to replace from
 <br><b>substring</b> - The 1st string you want to search for
 <br><b>replace</b> - the replacement for the 1st string
 <br><b>substringN</b> - The Nth string you want to search for
@@ -108,6 +107,7 @@ $replace is faster than $regsub for simple search/replace, but for many pairs it
 
 <H4>Compatibility</H4>
 Added: mIRC v4.52 (06 Jul 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

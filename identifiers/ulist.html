@@ -6,25 +6,27 @@
 <br>
 The <b>$ulist</b> identifier returns the Nth address in the Users list that matches the specified address and level.
 
-<br><b>Note:</b> $ulist also returns entries in the  Users list which are just nickname
+<br><b>Note:</b> $ulist also returns entries in the Users list which are just nickname
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $ulist(nick!userid@address,L,N)
 </pre>
 <H4>Parameters</H4>
-<br><b>nick!userid@address</b> - the address used to match, you can specify a <a href="..\other\wildcard.html">wildcard</a> address. If you don't specify a full address, it completes with {{mirc|wildcard|wildcards}}.
+<b>nick!userid@address</b> - the address used to match, you can specify a <a href="..\other\wildcard.html">wildcard</a> address. If you don't specify a full address, it completes with {{mirc|wildcard|wildcards}}.
 <br><b>L</b> - if you provide this parameter, it must be a level number and only matching addresses that contain the specified level are returned
 <br><b>N</b> - The Nth matching address, default to 1. if N is 0, returns the total number of queued line.
 
 <H4>Properties</H4>
-<br><b>.info</b> - return the information string used in <a href="..\commands\auser.html">/auser</a> for example.
+<b>.info</b> - return the information string used in <a href="..\commands\auser.html">/auser</a> for example.
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $ulist(*,,0)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.41 (24 Jul 1998)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

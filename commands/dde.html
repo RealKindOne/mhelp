@@ -7,7 +7,7 @@
 <br>
 <br>
 
-Dynamic Data Exchange (DDE) is a form of communication between two applications on a windows machine. 
+Dynamic Data Exchange (DDE) is a form of communication between two applications on a windows machine.
 <br>The <b>/dde</b> command can be used to create a dde connection with a dde server. When the topic parameter is required, you can use empty quotes ("") to indicate a blank topic.
 <br>
 Transactions The dde command support three different types of transactions:
@@ -18,22 +18,20 @@ Transactions The dde command support three different types of transactions:
 
 The only time the [data] parameter is required is when the XTYP_POKE transaction type is used.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /dde [-re] &lt;service&gt; &lt;topic&gt; &lt;item&gt; [data]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-r</b>
+<b>-r</b>
       - uses XTYP_REQUEST transaction
 <br><b>-e</b>
       - uses XTYP_EXECUTE transaction
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;service&gt;</b>
+<b>&lt;service&gt;</b>
       - DDE Server service name
 <br><b>&lt;topic&gt;</b>
       - DDE Topic
@@ -47,6 +45,7 @@ The only time the [data] parameter is required is when the XTYP_POKE transaction
 ; Open a new tab in opera, navigate to www.google.com
 /dde -e Opera WWW_OpenURL "www.google.com"
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.9 (06 Jan 1996)
 
@@ -54,7 +53,6 @@ Added: mIRC v3.9 (06 Jan 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\dde.html">$dde</a><br>
 <a href="..\identifiers\isdde.html">$isdde</a><br>

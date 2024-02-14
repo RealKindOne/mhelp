@@ -6,7 +6,6 @@
 </H1>
 <br>
 <br>
-
 The <b>/play</b> command is a powerful tool that allows you to play text files to users or channels on IRC line by line. /play uses the flood settings in the options.
 
 The play central dialog lists all of the currently queued play requests, and allows you to maintain the queue. Files are played in the order in which they are queued.
@@ -14,19 +13,19 @@ The play central dialog can be displayed with the /playctrl command.
 
 When the lines are interpreted as command (with -s or -c) you can use $pnick in those lines to refer to the window that is being used.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /play [-xaescpbrnqNmNfNlNtTOPIC] [alias] [channel/nick/stop] [filename] [delay]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-x</b>
+<b>-x</b>
       - Treat the first line in the file as a regular text instead of line count if it is a number.
 <br><b>-a</b>
       - Uses the [alias] parameter as the alias to be called instead of /msg or /notice.
 <br><b>-e</b>
-      - Echoes the line to channel/nick window as it would send them to the server (if the window does not exist, a line of the form /msg <window> <line> is displayed in the status window).
+      - Echoes the line to channel/nick window as it would send them to the server (if the window does not exist, a line of the form /msg &lt;window&gt; &lt;line&gt; is displayed in the status window).
 <br><b>-s</b>
       - Can be used offline, will interpret lines as actual command instead of plaintext and execute them in the status window.
 <br><b>-c</b>
@@ -55,9 +54,7 @@ This two switches only apply for a /play request initiated via a remote definiti
       - Specifies the maximum number of requests that can be queued. If the queue length is already larger than or equal to the specified number then the play request is ignored.
 
 <H4>Parameters</H4>
-
-
-<br><b>[alias]</b>
+<b>[alias]</b>
       - If you have specified -a, the alias that will be called instead of /msg or /notice.
 <br><b>[channel/nick/stop]</b>
       - The window you want to play to, if required, or "stop" if you want to stop and clear the queue.
@@ -71,6 +68,7 @@ This two switches only apply for a /play request initiated via a remote definiti
 
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.1 (23 Apr 1995)
 
@@ -79,8 +77,7 @@ None
 
 <H4>See also</H4>
 
-
 <a href="..\identifiers\play.html">$play</a><br>
-    * :doc: `on playend </events/on_playend>`
+<a href="..\events\on_playend.html">On_PlayEnd</a><br>
 </body>
 </html>

@@ -6,18 +6,17 @@
 </H1>
 <br>
 <br>
-
 The <b>/hload</b> command loads a text file to an hash table. /hload does not create the table, it must already have been created by <a href="hmake.html">/hmake</a> then saved to disk using <a href="hsave.html">/hsave</a>.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /hload -sBbnmN &lt;name&gt; &lt;filename&gt;
 /hload -sinmN &lt;name&gt; &lt;filename&gt; [section]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - display a message if successful: "* Loaded hash table '&lt;name&gt;' from '&lt;filename&gt;'
 <br><b>-b</b>
       - loads binary files,<a href="..\identifiers\cr.html">$cr</a> and <a href="..\identifiers\lf.html">$lf</a> and 0x00's etc are preserved when saving as binary files
@@ -31,9 +30,7 @@ The <b>/hload</b> command loads a text file to an hash table. /hload does not cr
       - create the hash table if it does not exist, you can optionally specify N for the number of buckets in the range 1-10000, default 100 if N not used.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - the name of the hash table
 <br><b>&lt;filename&gt;</b>
       - the file from which you want to load. Filename containing space much be enclosed in doublequotes.
@@ -59,8 +56,10 @@ Notes
 * Binary variable can be accurately saved to a hashtable item, then /hsave'ed to disk with the -b switch, then /hload'ed from disk with the -b switch. The display shows &copy containing an un-altered copy of the original binary variable.
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (14 Dec 2000)
+
 <H4>Notes</H4>
 <br>
 /hload uses the same syntax as /hsave except /hload has the -mN switch but does not have /hsave's -u switch.
@@ -72,7 +71,6 @@ If using /hload -i or -b or -n switches, it assumes the data was /hsave'ed to di
 If /hload into a table containing existing items, any match between existing item name and the items loaded from disk replaces the existing item's value with the value from disk, but any other existing items in the table are not affected by an /hload command.
 
 <H4>See also</H4>
-
 
 <a href="hmake.html">/hmake</a><br>
 <a href="hfree.html">/hfree</a><br>

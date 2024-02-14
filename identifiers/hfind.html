@@ -6,15 +6,14 @@
 <br>
 The <b>$hfind</b> identifier searches an hash table for the Nth item name which matches text. Returns item name.
 
-'''Note''': <a href="..\commands\halt.html">/halt</a><br> will stop the $hfind search if used from the command parameter (or inside the alias called, naturally) - note that versions prior to 7.59 this didn't work.
-
+'''Note''': <a href="..\commands\halt.html">/halt</a> will stop the $hfind search if used from the command parameter (or inside the alias called, naturally) - note that versions prior to 7.59 this didn't work.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $hfind(name/N, text, N, M, @window | command)[.data]
 </pre>
 <H4>Parameters</H4>
-<br><b>name/N</b> - the Nth hash table or the name of it
+<b>name/N</b> - the Nth hash table or the name of it
 <br><b>text</b> - the expression to use to find a match
 <br><b>N</b> - The Nth match, use 0 to get the total number of match or to trigger the @window | command parameter for all matches
 <br><b>M</b> - optional, a letter indicating how to match, default to value normal text comparison (n) below:
@@ -26,7 +25,7 @@ $hfind(name/N, text, N, M, @window | command)[.data]
 <br><b>command | @win</b> -- if you pass a @win name, the item name that matched is put in the window, otherwise mirc evaluate the command for each match, $1 can be used to access the item name
 
 <H4>Properties</H4>
-<br><b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.
+<b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.
 
 <H4>Example</H4>
 <pre class ="code">
@@ -48,6 +47,5 @@ Added: mIRC v5.81 (09 Nov 2000)
 <a href="..\commands\hinc.html">/hinc</a><br>
 <a href="hget.html">$hget</a><br>
 <a href="..\other\Hash_tables.html">Hash tables</a><br>
-
 </body>
 </html>

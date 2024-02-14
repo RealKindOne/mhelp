@@ -6,35 +6,32 @@
 </H1>
 <br>
 <br>
+The <b>ghide</b> command hides a previously loaded agent.
 
-The **ghide</b> command hides a previously loaded agent.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /ghide -h &lt;name&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-h</b>
+<b>-h</b>
       - Prevents the agent from poping up if mIRC is minimized and -h has been used in /gload to load that agent
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The name under which you loaded the agent
 
 <H4>Example</H4>
+Load the default agent on your system:
 <pre class ="code">
-
-
-    ;Load the default agent on your system
-    /gload myagent default
-    ;Hide the agent
-    /ghide myagent
-
+/gload myagent default
 </pre>
+Hide the agent:
+<pre class ="code">
+/ghide myagent
+</pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (07 May 2000)
 
@@ -42,7 +39,6 @@ Added: mIRC v5.7 (07 May 2000)
 None
 
 <H4>See also</H4>
-
 
 <a href="gload.html">/gload</a><br>
 <a href="gunload.html">/gunload</a><br>

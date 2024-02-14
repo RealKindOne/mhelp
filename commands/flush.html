@@ -6,10 +6,10 @@
 </H1>
 <br>
 <br>
-
 The <b>/flush</b> command clears the remote user list of nickname definitions that are no longer valid.
 
 For each nick in the remote user list that matches the specified levels mIRC checks to see if that nick is on any of the channels that you are currently on. If not, the nick definition is removed from the remote user list. If you do not specify levels then mIRC clears all nicks from the remote user list that do not exist on channels you are on.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -17,21 +17,18 @@ For each nick in the remote user list that matches the specified levels mIRC che
 </pre>
 
 <H4>Switches</H4>
-
-
-<br><b>-l</b>
+<b>-l</b>
       - removes only the specified levels from entries in the user list, instead of removing the entries
 
 <H4>Parameters</H4>
-
-
-<br><b>[levels]</b>
+<b>[levels]</b>
       - A list of levels seperated by commas
 
 <H4>Example</H4>
 <pre class ="code">
 /flush 1,2,3
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC vmIRC 3.8 ()
 

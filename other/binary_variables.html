@@ -1,0 +1,179 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+Binary Variables
+</H1>
+<br>
+<br>
+<b>Binary variables</b> are a special storage offered by mIRC that can hold an array of bytes of arbitrary length.
+
+== Overview ==
+mIRC's '''binary &variables''' are distinguished from its text %variables by beginning with the & ampersand symbol, while text variables begin with the % percent symbol. They differ from text variables in content, scope, duration, and length.
+
+* They are composed of byte values, which can be any of the values 0-255. Among other differences, they can contain the $chr(0) value, which text variables cannot.
+* Their scope is similar to that of local identifiers such as $nick and $rawmsg. They exist as long as scripting engine is running, then are deleted.
+* Binary variables are not saved to the variables file (default name is vars.ini) the way global %variables are saved. To preserve them, you must either write them to a disk file, save to a hashtable item, or use $encode to save them to a %variable or hashtable.
+* While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.
+* mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compat reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.
+
+Some uses for Binary Variables include:
+
+* holding content which can't be placed into text %variables
+* holding content too long to be placed in text variables
+* displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.
+
+== /Commands and $Identifiers ==
+
+There are a few commands and identifiers created specifically to manipulate binary variables:
+
+
+<br><a href="..\commands\bset.html">/bset</a> - Create or modify binary variables.
+<br><a href="..\commands\bcopy.html">/bcopy</a> - Create or modify by copying byte values between/within binary variables.
+<br><a href="..\commands\breplace.html">/breplace</a> - simple search/replace of all occurrences of a byte value with another.
+<br><a href="..\commands\btrunc.html">/btrunc</a> - Truncate a disk file at a specific filesize regardless of content or line ending.
+<br><a href="..\commands\bunset.html">/bunset</a> - Unset a binary variable prior to end of the script/event.
+<br><a href="..\commands\bread.html">/bread</a> - Read file contents into a binary variable
+<br><a href="..\commands\bwrite.html">/bwrite</a> - Write binary variable to a disk file
+<br><a href="..\identifiers\bfind.html">$bfind</a> - Search binary variable for pattern of 1-or-more byte values.
+<br><a href="..\identifiers\bvar.html">$bvar</a> - Display contents of binary variables as text or a series of decimal numbers
+
+In addition, other identifiers have been given functionality to accept binary variables as input or output:
+
+
+<br><a href="..\commands\parseline.html">/parseline</a> - Can use a binary variable as input or output
+<br><a href="..\identifiers\cb.html">$cb</a> - can output a line or entire clipboard to a binary variable.
+<br><a href="..\identifiers\encode.html">$encode</a> - Can use a binary variable as input+output
+<br><a href="..\identifiers\decode.html">$decode</a> - Can use a binary variable as input+output
+<br><a href="..\identifiers\regsub.html">$regsub</a> - Can use a binary variable as output
+<br><a href="..\identifiers\regsubex.html">$regsubex</a> - Can use a binary variable as output
+<br><a href="..\identifiers\compress.html">$compress</a> - Can use a binary variable as input+output.
+<br><a href="..\identifiers\decompress.html">$decompress</a> - Can use a binary variable as input+output.
+<br><a href="..\commands\hadd.html">/hadd</a> - Can save a binary variable into a hash table item
+<br><a href="..\identifiers\hget.html">$hget</a> - Can use a binary variable as output
+<br><a href="..\commands\hsave.html">/hsave</a> - Can save a hash table to a binary file
+<br><a href="..\commands\hload.html">/hload</a> - Can load a binary file to a hash table
+<br><a href="..\identifiers\crc.html">$crc</a> -  Can use a binary variable as input
+<br><a href="..\identifiers\md5.html">$md5</a> -  Can use a binary variable as input
+<br><a href="..\identifiers\sha1.html">$sha1</a> - Can use a binary variable as input
+<br><a href="..\identifiers\sha256.html">$sha256</a> - Can use a binary variable as input
+<br><a href="..\identifiers\sha384.html">$sha384</a> - Can use a binary variable as input
+<br><a href="..\identifiers\sha512.html">$sha512</a> - Can use a binary variable as input
+<br><a href="..\identifiers\hmac.html">$hmac</a> - Can use a binary variable as input
+<br><a href="..\identifiers\com.html">$com</a> - Can use a binary variable as input or output.
+<br><a href="..\commands\sockudp.html">/sockudp</a> - Can write a binary variable to a socket
+<br><a href="..\commands\sockwrite.html">/sockwrite</a> - Can write a binary variable to a socket
+<br><a href="..\commands\sockread.html">/sockread</a> - Can read from a socket into a binary variable
+<br><a href="..\commands\fwrite.html">/fwrite</a> - Can write a binary variable to a disk file
+<br><a href="..\identifiers\fread.html">$fread</a> - Can read disk file contents into a binary variable
+
+== Position and Length ==
+
+Position in binary variables is 1-based, where the first byte value in a binary variable is position 1. This is different than the position used by /bread and /bwrite to read/write binary variables to disk files, where file position 0 is the position for reading/writing the first byte of the file.
+
+If a binary variable has length N, position N is the last byte of the variable. Because appending to a binary variable requires calculating and writing to position N+1, several of the binary commands allow using position -1 to append to a variable. Also, instead of using $bvar to find the length of a variable, some of them also allow -1 in the length parameter for writing the entire variable.
+
+=== Unicode ===
+
+Writing unicode characters to binary variables using the -t switch causes the length of the binary variable to be longer than the length of the text string written to them. Unicode characters 128-2047 add 2 bytes to a binary variable and 2048-65535 add 3 each. When adding text to a variable you can use -ta instead of -t to avoid encoding Unicode characters 128-255 as 2 bytes, but only if the text value being added contains no Unicode characters greater than 255.
+<pre class ="code">
+//bset -t &var1 1 $chr(  233) | echo -a shows length is 2 -> $bvar(&var1,0)
+//bset -t &var2 1 $chr(10004) | echo -a shows length is 3 -> $bvar(&var2,0)
+//bset -ta &var3 1 $chr(  233) | echo -a shows length is 1 -> $bvar(&var3,0)
+//bset -ta &var4 1 $chr(10004) | echo -a shows length is 3 -> $bvar(&var4,0)
+//bset -ta &var5 1 $chr(233) $+ $chr(10004) | echo -a shows length is 2+3=5 -> $bvar(&var5,0)</pre>
+
+Note: If you add $chr(233) and $chr(10004) as 2 separate -ta commands, you can add character 233 as 1 byte and add 10004 as 3 bytes. In that case the 10004 does not cause the 233 to be encoded as 2 bytes because the strings were added separately:
+<pre class ="code">
+//bset -ta &var5 1 $chr(233) | bset -ta &var5 -1 $chr(10004) | echo -a shows length is 4 -> $bvar(&var5,1-)</pre>
+
+== Creating Binary Variables Examples ==
+
+Binary variables can be created using one of the /commands or $identifiers which accept a binary variable as an output parameter, or by the /bset, /bcopy, and /bwrite commands created for that purpose.
+<pre class ="code">
+Set &binvar to 99 byte value 0 followed by byte value 255 at position 100:
+//bset -c &binvar 100 255 | echo -a &bvar(&binvar,1-)
+Set &binvar to text contents of %variable
+//bset -tc &binvar 1 %variable | echo -a &bvar(&binvar,1-).text
+Create or append entire contents of &binvar to &var2
+//bcopy -1 &var2 1 &binvar -1
+Read entire contents of versions.txt into &versions
+//bread versions.txt 0 $file(versions.txt).size &versions  | echo -a &bvar(&binvar,0)
+Set &binvar to contents of channel message
+ON *:Text:*:#: { noop $regsubex(,$parms,,,&binvar) }
+Set &binvar to contents of clipboard
+//clipboard $+(abc,$crlf,def) | noop $cb(-1,,&binvar) | echo -a $bvar(&binvar,1-)
+Read from socket to &binvar
+on *:SOCKREAD:socket: { sockread 4096 &binsockread }
+</pre>
+== Modifying Binary Variables Examples ==
+<pre class ="code">
+Replace all TAB characters with spaces:
+/breplace &binvar 9 32
+Compress contents of &versions
+//bread versions.txt 0 $file(versions.txt).size &versions | noop $compress(&versions,b) | echo -a $bvar(&versions,0)
+encrypt and encode contents of &versions
+//noop $encode(&versions,bcm,password)
+</pre>
+=== Modifying existing Binary Variables ===
+
+Binary variables are different than text variables in how you add values to them, and what happens when you add shorter content to an existing variable with longer content. If you add 3 bytes to position 1 of a binary variable with length of 5, the 3 added bytes replace the 3 bytes in those positions, and the values in positions 4-5 remain unless you use the -c switch:
+<pre class ="code">
+//bset -t &var 1 1234567890 | bset -t &var 1 test | echo -a shows content is test567890 -> $bvar(&var,1-)</pre>
+
+The above example could be a string even longer than 10 if &var previously contained a strong longer than 10. If the 1st command used -tc instead of -t, the variable content is chopped beyond the 10 bytes being added. If the 2nd command used -tc instead of -t, the content beyond the 4 bytes being added is chopped.
+
+If you bset values into a variable at position 10, the first 9 positions are undefined, depending whether the variable already existed. If the variable already existed with length 4, the bytes at positions 5-9 are filled with value 0 (not text 0 which is byte value 48). If the variable did not yet exist, bytes at positions 1-9 are filled with value 0.
+
+== Binary Variables as Input Examples ==
+<pre class ="code">
+display $sha1 hash of contents of &versions
+//echo -a $sha1(&versions,1)
+write &versions to disk
+//bwrite -c test.dat 0 -1 &versions
+</pre>
+== 'local' Binary variables ==
+
+When using %variables within an alias, you can take advantage of their 'local' scope to safely re-use variable names without worrying about destroying variables used by other scripts or aliases. You can use "/var %a value" in an alias to set that local variable without worrying that you will destroy that same variable name being used by the alias which called your alias, and don't need to worry if your script calls another alias which also uses that same name as a local variable.
+
+However the scope of binary variables means they exist in all aliases called by each other or in the event which triggered their usage. To avoid aliases damaging the contents of each other's binary variables, if an alias needs to create binary variables, and is designed to be called by other aliases which might also be using binary variables, you must defend against destroying the binary variables used by the caller. Two ways to do this are:
+
+* Require the caller send the name of the variable as a parameter when calling your alias
+* Create a unique variable name to make it unlikely that another alias would use the same name for a binary variable.
+
+Pass binary variable name to alias, display $bvar output in hex instead of decimal:
+<pre class ="code">//echo -a $BvarAsHex(&binvar)
+alias BvarAsHex { return $regsubex($bvar($1,1-1000),/(\d*)/g,$base(\1,10,16,2)) }</pre>
+
+Create unique name to avoid destroying existing variable:
+<pre class ="code">
+//var %a $(myalias,$ticks,$ctime) | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text</pre>
+
+See {{mIRC|Variables}} in the Guide for more details on creating dynamic variable names.
+
+Note: If your temporary variable is no longer needed and is lengthy, you may wish to use /bunset to reduce memory usage if you are also creating other lengthy binary variables during that script execution. Otherwise, it will be deleted when the script execution ends.
+
+== Saving binary variables ==
+
+Because binary variables disappear as soon as your script execution ends, if you need to use your binary variable later, you will need to find a way to save it:
+
+* write to a disk file:
+<pre class ="code">//bwrite -c save.dat 0 1 &binvar</pre>
+
+* store in hash table:
+<pre class ="code">/hadd -smb binvar_save binvar &binvar</pre>
+
+Note: hash tables aren't saved to disk, so you need to save that table to disk:
+<pre class ="code">/hsave -sb binvar_save savebins.dat</pre>
+... and then reload the binary variable the next time you re-start mIRC:
+<pre class ="code">/hload -sb binvar_save savebins.dat</pre>
+
+* Use $encode to translate binary data to text, which can be saved to variables or written to disk.
+
+<pre class ="code">//noop $encode(&binvar,bm) | set %binvar_save $bvar(&binvar,1-).text</pre>
+Note: $encode translates 3 input bytes (binary or text) into 4 text characters, so you shouldn't try to use this method on binary variables longer than approximately 3000 bytes.
+Retrieve binary content from text %variable:
+<pre class ="code">//bset -t &binvar 1 %binvar_save | noop $decode(&binvar,bm)</pre>
+
+</body>
+</html>

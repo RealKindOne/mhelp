@@ -3,28 +3,24 @@
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <h1>
 /bigfloat
-</h1>
+</H1>
 <br>
 <br>
-
 The <b>/bigfloat</b> command either reports whether the script is in 'bigfloat mode', or can force the script in/out of bigfloat mode, where operation of several math identifiers, commands etc are affected.
 Most notably, the results from <a href="..\identifiers\calc.html">$calc</a> are no longer limited to numbers within doubles range, fractions are no longer limited to 6 digits, and $base automatically detects if input is larger than doubles range's max.
 <br>
 <b>Note:</b> alternatively, individual script commands are shifted into bigfloat mode as soon as they encounter a %variable name ending with '.bf', either as the variable being set, or its presence within the command string. The 'on' and 'off' mode can be silenced like .bigfloat on
 
-
 <H4>Synopsis</H4><pre class ="code">
 /bigfloat [on|off]
 /bigfloat
 </pre>
-<H4>Switches</H4>
 
-none
+<H4>Switches</H4>
+None
 
 <H4>Parameters</H4>
-
-
-<br><b>[on]</b>
+<b>[on]</b>
       - Moves the script's calculations into bigfloat mode.
 <br><b>[off]</b>
       - Moves the script's calculations out of bigfloat mode.
@@ -132,6 +128,7 @@ g.bf used B=512 to cast -3 by +2^512 to a positive before doing the math
 Being in bigfloat mode also affects $numbits, which cannot return larger than 32 in non-bigfloat mode:
 //echo -a $numbits($calc(2^53)) shows 32 because $bigfloat is false but %null.bf $numbits($calc(2^53)) shows 54 because $bigfloat is true
 </pre>
+
 <H4>Compatibility</H4>
 
 Added: mIRC v7.72 (27 Nov 2022)
@@ -139,7 +136,6 @@ Added: mIRC v7.72 (27 Nov 2022)
 <H4>Notes</H4>
 None<br>
 <H4>See also</H4>
-
 
 <a href="..\identifiers\abs.html">$abs</a><br>
 <a href="if.html">/if</a><br>
@@ -179,3 +175,5 @@ None<br>
 <a href="..\identifiers\powmod.html">$powmod</a><br>
 <a href="..\identifiers\factorial.html">$factorial</a><br>
 <a href="..\identifiers\fibonacci.html">$fibonacci</a><br>
+</body>
+</html>

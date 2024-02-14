@@ -15,7 +15,6 @@ To get the resulting character, one should use the <a href="..\events\on_Char.ht
 
 To sum up, checking $keychar inside <a href="..\events\on_Keydown.html">on_Keydown</a> and <a href="..\events\on_KeyUp.html">on_KeyUp</a> is incorrect and won't work for any language/keyboard, those two events are to be used to look for keypresses only with $keyval, use $keychar inside <a href="..\events\on_Char.html">on_Char</a> only, to get characters.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $keychar
@@ -27,7 +26,7 @@ None
 None
 
 <H4>Example</H4>
-Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
+Create an alias that launches a custom, <a href="..\other\picture_windows.html">Picture Window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
 <pre class ="code">alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
@@ -53,13 +52,12 @@ Note that this makes use of a {{mirc|picture window}}, as well as the <a href=".
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="..\events\on_Char.html">on_Char</a><br>
 <a href="keyrpt.html">$keyrpt</a><br>
 <a href="keyval.html">$keyval</a><br>
-
-
 </body>
 </html>

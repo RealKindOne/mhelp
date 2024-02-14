@@ -6,21 +6,21 @@
 <br>
 The <b>$window</b> identifier returns information about the specified window for the current connection or returns the name of the @window that is left inside the 'leave' menu {} event.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">$window(N/name)[.property]
 $window
 </pre>
 </pre>
 <H4>Parameters</H4>
-
-<br><b>N</b> - The Nth @custom window, if N is 0, returns the total number of windows.
+<b>N</b> - The Nth @custom window, if N is 0, returns the total number of windows.
 <br><b>Name</b> - The name of query/channel/@custom window, or "status window", "channel list", etc..
 
 <br>
 <b>Note:</b> you can use -1 or @desktop to refer to the screen, -2 or @mirc to refer to the main mIRC window, and -3 or @mdi to refer to the mdi window where all others windows inside mIRC are displayed, these @name are reserved. You can use the .x .y .w .h .dx .dy .dw .dh properties with these parameters to get the size of these windows (or your screen's size)
 
 <H4>Properties</H4>
-<br><b>.x,.y,.w,.h</b> - the left, top positions, and the width and height of the window respectively
+<b>.x,.y,.w,.h</b> - the left, top positions, and the width and height of the window respectively
 <br><b>.dx,.dy</b> - the left, top positions of the window relative to the desktop
 <br><b>.cx,.cy</b> - the left, top positions of the window relative to the primary monitor
 <br><b>.dw,.dh</b> - the width and height of the text display area
@@ -72,10 +72,10 @@ $window
 
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="..\commands\window.html">/window</a><br>
-
 </body>
 </html>

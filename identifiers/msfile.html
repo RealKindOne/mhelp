@@ -6,17 +6,18 @@
 <br>
 The <b>$msfile</b> identifier opens dialog to select 1 or more files.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
-* '''$msfile(<path> [,title [,OpenButtonText] ] )''' Opens dialog to choose 1 or multiple files. Returns N where 0 or greater is the count of returned filenames. N=-1 if error, such as one of the selected items being folder c:\windows\fonts\
-* '''$msfile(N)'''	After dialog closes, for N>=1 returns the Nth selected filename. For N=0 returns the count of returned filenames.
+$msfile(&lt;path&gt; [,title [,OpenButtonText] ] ) Opens dialog to choose 1 or multiple files. Returns N where 0 or greater is the count of returned filenames. N=-1 if error, such as one of the selected items being folder c:\windows\fonts\
+$msfile(N)	After dialog closes, for N>=1 returns the Nth selected filename. For N=0 returns the count of returned filenames.
 </pre>
 <H4>Parameters</H4>
-<br><b>path<b> - Starting folder for the file select dialog. Can be a relative path to $mircdir. Ignores the last "\" delimited token if path doesn't end with "\" or "/". Error if path ends with \\.
-<br><b>title<b> - Optional string placed in the titlebar of the select dialog
-<br><b>OpenButtonText<b> - Optional string to replace 'Open' on that button of the select dialog. You cannot set this parameter without first defining the the title parameter to a non-null string.
+<b>path</b> - Starting folder for the file select dialog. Can be a relative path to $mircdir. Ignores the last "\" delimited token if path doesn't end with "\" or "/". Error if path ends with \\.
+<br><b>title</b> - Optional string placed in the titlebar of the select dialog
+<br><b>OpenButtonText</b> - Optional string to replace 'Open' on that button of the select dialog. You cannot set this parameter without first defining the the title parameter to a non-null string.
 
-<br><b>N<b> - When N>=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
+<br><b>N</b> - When N>=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
 
 Note: The returned count of filenames is limited to the number of filenames returned, which can be less than the number of files actually selected. The number of returned filenames varies, and seems to be limited to not allowing the sum of $msfile(0) plus the length of $nopath(filename) strings to be more than somewhere around 1000-1024 bytes. Longer filenames causes fewer filenames to be returned.
 
@@ -31,7 +32,7 @@ None
 Note: $sfstate and $msfile(N) are shared by $sfile and $sdir and $msfile(dir). These values are accessible by any script or from the editbox until the next time any of these 3 commands are used, when these identifiers are replaced by the new results. (Using $msfile(N) does not reset $sfstate) (Using $sdir or $sfile always causes $msfile(N>=1) to be $null. $sfile causes $msfile(0) to be either 0 or 1 depending on whether it selected a file, $sdir always sets $msfile(0) to 0 and blacks $msfile(1).)
 
 <H4>Example</H4>
-<pre class ="code">//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i < $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) <- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }</pre>
+<pre class ="code">//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i &lt; $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) <- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }</pre>
 
 The 2nd parameter puts your optional string in the titlebar. The 3rd optional parameter alters the label on the 'Open' button.
 
@@ -61,10 +62,12 @@ This displays an error message and forces you to begin selecting files in $mircd
 
 <H4>Compatibility</H4>
 Added: mIRC v6.1 (29 Aug 2003)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="sfile.html">$sfile</a><br>
 <a href="sdir.html">$sdir</a><br>
-* {{mIRC|$sfstate}}</body>
+<a href="sfstate.html">$sfstate</a><br>
+</body>
 </html>

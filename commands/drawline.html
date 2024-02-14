@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/drawline</b> command draws a line from the first &lt;x y&gt coordinate to the second, if more coordinates are specified, the line is continued.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /drawline -ihnr &lt;@win&gt; &lt;color&gt; &lt;size&gt; &lt;x y&gt &lt;x y&gt [&lt;x y&gt;...]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-i</b>
+<b>-i</b>
       - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
 <br><b>-h</b>
       - highlights the windows icon if it is minimized
@@ -26,9 +25,7 @@ The <b>/drawline</b> command draws a line from the first &lt;x y&gt coordinate t
       - indicates that the color is in RGB format
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;@win&gt;</b>
+<b>&lt;@win&gt;</b>
       - the window's name
 <br><b>&lt;color&gt;</b>
       - the color of the line
@@ -45,6 +42,7 @@ The <b>/drawline</b> command draws a line from the first &lt;x y&gt coordinate t
 <pre class ="code">
 None
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 

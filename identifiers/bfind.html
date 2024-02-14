@@ -8,17 +8,18 @@ The <b>$bfind</b> identifier searches &binvar for a matching value. Returns the 
 
 The search starts at index = 1, but $bfind accept index 0 as well. Searches for text are case-insensitive by default
   
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $bfind(&binvar, N , M , [name])
 </pre>
 <H4>Parameters</H4>
-<br><b>&binvar</b> - A binary variable name which begins with the & symbol.
+<b>&binvar</b> - A binary variable name which begins with the & symbol.
 <br><b>N</b> - The position within the binary variable where it starts searching.
 <br><b>M</b> - Value being searched for, either ASCII decimals 0-255 or text.
 <br><b>name</b> -an optional name to go with .regex, to be able to reference captured group later on.
 <H4>Properties</H4>
-<br><b>.text</b> - Treats a numeric N as text instead of bytes value, also decode bytes from utf8 before searching.
+<b>.text</b> - Treats a numeric N as text instead of bytes value, also decode bytes from utf8 before searching.
 <br><b>.textcs</b> - When M is recognized as text, search is performed as case-sensitive
 <br><b>.ansi</b> - the bytes of the binvar are not decoded from utf8 before searching.
 <br><b>.regex</b> - performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts, so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
@@ -38,6 +39,7 @@ Note that 32 searches for ASCII 32 (space) except when .text is used. Searching 
 
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

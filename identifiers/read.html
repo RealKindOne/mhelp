@@ -5,19 +5,21 @@
 <br>
 <br>The <b>$read</b> identifier returns a line from a disk file
 
+
 <H4>Synopsis</H4>
 <pre class ="code">$read(filename [,ntswrp] [,matchtext] [,N])</pre>
-
+</pre>
 Legacy syntax:
+<pre class ="code">
 $read [switches] [line#] filename
 </pre>
-<H4>Parameters</H4>
-{{ ArgsList
-| filename | The file from which text is returned
-| matchtext | Used with switches s w r
-| N | Line number to read, except when using s, w, or r switches where it's the first line of the file portion to search.
-=== Switches ===
 
+<H4>Parameters</H4>
+<b>filename</b> The file from which text is returned
+<br><b>matchtext</b> Used with switches s w r
+<br><b>N</b> Line number to read, except when using s, w, or r switches where it's the first line of the file portion to search.
+
+<H4>Switches</H4>
 <br><b>n</b> - Do not evaluate $identifiers contained in the returned line.
 <br><b>t</b> - Do not treat a numeric line#1 as if it's the total number of lines in the text file.
 <br><b>s</b> - Search for line beginning with <matchtext> and returns the remainder of the line beyond the spaces following <matchtext>

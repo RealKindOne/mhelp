@@ -6,14 +6,13 @@
 <br>
 The <b>$get</b> identifier can be used to gather various details regarding open "/dcc get" windows, even if the transfers completed.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $get(N/nick[,N])[.property]
 </pre>
 <H4>Parameters</H4>
-| N/nick | Refers to either the Nth open connection, or the connection associated with a specific user's nickname
-| [N] | If a nickname is specified in the primary parameter, the secondary N targets the Nth connection associated with that nickname match
+<br><b>N/nick</b> Refers to either the Nth open connection, or the connection associated with a specific user's nickname
+<br><b>[N]</b> If a nickname is specified in the primary parameter, the secondary N targets the Nth connection associated with that nickname match
 
 
 When N = 0, $get(N) returns the total number of all transfers, and $get($nick,N) returns total transfers from $nick.<br />
@@ -24,7 +23,7 @@ When sender changes nick, the $get is still associated with the old nick unless 
 '''Note''': $get(-1) can be used during the {{mIRC|on events/on filercvd|ON FILERCVD}} and {{mIRC|on events/on getfail|ON GETFAIL}} events, it refers to the 'get' which triggered that event.
 
 <H4>Properties</H4>
-<br><b>.cid</b> - The connection id
+<b>.cid</b> - The connection id
 <br><b>.cps</b> - The characters-per-second transfer rate, averages speed during recent time period until transfer finishes, when rate is averaged across entire connection time
 <br><b>.done</b> - Returns <a href="true.html">$true</a> if the transfer has completed, otherwise returns <a href="false.html">$false</a>
 <br><b>.file</b> - The file name of the current transfer
@@ -54,12 +53,12 @@ Summary of open "/dcc get" windows:
 
 <H4>Compatibility</H4>
 Added: mIRC v4.52 (06 Jul 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="chat.html">$chat</a><br>
 <a href="fserve.html">$fserve</a><br>
 <a href="send.html">$send</a><br>
-
 </body>
 </html>

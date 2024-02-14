@@ -8,14 +8,14 @@ The <b>ON SENDFAIL</b> event triggers whenever mIRC fails to send a remote user 
 
 This event fills <a href="..\identifiers\filename.html">$filename</a>, <a href="..\identifiers\address.html">$address</a>, and <a href="..\identifiers\nick.html">$nick</a> with the filename, user's address, and the user's nickname (if available), respectively.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SENDFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 <br><b>&lt;filename[,filename]&gt;</b> - The filename(s) that should match the failed file. These can be {{mirc|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
-
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -24,6 +24,9 @@ Echo the name of the filename, along with both the user's nickname and address i
 
 <H4>Compatability</H4>
 Added: mIRC v5.0 (02 Apr 1997)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="..\commands\dcc.html">/dcc</a><br>

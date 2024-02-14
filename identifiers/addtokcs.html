@@ -6,14 +6,12 @@
 <br>
 The <b>$addtokcs</b> identifier adds a token to a list of token, only if the token does not already exist in the list case sensitively, return the resulting list. <a href="addtok.html">$addtok</a> is case insensitive version.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $addtokcs(&lt;list&gt;,&lt;token&gt;,&lt;C&gt;)
 </pre>
 <H4>Parameters</H4>
-
-<br><b>&lt;list&gt;</b> - The list of tokens (can be empty)
+<b>&lt;list&gt;</b> - The list of tokens (can be empty)
 <br><b>&lt;token&gt;</b> - The token to add, if you pass $null here, the original list is returned, it doesn't return an error.
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
 
@@ -27,6 +25,7 @@ Display "A a", $addtok would have returned "A".
 
 <H4>Compatibility</H4>
 Added: mIRC v5.91 (15 Jun 2001)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

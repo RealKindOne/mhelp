@@ -6,21 +6,20 @@
 </H1>
 <br>
 <br>
-
 The <b>/clear</b> command is used to clears the buffer of the current window. If a window name is specified that window's buffer will be cleared.
-
+<br>
 Additionally, the clear command can also be used to erase the history of the editbox as well as the clicks history of the picture window.
-
+<br>
 You can use "Status Window" and =nick for the status window and dcc chat windows.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /clear -sghlcn [windowName]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - clears the status window
 <br><b>-g</b>
       - clears the finger window
@@ -34,27 +33,27 @@ You can use "Status Window" and =nick for the status window and dcc chat windows
       - delay update of display untill a forced redraw (pic window)
 
 <H4>Parameters</H4>
-
-
-<br><b>[windowName]</b>
+<b>[windowName]</b>
       - Window name
 
 <H4>Example</H4>
+Clear the status window:
 <pre class ="code">
-; Clear the status window
 /clear -s
+</pre>
 
-; Clears a custom window called "@Highlight_Log"
+Clears a custom window called "@Highlight_Log":
+<pre class ="code">
 /clear @Highlight_Log
 </pre>
+
 <H4>Compatibility</H4>
-Added: mIRC v2.1a (28 Feb 1995)
+Added: mIRC v3.1 (Added on: 23 Apr 1995)
 
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\line.html">$line</a><br>
 <a href="..\identifiers\fline.html">$fline</a><br>

@@ -6,6 +6,7 @@
 <br>
 The <b>$caller</b> identifier returns a value which indicates the context in which your routine has been called.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $caller
@@ -18,7 +19,7 @@ None
 The return value can be:
 <br><b>activex</b> - called from $comcall
 <br><b>command</b> - called from a command
-<br><b>dde</b> - called from a external application using {{mIRC|$dde|DDE}}
+<br><b>dde</b> - called from a external application using <a href="dde.html">$dde</a>
 <br><b>dll</b> - called from a {{mIRC|DLL}}
 <br><b>dragdrop</b> - called from a drag'n'drop event
 <br><b>editbox</b> - called from an editbox
@@ -35,10 +36,10 @@ The return value can be:
 <br><b>other</b> - called from other contexts including:
 # label of popups menu
 # /filter -a sort_alias
-# identifier in dialog table (ie returning one of the x y w h numbers)  
-  
+# identifier in dialog table (ie returning one of the x y w h numbers)
+
 <H4>Example</H4>
-Activex: edit the echo in the alias cbthread in <a href="comcall.html">$comcall</a><br> page to include $caller
+Activex: edit the echo in the alias cbthread in <a href="comcall.html">$comcall</a> page to include $caller
 
 Command & Identifier: execute /A or //noop $A
 <pre class ="code">alias A B
@@ -74,6 +75,7 @@ or
 <H4>Compatibility</H4>
 <H4>Compatibility</H4>
 Added: mIRC v7.52 (28 Feb 2018)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -81,7 +83,7 @@ None
 <a href="fromeditbox.html">$fromeditbox</a><br>
 <a href="comcall.html">$comcall</a><br>
 <a href="..\commands\toolbar.html">/toolbar</a><br>
-{{mIRC|/filter}}
+<a href="..\commands\filter.html">/filter</a><br>
 <a href="dll.html">$dll</a><br>
 <a href="dde.html">$dde</a><br>
 <a href="..\commands\play.html">/play</a><br>

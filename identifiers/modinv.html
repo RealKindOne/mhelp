@@ -8,13 +8,14 @@ The <b>$modinv</b> identifier returns the Multiplicative Modular Inverse for an 
 == Details ==
 For integers (A,M) the Multiplicative Modular Inverse is a non-negative integer B less than M, which when multiplied by 'A' is 1 greater than a multiple of M. The modular inverse has a relationship with the <a href="gcd.html">$gcd</a><br> where positive integers A and M can have $gcd(A,M) greater than 1, or there can be $modinv(A,M). But you cannot have both and you cannot have neither.
 The result of $modinv(A,M) is the same as $powmod(A,-1,M)
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $modinv(N,modulus)
 Returns -1 if no inverse exists
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - Integer
+<b>N</b> - Integer
 <br><b>modulus</b> - divisor used for obtaining the inverse of N
 <H4>Properties</H4>
 None
@@ -28,6 +29,7 @@ Note: modinv(1,2017) = 1 because (1 * 1) is greater than (0*2017)
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v7.72 (27 Nov 2022)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

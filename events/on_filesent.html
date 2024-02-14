@@ -6,15 +6,12 @@
 <br>
 The <b>ON FILESENT</b> event triggers whenever a file is sent successfully via {{mIRC|/dcc|/dcc send}}.
 
-
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:FILESENT:<filename[,filename]>:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:FILESENT:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-
-* '''<filename>''' - The filename(s) that should match the received file. Seperate multiple values by commas. These can be {{mIRC|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
-
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;filename&gt;</b> - The filename(s) that should match the received file. Seperate multiple values by commas. These can be {{mIRC|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 == {{mIRC|local identifiers}} ==

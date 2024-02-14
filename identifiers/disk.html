@@ -6,14 +6,12 @@
 <br>
 The <b>$disk</b> identifier returns informations about hard disks.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $disk(N/path)[.property]
 </pre>
 <H4>Parameters</H4>
-
-<br><b>N</b> - The Nth hard disks available, if N = 0, returns the total available drives
+<b>N</b> - The Nth hard disks available, if N = 0, returns the total available drives
 <br><b>path</b> - a drive name
 <br>
 <br>
@@ -24,15 +22,19 @@ Without a property, returns $true if drive exists, otherwise $false
 <br><b>.type</b> - returns the type of drive; values are "fixed", "removable", "cdrom", "ramdisk", "remote", and "unknown".
 <br><b>.free</b> - returns the number of free space on drive in bytes
 <br><b>.label</b> - returns the name/label of the drive, if any
-<br><b>.size</b> - returns the total size of the drive
-<br><b>.unc</b> - returns the path for a network drive.
+<br><b>.size</b> - returns the total size of the drive in bytes
+<br><b>.unc</b> - returns the path for a network drive
 <br><b>.path</b> - returns the path of the drive
 
 <H4>Example</H4>
+Echo total number of drives:
 <pre class ="code">//echo -a $disk(0)</pre>
+Echo type of drive for "C:\":
+<pre class ="code">//echo -a $disk(C:\).type</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

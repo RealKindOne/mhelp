@@ -6,19 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/toolbar</b> command allows you to modify the toolbar.
 
 <br><b>Note:</b> Modifying some of the default mIRC buttons, such as Connect, Notify, etc. may not always work since they are managed by mIRC. They can however be deleted.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /toolbar -aidmsxkNnNzNebwhyNurctplorf[sld] [N] &lt;name/N&gt; &lt;tooltip&gt; &lt;picfile|@&gt; [x y w h] [/alias] [popfile|@]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-a</b>
+<b>-a</b>
       - Adds a button
 <br><b>-i</b>
       - Inserts a button a position [N]
@@ -54,8 +53,8 @@ The <b>/toolbar</b> command allows you to modify the toolbar.
       - Reset buttons
 <br><b>-c</b>
       - Clears all buttons
-<br><b>-f</b><sld>
-      - <<nowiki />s>aves/<l>oads/<d>eletes settings in toolbar.ini, that file is automatically load on startup
+<br><b>-f</b>&lt;sld&gt;
+      - &lt;s&gt;aves/&lt;l&gt;oads/&lt;d&gt;eletes settings in toolbar.ini, that file is automatically load on startup
 
 Use empty quotes with the following switches to clear their entry:
 
@@ -70,9 +69,7 @@ Use empty quotes with the following switches to clear their entry:
       - Updates the [/alias] parameter
 
 <H4>Parameters</H4>
-
-
-<br><b>[N]</b>
+<b>[N]</b>
       - Used with the switches -idmebwhy, the position of a button in the toolbar.
 <br><b>&lt;name/N&gt;</b>
       - The name or the Nth button in the toolbar.
@@ -102,6 +99,7 @@ Use empty quotes with the following switches to clear their entry:
 /toolbar -is 2 cowsep
 ;The above command will insert a separator named "cowsep" (every button and separator you add to the toolbar must have a name) at position 2.
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.2 (23 Nov 2006)
 
@@ -109,7 +107,6 @@ Added: mIRC v6.2 (23 Nov 2006)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\toolbar.html">$toolbar</a><br>
 </body>

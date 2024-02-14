@@ -6,19 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/vol</b> command lets you change the volume on your system. The /vol command can also be used to mute the system volume.
 <br>
 <br><b>Note:</b> originally on Windows, you could set the volume/mute setting for different audio type: wave, midi, and mp3. This is why mIRC had the -wmp switches, to change those different volume/mute settings. Since Windows 7, this is no longer the case, only the master volume remains. But you can now change the volume/mute setting per application in Windows. mIRC does not have a way to change the volume/mute setting per application; using the -wmp switches now only change the volume/mute setting for the mIRC application.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /vol -wmpvuN [volume]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-w</b>
+<b>-w</b>
       - Changes the waves volume (or the mIRC's volume on Windows 7+)
 <br><b>-m</b>
       - Changes the midis volume (or the mIRC's volume on Windows 7+)
@@ -30,9 +29,7 @@ The <b>/vol</b> command lets you change the volume on your system. The /vol comm
       - Changes mute setting, N = 1 for muting, N = 2 for unmuting, this switch has to be used with at least one of the others switches
 
 <H4>Parameters</H4>
-
-
-<br><b>[volume]</b>
+<b>[volume]</b>
       - a number ranging from 0 to 65535
 
 <H4>Example</H4>
@@ -40,6 +37,7 @@ The <b>/vol</b> command lets you change the volume on your system. The /vol comm
 ; mute the master volume
 /vol -vu1
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (14 Dec 2000)
 
@@ -48,7 +46,7 @@ None
 
 <H4>See also</H4>
 
-<a href="..\other\music.html">Playing Music</a><br>
+<a href="..\other\playing_music.html">Playing Music</a><br>
 <a href="..\events\on_MidiEnd.html">on_MidiEnd</a><br>
 <a href="..\events\on_MP3End.html">on_MP3End</a><br>
 <a href="..\events\on_NoSound.html">on_NoSound</a><br>

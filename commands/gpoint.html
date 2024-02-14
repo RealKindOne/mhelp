@@ -6,23 +6,20 @@
 </H1>
 <br>
 <br>
-
 The <b>/gpoint</b> command makes an agent point towards the specified position
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /gpoint -h &lt;name&gt; &lt;x&gt; &lt;y&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-h</b>
+<b>-h</b>
       - Prevents the agent from poping up if mIRC is minimized and -h has been used in /gload to load that agent
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The name used in /gload to reference that agent
 <br><b>&lt;x&gt;</b>
       - The 'x' coordinate
@@ -30,12 +27,15 @@ The <b>/gpoint</b> command makes an agent point towards the specified position
       - The 'y' coordinate
 
 <H4>Example</H4>
+Load the default agent on your system:
 <pre class ="code">
-; Load the default agent on your system
 /gload myagent default
-; Make the agent point at coordinate 42,42
+</pre>
+Make the agent point at coordinate 42,42:
+<pre class ="code">
 /gpoint myagent 42 42
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (07 May 2000)
 

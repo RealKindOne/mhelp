@@ -10,17 +10,18 @@ The <b>$rnick</b> identifier returns regular nickname on a channel.
 <br>
 <b>Note:</b> This feature is depricated and has been replaced by <a href="nick.html">$nick</a>.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $rnick(chan,N|nick)[.property]
 </pre>
 <H4>Parameters</H4>
-<br><b>chan</b> - the channel name
+<b>chan</b> - the channel name
 <br><b>N</b> - The Nth regular nickname, if N is 0, returns the total number of regular nickname in the channel
 <br><b>nick</b> - is you specify a nickname, use that nickname with property, without property, returns the Nth position in the list of regular user for that channel
 
 <H4>Properties</H4>
-<br><b>.pnick</b>- Returns the target result with their elevation level, eg: @,+,%. Regular users display normal.
+<b>.pnick</b>- Returns the target result with their elevation level, eg: @,+,%. Regular users display normal.
 <br><b>.idle</b> - Returns the current idle time for the nickname on the channel specified
 <br><b>.color</b> - Returns the color for that user as set up in the Nick color dialog
 
@@ -29,10 +30,10 @@ $rnick(chan,N|nick)[.property]
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="nick.html">$nick</a><br>
-
 </body>
 </html>

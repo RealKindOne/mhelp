@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/drawfill</b> command fills an area with the specified color starting at the specified co-ordinates.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /drawfill -ihnrs &lt;@win&gt; &lt;color&gt; &lt;color&gt; &lt;x y&gt [filename] [&lt;x y&gt;...]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - indicates that the second color parameter is the color that should be filled (surface fill), if -s is not used specified, the second color is the border color at which filling should stop (border fill)
 <br><b>-i</b>
       - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
@@ -28,9 +27,7 @@ The <b>/drawfill</b> command fills an area with the specified color starting at 
       - indicates that the color is in RGB format
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;@win&gt;</b>
+<b>&lt;@win&gt;</b>
       - the window's name
 <br><b>&lt;color&gt;</b>
       - the color used for the fill
@@ -47,6 +44,7 @@ The <b>/drawfill</b> command fills an area with the specified color starting at 
 <pre class ="code">
 None
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 

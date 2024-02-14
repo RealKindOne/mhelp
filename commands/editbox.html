@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/editbox</b> command provides the ability to edit the editbox of a window according to the switches. To specify a dcc chat window, prefix the nickname with an equal sign '='.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /editbox [-saf[N]nopbNeNvqN] [window] &lt;text&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - specifies the Status window
 <br><b>-a</b>
       - specifies the Active window
@@ -38,9 +37,7 @@ The <b>/editbox</b> command provides the ability to edit the editbox of a window
       - disables the second editbox with N = 0, enables it with N = 1, and toggles the state if N = 2
 
 <H4>Parameters</H4>
-
-
-<br><b>[window]</b>
+<b>[window]</b>
       - if the switch doesn't involve a window to be used, you must provide it
 <br><b>&lt;text&gt;</b>
       - the text used for the edition
@@ -51,6 +48,7 @@ The <b>/editbox</b> command provides the ability to edit the editbox of a window
 ; Add a smileyface to the second edit box:
 /editbox -oq ☺ $+ editbox($chan,1)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (11 Sep 1997)
 
@@ -58,7 +56,6 @@ Added: mIRC v5.1 (11 Sep 1997)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\editbox.html">$editbox</a><br>
 </body>

@@ -1,0 +1,144 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+Local Identifiers
+</H1>
+<br>
+<br>
+<b>Local identifiers</b> are {{mirc|identifiers}} which only function inside specific events. Attempting to call such identifiers from outside of their designed scope might have undesired results or might simply return {{mirc|$null}}.
+
+Below is a list of all the local identifiers for all events.
+
+=== All events ===
+
+* {{mirc|$event}} - returns the name of the event
+* {{mirc|$halted}} - returns $true if the default actions for this event has been halted
+* {{mirc|$eventid}} - returns an ID so that dll can evaluate local identifiers during events.
+* {{mirc|$eventparms}} - if the event has a matchtext, returns the value of the matchtext with spaces preserved
+* {{mirc|$matchkey}} - if the event has a matchtext, returns the value of the matchtext, with spaces lost.
+
+=== IRC related events which involve an user ===
+
+* {{mirc|$address}} - returns the address of the user triggering the event in the format user@host
+* {{mirc|$maddress}} - returns the address of the user for that event, as provided by the server
+* {{mirc|$fulladdress}} - returns the full address of the user triggering the event in the format nick!user@host
+* {{mirc|$nick}} - returns the nickname of the user triggering the event
+* {{mirc|$rawmsg}} - returns the raw server line message
+* {{mIRC|$rawbytes}} - returns the undecoded raw line message.
+* {{mirc|$site}} - return the part after the @ in $address
+* {{mirc|$wildsite}} - returns the address of the user triggering the event in the format *!*@host
+* {{mIRC|$ulevel}} - returns the level of the user that was matched for the triggered event.
+* {{mirc|$clevel}} - returns the matching event level for a triggered event
+
+
+They apply to:
+
+* <a href="..\events\on_action.html">On_Action</a>
+* <a href="..\events\on_Ban.html">On_Ban</a>
+* <a href="..\events\on_CtcpReply.html">On_CtcpReply</a>
+* <a href="..\events\on_DeHelp.html">On_DeHelp</a>
+* <a href="..\events\on_DeVoice.html">On_DeVoice</a>
+* <a href="..\events\on_DeOp.html">On_DeOp</a>
+* <a href="..\events\on_DeOwner.html">On_DeOwner</a>
+* <a href="..\events\on_Error.html">On_Error</a>
+* <a href="..\events\on_FileRcvd.html">On_FileRcvd</a>
+* <a href="..\events\on_FileSent.html">On_FileSent</a>
+* <a href="..\events\on_GetFail.html">On_GetFail</a>
+* <a href="..\events\on_Help.html">On_Help</a>
+* <a href="..\events\on_Invite.html">On_Invite</a>
+* <a href="..\events\on_Kick.html">On_Kick</a>
+* <a href="..\events\on_Logon.html">On_Logon</a>
+* <a href="..\events\on_Mode.html">On_Mode</a>
+* <a href="..\events\on_Nick.html">On_Nick</a>
+* <a href="..\events\on_NoSound.html">On_NoSound</a>
+* <a href="..\events\on_Notice.html">On_Notice</a>
+* <a href="..\events\on_Notify.html">On_Notify</a>
+* <a href="..\events\on_Op.html">On_Op</a>
+* <a href="..\events\on_Open.html">On_Open</a>
+* <a href="..\events\on_Owner.html">On_Owner</a>
+* <a href="..\events\on_Part.html">On_Part</a>
+* <a href="..\events\on_Quit.html">On_Quit</a>
+* <a href="..\events\on_RawMode.html">On_RawMode</a>
+* <a href="..\events\on_SendFail.html">On_SendFail</a>
+* <a href="..\events\on_ServerMode.html">On_ServerMode</a>
+* <a href="..\events\on_ServerOp.html">On_ServerOp</a>
+* <a href="..\events\on_SNotice.html">On_SNotice</a>
+* <a href="..\events\on_Text.html">On_Text</a>
+* <a href="..\events\on_topic.html">On_topic</a>
+* <a href="..\events\on_Unban.html">On_Unban</a>
+* <a href="..\events\on_Unotify.html">On_Unotify</a>
+* <a href="..\events\on_Voice.html">On_Voice</a>
+* <a href="..\events\on_Wallops.html">On_Wallops</a>
+* {{mIRC|ctcp event}}
+
+There a few more local identifier related to IRC which exists only in specific IRC events/case:
+
+* {{mirc|$banmask}} - used inside <a href="..\events\on_Ban.html">On_Ban</a> and <a href="..\events\on_Unban.html">On_Unban</a>, returns the mask that is being banned/unbanned
+* {{mirc|$bnick}} - used inside <a href="..\events\on_Ban.html">On_Ban</a> and <a href="..\events\on_Unban.html">On_Unban</a>, returns the nickname that is being banned/unbanned, if any
+* {{mirc|$chan}} - used inside events which trigger for channel window
+* {{mirc|$hnick}} - used inside <a href="..\events\on_Help.html">On_Help</a> and <a href="..\events\on_DeHelp.html">On_DeHelp</a>, returns the nickname being given +h/-h
+* {{mirc|$knick}} - used inside <a href="..\events\on_Kick.html">On_Kick</a>, returns the nickname being kicked
+* {{mirc|$newnick}} - used inside <a href="..\events\on_Nick.html">On_Nick</a>, returns the new nickname
+* {{mirc|$opnick}} - used inside <a href="..\events\on_Op.html">On_Op</a>, <a href="..\events\on_DeOp.html">On_DeOp</a>, <a href="..\events\on_Owner.html">On_Owner</a> and <a href="..\events\on_DeOwner.html">On_DeOwner</a>, returns the nickname being opped/deopped/owner'd/deowner'd
+* {{mirc|$vnick}} - used inside the <a href="..\events\on_Voice.html">On_Voice</a> and <a href="..\events\on_DeVoice.html">On_DeVoice</a> events, returns the name of the voiced/devoiced nickname
+* {{mirc|$cd}} - used inside the {{mIRC|on chat}} and <a href="..\events\on_Serv.html">On_Serv</a> events, returns the current directory of the connected user
+* {{mIRC|$parseline}} {{mIRC|$parsetype}} {{mIRC|$parseutf}} - available in the <a href="..\events\on_ParseLine.html">On_ParseLine</a> event, returns the raw line, the in/out type of direction, and whether or not mIRC is going to decode to utf8 respectively.
+* {{mirc|$msgstamp}} - returns UTC timestamp for a irc server message that has an IRCv3 @time prefix tag
+
+=== Non IRC events ===
+
+Here is a list for non IRC events:
+
+* {{mirc|$filename}} - used inside <a href="..\events\on_FileSent.html">On_FileSent</a>, <a href="..\events\on_GetFail.html">On_GetFail</a>, {{mIRC|on midiend}}, {{mIRC|on waveend}}, {{mIRC|on songend}}, <a href="..\events\on_NoSound.html">On_NoSound</a>, {{mIRC|on playend}}, {{mIRC|on mp3end}}, returns the filename that was involved
+* {{mirc|$hotline}} - used inside <a href="..\events\on_HotLink.html">On_HotLink</a>, returns the full line containing the word which made the event triggers.
+* {{mirc|$hotlink}} - used inside <a href="..\events\on_HotLink.html">On_HotLink</a>, returns information about the context in which the on hotlink event triggered
+* {{mirc|$hotlinepos}} - used inside <a href="..\events\on_HotLink.html">On_HotLink</a>, returns line number and word position of the matched word
+* {{mirc|$parseline}} - used inside <a href="..\events\on_ParseLine.html">On_ParseLine</a>, returns the line being parsed
+* {{mirc|$parsetype}} - used inside <a href="..\events\on_ParseLine.html">On_ParseLine</a>, returns the type of message, in/out
+* {{mirc|$parseutf}} - used inside <a href="..\events\on_ParseLine.html">On_ParseLine</a>, returns $true if the line is going to be utf8 encoded/decoded after the event
+* {{mirc|$target}} - used inside events which accept a window parameter, returns the name of the window
+* {{mIRC|$agentname}} - used inside <a href="..\events\on_Agent.html">On_Agent</a>, returns the name of the agent.
+* {{mirc|$window}} - returns the name of the window that was left in a 'leave' menu {} event, whereas $leftwin is not a local identifier
+* {{mirc|$ctrlenter}} - used inside <a href="..\events\on_Input.html">On_Input</a>, returns $true if keys control+enter have been used to trigger the event.
+* {{mirc|$inpaste}} - used inside <a href="..\events\on_Input.html">On_Input</a>, returns $true if the event is triggering because you are pasting (multiple lines usually), not because you pressed enter.
+* {{mirc|$did}} - used inside <a href="..\events\on_Dialog.html">On_Dialog</a>, returns the ID of the control that is triggering the event
+* {{mirc|$dname}} - used inside <a href="..\events\on_Dialog.html">On_Dialog</a>, returns the name of the dialog that is triggering the event
+* {{mirc|$devent}} - used inside <a href="..\events\on_Dialog.html">On_Dialog</a>, returns the name of the event that is triggering the on dialog event.
+* {{mirc|$keyval}} - used inside <a href="..\events\on_KeyDown.html">On_KeyDown</a> and <a href="..\events\on_KeyUp.html">On_KeyUp</a>, returns the value of the keypress, always a number.
+* {{mirc|$keychar}} - used inside <a href="..\events\on_KeyDown.html">On_KeyDown</a> and <a href="..\events\on_KeyUp.html">On_KeyUp</a>, returns the character of the keypress.
+* {{mirc|$keyrpt}} - used inside <a href="..\events\on_KeyDown.html">On_KeyDown</a>, returns $true if the event triggers because the key is held down.
+* {{mirc|$menu}} - used inside menu { } event, returns the name of the menu
+* {{mirc|$menutype}} - used inside menu { } event, returns the type of the menu
+* {{mirc|$menucontext}} - used inside menu { } event, returns the context in which the popup was created
+* {{mirc|$sockbr}} - used inside socket events where /sockread is allowed, returns the number of bytes read
+* {{mirc|$sockname}} - used inside socket events, returns the name of the socket
+* {{mirc|$signal}} - used inside {{mirc|on signal}} event, returns the name of the signal.
+* {{mirc|$iaddress}} - used inside <a href="..\events\on_Dns.html">On_Dns</a>, returns the ip address, if available
+* {{mirc|$raddress}} - used inside <a href="..\events\on_Dns.html">On_Dns</a>, returns the resolved address
+* {{mirc|$naddress}} - used inside <a href="..\events\on_Dns.html">On_Dns</a>, returns the address being resolved
+* {{mirc|$modefirst}} - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the first
+* {{mirc|$modelast}} - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the last
+* {{mirc|$mode}} - used typically inside <a href="..\events\on_RawMode.html">On_RawMode</a>, returns the Nth nick affected by a mode.
+
+=== $1- ===
+
+Additionally '''$1-''' is filled with a message, applicable in the following events:
+
+* <a href="..\events\on_Text.html">On_Text</a>, <a href="..\events\on_action.html">On_Action</a>, {{mIRC|on chat}}, <a href="..\events\on_SNotice.html">On_SNotice</a>, <a href="..\events\on_Notice.html">On_Notice</a> <a href="..\events\on_Serv.html">On_Serv</a>, <a href="..\events\on_Open.html">On_Open</a>, <a href="..\events\on_CtcpReply.html">On_CtcpReply</a>, {{mIRC|ctcp_events|ctcp}} returns the text that was sent by the user
+* <a href="..\events\on_Input.html">On_Input</a> - returns the text in the editbox
+* <a href="..\events\on_Kick.html">On_Kick</a> - returns the kick message
+* {{mIRC|on connectfail}} - returns the error message
+* <a href="..\events\on_Error.html">On_Error</a> - returns the error message
+* <a href="..\events\on_HotLink.html">On_HotLink</a> - returns the word you hovered (stripped from control code).
+* <a href="..\events\on_Mode.html">On_Mode</a>, <a href="..\events\on_RawMode.html">On_RawMode</a> and <a href="..\events\on_ServerMode.html">On_ServerMode</a> - returns the new modes
+* <a href="..\events\on_Quit.html">On_Quit</a> & <a href="..\events\on_Part.html">On_Part</a>, returns the quit/part message if any
+* {{mIRC|on ping}} & {{mIRC|on pong}}, returns the ping/pong value
+* {{mIRC|on signal}} - returns the parameters of the signal
+* {{mIRC|on tabcomp}} - returns the line in which you pressed the tab key in the editbox
+* <a href="..\events\on_topic.html">On_topic</a> - returns the new topic
+* {{mIRC|on usermode}} - returns the new usermode
+* {{mIRC|on vcmd}} - returns the recognized word
+
+</body>
+</html>

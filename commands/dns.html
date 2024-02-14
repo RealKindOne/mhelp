@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you specify it assumes it is an address and tries to resolve it. Otherwise it assumes it is a nickname and performs a <a href="userhost.html">/userhost</a> to find the user's address and then resolves it. If you specify an IP address, it looks up the host name. You can queue multiple /dns requests, and you can view the current queue by using /dns with no parameters.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /dns [-46ch] [nick|address]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-4</b>
+<b>-4</b>
       - allows IPv4 results to be returned (enforce ipv4 for status window which are in ipv6 mode)
 <br><b>-6</b>
       - allows IPv6 results to be returned (enforce ipv6 for ipv4-only machine, note that you can't connect to it, not so useful)
@@ -26,9 +25,7 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
       - forces /dns to treat the parameter as a hostname
 
 <H4>Parameters</H4>
-
-
-<br><b>[nick|address]</b>
+<b>[nick|address]</b>
       - the nick or address you want to look up
 
 <H4>Example</H4>
@@ -44,13 +41,14 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
 ; beginning v7.58 returns all resolved IP addresses instead of only the 1st, such as for IRC network's round-robin name
 /dns chat.freenode.net
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.8 (25 Nov 1995)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\dns.html">$dns</a><br>
 </body>

@@ -11,15 +11,15 @@ Auto-OP is a feature that can be used to manage access for a channel. Whenever a
 <br>
 The <b>/AOP</b> command can also be used to disable or enable this feature as well as add and remove users from and to the list.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /aop -rwal &lt;nick/address&gt; [#channel1,#channel2,...] [type] [network]
 /aop &lt;on/off&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-r</b>
+<b>-r</b>
       - Indicates address/nick to should be removed, you can pass a channel name to remove only a channel name from the list of channel for that entry.
 <br><b>-w</b>
       - Auto-OP apply to any network
@@ -29,9 +29,7 @@ The <b>/AOP</b> command can also be used to disable or enable this feature as we
       - list all of the auto-op entry
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;on|off&gt;</b>
+<b>&lt;on|off&gt;</b>
       - Turns the auto-op feature on/off.
 <br><b>&lt;nick/address&gt;</b>
       - The nickname or address of the person to be added to the auto-op list. Both nickname and addresses are acceptable. Addresses can be <a href="..\other\wildcard.html">wildcard</a> addresses.
@@ -67,6 +65,7 @@ The above example will output:
 * Auto-Op is off
 */
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (15 Jun 2001)
 
@@ -74,7 +73,6 @@ Added: mIRC v5.9 (15 Jun 2001)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\aop.html">$aop</a><br>
 <a href="..\identifiers\avoice.html">$avoice</a><br>

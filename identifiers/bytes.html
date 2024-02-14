@@ -9,13 +9,13 @@ The <b>$bytes</b> identifier allows you to format a number of bytes.
 <br>
 This cannot be used to format a string of number: not every number, espacially decimal, are a valid representation of a number of bytes, the number passed to $bytes() is converted to a real number internally, it's not being viewed as a string and all the operations happens on the number
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $bytes(&lt;N&gt;[,bkmgtp3d])[.suf]
 </pre>
 <H4>Parameters</H4>
-
-<br><b>N</b> - The byte number that you wish to format. You can use the letter 'e' or 'd' as *10^N, $bytes(5e6) = $bytes($calc(5*10^6))
+<b>N</b> - The byte number that you wish to format. You can use the letter 'e' or 'd' as *10^N, $bytes(5e6) = $bytes($calc(5*10^6))
 <br><b>b</b> - Comma-formats the number for bytes.
 <br><b>k</b> - Comma, and decimal-formats the number for kilobytes.
 <br><b>m</b> - Comma, and decimal-formats the number for megabytes.
@@ -28,7 +28,7 @@ $bytes(&lt;N&gt;[,bkmgtp3d])[.suf]
 '''Note''': if you do not pass any of the bkmgt letter-switches, $bytes will smartly choose the unit, e.g displaying 1KB for 1024 bytes
 
 <H4>Properties</H4>
-<br><b>.suf</b> - Returns the formatted bytes with the proper suffixes, which are: "B", "KB", "MB", "GB", "TB", and "PB".
+<b>.suf</b> - Returns the formatted bytes with the proper suffixes, which are: "B", "KB", "MB", "GB", "TB", and "PB".
 
 
 <H4>Example</H4>
@@ -59,6 +59,7 @@ result:
 170,141,183,460,469,231,731,687,303,715,884,105,731.14159265358979323846264338328
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

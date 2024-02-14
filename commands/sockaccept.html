@@ -6,22 +6,20 @@
 </H1>
 <br>
 <br>
-
 The <b>/sockaccept</b> command allows mIRC the ability to accept incoming connections on a port that has been opened with the <a href="socklisten.html">/socklisten</a> commmand.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockaccept -n &lt;name&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-n</b>
+<b>-n</b>
       - Disable nagle algorithm on the accepted socket, you can disable nagle algorithm for any accepted socket by using <a href="socklisten.html">/socklisten</a> -n
 
 <H4>Parameters</H4>
-
-<br><b>name</b>
+<b>name</b>
       - The name that should be assigned to the accepted connection in order to reference it later.
 
 <H4>Example</H4>
@@ -33,11 +31,14 @@ ON *:SOCKLISTEN:mySock: {
   sockaccept $+($sockname,$ctime)
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
-See Also
+<H4>Notes</H4>
+None
 
+<H4>See also</H4>
 
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>

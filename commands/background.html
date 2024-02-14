@@ -6,17 +6,15 @@
 </H1>
 <br>
 <br>
-
 The <b>/background</b> command is used to change the background picture setting for a specific window including a channel window. This is the same as changing the background via the system window (to access the system menu simply right click the small window icon located on the upper left corner of the window)
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /background -abemsgdluhcfnrtpx [window] [filename]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-e</b>
+<b>-e</b>
       - set as default
 <br><b>-x</b>
       - no background picture
@@ -65,21 +63,21 @@ Bar Switches:
       - treebar
 
 <H4>Parameters</H4>
-
-
-<br><b>[window]</b>
+<b>[window]</b>
       - A window name should only used if no window switches were specified.
 <br><b>[filename]</b>
-      - The filename of the picture to be used (The filename must be enclosed by a pair of double quotes if it contains spaces).
+      - The filename of the picture to be used. The filename must be enclosed by a pair of double quotes if it contains spaces.
 
 <H4>Example</H4>
+Setting one of Windows 7 sample pictures as the background for the active window:
 <pre class ="code">
-; Setting one of window vista's sample pictures as the background for the active window
-; Since the filename's path contain spaces it must be enclosed by a pair of double quotes
-/background -a "C:\Users\Public\Pictures\Sample Pictures\Desert Landscape.jpg\"
-; Remove the background picture from the active window
+/background -a "C:\Users\Public\Pictures\Sample Pictures\Desert.jpg"
+</pre>
+Remove the background picture from the active window:
+<pre class ="code">
 /background -xa
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (24 Jul 1998)
 
@@ -87,7 +85,6 @@ Added: mIRC v5.4 (24 Jul 1998)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\toolbar.html">$toolbar</a><br>
 <a href="..\identifiers\color.html">$color</a><br>

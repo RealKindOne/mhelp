@@ -6,18 +6,19 @@
 <br>
 The <b>ON INPUT</b> event triggers when text is entered into an [[mIRC]] editbox, then followed by an enter-key press.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:INPUT:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;*#?=!@&gt;</b> - The window type that this event should monitor.
-<br><b>*</b> - Any window
-<br><b>#</b> - Any channel, or specific channel name(s)
-<br><b>?</b> - Query windows
-<br><b>=</b> - DCC Chat windows
-<br><b>!</b> - Fserve windows
-<br><b>@</b> - Custom windows
+<br><span style="margin-left: 20px;"><b>*</b> - Any window
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel, or specific channel name(s)
+<br><span style="margin-left: 20px;"><b>?</b> - Query windows
+<br><span style="margin-left: 20px;"><b>=</b> - DCC Chat windows
+<br><span style="margin-left: 20px;"><b>!</b> - Fserve windows
+<br><span style="margin-left: 20px;"><b>@</b> - Custom windows
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -32,10 +33,13 @@ If ''^scripts'' is entered into an editbox, echo the total amount of loaded scri
 The results would look something like this:
 <pre>There are 9 total script(s) loaded.</pre>
 
-The example above makes use of the {{mIRC|/haltdef}} command, which prevents mIRC from performing the default operation for this event. If there were no {{mIRC|/haltdef}} there, mIRC would carry out the first command which was to echo the details to the active window, but then it would also either send the message to the active chat, or channel, or provide an error stating you are not currently on a channel.
+The example above makes use of the <a href="..\commands\haltdef.html">/haltdef</a> command, which prevents mIRC from performing the default operation for this event. If there were no <a href="..\commands\haltdef.html">/haltdef</a> there, mIRC would carry out the first command which was to echo the details to the active window, but then it would also either send the message to the active chat, or channel, or provide an error stating you are not currently on a channel.
 
 <H4>Compatability</H4>
 Added: mIRC v5.0 (02 Apr 1997)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_KeyDown.html">On_KeyDown</a><br>

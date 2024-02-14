@@ -9,12 +9,13 @@ The <b>ON KEYDOWN</b> event is triggered when a key is pressed down inside of a 
 '''Note''': Before version 7.62, on keydown was broken, it was incorrectly trying to do two things at once, reporting keypress and the resulting character of keypresses.
 The idea was to report the key being pressed in $keyval, and the resulting character in $keychar. From the very beginning, $keyval was incorrect because it returned the ASCII value of the character being pressed instead of the corresponding keycode which comes with the internal WM_KEYDOWN windows message, which has a different value for letters than ASCII. And then, if you needed to press two keys to get a character, something related to 'dead key' as well, you couldn't get the resulting character properly. For example if you press control + o, you need to get the control key being pressed, the 'o' key being pressed, and the resulting character, which is a $chr(15). It was not even possible to change on keydown to report things correctly because keypresses and resulting character comes from two differents message, and the resulting character is only known in the second one, which is always sent second. So on keydown was changed to only report keypress, which is way more correct. The event now to get the resulting character no matter what, like if you're trying to script a visual editbox in a picture window, you need to use the new created event, {{mIRC|on char}}
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:KEYDOWN:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;@&gt;</b> - The [[custom windows - mIRC|custom window]] where this event should listen. Can be '''@''' for all windows.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;@&gt;</b> - The <a href="..\other\custom_windows.html">custom window</a> where this event should listen. Can be '''@''' for all windows.
 
 <br><b>&lt;keycode&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
 
@@ -51,7 +52,10 @@ Below is an image reflecting what this example will look like:
 Note that this makes use of a [[Picture Windows - mIRC|picture window]], as well as the [[/drawtext command - mIRC|drawtext command]]. These types of [[Picture Windows - mIRC|windows]] and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
 
 <H4>Compatability</H4>
-{{mIRC compatibility|5.8}}
+Added: mIRC v5.8 (05 Sep 2000)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 * [[custom windows - mIRC|Custom Windows]]

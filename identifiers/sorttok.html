@@ -6,13 +6,14 @@
 <br>
 The <b>$sorttok</b> case-insensitively sorts the list of tokens. <a href="sorttokcs.html">$sorttokcs</a> is the case sensitive version.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $sorttok(&lt;list&gt;,C[,nrca])
 $sorttokcs(&lt;list&gt;,C[,nrca])
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;list&gt;</b> - The list of tokens (can be empty which causes output to also be $null)
+<b>&lt;list&gt;</b> - The list of tokens (can be empty which causes output to also be $null)
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character separating the tokens
 <br><b>ncra</b> - default is alphabetical sort (ASCII order or codepoint order) if none of 'anc' are used, n = numeric sort; c = channel prefix sort; r = reverse; a = alpha-then-numerics sort
 
@@ -65,7 +66,7 @@ result: 1:test 2:foo 2:bar 4
 
 //var %a $regsubex($str(x,94),/x/g,$chr($calc(32+ \n)) $+ $chr(32)) | echo -a $sorttokcs(11 -11 -1 1 +1 -2 2 $true $false $true -x1xa 0 $false +2*2 0 0.0 %a 5-1 5-11 5-2 2+2 =4 101 99 1E2xx $false 0.1 1d2,32,n)
 
-Returns: -11 -2 -1 $true $false $true -x1xa 0 $false 0 0.0 ! " # $ % & ' ( ) * + , - . / 0 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ =4 $false 0.1 1 +1 1 2 +2*2 2 2+2 3 4 5 5-1 5-11 5-2 6 7 8 9 11 99 1E2xx 1d2 101
+Returns: -11 -2 -1 $true $false $true -x1xa 0 $false 0 0.0 ! " # $ % & ' ( ) * + , - . / 0 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ =4 $false 0.1 1 +1 1 2 +2*2 2 2+2 3 4 5 5-1 5-11 5-2 6 7 8 9 11 99 1E2xx 1d2 101
 
 
 Note: The first $true through the last $false appear in the output as the same order as in the input because they all $int(token) evaluate as zero. The same happens to the several tokens which all evaluate as 2 or 5. 1E2xx sorts between 99 and 101 because $int(1E2) sees this as scientific notation for 100.<br/>
@@ -99,6 +100,7 @@ C75D4DEA .%sortc:c='default' except only-1st-char has @%+ inserted at front
 
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

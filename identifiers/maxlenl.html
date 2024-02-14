@@ -20,6 +20,7 @@ Versions History of $maxlenl and Line Length Limit:
 
 The main reason this was increased from 8192 to 10240 bytes was to support IRCv3 tags whose length is currently capped at 8191 plus a trailing space, which does not count against the 510 limit for the IRC message itself, but the combined string needed to fit within $maxlenl.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $maxlenl
@@ -51,6 +52,7 @@ result: binvar now has 10340 bytes from 10 lines of clipboard with reported tota
 
 <H4>Compatibility</H4>
 Added: mIRC v7.53 (29 Nov 2018)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

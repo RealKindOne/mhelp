@@ -5,16 +5,19 @@
 <br>
 <br>The <b>$filename</b> identifier is filled when an event's trigger deals with a file, such as <a href="..\events\On_PlayEnd.html">On_PlayEnd</a>, <a href="..\events\On_FileRcvd.html">On_FileRcvd</a>, <a href="..\events\On_FileSent.html">On_FileSent</a>, etc.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $filename
+</pre>
+
+<H4>Parameters</H4>
+None
 
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
-Echo the name of the filename, along with both the user's nickname and address if available, after a [[/dcc command - mIRC|DCC Get]] has successfully finished:
+Echo the name of the filename, along with both the user's nickname and address if available, after a "<a href="..\commands\dcc.html">/dcc</a> get" has successfully finished:
 <pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 
 Echo the name of the file that finished playing to the active window:
@@ -22,6 +25,7 @@ Echo the name of the file that finished playing to the active window:
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -30,7 +34,5 @@ None
 <a href="..\events\On_PlayEnd.html">On_PlayEnd</a><br>
 <a href="..\commands\dcc.html">/dcc</a><br>
 <a href="..\commands\play.html">/play</a><br>
-
-
 </body>
 </html>

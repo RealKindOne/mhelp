@@ -6,21 +6,23 @@
 <br>
 The <b>$hotp</b> identifier returns an HOTP (HMAC-based One-Time Password) based on the specified parameters.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $hotp( [key] , count [, hash [, digits ]])
 </pre>
 <H4>Parameters</H4>
-* '''key''' - The can be in a base16 format of either 40, 64 or 128 chars; or in a base32 format (not containing the '=' character) of any length that's a multiple of 8 greater than length 8; or plain text. The "Google Authenticator format" is implemented by allowing the base32 and base16 lengths to be upper/lower case-insensitive and optionally contain spaces, where the string length is evaluated before removing spaces, instead of the correct method where the string length is verified after spaces are removed. Also incorrect is allowing the spaces to be present when not following exactly 4 encoding characters. If the 40/64/128 lengths of base16 contain an odd number of non-space hex digits, the decoding method is undiscovered. For even-number count of hex digits, the hex is decoded to binary, with 0x00 bytes discarded. The remaining bytes are individually UTF-8 encoded. The correct method should have been to use these 3 lengths are the hex encoding of binary strings of length 20/32/64 bytes.
-* '''count''' - required. The 'counter' should never be used more than once with the same key, as it always returns the same number for the same number value. This is a 64-bit number with valid range 0 through 2^64-1. Non-numeric are removed from the end, and "+" removed from the beginning.
-* '''hash''' - optional, hashing algorithm, default to sha1. Also allowed: sha256, sha512, sha384, md5
-* '''digits''' - optional, number of digits, default to 6. Valid range 3 through 9.
+<b>key</b> - The can be in a base16 format of either 40, 64 or 128 chars; or in a base32 format (not containing the '=' character) of any length that's a multiple of 8 greater than length 8; or plain text. The "Google Authenticator format" is implemented by allowing the base32 and base16 lengths to be upper/lower case-insensitive and optionally contain spaces, where the string length is evaluated before removing spaces, instead of the correct method where the string length is verified after spaces are removed. Also incorrect is allowing the spaces to be present when not following exactly 4 encoding characters. If the 40/64/128 lengths of base16 contain an odd number of non-space hex digits, the decoding method is undiscovered. For even-number count of hex digits, the hex is decoded to binary, with 0x00 bytes discarded. The remaining bytes are individually UTF-8 encoded. The correct method should have been to use these 3 lengths are the hex encoding of binary strings of length 20/32/64 bytes.
+<br><b>count</b> - required. The 'counter' should never be used more than once with the same key, as it always returns the same number for the same number value. This is a 64-bit number with valid range 0 through 2^64-1. Non-numeric are removed from the end, and "+" removed from the beginning.
+<br><b>hash</b> - optional, hashing algorithm, default to sha1. Also allowed: sha256, sha512, sha384, md5
+<br><b>digits</b> - optional, number of digits, default to 6. Valid range 3 through 9.
 
 * Note: /help says the key is required, but $hotp(,0) is valid syntax and returns same as when the key is all 0x00's.
 
 <H4>Properties</H4>
 None
-== Details ==
+<H4>Details</H4>
+
 The /help describes 4 formats for the key. Here is the sequence of parsing:.<br />
 
 Rule #1. If key is a length 40/64/128 case-insensitive string that's a mix of spaces and/or case-insensitive hex digits, spaces are removed then the remaining pairs of hex digits are translated into a byte value. If the pair of hex digits is value 00, it is not added to the key. Otherwise, the byte values 1-255 are individually UTF-8 encoded and added to the key string. When there are an odd number of space characters causing an odd number of hex digits, the key is created in an un-discovered way where shifting the location of the spaces in the original string doesn't alter the output.<br/>
@@ -47,7 +49,7 @@ The OTP in HOTP stands for One Time Password, which is only 'one time' if the ap
 alias fake_hotp {
   var %count $gettok($2,1,46) , %hash $3 , %digits $gettok($4,1,46)
   if (%digits !isnum 3-9) var %digits 6 | if (!$istok(md5 sha1 sha256 sha512 sha384,%hash,32)) var %hash sha1
-  if ((%count !isnum 0-) || ($1 == $null) || !$isid) { echo -stc info *$fake_hotp(<key>,<count>[[,hashname],digits3-9]) | return }
+  if ((%count !isnum 0-) || ($1 == $null) || !$isid) { echo -stc info *$fake_hotp(&lt;key&lt;,&gt;count&gt;[[,hashname],digits3-9]) | return }
   bset &count 1 $regsubex($base(%count,10,16,16),/(..)/g,$base(\t ,16,10) $chr(32))
   var %hmac $hmac(&count,$1,%hash,1) , %offset $calc(1+2*$base($right(%hmac,1),16,10)) , %truncate $mid(%hmac $+ 000000,%offset,8) , %divisor 1 $+ $str(0,%digits) , %num $and($base(%truncate,16,10),$calc(2^31-1))
   echo -a key: $1 keylen $len($1) count: %count hash: %hash digits: %digits hmac %hmac offset %offset truncate: %truncate num: %num calculated hotp: $right(000000000 $+ $calc(%num % %divisor ) , %digits) compare to $ $+ hotp: $hotp($1,%count,%hash,%digits)
@@ -57,7 +59,7 @@ alias fake_hotp {
 
 //var %list 658240 093696 529152 964608 400064 835520 270976 706432 , %i 0 , %x 0 | while (%i < 1000000) { if ($istok(%list,$hotp($rand(1,9999999),$rand(1,9999999),md5,6),32)) inc %x | inc %i } | echo -a 8 passwords appeared %x out of %i times
 
-This is not due to the weakness in the hash output of md5, but instead is caused by how the 32-bit 'truncate' value is chosen from within the shorter md5 hash, often at offsets where - not only are there not 8 hex digits available at that position, but often one of the 8 hex digits used is the same digit used to determine the location of the 31-bit value. When using md5 as the hash, every implementation of HOTP i've seen appends hex digit 0's when there are only 2/4/6 hex digits available at that offset in the hash digests, causing some outputs to appear much more often than they should. SHA1 is a long enough hash digest which doesn't need to append the 0's and doesn't ever re-use the locator hex-digit as part of the 31-bit value. 
+This is not due to the weakness in the hash output of md5, but instead is caused by how the 32-bit 'truncate' value is chosen from within the shorter md5 hash, often at offsets where - not only are there not 8 hex digits available at that position, but often one of the 8 hex digits used is the same digit used to determine the location of the 31-bit value. When using md5 as the hash, every implementation of HOTP i've seen appends hex digit 0's when there are only 2/4/6 hex digits available at that offset in the hash digests, causing some outputs to appear much more often than they should. SHA1 is a long enough hash digest which doesn't need to append the 0's and doesn't ever re-use the locator hex-digit as part of the 31-bit value.
 </pre>
 
 <H4>Example</H4>
@@ -102,20 +104,20 @@ Identical results because mIRC removed non-numeric string front the end of the '
 //echo -a $hotp(test,abc) $hotp(test,def) $hotp(test,0)
 Identical because non-numeric count parameters are treated as if count is zero.
 
-//var %key $regsubex($str(x,40),/x/g,$iif(\n <= 24,$chr($calc(97+ (\n % 6))) $+ $chr( 0),$chr($calc(97+ (\n % 6))))) | echo -a $len(%key) key %key $hotp(%key,123,sha256,9) / $hotp($upper(%key),123,sha256,9)
-//var %key $regsubex($str(x,40),/x/g,$iif(\n <= 24,$chr($calc(97+ (\n % 6))) $+ $chr(32),$chr($calc(97+ (\n % 6))))) | echo -a $len(%key) key %key $hotp(%key,123,sha256,9) / $hotp($upper(%key),123,sha256,9)
+//var %key $regsubex($str(x,40),/x/g,$iif(\n &lt;= 24,$chr($calc(97+ (\n % 6))) $+ $chr( 0),$chr($calc(97+ (\n % 6))))) | echo -a $len(%key) key %key $hotp(%key,123,sha256,9) / $hotp($upper(%key),123,sha256,9)
+//var %key $regsubex($str(x,40),/x/g,$iif(\n &lt;= 24,$chr($calc(97+ (\n % 6))) $+ $chr(32),$chr($calc(97+ (\n % 6))))) | echo -a $len(%key) key %key $hotp(%key,123,sha256,9) / $hotp($upper(%key),123,sha256,9)
 Both produce the same output because both are hexadecimal-or-space strings of length 40-or-64-or-128, and after the spaces are removed they have the same case-insensitive hex string.
 
-//echo -a $hotp($str(0,40),9,sha1,9) / $hotp($str(0,64),9,sha1,9) / $hotp($str(0,128),9,sha1,9)  
-//var %key 00 0 00000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
+//echo -a $hotp($str(0,40),9,sha1,9) / $hotp($str(0,64),9,sha1,9) / $hotp($str(0,128),9,sha1,9)
+//var %key 00 0 00000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
 These show that all keys entirely consisting of all 0x00 bytes...
-//var %key 33 0 00000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
-//var %key 330 0 0000000000000000000000000000000000 $+ $str(0,24) | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
+//var %key 33 0 00000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
+//var %key 330 0 0000000000000000000000000000000000 $+ $str(0,24) | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
 ... or keys identical except ending with different number of 0x00 bytes produce identical output (hex encoded keys of length 40/64/128)
 
-//var %key 00 0000000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
-//var %key 000 000000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
-//var %key 000 00 0 0 0 000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key 
+//var %key 00 0000000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
+//var %key 000 000000000000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
+//var %key 000 00 0 0 0 000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
 These produce a different string than the all-zeroes hex string does, showing that keys of length 40/64/128 containing an odd number of hexadecimal digits do strip the spaces before decoding the remaining string, but they do not append or prepend the 0 digit to handle the not-paired hex digit, so they are processing the string in an unknown manner. Moving the space to a different position shows the spaces are stripped before decoding the string into identical keys. Having an odd-number of zeroes in the 40-byte string always returns the same number that's different than the number returned when there's an even number of zeroes. But so far I have not been able to figure out how mIRC decodes a hex string containing an odd number of hex digits.
 </pre>
 == Warning ==
@@ -123,6 +125,7 @@ Through v7.53, $hmac and $hotp and $totp using hash method sha512 or sha384 and 
 //echo -a $hotp($str(z,65),0,sha512,9) should be 187092660
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

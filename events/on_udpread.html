@@ -19,12 +19,12 @@ mIRC in general only understand $crlf terminated line. With socket, mIRC will st
 
 You can find an example showing how to do that {{mIRC|/sockread#Example|here}}
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:UDPREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
-
+<b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 == Connection State ==
@@ -48,6 +48,9 @@ on *:udpread:name:{
 
 <H4>Compatability</H4>
 Added: mIRC v5.5 (08 Jan 1999)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 

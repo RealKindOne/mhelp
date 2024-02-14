@@ -6,15 +6,13 @@
 <br>
 The <b>$agent</b> identifier returns the filename of the Nth available agent installed on your system, or informations about a loaded agent.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $agent(N).property
 $agent(name,[N2]).property
 </pre>
 <H4>Parameters</H4>
-
-<br><b>N</b> - The Nth agent available on your system
+<b>N</b> - The Nth agent available on your system
 <br><b>name</b> - The name used in /gload to load the agent
 <br><b>N2</b> - The N2th queued line for a loaded agent.
 
@@ -50,13 +48,14 @@ When '''name''' is passed as the first parameter, the following properties are a
 
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="agentname.html">$agentname</a><br>
 <a href="agentver.html">$agentver</a><br>
 <a href="agentstat.html">$agentstat</a><br>
-{{mIRC|$notags}}
+<a href="notags.html">$notags</a><br>
 <a href="..\commands\gload.html">/gload</a><br>
 <a href="..\commands\gunload.html">/gunload</a><br>
 <a href="..\commands\gtalk.html">/gtalk</a><br>
@@ -69,7 +68,6 @@ None
 <a href="..\commands\gstop.html">/gstop</a><br>
 <a href="..\commands\gopts.html">/gopts</a><br>
 <a href="..\commands\gqreq.html">/gqreq</a><br>
-{{mIRC|on events/on agent|on agent}}
-
+<a href="..\events\on_Agent.html">On_Agent</a><br>
 </body>
 </html>

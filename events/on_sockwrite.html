@@ -6,12 +6,12 @@
 <br>
 The <b>ON SOCKWRITE</b> event triggers when data has been sent on a socket, even on a UDP socket. This event allows you to send more data without reaching the limit of the queue.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SOCKWRITE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
-
+<b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 == Writing more ==
@@ -80,6 +80,9 @@ Note that this is how you should theorically handle the sending of an unknown le
 
 <H4>Compatability</H4>
 Added: mIRC v3.5 (07 Aug 1995)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_SockOpen.html">On_SockOpen</a><br>

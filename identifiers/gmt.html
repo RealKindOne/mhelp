@@ -6,13 +6,14 @@
 <br>
 The <b>$gmt</b> identifier return the current GMT time value in <a href="ctime.html">$ctime</a> format. $gmt also accept optional time and/or format parameters, displaying the same format as <a href="asctime.html">$asctime</a>, adjusted by $timezone/$daylight settings.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $gmt
 $gmt(date[,format])
 </pre>
 <H4>Parameters</H4>
-<br><b>no parameters</b> - identifier returns ctime adjusted by the $timezone value
+<b>no parameters</b> - identifier returns ctime adjusted by the $timezone value
 <br><b>date</b> - Optional ctime number, overrides the default ctime. Returns the GMT time string in $asctime format. Ignores any fractions.
 <br><b>format</b> - Optional format letters same as for <a href="asctime.html">$asctime</a>
 <H4>Properties</H4>

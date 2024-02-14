@@ -6,36 +6,29 @@
 </H1>
 <br>
 <br>
-
 When used without any arguments, The <b>/switchbar</b> command displays the current state of the switchbar. The state is also displayed even if an argument is specified. You can prefix the command with a period to silent that behavior. The "on" and "off" arguments can be used to show and hide the switchbar programmatically. The switchbar is a toolbar with all the networks and channels on it displayed as buttons.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/switchbar [on|off]
-
+/switchbar &lt;on|off&gt;
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>[on|off]</b>
-      - Either an 'on' or 'off' visibility option.
+<b>on</b>
+      - Enable the mIRC switchbar.
+<br><b>off</b>
+      - Disable the mIRC switchbar.
 
 <H4>Example</H4>
+Turn on switchbar:
 <pre class ="code">
-
-
-    /switchbar on
-
-Will turn the switchbar on and display
-
-
-    * Switchbar is on
-
+/switchbar on
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.32 (21 May 2008)
 
@@ -43,7 +36,6 @@ Added: mIRC v6.32 (21 May 2008)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\switchbar.html">$switchbar</a><br>
 <a href="..\identifiers\menubar.html">$menubar</a><br>

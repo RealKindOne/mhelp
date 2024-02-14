@@ -6,6 +6,7 @@
 <br>
 The <b>ON text</b> event is a mIRC event that triggers when a remote user (I.E. not the local user) receives a channel or a query message.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 on &lt;level&gt;:text:&lt;matchtext&gt;:<target>:&lt;commands&gt;
@@ -19,12 +20,12 @@ on &lt;level&gt;:text:&lt;matchtext&gt;:<target>:&lt;commands&gt;
 A '''&lt;matchtext&gt;''' is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the {{mIRC|/filter}} command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
 
 === Wildcard text pattern ===
-The matchtext can contain wild characters: 
+The matchtext can contain wild characters:
 * * - matches any text
 * ? - matches any single letter
 * & - matches any single word
 
-For Example: 
+For Example:
 * !test - the matchtext will only match if the ONLY word is "!test"
 * !test* - the matchtext will match if the text starts with "!test"
 * *!test - the matchtext will match if the text ends with the word "!test"
@@ -46,7 +47,7 @@ Sometimes we want to get the user's input. We can use the & to match a single wo
 }</pre>
 
 === RegEx text pattern ===
-The matchtext parameter can also be a Regular Expression Pattern by using the {{mIRC|Access levels#Level_prefixes|'$' event prefix}}. 
+The matchtext parameter can also be a Regular Expression Pattern by using the {{mIRC|Access levels#Level_prefixes|'$' event prefix}}.
 
 Example:
 
@@ -55,7 +56,7 @@ Example:
 }</pre>
 
 === Dynamic text pattern ===
-Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier. 
+Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier.
 
 Example:
 
@@ -63,19 +64,19 @@ Example:
   describe $chan Slaps $nick with dried-up sandwich!
 }</pre>
 
-Or 
+Or
 
 <pre class ="code">on *:text:$(!example * $+ %match $+ *):#:{
   describe $chan This is an example, $+ $nick $+ !
 }</pre>
 
-If the entire match text pattern contains a SINGLE variable, the $() is not required, this technique can also be used for any other parameter of an event. 
+If the entire match text pattern contains a SINGLE variable, the $() is not required, this technique can also be used for any other parameter of an event.
 
 Example:
 
 <pre class ="code">;Assume %text is set to !cool
 on *:text:%text:#:{
-  msg $chan I am the coolest! 
+  msg $chan I am the coolest!
 }</pre>
 
 It is also possible to use regular expressions with dynamic match text.
@@ -90,7 +91,7 @@ The target parameter of the event defines the locations of where the event can b
 * ? - defines query location
 * # - defines channel location
 * * - defines both query and channel locations
-* %var - A variable containing a channel or a list of channels is also acceptable 
+* %var - A variable containing a channel or a list of channels is also acceptable
 
 Example:
 

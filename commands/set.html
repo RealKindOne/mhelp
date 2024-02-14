@@ -6,7 +6,6 @@
 </H1>
 <br>
 <br>
-
 The <b>/set</b> command can be used to replace the value of an existing variable or create a new variable and assign it the given value. By default /set creates global variable, this can be changed via the -l switch. Unlike the <a href="var.html">/var</a> command, set cannot assign a value to multiple variables at once. It support :doc: `one math operation </beginner/variables.html#math-operations>` .
 
 Set evaluation routine
@@ -19,15 +18,15 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 
 <br><b>Note:</b> /set will fail to evaluate your variable if you have dynamic parameters before the name, read more :doc: `here </beginner/variables.html#special-behaviors-quirks>`
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /set [-gisuNzneplk] &lt;%var&gt; [value]
 /set [-gisuNznelk] &lt;%var&gt; &lt;number&gt; &lt;+ | - | * | / | % | ^ | &&gt; &lt;number&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Display variable assignment value
 <br><b>-u</b>N
       - Unsets the variable after N amount of seconds. A special case has been made for -u0 which will make the variable unset at the end of script processing, the same way binary variables do.
@@ -49,9 +48,7 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
       - Permits value to be 2 literal doublequotes and permits value to end with a single $chr(32) space. Also performs -n switch behavior
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;%var&gt;</b>
+<b>&lt;%var&gt;</b>
       - The name of the variable
 <br><b>[value]</b>
       - The value to assign to the variable
@@ -64,63 +61,58 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 
 <H4>Example</H4>
 <pre class ="code">
-
-
-    ; /countDown
-    Alias countDown {
-    ; set some value
-    set &lt;%var&gt; Countdown:
-    ; print the value
-    echo -a &lt;%var&gt;
-    ; set the value to 3, decrease once per second
-    set -zs &lt;%var&gt; 3
-    }
-
+; /countDown
+Alias countDown {
+  ; set some value
+  set &lt;%var&gt; Countdown:
+  ; print the value
+  echo -a &lt;%var&gt;
+  ; set the value to 3, decrease once per second
+  set -zs &lt;%var&gt; 3
+}
+</pre>
 Will output:
-
-
-    Countdown:
-    -
-    * Set &lt;%var&gt; to 3
-    -
-    * Set &lt;%var&gt; to 2
-    -
-    * Set &lt;%var&gt; to 1
-    -
-    * Unset &lt;%var&gt;
-    -
-
+<pre class ="code">
+Countdown:
+-
+* Set &lt;%var&gt; to 3
+-
+* Set &lt;%var&gt; to 2
+-
+* Set &lt;%var&gt; to 1
+-
+* Unset &lt;%var&gt;
+-
+</pre>
 The -u0 switch can be used to create a variable with global scope that will get unset at the end of the script processing. This can be very helpful at times.
-
-
-    Alias example {
-    set -u0 %x A
-    bb
-    ; will print 'B'
-    echo -a %x
-    }
-    alias bb {
-    ; replace the value of %x with B, keep the unset setting
-    set -k %x B
-    }
-
+<pre class ="code">
+Alias example {
+  set -u0 %x A
+  bb
+  ; will print 'B'
+  echo -a %x
+}
+alias bb {
+  ; replace the value of %x with B, keep the unset setting
+  set -k %x B
+}
+</pre>
 A simple !seen script that uses /set special evaluation routine to create dynamic variables:
-
-
-    on *:text:!seen &:#mIRC:{
-    ; check if the variable is set
-    if ($var(seen. $+ $2)) {
+<pre class ="code">
+on *:text:!seen &:#mIRC:{
+  ; check if the variable is set
+  if ($var(seen. $+ $2)) {
     ; notice the user the value of '%seen.&lt;nick&gt;'
     notice $nick I have seen $2 $var(seen. $+ $2, 1).value
-    }
-    else notice $nick I have not seen $2 anywhere.
-    }
-    on *:text:*:#:{
-    ; set the value to '%seen.&lt;nick&gt;'
-    set %seen. $+ $nick Talking in $chan < $+ $nick $+ > $1-
-    }
-
+  }
+  else notice $nick I have not seen $2 anywhere.
+}
+on *:text:*:#:{
+  ; set the value to '%seen.&lt;nick&gt;'
+  set %seen. $+ $nick Talking in $chan &lt; $+ $nick $+ &gt; $1-
+}
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.0 (20 Mar 1996)
 

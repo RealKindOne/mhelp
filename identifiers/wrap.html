@@ -14,7 +14,7 @@ Note that the pN option is enabled by default and that control codes are preserv
 $wrap(text,font,size,width [,b[N]i[N]p[N]t[N]w[N] ],N)
 </pre>
 <H4>Parameters</H4>
-<br><b>text</b> - The text you want to know wrapping information about
+<b>text</b> - The text you want to know wrapping information about
 <br><b>font</b> - The name of the font
 <br><b>size</b> - The size of the font, you can specify a negative value to match the size of fonts in the font dialog
 <br><b>width</b> - The width at which the text should wrap
@@ -23,12 +23,11 @@ $wrap(text,font,size,width [,b[N]i[N]p[N]t[N]w[N] ],N)
 Previously, the 5th parameter was an optional 'word' parameter accepting either 0 (disabled) or 1 (enabled) to indicate handling of word wrapping. Though the old syntax is still enabled, it's now a set of options to go with $width and $height:
 <br>
 <br><b>bNiNpNtN</b> - Optional parameter, defines some options for the measurement, N can be 1 or 0 to enable or disable the option, with '1' assumed when 'N' not present:
-<br>
-<br><b>bN</b> - enables/disables the width used when the bold 'style' is enabled for that font
-<br><b>iN</b> - enables/disables the width used when the italic 'style' is enabled for that font
-<br><b>pN</b> - enables/disables control codes always handled as if zero-width characters
-<br><b>tN</b> - enables/disables tab character 0=zero_width 1=tab-expansion
-<br><b>wN</b> - enables word wrapping 0=chop 1=entire word on next line
+<br><span style="margin-left: 20px;"><b>bN</b> - enables/disables the width used when the bold 'style' is enabled for that font
+<br><span style="margin-left: 20px;"><b>iN</b> - enables/disables the width used when the italic 'style' is enabled for that font
+<br><span style="margin-left: 20px;"><b>pN</b> - enables/disables control codes always handled as if zero-width characters
+<br><span style="margin-left: 20px;"><b>tN</b> - enables/disables tab character 0=zero_width 1=tab-expansion
+<br><span style="margin-left: 20px;"><b>wN</b> - enables word wrapping 0=chop 1=entire word on next line
 <br><b>N</b> - The Nth line wrapped, use 0 to get the total number of wrapped line.
 
 <br>Because the switches parameter is optional, it must not be present if no switches are used.
@@ -77,6 +76,7 @@ When changing %c to be the number 2 instead of $asc(M), the result for p1 change
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

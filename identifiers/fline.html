@@ -9,20 +9,19 @@ The <b>$fline</b> identifier returns the number of the Nth line matching the exp
 <br>
 <b>Note:</b> $fline strips lines from control code before matching
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $fline(win,expr,N,T,S)
 </pre>
 <H4>Parameters</H4>
-<br><b>win</b> - a channel/query/status or custom window
+<b>win</b> - a channel/query/status or custom window
 <br><b>expr</b> - the expression to search, <a href="..\other\wildcard.html">wildcard</a> by default
 <br><b>N</b> - The Nth matching line, returns the total number of matching lines if N = 0
 <br><b>T</b> - If T = 1, it references the listbox (nicklist in channel window), T = 2 means the expression is a regular expression, T = 3 means both 1 & 2
 <br><b>S</b> - The search will start from the starting line number S, helping speeding up the search, you must provide the N and T parameter.
 
 <H4>Properties</H4>
-<br><b>.text</b> - return the line matched rather than the line number
+<b>.text</b> - return the line matched rather than the line number
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $fline($chan(1),*mirc*)</pre>
@@ -37,6 +36,5 @@ None
 <a href="line.html">$line</a><br>
 <a href="sline.html">$sline</a><br>
 <a href="window.html">$window</a><br>
-
 </body>
 </html>

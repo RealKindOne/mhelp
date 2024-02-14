@@ -8,13 +8,14 @@ The <b>$isnum</b> identifier returns $true if text is a number, otherwise return
 
 '''Note''': switches affects the range number parameters, see the examples
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $isnum(text,[sd],[I,J])</pre>
 
 </pre>
 <H4>Parameters</H4>
-<br><b>text</b> - The input string to be checked<br />
+<b>text</b> - The input string to be checked<br />
 <br><b>s</b> - also permits +- sign to be used
 <br><b>d</b> - also permits the decimal, allowing numbers with fractions
 <br><b>[I,J]</b> - If you pass a third and fourth parameters, they must be valid number (with respect to the switches used) and are used to validate the number in a range.
@@ -25,11 +26,11 @@ None
 <H4>Example</H4>
 <pre class ="code">//echo -a $isnum(564)</pre>
 
-will return '''$true'''
+will return '<a href="true.html">$true</a>'
 
 <pre class ="code">//echo -a $isnum(abcdefG)</pre>
 
-will return '''$false''' because not all the characters are digits
+will return '<a href="false.html">$false</a>' because not all the characters are digits
 
 
 //var %a -123 | echo -a $isnum(%a) vs $isnum(%a,s)
@@ -40,6 +41,7 @@ result: $false vs error, the d switches is required not only to allow decimal in
 
 <H4>Compatibility</H4>
 Added: mIRC v7.58 (17 Nov 2019)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

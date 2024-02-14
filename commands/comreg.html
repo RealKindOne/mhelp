@@ -6,30 +6,28 @@
 </H1>
 <br>
 <br>
-
 The <b>/comreg</b> command can be used to registers and unregisters a COM with windows to make themselves accessible to applications. Regsvr32 command will not register .NET assemblies because of their very nature. However if you must, <a href="http://msdn.microsoft.com/en-us/library/tzat5yw6(vs.71).aspx">Regasm Might Help</a>.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /comreg -u &lt;filename&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-u</b>
+<b>-u</b>
       - Unregister
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;filename&gt;</b>
+<b>&lt;filename&gt;</b>
       - Filename to be registered
 
 <H4>Example</H4>
+Register example.dll file
 <pre class ="code">
-; register example.dll file
 /comreg example.dll
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (11 Sep 1997)
 
@@ -37,7 +35,6 @@ Added: mIRC v5.1 (11 Sep 1997)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\com.html">$com</a><br>
 <a href="..\identifiers\comcall.html">$comcall</a><br>

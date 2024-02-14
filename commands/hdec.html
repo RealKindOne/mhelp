@@ -6,18 +6,17 @@
 </H1>
 <br>
 <br>
-
 The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If the optional number value is not specified, the default increment value is 1. It uses the same syntax as /hadd except -b's &binvar is the [num] parameter not the destination.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /hdec [-m[N]szuN] &lt;table&gt; &lt;item&gt; [num]
 /hdec -b[m[N]szuN] &lt;table&gt; &lt;item&gt; &lt;&bvar&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-m</b>[N]
+<b>-m</b>[N]
       - Creates the hash table if it does not exist, optionally setting the number of buckets to N. (Valid N 1-10000)
 <br><b>-s</b>
       - Displays the assignment information
@@ -31,9 +30,7 @@ The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If th
 <br><b>Note:</b> If hashtable item has a non-zero $hget(table,item).unset property due to using -uN or -z switches when created or modified by /hinc /hdec or /hadd, then /hsave will not save that item to disk without the /hsave -u switch. /hdec preserves any existing unset delay when -z and -uN switches are not used.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;table&gt;</b>
+<b>&lt;table&gt;</b>
       - The handle name of the table containing the 'item'
 <br><b>&lt;item&gt;</b>
       - The item name associated with the data value
@@ -66,8 +63,10 @@ alias countdown {
   hfree -s count
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (16 Aug 2002)
+
 <H4>Notes</H4>
 None
 

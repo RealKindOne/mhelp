@@ -6,8 +6,8 @@
 </H1>
 <br>
 <br>
-
 The <b>/dialog</b> command is used to create a dialog using a given table. The name is what the script/you will use to refer to the table. The standard dialog created using the /dialog command can be used to create model or modeless dialogs. Modeless it does not return a value when the dialog closes. As a result it does not halt the mIRC scripting engine, letting other script to keep processing. Dialogs can be kept open for as you want.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -18,9 +18,9 @@ The <b>/dialog</b> command is used to create a dialog using a given table. The n
 /dialog -s &lt;name&gt; [x y w h]
 /dialog -mhbpardievonts &lt;name&gt; [table] [x y w h] [text]
 </pre>
+
 <H4>Switches</H4>
 
-<br>
 <br>
 Mode:
 <br>
@@ -83,9 +83,7 @@ Change:
       - Renames dialog &lt;name&gt; <new name>
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - Dialog Name
 <br><b>[table]</b>
       - Table Name
@@ -137,6 +135,7 @@ Dialog Example1 {
 ; Close the dialog, don't trigger any event
 /dialog -x Example3
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (19 Feb 1999)
 
@@ -144,7 +143,6 @@ Added: mIRC v5.5 (19 Feb 1999)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\dialog.html">$dialog</a><br>
 <a href="..\identifiers\dname.html">$dname</a><br>

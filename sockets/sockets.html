@@ -1,0 +1,92 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+Socket Introduction
+</H1>
+<br>
+<br>
+Socket Introduction}}{{Preknow|This article assumes that you have intermediate to advanced knowledge of the [[mIRC Scripting Language]] and familiarity with [[On events - mIRC|on events]] and [[Aliases - mIRC|custom aliases]].}}
+'''mIRC Sockets''' are a set of {{mIRC|commands}}, {{mIRC|identifiers}}, and {{mIRC|on events|events}} that allow scripts to create network [[socket]]s. [[mIRC]] supports both {{mIRC|sockets/udp|UDP}} and {{mIRC|sockets/tcp|TCP}} sockets.
+
+== Socket ==
+A '''socket''' is one endpoint of a two-way communication link between two processes running on a network. A socket is bound to a port number by which it can be identified. In mSL it is also bound to a specific name which we will call a handle. An endpoint is simply a combination of an IP address and a port number.
+
+The following is an example of an endpoint:
+
+<pre>74.125.91.104:80</pre>
+
+The first part is the IP address (in this example we used www.google.com). The number that follows the colon (:) is the port number. In this case it's port number 80, which happens to be the default HTTP port.
+
+== IP Address ==
+An IP address is the numerical identification that is assigned to devices that utilize the Internet Protocol like your computer's network card. Think of it as your home address for the Internet. There are two versions of the IP protocol: IPv4 and IPv6. This tutorial will cover both.
+
+A traditional IP address looks like this:
+
+<pre>74.125.91.104</pre>
+
+This is in fact IPv4. It is made up of four octets, each ranging between 0 and 255.
+
+An IPv6 address looks something like this:
+
+<pre>2002:1:0:1:0:0:4a7d:5b68</pre>
+
+The details of how these addresses work are beyond the scope of this article.
+
+== Port ==
+A port number is a 16-bit positive integer ranging from 0 to 65535. (2^16-1), giving you a total of 65,536 ports. Ports 1-1023 are called well known ports, ports 1024-49151 are registered ports, and ports in the range of 49152–65535 are dynamic and/or private, they cannot be registered.
+
+Be careful not to be confused between the client and server ports. The server port is the port in which the client (you) will attempt to establish a connection; the server listens to incoming connection on this port. The client port is the port at the client's end, which are an incremental number and a much higher port number.
+
+{| class="wikitable"
+|+ Commonly Used Ports
+! Application !! Port
+|-
+|FTP || 20/21
+|-
+|SSH || 22
+|-
+|HTTP || 80
+|-
+|POP3 (Email) || 110
+|-
+|HTTP over SSL (HTTPS) || 443
+|}
+
+== mIRC Sockets ==
+There are two types of Internet sockets (there are actually more, but only these two types are available natively through mIRC):
+
+* Stream Sockets
+* Datagram Sockets
+
+== Stream Sockets ==
+{{main|mirc/sockets/tcp|l1=mIRC TCP Sockets}}
+'''Stream sockets''' achieve a higher level transmission quality. Stream sockets are a connection-oriented protocol. The Transmission Control Protocol, '''TCP''', does this by making sure that your data arrives in the correct order and error-free. Most applications like mIRC itself, a telnet client, and your web browser use that protocol.
+
+== Datagram Sockets ==
+{{main|mirc/sockets/udp|l1=mIRC UDP Sockets}}
+'''Datagram sockets''' on the other hand are called connectionless. You may have heard '''UDP''' or the User Datagram Protocol. The reason they are called connectionless is because they do not have to maintain an open connection as you do with stream sockets. As a consequence, data may arrive just fine, it may arrive out of order, or it might even get lost and never arrive.
+
+So why on earth would anyone use that you may ask? Speed, speed, and ... more speed! UDP is much faster. Your data gets the address slapped on it and gets fired away. This protocol is best suited for streaming and games where speed is the top most priority.
+
+== Summary ==
+Below is a recap of the two socket types available:
+
+{| class="wikitable"
+|+ TCP vs UDP
+! TCP !! UDP
+|-
+| '''Goal:''' Used when reliable transport required and speed is secondary || '''Goal:''' Used when speed is required and guaranteed delivery is secondary
+|-
+| Connection-Oriented Protocol ||  Connectionless Service
+|-
+| Reliable <br />Order is guaranteed <br />No data loss || Unreliable - "best effort" delivery <br />Order is not guaranteed <br />Possible data loss
+|-
+| Decent Speed || Fast
+|}
+
+== Where do we go from here? ==
+So where do you go from here? Basic on the kind of socket you are looking to work with you will have to decide whether you want [[UDP Sockets - mIRC|UDP]] or [[TCP Sockets - mIRC|TCP]].
+
+</body>
+</html>

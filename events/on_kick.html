@@ -19,11 +19,12 @@ This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''<a href
 | '''$nick''' || The name of the person who kicked the user
 |}
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels, for the event to listen for. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
@@ -35,7 +36,6 @@ This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''<a href
 |-
 | '''[,#]''' || Specific channel names
 |}
-
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>

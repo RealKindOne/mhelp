@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/socklisten</b> command allows mIRC to listen for specific connections on a specified host port.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /socklisten [-dpun] [bindip] &lt;name&gt; [port]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-d</b>
+<b>-d</b>
       - Indicates that an IP address has been specified as the bind address.
 <br><b>-p</b>
       - Enables UPnP support for the listening socket, if that is available.
@@ -26,9 +25,7 @@ The <b>/socklisten</b> command allows mIRC to listen for specific connections on
       - Disable nagle algorithm for the socket, the <a href="sockaccept.html">/sockaccept</a> socket will have nagle disabled. You can disable nagle per accepted socket by using /sockaccept's -n switch
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The name to give the new listening socket.
 <br><b>[port]</b>
       - The port number to listen on for this socket. If not specified, mIRC attempts to use a random port specified in the DCC port range options.
@@ -38,12 +35,14 @@ Open a listening socket named "mySocket" and listen on port "31781":
 <pre class ="code">
 /socklisten mySocket 31781
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
-See Also
+<H4>Notes</H4>
+None
 
-
+<H4>See also</H4>
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>
 <a href="..\identifiers\sockerr.html">$sockerr</a><br>

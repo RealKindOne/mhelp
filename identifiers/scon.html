@@ -6,16 +6,15 @@
 <br>
 The <b>$scon</b> identifier allows you to get the server id for a connection, or specific details regarding the properties of a certain connection id. It is important to note that unlike <a href="scid.html">$scid</a>, $scon works on the Nth connection, not the actual connection ID.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $scon(N)[.property]
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - Returns the connection ID for the Nth connection. If you specify N as ''0'', the total number of connections is returned.
+<b>N</b> - Returns the connection ID for the Nth connection. If you specify N as ''0'', the total number of connections is returned.
 
 <H4>Properties</H4>
-<br><b>[.property]</b> - If you specify a compatible here, it returns the value of that identifier evaluated on that connection. See the examples below for more details.
+<b>[.property]</b> - If you specify a compatible here, it returns the value of that identifier evaluated on that connection. See the examples below for more details.
 
 <H4>Example</H4>
 Echo the total number of connections to the active window
@@ -29,6 +28,7 @@ Use the optional identifier-supported property to echo the network name of conne
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -37,7 +37,5 @@ None
 <a href="lactivecid.html">$lactivecid</a><br>
 <a href="scid.html">$scid</a><br>
 <a href="..\commands\scid.html">/scid</a><br>
-
-
 </body>
 </html>

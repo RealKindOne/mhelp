@@ -6,7 +6,6 @@
 <br>
 The <b>$com</b> calls a member of an open COM connection with the specified method and parameter, or returns informations about a currently opened COM or returns the value of the specified variable name
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $com(name,member,method,type1,value1,...,typeN,valueN) - calls a member of an open COM connection with the specified method and parameters, returns 1 if the call succeeds, 0 = fail.
@@ -15,7 +14,7 @@ $com(name/N) - returns the name of the Nth open COM connection or the name of th
 </pre>
 
 <H4>Parameters</H4>
-<br><b>name/N</b> - The name of the connection or the Nth connection
+<b>name/N</b> - The name of the connection or the Nth connection
 <br><b>varname</b> - The name of a variable previously saved
 <br><b>member</b> - The name of the function of the object
 <br><b>method</b> - A combination of the following value added together:
@@ -79,6 +78,7 @@ In the case of retrieving an unknown pointer, mIRC will extend it to a dispatch 
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -86,6 +86,5 @@ None
 <a href="comerr.html">$comerr</a><br>
 <a href="..\commands\comopen.html">/comopen</a><br>
 <a href="..\commands\comclose.html">/comclose</a><br>
-
 </body>
 </html>

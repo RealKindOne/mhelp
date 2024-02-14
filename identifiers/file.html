@@ -10,14 +10,13 @@ The <b>$file</b> identifier can be used in two ways:
 
 <br><b>$file="title" dir</b> this is an old, deprecated syntax, display the select file dialog, use <a href="sfile.html">$sfile</a> instead.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $file(filename)[.property]
 $file="title" dir
 </pre>
 <H4>Parameters</H4>
-<br><b>filename</b> - The filename or directory to any local or networked resource, optionally including absolute or relative path (relative to <a href="mircdir.html">$mircdir</a><br>)
+<b>filename</b> - The filename or directory to any local or networked resource, optionally including absolute or relative path (relative to <a href="mircdir.html">$mircdir</a><br>)
 <br><b>title</b> - the title of the dialog, the quote are optional if you don't use space, this parameter is optional: //echo -a $file c:\*.txt
 <br><b>dir</b> - the directory you want to display, you can put a file at the end which will be used to fill the 'filename' field in the dialog
 
@@ -61,12 +60,12 @@ Attributes:
 <br><b>.version</b> - returns the file's ''file version'' if executable/DLL.
 <br><b>.product</b> - returns the file's ''product version'' if executable/DLL.
 <br><b>.flags</b> - returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
-<br><b>1</b>: DEBUG''' - The file contains debugging information or is compiled with debugging features enabled.
-<br><b>2</b>: PRERELEASE''' - The file is a development version, not a commercially released product.
-<br><b>4</b>: PATCHED''' - The file has been modified and is not identical to the original shipping file of the same version number.
-<br><b>8</b>: PRIVATEBUILD''' - The file was not built using standard release procedures.
-<br><b>16</b>: INFOINFERRED''' - The file's version structure was created dynamically; therefore, some of the members in this structure may be empty or incorrect.
-<br><b>32</b>: SPECIALBUILD''' - The file was built by the original company using standard release procedures but is a variation of the normal file of the same version number.
+<br><b>1</b>: DEBUG - The file contains debugging information or is compiled with debugging features enabled.
+<br><b>2</b>: PRERELEASE - The file is a development version, not a commercially released product.
+<br><b>4</b>: PATCHED - The file has been modified and is not identical to the original shipping file of the same version number.
+<br><b>8</b>: PRIVATEBUILD - The file was not built using standard release procedures.
+<br><b>16</b>: INFOINFERRED - The file's version structure was created dynamically; therefore, some of the members in this structure may be empty or incorrect.
+<br><b>32</b>: SPECIALBUILD - The file was built by the original company using standard release procedures but is a variation of the normal file of the same version number.
 
 <br>
 <br>
@@ -81,6 +80,7 @@ Some more information about mIRC's executable.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

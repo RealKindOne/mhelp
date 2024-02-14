@@ -6,19 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/aline</b> command is used to add a single line of text to a custom window. This command is limited to custom @windows, If you need a more general command that is able to print to both custom windows, channel, and query consider using the /echo command instead.
 
 <br><b>Note:</b> If the main window is sorted (text or listbox and /window -s has been used), lines added with /echo to that window won't be sorted, only lines added with /aline will.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /aline -scNahpinlt [c] &lt;@name&gt; &lt;text&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Clears the old selection in a listbox and selects the newly added item
 <br><b>-a</b>
       - Selects the newly added item while keeping the old selection in a listbox
@@ -38,8 +37,7 @@ The <b>/aline</b> command is used to add a single line of text to a custom windo
       - Same as specifying the [c] parameter for the color of the line but via a switch
 
 <H4>Parameters</H4>
-
-<br><b>[c]</b>
+<b>[c]</b>
       - An optional color number for the line.
 <br><b>&lt;@name&gt;</b>
       - The name of the window.
@@ -57,6 +55,7 @@ Alias Example {
   Aline -s 3 @Foo Line B
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (21 Apr 1997)
 
@@ -64,7 +63,6 @@ Added: mIRC v5.0 (21 Apr 1997)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\line.html">$line</a><br>
 <a href="..\identifiers\fline.html">$fline</a><br>

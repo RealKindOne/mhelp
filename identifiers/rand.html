@@ -6,13 +6,14 @@
 <br>
 The <b>$rand</b> identifier returns a random integer from the specified range. If you supply two strings or characters not beginning with a number, it returns a random character from that range of code points. $r is an equivalent alias for $rand
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $rand(number1,number2)
 $rand(char1,char2)
 </pre>
 <H4>Parameters</H4>
-<br><b>number1,number2</b> - starting/ending range of integers
+<b>number1,number2</b> - starting/ending range of integers
 <br><b>char1,char2</b> - starting/ending characters in range of characters. Valid range $chr(1) through $chr(65535)
 
 * Note: High/Low endpoints of output range can be used in either order.
@@ -81,13 +82,13 @@ In v7.55+ the above alias can increase %max to $calc(2^53-1) without obvious bia
 
 If worried that your large range has some 'impossible' outputs, you can use the slower randpatch alias to create output which combines the output from 5 smaller ranges. You can test randpatch by substituting it in place of $rand in the above command.
 
-The %throwaway_above calculation discards the highest values which caused modulo bias when shrinking the outputs down to the requested range, preventing 1 or more of the lowest outputs from having an extra input when allocating the 2^53 possible inputs among the possible outputs of the requested range. 
+The %throwaway_above calculation discards the highest values which caused modulo bias when shrinking the outputs down to the requested range, preventing 1 or more of the lowest outputs from having an extra input when allocating the 2^53 possible inputs among the possible outputs of the requested range.
 
 <pre class ="code">
 alias randpatch {
   if (($1 !isnum) || ($2 !isnum)) goto error | var %lo $int($1) , %hi $int($2)
   var %diff %hi - %lo , %out_range %diff + 1 , %max.val $calc(2^53-1)
-  if ((%hi > %max.val) || (%diff > %max.val) || (%lo < $calc(-(2^53)))) goto error
+  if ((%hi > %max.val) || (%diff > %max.val) || (%lo &lt; $calc(-(2^53)))) goto error
   var %throwaway_above $calc(%max.val - (((%max.val % %out_range) + 1) % %out_range) )
   var %int53 $get_53bit_rand_num
   while (%int53 > %throwaway_above) { var %int53 $get_53bit_rand_num }
@@ -99,7 +100,8 @@ alias -l get_53bit_rand_num {
 } ; 53bit value from joining bit sizes 12:11:11:11:8
 </pre>
 <H4>Compatibility</H4>
-Added: mIRC v2.1a (28 Feb 1995)
+Added: mIRC v4.5 (30 Jun 1996)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

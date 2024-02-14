@@ -6,18 +6,17 @@
 <br>
 The <b>$abook</b> identifier will return information about nicknames listed inside of the [[mIRC Address Book]]. TODO
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $abook(nick/N[,N])[.property]
 </pre>
 
 <H4>Parameters</H4>
-<br><b>nick/N</b> - The nickname that you wish to look up in the address book. This can be a <a href="..\other\wildcard.html">wildcard</a> such as <b>ni*</b>, which would find all nicknames beginning with <b>ni</b>. It can also be the Nth nickname in the book.
+<b>nick/N</b> - The nickname that you wish to look up in the address book. This can be a <a href="..\other\wildcard.html">wildcard</a> such as <b>ni*</b>, which would find all nicknames beginning with <b>ni</b>. It can also be the Nth nickname in the book.
 <br><b>N</b> - This will return the Nth matching nickname relative to the <b>nick</b> parameter. If N is 0, it will return the total matches.
 
 <H4>Properties</H4>
-<br><b>.nick</b> - Returns the nickname attached to the specific address book match.
+<b>.nick</b> - Returns the nickname attached to the specific address book match.
 <br><b>.info</b> - Returns the info area of the address book for the match, specifically the address.
 <br><b>.email</b> - Returns the email associated with the address book match.
 <br><b>.website</b> - Returns the website URL associated with the address book match.
@@ -38,6 +37,7 @@ Echo the filename for the picture of the first address book match to the active 
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

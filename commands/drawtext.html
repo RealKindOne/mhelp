@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/drawtext</b> command draws text at the specified co-ordinates. If you use a negative number for the font size, it will match the size of fonts in the font dialog. The /drawtext command will use some default options for anti-aliasing that you cannot change (yet), meaning that a text drawn in black may not be drawn only using the expected color, this can be a real concern when using <a href="drawfill.html">/drawfill</a> to fill an area with text inside it.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /drawtext -hnrpbocvd &lt;@win&gt; &lt;color&gt; [color] [fontname fontsize] &lt;x y [w h]&gt; &lt;text&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-p</b>
+<b>-p</b>
       - processes and interprets control codes in the text
 <br><b>-b</b>
       - indicates that you have specified the second color parameter as the background color for the text
@@ -38,9 +37,7 @@ The <b>/drawtext</b> command draws text at the specified co-ordinates. If you us
       - disable tab support
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;@win&gt;</b>
+<b>&lt;@win&gt;</b>
       - the window's name
 <br><b>&lt;color&gt;</b>
       - the foreground color
@@ -57,6 +54,7 @@ The <b>/drawtext</b> command draws text at the specified co-ordinates. If you us
 <pre class ="code">
 /drawtext -rn @mygame 0 verdana 20 30 30 the fps is: 60
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
@@ -64,7 +62,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\width.html">$width</a><br>
 <a href="..\identifiers\height.html">$height</a><br>

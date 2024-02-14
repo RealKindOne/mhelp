@@ -6,23 +6,22 @@
 </H1>
 <br>
 <br>
-
 The <b>/elseif</b> command is a <a href="..\other\conditional_statements.html">construct in the mIRC scripting language</a> that performs commands if all the previous <a href="if.html">/if</a> or <a href="elseif.html">/elseif</a> failed and if the condition is true, must be used after an if/elseif statement.
 
 The elseif statement is used in conjunction with the <a href="if.html">/if</a> statement and the <a href="else.html">/else</a> statement to jump to certain blocks of code depending on the result of the conditional statement that was executed.
 
-<H4>Synopsis</H4><pre class ="code">
-    elseif (&lt;condition&gt;) &lt;command&gt;
-    elseif (&lt;condition&gt;) { &lt;commands&gt; }
-</pre>
-<H4>Switches</H4>
 
+<H4>Synopsis</H4>
+<pre class ="code">
+elseif (&lt;condition&gt;) &lt;command&gt;
+elseif (&lt;condition&gt;) { &lt;commands&gt; }
+</pre>
+
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;condition&gt;</b>
+<b>&lt;condition&gt;</b>
       - a conditional expression to be executed
 
 <H4>Example</H4>
@@ -32,6 +31,7 @@ alias test {
   elseif ($1 isnum 2-7) echo -a 2-7!
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 
@@ -39,7 +39,6 @@ Added: mIRC v4.5 (06 Jul 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\halted.html">$halted</a><br>
 <a href="..\identifiers\result.html">$result</a><br>

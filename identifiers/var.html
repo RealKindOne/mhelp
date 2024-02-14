@@ -6,17 +6,16 @@
 <br>
 The <b>$var</b> identifier returns informations about the Nth matching variable name
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $var(var,N)
 </pre>
 <H4>Parameters</H4>
-<br><b>var</b> - the variable name, you can omit the '%' sign; can be a <a href="..\other\wildcard.html">wildcard</a>.
+<b>var</b> - the variable name, you can omit the '%' sign; can be a <a href="..\other\wildcard.html">wildcard</a>.
 <br><b>N</b> - The Nth matching variable, if N is 0, returns the total number of matching variable.
 
 <H4>Properties</H4>
-<br><b>.value</b> - return the value of the variable
+<b>.value</b> - return the value of the variable
 <br><b>.local</b> - return $true if the variable is local, $false otherwise
 <br><b>.secs</b> - return the time left until the variable is automatically unset (-u switch of <a href="..\commands\set.html">/set</a>)
 <br><b>.unset</b> - return the original unset time N passed to /set -uN
@@ -26,11 +25,11 @@ $var(var,N)
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="..\commands\var.html">/var</a><br>
 <a href="..\commands\set.html">/set</a><br>
-
 </body>
 </html>

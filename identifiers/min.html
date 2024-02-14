@@ -6,16 +6,17 @@
 <br>
 The <b>$min</b> identifier returns the minimum from a list of tokens. $min and $max are effectively a short-cut to returning either the first or last token from a $sorttok list, and uses different .prop settings to replicate the different switches used by $sorttok. By default, $min and $max sort the tokens with the same rules used by the $sorttok 'n' switch.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $min(&lt;space delimited tokens&gt;)
 $min(&lt;comma,delimited,tokens&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;list&gt;</b> - If only 1 parameter is passed, that parameter must be a list of tokens space delimited. Otherwise each parameter passed represent an element in the list.
+<b>&lt;list&gt;</b> - If only 1 parameter is passed, that parameter must be a list of tokens space delimited. Otherwise each parameter passed represent an element in the list.
 
 <H4>Properties</H4>
-<br><b>.text</b> - sorts tokens using the same text sorting rules used by $sorttok 'a' switch
+<b>.text</b> - sorts tokens using the same text sorting rules used by $sorttok 'a' switch
 <br><b>.textcs</b> - sorts tokens using the same text sorting rules used by $sorttokcs 'a' switch
 <br><b>.nick</b> - sorts tokens using the same text sorting rules used by $sorttok 'c' switch
 
@@ -37,6 +38,7 @@ Using the .nick property is the same as using the 'c' switch with $sorttok, wher
 
 <H4>Compatibility</H4>
 Added: mIRC v7.62 (29 Jul 2020)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

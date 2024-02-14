@@ -6,16 +6,18 @@
 </H1>
 <br>
 <br>
+The <b>/parseline</b> command can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the <a href="..\events\On_ParseLine.html">On_ParseLine</a> event.
+<br>
+<br>
+<b>Warning:</b> This feature should only be used, for example, to support features and/or protocols that mIRC does not already support, not to modify standard lines. mIRC maintains internal states based on incoming and outgoing lines. If lines are modified, mIRC may not work correctly
 
-**/parseline** can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the :doc: `on parseline </events/on_parseline>` event.
-
-**Warning**: This feature should only be used, for example, to support features and/or protocols that mIRC does not already support, not to modify standard lines. mIRC maintains internal states based on incoming and outgoing lines. If lines are modified, mIRC may not work correctly
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /parseline -aiotbpnuN [text|&binvar]
 /parseline -q[aiotbpnuN] [text|&binvar]
 </pre>
+
 <H4>Switches</H4>
 
 Required
@@ -32,7 +34,7 @@ Optional
 <br><b>-q</b>
       - Can be used to add a new line to the end of the in/out queue, they are processed after the end of the script execution.
 
-** **Note**: Without -q, you're changing the current line from the :doc: `on parseline </events/on_parseline>` event, you'll get an error otherwise.
+** **Note**: Without -q, you're changing the current line from the <a href="..\events\On_ParseLine.html">On_ParseLine</a> event, you'll get an error otherwise.
 
 
 <br><b>-a</b>
@@ -40,7 +42,7 @@ Optional
 <br><b>-p</b>
       - Used with -q, indicate the line must trigger on parseline
 <br><b>-n</b>
-      - Add a :doc: `$crlf </identifiers/$crlf>` to the end of the line if the line doesn't already end with a $crlf
+      - Add a <a href="..\identifiers\crlf.html">$crlf</a> to the end of the line if the line doesn't already end with a $crlf
 <br><b>-u</b>N
       - Enable/Disable utf8 encoding/decoding of the line. Use N = 1 to enable, 0 to disable
 
@@ -51,9 +53,7 @@ Optional
 ** For incoming lines, if $parseutf is $true, after the PARSELINE event, mIRC will UTF-8 decode the line before processing it. You can prevent this by using -u0.
 
 <H4>Parameters</H4>
-
-
-<br><b>[text|&binvar]</b>
+<b>[text|&binvar]</b>
       - The text or binvar parameter depending on if you used the -t or -b switch
 
 <H4>Example</H4>
@@ -70,6 +70,7 @@ Keep a window open after parting the channel is now possible:
 <br><b>Note:</b> You'll have to use "/parseline -qot join #channel" to join the channel back, this is because /join does not /join if the window exist, assuming you're on the channel
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)
 
@@ -78,8 +79,7 @@ None
 
 <H4>See also</H4>
 
-
-    * :doc: `on parseline </events/on_parseline>`
+<a href="..\events\On_ParseLine.html">On_ParseLine</a><br>
 <a href="..\identifiers\parseutf.html">$parseutf</a><br>
 </body>
 </html>

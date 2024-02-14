@@ -6,25 +6,22 @@
 </H1>
 <br>
 <br>
-
 The <b>/quote</b> command has been deprecated by The <b>/raw</b> command and can be used to send text to the server AS IS.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /quote -qn &lt;string&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-q</b>
+<b>-q</b>
       - Prevents the text being sent to the server from being printed to the window.
 <br><b>-n</b>
       - Prevents UTF-8 encoding when sending characters in the 0-255 range.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;string&gt;</b>
+<b>&lt;string&gt;</b>
       - The data to be sent to the server
 
 <H4>Example</H4>
@@ -32,6 +29,7 @@ The <b>/quote</b> command has been deprecated by The <b>/raw</b> command and can
 ; send "héllo World!" without encoding the é in utf8
 /quote -nq PRIVMSG #mIRC :héllo World!
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 
@@ -39,7 +37,6 @@ Added: mIRC v4.5 (06 Jul 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\remote.html">$remote</a><br>
 <a href="..\identifiers\rawmsg.html">$rawmsg</a><br>

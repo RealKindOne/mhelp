@@ -6,13 +6,12 @@
 <br>
 The <b>$submenu</b> can be used in popups definition to dynamically create a popup
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $submenu($id($1))
 </pre>
 <H4>Parameters</H4>
-<br><b>$id</b> - The name of the identifier called by mIRC, the parameter passed to it is always $1, used by mIRC to pass information to your identifier.
+<b>$id</b> - The name of the identifier called by mIRC, the parameter passed to it is always $1, used by mIRC to pass information to your identifier.
 <br>
 
 It calls $id first with the parameter "begin" then will pass an incremented integer starting at 1 and will increase as long as you return a correct popups definition, then will send "end"
@@ -41,6 +40,7 @@ alias animal {
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

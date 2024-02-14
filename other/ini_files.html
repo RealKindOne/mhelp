@@ -1,0 +1,122 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>INI Files</H1>
+<br>
+<br>
+An '''initialization file''' (also known as '''INI file''') is a plain text file with a distinct structure that allows for more convenient and organized data storage. An initialization file is convenient and permanent storage space, however it relatively slow compared to window buffers and [[Hash Tables - mIRC|hash tables]]. If speed is needed, [[Hash Tables - mIRC|hash tables]] are a much superior choice.
+
+== File Structure ==
+An ini file is composed of names, values, sections, and comments.
+
+=== Property ===
+A property is the basic item that makes up the ini file. An equal sign delimiter separates the name from the value (name being on the left of the equal sign). Every name has a value associated with it.
+
+<pre class ="code">item   = value
+item2  = value 2</pre>
+
+=== Section ===
+
+Sections Parameters are grouped together into a section. The name of the section is placed on a line of its own (enclosed by a pair of square brackets). All parameters after the section are automatically associated with that section.
+
+<pre class ="code">[section]
+item = value</pre>
+
+== Storing Information ==
+mIRC offers a number of convenient commands and identifiers to read/write from/to an ini file.
+
+=== Writing to an ini file ===
+The writeini command can be used to write an item (and its value) in a specific section of the ini file.
+
+<pre class ="code">/writeini [-n] <inifile> <section> <item> <value></pre>
+
+The -n switch no longer exists on mIRC 7.x and newer. On older mIRCs: The -n switch is used when the file exceeds 65,536 bytes (64 KB). It's a good idea to place it there if you think the file will get pretty big in the future.
+
+For example:
+
+<pre class ="code">writeini reminder.ini birthday jenna 2/28/1983
+writeini reminder.ini birthday Mike 10/10/1990</pre>
+
+Will create the following file:
+
+<pre class ="code">[birthday]
+jenna  = 2/28/1983
+Mike   = 10/10/1990</pre>
+
+You can easily see the actual ini file using the following command:
+
+<pre class ="code">//run notepad.exe reminder.ini</pre>
+
+=== Reading from an INI ===
+Reading a property from an INI file is pretty simple:
+
+<pre class ="code">$readini(filename[, np], section, item)</pre>
+
+The n switch is used when you do not want to evaluate the line. (This is especially helpful when you let the users save setting on your bot, you need to always think the worse of the users and how they might exploit your scripts)
+
+The p switch is used to make mIRC evaluate pipes | as is instead of plain text.
+
+For example (using the file we created in the previous example):
+
+<pre class ="code">echo -a Mike: $readini(reminder.ini, n, birthday, mike)
+echo -a Jenna: $readini(reminder.ini, n, birthday, jenna)</pre>
+
+Will output:
+
+<pre>Mike: 10/10/1990
+Jenna: 2/28/1983</pre>
+
+=== Security Consideration ===
+'''ALWAYS''' use the ''''n'''' switch unless you have a very good reason to not use it!
+
+=== Deleting Items and Sections ===
+
+The remini can be used to delete an item or an entire section from an ini file:
+
+<pre class ="code">;remove an item
+/remini <inifile> <section> <item>
+;remove an entire section
+/remini <inifile> <section></pre>
+
+For example:
+
+<pre class ="code">/remini reminder.ini birthday mike</pre>
+
+will remove mike's entry from the ini file.
+
+=== Other INI file manipulations ===
+
+Here is some code written by Sophist for the [https://github.com/DukeLupus/dlFilter dlFilter mIRC script] to provide some identifiers for mIRC options stored in the ini file for which there are no standard identifiers. These examples are those that were needed for dlFilter; there are many more to be discovered.
+
+<pre class ="code">; Get mIRC options not available through a standard identifier
+alias prefixown return $mIRCopt(options,0,23)
+alias showmodeprefix return $mIRCopt(options,2,30)
+alias enablenickcolors return $mIRCopt(options,0,32)
+alias shortjoinsparts return $mIRCopt(options,2,19)
+alias windowbuffer return $mIRCopt(options,3,1)
+alias usesinglemsg return $mIRCopt(options,0,22)
+alias sendPlingNickAsPrivate return $mIRCopt(options,1,23)
+alias dccIfFileExists {
+  var %value = $mIRCopt(options,3,27)
+  if (%value == 0) return Ask
+  if (%value == 1) return Resume
+  if (%value == 2) return Overwrite
+  if (%value == 3) return Cancel
+  return Unknown
+}
+
+alias -l mIRCopt {
+  var %item $2
+  if ($2 isnum) %item = n $+ $2
+  var %ini $readini($mircini,n,$1,%item)
+  if ($3 == $null) return %ini
+  return $gettok(%ini,$3,$asc($comma))
+}</pre>
+
+[[Category:mIRC|ini files]]
+
+== mIRC.ini ==
+The file that stores mIRC's settings is named mirc.ini. Some [https://web.archive.org/web/20060108113735/http://www.mishscript.de/help/mircini/index.htm outdated documentation] is available via the WayBack Machine.
+
+</body>
+</html>

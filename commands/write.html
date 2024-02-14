@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/write</b> command can be used to manipulate a text file in various ways. Used without switches mIRC will append the line to the end of the text file. If the file does not exist, mIRC will create it. If &lt;words&gt;, &lt;wildcard&gt;, or &lt;regex&gt; contains spaces, they must be enclosed by a pair of quotes.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /write [-cidnamN l&lt;line&gt; s&lt;words&gt; w&lt;wildcard&gt; r&lt;/regex/&gt;] &lt;filename&gt; [text]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-c</b>
+<b>-c</b>
       - Clears the entire file before writing to it
 <br><b>-i</b>
       - Inserts the text at a given line instead of replacing it
@@ -29,24 +28,22 @@ The <b>/write</b> command can be used to manipulate a text file in various ways.
 <br><b>-l</b>
       - Line number for the line to write/modify/delete
 <br><b>-s</b>
-      - Operates on a line which start with <words>
+      - Operates on a line which start with &lt;words&gt;
 <br><b>-w</b>
-      - Operates on a line which match the <wildcard> expression.
+      - Operates on a line which match the  <a href="..\other\wildcard.html">wildcard</a> expression.
 <br><b>-r</b>
       - same as -w - but uses a regular expression.
 <br><b>-m</b>N
       - handle the $crlf addition before a line:
-<pre class = "code">
-   There is a difference in how /write behave vs /write -s or /write -w when it comes to adding a $crlf before your line, if mirc is going to add the line to end of the file and that the last line does not have a $crlf already.
+<pre class ="code">
+There is a difference in how /write behave vs /write -s or /write -w when it comes to adding a $crlf before your line, if mirc is going to add the line to end of the file and that the last line does not have a $crlf already.
 
-   /write will always put the $crlf, whereas /write -ws won't. For compatibility and to allow you to control exactly when and if a $crlf is going to be added in this case:
+/write will always put the $crlf, whereas /write -ws won't. For compatibility and to allow you to control exactly when and if a $crlf is going to be added in this case:
 
-   When N = 0, the current behavior is used, N = 1 means a $crlf is added only if a $crlf isn't always there, N = 2 means a $crlf is never added.
+ When N = 0, the current behavior is used, N = 1 means a $crlf is added only if a $crlf isn't always there, N = 2 means a $crlf is never added.
 </pre>
 <H4>Parameters</H4>
-
-
-<br><b>&lt;filename&gt;</b>
+<b>&lt;filename&gt;</b>
       - The file name to manipulate
 <br><b>[text]</b>
       - The text to be written to the file
@@ -77,6 +74,7 @@ Alias Example {
   write -dl1 Example.txt
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.8 (25 Nov 1995)
 
@@ -84,7 +82,6 @@ Added: mIRC v3.8 (25 Nov 1995)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\read.html">$read</a><br>
 <a href="..\identifiers\readn.html">$readn</a><br>

@@ -1,26 +1,31 @@
-{{mirc title|Aliases}}
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>Aliases</H1>
+<br>
+<br>
 In many cases, it is easier to code a large program by working with a single, small, unit of logic at a time. Aliases, more commonly known in other languages as functions, are blocks of code which performs a specific task and can be relatively independent of the rest of the script. Most aliases are created to be used multiple times by different scripts. In addition to their normal usage, aliases can also be used to create custom [[#Shortcuts_and_Function_Keys|shortcuts and function keys operations]].
 
 === Syntax: ===
 Aliases have the following basic syntax:
 
-<syntaxhighlight lang="mIRC">;single-line alias
+<pre class ="code">;single-line alias
 alias aliasName /commands
 
 ;multi-line alias
 alias aliasName {
   /commands
-}</syntaxhighlight>
+}</pre>
 
 A simple hello world alias would look like this:
 
-<syntaxhighlight lang="mIRC">Alias hello {
+<pre class ="code">Alias hello {
   echo -a Hello World!
-}</syntaxhighlight>
+}</pre>
 
 The keyword "alias" is required to tell mIRC the following code is an alias. "hello" is the name of the alias. Everything inside the pairs of brackets ({ and }) will get executed when this alias is called. To call that alias, we would simple call the name of it:
 
-<syntaxhighlight lang="mIRC">//hello</syntaxhighlight>
+<pre class ="code">//hello</pre>
 
 This will print:
 
@@ -32,9 +37,9 @@ Data can be passed to aliases via the argument list. The argument list is always
 
 If we called an alias called "example" like this:
 
-<syntaxhighlight lang="mIRC">/example A B C D
+<pre class ="code">/example A B C D
 ; or
-... $example(A, B, C, D)</syntaxhighlight>
+... $example(A, B, C, D)</pre>
 
 Alias example will have $1 returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
 
@@ -44,9 +49,9 @@ The exact rules on how $N work is identical to the how they work with the [[Toke
 
 The aliases tab is designed specifically for aliases only. Note that because it can only be used for aliases, the "alias" prefix must be left out:
 
-<syntaxhighlight lang="mIRC">aliasName {
+<pre class ="code">aliasName {
   ; commands
-}</syntaxhighlight>
+}</pre>
 
 '''Note:''' Aliases from the aliases tab can freely call aliases from the remote tab and vice versa.
 
@@ -97,61 +102,63 @@ Given the alias prefixes above, you cannot start the name of an alias with a com
 
 A command usually does not return any value, but instead, it processes the arguments it's given. In a command, every argument is separated by a space. $0 will contain the total number of arguments passed to that alias. $N (where N is a number 1 to $0) will contain the arguments. For example:
 
-<syntaxhighlight lang="mIRC">alias example {
+<pre class ="code">alias example {
   echo -a $0 arguments passed
   echo -a The first 3 arguments are:
   echo -a Arg1 = $1
   echo -a Arg2 = $2
   echo -a Arg3 = $3
-}</syntaxhighlight>
+}</pre>
 
 We can run the code using the follow statement:
 
-<syntaxhighlight lang="mIRC">/example A B C D</syntaxhighlight>
+<pre class ="code">/example A B C D</pre>
 
 This will produce the following result:
 
-<pre>4 arguments passed
+<pre>
+4 arguments passed
 The first 3 arguments are:
 Arg1 = A
 Arg2 = B
-Arg3 = C</pre>
+Arg3 = C
+</pre>
 
 == Identifiers ==
 
 Generally, an identifier is a value-returning alias. This means we pass some arguments to that alias and we expect it to return something in return. Identifiers are prefixed with the dollar symbol ($). An identifier may or may not need arguments to be passed to it. If the identifier requires that some arguments be passed to it, the arguments must be in a parenthesis, comma delimited.
 
-<syntaxhighlight lang="mIRC">;This identifier does not need any arguments
+<pre class ="code">;This identifier does not need any arguments
 echo -a $me
 ;This identifier requires that we pass it some arguments:
-echo -a $calc(1 + 1)</syntaxhighlight>
+echo -a $calc(1 + 1)</pre>
 
 Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the '''/return''' keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
 
-<syntaxhighlight lang="mIRC">alias example {
+<pre class ="code">alias example {
   return hello there!
-}</syntaxhighlight>
+}</pre>
 
 we can call that identifier using like this:
 
-<syntaxhighlight lang="mIRC">//echo -a $example</syntaxhighlight>
+<pre class ="code">//echo -a $example</pre>
 This will print:
 
 <pre>hello there!</pre>
 
 By default, 'return' strips leading/trailing/consecutive spaces from the result before returning it. Consider the following aliases:
-<source lang="mIRC">
+<pre class ="code">
 alias example_result   return   $str($chr(32),2) $+ a $+ $str($chr(32),2) $+ a $+ $str($chr(32),2)
 alias example_resultex returnex $str($chr(32),2) $+ a $+ $str($chr(32),2) $+ a $+ $str($chr(32),2)
-</source>
+</pre>
 
 'return' removes the extra spaces, while returnex preserves them, as shown by:
-<source lang="mIRC">
+<pre class ="code">
 //echo -a $replace($example_result  ,$chr(32),.)
 output: a.a
 //echo -a $replace($example_resultex,$chr(32),.)
 output: ..a..a..
-</source>
+</pre>
 
 == Identifiers Properties ==
 
@@ -159,10 +166,10 @@ Properties are a unique feature to identifiers with arguments. They allow you to
 
 Consider this basic alias that returns some quantity of degrees in radians.
 
-<syntaxhighlight lang="mIRC">; converts degrees to radians
+<pre class ="code">; converts degrees to radians
 alias convert {
   return $calc($1 * $pi / 180)
-}</syntaxhighlight>
+}</pre>
 
 For example:
 
@@ -173,13 +180,13 @@ For example:
 
 We can add two properties to make it convert from degrees to radians and and vice versa.
 
-<syntaxhighlight lang="mIRC">; converts degrees to radians
+<pre class ="code">; converts degrees to radians
 alias convert {
   if ($prop == deg2rad) return $calc($1 * $pi / 180)
   if ($prop == rad2deg) return $calc($1 * 180 / $pi)
   ; invalid property
   return 0
-}</syntaxhighlight>
+}</pre>
 
 For example:
 
@@ -196,7 +203,7 @@ Although most aliases do only serve as identifiers or commands, it is possible t
 
 Consider the following alias, logfind. Logfind finds the first matching line from the log for the active window. If it's called as an identifier, we wil return the matching line. If it's called as a command, we will print it instead:
 
-<syntaxhighlight lang="mIRC">; Finds the first matching line from the log for the active window
+<pre class ="code">; Finds the first matching line from the log for the active window
 alias logfind {
   ; find the log file
   var %logfile $window($active).logfile
@@ -205,7 +212,7 @@ alias logfind {
   if ($isid) return %match
   ; print it if it was a command
   echo -agc info * Logfind Match: %match
-}</syntaxhighlight>
+}</pre>
 
 We can call that alias as an identifier, for example:
 
@@ -223,13 +230,13 @@ Also note that when an alias is called as a /my_alias command it inherits the $p
 
 You can intercept any script's use of a built-in command, as long as they have not used the ! prefix to force execution of the built-in command without searching all the aliases for a match. For example, here's something to trap echo commands and remove colors, bold, etc from the displayed string:
 
-<source lang="mIRC">
+<pre class ="code">
 alias echo {
   if ($1 isnum 0-) var %text $strip($2-)
   else             var %text $strip($1-)
   echo %text
 }
-</source>
+</pre>
 
 Because an alias is not re-entrant, using 'echo' inside an alias of the same name cannot be intercepted by that same alias, though it can be trapped by another alias named echo, unless this alias calls it like !echo. This does not completely trap all colors, because it does not remove the color from "/echo -c ctcp message".
 
@@ -239,17 +246,17 @@ Incorrect trapping of built-in commands is one source of bugs that can be easy t
 
 Something else which might need to be preserved is the state of $v1 and $v2. Consider the following while the above 'alias echo' is trapping the :
 
-<source lang="mIRC">
+<pre class ="code">
 //if (var1 != var2) echo -a $ $+ v1 is $v1 and $ $+ v2 is $v2 | echo test | !echo and now $ $+ v1 is $v1 and $ $+ v2 is $v2
 output:
 $v1 is var1 and $v2 is var2
 test
 and now $v1 is test and $v2 is 0-
-</source>
+</pre>
 
 Note how the first echo interprets $v1 and $v2 before sending to the alias echo, so the values are not altered. But now see how the identical message has been altered by the if() statement within alias echo, due to $v1 and $v2 created in one alias being seen in the editbox or another alias. In case this can be an interference for the calling scripts, you can save the $v1 and $v2 values before altering them, then restore them afterwards:
 
-<source lang="mIRC">
+<pre class ="code">
 alias echo {
   var -p %v1 $v1 , %v2 $v2
   if ($1 isnum 0-) var %text $strip($2-)
@@ -257,7 +264,7 @@ alias echo {
   echo %text
   if (%v1 == %v2) noop
 }
-</source>
+</pre>
 
 This saves the $v1 and $v2 as they exist when entering the alias. Then before exit, it creates a dummy if() statement which has the effect of restoring them.
 
@@ -269,19 +276,19 @@ One choice for your script is to override the background while setting text colo
 
 Another choice is to use echo's -c switch to set the color which that user has assigned in their Alt+K dialog. For example, if your alias wishes to mimic a blue error message similar to those from built-in mIRC commands:
 
-<source lang="mIRC">/echo -ac info this displays in the same color as mIRC error messages</source>
+<pre class ="code">/echo -ac info this displays in the same color as mIRC error messages</pre>
 
 == Additional alias features: ==
 
 Regardless of whether or not an alias was called as a command or as an identifier, if it used the /return command to return back, you can get that value using the '''$result''' identifier.
 
-<syntaxhighlight lang="mIRC">alias example {
+<pre class ="code">alias example {
   foo
   echo -a $result
 }
 alias foo {
   return result!
-}</syntaxhighlight>
+}</pre>
 
 Output:
 
@@ -290,20 +297,20 @@ result!</pre>
 
 In addition, aliases can be coded to work in verbose mode or not. If the command was prefixed with the dot (.) symbol, $show will return $false, otherwise it will $true. For example:
 
-<syntaxhighlight lang="mIRC">alias example {
+<pre class ="code">alias example {
   if ($show) {
     ;Indicate we are doing something
     echo -a we are doing something
     ;Show more debug info.
   }
   ;do something
-}</syntaxhighlight>
+}</pre>
 
 Output:
 
-<syntaxhighlight lang="mIRC">/example
+<pre class ="code">/example
 we are doing something
-/.example</syntaxhighlight>
+/.example</pre>
 
 '''Note:''' /echo -q is a built-in alternative to doing that, the echo will be displayed or not depending on the value of $show.
 
@@ -326,20 +333,20 @@ alias sF9 { echo -sg shift+F9 executed - skipping currently playing sound file! 
 
 By default, every alias is public. This means any script from any file is able to call that alias (even from the editbox). An alias can be made local by using the -l switch. A local alias is only visible to local scripts - scripts that are in the same file as the alias itself. This is especially useful when your aliases have common names and you don't want to cause conflicts when distributing your script to other people.
 
-<syntaxhighlight lang="mIRC">Alias -l <name> {
+<pre class ="code">Alias -l <name> {
   ;code
-}</syntaxhighlight>
+}</pre>
 
 === Exposing private and public functionality ===
 
 It's possible to allow more functionality for local aliases and hide that from outside scripts.
 
-<syntaxhighlight lang="mIRC">alias -l example {
+<pre class ="code">alias -l example {
   echo -a Local code called me!
 }
 alias example {
   echo -a Non-local script called me!
-}</syntaxhighlight>
+}</pre>
 
 If some code local to that script file calls example, the local alias will execute. If some other code outside of this script file calls it the second alias will execute instead. Note that the local alias must be on top, or else the other aliases inside that script will see only the non-local alias above it.
 
@@ -355,13 +362,16 @@ The order used by mIRC to locate your alias is as follow:
 
 '''Note:''': The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
 
-== See also ==
-* {{mIRC|$isalias}}
-* {{mIRC|$script}}
-* {{mIRC|$scriptline}}
-* {{mIRC|$result}}
-* {{mIRC|/return}}
-* {{mIRC|/returnex}}
-* {{mIRC|$color}}
-* {{mIRC|/echo}}
-* {{mIRC|$v1}}
+<H4>See also</H4>
+
+<a href="..\identifiers\isalias.html">$isalias</a><br>
+<a href="..\identifiers\script.html">$script</a><br>
+<a href="..\identifiers\scriptline.html">$scriptline</a><br>
+<a href="..\identifiers\result.html">$result</a><br>
+<a href="..\commands\return.html">/return</a><br>
+<a href="..\commands\returnex.html">/returnex</a><br>
+<a href="..\identifiers\color.html">$color</a><br>
+<a href="..\commands\echo.html">/echo</a><br>
+<a href="..\identifiers\v1.html">$v1</a><br>
+</body>
+</html>

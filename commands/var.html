@@ -6,7 +6,6 @@
 </H1>
 <br>
 <br>
-
 The <b>/var</b> command can be used to replace the value of existing variables or create a new variables and assign them values. By default /var creates local variable, this can be changed via the -g switch ( <a href="set.html">/set</a> command can be used to set global variables by default).
 <br>
 The Local Variables created by /var exist only within the :event: or ALIAS where they were created. If your event or alias calls another alias, that alias cannot see the local values unless passed to them in another way, such as a parameter used when calling the alias.
@@ -22,6 +21,7 @@ Internally, the var command simply breaks down the line (by commas) and passes t
 
 Will create a variable like %1209425041 with the value of 'ABC'; Similarly this can be used with $nick and $chan in on events.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /var [-sgnip] &lt;%var&gt; [[= ]value]
@@ -30,10 +30,9 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 /var [-sg] &lt;%var&gt; [[= ]value][, &lt;%var&gt; [[= ]value]][, ...]
 /var [-sg] &lt;%var&gt; [= ]&lt;number&gt; &lt;+ | - | * | / | % | &&gt; &lt;number&gt;[, ...]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Display variable assignment value
 <br><b>-g</b>
       - Creates a global variable instead
@@ -55,9 +54,7 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br><b>Note:</b> much of the usage of /var is similar to that of /set except that switches like -uN or -e or -z or -k have no meaning for local variables which cease to exist when the event or alias is finished.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;%var&gt;</b>
+<b>&lt;%var&gt;</b>
       - The name of the variable
 <br><b>[value]</b>
       - The value to assign to the variable. If not present or is $null the local var is unset
@@ -108,7 +105,7 @@ returns: 20
 //var %b 7 | var %a %b / 3 | echo -a %a
 returns: 2.333333
 //var %a $ctime % 3600 | echo -a %a seconds since the top of the hour
-returns: <number> seconds since the top of the hour
+returns: &lt;number&gt; seconds since the top of the hour
 //var %a 2^16 | var %b 2 ^ 16 | echo -a %a because not tokenized by spaces vs %b
 returns: 2^16 because not tokenized by spaces vs 65536
 //var %b 7 , %c 11 , %a %b & %c | echo -a a= %a b= $base(%b,10,2) c= $base(%c,10,2) b&c= $and(%b,%c)
@@ -147,7 +144,7 @@ Return:
 1. = testa vs = = testb
 2. testa vs = testb
 </pre>
-By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set) 
+By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set)
 <pre class ="code">
 The -p changes /var and /set to allow these values:
 //var -p %a "" | var -p %b test $+ $chr(32)  | echo -a 1. %a vs $len(%b)
@@ -156,13 +153,14 @@ Return:
 1. "" vs 5
 2. vs 4
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (23 Sep 1999)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\var.html">$var</a><br>
 <a href="set.html">/set</a><br>

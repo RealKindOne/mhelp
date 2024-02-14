@@ -6,24 +6,21 @@
 </H1>
 <br>
 <br>
-
 The <b>/topic</b> command enables changing, displaying, or removing the #channel topic, subject to having permissions allowed by the network.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /topic [-r] &lt;#channel&gt; [topic_string]
 /topic -r &lt;#channel&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-r</b>
+<b>-r</b>
       - remove the topic instead
 
 <H4>Parameters</H4>
-
-
-<br><b>[topic string]</b>
+<b>[topic string]</b>
       - new content for #channel topic
 
 <H4>Example</H4>
@@ -40,15 +37,16 @@ The <b>/topic</b> command enables changing, displaying, or removing the #channel
 <br>$chan(#channelname).topic continues to report the old string until server sends the RAW event indicating the new topic<br>Prior to v7.68 topic could only be deleted like: //topic $active $chr(58)
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.9 (06 Jan 1996)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
 
-
 <a href="..\identifiers\chan.html">$chan</a><br>
-    * :doc: `ON TOPIC </events/on_topic>`
+<a href="..\events\On_Topic.html">On_Topic</a><br>
 </body>
 </html>

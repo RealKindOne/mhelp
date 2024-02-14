@@ -29,6 +29,7 @@ By adding a number after the '-' character, you can get multiple consecutive wor
 
 So $1- means from the first word/parameter to the last/parameter, aka from the first word onward and $3- is from the third word/parameter onward.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $1-
@@ -53,7 +54,6 @@ on *:text:*:#:echo -s $nick said $1-
 
 Creating the space-delimited $1- by tokenizing with commas:
 <pre class ="code">
-
 //var %a $readini($mircini,options,n4) | tokenize 44 %a | echo 4 -a %a tokenizes as $1- | echo 3 -a your dcc send port range is $13 through $26
 </pre>
 
@@ -62,7 +62,6 @@ Tokenizing by capital X creates tokens containing internal, trailing, leading sp
 <br>The result is the same when the leading, trailing, consecutive capital X's are removed
 <pre class ="code">
 //tokenize 88 Xtest x test XXX testX | echo -a $qt($1) vs $qt($2)
-
 </pre>
 
 Echo removes leading/trailing/consecutive spaces from the display. Replacing spaces with codepoint 160 shows that $1- also removes those same spaces, but they're preserved in $parms. This example does not hide the original text, so you can compare the original against these values when the original contains consecutive spaces:
@@ -80,7 +79,7 @@ $1- and $parms are different values within the command parameter for $findfile a
 //tokenize 32 foo bar | echo 4 -a $ $+ 1 is $qt($1) and $ $+ parms is $qt($parms) - $findfile($mircdir,$nopath($mircini),0,1,echo 3 -a $ $+ 1 is a different string $1 and parms is $parms ) $chr(22) and $ $+ 1 & $ $+ parms are back to being $qt($1) & $qt($parms)
 result:
 $1 is a different string C:\path\mirc.ini and parms is C:\path\mirc.ini
-$1 is "foo" and $parms is "" - 1  and $1 & $parms are back to being "foo" & "" 
+$1 is "foo" and $parms is "" - 1  and $1 & $parms are back to being "foo" & ""
 </pre>
 
 Note: even though $parms preserves consecutive spaces, a /command like /dcc send or /copy or /write loses the extra space, and either does not work, or in some cases finds the similarly named single-spaced filename.
@@ -100,13 +99,13 @@ In Options/mouse/drop, there are default entries for drag/drop of filenames from
 
 Because $ has special meaning in regex, $1 in the replacement term must be evaluated with [ ] or placed in a variable, as even $eval($1,2) won't work:
 <pre class ="code">
-
 //tokenize 32 foo bar | var %a $1 | echo -a $regsubex(foo bar,( $+ $1 $+ ),new $qt( [ $1 ] ) )
 //tokenize 32 foo bar | var %a $1 | echo -a $regsubex(foo bar,( $+ $1 $+ ),new $qt(%a) )
 </pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -157,13 +157,13 @@ The code above will indeed print:
 '''Note:''' The exe alias was never called, not even once.
 Before we move on, it is important to note that if we have a code segment inside another code segment. That code segment follows the rules all over from the start. Consider the following example:
 
-<pre class = "code">//echo -a [ [ [ a $!me ] ] ] <=> [ [ [ a [ $!me ] ] ] ] <=> [ [ [ a [ [ $!me ] ]  ] ] ]</pre>
+<pre class = "code">//echo -a [ [ [ a $!me ] ] ] &lt;=&gt; [ [ [ a [ $!me ] ] ] ] &lt;=&gt; [ [ [ a [ [ $!me ] ]  ] ] ]</pre>
 
-The last part had a sub-code segment with no spaces: "[ [ $!me ] ]". Since $!me has no spaces, it will be evaluated once (to $me) and then the outer brackets will evaluate it once again to your name. In my case we get "a David". Since now we have a space in the code segment, all the outer brackets are nullified (as with the other two cases separated by <=>).
+The last part had a sub-code segment with no spaces: "[ [ $!me ] ]". Since $!me has no spaces, it will be evaluated once (to $me) and then the outer brackets will evaluate it once again to your name. In my case we get "a David". Since now we have a space in the code segment, all the outer brackets are nullified (as with the other two cases separated by &lt;=&gt;).
 
 The code above will produce something like:
 
- a $me <=> a $me <=> a David
+ a $me &lt;=&gt; a $me &lt;=&gt; a David
 
 <H4>Multiple evaluations</H4>
 If we follow the simple rule above, we can easily evaluate a specific code segment multiple times. Consider the following example:
@@ -224,11 +224,11 @@ The rule about [ A $+ B ] is:
 
  The '''[ token_A $+ token_B ]''' arrangement will cause token_A to evaluate once and then be concatenated to token_B (evaluated zero times). and then the concatenated string is evaluated. I.e.:
 <pre class ="code">
- [ A $+ B  ]  <=> $($(A, 1) $+ $(B, 0), 2)
+ [ A $+ B  ]  &lt;=&gt; $($(A, 1) $+ $(B, 0), 2)
 </pre>
 Additional pairs of $+ are treated in the same way as if they were grouped using evaluation brackets:
 <pre class ="code">
- [ A $+ B $+ C ] <=> [ [ A $+ B ] $+ C ]
+ [ A $+ B $+ C ] &lt;=&gt; [ [ A $+ B ] $+ C ]
 </pre>
 Which can be written as:
 
@@ -255,11 +255,11 @@ With the A [ $+ B ] Format, we have:
 
  The token_A [ $+ token_B ] arrangement will cause token_A (evaluated zero times) to be concatenated to token_B (evaluated zero times) and then the concatenated string is evaluated. I.e.:
 <pre class ="code">
- A [ $+ B ] <=> $($(A, 0) $+ $(B, 0), 2)
+ A [ $+ B ] &lt;=&gt; $($(A, 0) $+ $(B, 0), 2)
 </pre>
 Note that a $+ at the beginning of an evaluation bracket causes this zero-eval behavior to propagate to every other token in the group:
 
-<pre class = "code">A [ $+ B $+ C $+ ... ] <=> $($(A, 0) $+ $(B, 0) $+ $(C, 0) $+ ..., 2)</pre>
+<pre class = "code">A [ $+ B $+ C $+ ... ] &lt;=&gt; $($(A, 0) $+ $(B, 0) $+ $(C, 0) $+ ..., 2)</pre>
 
 Consider the following example. Before of the initial $+, all the other identifiers are never evaluated before being concatenated:
 
@@ -288,7 +288,7 @@ As expected, we get:
 <H4>A [ $+ [ B ] ] Format</H4>
 The A [ $+ B ] format is not very helpful alone since B is never evaluated. We can combine our ability to evaluate things multiple times with the A [ $+ B ] format to form some more usable things.
 
-<pre class = "code">A [ $+ [ B ] ] <=> $($(A, 0) $+ $(B, 1), 2)</pre>
+<pre class = "code">A [ $+ [ B ] ] &lt;=&gt; $($(A, 0) $+ $(B, 1), 2)</pre>
 
 The most common application of this is '''dynamic variables'''. Consider the following segment:
 

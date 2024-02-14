@@ -5,16 +5,17 @@
 <br>
 <br>
 The <b>$sslhash</b> identifier returns the SSL certificates for the active connection, or $null if no active certificate
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $sslhash(&lt;method&gt;,&lt;type&gt;)
 $sslhash(&lt;md5|sha1|sha256|sha512&gt;,&lt;p|s&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;method&gt;</b> - (md5, sha256, sha512, ecdsa)
+<b>&lt;method&gt;</b> - (md5, sha256, sha512, ecdsa)
 <br><b>&lt;type&gt;</b> - p = client certificate, s = server certificate
 <H4>Properties</H4>
-<br><b>.babble</b> - returns bubble babble string instead of hash digest
+<b>.babble</b> - returns bubble babble string instead of hash digest
 <br><b>.colons</b> - returns hash digest with pairs of hex digits separated by colons
 <H4>Example</H4>
 <pre class ="code">
@@ -32,6 +33,7 @@ $sslhash(&lt;md5|sha1|sha256|sha512&gt;,&lt;p|s&gt;)
 Caused by the 1st parm not being one of the 5 valid types, or the 2nd parm not being 's' or 'p'
 <H4>Compatibility</H4>
 Added: mIRC v7.68 (02 Apr 2022)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -6,18 +6,17 @@
 <br>
 The <b>$highlight</b> identifier, if used without parameters, returns a $true/$false value depending on if you have the highlight features enabled in mIRC, otherwise returns informations about the highlight entries.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $highlight
 $highlight(N/text)[.property]
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - if N is passed, return the Nth line in the highlight mIRC dialog's list
+<b>N</b> - if N is passed, return the Nth line in the highlight mIRC dialog's list
 <br><b>text</b> - if non-number parameter is passed, return the value of the corresponding entry in mIRC's highlight dialog list in option for that string.
 
 <H4>Properties</H4>
-<br><b>.text</b> - returns the matching text of the entry
+<b>.text</b> - returns the matching text of the entry
 <br><b>.color</b> - returns the color of the line being highligted
 <br><b>.sound</b> - returns the sound associated with the highlight if any ("beep" or a filename)
 <br><b>.flash</b> - returns 0 if flash is not set, otherwise it returns the corresponding number of repeat time
@@ -32,6 +31,7 @@ None
 
 <H4>Compatibility</H4>
 Added: mIRC v5.11 (11 Sep 1997)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

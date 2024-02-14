@@ -8,15 +8,16 @@ The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevate
 
 This event also fills the <a href="..\identifiers\vnick.html">$vnick</a> identifier with the nickname of the user who was added to [[Channel voice - IRC|Channel voice]] status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the user who added them.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
 <br><b>&lt;matchtext&gt;</b> - The text to match in the event..
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels where the event listens.
-<br><b>#</b> - Any channel if left by itself, otherwise refers to a specific channel
-<br><b>[,#]</b> - List of specific channel names
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel if left by itself, otherwise refers to a specific channel
+<br><span style="margin-left: 20px;"><b>[,#]</b> - List of specific channel names
 
 <H4>Example</H4>
 Acknowledge when a user has had their user level elevated to voice:
@@ -24,6 +25,9 @@ Acknowledge when a user has had their user level elevated to voice:
 
 <H4>Compatability</H4>
 Added: mIRC v4.72 (09 Jan 1997)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_DEOP.html">On_DEOP</a><br>

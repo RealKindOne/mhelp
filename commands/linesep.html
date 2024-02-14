@@ -6,7 +6,6 @@
 </H1>
 <br>
 <br>
-
 The <b>/linesep</b> command prints the line separator at a specified target. With no arguments, the line separator is printed to the active window. A line separator is only added if it would not be the first line and if the last line is not already the line separator.<br />
 The line separator can be changed by going into the options dialog (Alt+O) -> Other -> Line separator. If this option dialog shows the line separator is blank, /linesep does not add a blank line. You can also set the line separator to multiple characters like -/- and the entire string is used as the line separator.
 
@@ -22,6 +21,7 @@ Is equivalent to:
 
     //echo -e @x Example Line.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /linesep [ @window | #channel | query | -s | -a ]
@@ -29,10 +29,9 @@ Is equivalent to:
 <br><b>Note:</b> default is -a if no parameter is used.
 
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Print the line separator in the status window
 <br><b>-a</b>
       - Print the line separator in the active window
@@ -40,9 +39,7 @@ Is equivalent to:
 <br><b>Note:</b> This is an echo, so if active window is a -l listbox @window, the echo appears in Status Window.
 
 <H4>Parameters</H4>
-
-
-<br><b>[window]</b>
+<b>[window]</b>
       - The target @window, #channel, or query
 
 <H4>Example</H4>
@@ -70,6 +67,7 @@ A simple line separator between two lines:
     }
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
@@ -77,7 +75,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 
 <a href="aline.html">/aline</a><br>
 <a href="dline.html">/dline</a><br>

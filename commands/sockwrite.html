@@ -6,50 +6,48 @@
 </H1>
 <br>
 <br>
-
 The <b>/sockwrite</b> command allows you to send data to a TCP socket connection previously opened with <a href="sockopen.html">/sockopen</a> (See :doc: `TCP sockets </advanced/sockets.html#tcp*-socket>` ).
 You can specify a <a href="..\other\wildcard.html">wildcard</a> for the name to send the data to all matching sockets.
 
-When the data has been sent, the :doc: `on sockwrite </events/on_sockwrite>` event triggers.
+When the data has been sent, the <a href="..\events\On_SockWrite.html">On_SockWrite</a>  event triggers.
 
-mIRC will queue your request up to 16384 bytes, you must check how many bytes is the send buffer with :doc: `$sock </identifiers/$sock>` ().sq before trying to queue on a socket
+mIRC will queue your request up to 16384 bytes, you must check how many bytes is the send buffer with <a href="..\identifiers\sock.html">$sock().sq</a> before trying to queue on a socket
 
 <br><b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockwrite -abnt &lt;name&gt; [numbytes] &lt;text|&lt;%var&gt;|&binvar&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-b</b>
+<b>-b</b>
       - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise
 <br><b>-n</b>
-      - Appens a :doc: `$crlf </identifiers/$crlf>` to the line being sent if it's not a &binvar and does not already end with a $crlf
+      - Appens a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf
 <br><b>-t</b>
       - Forces mIRC to send anything beginning with a & as plain text
 <br><b>-a</b>
       - Prevents characters in the range 0-255 from being UTF-8 encoded as long as the line only contains characters in the range 0-255
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - The socket name.
 <br><b>[numbytes]</b>
       - If -b has been specified, indicates the number of bytes you want to send.
 <br><b>&lt;text|&lt;%var&gt;|&binvar&gt;</b>
       - The message you want to send, can be a binary variable.
 
-<br><b>Note:</b> if /sockwrite fails, :doc: `$sockerr </identifiers/$sockerr>` is set as well as :doc: `$sock </identifiers/$sock>` ().wserr and :doc: `$sock </identifiers/$sock>` ().wsmsg inside the :doc: `on sockwrite </events/on_sockwrite>` event.
+<br><b>Note:</b> if /sockwrite fails, <a href="..\identifiers\sockerr.html">$sockerr</a> is set as well as <a href="..\identifiers\sock.html">$sock().wserr</a> and <a href="..\identifiers\sock.html">$sock().wsmsg</a> inside the <a href="..\events\On_SockWrite.html">On_SockWrite</a>  event.
 
 <H4>Example</H4>
 <pre class ="code">
 
-See the page for the :doc: `on sockwrite </events/on_sockwrite>` event for more informations and examples about /sockwrite
+See the page for the <a href="..\events\On_SockWrite.html">On_SockWrite</a>  event for more informations and examples about /sockwrite
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
@@ -58,13 +56,12 @@ None
 
 <H4>See also</H4>
 
-
 <a href="sockopen.html">/sockopen</a><br>
 <a href="sockread.html">/sockread</a><br>
 <a href="sockmark.html">/sockmark</a><br>
 <a href="..\events\On_SockWrite.html">On_SockWrite</a><br>
-    * <a href="..\events\On_SockRead.html">On_SockRead</a><br>
+<a href="..\events\On_SockRead.html">On_SockRead</a><br>
 <a href="..\identifiers\sockerr.html">$sockerr</a><br>
-    * :doc: `$sock() </identifiers/$sock>`
+<a href="..\identifiers\sock.html">$sock</a><br>
 </body>
 </html>

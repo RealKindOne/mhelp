@@ -6,21 +6,19 @@
 </H1>
 <br>
 <br>
-
 The <b>/return</b> command immediately leaves the current subroutine and returns a given value back to the calling routine (if one exists). This command behaves like most commands do when it comes to retaining spaces (i.e. multiple spaces are collapsed, leading and trailing are trimmed). If you are looking for a way to preserve spaces consider using the <a href="returnex.html">/returnex</a> command instead.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /return [value]
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>[value]</b>
+<b>[value]</b>
       - The value to return to the calling routine
 
 <H4>Example</H4>
@@ -37,6 +35,7 @@ alias add {
   return $calc($1 + $2)
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 
@@ -44,7 +43,6 @@ Added: mIRC v4.5 (06 Jul 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\result.html">$result</a><br>
 <a href="alias.html">/alias</a><br>

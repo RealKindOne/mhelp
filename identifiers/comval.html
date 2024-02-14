@@ -6,25 +6,25 @@
 <br>
 The <b>$comval</b> identifier returns the member value for the Nth instantiation of the enumerated collection in a COM object.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $comval(name,N,member,&binvar)
 </pre>
 <H4>Parameters</H4>
-<br><b>name</b> -The name of the COM object connection
+<b>name</b> -The name of the COM object connection
 <br><b>N</b> - The Nth item in the list
 <br><b>member</b> - The name of the member you want to access
 <br><b>&binvar</b> - If you use the .result property, a binvar which will be filled with the result.
 
 <H4>Properties</H4>
-<br><b>.result</b> - Goes with the fourth parameter being a binvar, the result is saved to a binary variable, this allows you to access array, which are returned as tokens separated by NULL bytes.
+<b>.result</b> - Goes with the fourth parameter being a binvar, the result is saved to a binary variable, this allows you to access array, which are returned as tokens separated by NULL bytes.
 
 <H4>Example</H4>
 None
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -32,7 +32,5 @@ None
 <a href="comerr.html">$comerr</a><br>
 <a href="..\commands\comopen.html">/comopen</a><br>
 <a href="..\commands\comclose.html">/comclose</a><br>
-
-
 </body>
 </html>

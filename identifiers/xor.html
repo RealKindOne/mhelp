@@ -6,13 +6,12 @@
 <br>
 The <b>$xor</b> identifier returns the binary XOR of 2 numbers.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $xor(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>N1,N2</b> = the numbers, in base10/decimal
+<b>N1,N2</b> = the numbers, in base10/decimal
 
 <br>
 <b>Note:</b> Fractions are ignored. valid range is integers from -(2^32-1) through +(2^32-1). Negative numbers within that range are translated from signed 32bit-int to unsigned 32bit-int. i.e. Negative numbers in the range -4294967295 through -1 are replaced by N+4294967296. Numbers outside that range are replaced by the closest valid number. i.e. 4294967296+ is handled as if it's 4294967295, and -4294967296 and lower are handled as if -4294967295 which is then handled as if -4294967295+4294967296=1. This means the result is always in the range 0 thru +4294967295.
@@ -67,6 +66,7 @@ $xor then returns the answer in base 10. Depending on which bits have changed to
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -173,6 +173,7 @@ commands\loadbuf.html
 commands\localinfo.html
 commands\log.html
 commands\logview.html
+commands\maxdepth.html
 commands\mdi.html
 commands\me.html
 commands\menubar.html
@@ -859,18 +860,23 @@ events\on_wallops.html
 events\on_waveend.html
 other\access_levels.html
 other\aliases.html
+other\binary_variables.html
 other\conditional_statements.html
+other\custom_windows.html
 other\eval_brackets.html
 other\hash_tables.html
 other\injection.html
-other\music.html
+other\local_identifiers.html
+other\picture_windows.html
 other\playing_music.html
 other\regex.html
 other\string_manipulation.html
 other\token.html
 other\variables.html
 other\wildcard.html
-
+sockets\sockets.html
+sockets\tcp.html
+sockets\udp.html
 
 [INFOTYPES]
 

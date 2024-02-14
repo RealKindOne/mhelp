@@ -6,17 +6,18 @@
 <br>
 The <b>$server</b> identifier can be used to return the current server name if you don't provide any parameter, or informations about servers in your IRC server list if you provide one. You can use $server(-1) to get informations about the current connection without relying on the server list
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $server
 $server(N/address,[group])[.property]
 </pre>
 <H4>Parameters</H4>
-<br><b>N/address</b> - references the Nth server or use the name you provided, if N = 0, returns total number of server. If N = -1, it identifies the current connection
+<b>N/address</b> - references the Nth server or use the name you provided, if N = 0, returns total number of server. If N = -1, it identifies the current connection
 <br><b>[group]</b> - If you specify a group name, returns only servers for that group
 
 <H4>Properties</H4>
-<br><b>.desc</b> - returns the description of that server (returns Random server if N = -1 and you're not connecting using the server list)
+<b>.desc</b> - returns the description of that server (returns Random server if N = -1 and you're not connecting using the server list)
 <br><b>.pass</b> - returns the server password
 <br><b>.port</b> - returns the port parameter (same as $port if you're not using the server list)
 <br><b>.group</b> - returns the group name (returns the $network value if N = -1 and you're not connecting using the server list)
@@ -46,10 +47,10 @@ Echo the domain name of the first server in the Dalnet group in the server list 
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v3.5 (07 Aug 1995)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="..\commands\server.html">/server</a><br>
-
 </body>
 </html>

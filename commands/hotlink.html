@@ -6,25 +6,22 @@
 </H1>
 <br>
 <br>
+The <b>/hotlink</b> command can be used to override the default popups menu when right clicking a word and triggering the <a href="..\events\On_HotLink.html">On_HotLink</a> event.
 
-The <b>/hotlink</b> command can be used to override the default popups menu when right clicking a word and triggering the :doc: `on hotlink </events/on_hotlink>` event.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /hotlink -md [@menu]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-m</b>
+<b>-m</b>
       - Creates a custom popup menu using a custom @menu
 <br><b>-d</b>
       - If you are rightclicking a type recognized by mIRC (such as an url, a nickname, or a channel), it adds the default popups for that type to the final popups menu
 
 <H4>Parameters</H4>
-
-
-<br><b>@menu</b>
+<b>@menu</b>
       - a custom menu to be used for the popup menu (only needed if you use -m)
 
 <H4>Example</H4>
@@ -49,6 +46,7 @@ on *:hotlink:*:*:{
   }
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v7.23 (19 Mar 2012)
 
@@ -57,10 +55,9 @@ None
 
 <H4>See also</H4>
 
-
 <a href="..\identifiers\hotline.html">$hotline</a><br>
 <a href="..\identifiers\hotlinepos.html">$hotlinepos</a><br>
 <a href="..\identifiers\hotlink.html">$hotlink</a><br>
-    * :doc: `on hotlink </events/on_hotlink>`
+<a href="..\events\On_HotLink.html">On_HotLink</a><br>
 </body>
 </html>

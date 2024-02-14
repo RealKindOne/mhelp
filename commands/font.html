@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/font</b> command allows you to change the font for the current window. If no parameters are specified, the font dialog pops up, otherwise the specified parameters are used.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /font [-asbegilunkdmz|window] &lt;fontsize&gt; &lt;fontname&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-a</b>
+<b>-a</b>
       - applies the setting to the active window
 <br><b>-s</b>
       - applies the setting to the status window
@@ -44,9 +43,7 @@ The <b>/font</b> command allows you to change the font for the current window. I
       - clears all font settings and sets all windows to the specified font. If no font is specified, all windows are set to default font settings
 
 <H4>Parameters</H4>
-
-
-<br><b>[window]</b>
+<b>[window]</b>
       - if none of the -azs switch is used, you must provide the name of a window instead
 <br><b>&lt;fontsize&gt;</b>
       - the size of the font, can be negative: it will then match the size of fonts in the font dialog
@@ -66,6 +63,7 @@ The <b>/font</b> command allows you to change the font for the current window. I
 /font switchbar -8 Tahoma
 /font -b switchbar -10 Calibri
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.92 (06 Jan 1996)
 

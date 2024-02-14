@@ -11,13 +11,12 @@ The <b>$nhnick</b> identifier returns the Nth nickname that is not an halfop/hel
 <br>
 <b>Note:</b> This feature is depricated and has been replaced by <a href="nick.html">$nick</a>.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $nhnick(#channel,N/nick)
 </pre>
 <H4>Parameters</H4>
-<br><b>#channel</b> - The channel you want to check for non-halfop/helper nickname
+<b>#channel</b> - The channel you want to check for non-halfop/helper nickname
 <br><b>N/nick</b> - The Nth non-halfop/helper nick on the channel, or if you pass a nickname, it returns the number N, where $nhnick(#,N) return the nickname.
 <br>
 <br>
@@ -31,6 +30,7 @@ None
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
+
 <H4>Notes</H4>
 $nhnick always returns nickname which have a status below halfop/helper, excluding the non standard +qa mode/status, it means that if a nickname is only +q, $nhnick() can return that nickname but a nickname being only +o can't be returned by $nhnick (it's not a status below halfop/helper)
 <br>
@@ -44,6 +44,5 @@ The nickname doesn't have to be strictly an halfop/helper to be ignored, it mean
 <a href="nopnick.html">$nopnick</a><br>
 <a href="vnick.html">$vnick</a><br>
 <a href="nvnick.html">$nvnick</a><br>
-
 </body>
 </html>

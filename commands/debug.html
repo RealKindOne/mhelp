@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/debug</b> command outputs raw server messages to a file or a custom window  Incoming messages are prefixed with "<-" and outgoing messages are prefixed with "->".
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /debug [-cinptrNoN] [color_index] [on | off | @window | filename] [identifier]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-c</b>
+<b>-c</b>
       - Turns off debugging (close associated window as well)
 <br><b>-i</b>
       - Call a specific $identifier and use the returned value as the debug lines
@@ -32,9 +31,7 @@ The <b>/debug</b> command outputs raw server messages to a file or a custom wind
       - Uses the N color index as the line color for outbound debug lines.
 
 <H4>Parameters</H4>
-
-
-<br><b>[color]</b>
+<b>[color]</b>
       - Optional text color for the debug window (Partly overridden by -rN and/or -oN) Can be color index 0-99
 <br><b>[on|off]</b>
       - Turns debug on or off
@@ -84,13 +81,14 @@ alias debugg {
   debug -pir44o52 8 @debug $!+([,$time,],[,$network,] $!1-)
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (16 Aug 2002)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\debug.html">$debug</a><br>
 <a href="..\identifiers\rawmsg.html">$rawmsg</a><br>

@@ -6,10 +6,10 @@
 </H1>
 <br>
 <br>
-
 The <b>/bset</b> command lets you assign specific ASCII values (or text) at a specific position. If the variable does not exist, a new binary variable will be created and zero-padded until &lt;pos&gt;. If &lt;pos&gt; exceeds the length of the variable, the variable will extend (by zero-padding the gap) to accommodate the new values.
 
 <br><b>Note:</b> Important fact to remember about binary variables is that they are not limited to the local scope of the alias but instead they remain set until processing is complete. Thus it's possible to use the same binary variable within multiple aliases if they call each other during the same script execution.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -17,10 +17,9 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 /bset -t[ac] &lt;&bvar&gt; &lt;pos&gt; &lt;string&gt;
 /bset -z &lt;&bvar&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-t</b>
+<b>-t</b>
       - Indicates a string is to be written instead of 1 or more literal ASCII values
 <br><b>-a</b>
       - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters > 255.
@@ -30,9 +29,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
       - Creates new or truncates existing &binvar at zero length
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;&bvar&gt;</b>
+<b>&lt;&bvar&gt;</b>
       - The binary variable name to use/create
 <br><b>&lt;pos&gt;</b>
       - The position to set the new ASCII values or the string, use -1 to append. The first byte of the string is pos 1. If &lt;pos&gt; is greater than the existing length of the binary variable, the string is zero-padded to fill undefined bytes between &lt;pos&gt; and the prior end of string.
@@ -187,6 +184,7 @@ alias fake-bset-ta {
 <br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you don't lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it's possible for a string to consist entirely of such codepoints, you couldn't safely add more than around 330 characters at a time.
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 
@@ -194,7 +192,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\bvar.html">$bvar</a><br>
 <a href="bcopy.html">/bcopy</a><br>

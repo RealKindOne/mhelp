@@ -6,22 +6,19 @@
 </H1>
 <br>
 <br>
+The <b>/signal</b> command is used to send a signal to all loaded script, if one of them has a matching <a href="..\events\On_Signal.html">On_Signal</a> event, it triggers. Signals are a simple way of triggering signal events in multiple scripts at the same time.
 
-The <b>/signal</b> command is used to send a signal to all loaded script, if one of them has a matching :doc: `on signal </events/on_signal>` event, it triggers. Signals are a simple way of triggering signal events in multiple scripts at the same time.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /signal [-n] &lt;name&gt; [parameters]
-
 </pre>
-<H4>Switches</H4>
 
-<br><b>-n</b> This flag tells the */signal* command to fire immediately instead of waiting for the end of the whole current script processing, this implies nested call to signal event and also recursion can be made, though the maximum you can get is 24 iterations. If you don't provide the -n switch, mIRC waits for the end of the whole current script processing and then triggers any matching events.
+<H4>Switches</H4>
+<b>-n</b> This flag tells the */signal* command to fire immediately instead of waiting for the end of the whole current script processing, this implies nested call to signal event and also recursion can be made, though the maximum you can get is 24 iterations. If you don't provide the -n switch, mIRC waits for the end of the whole current script processing and then triggers any matching events.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;name&gt;</b>
+<b>&lt;name&gt;</b>
       - the name of a signal event
 <br><b>[parameters]</b>
       - the optional parameter passed to the signal event
@@ -44,8 +41,7 @@ Identifiers
 * **$signal** - Returns the signal name of the signal which triggered the current event.
 * **$1-** - Returns any optional parameters that have been passed along with the signal.
 
-<H4>Example</H4>
-<pre class ="code"> Script
+Example Script
 
 Now that we know some basic data that can be obtained from a signal, as well as how to trigger a signal and listen for a signal, let's create a signal and an event that puts these signals to good use!
 
@@ -98,6 +94,7 @@ This event waits for the NickServ notice letting us know our vHost has been acti
 So, now our auto join script will listen for the signal, which will be triggered once our vHost has been successfully activated, and then join the channel(s) it has been coded to join. For all intense purposes, this event has been trimmed to the simplest possible explanation. It could be made much more extravagant, with an auto join list read from a hash table or an INI file.
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (16 Aug 2002)
 

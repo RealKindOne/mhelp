@@ -6,12 +6,13 @@
 <br>
 The <b>ON VCMD</b> event triggers when the Speech recognition software matches a word you have spoken to a word in a list of words.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:VCMD:&lt;*|#|?|@&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;*|#|?|@&gt;</b> - The location from which you want to listen for spoken word.
-
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -33,6 +34,9 @@ on 1:vcmd:*:*:echo You said: $1-
 
 <H4>Compatability</H4>
 Added: mIRC v5.7 (02 Feb 2000)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="..\commands\vcmd.html">/vcmd</a><br>

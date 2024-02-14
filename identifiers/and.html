@@ -8,13 +8,12 @@ The <b>$and</b> identifier returns the AND operation of two numbers. The numbers
 
 The AND operation returns a 1 when both matching binary bits are 1, otherwise returns 0
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $and(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;N1&gt;</b>, <b>&lt;N2&gt;</b> - The numbers, in decimal. valid range for N1 and N2 are 32 bits -4294967295 through +4294967295.
+<b>&lt;N1&gt;</b>, <b>&lt;N2&gt;</b> - The numbers, in decimal. valid range for N1 and N2 are 32 bits -4294967295 through +4294967295.
 
 If N is greater or lower than the allowed bound, then the bound is used, aka 4294967295 is used if you pass 4294967296 and greater.
 See <a href="xor.html">$xor</a> for description of handling out-of-range and negative numbers.
@@ -45,6 +44,7 @@ Zeroes the lowest 3 bits, which ensures that %b is a multiple of 8.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -6,23 +6,19 @@
 </H1>
 <br>
 <br>
-
 The <b>/alias</b> command can be used to add, replace and remove aliases. This command ONLY works for single line aliases. By default mIRC will add the alias to the first aliases script file.
-
-<br><b>Note:</b> Trying to remove a multi-line alias will result in a "unable to remove" error message.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /alias -s [filename] &lt;aliasname&gt; [command]
 </pre>
+
 <H4>Switches</H4>
 <!--- https://forums.mirc.com/ubbthreads.php/topics/246550/alias-runs-silently --->
 <br><b>-s</b>
       - shows the alias command being performed.
 <H4>Parameters</H4>
-
-
-<br><b>[filename]</b>
+<b>[filename]</b>
       - Optional parameter that can be used to specify which aliases file to use, the file must be already loaded.
 <br><b>&lt;aliasname&gt;</b>
       - The name of the alias to use.
@@ -45,15 +41,14 @@ The <b>/alias</b> command can be used to add, replace and remove aliases. This c
 ; * Replaced '/Cookies' alias
 ; * Removed '/Cookies' alias
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 
 <H4>Notes</H4>
-None
+Trying to remove a multi-line alias will result in a "unable to remove" error message.
 
 <H4>See also</H4>
-
-
 <a href="..\identifiers\isalias.html">$isalias</a><br>
 <a href="..\identifiers\alias.html">$alias</a><br>
 <a href="..\identifiers\exists.html">$exists</a><br>

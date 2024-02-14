@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/sockopen</b> command initiates a connection to the specified addresses and port; a named address can be substituted for an IP address (which will get resolved to an IP address eventually). On success, the on sockopen event should get executed.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockopen [-de[swap]tn46] [bindip] &lt;name&gt; &lt;address&gt; &lt;port&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-d</b>
+<b>-d</b>
       - the specified IP address is the bind IP address
 <br><b>-e</b>
       - creates an SSL connection, with this switch you can also use:
@@ -38,9 +37,7 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
       - disable Nagle algorithm on socket
 
 <H4>Parameters</H4>
-
-
-<br><b>[bindip]</b>
+<b>[bindip]</b>
       - bind ip to be used
 <br><b>&lt;name&gt;</b>
       - socket name (for future reference)
@@ -70,6 +67,7 @@ On *:sockread:IRC:{
   aline -p @IRC $iif(%x,$v1,-)
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)
 

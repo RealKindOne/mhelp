@@ -5,12 +5,13 @@
 <br>
 <br>
 The <b>$hmac</b> identifier returns an HMAC (keyed-Hash Message Authentication Code) based on the supplied key. See the Wikipedia page for algorithm details. $hmac is used to provide the security strength for the $hotp and $totp identifiers.
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $hmac(text|&binvar|filename, key, hash, N)
 </pre>
 <H4>Parameters</H4>
-<br><b>text|&binvar|filename</b> - the input
+<b>text|&binvar|filename</b> - the input
 <br><b>key</b> - the key
 <br><b>N</b> - the type of input, use N = 0 if input is plain text, N = 1 for &binvar, and 2 for filename
 <br><b>hash</b> - optional, hashing algorithm, can be md5, sha1 (default), sha256, sha384, or sha512.

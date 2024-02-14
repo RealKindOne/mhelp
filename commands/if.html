@@ -6,45 +6,39 @@
 </H1>
 <br>
 <br>
-
 The :doc: `conditional statements </intermediate/control_flow_statements.html#conditional_statements>` is a built-in construct capable of comparing a value and executing a set of commands based on the result of that condition. The if statement is used in conjunction with the <a href="else.html">/else</a> statement and the <a href="elseif.html">/elseif</a> statement to jump to certain blocks of code depending on the result of the conditional statement that was executed. The if statements supports the :doc: `operators </intermediate/control_flow_statements.html#operators>`
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 if (&lt;condition&gt;) &lt;statement&gt;
 if (&lt;condition&gt;) { &lt;statements&gt; }
 </pre>
+
 <H4>Switches</H4>
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;condition&gt;<b>
+<b>&lt;condition&gt;</b>
       - a conditional expression to be executed
 
 <H4>Example</H4>
-<pre class ="code">
-
 Below is a simple example of checking for at least five arguments before proceeding.
-
-
-    alias example {
-    if ($0 < 5) { echo -atc info * /example: You must provide at least 5 arguments! | halt }
-    ; do something useful here
-    echo -a works!
-    }
-
-Executing "/example a b c d" will result in:
-
-
-    * /example: You must provide at least 5 arguments!
-
-While, executing "/example a b c d f" will result in:
-
-
-    works!
-
+<pre class ="code">
+alias example {
+  if ($0 < 5) { echo -atc info * /example: You must provide at least 5 arguments! | halt }
+  ; do something useful here
+  echo -a works!
+}
 </pre>
+Executing "/example a b c d" will result in:
+<pre class ="code">
+* /example: You must provide at least 5 arguments!
+</pre>
+While, executing "/example a b c d f" will result in:
+<pre class ="code">
+works!
+</pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 
@@ -52,7 +46,6 @@ Added: mIRC v4.5 (06 Jul 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\halted.html">$halted</a><br>
 <a href="..\identifiers\result.html">$result</a><br>

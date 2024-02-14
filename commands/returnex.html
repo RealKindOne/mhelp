@@ -6,32 +6,30 @@
 </H1>
 <br>
 <br>
-
 The <b>/returnex</b> command immediately leaves the current subroutine and returns a given value back to the calling routine (if one exists). This command performs the same operation as <a href="return.html">/return</a> with the exception of how it handles spaces. All spaces, including leading, trailing, and multiple, are retained. (Normally multiple spaces are collapsed into a single space and leading and trailing spaces are trimmed off).
 
-This command was added undocumented mainly to allow people to call an identifier in the subtext parameter of <a href="..\identifiers\regsubex.html">$regsubex</a> , without seeing their returned value missing spaces but you can use it for that purpose anywhere.
+This command was added undocumented mainly to allow people to call an identifier in the subtext parameter of <a href="..\identifiers\regsubex.html">$regsubex</a>, without seeing their returned value missing spaces but you can use it for that purpose anywhere.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /returnex [value]
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
-
-<br><b>[value]</b>
+<b>[value]</b>
       - The value to return to the calling routine
 
 <H4>Example</H4>
 <pre class ="code">
 alias space_example {
-  ; Prints 9: <space>A<space><space>B<space><space>C<space>
+  ; Prints 9: &lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;
   echo -a $len($preserve_space)
 
-  ; Prints 5: A<space>B<space>C
+  ; Prints 5: A&lt;space&gt;B&lt;space&gt;C
   echo -a $len($strip_space)
 }
 
@@ -41,9 +39,10 @@ alias preserve_space returnex $get_abc
 ; Collaps spaces
 alias strip_space return $get_abc
 
-; Just an example string "<space>A<space><space>B<space><space>C<space>"
+; Just an example string "&lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;"
 alias get_abc returnex $+($chr(32), A, $chr(32), $chr(32), B, $chr(32), $chr(32), C, $chr(32))
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.2 (23 Nov 2006)
 
@@ -51,7 +50,6 @@ Added: mIRC v6.2 (23 Nov 2006)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\result.html">$result</a><br>
 <a href="alias.html">/alias</a><br>

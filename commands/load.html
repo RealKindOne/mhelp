@@ -6,10 +6,10 @@
 </H1>
 <br>
 <br>
-
 The <b>/load</b> command can be used to load any type of existing file of the types: aliases, popups, remote, users, and variables. Using /load on an already loaded file will update its contents while maintaining its order among other files. 
 
 <br> Note that unlike the <a href="reload.html">/reload</a> command, /load will trigger the ON LOAD and ON START events.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -17,10 +17,9 @@ The <b>/load</b> command can be used to load any type of existing file of the ty
 /load -p&lt;scqnm&gt; &lt;filename&gt;
 /load -r&lt;uvs[N]&gt; &lt;filename&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-a</b>
+<b>-a</b>
       - load aliases file
 <br><b>-p</b>m
       - load menubar popups file
@@ -42,9 +41,7 @@ The <b>/load</b> command can be used to load any type of existing file of the ty
       - if you specify the N value with -rs or -a, it loads the file into the Nth position in the script list or alias list. In the absence of N, the file is loaded into the last position.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;filename&gt;</b>
+<b>&lt;filename&gt;</b>
       - The script file to load
 
 <br><b>Note:</b> In the absence of a path, assumes the file is located in $mircdir. Paths not beginning with drive letter or \ are relative to the location of $mircdir.<br />
@@ -81,13 +78,14 @@ alias load_vars_and_users {
 <br><b>Note:</b> If your aliases.ini was saved to a different file extension such as .mrc, it still needs to have the same scripting format used with the original filename. The only difference is that the disk file no longer is saved in the .ini format with lines beginning like n123=. Same applies with saving your users.ini and vars.ini files to other filetypes. However without the file extension being .ini, it's not possible to edit the 5 types of popups sharing the same filename, and -ru and -rv can't share the same filename either.
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v3.8 (25 Nov 1995)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\script.html">$script</a><br>
 <a href="..\identifiers\script.html">$script</a><br>

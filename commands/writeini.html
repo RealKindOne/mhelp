@@ -6,38 +6,36 @@
 </H1>
 <br>
 <br>
-
-The <b>/writeini</b> command is used to write and update a standard :doc: `initialization file </intermediate/data_storage.html#ini-files>` .
+The <b>/writeini</b> command is used to write and update a standard <a href="..\other\ini_files.html">initialization file</a>.
 
 Overview
 
 The Standard INI file has the following format:
+<pre class ="code">
+[Section]
+Item=value
+Item2=value
+;some comment
+[Section2]
+Item=value
+Item2=value
+</pre>
 <br>
 
-<br>[Section]
-<br>Item=value
-<br>Item2=value
-<br>;some comment
-<br>[Section2]
-<br>Item=value
-<br>Item2=value
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /writeini [-nz] &lt;inifile&gt; &lt;section&gt; &lt;item&gt; &lt;value&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-n</b>
+<b>-n</b>
       - Forces mIRC to write to an INI file, even if it's bigger then 64k (see note above)
 <br><b>-z</b>
       - Write an empty value
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;inifile&gt;</b>
+<b>&lt;inifile&gt;</b>
       - The filename to write to
 <br><b>&lt;section&gt;</b>
       - Section name
@@ -65,6 +63,7 @@ rofl=Rolling On the Floor, Laughing
 
 ; Prints out: Laughing Out Loud
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (06 Jul 1996)
 

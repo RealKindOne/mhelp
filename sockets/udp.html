@@ -1,0 +1,151 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+UDP Sockets
+</H1>
+<br>
+<br>
+UDP Sockets {{Preknow|This article assumes that you have intermediate to advanced knowledge of the [[mIRC Scripting Language]] and familiarity with [[On events - mIRC|on events]] and [[Aliases - mIRC|custom aliases]].}}
+
+This tutorial is the '''UDP Sockets''' continuation of the {{mIRC|sockets|Sockets (Intro) tutorial}}. If you haven't read that, please do so first before moving on to this one.
+
+Recall that UDP is a connectionless protocol service. Because of this there are no on sockopen/sockread/sockclose events for the different stages like TCP. The basic idea is you send a message and quit, or you send a message and wait for response.
+
+== Sending A Packet ==
+The /sockudp command allows you to send data to a specific address at a specific port destination. The syntax is:
+
+<pre class ="code">; Sending some data
+/sockudp [-kb] &lt;handle&gt; &lt;ipaddress&gt; &lt;port&gt; [numbytes] text|%var|&bvar]</pre>
+
+By default, /sockudp sends the entire data specified. The -b switch can be used to limit the amount of bytes sent.
+
+If you are expecting some data back, the -k switch can be used to force the UDP socket to remain open. This will allow you to listen to incoming data.
+
+== Listening for Incoming Data ==
+If you are expecting data back (I.E. if you specified the -k switch) you can listen for incoming data via the on udpread event.
+
+<pre class ="code">on *:udpread:&lt;handle&gt;:{
+   ; your code goes here
+}</pre>
+
+== Socket Failure and More Data Sending ==
+
+The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger $sockerr set to a non-zero value.
+
+<pre class ="code">on *:sockwrite:&lt;handle&gt;:{
+   ; your code goes here
+}</pre>
+
+== Examples ==
+
+=== Example 1 - Time Protocol ===
+This example will use the Time Protocol to display the current time. The Time Protocol is a very simple network protocol that provides site-independent, machine readable date and time. The protocol is defined in RFC 868.
+
+From RFC 868:
+
+<pre>When used via UDP the time service works as follows:
+
+ S: Listen on port 37 (45 octal).
+ U: Send an empty datagram to port 37.
+ S: Receive the empty datagram.
+ S: Send a datagram containing the time as a 32 bit binary number.
+ U: Receive the time datagram.
+
+ The server listens for a datagram on port 37. When a datagram
+ arrives, the server returns a datagram containing the 32-bit time
+ value. If the server is unable to determine the time at its site, it
+ should discard the arriving datagram and make no reply.</pre>
+
+From the instructions above you can see that the first thing we have to do is send an empty datagram to their server. On port 37. &null will hold our NULL byte.
+
+<pre class ="code">alias getTime {
+  ; NULL byte
+  bset &null 1 0
+  ; Time.nist.gov = 132.163.96.4
+  sockudp -k getTime 132.163.96.4 37 &null
+}</pre>
+
+Let's add a single line of code to print if an error occurred
+
+<pre class ="code">on *:sockwrite:getTime:{
+  if ($sockerr) echo -a /getTime: Error: $sock($sockname).wserr - $sock($sockname).wsmsg
+}</pre>
+
+Now, all we have to do is sit and wait for the datagram response. Remember that since UDP is connectionless protocol, its header is much smaller, thus much faster (Ideal for a time protocol).
+
+<pre class ="code">on *:udpRead:getTime: {
+   ; read the reply
+   sockread -f &time
+
+   ; bvar to var
+   var %time $bvar(&time,1,$bvar(&time,0))
+
+   ; get convert to binary
+   var %bin $regsubex(%time,/(\d+)/g,$base(\1,10,2,8))
+
+   ; print it and close the socket
+   echo -a our 32-bit time value: %bin
+   sockclose $sockname
+}</pre>
+
+Let's make sense of this 32bit time value, shall we?
+
+Once again, from the RFC 868:
+
+<pre>The Time
+
+ The time is the number of seconds since 00:00 (midnight) 1 January 1900
+ GMT, such that the time 1 is 12:00:01 am on 1 January 1900 GMT; this
+ base will serve until the year 2036.
+
+ For example:
+
+ the time 2,208,988,800 corresponds to 00:00 1 Jan 1970 GMT,
+ 2,398,291,200 corresponds to 00:00 1 Jan 1976 GMT,
+ 2,524,521,600 corresponds to 00:00 1 Jan 1980 GMT,
+ 2,629,584,000 corresponds to 00:00 1 May 1983 GMT,
+ and -1,297,728,000 corresponds to 00:00 17 Nov 1858 GMT.</pre>
+
+Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can just do $calc(%time - 2208988800) to get the current Unix time. Now all we got to do is use $asctime to format it nicely.
+
+<pre class ="code">on *:udpRead:getTime: {
+  ; read the reply
+  sockread -f &time
+  var %time $bvar(&time,1,$bvar(&time,0))
+
+  ; convert to binary, remove spaces
+  var %bin $regsubex(%time, /(\d+)\s?/g, $base(\1, 10, 2, 8))
+
+  ; get the current unix time in decimal system
+  var %time = $base(%bin, 2, 10)
+
+  ; print the time and close the socket
+  echo -a Currnt Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
+  sockclose $sockname
+}</pre>
+
+=== Example 2 - QOTD Protocol ===
+
+In this example we will use an interesting protocol, the Quote Of The Day, RFC 865. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers don't have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other)
+
+Send a request:
+
+<pre class ="code">alias getQOTD {
+  ; NULL byte
+  bset &null 1 0
+  ; Dns resolved quotes4all.net to 85.25.143.214
+  sockudp -k getQOTD 85.25.143.214 17 &null
+}</pre>
+
+Now wait for the quote:
+
+<pre class ="code">on *:udpRead:QOTD: {
+   var %Quote
+   sockread -f %Quote
+   echo -ea %Quote
+   sockclose $sockname
+}</pre>
+
+</body>
+</html>

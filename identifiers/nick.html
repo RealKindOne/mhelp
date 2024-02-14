@@ -9,18 +9,17 @@ The <b>$nick</b> identifier can be called in two ways:
 # '''$nick''' will return the nickname associated with an IRC event.
 # '''$nick(#channel,index)''' retrieves information about nicknames on a specific channel.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $nick
 $nick(#,N/nick,aohvr,aohvr)
 </pre>
 <H4>Parameters</H4>
-'''#'''</span>The channel name to look up nickname information.
+<b>#</b>The channel name to look up nickname information.
 
-'''N/nick'''</span>Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
+<br><b>N/nick</b>Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
 
-'''aohvr'''</span>Optional: The first '''aohvr''' characters target all users of a '''specific type''', while the second '''aohvr''' excludes a '''specific type''' from the target list.
+<br><b>aohvr</b>Optional: The first '''aohvr''' characters target all users of a '''specific type''', while the second '''aohvr''' excludes a '''specific type''' from the target list.
 
 === Specific Types ===
 <br><b>a</b>All users
@@ -43,7 +42,7 @@ Except for Type 'a' which has been defined as all users in the channel, channel 
 
 
 <H4>Properties</H4>
-<br><b>.pnick</b> - returns the target result with their elevation level, eg: @,+,%. Regular users display normal.
+<b>.pnick</b> - returns the target result with their elevation level, eg: @,+,%. Regular users display normal.
 <br><b>.idle</b> - returns the current idle time for the nickname on the channel specified
 <br><b>.color</b> - returns the color for that user as set up in the Nick color dialog
 
@@ -108,6 +107,7 @@ The results from the above will look something like this:
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

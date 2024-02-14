@@ -12,7 +12,7 @@ TOTP allows proving that you know a pre-shared secret in a public communications
 <br>
 For security, the verifier should limit how many retries are accepted within each timestep interval, and also limit how many nearby timestep responses are accepted when allowing for the other clock being out of synch. Because the secret is based on $calc(time//timestep), changing the timestep should not be allowed without changing the key and/or hashname. i.e. allowing timestep to change from 30 to 31 seconds means someone observing the timestep=30 response made now would be able to make a correct response at $asctime($calc($ctime * 31/30)) in the future. If both parties need to prove themselves to each other, either both parties should use separate unrelated pre-shared secrets to prove themselves, or if they need to use the same secret, each should use different hashnames in making their response.
 <br>
-Due to a slight bias toward the smallest numbers, it is not appropriate to consider this to be a random N digit number, with the bias increasing as 'digits' increases. The number is created from an <a href="hmac.html">$hmac</a> digest based on combining a secret and the time interval, and reduces a 31-bit portion of the digest to a base10 integer. Because the max 31-bit value is 2147483647, there is a slight bias in an N-digit number toward the numbers &lt;= the rightmost N digits of the 31-bit max. For this reason, digits <= 9 offers 10^digits of security, while digits=10 offers 2^31.
+Due to a slight bias toward the smallest numbers, it is not appropriate to consider this to be a random N digit number, with the bias increasing as 'digits' increases. The number is created from an <a href="hmac.html">$hmac</a> digest based on combining a secret and the time interval, and reduces a 31-bit portion of the digest to a base10 integer. Because the max 31-bit value is 2147483647, there is a slight bias in an N-digit number toward the numbers &lt;= the rightmost N digits of the 31-bit max. For this reason, digits &lt;= 9 offers 10^digits of security, while digits=10 offers 2^31.
 <br>
 Also causing bias is choosing to use MD5 as the hashname. HOTP/TOTP were originally designed using SHA1 as the hashname, which happened to be the mimimul length where the same bit is never used by the 31-bit value and by the byte used to determine which bytes to use as the 31-bit value. Example below demonstrates this.
 <br>
@@ -26,12 +26,13 @@ The /help description states that the key is required, but $totp($null) is accep
 <br>
 You can prevent your text passphrase from being interpreted as base-insensitive base32 by avoiding having the 3 counts of base32 symbols, or by using at least 1 non-space character that is not in the base32 alphabet (A-Za-z2-7). Base32 and hex keys ignore spaces and are case-insensitive, so you can confirm your text key is not seen otherwise by changing the case on one of the letters or moving a space to a different position, and verify this cause the code to change (use a fixed 'time' because the TOTP code changes every 'timestep' seconds)
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $totp(key[, time[, hash[, digits[, timestep]]]])
 </pre>
 <H4>Parameters</H4>
-<br><b>key</b> - the key is optional and can be hex or base32 format where the key parameter, excluding spaces, is either a hex string of 40, 64, 128 or 256 digits - or is a base32 string of either 16, 26 or 32 length; otherwise the key parameter is plain UTF8 text. (base32 cannot have '=' padding)
+<b>key</b> - the key is optional and can be hex or base32 format where the key parameter, excluding spaces, is either a hex string of 40, 64, 128 or 256 digits - or is a base32 string of either 16, 26 or 32 length; otherwise the key parameter is plain UTF8 text. (base32 cannot have '=' padding)
 <br><b>time</b> - optional integer [0,2^64-1], default to $ctime
 <br><b>hash</b> - optional, hashing algorithm, default to sha1 (Other possibles: sha256, sha384, sha512, md5 )
 <br><b>digits</b> - optional, number of digits of output, default to 6 (Valid: 3 thru 10) (The return string is always 'digits' length, left-padded with 0's if needed)
@@ -111,6 +112,7 @@ ON *:CONNECT:{
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>

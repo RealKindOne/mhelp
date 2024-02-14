@@ -6,19 +6,18 @@
 </H1>
 <br>
 <br>
-
 The <b>/dec</b> command decreases the value of a variable by a given value. If no value is specified, mIRC will decrease the variable by one. The /dec command works with both positive and negative values alike.
 
 <br><b>Note:</b> /dec always keeps the unset time if there is one for the current variable, as though there was a -k switch from <a href="set.html">/set</a>, there's no switch to prevent this behavior and unset the time while setting the value.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /dec [-crszeuN] &lt;%var&gt; [value]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Prints out the value of the variable
 
 Global variables only:
@@ -36,9 +35,7 @@ Global variables only:
       - Decrease the variable once and unsets the variable after N seconds.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;%var&gt;</b>
+<b>&lt;%var&gt;</b>
       - The variable's name
 <br><b>[value]</b>
       - Optional numeric value to decrease the variable by
@@ -54,6 +51,7 @@ Alias Example {
   echo -a %x
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.0 (20 Mar 1996)
 
@@ -61,7 +59,6 @@ Added: mIRC v4.0 (20 Mar 1996)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\var.html">$var</a><br>
 <a href="inc.html">/inc</a><br>

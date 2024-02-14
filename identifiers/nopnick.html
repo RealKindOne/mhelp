@@ -10,12 +10,13 @@ The <b>$nopnick</b> identifier returns the Nth nickname that is not an operator 
 <br>
 <b>Note:</b> This feature is depricated and has been replaced by <a href="nick.html">$nick</a>.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $nopnick(#channel,N/nick)
 </pre>
 <H4>Parameters</H4>
-<br><b>#channel</b> - The channel you want to check for non-op nickname
+<b>#channel</b> - The channel you want to check for non-op nickname
 <br><b>N/nick</b> - The Nth non-op nick on the channel, or if you pass a nickname, it returns the number N, where $nopnick(#,N) return the nickname.
 <br>
 <br>
@@ -29,6 +30,7 @@ None
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
+
 <H4>Notes</H4>
 Nicks returned by $nopnick are those who don't have the 'o' operator status, even if they have the non standard +qa mode/status, it means that if a nickname is only +q, $nopnick() can return that nickname. When used with 2 parameters, it is equivalent to $nick(#,N/nick,a,o)
 <br>

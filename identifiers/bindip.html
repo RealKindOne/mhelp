@@ -6,19 +6,18 @@
 <br>
 The <b>$bindip</b> identifier is used to get information regarding an available etwork adapter.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $bindip(N|ipaddress)[.property]
 </pre>
 <H4>Parameters</H4>
-<br><b>N</b> - Returns the Nth device in the network adapters list. If ''N'' is specified as ''0'', returns the total number of active network adapters.
+<b>N</b> - Returns the Nth device in the network adapters list. If ''N'' is specified as ''0'', returns the total number of active network adapters.
 <br><b>ipaddress</b> - If you specify an IP address, mIRC will try to find the best network adapter to use to connect to that IP. This can be used to test if you have ipv6 connectivity with $bindip(::)
 
 <H4>Properties</H4>
-<br><b>.name</b> - The name of the network adapter.
+<b>.name</b> - The name of the network adapter.
 <br><b>.ip</b> - The IP address of the network adapter.
-<br><b>.loopback</b> - Returns ''$true'' if the IP/device has a loopback, otherwise ''$false''.
+<br><b>.loopback</b> - Returns <a href="true.html">$true</a> if the IP/device has a loopback, otherwise <a href="false.html">$false</a>.
 
 <H4>Example</H4>
 Echo to the active window the total number of network adapters
@@ -27,10 +26,10 @@ Echo to the active window the name of a local network adapter
 <pre class ="code">//echo -a $bindip(192.168.1.1).name</pre>
 Test ipv6 connectivity
 <pre class ="code">//if ($bindip(::)) { sockopen ipv6.hostonly.org }</pre>
-  
 
 <H4>Compatibility</H4>
 Added: mIRC v7.0 (02 Apr 2010)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -40,7 +39,5 @@ None
 <a href="../commands/bindip.html">/bindip</a><br>
 <a href="../commands/sockopen.html">sockopen -d</a><br>
 <a href="../commands/sockudp.html">sockudp -d</a><br>
-  
-
 </body>
 </html>

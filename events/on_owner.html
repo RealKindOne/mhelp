@@ -6,11 +6,12 @@
 <br>
 The <b>ON OWNER</b> event triggers whenever a user on a channel has been elevated to the level of [[Channel owner - IRC|channel owner]]. You can use {{mIRC|$opnick}} to get the nickname being given owner status.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:OWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
 
 <br><b>&lt;matchtext&gt;</b> - The text to match in the event..
 <br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels where the event listens.
@@ -23,6 +24,9 @@ Message the channel where the event occurs:
 
 <H4>Compatability</H4>
 Added: mIRC v5.61 (23 Sep 1999)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_DEOP.html">On_DEOP</a><br>

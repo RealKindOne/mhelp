@@ -6,19 +6,18 @@
 <br>
 The <b>$hget</b> identifier returns informations about hash tables
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $hget(name/N) - returns the name if the hash table exist or Nth name
 $hget(name/N, item, [&binvar]) - returns the data associated with the item
 </pre>
 <H4>Parameters</H4>
-<br><b>name/N</b> - the Nth hash table or the name of it
+<b>name/N</b> - the Nth hash table or the name of it
 <br><b>.item</b> - the name of the item you want the data of
 <br><b>&binvar</b> - if you provide a binvar as a third parameter, the associated data is copied at the beginning of the binvar and the binvar is chopped at length of the associated data (what was before in the binvar is 'deleted' before copying)
 
 <H4>Properties</H4>
-<br><b>.unset</b> - When passing an item, you can use the .unset property to get the unset time of the item if any
+<b>.unset</b> - When passing an item, you can use the .unset property to get the unset time of the item if any
 <br><b>.state</b> -Return some internal informations about the table. The format returned is 3 tokens space separated, the first word is the number of items in the table, the second is in the format &lt;nbr_used_buckets&gt;/&lt;totalnbr_buckets&gt;, while the third consists of four number separated by a slash as well, but it's unknown what they really mean.
 <br><b>.hash</b> -Return the name of the algorithm used by the hash table, which can be passed using the -h switch in <a href="..\commands\hmake.html">/hmake</a>
 <br><b>.data</b> - returns the contents of the hash table item.
@@ -38,6 +37,5 @@ Added: mIRC v5.8 (05 Sep 2000)
 <a href="..\commands\hinc.html">/hinc</a><br>
 <a href="hfind.html">$hfind</a><br>
 <a href="..\other\Hash_tables.html">Hash tables</a><br>
-
 </body>
 </html>

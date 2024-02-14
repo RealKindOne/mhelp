@@ -6,16 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/clipboard</b> command copies text to the clipboard.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /clipboard [-an] [text]
 </pre>
-<H4>Switches</H4>
 
-<br><b>-a</b>
+<H4>Switches</H4>
+<b>-a</b>
       - Appends text to the end of the current clipboard's contents
 <br><b>-n</b>
       - Appends a $crlf to the end of the text
@@ -23,26 +23,29 @@ The <b>/clipboard</b> command copies text to the clipboard.
 <br><b>Note:</b> Presence or absence of a single trailing $crlf does not affect the lines count of $cb(0)
 
 <H4>Parameters</H4>
-
-<br><b>[text]</b>
+<b>[text]</b>
       - Text to be placed in clipboard. If no text parameter used, the clipboard is cleared.
 
 <H4>Example</H4>
+Clear the clipboard and put "Hello world!" in it:
 <pre class ="code">
-; Clear the clipboard and put \"Hello world!\" in it
 /clipboard Hello World!
-
-; Put 'abcd' into clipboard then append efgh and carriage return:
+</pre>
+Put 'abcd' into clipboard then append efgh and carriage return:
+<pre class ="code">
 //clipboard abcd | clipboard -an efgh | echo -a $cb(0).len / $cb(1).len / $cb(1)
 ; returns: 10 / 8 / abcdefgh
 ; (The difference between length of $cb(0) and $cb(1) is the $crlf.
-
-; Clear clipboard contents:
+</pre>
+Clear clipboard contents:
+<pre class ="code">
 /clipboard
-
-; Append $crlf to end of current clipboard contents:
+</pre>
+Append $crlf to end of current clipboard contents:
+<pre class ="code">
 /clipboard -an
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (11 Sep 1997)
 
@@ -50,7 +53,6 @@ Added: mIRC v5.1 (11 Sep 1997)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\cb.html">$cb</a><br>
 <a href="..\identifiers\inpaste.html">$inpaste</a><br>

@@ -6,11 +6,11 @@
 <br>
 The <b>ON QUIT</b> event is triggered when a user quits/disconnects from the IRC network while on the same channel as the local mIRC client.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:QUIT:&lt;commands&gt;</pre>
-
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-
+<H4>Paramaters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -35,6 +35,9 @@ on ^*:QUIT:{
 
 <H4>Compatability</H4>
 Added: mIRC v3.7 (12 Oct 1995)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 <a href="On_disconnect.html">On_disconnect</a><br>

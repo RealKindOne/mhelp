@@ -1,0 +1,386 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<H1>
+TCP Sockets
+</H1>
+<br>
+<br>
+TCP Sockets }}{{Preknow|This article assumes that you have intermediate to advanced knowledge of the [[mIRC Scripting Language]] and familiarity with {{mIRC|on events}} and {{mIRC|aliases|custom aliases}}.}}
+
+mIRC has built-in support for '''TCP Sockets'''. This tutorial is the '''TCP Sockets''' continuation of the {{mIRC|sockets|Sockets (Intro) tutorial}}. If you haven't read that, please do so first before moving on to this one.
+
+Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
+
+Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to [http://www.youtube.com/ YouTube] and get the title of the page and the view count.
+
+== Creating a Connection ==
+Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the {{mIRC|/sockopen}} command:
+
+<pre class ="code">sockopen &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
+
+A '''handle''' simply is a unique name by which we can refer to this exact socket.
+
+=== Creating a secured Connection ===
+I am sure you are very familiar with the padlock icon next to the URL in your browser. That icon indicated that website uses secure http (also known as HTTPS). The default port for HTTPS is 443. The /sockopen command can also be used to create secured SSL connections as well using the following syntax:
+
+<pre class ="code">sockopen -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
+
+=== IPv4 vs. IPv6 Sockets ===
+The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check {{mIRC|Ipv6|this page}} for more informations about IPv6.
+
+=== Connection Example ===
+
+==== Example 1 ====
+Since we want to socket to our silly demo page, http://www.zigwap.com/mirc/sockets_demo, our sockopen command will look something like this:
+
+<pre class ="code">alias example1 {
+  sockopen example1 www.zigwap.com 80
+}</pre>
+
+The above alias will create a socket by the name "example1". We can use that name to manipulate our socket later on. As a precaution, in order to not attempt to open an already opened socket, we will close it. If the socket is not open, mIRC will simply do nothing. In the advanced part of this tutorial we will explain how to handle this situation more gracefully by creating dynamic names which will give us the ability to create as many sockets as we need.
+
+<pre class ="code">alias example1 {
+  sockclose example1
+  sockopen example1 www.zigwap.com 80
+}</pre>
+
+==== Example 2 (YouTube) ====
+In this example I thought we would do something different. Providing a YouTube link like http://www.youtube.com/watch?v=FDw0NdhK6QU and the script will return information on the video.
+
+<pre class ="code">alias YouTube {
+   if ($regex($1-, /\Qyoutube.com/watch?v=\E(\w+)$/)) {
+     sockclose YouTube
+     sockopen YouTube www.youtube.com 80
+     ; keep the video ID for later on
+     sockmark YouTube $regml(1)
+   }
+   else {
+     echo $color(info) -aef /YouTube: invalid youtube link
+     halt
+   }
+}</pre>
+
+== The Socket Mark ==
+In the example above we introduced another command, the {{mIRC|/sockmark}} command. The {{mIRC|/sockmark}} command lets you store some text for that socket which can easily be retrieved using the {{mIRC|$sock|$sock().mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+
+<pre class ="code">sockmark &lt;handle&gt; <value>
+; The following will clear the mark:
+sockmark &lt;handle&gt;</pre>
+
+The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A {{mirc|wildcard}} pattern can be used in the handle parameter to set the value of multiple sockets at once.
+
+<pre class ="code">; Our socket mark value:
+$sock(&lt;handle&gt;).mark</pre>
+
+== Transmitting a Request After a Successful Connection ==
+When a successful connection to the remote end-point has been established, the {{mIRC|on sockopen}} event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
+
+'''Note:''' If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
+
+The typical syntax for the on sockopen event is:
+
+<pre class ="code">on *:sockopen:&lt;handle&gt;: {
+  ;Your requests goes here
+}</pre>
+
+As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="..\commands\sockwrite.html">/sockwrite</a><br> command. The sockwrite command has the following syntax:
+
+<pre class ="code">
+sockwrite [-tn] &lt;name&gt; &lt;text|%var|&binvar&gt;
+; You can limit the amount of data sent using the following syntax:
+sockwrite -b[tn] &lt;name&gt; &lt;numbytes&gt; &lt;text|%var|&binvar&gt;
+</pre>
+
+By default, all space-delimited tokens that begin with the '&' symbol are treated as binary variables. The -t switch can be used to make the /sockwrite command treat it all as plain text instead.
+
+=== The Sockwrite -n Switch and $crlf ===
+Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line doesn't already ends with a $crlf.
+
+Consider the following piece of code:
+
+<pre class ="code">sockwrite $sockname AAAAA
+sockwrite $sockname BBBBB
+sockwrite $sockname CCCCC</pre>
+
+Even though we have used three distinct sockwrite calls to send the data, the exact data we sent is:
+
+<pre>AAAAABBBBBCCCCC</pre>
+
+On the other hand, the following code:
+
+<pre class ="code">sockwrite -n $sockname AAAAA
+sockwrite -n $sockname BBBBB
+sockwrite -n $sockname CCCCC
+/* Or:
+  sockwrite $sockname AAAAA $+ $crlf
+  sockwrite $sockname BBBBB $+ $crlf
+  sockwrite $sockname CCCCC $+ $crlf
+*/</pre>
+
+Sent the following data:
+
+<pre>AAAAA
+BBBBB
+CCCCC</pre>
+
+Understanding this concept is important to understanding how to send data correctly via protocols like HTTP.
+
+=== /sockwrite's limit ===
+
+Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending.
+The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
+
+In a typical script using HTTP and the {{mIRC|TCP Sockets#POST_vs_GET.3F|GET method}} to grab something from a website, it's unlikely that you will reach this limit but note that when using {{mIRC|TCP Sockets#POST_vs_GET.3F|POST}}, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event {{mIRC|on events/on sockwrite#Examples|here}}
+
+=== Sending Data Example ===
+
+==== Example 1 (Continue) ====
+
+Remember that the page we want to socket to is http://www.zigwap.com/mirc/sockets_demo. Our sockopen event will look something like this: (In this example I will be using version 1.0 of HTTP)
+
+<pre class ="code">on *:sockopen:example1: {
+  sockwrite -n example1 GET /mirc/sockets_demo HTTP/1.0
+  sockwrite -n example1 Host: www.zigwap.com
+  sockwrite -n example1
+}</pre>
+
+'''Note:''' In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
+
+==== Example 2 (YouTube, Continue) ====
+
+We will now add the sockopen part of our YouTube script. Recall that we stored the video ID in the socket mark? Well, we will now retrieve that ID using the $sock identifier and its mark property.
+
+<pre class ="code">on *:sockopen:YouTube: {
+  sockwrite -n YouTube GET /watch?v= $+ $sock($sockname).mark HTTP/1.1
+  sockwrite -n YouTube Host: www.youtube.com
+  sockwrite -n YouTube
+}</pre>
+
+== URL Encoding ==
+Some characters have special meanings when used in the URL. You might be familiar with URLs that look like this:
+
+<pre>http://www.example.com/foo.php?request&name=value</pre>
+
+If we want to send something that includes characters like the '=', '?' and '&' we must escape them before they can be safely used. The exact rules are specified by the RFC 1738 (Top of page 3).
+
+We will use the following aliases to encode and decode URLs:
+
+<pre class ="code">; Encodes URLs
+alias urlEncode return $regsubex($1, /(\W)/g, $+(%, $base($asc(\t), 10, 16, 2)))
+; Decode encoded URLs
+alias urlDecode return $regsubex($replace($1, +, $chr(32)), /%([A-F\d]{2})/gi, $chr($base(\1, 16, 10)))
+
+; Since mIRC 7.x, mIRC is Unicode, since the percent encoding is byte based, you must decode the byte to utf8 with $utfdecode after decoding the percent encoding:
+
+alias urlDecode return $utfdecode($regsubex($replace($1, +, $chr(32)), /%([A-F\d]{2})/gi, $chr($base(\1, 16, 10))))
+</pre>
+
+Consider the following example:
+
+<pre class ="code">//echo -a $urlEncode(Hello & Goodbye?)
+//echo -a $urlDecode(Hello%20%26%20Goodbye%3F)</pre>
+
+Will print:
+
+<pre>Hello%20%26%20Goodbye%3F
+Hello & Goodbye?</pre>
+
+Note the escaped characters. You should almost always encode all user input:
+
+<pre class ="code">on *:SockOpen:example: {
+   sockwrite -n example GET /foo/bar.php?foo= $+ $urlEncode(%input) HTTP/1.1
+   sockwrite -n example Host: www.example.com
+   sockwrite -n example $crlf
+}</pre>
+
+== POST vs GET? ==
+By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: '''POST''' and '''GET'''. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
+
+ <form id="FooBar" '''method="post"''' action="">
+    ...
+ </form>
+
+The most basic GET request will follow this basic syntax:
+
+ GET /folder/file.html HTTP/1.1
+ Host: www.example.com
+ <blank line>
+
+Let's take a look at the header a little closer:
+
+ GET /folder/file.html HTTP/1.1
+
+This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
+
+'''Note:''' For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
+
+Next is the Host header:
+
+ Host: www.example.com
+
+The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
+
+== Reading Incoming Data ==
+Once the server receives your request, it will send the response back to you. This will trigger the {{mIRC|on events/on sockread|on sockread}} event. The basic syntax of the on sockread event is:
+
+<pre class ="code">on *:sockread:&lt;handle&gt;: {
+   ;Your code goes here
+}</pre>
+
+The on sockread will most likely be the hardest and longest part of your code. When the on sockread event triggers, you have to read the data and decide what to do with it. If your script just needs some information from that page you will have to find and parse the appropriate line.
+
+When it comes to HTTP, the data you will receive from the server will contain a header followed by a blank line which will be followed by the content of the page. The content of the page will look identical to that text you find when you right click on a web page and click on view source code.
+
+Reading data that has been sent from the server is done with the <a href="..\commands\sockread.html">/sockread</a> command. That command is powerful because it allows you to read the data in a lot of ways, with HTTP, you'll likely want to get the data line by line.
+
+To read a single line from the socket, we use the /sockread command that way:
+
+<pre class ="code">sockread &lt;%var&gt;</pre>
+
+That sockread command actually reads up to a $crlf. This is important to know because many web pages don't end with a $crlf which means the last line won't be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
+
+'''Note:''' If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
+
+When working with binary data or if the line is too long to be read into an ordinary variable, you can read the data into a binary variable using the following syntax:
+
+<pre class ="code">sockread [numbytes] &lt;&binvar&gt;</pre>
+
+Reading into a binary variable will by default reads 4096 bytes unless you specify [numbytes] the number of byte to be read, there is a -n switch which can be used to read $crlf-terminated lines into the binary variable as well.
+
+
+=== Debugging ===
+Because the on sockread triggers when we get our data, it is the most interesting part of our script. Many people find it easier to script and debug when they can see the entire page source code. The script below can be used to see everything the server sent us in a custom window (@ $+ sockname):
+
+<pre class ="code">;Print the entire server's reply to a custom window
+on *:sockread:Example1: {
+  window -deC @ $+ $sockname -1 -1 700 700
+  var %read
+  sockread -f %read
+  aline -p @ $+ $sockname : $+ %read
+}</pre>
+
+=== Dealing with HTML code ===
+One of the first things you will have to deal with when writing HTTP scripts is HTML code and lots of it. The single most common task is to simply get rid of some unwanted HTML tags that enclose your code. Below is a very small, yet extremely handy alias that will strip most HTML tags away:
+
+<pre class ="code">alias noHTML return $regsubex($1, /&lt;[^&gt;]+(?:&gt;|$)|^[^&lt;&gt;]+&gt;/g, $null)</pre>
+
+Consider this simple example:
+
+<pre class ="code">//echo -a $noHTML(<strong>Example</strong> - <p>This is an <em>example</em></p>)</pre>
+
+Will print the following result:
+
+ Example - This is an example
+
+Keep this alias safe. Trust me, this tiny alias will become one of your most precious possessions.
+
+=== Error Handling ===
+Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
+Remember, inside the on sockopen event, $sockerr allows you to know if the connection was sucessful or not.
+
+A basic example would look like this:
+
+<pre class ="code">on *:sockread:example: {
+  if ($sockerr) {
+    echo $color(info) -sef Socket Error: $sock($sockname).wsmsg
+    echo $color(info) -sef Socket Error Number: $sock($sockname).wserr Socket: $sockname
+  }
+  else {
+    ;my code goes here...
+  }
+}</pre>
+
+Checking for an error gives you the opportunity to handle it in a sane way. Most scripts report that an error has occurred instead of simply stopping in their tracks.
+
+=== Reading Data Example ===
+
+==== Example 1 (Continue) ====
+
+When I printed out the entire source the server sent us. The first part is the header, follows by a blank space, and follows by the actual page data. It should look something like this:
+
+<pre>
+:HTTP/1.1 200 OK
+:Date: Sun, 11 Mar 2012 10:42:05 GMT
+:Server: Apache
+:X-Powered-By: PHP/5.2.17
+:Connection: close
+:Content-Type: text/html
+:
+:<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+:   <html xmlns="http://www.w3.org/1999/xhtml">
+:       <head>
+:           <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+:           <meta name="robots" content="noindex,follow" />
+:           <title>ZigWap - Demo Page</title>
+:       </head>
+:       <body>
+:           <div align="center">
+:               <p>This is an example page!</p>
+:               <p>This webpage is dedicated for the socket tutorial purpose. </p>
+:           </div>
+:       <p>Your random color is: Pink</p>
+:       </body>
+:   </html>
+</pre>
+
+The first part is the header, follows by a blank space, and follows by the actual page data. In this example we will be trying to retrieve the random color line. A simple if statement to check for *Your random colors is* should be sufficient enough.
+
+<pre class ="code">on *:sockread:example1: {
+  var %read
+  sockread %read
+  ; check if this is the line we want
+  if (*Your random color is: * iswm %read) {
+    ; break down our line into words
+    tokenize 32 %read
+    ; get the color and remove the html tab
+    echo $color(info) -a Random Color: $noHTML($5)
+    ; close the socket, it's not needed
+    sockclose $sockname
+  }
+}</pre>
+
+==== Example 2 (YouTube, Continue) ====
+If you tried to print the youtube page we did (http://www.youtube.com/watch?v=FDw0NdhK6QU) you will quickly realize how long the youtube webpage is. For this reason I will not show it here. The way we parse that page is very much like the one we did for the first example:
+
+<pre class ="code">
+on *:sockread:YouTube: {
+  var %x
+  sockread %x
+  if ($regex(%x, <meta name="title" content="(.+)">)) {
+    ; parse the title
+    set %title. $+ $sockName $regml(1)
+  }
+  else if (watch-view-count isin %x) {
+    ; read the next line
+    sockread %x
+    ; make sure it's a number
+    ; the (*UTF8) in the expression is required for the regex engine to interpret utf8 sequences, which is what mIRC use (here for a $chr(160))
+    if ($regex(%x,/(*UTF8)^ *([\d\xA0]+)/)) {
+      set %view. $+ $sockname $replace($regml(1),$chr(160),$chr(32))
+    }
+  }
+  ;if we find the username of the uploader, we are done
+  else if ($regex(%x,/&lt;\/a&gt;&lt;a ?href="\/user\/([^"]+)/)) {
+    ; print out the info
+    echo -a Title: $($+(%, title., $sockname), 2) $&
+      Uploader: $regml(1) Views: $($+(%, view., $sockname), 2)
+    ; cleanup
+    unset %*. $+ $sockname
+    ; close the socket, no need to read anymore
+    sockclose $sockname
+  }
+}
+</pre>
+
+== Connection Terminated ==
+It is possible for the remote end-point to terminate a connection, the same way you can /sockclose a connection early. When this happens the on sockclose event will trigger. The syntax for that event is:
+
+<pre class ="code">on *:sockclose:&lt;handle&gt;: {
+   ;Your code goes here
+}</pre>
+
+'''Note:''' Only the remote end-port, not you, can trigger this event.
+
+</body>
+</html>

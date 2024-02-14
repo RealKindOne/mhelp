@@ -6,8 +6,8 @@
 </H1>
 <br>
 <br>
-
 The <b>/while</b> command is a :doc: `construct in the mIRC scripting language </intermediate/control_flow_statements.html#while_loops>` that can perform repetitive operations. The block of statement inside the while loop will get executed as long as the condition is true. You can manually break out of a loop by using the Cltr+Break key combinations.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -17,12 +17,11 @@ while (condition) {
   /statements
 }
 </pre>
-<H4>Switches</H4>
 
+<H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-
 None
 
 <H4>Example</H4>
@@ -31,14 +30,14 @@ How to iterate over lines of a file
 <pre class ="code">
 ; Read all lines of a file:
 var %file file.txt
-var %i 1 | while (%i <= $lines(%file)) {
+var %i 1 | while (%i &lt;= $lines(%file)) {
   echo -a line %i - $read(%file,nt,%i)
   inc %i
 }
 
 ; Read from line 5 and stop at line 10:
 var %file file.txt
-var %i 5 | while (%i <= $lines(%file)) {
+var %i 5 | while (%i &lt;= $lines(%file)) {
   echo -a line %i - $read(%file,nt,%i)
   if (%i == 10) break
   inc %i
@@ -57,7 +56,7 @@ Alias CountToTen {
   var %Counter = 1
 
   ; Loop while the counter variable is less than or equal to ten.
-  while (%Counter <= 10) {
+  while (%Counter &lt;= 10) {
 
     ; Print out the value of the counter variable
     echo -a Count Number: %Counter
@@ -93,7 +92,7 @@ Alias ListVars {
   var %a 1
 
   ; Loop while the counter variable is less than or equal to the total number of variables
-  while (%a <= $var(*,0)) {
+  while (%a &lt;= $var(*,0)) {
 
     ; Print out the variable and its value
     echo -a $v1 $+ ) $var(*,$v1) = $var(*,$v1).value
@@ -116,7 +115,6 @@ Added: mIRC v5.7 (07 May 2000)
 None
 
 <H4>See also</H4>
-
 
 <a href="break.html">/break</a><br>
 <a href="continue.html">/continue</a><br>

@@ -8,16 +8,16 @@ The <b>ON JOIN</b> event triggers when the mIRC client, or a remote user, joins 
 
 '''Note''': When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you won't be opped inside the on join event, and should use ON OP event instead.
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:JOIN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
 <br><b>&lt;#,[,#]&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 
 <br><b>[,#]</b> - Specific channel names
-
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
@@ -41,6 +41,9 @@ on ^*:JOIN:*:{
 
 <H4>Compatability</H4>
 Added: mIRC v4.5 (30 Jun 1996)
+
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 

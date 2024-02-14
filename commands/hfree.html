@@ -6,25 +6,22 @@
 </H1>
 <br>
 <br>
-
 The <b>/hfree</b> command destroys previously created hash table(s) along with all item/data pairs within them. A hash table can be created via the <a href="hmake.html">/hmake</a> command.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /hfree [-sw] &lt;table&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-s</b>
+<b>-s</b>
       - Displays debug information
 <br><b>-w</b>
-      - Treats <table> as a <a href="..\other\wildcard.html">wildcard</a> and deletes all matching tables.
+      - Treats &lt;table&gt; as a <a href="..\other\wildcard.html">wildcard</a> and deletes all matching tables.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;table&gt;</b>
+<b>&lt;table&gt;</b>
       - the table you wish to delete.
 
 <H4>Example</H4>
@@ -51,13 +48,14 @@ alias del_hash {
 * Using the -w switch allows deleting zero tables matching the wildcard, enabling the echo to display.
 
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (14 Dec 2000)
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-
 
 <a href="hmake.html">/hmake</a><br>
 <a href="hload.html">/hload</a><br>

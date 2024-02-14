@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/cline</b> command changes the color of the Nth line/item in a custom window or channel's nicklist.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /cline -hrmltc[N] [c] &lt;@name/#channel&gt; &lt;N&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-h</b>
+<b>-h</b>
       - Highlights the window's button (if window is minimized)
 <br><b>-r</b>
       - Reset an item in the listbox to default; [c] parm must be omitted
@@ -30,9 +29,7 @@ The <b>/cline</b> command changes the color of the Nth line/item in a custom win
       - as using the [c] parameter to change the color, but via a switch
 
 <H4>Parameters</H4>
-
-
-<br><b>[c]</b>
+<b>[c]</b>
       - new color
 <br><b>&lt;@name/#channel&gt;</b>
       - target window/channel
@@ -40,10 +37,11 @@ The <b>/cline</b> command changes the color of the Nth line/item in a custom win
       - line/item number
 
 <H4>Example</H4>
+Color your nick color number 4 (default red) in the active channel:
 <pre class ="code">
-; Color your nick color number 4 (default red) in the active channel
 //cline -l 4 $chan $fline($chan,$me,1,1)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (11 Sep 1997)
 
@@ -51,7 +49,6 @@ Added: mIRC v5.1 (11 Sep 1997)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\window.html">$window</a><br>
 <a href="..\identifiers\line.html">$line</a><br>

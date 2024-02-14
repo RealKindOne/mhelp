@@ -6,6 +6,7 @@
 <br>
 The <b>$hash</b> identifier calculates a simple hash of the supplied text. The hash is shown as an integer in the range from 0 to 2^N-1 where N is the number of bits ranging from 2-32. Except for compatibility with legacy scripts, you should probably avoid using this hash for reasons explained in the Notes section. It's possible that $hash() was once the method used by /hadd to put an item into one of the hash table's "buckets", but that was not the case at the point when it was changed to use 'modified FNV-1A'. Alternate solutions are suggested below.
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $hash(<text>,<N>)
@@ -101,7 +102,7 @@ When the fakehash alias is in a remotes script, you should get the same answers 
 alias fakehash {
   if ( ($1 == $null) || ($2 !isnum 2-32) ) return $null
   var %i 1 | var %len $len(%string) | var %x 0 | var %bits $int($2)
-  while (%i <= $len($1)) {
+  while (%i &lt;= $len($1)) {
     var %y $int($calc( $and(%x,$base(ff000000,16,10)) / 2^24 ))
     var %x = $calc( %x + %y + $asc($mid($1,%i,1)) )
     var %x = $calc( (%x * 256) % (2^32) )
@@ -168,7 +169,7 @@ Added: mIRC v5.4 (23 Jun 1998)}<H4>Notes</H4>
 None
 <H4>See also</H4>
 <a href="crc.html">$crc</a><br>
-* {{mIRC|$crc64}}
+<a href="crc64.html">$crc64</a><br>
 <a href="md5.html">$md5</a><br>
 <a href="sha1.html">$sha1</a><br>
 <a href="sha256.html">$sha256</a><br>

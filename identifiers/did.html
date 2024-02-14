@@ -9,15 +9,14 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 
 <H4>Synopsis</H4>
 
-
-<b>Note:</b> Inside the on dialog event, you can omit the whole dialog <name> parameter:
+<b>Note:</b> Inside the on dialog event, you can omit the whole dialog &lt;name&gt; parameter:
 <pre class ="code">
  $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
  $did(&lt;id&gt;,[N])[.property]
 </pre>
 
 <H4>Properties</H4>
-<br><b>.text</b> - returns line or Nth line
+<b>.text</b> - returns line or Nth line
 <br><b>.len</b> - returns length of line or length of Nth line
 <br><b>.lines</b> - returns number of lines
 <br><b>.sel</b> - returns line number of Nth selected line
@@ -35,7 +34,7 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 <br><b>.cstate</b> - returns 0 = off, 1 = on for item in a listcb control
 </pre>
 <H4>Parameters</H4>
-<br><b>&lt;name&gt;</b> - name of the dialog
+<b>&lt;name&gt;</b> - name of the dialog
 <br><b>&lt;id&gt;</b> - id of the controls
 <br><b>[N]</b> - usually a line number, it can also be an id number with menus, use 0 if you want to access the editbox of a combo control.
 <br><b>[.property]</b> - used to check features of the dialog id, such as button state, selected line in a combo control, or number of lines in an editbox.
@@ -76,6 +75,7 @@ Almost all events are accounted for. The dialog properly tracks mouse movements,
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
+
 <H4>Notes</H4>
 None
 <H4>See also</H4>
@@ -88,6 +88,5 @@ None
 <a href="..\commands\did.html">/did</a><br>
 <a href="..\commands\didtok.html">/didtok</a><br>
 <a href="..\events\on_dialog.html">On_Dialog</a><br>
-
 </body>
 </html>

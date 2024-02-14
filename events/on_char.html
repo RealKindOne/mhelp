@@ -15,11 +15,12 @@ This event fills the following identifiers:
 
 <br><a href="..\identifiers\keyrpt.html">$keyrpt</a> - If the key is being held down/repeating
 
+
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:char:&lt;@&gt;:&lt;codepoint,...,codepointN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;@&gt;</b> - The {{mIRC|Custom Windows}} where this event should listen. Can be '''@''' for all windows.
 <br><b>&lt;codepoint&gt;</b> - The specific characters' codepoints to listen for. Can specify multiple codepoints, such as:
 <pre class ="code">ON *:char:@myWindow:38,42,55,78:echo -a $keyval</pre>

@@ -6,17 +6,16 @@
 </H1>
 <br>
 <br>
-
 The <b>/drawrect</b> command can be used to draw a rectangle in a picture window. Multiple rectangles can be drawn at once.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
 /drawrect [-ihnrfecd] &lt;@win&gt; &lt;color&gt; &lt;size&gt; &lt;x y w h&gt; [x y w h [...]]
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-i</b>
+<b>-i</b>
       - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
 <br><b>-h</b>
       - Highlights the windows icon if it is minimized.
@@ -34,9 +33,7 @@ The <b>/drawrect</b> command can be used to draw a rectangle in a picture window
       - Draws a rounded rectangle, using the format "/drawrect -d x y w h [w h]" where w and h are the width and height of the ellipse used to draw the corners.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;@win&gt;</b>
+<b>&lt;@win&gt;</b>
       - Name of the Picture Window to draw to.
 <br><b>&lt;color&gt;</b>
       - A mIRC colour value from 0 to 15, or if the -r switch is used, an RGB value.
@@ -56,6 +53,7 @@ The <b>/drawrect</b> command can be used to draw a rectangle in a picture window
 ; Draws a filled green rectangle using an RGB colour value.
 /drawrect -fr @window 65280 1 5 5 20 20
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v (27 Nov 2022)
 
@@ -63,7 +61,6 @@ Added: mIRC v (27 Nov 2022)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\rgb.html">$rgb</a><br>
 <a href="..\identifiers\window.html">$window</a><br>

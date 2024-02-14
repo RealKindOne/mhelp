@@ -4,10 +4,9 @@
 <H1>Access Levels</H1>
 <br>
 <br>
-
 <b>Access levels</b> in mIRC are a mechanism by which events can be restricted to certain user levels or named groups. Almost all [[On events - mIRC|events]] have a level parameter that specifies the event's access level.
 
-== User list ==
+<H4>User list</H4>
 The list of users and their access is stored in the "users" tab of the script editor. Only a single address is stored per line and must follow the following syntax:
 
  &lt;levels&gt;:&lt;address&gt; &lt;additional info&gt;
@@ -15,11 +14,11 @@ The list of users and their access is stored in the "users" tab of the script ed
 Access levels are comma-delimited values that define the levels of the user. Although usually, the levels are numeric, you can use a name instead like "botAdmin" or "friends".
 
 The &lt;additional info&gt; parameter is an optional parameter that can be used to store some additional information about the user or other useful miscellaneous data.
-
+<pre class ="code">
  10,20:some!one@example.com
  friend:dan!z@some.isp.net high school friend
-
-=== Adding users ===
+</pre>
+<H4>Adding users</H4>
 There are two commands that can be used to add a user to the access list, <a href="..\commands\auser.html">/auser</a> and <a href="..\commands\guser.html">/guser</a>. They follow this syntax:
 
 <pre class ="code">
@@ -34,7 +33,7 @@ Both <a href="..\commands\auser.html">/auser</a> and <a href="..\commands\guser.
 /guser friend joe 2 neighbor
 </pre>
 
-=== Removing users ===
+<H4>Removing users</H4>
 The <a href="..\commands\ruser.html">/ruser</a> command can be used to remove a user completely from the access list or simply remove one of his levels.
 
 <pre class ="code">
@@ -47,7 +46,7 @@ For example:
 /ruser 2,10 foobar
 </pre>
 
-=== Changing users' info ===
+<H4>Changing users' info</H4>
 The user info parameter can be changed at any time using the <a href="..\commands\iuser.html">/iuser</a> command:
 
 <pre class ="code">
@@ -57,7 +56,7 @@ The user info parameter can be changed at any time using the <a href="..\command
 == Event prefixes ==
 mIRC offers a lot of prefixes to slightly alter how the event activates.
 
-=== * prefix ===
+<H4>* prefix</H4>
 The * prefix is the most commonly used prefix, and allows any user to activate the event regardless of their access level.
 
 For example:
@@ -67,7 +66,7 @@ on *:text:!time:#:{
 }
 </pre>
 
-=== Numeric prefixes ===
+<H4>Numeric prefixes</H4>
 Numeric prefixes allow any user with an access level >= the prefix to activate the event.
 
 For example:
@@ -78,15 +77,16 @@ on +5:text:.h:#myChan:{
 </pre>
 can be executed by any user with access level 5 or greater.
 
-=== ^ prefix === 
+<a name="carrot"></a>
+<H4>^ prefix</H4>
 
 By default, your event are triggered after mIRC has processed this event itself. For example if someone talks to you in a query, mIRC will display the text in that window, triggers the various beep and flash option if any, and only then trigger on text.
+<br>
+The ^ prefix tells mIRC to process your event before it processes the event itself. This prefix typically only works with IRC event but here is a full list of supported events: <a href="..\events\On_Action.html">On_Action</a>, <a href="..\events\On_Ban.html">On_Ban</a>, <a href="..\events\On_Chat.html">On_Chat</a>, <a href="..\events\On_DeHelp.html">On_DeHelp</a>, <a href="..\events\On_DeOp.html">On_DeOp</a>, <a href="..\events\On_DeVoice.html">On_DeVoice</a>, <a href="..\events\On_Help.html">On_Help</a>, <a href="..\events\On_Invite.html">On_Invite</a>, <a href="..\events\On_Join.html">On_Join</a>, <a href="..\events\On_Kick.html">On_Kick</a>, <a href="..\events\On_Mode.html">On_Mode</a>, <a href="..\events\On_Nick.html">On_Nick</a>, <a href="..\events\On_Notice.html">On_Notice</a>, <a href="..\events\On_Op.html">On_Op</a>, <a href="..\events\On_Open.html">On_Open</a>, <a href="..\events\On_Part.html">On_Part</a>, <a href="..\events\On_Ping.html">On_Ping</a>, <a href="..\events\On_Text.html">On_Text</a>, <a href="..\events\On_UnBan.html">On_UnBan</a>, {{mIRC|on usermode}}, <a href="..\events\On_Voice.html">On_Voice</a>, <a href="..\events\On_Quit.html">On_Quit</a>, <a href="..\events\On_Serv.html">On_Serv</a>, <a href="..\events\on_ServerMode.html">On_ServerMode</a>, <a href="..\events\On_ServerOp.html">On_ServerOp</a>, <a href="..\events\On_SNotice.html">On_SNotice</a>, {{mIRC|on tabcomp}}, <a href="..\events\On_Topic.html">On_Topic</a>, <a href="..\events\On_Wallops.html">On_Wallops</a>.
 
-The ^ prefix tells mIRC to process your event before it processes the event itself. This prefix typically only works with IRC event but here is a full list of supported events: <a href="..\events\On_Action.html">On_Action</a>, <a href="..\events\On_Ban.html">On_Ban</a>, <a href="..\events\On_Chat.html">On_Chat</a>, <a href="..\events\On_DeHelp.html">On_DeHelp</a>, <a href="..\events\On_DeOp.html">On_DeOp</a>, {{mIRC|on devoice}}, <a href="..\events\On_Help.html">On_Help</a>, <a href="..\events\On_Invite.html">On_Invite</a>, <a href="..\events\On_Join.html">On_Join</a>, <a href="..\events\On_Kick.html">On_Kick</a>, <a href="..\events\On_Mode.html">On_Mode</a>, {{mIRC|on nick}}, {{mIRC|on notice}}, {{mIRC|on op}}, <a href="..\events\On_Open.html">On_Open</a>, <a href="..\events\On_Part.html">On_Part</a>, {{mIRC|on ping}}, {{mIRC|on text}}, {{mIRC|on unban}}, {{mIRC|on usermode}}, <a href="..\events\On_Voice.html">On_Voice</a>, <a href="..\events\On_Quit.html">On_Quit</a>, <a href="..\events\On_Serv.html">On_Serv</a>, {{mIRC|on servermode}}, {{mIRC|on serverop}}, <a href="..\events\On_SNotice.html">On_SNotice</a>, {{mIRC|on tabcomp}}, {{mIRC|on topic}}, {{mIRC|on wallops}}.
+This prefix, coupled with <a href="..\commands\halt.html">/halt</a> or <a href="..\commands\haltdef.html">/haltdef</a>, allows you to display your own message for a given event, or it allows you to prevent a query window from opening with <a href="..\events\On_Open.html">On_Open</a>, or to prevent a nick completion in <a href="..\events\On_TabComp.html">On_TabComp</a>.
 
-This prefix, coupled with <a href="..\commands\halt.html">/halt</a> or <a href="..\commands\haltdef.html">/haltdef</a>, allows you to display your own message for a given event, or it allows you to prevent a query window from opening with <a href="..\events\On_Open.html">On_Open</a>, or to prevent a nick completion in {{mIRC|on tabcomp}}
-
-=== + prefix ===
+<H4>+ prefix</H4>
 By default, the numeric prefix means that level and any level higher can trigger that event. Using the + prefix, you can limit the event to be exactly the level specified.
 
 For example:
@@ -97,7 +97,7 @@ on +5:text:.h:#myChan:{
 </pre>
 will only work for users with access level of exactly 5. Any user with higher access level will not activate that event.
 
-=== ! prefix ===
+<H4>! prefix</H4>
 The exclamation mark prefix can be used to prevent an event from being activated by you (if ($nick != $me)).
 
 For example:
@@ -108,7 +108,7 @@ on !1:join:#support:{
 </pre>
 will never get activated by you joining #support, only other people.
 
-=== @ prefix===
+<H4>@ prefix</H4>
 The @ symbol can be used as a prefix to indicate that the event can only be activated if you are an operator in the channel. You can think of it as "if ($me isop $chan) {"
 
 For example:
@@ -119,20 +119,20 @@ on @10:text:.op:#myChan:{
 </pre>
 will only work if you are an operator in #myChan at the time the user typed ".o".
 
-=== & prefix ===
-The '''& prefix''' can be used to prevent the event from being executed if the previous event called the {{mIRC|/haltdef }} or <a href="..\commands\halt.html">/halt</a> commands (if $halted is $true).
+<H4>& prefix</H4>
+The '''& prefix''' can be used to prevent the event from being executed if the previous event called the <a href="..\commands\haltdef.html">/haltdef</a> or <a href="..\commands\halt.html">/halt</a> commands (if $halted is $true).
 
-For example, given the following two on TEXT events placed in separate files...
-
-<cite>script1.mrc</cite>
+For example, given the following two on TEXT events placed in separate files:
+<br>
+script1.mrc
 <pre class ="code">on *:TEXT:!test:?:haltdef</pre>
 
-<cite>script2.mrc</cite>
+script2.mrc
 <pre class ="code">on &*:TEXT:*:?:echo -ga I triggered because $!halted == $halted $+ !</pre>
 
 The second event will trigger upon recieving any msg sent via query ''except'' '''!test''', because the first event calls the ''haltdef'' command upon receiving '''!test'''.
 
-=== $ prefix ===
+<H4>$ prefix</H4>
 This event prefix means the matchtext of the event is a regular expression, the delimiter are required.
 
 <pre class ="code">
@@ -141,7 +141,7 @@ on $*:text:/^([!@.])test$/:#myChan:{
 }
 </pre>
 
-=== Named access levels ===
+<H4>Named access levels</H4>
 Sometimes it's beneficial to give an access group a name instead of a numeric value. A good example is bot admins, friends, or even channel members. You can define such groups using the normal <a href="..\commands\guser.html">/guser</a> and <a href="..\commands\auser.html">/auser</a> commands:
 
 <pre class ="code">
@@ -158,16 +158,17 @@ on BotAdmin:text:!example:#:{
 }
 </pre>
 
-=== me prefix ===
+<H4>me prefix</H4>
 The 'me' prefix can be used to get an event to trigger when you meet the criteria (only if $nick == $me). The 'me' prefix is a bit special; it requires a new colon before others prefixes.
 
 For example:
 <pre class ="code">
 on me:*:join:#support:{
   msg $chan Hello $chan $+ , I need help!
-}</pre>
+}
+</pre>
 
-'''Note:''' Many events are '''not''' triggered when you meet the criteria and you need to code a separate 'me' event to handle it.
+<b>Note:</b> Many events are <b>not</b> triggered when you meet the criteria and you need to code a separate 'me' event to handle it.
 
 </body>
 </html>

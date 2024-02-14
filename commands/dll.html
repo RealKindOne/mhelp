@@ -6,8 +6,8 @@
 </H1>
 <br>
 <br>
-
 The <b>/dll</b> command can be used to call an exported function from a DLL with the specified parameters.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -15,10 +15,9 @@ The <b>/dll</b> command can be used to call an exported function from a DLL with
 /dll -m &lt;callback&gt; &lt;libName.dll&gt; &lt;funcName&gt; [data]
 /dll -u &lt;libName.dll&gt;
 </pre>
+
 <H4>Switches</H4>
-
-
-<br><b>-u</b>
+<b>-u</b>
       - Unload the given loaded library.
 <br><b>-m</b>
       - Call the procname in a new thread and call the alias &lt;callback&gt; when finished
@@ -26,9 +25,7 @@ The <b>/dll</b> command can be used to call an exported function from a DLL with
 <br><b>Note:</b> if you pass only a filename, (for example "test.dll", instead of /folder/test.dll or c:\fullpath\test.dll), /dll -u will begin with N=1 looking into the whole list of dlls for a match between $nopath($dll(Nth)) instead of looking into $mircdir only or looking in $mircdir first.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;libName.dll&gt;</b>
+<b>&lt;libName.dll&gt;</b>
       - The name and path of the dynamic link library (DLL) file.
 <br><b>&lt;funcName&gt;</b>
       - The name of the exported function to call
@@ -70,7 +67,6 @@ Added: mIRC v5.6 (23 Sep 1999)
 None
 
 <H4>See also</H4>
-
 
 <a href="..\identifiers\dll.html">$dll</a><br>
 <a href="..\identifiers\dllcall.html">$dllcall</a><br>

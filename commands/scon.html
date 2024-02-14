@@ -6,7 +6,6 @@
 </H1>
 <br>
 <br>
-
 The <b>/scon</b> command can change the connection associated with the current script. When a command is not specified, mIRC changes the connection of the current script to the Nth connection. The rest of the code will continue to execute on that connection. When a command is specified, mIRC will execute the command on the specified connection or connections based on the switches provided. Any active connection changes are restored upon returning to the calling routine. A command can be executed on all or some of the connections depending on their types using the -a or -at&lt;Type&gt; switches.
 
 <br>
@@ -21,13 +20,14 @@ The <b>/scon</b> command can change the connection associated with the current s
 <br><b>7</b> = 3+4 = Disconnected or Connected or Connecting
 <br><b>8</b> = Disconnected
 
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /scon -rat&lt;type&gt;s [Nth] [command]
 </pre>
-<H4>Switches</H4>
 
-<br><b>-r</b>
+<H4>Switches</H4>
+<b>-r</b>
       - Resets the connection back to what it original was
 <br><b>-s</b>
       - Prints the current connection number or the new connection number)
@@ -37,9 +37,7 @@ The <b>/scon</b> command can change the connection associated with the current s
       - Perform on all the connections of a specific type, can only be used with -a.
 
 <H4>Parameters</H4>
-
-
-<br><b>&lt;Nth&gt;</b>
+<b>&lt;Nth&gt;</b>
       - The Nth connection.
 <br><b>&lt;type&gt;</b>
       - The connection type, only used with the t switch.
@@ -88,6 +86,7 @@ alias listChans {
   }
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (16 Aug 2002)
 
