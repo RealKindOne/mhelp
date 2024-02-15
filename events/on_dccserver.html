@@ -4,9 +4,9 @@
 <H1>On Dccserver</H1>
 <br>
 <br>
-The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the {{mIRC|/halt}} command.
+The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the <a href="..\commands\halt.html">/halt</a> command.
 
-When triggered by a '''Send''', this event fills the <a href="..\identifiers\filename.html">$filename</a><br> identifier with the file name attempting to be received.
+When triggered by a '''Send''', this event fills the <a href="..\identifiers\filename.html">$filename</a> identifier with the file name attempting to be received.
 
 
 <H4>Synopsis</H4>
@@ -14,7 +14,6 @@ When triggered by a '''Send''', this event fills the <a href="..\identifiers\fil
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
-
 <br><b>&lt;Chat|Send|Fserve&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 
 ** '''Chat''' - Triggers if the event is caused by a DCCSERVER Chat.
@@ -29,7 +28,7 @@ Echo to the active screen some information when a {{mIRC|/dcc|dcc send}} is bein
 The '''ON DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a {{mIRC|/dcc|dcc send}} if the file extension is [[.exe file type - Windows|.exe]]:
 <pre class ="code">ON *:DCCSERVER:Send:if ($right($filename,4) == .exe) { echo -a User $nick just tried to send a file with an .exe extension. It has been declined. | halt }</pre>
 
-The use of the {{mIRC|/halt}} command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other '''ON DCCSERVER''' events to prevent anything from happening.
+The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other '''ON DCCSERVER''' events to prevent anything from happening.
 
 Echo when a user attempts to initiate a {{mIRC|/dcc|DCC Chat}}:
 <pre class ="code">ON *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>

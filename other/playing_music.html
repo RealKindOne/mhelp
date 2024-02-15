@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Playing Music</title></head>
 <H1>Playing Music</H1>
 <br>
 <br>
@@ -9,7 +10,7 @@ Playing music in mIRC is really a very simple process, easily accomplished throu
 <H4>Enabling mIRC Sounds</H4>
 In order for you to be able to play music or any other type of sound in mIRC, you must first enable sounds. Sounds can be enabled simply by going to the options dialog (Alt+O), then clicking on the 'Sounds' option in the left-hand side list, and then placing a check mark into the ''Enable Sounds''. Below is a screenshot of the options window with the ''Enable Sounds'' option ticked.
 
-'''Note:''' Alternatively, you may use the <a href="..\commands\ebeeps.html">/ebeeps</a> command to enable sounds in mIRC: <code>/ebeeps on</code>
+<br><b>Note:</b>Alternatively, you may use the <a href="..\commands\ebeeps.html">/ebeeps</a> command to enable sounds in mIRC: <code>/ebeeps on</code>
 
 
 <img src="..\images\enable_sound.png">
@@ -17,7 +18,7 @@ In order for you to be able to play music or any other type of sound in mIRC, yo
 <H4>Supported Formats</H4>
 mIRC supports the following media formats: <code>.wma,.mp3,.wav,.mid,.ogg</code>
 
-'''Note:''' The <code>.mp3,.wma & .ogg</code> formats are all considered the same format when using the <code>/splay</code> command.
+<br><b>Note:</b>The <code>.mp3,.wma & .ogg</code> formats are all considered the same format when using the <code>/splay</code> command.
 
 Multiple file formats can be played at the same time. However, you '''cannot''' play multiple files, of the same format, at the same time. For instance, you can play a ''.wav'' file at the same time as an ''.mp3'' file, but you cannot play a ''.wav'' file and another ''.wav'' file at the same time. The second ''.wav'' file will take precedence if you're not queuing the file: the first ''.wav'' file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <code>.mp3,.wma & .ogg</code>; they are all treated the same with the {{mIRC|/splay}} command, so only one of those types may play at a time.
 
@@ -29,7 +30,7 @@ Multiple file formats can be played at the same time. However, you '''cannot''' 
 <br><b>-w</b> - '''WAVE format'''
 <br><b>-m</b> - '''MIDI format'''
 <br><b>-p</b> - '''MP3/OGG/WMA formats'''
-'''Note:''' You may specify more than one of the above switches at the same time for the Stop feature, but not for Skip.
+<br><b>Note:</b>You may specify more than one of the above switches at the same time for the Stop feature, but not for Skip.
 
 === Parameters ===
 * <code>-q</code> - Adds the file to the queue for that format. The first file in the queue, for that format, is played when a song of that format ends its playback.

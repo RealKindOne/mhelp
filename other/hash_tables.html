@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Hash Tables</title></head>
 <H1>Hash Tables</H1>
 <br>
 <br>
@@ -22,7 +23,7 @@ mIRC provides facilities for manipulating the table and the values in a variety 
 
 Hash tables, unlike INI files, are stored completely in memory and are never written to disk (unless the /hsave command is used), making them much faster when it comes to storing and retrieving information. The performance gain is much more obvious with a large amount of item/data pairs.
 
-'''Note:''' Because hash tables are only in memory, it must be saved to a disk file using /hsave if mIRC needs to have the hashtable in memory after an exit then restart. You can reload the table from a file after mIRC restarts.
+<br><b>Note:</b>Because hash tables are only in memory, it must be saved to a disk file using /hsave if mIRC needs to have the hashtable in memory after an exit then restart. You can reload the table from a file after mIRC restarts.
 
 == Creating a table ==
 
@@ -40,11 +41,11 @@ If you don't specify the number of buckets (or "slots"), the default is used, wh
   \text{buckets} = \frac{\text{number of items that will be used}}{0.78}
 </math>
 
-For example: a table with 101 buckets is optimal for 79 items. For 1000 items, 1282 buckets is best (which mIRC increases to the prime 1283). '''Note:''' The maximum valid number for the buckets parameter is 10000, which mIRC increases to the next available prime number, 10007.
+For example: a table with 101 buckets is optimal for 79 items. For 1000 items, 1282 buckets is best (which mIRC increases to the prime 1283). <br><b>Note:</b>The maximum valid number for the buckets parameter is 10000, which mIRC increases to the next available prime number, 10007.
 
 Or to put this another way, the optimum number of buckets is 1.282x the number of items you are going to store in the hash table.
 
-'''Note:''' See the notes at the bottom of the page for explanation why it can be helpful for buckets to be greater than the number of items in the table.
+<br><b>Note:</b>See the notes at the bottom of the page for explanation why it can be helpful for buckets to be greater than the number of items in the table.
 
 == Adding Items ==
 
@@ -128,7 +129,7 @@ $hget(&lt;table_name&gt;, &lt;Nth&gt;).item
 $hget(&lt;table_name&gt;, &lt;Nth&gt;).data
 </pre>
 
-'''Note:''' Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
+<br><b>Note:</b>Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
 
 An example of looping over every value in our Colors table will look like this:
 

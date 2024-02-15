@@ -1,13 +1,11 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-/wavplay
-</H1>
+<head><title>/wavplay</title></head>
+<H1>/wavplay</H1>
 <br>
 <br>
-
-<br><b>Note:</b> /wavplay has essentially been replaced by the <a href="splay.html">/splay</a> command.
+<b>Note:</b> /wavplay has essentially been replaced by the <a href="splay.html">/splay</a> command.
 <br>
 <br>
 The <b>/wavplay</b> command is used to play a .wav file of your choosing.
@@ -15,17 +13,16 @@ The <b>/wavplay</b> command is used to play a .wav file of your choosing.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/wavplay <sound.wav>
+/wavplay &lt;sound.wav&gt;
 </pre>
 
 <H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
+None
 
 <H4>Example</H4>
-
-
 Play the file mywav.wav located in the Sounds directory of mIRC
 <pre class ="code">
 /wavplay mywav.wav
@@ -33,7 +30,6 @@ Play the file mywav.wav located in the Sounds directory of mIRC
 Short alias script that will ask you which wav file you want to play
 <pre class ="code">
 alias playwav {
-
   ; First, we create a variable, %file, to hold our
   ; user-selected wav file. Note that this is surrounded
   ; by the $qt() identifier which makes sure that the
@@ -55,7 +51,7 @@ alias playwav {
 Added: mIRC v3.5 (13 Aug 1995)
 <br>
 Removed: mIRC v5.51 (19 Feb 1999)
-<br>
+
 <H4>Notes</H4>
 None
 

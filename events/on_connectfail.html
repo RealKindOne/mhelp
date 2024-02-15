@@ -4,7 +4,7 @@
 <H1>On Connectfail</H1>
 <br>
 <br>
-The <b>ON CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC server. This event will also trigger during reconnect attempt disconnections. The '''$1-''' identifier is filled with any server disconnect message that is passed to mIRC.
+The <b>ON CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC server. This event will also trigger during reconnect attempt disconnections. The <a href="..\identifiers\1-.html">$1-</a> identifier is filled with any server disconnect message that is passed to mIRC.
 
 
 <H4>Synopsis</H4>
@@ -15,19 +15,18 @@ The <b>ON CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC se
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
 <H4>Example</H4>
-<pre class ="code">; Stop mIRC from reconnecting
-; after a connection failure.
+Stop mIRC from reconnecting after a connection failure:
+<pre class ="code">
 ON *:CONNECTFAIL:echo -s connection to $servertarget failed: $1- | disconnect</pre>
 
 <H4>Compatability</H4>
-{{mIRC compatibility|6.02}}
+Added: mIRC v6.02 (06 Jun 2002)
 
 <H4>See also</H4>
 <a href="On_connect.html">On_connect</a><br>
 <a href="On_disconnect.html">On_disconnect</a><br>
 <a href="..\identifiers\network.html">$network</a><br>
 <a href="..\identifiers\server.html">$server</a><br>
-* {{mIRC|$servertarget}}
-
+<a href="..\identifiers\servertarget.html">$servertarget</a><br>
 </body>
 </html>

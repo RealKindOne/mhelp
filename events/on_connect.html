@@ -4,7 +4,7 @@
 <H1>On Connect</H1>
 <br>
 <br>
-The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an IRC server and that IRC server has displayed its [[MOTD]].
+The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an IRC server and that IRC server has displayed its MOTD.
 
 
 <H4>Synopsis</H4>
@@ -15,12 +15,12 @@ The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
 <H4>Example</H4>
-<pre class ="code">; Echo the server and network
-; names to the active window
+Echo the server and network names to the active window:
+<pre class ="code">
 ON *:CONNECT:echo -a Server: $server -- Network: $network</pre>
 
 If a successful connection is made to an IRC server, the above code will display something similar to the below example:
-<pre>Server: chicago.il.us.undernet.org -- Network: UnderNet</pre>
+<pre class ="code">Server: chicago.il.us.undernet.org -- Network: UnderNet</pre>
 
 <pre class ="code">; Join a single channel,
 ; #myChannel, upon successful connection
@@ -30,7 +30,7 @@ ON *:CONNECT:join #myChannel</pre>
 When a successful connection is made to a server, mIRC will now join the channel '''#myChannel'''.
 
 <H4>Compatability</H4>
-{{mIRC compatibility|2.1a}}
+Added: mIRC v5.0 (02 Apr 1997)
 
 <H4>See also</H4>
 

@@ -1,6 +1,7 @@
 {{mirc title|Token Manipulation}}
 If you are like many people who are coming from another programming language it might come as a surprise to you that there are no true arrays in mSL. This is because the paradigm is a little different: an array in mSL can be thought of as simply a list or vector of tokens. In mSL, a '''token''' is simply a string of characters that is separated by a single, unique character. mIRC provides an extensive set of identifiers and commands to help you manipulate this list of tokens.
 
+<head><title>is</title></head>
 == Lists ==
 
 To better understand this concept; let's consider a simple alias that returns the day of the week from a given Nth day. In this case, our list of tokens will look something like this:
@@ -129,7 +130,7 @@ var %pos = $findtok(&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point
 var %result = $matchtok(&lt;list&gt;, &lt;substring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 var %result = $wildtok(&lt;list&gt;, &lt;wildstring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 ;to get the Nth token
-var %tok = $gettok(&lt;list&gt;, <N>, &lt;code_point&gt;)</pre>
+var %tok = $gettok(&lt;list&gt;, &lt;N&gt;, &lt;code_point&gt;)</pre>
 $findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports {{mirc|wildcard}} characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
 <pre class ="code">//echo -a $findtok(a a b c d, a, 0, 32)
 2

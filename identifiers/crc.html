@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$crc</title></head>
 <H1>$crc</H1>
 <br>
 <br>
@@ -63,7 +64,7 @@ If the text doesn't have Unicode code points above 255, to avoid having Unicode 
 //var %name chloé | bset -ta &string1 1 %name | bset -t &string2 1 %name | echo -a $crc(&string1,1) / $crc(&string2,1) / $crc(%name,0)
 
 
-'''Note:''' CRC-32 is good for detecting transfer errors. Any 1 bit changed in a file is guaranteed to change the CRC-32 value, which is not necessarily true for $sha1 or other 1-way hashes. However, CRC-32 is not good for detecting malicious tampering with a file. There is a 4-byte binary string which can change a file from any CRC-32 value to any CRC-32 value, and these 4 bytes can be quickly calculated without brute force testing of the 2^32 possible strings.
+<br><b>Note:</b>CRC-32 is good for detecting transfer errors. Any 1 bit changed in a file is guaranteed to change the CRC-32 value, which is not necessarily true for $sha1 or other 1-way hashes. However, CRC-32 is not good for detecting malicious tampering with a file. There is a 4-byte binary string which can change a file from any CRC-32 value to any CRC-32 value, and these 4 bytes can be quickly calculated without brute force testing of the 2^32 possible strings.
 
 == Error Messages ==
 None

@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$gettok</title></head>
 <H1>$gettok</H1>
 <br>
 <br>{{Deprecated feature|new=<a href="gettok.html">$gettok</a><br>}}'''$token</b> identifier returns the Nth $asc(C)-delimited token from a list.
@@ -10,18 +11,18 @@
 $token(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 </pre>
 <H4>Parameters</H4>
-<b>LIST</b> - Text list delimited by a character into tokens<br />
-<br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
-<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
+<b>LIST</b> - Text list delimited by a character into tokens
+<br><b>N</b> - The token(s) to be returned. N can also be negative or a range
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens
 
 If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
 If N is greater than the total number of tokens, returns <a href="null.html">$null</a> <br />
 If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
 N- returns all tokens beginning with the Nth token.
 N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
-'''Note:''' You can reverse the order of the number: $token(a b c,3-2,32) is the same as $token(a b c,2-3,32)<br />
-'''Note:''' N2 can also be negative: $token(a b c d e f,-2-3,32) return the token from the 3rd token to the -2th but $token(a b c d e f,-2--3,32) return e f, from -3 to -2<br />
-'''Note:''' For readability you can also code this as '''$token(a-b-c-d-e,2,$asc(-))'''.
+<br><b>Note:</b>You can reverse the order of the number: $token(a b c,3-2,32) is the same as $token(a b c,2-3,32)<br />
+<br><b>Note:</b>N2 can also be negative: $token(a b c d e f,-2-3,32) return the token from the 3rd token to the -2th but $token(a b c d e f,-2--3,32) return e f, from -3 to -2<br />
+<br><b>Note:</b>For readability you can also code this as '''$token(a-b-c-d-e,2,$asc(-))'''.
 
 <H4>Properties</H4>
 None

@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$gettok</title></head>
 <H1>$gettok</H1>
 <br>
 <br>
@@ -79,7 +80,7 @@ $gettok puts range numbers in the correct order before evaluating them.
 ; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
 </pre>
 
-'''Note:''' $gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
+<br><b>Note:</b>$gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
 
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)

@@ -1,17 +1,16 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-Picture Windows
-</H1>
+<head><title>>Picture Windows</title></head>
+</H1>Picture Windows</H1>
 <br>
 <br>
-The <b>Picture Windows</b> in [[mIRC]] are a special type of [[Custom windows - mIRC|custom windows]] that is used as a drawing canvas. mIRC provides a set of [[list of commands - mIRC|commands]], [[list of identifiers - mIRC|identifiers]], and [[on events - mIRC|events]] for manipulating them. Picture windows provide an alternative mean of creating a graphical user interface.
+The <b>Picture Windows</b> in [[mIRC]] are a special type of <a href="..\other\custom_windows.html">custom window</a> that is used as a drawing canvas. mIRC provides a set of [[list of commands - mIRC|commands]], [[list of identifiers - mIRC|identifiers]], and [[on events - mIRC|events]] for manipulating them. Picture windows provide an alternative mean of creating a graphical user interface.
 
 == Creating a picture window ==
 Picture windows can be created via the <a href="..\commands\window.html">/window</a> command in combination with the -p switch which creates a bitmap.
 
-'''Note:''' -p only creates the bitmap, the size used in /window will by default set the window's size, to sets the size of the bitmap, you need to use the -f switch, which will automatically resize the size of the window for you.
+<br><b>Note:</b>-p only creates the bitmap, the size used in /window will by default set the window's size, to sets the size of the bitmap, you need to use the -f switch, which will automatically resize the size of the window for you.
 
 '''Note 1:''' One way to get a window size bigger than your actual maximum screen resolution is to open the window once using the switches +Lt and then to call /window -f again with the actual width and height.
 
@@ -21,7 +20,8 @@ A simple example:
 //window -dep @example -1 -1 500 400
 </pre>
 
-will create a desktop picture window named <code>@example</code> with an editbox and a size of 500x400, the actual size of the bitmap is not 500*400, it will be close, you can check its size with: <pre class ="code">
+will create a desktop picture window named <code>@example</code> with an editbox and a size of 500x400, the actual size of the bitmap is not 500*400, it will be close, you can check its size with:
+<pre class ="code">
 //echo -a $window(@example).bw $window(@example).bh
 </pre>
 

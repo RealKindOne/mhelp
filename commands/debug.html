@@ -1,9 +1,8 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-/debug
-</H1>
+<head><title>/debug</title></head>
+<H1>/debug</H1>
 <br>
 <br>
 The <b>/debug</b> command outputs raw server messages to a file or a custom window  Incoming messages are prefixed with "<-" and outgoing messages are prefixed with "->".
@@ -68,10 +67,10 @@ Alias console {
 
 <pre class ="code">
 
-; This alias opens a debug window shared by all networks. 
-; Outbound lines in red, inbound lines in green. 
-; Note the identifier is listed on command line instead of calling an alias. 
-; The yellow 8 is overridden by defining in/out colors with -rNoN. 
+; This alias opens a debug window shared by all networks.
+; Outbound lines in red, inbound lines in green.
+; Note the identifier is listed on command line instead of calling an alias.
+; The yellow 8 is overridden by defining in/out colors with -rNoN.
 ; Alias uses $time to display seconds without forcing all windows to show seconds in their $timestamp too
 ; Raccoon's altered by maroon
 on *:CONNECT:{ debugg }

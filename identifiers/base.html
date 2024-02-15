@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$base</title></head>
 <H1>$base</H1>
 <br>
 <br>The <b>$base</b> identifier converts numbers between different number bases, or zero-pads numbers to the desired length.
@@ -17,11 +18,11 @@ $base(&lt;N&gt;,&lt;InBase&gt;,&lt;OutBase&gt;[,Zero-pad][,Precision])
 <br><b>ZeroPad</b> - The output's minimum number of non-fraction digits by adding 0's if needed. Accepts up to 100.
 <br><b>Precision</b> - Shortens the output's maximum number of fraction digits, limited by mIRC's base-10 precision of 6.
 
-* '''Note:''' Beginning v7.72 $base supports the larger integer accuracy of bigfloat mode without needing to use %varname.bf or /bigfloat on, and no longer limits zero padding to 100 digits. But extra precision for fractional input requires bigfloat mode.
-* '''Note:''' InBase & Outbase can be any integer from 2-36, with Base 17-36 extending hexadecimal to use as many letters as needed from the G-Z range. Letters A-Z used by number bases 11 through 36 accept case-insensitive input, but always outputs uppercase.
-* '''Note:''' All 36 inbases accept all 36 characters of the base36 alphabet, so $base(ZZ,2,10) = 35*2+35=105.
-* '''Note:''' Prefix 0x or 0X is stripped from N for base 16. (Prior to v7.53 only base36 did not strip the 0x. To prevent this, such as in base 34-35 where X is a valid character, it was necesary to prefix inputs with 00.)
-* '''Note:''' Base 32 is NOT the same as the base32 encoding method used by $encode(). $base assigns the values 0-31 to characters 0-9 and A-V, while the Base32 encoding method assigns values 0-31 to A-Z and 2-7 then stores them differently.
+* <br><b>Note:</b>Beginning v7.72 $base supports the larger integer accuracy of bigfloat mode without needing to use %varname.bf or /bigfloat on, and no longer limits zero padding to 100 digits. But extra precision for fractional input requires bigfloat mode.
+* <br><b>Note:</b>InBase & Outbase can be any integer from 2-36, with Base 17-36 extending hexadecimal to use as many letters as needed from the G-Z range. Letters A-Z used by number bases 11 through 36 accept case-insensitive input, but always outputs uppercase.
+* <br><b>Note:</b>All 36 inbases accept all 36 characters of the base36 alphabet, so $base(ZZ,2,10) = 35*2+35=105.
+* <br><b>Note:</b>Prefix 0x or 0X is stripped from N for base 16. (Prior to v7.53 only base36 did not strip the 0x. To prevent this, such as in base 34-35 where X is a valid character, it was necesary to prefix inputs with 00.)
+* <br><b>Note:</b>Base 32 is NOT the same as the base32 encoding method used by $encode(). $base assigns the values 0-31 to characters 0-9 and A-V, while the Base32 encoding method assigns values 0-31 to A-Z and 2-7 then stores them differently.
 <H4>Properties</H4>
 None
 <H4>Example</H4>

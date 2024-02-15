@@ -1,9 +1,8 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-Custom Windows
-</H1>
+<head><title>>Custom Windows</title></head>
+</H1>Custom Windows</H1>
 <br>
 <br>
 Prior to mIRC 5.5, <b>Custom Windows</b> was the main method for making a GUI (graphical user interface).
@@ -14,10 +13,12 @@ A custom window is just another window, like a channel window or a server window
 == Window Components ==
 A custom window has the ability to contain the following 3 components:
 
-[[File:Window component.png|Custom Window]]
+
+<img src="..\images\window_components.png">
+
 
 == Creating a window ==
-Before you can do anything with a window, you must actually create it. All windows must have a name, their name must also start with the '@' symbol. The name can be anything as long as it doesn't contain spaces. Use the {{mIRC|/window}} command to create a window:
+Before you can do anything with a window, you must actually create it. All windows must have a name, their name must also start with the '@' symbol. The name can be anything as long as it doesn't contain spaces. Use the <a href="..\commands\window.html">/window</a> command to create a window:
 
 <pre class ="code">/window @&lt;WindowName&gt; [x y [w h]]</pre>
 
@@ -106,7 +107,8 @@ Sub menus and sub items are possible by prefixing the sub menu item with a perio
 
 will generate the following menu:
 
-[[File:Custom win menu.png|Custom Window Menu]]
+<img src="..\images\custom_win_menu.png">
+
 
 == Getting Info ==
 There are a number of identifiers that can be used to retrieved information from a custom window.

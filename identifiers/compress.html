@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$compress</title></head>
 <H1>$compress</H1>
 <br>
 <br>
@@ -46,7 +47,7 @@ alias compress-then-send {
 }
 </pre>
 
-'''Note:''' Before making a script which automatically compresses all files before sending them and decompressing them when they finish, you should take several issues into account.
+<br><b>Note:</b>Before making a script which automatically compresses all files before sending them and decompressing them when they finish, you should take several issues into account.
 # You shouldn't automatically decompress or compress files without making certain that the same file isn't also being transferred to/from someone else.
 # Besides {{mIRC|on events/on filesent|ON FILESENT}}, Transfers can also terminate with {{mIRC|on events/on sendfail|ON SENDFAIL}}, clicking to close the send window, using the {{mIRC|/close}} command with the -s switch, mIRC crashing, etc.
 # To make certain all files get safely decompressed, the script should probably work from a file listing that doesn't remove lines until the file has been determined to be decompressed.

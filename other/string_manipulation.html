@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>String manipulation</title></head>
 <H1>String manipulation</H1>
 <br>
 <br>
@@ -115,7 +116,7 @@ $pos(&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;)</pre>
 
 The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, {{mirc|$pos}} will return the total number of substring found within the string.
 
-'''Note:''' {{mirc|$poscs}} is a case-sensitive version of {{mirc|$pos}}; it has the same syntax.
+<br><b>Note:</b>{{mirc|$poscs}} is a case-sensitive version of {{mirc|$pos}}; it has the same syntax.
 
 If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
 
@@ -127,7 +128,7 @@ Multiple substrings can be counted at once. Here is a simple example:
 
 Which will print "2".
 
-'''Note:''' {{mirc|$countcs}} is a case-sensitive version of {{mirc|$count}}; it has the same syntax.
+<br><b>Note:</b>{{mirc|$countcs}} is a case-sensitive version of {{mirc|$count}}; it has the same syntax.
 
 <H4>Substring Replacement and Removal</H4>
 
@@ -169,7 +170,7 @@ which will output (in this case to the status window [-s]):
 
 $replacex will provide the same in this case.
 
-'''Note:''' {{mirc|$replacecs}}/{{mirc|$replacexcs}} are case-sensitive versions of {{mirc|$replace}}/{{mirc|$replacex}}; it has the same syntax.
+<br><b>Note:</b>{{mirc|$replacecs}}/{{mirc|$replacexcs}} are case-sensitive versions of {{mirc|$replace}}/{{mirc|$replacex}}; it has the same syntax.
 
 === Substring Removal ===
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
@@ -191,7 +192,7 @@ Two more identifiers you should be aware of are {{mirc|$str}}() and {{mirc|$stri
 === $str() ===
 $str returns the same exact string repeated N amount of times. The syntax is:
 
-<pre class ="code">$str(&lt;string&gt;, <N>)</pre>
+<pre class ="code">$str(&lt;string&gt;, &lt;N&gt;)</pre>
 
 For example:
 

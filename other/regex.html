@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Regex</title></head>
 <H1>Regex</H1>
 <br>
 <br>
@@ -11,10 +12,10 @@ Regular expressions, from here on referred to as '''regex''', can be used to per
 == General Information ==
 mIRC uses the 8bits version of [[PCRE library]] to implement regex with the following options enabled:
 
-* --enable-utf8
-* --enable-unicode-properties
-* --with-match-limit - around 1,000,000
-* --with-match-limit-recursion - 999
+<br> --enable-utf8
+<br> --enable-unicode-properties
+<br> --with-match-limit - around 1,000,000
+<br> --with-match-limit-recursion - 999
 
 The newline sequence by default is $lf.
 
@@ -166,12 +167,12 @@ The way mIRC evaluates those markers is special, it is important at this point t
 * Process [ ] and [[ ]].
 * Seperate parameters, evaluate the 'input' and the 'regex' parameters.
 * Perform the regex match.
-* Tokenize '''$1-''' according to the number of markers used in the 'subtext' parameters.
+* Tokenize <a href="..\identifiers\1-.html">$1-</a><br> according to the number of markers used in the 'subtext' parameters.
 * Replaces any markers used in the subtext with their corresponding '''$N''' identifiers's values.
 * Evaluate the '''subtext''' parameter (one or more times, if /g is used).
 * Performs the substitutions and returns the result.
 
-mIRC internally uses '''$1-''' to store the values of the markers, it means the previous tokenization of $1- cannot be used in the '''subtext''' parameter (it is restored after).
+mIRC internally uses <a href="..\identifiers\1-.html">$1-</a><br> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the '''subtext''' parameter (it is restored after).
 
 The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
 

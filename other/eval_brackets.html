@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Evaluation Brackets</title></head>
 <H1>Evaluation Brackets</H1>
 <br>
 <br>
@@ -53,7 +54,7 @@ From the output you can see that $x(2) was evaluated first (as shown in the grap
 
 [[File:Eval2.png]]
 
-'''Note:''' Changing the order of evaluation does not change the position of the evaluated value in the actual line.
+<br><b>Note:</b>Changing the order of evaluation does not change the position of the evaluated value in the actual line.
 
 We can have multiple groups of brackets on the same line. Note that once the parser is done evaluating the first block (from left to right), the parser will proceed to the next pair of evaluation brackets. Let's look at the following example:
 
@@ -96,7 +97,7 @@ The code above produces the following result:
 
 The graph above demonstrates how once the parser enters the outer pair of brackets, the entire process starts all over and the first thing that gets evaluated are the inner brackets.
 
-'''Note:''' once an evaluation group is complete, it is take out of the rest of the line.
+<br><b>Note:</b>once an evaluation group is complete, it is take out of the rest of the line.
 
 Interestingly enough, with three identifiers it is possible to generate every single permutation by just using evaluation brackets:
 
@@ -154,7 +155,7 @@ alias example echo -a [ [ [ [ [ [ [ [ [ [ [ [ [ Hi! [ $!exe ] ] ] ] ] ] ] ] ] ] 
 The code above will indeed print:
  Hi! $exe
 
-'''Note:''' The exe alias was never called, not even once.
+<br><b>Note:</b>The exe alias was never called, not even once.
 Before we move on, it is important to note that if we have a code segment inside another code segment. That code segment follows the rules all over from the start. Consider the following example:
 
 <pre class = "code">//echo -a [ [ [ a $!me ] ] ] &lt;=&gt; [ [ [ a [ $!me ] ] ] ] &lt;=&gt; [ [ [ a [ [ $!me ] ]  ] ] ]</pre>

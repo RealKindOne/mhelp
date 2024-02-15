@@ -49,7 +49,7 @@ Return the type of line, "in" or "out"
 
 Return the line being sent/received.
 
-'''Note:''' For ''out'' lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
+<br><b>Note:</b>For ''out'' lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
 <pre class ="code">var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)</pre>
 

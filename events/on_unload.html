@@ -15,10 +15,10 @@ The <b>ON UNLOAD</b> event is ran whenever a script is unloaded from mIRC's remo
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
-When the following script is unloaded, it will give the user an {{mIRC|$input}} popup:
+When the following script is unloaded, it will give the user an <a href="..\identifiers\input.html">$input</a> popup:
 <pre class ="code">ON *:UNLOAD:noop $input(So sorry to see you unload me!,oi,Script Unloaded!)</pre>
 
-'''Note:''' The above example can be executed directly from an mIRC command-line, without the '''ON UNLOAD''' event, by typing:
+<br><b>Note:</b>The above example can be executed directly from an mIRC command-line, without the '''ON UNLOAD''' event, by typing:
 <pre class ="code">//noop $input(So sorry to see you unload me!,oi,Script Unloaded!)</pre>
 
 The following is what the above will look like upon unloading the script:

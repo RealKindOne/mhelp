@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$dialog</title></head>
 <H1>$dialog</H1>
 <br>
 <br>
@@ -38,16 +39,16 @@ Here we can break down what we are looking at:
 :: -1 : Desktop window
 :: -2 : Main mIRC window
 :: -3 : Currently active window
-:: -4 : Currently active dialog ('''Note:''' If there is no dialog open, this defaults to -3)
+:: -4 : Currently active dialog (<br><b>Note:</b>If there is no dialog open, this defaults to -3)
 
-'''Note:''' ''This type of dialog cannot be called from a remote script event.''
+<br><b>Note:</b>''This type of dialog cannot be called from a remote script event.''
 
 ==Use As An Identifier==
 '''$dialog()''', in use as an identifier, can be used to get information regarding any dialog you specify, and its properties. To get the properties of a dialog you specify, you simply append a period after ''$dialog()'' and the property name, such as ''$dialog(mydialog).title'' to get the title of the dialog named ''mydialog''. Don't worry, this is all explained further below.
 
 
 <H4>Synopsis</H4>
- <pre class ="code">$dialog(<name/N>)[.property]</pre>
+ <pre class ="code">$dialog(&lt;name/N&gt;)[.property]</pre>
 
 : '''Name''' - The name of the dialog you want to reference.
 : '''N''' - If you want to reference a dialog by it's ID number, you would specify the ID number here. If you specify 0, mIRC will return the number of currently open dialogs.

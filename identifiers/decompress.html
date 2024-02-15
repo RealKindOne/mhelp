@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$decompress</title></head>
 <H1>$decompress</H1>
 <br>
 <br>
@@ -29,7 +30,7 @@ Returns 1 if it decompressed the file, or 0 if it did not. A file can be compres
 //bset -t &snip 1 $read($mircini,ntw,*16777215*) | echo 4 -a / $bvar(&snip,1-) | noop $compress(&snip,b) | echo 5 -a \ $bvar(&snip,1-) | noop $decompress(&snip,b) | echo 6 -a $bvar(&snip,1-)
 
 
-'''Note:''' Cannot run as an identifier in a statement by itself, but should be an argument to another command or %variable.
+<br><b>Note:</b>Cannot run as an identifier in a statement by itself, but should be an argument to another command or %variable.
 
 <pre class ="code">
 on *:FILERCVD:*.txt:{

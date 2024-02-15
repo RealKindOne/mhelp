@@ -1,9 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-TCP Sockets
-</H1>
+</H1>TCP Sockets</H1>
 <br>
 <br>
 TCP Sockets }}{{Preknow|This article assumes that you have intermediate to advanced knowledge of the [[mIRC Scripting Language]] and familiarity with {{mIRC|on events}} and {{mIRC|aliases|custom aliases}}.}}
@@ -76,7 +74,7 @@ $sock(&lt;handle&gt;).mark</pre>
 == Transmitting a Request After a Successful Connection ==
 When a successful connection to the remote end-point has been established, the {{mIRC|on sockopen}} event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 
-'''Note:''' If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
+<br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
 
 The typical syntax for the on sockopen event is:
 
@@ -145,7 +143,7 @@ Remember that the page we want to socket to is http://www.zigwap.com/mirc/socket
   sockwrite -n example1
 }</pre>
 
-'''Note:''' In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
+<br><b>Note:</b>In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
 
 ==== Example 2 (YouTube, Continue) ====
 
@@ -213,7 +211,7 @@ Let's take a look at the header a little closer:
 
 This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
 
-'''Note:''' For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
+<br><b>Note:</b>For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
 
 Next is the Host header:
 
@@ -240,7 +238,7 @@ To read a single line from the socket, we use the /sockread command that way:
 
 That sockread command actually reads up to a $crlf. This is important to know because many web pages don't end with a $crlf which means the last line won't be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
 
-'''Note:''' If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
+<br><b>Note:</b>If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
 
 When working with binary data or if the line is too long to be read into an ordinary variable, you can read the data into a binary variable using the following syntax:
 
@@ -312,7 +310,7 @@ When I printed out the entire source the server sent us. The first part is the h
 :       <head>
 :           <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 :           <meta name="robots" content="noindex,follow" />
-:           <title>ZigWap - Demo Page</title>
+:           &lt;title&gt;ZigWap - Demo Page</title>
 :       </head>
 :       <body>
 :           <div align="center">
@@ -380,7 +378,7 @@ It is possible for the remote end-point to terminate a connection, the same way 
    ;Your code goes here
 }</pre>
 
-'''Note:''' Only the remote end-port, not you, can trigger this event.
+<br><b>Note:</b>Only the remote end-port, not you, can trigger this event.
 
 </body>
 </html>

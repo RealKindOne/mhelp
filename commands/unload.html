@@ -1,15 +1,11 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-/unload
-</H1>
+<head><title>/unload</title></head>
+<H1>/unload</H1>
 <br>
 <br>
 The <b>/unload</b> command is used to unload either an alias file or a script file.
-
-<br><b>Note:</b> The command cannot unload the *popups.ini* file.
-
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -22,7 +18,7 @@ The <b>/unload</b> command is used to unload either an alias file or a script fi
 <br><b>-rs</b>
       - Unloads the specified script/remotes file.
 <br><b>-n</b>
-      - Prohibits the script file you are unloading from triggering any *ON *:UNLOAD:* events.
+      - Prohibits the script file you are unloading from triggering any <a href="..\events\on_unload.html">On *:UnLoad:{}</a> events.
 
 <H4>Parameters</H4>
 <b>&lt;filename&gt;</b>
@@ -33,7 +29,7 @@ Unload a script file:
 <pre class ="code">
 /unload -rs myfile.mrc
 </pre>
-Unload a script file and prevent it from triggering it's "ON *:UNLOAD:{}" event:
+Unload a script file and prevent it from triggering it's On *:UnLoad:{} events:
 <pre class ="code">
 /unload -rsn myfile.mrc
 </pre>
@@ -42,10 +38,13 @@ Unload an alias file:
 /unload -a myalias.mrc
 </pre>
 <H4>Notes</H4>
-None
+The command cannot unload the popups.ini file.
+<br>
+You can only unload one script at a time.
 
 <H4>See also</H4>
 
 <a href="load.html">/load</a><br>
+<a href="reload.html">/reload</a><br>
 </body>
 </html>

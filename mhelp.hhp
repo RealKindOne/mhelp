@@ -858,6 +858,8 @@ events\on_vcmd.html
 events\on_voice.html
 events\on_wallops.html
 events\on_waveend.html
+dialog\dialog.html
+dialog\dialog_components.html
 other\access_levels.html
 other\aliases.html
 other\binary_variables.html

@@ -4,15 +4,13 @@
 <H1>On Char</H1>
 <br>
 <br>
-The <b>ON Char</b> event is triggered when a character results from pressing one or more inside of a custom [[custom windows - mIRC|@window]].
+The <b>ON Char</b> event is triggered when a character results from pressing one or more inside of a <a href="..\other\custom_windows.html">custom window</a>.
 
-See the note about the {{mIRC|on keydown}} event, pressing control + o should result in two keypress being reported from on keydown, and control + o generates the character with code point 15, on char will trigger for that character.
+See the note about the <a href="on_keydown.html">on_keydown</a> event, pressing control + o should result in two keypress being reported from on keydown, and control + o generates the character with code point 15, on char will trigger for that character.
 
 This event fills the following identifiers:
 <br><a href="..\identifiers\keyval.html">$keyval</a> - The unicode codepoint of the character resulting from keypresses
-
 <br><a href="..\identifiers\keychar.html">$keychar</a> - The actual character resulting from keypresses
-
 <br><a href="..\identifiers\keyrpt.html">$keyrpt</a> - If the key is being held down/repeating
 
 
@@ -21,12 +19,12 @@ This event fills the following identifiers:
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;@&gt;</b> - The {{mIRC|Custom Windows}} where this event should listen. Can be '''@''' for all windows.
+<br><b>&lt;@&gt;</b> - The <a href="..\other\custom_windows.html">custom window</a> where this event should listen. Can be '''@''' for all windows.
 <br><b>&lt;codepoint&gt;</b> - The specific characters' codepoints to listen for. Can specify multiple codepoints, such as:
 <pre class ="code">ON *:char:@myWindow:38,42,55,78:echo -a $keyval</pre>
 
 <H4>Example</H4>
-Create an alias that launches a custom, [[Picture Windows - mIRC|picture window]] which listens for resulting character from keypresses and displays the character and if it is repeating:
+Create an alias that launches a custom, <a href="..\other\picture_windows.html">picture window</a> which listens for resulting character from keypresses and displays the character and if it is repeating:
 <pre class ="code">alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
@@ -46,7 +44,7 @@ Below is an image reflecting what this example will look like:
 
 
 <H4>Compatability</H4>
-{{mIRC compatibility|7.62}}
+Added: mIRC v7.62 (29 Jul 2020)
 
 <H4>See also</H4>
 

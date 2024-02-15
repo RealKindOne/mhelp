@@ -1,9 +1,8 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<H1>
-/vcmd
-</H1>
+<head><title>/vcmd</title></head>
+<H1>/vcmd</H1>
 <br>
 <br>
 The <b>/vcmd</b> command allows you to enable your voice commands list, for your Speech Recognition Software, within mIRC.
@@ -20,9 +19,9 @@ The <b>/vcmd</b> command allows you to enable your voice commands list, for your
 <br><b>-c</b>
       - Clears all of the commands from the voice commands list.
 <br><b>-a</b>
-      - Does the same as <a href="vcadd.html">/vcadd</a>
+      - Does the same as <a href="vcadd.html">/vcadd</a>.
 <br><b>-r</b>
-      - Does the same as <a href="vrem.html">/vrem</a>
+      - Does the same as <a href="vrem.html">/vrem</a>.
 
 <H4>Parameters</H4>
 <b>on</b>
@@ -33,12 +32,18 @@ The <b>/vcmd</b> command allows you to enable your voice commands list, for your
       - Temporarily disables voice command listening.
 
 <H4>Example</H4>
+Disable voice command listening:
 <pre class ="code">
-; Disable voice command listening
 /vcmd off
-; Clear the voice commands list
+</pre>
+Clear the voice commands list:
+<pre class ="code">
 /vcmd -c
 </pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.7 (07 May 2000)
+
 <H4>Notes</H4>
 None
 

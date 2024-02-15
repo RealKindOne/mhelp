@@ -1,6 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$editbox</title></head>
 <H1>$editbox</H1>
 <br>
 <br>The <b>$editbox</b> identifier is used to get the contents of editboxes in any mIRC window that contains an editbox.
@@ -12,7 +13,7 @@ $editbox(window[,N])[.property]
 <H4>Parameters</H4>
 {{ArgsList
 | window | The target window to get the editbox contents from
-| N | Retrieves the data from the second editbox in a window ('''Note:''' Can only be the value of '''1''')
+| N | Retrieves the data from the second editbox in a window (<br><b>Note:</b>Can only be the value of '''1''')
 }}
 
 <H4>Properties</H4>
@@ -28,7 +29,7 @@ Echo the contents of the status window:
 Echo the start and end locations of selected text in the status window editbox:
 <pre class ="code">//echo -a Selection start: $editbox(Status Window).selstart --- Selection end: $editbox(Status Window).selend</pre>
 
-'''Note:''' If no highlighted selection exists, both '''selstart''' and '''selend''' will return the location of the cursor in the text.
+<br><b>Note:</b>If no highlighted selection exists, both '''selstart''' and '''selend''' will return the location of the cursor in the text.
 
 <H4>Compatibility</H4>
 Added: mIRC v6.2 (28 Jul 2006)
