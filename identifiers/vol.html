@@ -7,12 +7,11 @@
 <br>
 The <b>$vol</b> identifier can be used to retrieve the current volume, from the Windows audio control, for the specified sound type parameter.
 
-<br><b>Note:</b>This command is also a part of the <a href="..\other\playing_music.html">Playing Music</a> section.
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $vol(wave | midi | song | master)[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>wave</b> - Returns the current volume for wave files.
 <br><b>midi</b> - Returns the current volume for midi files.
@@ -30,16 +29,17 @@ Echo the current master system volume to the active window:
 <pre class ="code">//echo -a $vol(master)</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v6.0 (03 Feb 2002)
+Added: mIRC v5.8 (05 Sep 2000)
 
 <H4>Notes</H4>
-None
+This command is also a part of the <a href="..\other\playing_music.html">Playing Music</a> section.
+
 <H4>See also</H4>
 <a href="..\other\playing_music.html">Playing Music</a><br>
-<a href="..\events\on_MidiEnd.html">on_MidiEnd</a><br>
-<a href="..\events\on_MP3End.html">on_MP3End</a><br>
-<a href="..\events\on_NoSound.html">on_NoSound</a><br>
-<a href="..\events\on_WaveEnd.html">on_WaveEnd</a><br>
+<a href="..\events\on_midiend.html">On_MidiEnd</a><br>
+<a href="..\events\on_mp3end.html">On_MP3End</a><br>
+<a href="..\events\on_nosound.html">On_NoSound</a><br>
+<a href="..\events\on_waveend.html">On_WaveEnd</a><br>
 <a href="inmidi.html">$inmidi</a><br>
 <a href="insong.html">$insong</a><br>
 <a href="inwave.html">$inwave</a><br>

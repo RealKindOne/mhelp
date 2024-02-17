@@ -41,7 +41,7 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 <br><b>[.property]</b> - used to check features of the dialog id, such as button state, selected line in a combo control, or number of lines in an editbox.
 
 <H4>Example</H4>
-This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\commands\alias.html">/alias</a> called <b>/whatEvents</b> which will open up the local [[Dialogs - mIRC|dialog]] ''whatEvents'':
+This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\commands\alias.html">/alias</a> called <b>/whatEvents</b> which will open up the local <a href="..\dialog\dialog.html">Dialogs</a> ''whatEvents'':
 <pre class ="code">
 alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
@@ -89,5 +89,6 @@ None
 <a href="..\commands\did.html">/did</a><br>
 <a href="..\commands\didtok.html">/didtok</a><br>
 <a href="..\events\on_dialog.html">On_Dialog</a><br>
+<a href="..\dialog\dialog.html">Dialogs</a><br>
 </body>
 </html>

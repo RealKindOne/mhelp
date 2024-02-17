@@ -1,7 +1,7 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>$line </title></head>
+<head><title>$line</title></head>
 <H1>$line </H1>
 <br>
 <br>
@@ -9,7 +9,7 @@ The <b>$line</b> identifier returns the Nth line in a window.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$line(win,N,T)
+$line(win,N,T)[.property]
 </pre>
 <H4>Parameters</H4>
 <b>win</b> - a channel/query/status or custom window
@@ -22,10 +22,11 @@ $line(win,N,T)
 
 
 <H4>Example</H4>
+Echo the first line in the first channel window for the network:
 <pre class ="code">//echo -a $line($chan(1),1)</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.3 (13 Dec 1997)
+Added: mIRC v5.0 (02 Apr 1997)
 
 <H4>Notes</H4>
 None

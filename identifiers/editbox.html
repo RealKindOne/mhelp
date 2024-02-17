@@ -11,16 +11,12 @@
 $editbox(window[,N])[.property]
 </pre>
 <H4>Parameters</H4>
-{{ArgsList
-| window | The target window to get the editbox contents from
-| N | Retrieves the data from the second editbox in a window (<br><b>Note:</b>Can only be the value of '''1''')
-}}
+<b>window</b> - The target window to get the editbox contents from
+<br><b>N</b> - Retrieves the data from the second editbox in a window (<b>Note:</b>Can only be the value of "1")
 
 <H4>Properties</H4>
-{{ArgsList
-| selstart | Returns the character location in the string of the start of a highlight selection
-| selend | Returns the character location where the highlighted text ends
-}}
+<b>.selstart</b> - Returns the character location in the string of the start of a highlight selection
+<br><b>.selend</b> - Returns the character location where the highlighted text ends
 
 <H4>Example</H4>
 Echo the contents of the status window:
@@ -29,16 +25,15 @@ Echo the contents of the status window:
 Echo the start and end locations of selected text in the status window editbox:
 <pre class ="code">//echo -a Selection start: $editbox(Status Window).selstart --- Selection end: $editbox(Status Window).selend</pre>
 
-<br><b>Note:</b>If no highlighted selection exists, both '''selstart''' and '''selend''' will return the location of the cursor in the text.
+
 
 <H4>Compatibility</H4>
 Added: mIRC v6.2 (28 Jul 2006)
 
 <H4>Notes</H4>
-None
+If no highlighted selection exists, both "selstart" and "selend" will return the location of the cursor in the text.
+
 <H4>See also</H4>
-* {{mIRC|/editbox}}
-
-
+<a href="..\commands\editbox.html">/editbox</a><br>
 </body>
 </html>
