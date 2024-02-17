@@ -23,27 +23,25 @@ When triggered by a '''Send''', this event fills the <a href="..\identifiers\fil
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
-Echo to the active screen some information when a {{mIRC|/dcc|dcc send}} is being received:
+Echo to the active screen some information when a <a href="..\commands\halt.html">/halt</a> is being received:
 <pre class ="code">ON *:DCCSERVER:Send:echo User $nick ( $+ $address $+ ) is attempting to send: $filename</pre>
 
-The '''ON DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a {{mIRC|/dcc|dcc send}} if the file extension is [[.exe file type - Windows|.exe]]:
+The <b>ON DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a <a href="..\commands\dcc.html">/dcc</a> send if the file extension is ".exe":
 <pre class ="code">ON *:DCCSERVER:Send:if ($right($filename,4) == .exe) { echo -a User $nick just tried to send a file with an .exe extension. It has been declined. | halt }</pre>
 
 The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other '''ON DCCSERVER''' events to prevent anything from happening.
 
-Echo when a user attempts to initiate a {{mIRC|/dcc|DCC Chat}}:
+Echo when a user attempts to initiate a <a href="..\commands\dcc.html">/dcc</a> chat:
 <pre class ="code">ON *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)
 
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-<a href="On_Chat.html">On_Chat</a><br>
-<a href="On_SendFail.html">On_SendFail</a><br>
-
-
+<a href="on_chat.html">On_Chat</a><br>
+<a href="on_sendfail.html">On_SendFail</a><br>
 </body>
 </html>

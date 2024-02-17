@@ -5,7 +5,7 @@
 <H1>On Dialog</H1>
 <br>
 <br>
-The <b>ON DIALOG</b> event listens for events which take place inside of custom [[Dialogs - mIRC|dialog windows]].
+The <b>ON DIALOG</b> event listens for events which take place inside of custom <a href="..\dialog\dialog.html">dialog</a> window.
 
 
 <H4>Synopsis</H4>
@@ -20,7 +20,7 @@ The <b>ON DIALOG</b> event listens for events which take place inside of custom 
 
 <br><b> &lt;id&gt;</b> - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
 
-== {{mIRC|local identifiers}} ==
+<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
 
 <b>$dname</b>
 <br>
@@ -68,7 +68,7 @@ ON *:DIALOG:mouseListener:mouse:*: {
   did -ra $dname 5 $mouse.y
 }</pre>
 
-In the example above, we have created an [[Aliases - mIRC|alias]], '''mouseListener''', to handle a local [[Dialogs - mIRC|dialog]], which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
+In the example above, we have created an <a href="..\other\aliases.html">alias</a>, '''mouseListener''', to handle a local <a href="..\dialog\dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
 
 This example can be triggered by typing the following command:
 <pre>/mouseListener</pre>
@@ -77,7 +77,7 @@ Once the demo has begun, the mouse event will now listen. When the mouse begins 
 
 Clicking the ''Close'' button will close the dialog and halt event listening.
 
-Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom [[Aliases - mIRC|alias]] called ''/whatEvents'' which will open up the local [[Dialogs - mIRC|dialog]] ''whatEvents'':
+Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\other\aliases.html">alias</a> called ''/whatEvents'' which will open up the local <a href="..\dialog\dialog.html">$didreg</a> ''whatEvents'':
 <pre class ="code">alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
   title "Events? What Events?"
@@ -109,7 +109,7 @@ Once saved into a script file inside of the mIRC remotes, the above example can 
 
 Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>

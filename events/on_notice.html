@@ -9,7 +9,7 @@ The <b>ON notice</b> event is triggered when mIRC receives a notice from a clien
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:NOTICE:&lt;matchtext&gt;:<target>:&lt;commands&gt;</pre>
+<pre class ="code">on &lt;level&gt;:NOTICE:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <dl>
@@ -19,8 +19,8 @@ The <b>ON notice</b> event is triggered when mIRC receives a notice from a clien
     <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;matchtext&gt;</dt>
     <dd style="padding:0;margin:0 0 1em;overflow:hidden">The text that must be matched for the event to trigger.</dd>
 
-    <dt style="float:left;width:105px;padding:0;margin:0 0 1em"><target></dt>
-    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The target(s) of the notice that the event listens on. This can either be a '''*''', or any combination of named channels, channel prefixes, '''?''', or a nickname that you are currently using - all separated by commas.</dd> 
+    <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;target&gt;</dt>
+    <dd style="padding:0;margin:0 0 1em;overflow:hidden">The target(s) of the notice that the event listens on. This can either be a '''*''', or any combination of named channels, channel prefixes, '''?''', or a nickname that you are currently using - all separated by commas.</dd>
 
     <dt style="float:left;width:105px;padding:0;margin:0 0 1em">&lt;commands&gt;</dt>
     <dd style="padding:0;margin:0 0 1em;overflow:hidden">The commands to be performed when the event is triggered.</dd>
@@ -39,7 +39,7 @@ Op or deop a user with an [[Mirc access level|access level]] of 5 on the channel
 <pre class ="code">on 5:NOTICE:*op #*:?:{
   if ($istok(op dop,$1,32)) {
     if ($me !ison $2) { .notice $nick I am not on that channel. }
-    elseif ($me !isop $2) { .notice $nick I am not opped in that channel. } 
+    elseif ($me !isop $2) { .notice $nick I am not opped in that channel. }
     else mode $2 $iif($1 == op,+o,-o) $nick
   }
 }</pre>
@@ -50,13 +50,14 @@ Automatically identify to most NickServ services if your current nickname is '''
   if ($nick == NickServ) { ns identify M`/p@SsW0r|) }
 }</pre>
 
-==Compatibility==
-Added: v2.1a
+<H4>Compatibility</H4>
+Added: mIRC v3.5 (07 Aug 1995)
 
-Added on: 28/02/95
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
-*
+
 
 </body>
 </html>

@@ -20,7 +20,7 @@ The <b>ON BAN</b> event is triggered whenever a user on a channel has been banne
 <br><b>#channel[,#]</b> - one or more specific channels, seperate them by comma
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
-== {{mIRC|local identifiers}} ==
+<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
 
 === <a href="..\identifiers\banmask.html">$banmask</a><br> ===
 
@@ -58,14 +58,14 @@ ON *:BAN:#:msg # Looks like the address $banmask has just been added to this cha
 
 ON *:BAN:#myChannel,#myOtherChannel:msg # Wow, so $iif($bnick,$bnick just got in trouble,$banmask was just added to the channel's ban list) $+ .</pre>
 
-<H4>Compatability</H4>
-{{mIRC compatibility|4.5}}
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>See also</H4>
 <a href="..\identifiers\banmask.html">$banmask</a><br>
 <a href="..\identifiers\bnick.html">$bnick</a><br>
 <a href="..\identifiers\ibl.html">$ibl</a><br>
 <a href="..\commands\ban.html">/ban</a><br>
-<a href="On_UnBan.html">On_UnBan</a><br>
+<a href="on_unban.html">On_UnBan</a><br>
 </body>
 </html>

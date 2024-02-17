@@ -7,18 +7,12 @@
 <br>
 The <b>ON KICK</b> event is triggered when the local mIRC client, or remote users, are kicked from a channel.
 
-This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''<a href="..\identifiers\nick.html">$nick</a>''' identifiers.
+This event fills the <a href="..\identifiers\chan.html">$chan</a>, <a href="..\identifiers\knick.html">$knick</a>, and <a href="..\identifiers\nick.html">$nick</a> identifiers.
 
-{| class="wikitable" style="margin-left: 75px;"
-|-
-! Identifier !! Description
-|-
-| '''$chan''' || Channel where the event took place
-|-
-| '''$knick''' || The kicked user's name
-|-
-| '''$nick''' || The name of the person who kicked the user
-|}
+
+<br><b>$chan</b> - Channel where the event took place
+<br><b>$knick</b> - The kicked user's name
+<br><b>$nick</b> - The name of the person who kicked the user
 
 
 <H4>Synopsis</H4>
@@ -27,7 +21,7 @@ This event fills the '''{{mIRC|$chan}}''', '''{{mIRC|$knick}}''', and '''<a href
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels, for the event to listen for. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
+<br><b>&lt;#[,#]&gt;</b> - Thechannel, or channels, for the event to listen for. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
 
 {| class="wikitable" style="margin-left: 105px;"
 |-
@@ -52,20 +46,21 @@ Send a notice to a kicked user with information about the kick:
 The following is an example of the above code:
 <pre>You were kicked from #BreakingBad by WalterWhite for the following reason: Stop mass-highlighting!</pre>
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Created: mIRC v2.1a
 
 Created On: 28/02/95
 
+<H4>Notes</H4>
+None
+
 <H4>See also</H4>
-* [[On ban - mIRC|ON BAN]]
+<a href="on_ban.html">On_Ban</a>
 <a href="on_join.html">On_Join</a><br>
 <a href="on_part.html">On_Part</a><br>
 <a href="on_unban.html">On_UnBan</a><br>
 <a href="..\identifiers\chan.html">$chan</a><br>
 <a href="..\identifiers\knick.html">$knick</a><br>
 <a href="..\identifiers\nick.html">$nick</a><br>
-
-
 </body>
 </html>

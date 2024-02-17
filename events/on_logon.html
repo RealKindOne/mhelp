@@ -5,9 +5,9 @@
 <H1>On Logon</H1>
 <br>
 <br>
-The <b>ON LOGON</b> event triggers immediately after mIRC has begun connection to a server, and has sent the standard [[Pass - IRC|PASS]], [[Nick - IRC|NICK]], and [[User - IRC|USER]] information to the server.
+The <b>ON LOGON</b> event triggers immediately after mIRC has begun connection to a server, and has sent the standard PASS, NICK, and USER information to the server.
 
-<br><b>Note:</b>This event can be prefixed with the '''^''' character to cause the event to trigger ''before'' the [[Pass - IRC|PASS]], [[Nick - IRC|NICK]], and [[User - IRC|USER]] information is sent to the server. Utilizing this '''^''' character, the events can even be [[/halt command - mIRC|halted]], and no information sent to the server; this will most-likely cause a connection interruption, or disconnection entirely.
+<br><b>Note:</b>This event can be prefixed with the '''^''' character to cause the event to trigger ''before'' the PASS, NICK, and USER information is sent to the server. Utilizing this '''^''' character, the events can even be <a href="..\commands\halt.html">/halt</a>, and no information sent to the server; this will most-likely cause a connection interruption, or disconnection entirely.
 
 
 <H4>Synopsis</H4>
@@ -31,17 +31,15 @@ The event above will generate a popup-window much like the one in the screenshot
 
 <img src="..\images\onlogon_event_example.png">
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v6.03 (16 Aug 2002)
 
 <H4>See also</H4>
-<a href="On_connect.html">On_connect</a><br>
-<a href="On_disconnect.html">On_disconnect</a><br>
-<a href="On_Quit.html">On_Quit</a><br>
+<a href="on_connect.html">On_connect</a><br>
+<a href="on_disconnect.html">On_disconnect</a><br>
+<a href="on_quit.html">On_Quit</a><br>
 <a href="..\commands\disconnect.html">/disconnect</a><br>
 <a href="..\commands\quit.html">/quit</a><br>
 <a href="..\commands\server.html">/server</a><br>
-
-
 </body>
 </html>

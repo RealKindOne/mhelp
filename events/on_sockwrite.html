@@ -79,17 +79,17 @@ on *:sockwrite:socket:{
 
 Note that this is how you should theorically handle the sending of an unknown length of data. However, if the sending buffer is empty, you can send more than 16384 bytes (as long as you can set the binary variable holding more than that) using a binary variable. mIRC will correctly cut that in chunk of 16384 bytes or less. This then only becomes a problem if you are willing to queue more without waiting for it to be sent (which could take some times, you would end up with an error because the sending buffer is full, and you would need the above event)
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v3.5 (07 Aug 1995)
 
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
-<a href="On_SockOpen.html">On_SockOpen</a><br>
-<a href="On_SockRead.html">On_SockRead</a><br>
-<a href="On_SockListen.html">On_SockListen</a><br>
-<a href="On_SockClose.html">On_SockClose</a><br>
+<a href="on_sockopen.html">On_SockOpen</a><br>
+<a href="on_sockread.html">On_SockRead</a><br>
+<a href="on_socklisten.html">On_SockListen</a><br>
+<a href="on_sockclose.html">On_SockClose</a><br>
 <a href="..\commands\sockwrite.html">/sockwrite</a><br>
 <a href="..\commands\sockclose.html">/sockclose</a><br>
 <a href="..\commands\sockread.html">/sockread</a><br>
@@ -99,6 +99,5 @@ None
 <a href="..\identifiers\sockbr.html">$sockbr</a><br>
 <a href="..\identifiers\sockerr.html">$sockerr</a><br>
 <a href="..\identifiers\sockname.html">$sockname</a><br>
-
 </body>
 </html>

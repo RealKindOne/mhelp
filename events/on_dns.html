@@ -5,7 +5,7 @@
 <H1>On Dns</H1>
 <br>
 <br>
-The <b>ON DNS</b> event triggers when a {{mIRC|/dns}} command query either succeeds or fails, including when a user does not exist on the server.
+The <b>ON DNS</b> event triggers when a <a href="..\commands\dns.html">/dns</a> command query either succeeds or fails, including when a user does not exist on the server.
 
 
 <H4>Synopsis</H4>
@@ -15,7 +15,7 @@ The <b>ON DNS</b> event triggers when a {{mIRC|/dns}} command query either succe
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== {{mIRC|local identifiers}} ==
+<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
 
 === <a href="..\identifiers\dns.html">$dns</a> ===
 
@@ -27,16 +27,16 @@ These return to the ip address, host address, and resolved address, respectively
 
 === $nick ===
 
-If {{mIRC|/dns}} was performed on a nickname rather than an address, then <a href="..\identifiers\nick.html">$nick</a> is filled with that nickname. Otherwise, <a href="..\identifiers\nick.html">$nick</a> is filled with your own name.
+If <a href="..\commands\dns.html">/dns</a> was performed on a nickname rather than an address, then <a href="..\identifiers\nick.html">$nick</a> is filled with that nickname. Otherwise, <a href="..\identifiers\nick.html">$nick</a> is filled with your own name.
 
 
 <H4>Example</H4>
 Echo to the active window the results of the DNS:
 <pre class ="code">ON *:DNS:echo -a $iif($1,$iif($dns(1).nick,$v1 has been resolved to) Hostmask: $dns(1).addr IP: $dns(1).ip,Could not resolve DNS query.)</pre>
 
-The above example makes use of multiple <a href="..\identifiers\iif.html">$iif</a> to ensure that we get proper results, without unforeseen issues. The first surrounding <a href="..\identifiers\iif.html">$iif</a> checks to make sure any data has been returned. If no data is returned, then the {{mIRC|/dns}} obviously failed; therefore, we have it return a statement which says that a resolution could not be made. If data has been returned, the second <a href="..\identifiers\iif.html">$iif</a> checks to see if a '''.nick''' value can be extracted from the <a href="..\identifiers\dns.html">$dns</a>. This is filled if a nickname was the target of the {{mIRC|/dns}} request. If the nickname is filled, return the portion containing the nickname. If, however, the nickname is not present, only return the hostmask and ip address.
+The above example makes use of multiple <a href="..\identifiers\iif.html">$iif</a> to ensure that we get proper results, without unforeseen issues. The first surrounding <a href="..\identifiers\iif.html">$iif</a> checks to make sure any data has been returned. If no data is returned, then the <a href="..\commands\dns.html">/dns</a> obviously failed; therefore, we have it return a statement which says that a resolution could not be made. If data has been returned, the second <a href="..\identifiers\iif.html">$iif</a> checks to see if a '''.nick''' value can be extracted from the <a href="..\identifiers\dns.html">$dns</a>. This is filled if a nickname was the target of the <a href="..\commands\dns.html">/dns</a> request. If the nickname is filled, return the portion containing the nickname. If, however, the nickname is not present, only return the hostmask and ip address.
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 {{mIRC compatibility|4.7}}
 
 <H4>See also</H4>

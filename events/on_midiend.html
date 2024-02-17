@@ -5,7 +5,7 @@
 <H1>On Midiend</H1>
 <br>
 <br>
-The <b>ON MIDIEND</b> event triggers whenever a [[midi]] file has finished playing via the [[/splay command - mIRC|/splay command]].
+The <b>ON MIDIEND</b> event triggers whenever a midi file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
 This event fills the <a href="..\identifiers\filename.html">$filename</a> identifier, which will be set to the complete location and filename of the sound file that just ended.
 
@@ -22,9 +22,9 @@ Echo to the active window when the sound file has ended, including its filename:
 <pre class ="code">ON *:MIDIEND:echo -a $nopath($filename) has ended</pre>
 
 The example above will output results similar to the contents below:
-<pre>Chopin - Four Scherzos.midi has ended</pre>
+<pre class = "code">Chopin - Four Scherzos.midi has ended</pre>
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)
 
 <H4>Notes</H4>
@@ -32,17 +32,15 @@ None
 
 <H4>See also</H4>
 <a href="..\other\playing_music.html">Playing_Music</a><br>
-<a href="on_MP3End.html">On_MP3End</a>
-<a href="on_NoSound.html">On_NoSound</a>
-<a href="On_WaveEnd.html">On_WaveEnd</a><br>
-<a href="..\identifiers\inmidi.html">$inmidi</a>
+<a href="on_mp3end.html">On_MP3End</a><br>
+<a href="on_nosound.html">On_NoSound</a><br>
+<a href="on_waveend.html">On_WaveEnd</a><br>
+<a href="..\identifiers\inmidi.html">$inmidi</a><br>
 <a href="..\identifiers\insong.html">$insong</a><br>
 <a href="..\identifiers\inwave.html">$inwave</a><br>
 <a href="..\identifiers\sound.html">$sound</a><br>
 <a href="..\identifiers\vol.html">$vol</a><br>
-<a href="..\commands\splay.html">/splay</a>
-<a href="..\commands\vol.html">/vol</a>
-
-
+<a href="..\commands\splay.html">/splay</a><br>
+<a href="..\commands\vol.html">/vol</a><br>
 </body>
 </html>

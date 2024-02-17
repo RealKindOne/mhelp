@@ -1,17 +1,17 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>On songend</title></head>
-<H1>On songend</H1>
+<head><title>ON SONGEND</title></head>
+<H1>ON SONGEND</H1>
 <br>
 <br>
-The <b>ON songend</b> event triggers whenever a file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
+The <b>ON SONGEND</b> event triggers whenever a file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
 This event fills the <a href="..\identifiers\filename.html">$filename</a> identifier, which will be set to the complete location and filename of the sound file that just ended.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:songend:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:SONGEND:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,13 +19,13 @@ This event fills the <a href="..\identifiers\filename.html">$filename</a> identi
 
 <H4>Example</H4>
 Echo to the active window when the sound file has ended, including its filename:
-<pre class ="code">ON *:songend:echo -a $nopath($filename) has ended</pre>
+<pre class ="code">on *:SONGEND:echo -a $nopath($filename) has ended</pre>
 
 The example above will output results similar to the contents below:
 <pre class = "code">Chopin - Four Scherzos.mp3 has ended</pre>
 
-<H4>Compatability</H4>
-Added: mIRC v5.8 (05 Sep 2000)
+<H4>Compatibility</H4>
+Added: mIRC v6.0 (03 Feb 2002)
 
 <H4>Notes</H4>
 None
@@ -33,9 +33,9 @@ None
 <H4>See also</H4>
 
 <a href="..\other\playing_music.html">Playing_Music</a><br>
-<a href="on_MidiEnd.html">On_MidiEnd</a><br>
-<a href="on_NoSound.html">On_NoSound</a><br>
-<a href="On_WaveEnd.html">On_WaveEnd</a><br>
+<a href="on_midiend.html">On_MidiEnd</a><br>
+<a href="on_nosound.html">On_NoSound</a><br>
+<a href="on_waveend.html">On_WaveEnd</a><br>
 <a href="..\identifiers\inmidi.html">$inmidi</a><br>
 <a href="..\identifiers\insong.html">$insong</a><br>
 <a href="..\identifiers\inwave.html">$inwave</a><br>

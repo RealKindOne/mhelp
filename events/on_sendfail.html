@@ -16,14 +16,14 @@ This event fills <a href="..\identifiers\filename.html">$filename</a>, <a href="
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-<br><b>&lt;filename[,filename]&gt;</b> - The filename(s) that should match the failed file. These can be {{mirc|wildcard|wildcards}}. Example: ''*.txt,*.doc,my*.txt''
+<br><b>&lt;filename[,filename]&gt;</b> - The filename(s) that should match the failed file. These can be <a href="..\other\wildcard.html">wildcards</a>. Example: ''*.txt,*.doc,my*.txt''
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:
 <pre class ="code">ON *:SENFAIL:*:echo -a Failed to send $filename $iif($nick,to $nick - ,to) Address: $address</pre>
 
-<H4>Compatability</H4>
+<H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)
 
 <H4>Notes</H4>
@@ -31,10 +31,8 @@ None
 
 <H4>See also</H4>
 <a href="..\commands\dcc.html">/dcc</a><br>
-<a href="On_FileRcvd.html">On_FileRcvd</a><br>
-<a href="On_FileSent.html">On_FileSent</a><br>
-<a href="On_GetFail.html">On_GetFail</a><br>
-
-
+<a href="on_filercvd.html">On_FileRcvd</a><br>
+<a href="on_filesent.html">On_FileSent</a><br>
+<a href="on_getfail.html">On_GetFail</a><br>
 </body>
 </html>
