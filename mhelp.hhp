@@ -19,6 +19,7 @@ default.css
 index.html
 commands.html
 identifiers.html
+events.html
 commands\abook.html
 commands\action.html
 commands\add.html
@@ -866,6 +867,7 @@ other\access_levels.html
 other\aliases.html
 other\binary_variables.html
 other\conditional_statements.html
+other\ctcp.html
 other\custom_windows.html
 other\eval_brackets.html
 other\hash_tables.html
@@ -877,6 +879,7 @@ other\regex.html
 other\sendmessage.html
 other\string_manipulation.html
 other\token.html
+other\unicode.html
 other\variables.html
 other\wildcard.html
 sockets\sockets.html

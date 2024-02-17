@@ -1,0 +1,60 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>CTCP</title></head>
+<H1>CTCP</H1>
+<br>
+<br>
+CTCP stands for Client-To-Client-Protocol which is a special type of communication between IRC Clients. By creating CTCP events, you can make your mIRC react to commands or requests from other users.
+
+For example when you want to know the version of the client used by an user, you type "/ctcp &lt;user&gt; version", this actually send a privmsg
+
+<H4>Format</H4>
+
+The CTCP event has the following format:
+
+<pre class ="code">
+ctcp &lt;level&gt;:&lt;matchtext&gt;:&lt;*|#|?&gt;:&lt;commands&gt;
+</pre>
+
+<br><b>&lt;level&gt;</b> - The corresponding {{mIRC|access levels}} for the event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
+<br><b>&lt;*&gt;&lt;?&gt;&lt;#&gt;</b> - The place, or places where the event listens, you can specify specific name of window, seperate them by comma.
+<br><b>*</b> - Any query/channel window
+<br><b>?</b> - Any query windows
+<br><b>#</b> - Any channel window
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+
+== Examples ==
+triggers when someone sends a private ctcp "test", which is a privmsg, and then use /ctcpreply, which sends a notice, this will trigger the <a href="..\events\on_ctcpreply.html">On_CTCPReply</a> event for that user.
+
+<pre class ="code">
+ctcp *:test:?:ctcpreply $nick success
+</pre>
+
+You can use the CTCP event to either halt or replace the default time reply. This example sends a substitute reply at a random time within a 24 hour window, then halts mIRC from returning the default reply containing your true time. If you want to block the TIME reply only, remove the /ctcpreply but keep the /halt
+
+<pre class ="code">
+ctcp *:time:{ ctcpreply $nick TIME $asctime($calc($ctime -43200+ $r(0,86400) )) | halt }
+</pre>
+
+However, mIRC doesn't allow the CTCP event to suppress the default version reply. If you do the same thing as above, this would send a second reply to the standard ctcp version, but it does not block the default reply.
+
+<pre class ="code">
+ctcp *:version:?:{ ctcpreply $nick mIRC 12.5!! | halt }
+</pre>
+
+Formerly, you could block the ctcp reply only by using /ignore -t to block *all* incoming ctcp. But with the ON PARSELINE event, you can replace the outbound message. Note that the reply used to be always using NOTICE, but in newer versions there can be some situations where your version reply is made as a CNOTICE, so you should detect both types now. You can modify any part between but not including the $regml(1) and the $+ $chr(1)
+
+<pre class ="code">
+On $*:PARSELINE:out:/^((NOTICE|CNOTICE \S+) \S+ :\x01VERSION) mIRC/:{ .parseline -otn $regml(1) Not mIRC $version $+ $iif($beta,. $+ $v1) $+ $chr(1) } ; modify of SReject 2017
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v3.5 (07 Aug 1995)
+
+<H4>See also</H4>
+<a href="..\events\on_parseline.html">On_ParseLine</a><br>
+<a href="..\events.html">List of On Events</a><br>
+</body>
+</html>
