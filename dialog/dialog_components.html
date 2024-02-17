@@ -5,102 +5,62 @@
 <H1>Dialog Components</H1>
 <br>
 <br>
-Dialog Components are individual [[Dialogs - mIRC|dialog]] elements that can be added onto the main dialog window. Below is a list of all the natively provided dialog components in [[mIRC]].
-<!--
-== Components ==
-{| class="wikitable"
-{| border="0" cellpadding="0" cellspacing="25px" style="background: rgba(0,0,0,.01); border-radius: 6px; box-shadow: 0 0 7px rgba(0,0,0,.17); margin: 0 auto;"
-  |- style="color: rgba(0,0,0,.65);"
-    ! Button !! Check !! Toggle !! Text
-  |-
-    | <img src="..\images\dialog_Button_n.png|link=#Button|center|135px]]
-    || <img src="..\images\dialog_Check_n.png|link=#Check|center|135px]]
-    || <img src="..\images\dialog_Toggle_n.png|link=#Check|center|135px]]
-    || <img src="..\images\dialog_Label_n.png|link=#Text|center|135px]]
-  |- style="color: rgba(0,0,0,.65);"
-    ! Group Box !! Icon !! Edit !! Scroll
-  |-
-    | <img src="..\images\dialog_Group_n.png|link=#Group_Box|center|135px]]
-    || <img src="..\images\dialog_Image_n.png|link=#Icon|center|135px]]
-    || <img src="..\images\dialog_Text_n.png|link=#Edit|center|135px]]
-    || <img src="..\images\dialog_Scroll_n.png|link=#Scroll|center|135px]]
-  |- style="color: rgba(0,0,0,.65);"
-    ! Link !! Menu !! Radio !! Tab
-  |-
-    | <img src="..\images\dialog_Link_n1.png|link=#Link|center|135px]]
-    || <img src="..\images\dialog_Menu_n.png|link=#Menu|135px]]
-    || <img src="..\images\dialog_Radio_n.png|link=#Radio|135px]]
-    || <img src="..\images\dialog_Tab_n.png|link=#Tab|135px]]
-  |- style="color: rgba(0,0,0,.65);"
-    ! List !! Combo
-  |-
-    | <img src="..\images\dialog_List_n.png|link=#List|center|135px]]
-    || <img src="..\images\dialog_Combo_n.png|link=#Combo|center|135px]]
-|}
--->
+Dialog Components are individual <a href="dialog.html">dialogs</a> elements that can be added onto the main dialog window. Below is a list of all the natively provided dialog components in mIRC.
 
-== Button ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Button</H2>
 The button control is a user interface control that responds to click events.
 
-=== Synopsis ===
-<pre>button "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">button "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| default || Sets the button to be the default button. This causes the button to be selected upon dialog creation.
-|-
-| ok || Sets the button to be the OK button. The OK button closes the dialog and in modal mode returns the return value set.
-|-
-| cancel || Closes the dialog as if it was canceled – similar to clicking the X button.
-|-
-| flat || Creates a flat button (that depends on the OS and the theme used).
-|-
-| multi || Allows the text in the button to wrap around to multiple lines.
-|-
-| disable|| Disables the button.
-|-
-| hide || Makes the button invisible.
-|-
-| result|| In modal mode, returns the text of the button.
-|}
+<H4>Styles</H4>
+<b>default</b> - Sets the button to be the default button. This causes the button to be selected upon dialog creation.
+<br><b>ok</b> - Sets the button to be the OK button. The OK button closes the dialog and in modal mode returns the return value set.
+<br><b>cancel</b> - Closes the dialog as if it was canceled – similar to clicking the X button.
+<br><b>flat</b> - Creates a flat button (that depends on the OS and the theme used).
+<br><b>multi</b> - Allows the text in the button to wrap around to multiple lines.
+<br><b>disable</b> - Disables the button.
+<br><b>hide</b> - Makes the button invisible.
+<br><b>result</b> - In modal mode, returns the text of the button.
+<br>
+<br>
 
-==== /did ====
+<b>/did</b>
+<br>
+<br><b>-f</b> - sets focus on the button
+<br><b>-t</b> - sets the button as the default button
+<br><b>-e</b> - enables the button
+<br><b>-b</b> - disables the button
+<br><b>-v</b> - makes the button visible
+<br><b>-h</b> - hides the button
+<br><b>-r</b> - clears the button's text (caption)
+<br><b>-a</b> - Adds to the button's text (caption)
 
-* -f - sets focus on the button
-* -t - sets the button as the default button
-* -e - enables the button
-* -b - disables the button
-* -v - makes the button visible
-* -h - hides the button
-* -r - clears the button's text (caption)
-* -a - Adds to the button's text (caption)
-
-==== $did ====
-
+<br>
+<br>
+<b>$did</b>
+<br>
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
-
+</pre>
 Without any property, return the text (caption) of the button, same as the .text  property
 
 Properties:
-* .text - returns the text of the button (caption)
-* .len - returns the length of the button's text (caption)
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the button is visible, otherwise $false
-* .enabled - returns $true if the button is enabled, otherwise $false
+<br><b>.text</b> - returns the text of the button (caption)
+<br><b>.len</b> - returns the length of the button's text (caption)
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -120,72 +80,71 @@ on *:dialog:example:sclick:1-4:{
   echo -a $did($dname, $did).text is clicked.
 }</pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Button_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_button_example.png"></div>
 
-== Check ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Check</H2>
 The checkbox control is a user interface element that permits the user to select or deselect an option. The checkbox control is a combination of a check box and a label. The mIRC check control has three states: Checked, Unchecked, and Indeterminate.
 
-=== Synopsis ===
-<pre>check "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">check "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| push || Toggle Button
-|-
-| left || Places the text on the left side of the control.
-|-
-| 3state || Enables Indeterminate State.
-|-
-| multi || Allows the text in the check box to wrap around to multiple lines.
-|-
-| disable || Disables the check box.
-|-
-| hide || Makes the check box invisible.
-|-
-| result || In modal mode, returns the text of the check box.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>push</b> Toggle Button
+<br><b>left</b> Places the text on the left side of the control.
+<br><b>3state</b> Enables Indeterminate State.
+<br><b>multi</b> Allows the text in the check box to wrap around to multiple lines.
+<br><b>disable</b> Disables the check box.
+<br><b>hide</b> Makes the check box invisible.
+<br><b>result</b> In modal mode, returns the text of the check box.
 
-* -f - sets focus on the checkbox
-* -t - sets the checkbox as the default control
-* -e - enables the checkbox
-* -b - disables the checkbox
-* -v - makes the checkbox visible
-* -h - hides the checkbox
-* -c - mark the checkbox as checked
-* -u - mark the checkbox as unchecked, if you use -cu, it marks a 3dstate checkbox as indeterminate.
-* -r - clear the text of the checkbox (caption)
-* -a - adds text to the text of the checkbox (caption)
 
-==== $did ====
+<br>
+<br>
 
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - sets focus on the checkbox
+<br><b>-t</b> - sets the checkbox as the default control
+<br><b>-e</b> - enables the checkbox
+<br><b>-b</b> - disables the checkbox
+<br><b>-v</b> - makes the checkbox visible
+<br><b>-h</b> - hides the checkbox
+<br><b>-c</b> - mark the checkbox as checked
+<br><b>-u</b> - mark the checkbox as unchecked, if you use -cu, it marks a 3dstate checkbox as indeterminate.
+<br><b>-r</b> - clear the text of the checkbox (caption)
+<br><b>-a</b> - adds text to the text of the checkbox (caption)
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
+</pre>
 
 Without any property, returns the text (caption) of the checkbox, same as the .text property
 
 Properties:
 
-* .text - returns the text (caption) of the checkbox line or Nth line
-* .len - returns the length of the text of the checkbox (caption)
-* .state - returns the state of the checkboxes, 0 = unchecked, 1 = checked, 2 = indeterminate (for 3stage checkboxes)
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the checkbox is visible, otherwise $false
-* .enabled - returns $true if the checkbox is enabled, otherwise $false
+<br><b>.text</b> - returns the text (caption) of the checkbox line or Nth line
+<br><b>.len</b> - returns the length of the text of the checkbox (caption)
+<br><b>.state</b> - returns the state of the checkboxes, 0 = unchecked, 1 = checked, 2 = indeterminate (for 3stage checkboxes)
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the checkbox is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the checkbox is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -213,65 +172,66 @@ alias -l dstate {
   var %s UnChecked Checked Indeterminate
   return $gettok(%s, $calc($did($dname, $did).state + 1), 32)
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Check_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_check_example.png"></div>
 
 
-== Text ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Text</H2>
+
+<H4>Styles</H4>
 A text is simply a [[GUI]] label component with text designed for displaying information with no user input. By default, the text will wrap to the next line if needed.
 
-=== Synopsis ===
-<pre>text "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">text "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| nowrap || Prevents the text from wrapping. Any text that does not fit will simply be cut off.
-|-
-| center || Centers the text in the label.
-|-
-| right || Right-aligned the text in the label.
-|-
-| disable || Disables the label. (grays it out)
-|-
-| hide|| Makes the label invisible.
-|-
-| result|| In modal mode, returns the text of the label.
-|}
+<H4>Styles</H4>
 
-==== /did ====
-* '''-f''' - sets focus on the text control
-* '''-e''' - enable the text control
-* '''-b''' - disable the text control
-* '''-v''' - make the text control visible
-* '''-h''' - hide the text control
-* '''-r''' - clears the text of the text control
-* '''-a''' - adds text to the text control
+<br><b>nowrap</b> Prevents the text from wrapping. Any text that does not fit will simply be cut off.
+<br><b>center</b> Centers the text in the label.
+<br><b>right</b> Right-aligned the text in the label.
+<br><b>disable</b> Disables the label. (grays it out)
+<br><b>hide</b> Makes the label invisible.
+<br><b>result</b> In modal mode, returns the text of the label.
 
-==== $did ====
 
+<br>
+<br>
+
+<b>/did</b>
+<br>
+<br><b>-f</b> - sets focus on the text control
+<br><b>-e</b> - enable the text control
+<br><b>-b</b> - disable the text control
+<br><b>-v</b> - make the text control visible
+<br><b>-h</b> - hide the text control
+<br><b>-r</b> - clears the text of the text control
+<br><b>-a</b> - adds text to the text control
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
-
+</pre>
 Without any property, return the text (caption) of the text control, same as the .text property
 
 Properties:
-* .text - returns the text of the text control (caption)
-* .len - returns the length of the text of the text control (caption)
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the text control is visible, otherwise $false
-* .enabled - returns $true if the text control is enabled, otherwise $false
+<br><b>.text</b> - returns the text of the text control (caption)
+<br><b>.len</b> - returns the length of the text of the text control (caption)
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the text control is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the text control is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -286,65 +246,66 @@ dialog Example {
   text "I am right-aligned.", 3, 4 50 40 15, right
   button "Done", 4, 50 30 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Label_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_label_example.png"></div>
 
 
-== Group Box ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Group Box</H2>
 This is a static control with a group box frame and an optional title that shows up at the top of the frame.
 
 '''Note:''' This only displays the group box but does not actually group the controls that you position within it.
 If you want to e.g. enable / disable them together, you need to do that programmatically.
 
-=== Synopsis ===
-<pre>box "&lt;title&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">box "&lt;title&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disable || Disables the group box.
-|-
-| hide || Makes the group box invisible.
-|-
-| result || In modal mode, returns the text of the button.
-|-
-| left || Put the title on the left
-|-
-| center || Put the title in the center
-|-
-| right || Put the title on the right
-|-
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disable</b> Disables the group box.
+<br><b>hide</b> Makes the group box invisible.
+<br><b>result</b> In modal mode, returns the text of the button.
+<br><b>left</b> Put the title on the left
+<br><b>center</b> Put the title in the center
+<br><b>right</b> Put the title on the right
 
-* -f - set focus on the box
-* -e - enable the box
-* -b - disable the box
-* -v - make the box visible
-* -h - hide the box
-* -r - clear the box's text (caption)
-* -a - Adds to the box's text (caption)
 
-==== $did ====
+<br>
+<br>
 
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - set focus on the box
+<br><b>-e</b> - enable the box
+<br><b>-b</b> - disable the box
+<br><b>-v</b> - make the box visible
+<br><b>-h</b> - hide the box
+<br><b>-r</b> - clear the box's text (caption)
+<br><b>-a</b> - Adds to the box's text (caption)
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
-
+</pre>
 Without any property, return the text (caption) of the box, same as the .text  property
 
 Properties:
-* .text - returns the text of the box (caption)
-* .len - returns the length of the box's text (caption)
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the box is visible, otherwise $false
-* .enabled - returns $true if the box is enabled, otherwise $false
+<br><b>.text</b> - returns the text of the box (caption)
+<br><b>.len</b> - returns the length of the box's text (caption)
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the box is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the box is enabled, otherwise $false
 
-=== Events ===
-This control has no events.
+<H4>Events</H4>This control has no events.
 
-=== Example ===
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -358,81 +319,74 @@ dialog Example {
   box "B Settings", 2, 4 50 80 40
   button "Done", 4, 40 100 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Group_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_group_example.png"></div>
 
 
-== Icon ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Icon</H2>
 An icon control is a simple container that holds images and icons.
 
 '''Note''': You cannot make an empty icon control, you must give a filename.
 
-=== Synopsis ===
-<pre>icon &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, <filename>[, <index>]], &lt;style&gt;</pre>
+<H4>Synopsis</H4>
+<pre class ="code">
+icon &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;filename&gt;[, &lt;index&gt;]], &lt;style&gt;
+</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disabled || Prevents the image from being shown. Frame might still show on some themes.
-|-
-| hide || Hides the image.
-|-
-| noborder || Hide the border around the image.
-|-
-| top || Aligns the image with the top of the container. Only applies if the image size is smaller than the container.
-|-
-| left || Aligns the image with the left of the container. Only applies if the image size is smaller than the container.
-|-
-| bottom || Aligns the image with the bottom of the container. Only applies if the image size is smaller than the container.
-|-
-| right || Aligns the image with the right of the container. Only applies if the image size is smaller than the container.
-|-
-| small || Use small factor image size.
-|-
-| large || Use large factor image size.
-|-
-| actual || Use actual factor image size.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disabled</b> Prevents the image from being shown. Frame might still show on some themes.
+<br><b>hide</b> Hides the image.
+<br><b>noborder</b> Hide the border around the image.
+<br><b>top</b> Aligns the image with the top of the container. Only applies if the image size is smaller than the container.
+<br><b>left</b> Aligns the image with the left of the container. Only applies if the image size is smaller than the container.
+<br><b>bottom</b> Aligns the image with the bottom of the container. Only applies if the image size is smaller than the container.
+<br><b>right</b> Aligns the image with the right of the container. Only applies if the image size is smaller than the container.
+<br><b>small</b> Use small factor image size.
+<br><b>large</b> Use large factor image size.
+<br><b>actual</b> Use actual factor image size.
 
-* -f - sets focus on the icon
-* -e - enables the button
-* -b - disables the button
-* -v - makes the button visible
-* -h - hides the button
-* -g - sets a new icon/bmp to an icon control, /did -g &lt;name&gt; &lt;id&gt; [n] <filename> where [n] is the optional index for the icon in the file
 
-==== $did ====
+<br>
+<br>
 
-$did(&lt;name&gt;,&lt;id&gt;)<.property>
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - sets focus on the icon
+<br><b>-e</b> - enables the button
+<br><b>-b</b> - disables the button
+<br><b>-v</b> - makes the button visible
+<br><b>-h</b> - hides the button
+<br><b>-g</b> - sets a new icon/bmp to an icon control, /did -g &lt;name&gt; &lt;id&gt; [n] &lt;filename&gt; where [n] is the optional index for the icon in the file
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
+$did(&lt;name&gt;,&lt;id&gt;)[.property]
+</pre>
 
 Properties:
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the icon is visible, otherwise $false
-* .enabled - returns $true if the icon is enabled, otherwise $false
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the icon is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the icon is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| mouse || Triggers when a mouse moves over the image.
-|-
-| sclick || Triggers upon a left mouse click on the image.
-|-
-| uclick || Triggers upon a release of the left mouse click.
-|-
-| dclick || Triggers upon a double left mouse click.
-|-
-| rclick || Triggers upon a right mouse click on the image.
-|-
-| drop || Triggers upon a drop click on the image.
-|}
+<H4>Events</H4>
+<br><b>mouse</b> Triggers when a mouse moves over the image.
+<br><b>sclick</b> Triggers upon a left mouse click on the image.
+<br><b>uclick</b> Triggers upon a release of the left mouse click.
+<br><b>dclick</b> Triggers upon a double left mouse click.
+<br><b>rclick</b> Triggers upon a right mouse click on the image.
+<br><b>drop</b> Triggers upon a drop click on the image.
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -447,96 +401,86 @@ dialog Example {
 
   button "Done", 7, 10 95 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Image_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_image_example.png"></div>
 
-== Edit ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Edit</H2>
 The edit control can behave as a normal text box as well as a rich text control.
 
-=== Synopsis ===
-<pre>edit "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">edit "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disabled || Disables the text control.
-|-
-| read || Sets the control to read-only.
-|-
-| pass || Treats the textbox as a password field. Stars-out the text.
-|-
-| hide || Hides the text control.
-|-
-| right || Right aligns the text.
-|-
-| center || Center aligns the text.
-|-
-| multi || Allows the text to span multiple lines.
-|-
-| hsbar || Always show the horizontal scrollbar.
-|-
-| autohs || Show the horizontal scrollbar automatically when needed.
-|-
-| vsbar || Allows show the vertical scrollbar.
-|-
-| autovs || Show the vertical scrollbar automatically when needed.
-|-
-| rich || Creates a rich-edit control instead of the normal text control.
-|-
-| return || Accepts the return key. Allowing the user to create a new line.
-|-
-| limit N || Limits the text to N characters.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disabled</b> Disables the text control.
+<br><b>read</b> Sets the control to read-only.
+<br><b>pass</b> Treats the textbox as a password field. Stars-out the text.
+<br><b>hide</b> Hides the text control.
+<br><b>right</b> Right aligns the text.
+<br><b>center</b> Center aligns the text.
+<br><b>multi</b> Allows the text to span multiple lines.
+<br><b>hsbar</b> Always show the horizontal scrollbar.
+<br><b>autohs</b> Show the horizontal scrollbar automatically when needed.
+<br><b>vsbar</b> Allows show the vertical scrollbar.
+<br><b>autovs</b> Show the vertical scrollbar automatically when needed.
+<br><b>rich</b> Creates a rich-edit control instead of the normal text control.
+<br><b>return</b> Accepts the return key. Allowing the user to create a new line.
+<br><b>limit N</b> Limits the text to N characters.
 
-* -f - set focus on the editbox
-* -e - enable the editbox
-* -b - disable the editbox
-* -v - make the editbox visible
-* -h - hide the editbox
-* -r - clear the edit's text
-* -a - Adds to the editbox's text. You can use $crlf if the editbox has 'multi' style to add a newline.
-* -n - enables the editbox
-* -m - disables editbox
-* -c - sets the selected text in the editbox, /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt; [[n [n2]], set the selection on line &lt;line&gt;, where n and n2 represent the start/end position of the selection in the line
-* -d - if you used the 'multi' style, deletes the Nth line in the editbox
-* -i - inserts the text on the Nth line of the editbox (if you are not using the 'multi' style, it overwrites everything)
-* -o - overwrite the Nth line (if you are not using the 'multi' style, it overwrite everything) in the editbox
-* -j - resets the edited setting of the editbox
 
-==== $did ====
+<br>
+<br>
 
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - set focus on the editbox
+<br><b>-e</b> - enable the editbox
+<br><b>-b</b> - disable the editbox
+<br><b>-v</b> - make the editbox visible
+<br><b>-h</b> - hide the editbox
+<br><b>-r</b> - clear the edit's text
+<br><b>-a</b> - Adds to the editbox's text. You can use $crlf if the editbox has 'multi' style to add a newline.
+<br><b>-n</b> - enables the editbox
+<br><b>-m</b> - disables editbox
+<br><b>-c</b> - sets the selected text in the editbox, /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt; [[n [n2]], set the selection on line &lt;line&gt;, where n and n2 represent the start/end position of the selection in the line
+<br><b>-d</b> - if you used the 'multi' style, deletes the Nth line in the editbox
+<br><b>-i</b> - inserts the text on the Nth line of the editbox (if you are not using the 'multi' style, it overwrites everything)
+<br><b>-o</b> - overwrite the Nth line (if you are not using the 'multi' style, it overwrite everything) in the editbox
+<br><b>-j</b> - resets the edited setting of the editbox
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
-
+</pre>
 Without any property, return the text (caption) of the editbox, same as the .text  property
 
 Properties:
-* .text - returns the text of the editbox or the Nth line if the 'multi' style has been used (caption)
-* .len - returns the length of the editbox's text (caption)
-* .lines - returns the number of lines in the editbox
-* .sel - If N is non-zero, returns the line number of the starting position of selection
-* .seltext - returns the selected text in the editbox
-* .selstart - returns the position of the start of the selection in the editbox
-* .selend - returns the position of the end of the selection in the editbox
-* .edited - returns $true if the content of the editbox was changed
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the button is visible, otherwise $false
-* .enabled - returns $true if the button is enabled, otherwise $false
+<br><b>.text</b> - returns the text of the editbox or the Nth line if the 'multi' style has been used (caption)
+<br><b>.len</b> - returns the length of the editbox's text (caption)
+<br><b>.lines</b> - returns the number of lines in the editbox
+<br><b>.sel</b> - If N is non-zero, returns the line number of the starting position of selection
+<br><b>.seltext</b> - returns the selected text in the editbox
+<br><b>.selstart</b> - returns the position of the start of the selection in the editbox
+<br><b>.selend</b> - returns the position of the end of the selection in the editbox
+<br><b>.edited</b> - returns $true if the content of the editbox was changed
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| mouse|| Triggers when a mouse moves over the text.
-|-
-| edit|| Triggers when the text has changed/edited.
-|}
+<H4>Events</H4>
+<br><b>mouse</b> Triggers when a mouse moves over the text.
+<br><b>edit</b> Triggers when the text has changed/edited.
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -556,59 +500,59 @@ dialog Example {
 <div style="display: block; text-align: center;"><img src="..\images\dialog_text_example.png"></div>
 
 
-== Scroll ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Scroll</H2>
 A scrollbar is a simple dialog component that can be used to scroll something. A scrollbar operates within a given range.
 
-=== Synopsis ===
-<pre>scroll "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;</pre>
+<H4>Synopsis</H4>
+<pre class ="code">scroll "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| left || Positions the scrollbar at the left side of the rectangular area specified.
-|-
-| right || Positions the scrollbar at the right side of the rectangular area specified.
-|-
-| top || Positions the scrollbar at the top side of the rectangular area specified.
-|-
-| bottom || Positions the scrollbar at the bottom side of the rectangular area specified.
-|-
-| horizontal || Creates a horizontal scrollbar instead of a vertical one.
-|-
-| range || Sets the range of the scrollbar, Syntax: range &lt;low&gt; &lt;high&gt;.
-|}
+<H4>Styles</H4>
 
-==== /did ====
-* '''-f''' - sets focus on the scrollbar
-* '''-e''' - enables the scrollbar
-* '''-b''' - disables the scrollbar
-* '''-v''' - makes the scrollbar visible
-* '''-h''' - hides the scrollbar
-* '''-z''' - Sets the range of the scrollbar, /did -z &lt;name&gt; &lt;id&gt; [n [n2]]
+<br><b>left</b> Positions the scrollbar at the left side of the rectangular area specified.
+<br><b>right</b> Positions the scrollbar at the right side of the rectangular area specified.
+<br><b>top</b> Positions the scrollbar at the top side of the rectangular area specified.
+<br><b>bottom</b> Positions the scrollbar at the bottom side of the rectangular area specified.
+<br><b>horizontal</b> Creates a horizontal scrollbar instead of a vertical one.
+<br><b>range</b> Sets the range of the scrollbar, Syntax: range &lt;low&gt; &lt;high&gt;.
 
-==== $did ====
 
-$did(&lt;name&gt;,&lt;id&gt;).property
+<br>
+<br>
+
+<b>/did</b>
+<br>
+<br><b>-f</b> - sets focus on the scrollbar
+<br><b>-e</b> - enables the scrollbar
+<br><b>-b</b> - disables the scrollbar
+<br><b>-v</b> - makes the scrollbar visible
+<br><b>-h</b> - hides the scrollbar
+<br><b>-z</b> - Sets the range of the scrollbar, /did -z &lt;name&gt; &lt;id&gt; [n [n2]]
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
+<pre class ="code">
+$did(&lt;name&gt;,&lt;id&gt;)[.property]
+</pre>
 
 Properties:
-* .sel - returns the value of the current position of the scrollbar
-* .lines - returns the current maximum value used for the range
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the button is visible, otherwise $false
-* .enabled - returns $true if the button is enabled, otherwise $false
+<br><b>.sel</b> - returns the value of the current position of the scrollbar
+<br><b>.lines</b> - returns the current maximum value used for the range
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| scroll || Triggers upon a scrollbar value change only.
-|}
+<H4>Events</H4>
+<br><b>scroll</b> Triggers upon a scrollbar value change only.
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -630,59 +574,60 @@ on *:dialog:example:scroll:2:{
 <div style="display: block; text-align: center;"><img src="..\images\dialog_scroll_example.png"></div>
 
 
-== Link ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Link</H2>
 A link control, just like a label, is a static control with the additional behavior that, when you put your mouse over the control, the cursor because a little hand, indicating you can interact with that link, usually to open an URL.
 
 To make the link actually open the web page, you need to code an ON DIALOG SCLICK event.
 
-=== Synopsis ===
-<pre>link "text", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">link "text", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disable || Disables the link. (grays it out)
-|-
-| hide || Makes the link invisible.
-|-
-| result || In modal mode, returns the URL.
-|}
+<H4>Styles</H4>
 
-==== /did ====
-* '''-f''' - sets focus on the link control
-* '''-e''' - enables the link
-* '''-b''' - disables the link
-* '''-v''' - makes the link visible
-* '''-h''' - hides the link
-* '''-a''' - Adds text to the link's text (caption)
-* '''-r''' - Deletes the text (caption) of the link
+<br><b>disable</b> Disables the link. (grays it out)
+<br><b>hide</b> Makes the link invisible.
+<br><b>result</b> In modal mode, returns the URL.
 
-==== $did ====
+
+<br>
+<br>
+
+<b>/did</b>
+<br>
+<br><b>-f</b> - sets focus on the link control
+<br><b>-e</b> - enables the link
+<br><b>-b</b> - disables the link
+<br><b>-v</b> - makes the link visible
+<br><b>-h</b> - hides the link
+<br><b>-a</b> - Adds text to the link's text (caption)
+<br><b>-r</b> - Deletes the text (caption) of the link
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 
 Without any property, return the text (caption) of the link, same as the .text  property
 
 Properties:
-* .text - returns the text (caption) of the link control
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the button is visible, otherwise $false
-* .enabled - returns $true if the button is enabled, otherwise $false
+<br><b>.text</b> - returns the text (caption) of the link control
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|-
-| dclick || Triggers upon double click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
+<br><b>dclick</b> Triggers upon double click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -697,43 +642,50 @@ dialog Example {
 }
 ; click event
 on *:dialog:example:sclick:1: url -a $did(example,$did)</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Link_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_link_example.png"></div>
 
-== Menu ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Menu</H2>
 A menu control that allows a hierarchical organization of elements called menu items.
 
-=== Synopsis ===
-<pre>menu "&lt;text&gt;", &lt;menuid&gt; [, &lt;menuid&gt;]
+<H4>Synopsis</H4>
+<pre class ="code">menu "&lt;text&gt;", &lt;menuid&gt; [, &lt;menuid&gt;]
 item "&lt;text&gt;", &lt;id [, &lt;menuid&gt;]
 item break, &lt;id [, &lt;menuid&gt;]</pre>
 
 '''Note:''' Menu items can nest under other menus by simply specifying their parent menu ID.
 
-=== Styles ===
+<H4>Styles</H4>
 This element has no available styles.
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| menu || Triggers upon menu click
-|}
+<H4>Events</H4>
+<br><b>menu</b> Triggers upon menu click
 
-==== /did ====
-* '''-e''' - enables the menu/item
-* '''-b''' - disables the menu/item
-* '''-v''' - makes the menu/item visible
-* '''-h''' - hides the menu/item
-* '''-a''' - Adds an item to a menu, /did -a &lt;name&gt; &lt;menuid&gt; &lt;newid&gt; &lt;text&gt;
-* '''-i''' - Inserts an item to a menu before the item identified by the specified &lt;id&gt;, /did -i &lt;name&gt; &lt;id&gt; &lt;newid&gt; &lt;text&gt;
-* '''-d''' - Deletes the item from the menu, /did -d &lt;name&gt; &lt;id&gt;
 
-==== $did ====
+<br>
+<br>
+
+<b>/did</b>
+<br>
+<br><b>-e</b> - enables the menu/item
+<br><b>-b</b> - disables the menu/item
+<br><b>-v</b> - makes the menu/item visible
+<br><b>-h</b> - hides the menu/item
+<br><b>-a</b> - Adds an item to a menu, /did -a &lt;name&gt; &lt;menuid&gt; &lt;newid&gt; &lt;text&gt;
+<br><b>-i</b> - Inserts an item to a menu before the item identified by the specified &lt;id&gt;, /did -i &lt;name&gt; &lt;id&gt; &lt;newid&gt; &lt;text&gt;
+<br><b>-d</b> - Deletes the item from the menu, /did -d &lt;name&gt; &lt;id&gt;
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 No $did support for a menu or an item.
 
-=== Example ===
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -764,47 +716,50 @@ dialog Example {
 
   button "Done", 7, 10 95 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Menu_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_menu_example.png"></div>
 
 
-== Radio ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Radio</H2>
 Radio buttons are a group of controls that can be configured to only allow the user to choose one of a predefined set of options.
 
-=== Synopsis ===
-<pre>radio "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt; [group]]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">radio "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt; [group]]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| left || Places the text on the left side of the control.
-|-
-| push || Creates a radio button in the form of normal buttons.
-|-
-| disable || Disables the button.
-|-
-| hide || Makes the button invisible.
-|-
-| result || In modal mode, returns the text of the button.
-|-
-| group || Identifies the first radio button in a group of severals radio buttons, only one can be checked at a time.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>left</b> Places the text on the left side of the control.
+<br><b>push</b> Creates a radio button in the form of normal buttons.
+<br><b>disable</b> Disables the button.
+<br><b>hide</b> Makes the button invisible.
+<br><b>result</b> In modal mode, returns the text of the button.
+<br><b>group</b> Identifies the first radio button in a group of severals radio buttons, only one can be checked at a time.
 
-* -f - sets focus on the radio
-* -t - sets the radio as the default control
-* -e - enables the radio
-* -b - disables the radio
-* -v - makes the radio visible
-* -h - hides the radio
-* -c - mark the radio as checked
-* -u - mark the checkboradio as unchecked
-* -r - clear the text of the radio (caption)
-* -a - adds text to the text of the radio (caption)
 
-==== $did ====
+<br>
+<br>
+
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - sets focus on the radio
+<br><b>-t</b> - sets the radio as the default control
+<br><b>-e</b> - enables the radio
+<br><b>-b</b> - disables the radio
+<br><b>-v</b> - makes the radio visible
+<br><b>-h</b> - hides the radio
+<br><b>-c</b> - mark the radio as checked
+<br><b>-u</b> - mark the checkboradio as unchecked
+<br><b>-r</b> - clear the text of the radio (caption)
+<br><b>-a</b> - adds text to the text of the radio (caption)
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 
@@ -812,23 +767,19 @@ Without any property, returns the text (caption) of the radio, same as the .text
 
 Properties:
 
-* .text - returns the text (caption) of the radio line or Nth line
-* .len - returns the length of the text of the radio (caption)
+<br><b>.text</b> - returns the text (caption) of the radio line or Nth line
+<br><b>.len</b> - returns the length of the text of the radio (caption)
 * .state - returns the state of the radio, 0 = unchecked, 1 = checked
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the radio is visible, otherwise $false
-* .enabled - returns $true if the radio is enabled, otherwise $false
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the radio is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the radio is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -858,41 +809,49 @@ dialog Example {
   radio "Other", 12, 67 55 20 10, push
   button "Done", 13, 40 68 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Radio_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_radio_example.png"></div>
 
 
-== Tab ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Tab</H2>
 A tab control is a container component capable of holding all of the other components. A tab control can have multiple tabs, and each tab can store another set of controls.
 
 '''Note''': You cannot have more than one tab control per dialog with mIRC
 
-=== Synopsis ===
-<pre>tab "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
+<H4>Synopsis</H4>
+<pre class ="code">tab "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
 tab "&lt;text&gt;", &lt;id&gt;, &lt;style&gt;</pre>
 
 The first tab definition in the synopsis specifies the main tab control and its size, the other definition adds an item to the tab
 
 To add a control to a tab item, specify the "tab &lt;id&gt;" style for the control, where &lt;id&gt; is the id of that tab item
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disable || Disables all the controls inside the specified tab.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disable</b> Disables all the controls inside the specified tab.
 
-* -fu - sets focus on the tab
-* -e - enables the tab
-* -b - disables the tab
-* -v - makes the tab visible
-* -h - hides the tab
-* -r - clears the text of the tab item (caption)
-* -a - adds to the text of the tab item (caption)
 
-==== $did ====
+<br>
+<br>
+
+<b>/did</b>
+<br>
+
+<br><b>-f</b>u - sets focus on the tab
+<br><b>-e</b> - enables the tab
+<br><b>-b</b> - disables the tab
+<br><b>-v</b> - makes the tab visible
+<br><b>-h</b> - hides the tab
+<br><b>-r</b> - clears the text of the tab item (caption)
+<br><b>-a</b> - adds to the text of the tab item (caption)
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 
@@ -900,26 +859,22 @@ Without any property, returns the text (caption) of the radio, same as the .text
 
 Properties:
 
-* .text - returns the text (caption) of the tab item
-* .len - returns the length of the text of the tab item (caption)
-* .next - returns the id of the next control in order of tab keypress
-* .prev - returns the id of the previous control in order of tab keypress
-* .visible - returns $true if the tab is visible, otherwise $false
-* .enabled - returns $true if the tab is enabled, otherwise $false
+<br><b>.text</b> - returns the text (caption) of the tab item
+<br><b>.len</b> - returns the length of the text of the tab item (caption)
+<br><b>.next</b> - returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - returns $true if the tab is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the tab is enabled, otherwise $false
 
 ==== $dialog ====
 
 You can use $dialog(&lt;name&gt;).tab to know which tab is currently selected, returns the Nth tab number
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| sclick || Triggers upon single click
-|}
+<H4>Events</H4>
+<br><b>sclick</b> Triggers upon single click
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -940,88 +895,82 @@ dialog Example {
 
   button "Done", 7, 10 95 40 12, ok
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Tab_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_tab_example.png"></div>
 
-== List ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>List</H2>
 The list control provides a way to display a list of items.
 
-=== Synopsis ===
-<pre>list &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">list &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disable || Disables the list control.
-|-
-| hide || Hides the list control.
-|-
-| sort || Sorts the items in the list.
-|-
-| multsel || Allows multiple items to be selected without holding the click/shift/control.
-|-
-| extsel || Allows extra selection support, you can use the control/shift keys to keep the selection and click on different entry in the list.
-|-
-| vsbar || Always show the vertical scrollbar.
-|-
-| hsbar || Alwas show the horizontal scrollbar.
-|-
-| check || Turns the list into a list of checkbox items.
-|-
-| radio || Turns the list into a list of radio items.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disable</b> - Disables the list control.
+<br><b>hide</b> - Hides the list control.
+<br><b>sort</b> - Sorts the items in the list.
+<br><b>multsel</b> - Allows multiple items to be selected without holding the click/shift/control.
+<br><b>extsel</b> - Allows extra selection support, you can use the control/shift keys to keep the selection and click on different entry in the list.
+<br><b>vsbar</b> - Always show the vertical scrollbar.
+<br><b>hsbar</b> - Alwas show the horizontal scrollbar.
+<br><b>check</b> - Turns the list into a list of checkbox items.
+<br><b>radio</b> - Turns the list into a list of radio items.
 
-* -f - sets focus on the list
-* -e - enables the list
-* -b - disables the list
-* -v - makes the list visible
-* -h - hides the list
-* -c - selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
-* -u - unselects the Nth line in the list
+
+<br>
+<br>
+
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - sets focus on the list
+<br><b>-e</b> - enables the list
+<br><b>-b</b> - disables the list
+<br><b>-v</b> - makes the list visible
+<br><b>-h</b> - hides the list
+<br><b>-c</b> - selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
+<br><b>-u</b> - unselects the Nth line in the list
 * -k - keeps the selection of others lines when selecting/unselecting
 * -s - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as checked
 * -l - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as unchecked
-* -r - clears the list
-* -a - adds a line to the end of the list
-* -d - deletes the Nth line in the list
-* -i - inserts a line at Nth line position in the list
-* -o - overwrites the Nth line with the next text in the list
+<br><b>-r</b> - clears the list
+<br><b>-a</b> - adds a line to the end of the list
+<br><b>-d</b> - deletes the Nth line in the list
+<br><b>-i</b> - inserts a line at Nth line position in the list
+<br><b>-o</b> - overwrites the Nth line with the next text in the list
 * -z - resets the width of the horizontal scrollbar in the list
 
-==== $did ====
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 
-* .text - returns the Nth line in the list
-* .len - returns the length of the Nth line in the list
-* .lines - returns the number of lines in the list
-* .sel - returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
-* .seltext - returns the first selected line in the list
-* .next - returns the id of the next control in tab key order
-* .prev - returns the id of the previous control in tab key order
-* .visible - returns $true if the list is visible, otherwise $false
-* .enabled - returns $true if the list is enabled, otherwise $false
-* .csel - if the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
-* .cstate - if the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
+<br><b>.text </b> - returns the Nth line in the list
+<br><b>.len </b> - returns the length of the Nth line in the list
+<br><b>.lines </b> - returns the number of lines in the list
+<br><b>.sel </b> - returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
+<br><b>.seltext </b> - returns the first selected line in the list
+<br><b>.next </b> - returns the id of the next control in tab key order
+<br><b>.prev </b> - returns the id of the previous control in tab key order
+<br><b>.visible </b> - returns $true if the list is visible, otherwise $false
+<br><b>.enabled </b> - returns $true if the list is enabled, otherwise $false
+<br><b>.csel </b> - if the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
+<br><b>.cstate </b> - if the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| mouse || Triggers when a mouse moves the list control.
-|-
-| sclick || Triggers when an item is clicked.
-|-
-| dclick || Triggers when an item is double clicked.
-|}
+<H4>Events</H4>
+<br><b>mouse</b> - Triggers when a mouse moves the list control.
+<br><b>sclick</b> - Triggers when an item is clicked.
+<br><b>dclick</b> - Triggers when an item is double clicked.
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -1049,76 +998,73 @@ on 1:dialog:example:init:*: {
   did -a example 3 Item B
   did -a example 3 Item C
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_List_example.png"></div>
+<div style="display: block; text-align: center;"><img src="..\images\dialog_list_example.png"></div>
 
 
-== Combo ==
+<!-- --------------------------------------------------------------------- -->
+
+
+<H2>Combo</H2>
 The combo control provides a way to choose an item from a selection of items in either a list, or from a drop-down fashion selection box.
 
-=== Synopsis ===
-<pre>combo &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<H4>Synopsis</H4>
+<pre class ="code">combo &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
 
-=== Styles ===
-{| class="wikitable"
-|-
-! Style !! Description
-|-
-| disable || Disables the combo control.
-|-
-| hide || Hides the combo control.
-|-
-| sort || Sorts the items in the combo control.
-|-
-| drop || Creates a drop-down combo control.
-|-
-| edit || Used with 'drop' style, creates a drop-down editable combo control.
-|-
-| vsbar || Always show the vertical scrollbar.
-|-
-| hsbar || Always show the horizontal scrollbar.
-|}
+<H4>Styles</H4>
 
-==== /did ====
+<br><b>disable</b> Disables the combo control.
+<br><b>hide</b> Hides the combo control.
+<br><b>sort</b> Sorts the items in the combo control.
+<br><b>drop</b> Creates a drop-down combo control.
+<br><b>edit</b> Used with 'drop' style, creates a drop-down editable combo control.
+<br><b>vsbar</b> Always show the vertical scrollbar.
+<br><b>hsbar</b> Always show the horizontal scrollbar.
 
-* -f - sets focus on the combo
-* -e - enables the combo
-* -b - disables the combo
-* -v - makes the combo visible
-* -h - hides the combo
-* -c - selects the Nth line in the combo: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
-* -r - clears the combo, use N = 0 to clear the text of the editable editbox of the combo
-* -a - adds a line to the end of the combo, use N = 0 to add to the editable editbox of the combo
-* -d - deletes the Nth line in the combo
-* -i - inserts a line at Nth line position in the combo
-* -o - overwrites the Nth line with the next text in the combo
 
-==== $did ====
+<br>
+<br>
+
+<b>/did</b>
+<br>
+
+<br><b>-f</b> - sets focus on the combo
+<br><b>-e</b> - enables the combo
+<br><b>-b</b> - disables the combo
+<br><b>-v</b> - makes the combo visible
+<br><b>-h</b> - hides the combo
+<br><b>-c</b> - selects the Nth line in the combo: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
+<br><b>-r</b> - clears the combo, use N = 0 to clear the text of the editable editbox of the combo
+<br><b>-a</b> - adds a line to the end of the combo, use N = 0 to add to the editable editbox of the combo
+<br><b>-d</b> - deletes the Nth line in the combo
+<br><b>-i</b> - inserts a line at Nth line position in the combo
+<br><b>-o</b> - overwrites the Nth line with the next text in the combo
+
+<br>
+<br>
+
+<b>$did</b>
+<br>
 
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 
-* .text - returns the Nth line in the combo, use N = 0 to access the text of the editable editbox of the combo
-* .len - returns the length of the Nth line in the combo
-* .lines - returns the number of lines in the combo
-* .sel - returns the line number selected line in the combo
-* .seltext - returns the first selected line in the combo
-* .next - returns the id of the next control in tab key order
-* .prev - returns the id of the previous control in tab key order
-* .visible - returns $true if the list is visible, otherwise $false
-* .enabled - returns $true if the list is enabled, otherwise $false
+<br><b>.text</b> - returns the Nth line in the combo, use N = 0 to access the text of the editable editbox of the combo
+<br><b>.len</b> - returns the length of the Nth line in the combo
+<br><b>.lines</b> - returns the number of lines in the combo
+<br><b>.sel</b> - returns the line number selected line in the combo
+<br><b>.seltext</b> - returns the first selected line in the combo
+<br><b>.next</b> - returns the id of the next control in tab key order
+<br><b>.prev</b> - returns the id of the previous control in tab key order
+<br><b>.visible</b> - returns $true if the list is visible, otherwise $false
+<br><b>.enabled</b> - returns $true if the list is enabled, otherwise $false
 
-=== Events ===
-{| class="wikitable"
-|-
-! Event !! Description
-|-
-| mouse || Triggers when a mouse moves the combo control.
-|-
-| sclick || Triggers when an item is clicked.
-|}
+<H4>Events</H4>
+<br><b>mouse</b> Triggers when a mouse moves the combo control.
+<br><b>sclick</b> Triggers when an item is clicked.
 
-=== Example ===
+
+<H4>Example</H4>
 <pre class ="code">; init alias
 alias example {
   dialog -m example example
@@ -1142,9 +1088,7 @@ on 1:dialog:example:init:*: {
   did -a example 2 Item B
   did -a example 2 Item C
 }</pre>
-<div style="display: block; text-align: center;"><img src="..\images\dialog_Combo_example.png"></div>
-
-
+<div style="display: block; text-align: center;"><img src="..\images\dialog_combo_example.png"></div>
 
 </body>
 </html>

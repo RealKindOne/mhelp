@@ -5,13 +5,13 @@
 <H1>Dialogs</H1>
 <br>
 <br>
-Dialogs make it possible to create custom dialog windows inside of mIRC. The {{mIRC|/dialog}} command opens new dialogs, and the {{mIRC|dialog components}} are the objects within the dialog, such as buttons, labels, etc.
+Dialogs make it possible to create custom dialog windows inside of mIRC. The <a href="..\commands\dialog.html">/dialog</a> command opens new dialogs, and the <a href="dialog_components.html">dialog components</a> are the objects within the dialog, such as buttons, labels, etc.
 
 === What dialogs are ===
-Dialogs are simply [[graphical user interfaces]] that present options to a user's screen in a graphical form. For instance, a web browser is display through its own dialog. Windows users may have used applications such as notepad, or Microsoft Word. All of these applications use dialogs, or forms of [[graphical user interfaces]] to present their applications in an appealing form.
+Dialogs are simply graphical user interfaces that present options to a user's screen in a graphical form. For instance, a web browser is display through its own dialog. Windows users may have used applications such as notepad, or Microsoft Word. All of these applications use dialogs, or forms of graphical user interfaces to present their applications in an appealing form.
 
 === mIRC Dialogs ===
-mIRC dialogs are created by users through custom scripts. Through these dialog interactions, the dialogs adhere to an event listener, the {{mIRC|on dialog}} event. Through this event, all aspects of the custom dialogs, as well as their controls, can be monitored, tracked, and modified.
+mIRC dialogs are created by users through custom scripts. Through these dialog interactions, the dialogs adhere to an event listener, the <a href="..\events\on_dialog.html">On_Dialog</a> event. Through this event, all aspects of the custom dialogs, as well as their controls, can be monitored, tracked, and modified.
 
 === Scope ===
 The scope of this article is to generally familiarize users with the term '''dialogs''', and what exactly it is they are used for within mIRC. Since these components are geared towards more advanced scripters, beginners should make sure they have already gone through the preceding tutorials from the {{mIRC|Introduction}} page, all the way leading up to '''Dialogs'''
@@ -21,16 +21,16 @@ The scope of this article is to generally familiarize users with the term '''dia
 They are two type of dialogs - modal dialogs which block access to other parts of the mIRC interface until they are closed, and modeless dialogs which can be left open whilst continuing to allow access to the rest of mIRC (i.e. effectively a separate mIRC-based window).
 
 Modals dialog are dialog which block the current script execution, you cannot access others windows, usually used to get a quick user input.
-mIRC has built-in modals dialog, {{mIRC|$?}}'s families and {{mIRC|$input}} are modals dialogs.
+mIRC has built-in modals dialog, <a href="..\identifier\_question.html">$?</a>'s families and <a href="..\identifier\input.html">$input</a> are modals dialogs.
 
 Modeless dialog can be opened indefinitely and does not halt the script execution.
 
 ==== Modeless dialog ====
 
-You can create a modeless dialog using the {{mIRC|/dialog}} command with the -m switch, there are others switch that can be used at creation time and after the creation of the dialog to change various states.
+You can create a modeless dialog using the <a href="..\commands\dialog.html">/dialog</a> command with the -m switch, there are others switch that can be used at creation time and after the creation of the dialog to change various states.
 
 <pre class ="code">
-/dialog -m &lt;name&gt; <table>
+/dialog -m &lt;name&gt; &lt;table&gt;
 </pre>
 
 &lt;name&gt; is the name used to reference the instance of the dialog (you can run multiple instance of the same dialog at the same time)
@@ -39,10 +39,10 @@ You can create a modeless dialog using the {{mIRC|/dialog}} command with the -m 
 
 ==== Modal dialog ====
 
-You can create a modal dialog using the {{mIRC|$dialog}} identifier with the following syntax:
-
+You can create a modal dialog using the <a href="..\identifier\dialog.html">$dialog</a> identifier with the following syntax:
+<pre class ="code">
 $dialog(name,table[,parent])
-
+</pre>
 * name - The name used to reference the instance of the dialog
 * table - The name of the dialog table to use
 * parent - Optional, this can be a window name or:
@@ -58,7 +58,7 @@ Any control can be used in the dialog with the "result" style, the value returne
 
 === Creating a dialog table ===
 
-Custom dialogs are created by defining a dialog table, the content of that table represents the look of the dialog, the controls etc, a table is defined by using the <dialog> keyword:
+Custom dialogs are created by defining a dialog table, the content of that table represents the look of the dialog, the controls etc, a table is defined by using the &lt;dialog&gt; keyword:
 
 <pre class ="code">dialog -l &lt;name&gt; {
     title        "text"
@@ -77,7 +77,7 @@ Custom dialogs are created by defining a dialog table, the content of that table
     icon         id, x y w h, filename, index, style    (noborder top left bottom right small large actual)
     link         "text", id, x y w h
     tab          "text", id, x y w h
-    tab          "text", id 
+    tab          "text", id
     menu         "text", menuid [, menuid]
     item         "text", id [, menuid]
     item         break, id [, menuid]
@@ -94,7 +94,7 @@ The -l switch makes the table local, only that script file can open it. &lt;name
 ** map - x y w h values are in MAP units - this (undocumented) option will also try to ensure that the dialog looks the same under any size display even when Windows 10 Display Scaling is > 100%. MAP units are '''not''' the same as DBUs and you will have to recalculate x y w & h values if you switch from DBU to MAP. There are no MAP equivalents for $dbuw and $dbuh identifiers.
 ** notheme - This option prevents mIRC from applying your current windows theme to the dialog - if you like your dialogs to have a retro Windows XP feel to them which is different to how the style used by the rest of mIRC, then this is the option for you.
 ** disable - This option can use used to wait a bit before the controls in the dialog can be used, preventing accidents
-* Others elements are used to create controls, see the {{mIRC|dialog components}}
+* Others elements are used to create controls, see the <a href="dialog_components.html">dialog components</a>.
 
 Remember that once the dialog is created, mIRC does not allow you to resize the controls in the dialog. You can use variable and identifiers inside the dialog table to create dialog control with dynamic size
 You can also use a variable name as a style for any control, the variable is set (global variable) with the value of that control when the dialog is closed:
@@ -135,15 +135,15 @@ For example, the following menu definition reproduces the File menu of the mIRC 
 
 === /did command & $did identifier ===
 
-The {{mIRC|/did}} command can be used to change the various state of the control while {{mIRC|$did}} can be used to retrieve values and states of controls.
+The <a href="..\commands\did.html">/did</a> command can be used to change the various state of the control while <a href="..\identifiers\did.html">$did</a> can be used to retrieve values and states of controls.
 
-Check the {{mIRC|dialog components}}, which describe the usage of the two per control.
+Check the <a href="dialog_components.html">dialog components</a>, which describe the usage of the two per control.
 
 === Others tools ===
 
 ==== /didtok, $didtok, $didwm and $didreg ====
 
-{{mIRC|/didtok}} &lt;name&gt; &lt;id&gt; <C> &lt;text&gt;      will add a tokenized list of item to a list/combo/edit control, for example "/didtok name 1 44 red,green,blue" would add the item "red", "gree", and "blue" to that control
+<a href="..\commands\didtok.html">/didtok</a> &lt;name&gt; &lt;id&gt; &lt;C&gt; &lt;text&gt;      will add a tokenized list of item to a list/combo/edit control, for example "/didtok name 1 44 red,green,blue" would add the item "red", "gree", and "blue" to that control
 
 {{mIRC|$didtok}}(name,id,C) returns a tokenized list of item from a combo/edit/list control.
 
@@ -151,13 +151,13 @@ Check the {{mIRC|dialog components}}, which describe the usage of the two per co
 
 ==== /loadbuf, /savebuf and /filter ====
 
-You can {{mIRC|/filter}} from and to a combo/edit/list control.
+You can <a href="..\commands\filter.html">/filter</a> from and to a combo/edit/list control.
+<br>
+You can <a href="..\commands\loadbuf.html">/loadbuf</a> and <a href="..\commands\savebuf.html">/savebuf</a> from and to a combo/edit/list control.
 
-You can {{mIRC|/loadbuf}} and {{mIRC|/savebuf}} from and to a combo/edit/list control.
+<H4>See also</H4>
 
-== See Also ==
-* {{mIRC|dialog components}}
-* {{mIRC|on dialog}}
-
+<a href="dialog_components.html">dialog components</a><br>
+<a href="..\events\on_dialog.html">On_Dialog</a><br>
 </body>
 </html>
