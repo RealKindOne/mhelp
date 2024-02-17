@@ -1,19 +1,18 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-</H1>TCP Sockets</H1>
+<head><title>TCP Sockets</title></head>
+<H1>TCP Sockets</H1>
 <br>
 <br>
-TCP Sockets }}{{Preknow|This article assumes that you have intermediate to advanced knowledge of the [[mIRC Scripting Language]] and familiarity with {{mIRC|on events}} and {{mIRC|aliases|custom aliases}}.}}
-
-mIRC has built-in support for '''TCP Sockets'''. This tutorial is the '''TCP Sockets''' continuation of the {{mIRC|sockets|Sockets (Intro) tutorial}}. If you haven't read that, please do so first before moving on to this one.
+mIRC has built-in support for TCP Sockets. This tutorial is the '''TCP Sockets''' continuation of the {{mIRC|sockets|Sockets (Intro) tutorial}}. If you haven't read that, please do so first before moving on to this one.
 
 Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
 
 Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to [http://www.youtube.com/ YouTube] and get the title of the page and the view count.
 
 == Creating a Connection ==
-Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the {{mIRC|/sockopen}} command:
+Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="..\commands\sockopen.html">/sockopen</a> command:
 
 <pre class ="code">sockopen &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
@@ -60,9 +59,9 @@ In this example I thought we would do something different. Providing a YouTube l
 }</pre>
 
 == The Socket Mark ==
-In the example above we introduced another command, the {{mIRC|/sockmark}} command. The {{mIRC|/sockmark}} command lets you store some text for that socket which can easily be retrieved using the {{mIRC|$sock|$sock().mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the {{mIRC|$sock|$sock().mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
-<pre class ="code">sockmark &lt;handle&gt; <value>
+<pre class ="code">sockmark &lt;handle&gt; &lt;value&gt;
 ; The following will clear the mark:
 sockmark &lt;handle&gt;</pre>
 
@@ -103,7 +102,7 @@ sockwrite $sockname CCCCC</pre>
 
 Even though we have used three distinct sockwrite calls to send the data, the exact data we sent is:
 
-<pre>AAAAABBBBBCCCCC</pre>
+<pre class ="code">AAAAABBBBBCCCCC</pre>
 
 On the other hand, the following code:
 
@@ -220,7 +219,7 @@ Next is the Host header:
 The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
 
 == Reading Incoming Data ==
-Once the server receives your request, it will send the response back to you. This will trigger the {{mIRC|on events/on sockread|on sockread}} event. The basic syntax of the on sockread event is:
+Once the server receives your request, it will send the response back to you. This will trigger the <a href="..\events\on_sockread.html">On_SockRead</a> event. The basic syntax of the on sockread event is:
 
 <pre class ="code">on *:sockread:&lt;handle&gt;: {
    ;Your code goes here
@@ -297,7 +296,7 @@ Checking for an error gives you the opportunity to handle it in a sane way. Most
 
 When I printed out the entire source the server sent us. The first part is the header, follows by a blank space, and follows by the actual page data. It should look something like this:
 
-<pre>
+<pre class ="code">
 :HTTP/1.1 200 OK
 :Date: Sun, 11 Mar 2012 10:42:05 GMT
 :Server: Apache
@@ -305,21 +304,21 @@ When I printed out the entire source the server sent us. The first part is the h
 :Connection: close
 :Content-Type: text/html
 :
-:<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-:   <html xmlns="http://www.w3.org/1999/xhtml">
-:       <head>
-:           <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-:           <meta name="robots" content="noindex,follow" />
-:           &lt;title&gt;ZigWap - Demo Page</title>
-:       </head>
-:       <body>
-:           <div align="center">
-:               <p>This is an example page!</p>
-:               <p>This webpage is dedicated for the socket tutorial purpose. </p>
-:           </div>
-:       <p>Your random color is: Pink</p>
-:       </body>
-:   </html>
+:&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+:   &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+:       &lt;head&gt;
+:           &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+:           &lt;meta name="robots" content="noindex,follow" /&gt;
+:           &lt;title&gt;ZigWap - Demo Page&lt;/title&gt;
+:       &lt;/head&gt;
+:       &lt;body&gt;
+:           &lt;div align="center"&gt;
+:               &lt;p&gt;This is an example page!&lt;/p&gt;
+:               &lt;p&gt;This webpage is dedicated for the socket tutorial purpose. &lt;/p&gt;
+:           &lt;/div&gt;
+:       &lt;p&gt;Your random color is: Pink&lt;/p&gt;
+:       &lt;/body&gt;
+:   &lt;/html&gt;
 </pre>
 
 The first part is the header, follows by a blank space, and follows by the actual page data. In this example we will be trying to retrieve the random color line. A simple if statement to check for *Your random colors is* should be sufficient enough.
