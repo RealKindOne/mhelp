@@ -16,6 +16,12 @@ The <b>$exiting</b> identifier returns whether mIRC is exiting, not exiting, or 
 | 2 | mIRC is restarting
 }}
 
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
 <H4>Example</H4>
 <pre class ="code">; Check in an on exit event if mIRC is exiting
 ON *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)</pre>
@@ -28,8 +34,9 @@ Added: mIRC v7.23 (19 Mar 2012)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
-*{{mIRC|$starting}}
+<a href="starting.html">$starting</a><br>
 *{{mIRC|on events/on exit|on exit}}
 
 

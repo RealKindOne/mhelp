@@ -16,14 +16,14 @@ The <b>/bwrite</b> command can be used to write a specified amount of bytes from
 </pre>
 
 <b>Note:</b> If you pass a &lt;%var&gt; to /bwrite, if the content of that %var is a %variable itself, of if the first token of %var is a %variable itself, the content of %variable is used and no tokenization on %variable occurs, effectively preserving spaces. See the example
-	
+
 <H4>Switches</H4>
 <b>-t</b>
       - Treats everything as plain text (i.e. $identifiers and &lt;%var&gt;iables (but not contents of %variables) are evaluated, but binary variables are not evaluated, are treated as text strings beginning with &) This switch is needed if literal string begins with & or string within %var begins with & or % characters.
 <br><b>-c</b>
       - Chops the file at the end of the written data (if your current disk file is 10 bytes and you write 3 bytes at position 3 (4th byte), the resulting disk file's filesize is 6 because the 3 bytes were written as the 4th through 6th bytes of the file)
 <br><b>-a</b>
-      - Disables UTF-8 encoding of characters in the range 0-255, as long as the line contains no characters > 255
+      - Disables UTF-8 encoding of characters in the range 0-255, as long as the line contains no characters &gt; 255
 
 <H4>Parameters</H4>
 <b>&lt;filename&gt;</b>

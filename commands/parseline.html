@@ -5,7 +5,7 @@
 <H1>/parseline</H1>
 <br>
 <br>
-The <b>/parseline</b> command can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the <a href="..\events\On_ParseLine.html">On_ParseLine</a> event.
+The <b>/parseline</b> command can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the <a href="..\events\on_parseline.html">On_ParseLine</a> event.
 <br>
 <br>
 <b>Warning:</b> This feature should only be used, for example, to support features and/or protocols that mIRC does not already support, not to modify standard lines. mIRC maintains internal states based on incoming and outgoing lines. If lines are modified, mIRC may not work correctly
@@ -33,7 +33,7 @@ Optional
 <br><b>-q</b>
       - Can be used to add a new line to the end of the in/out queue, they are processed after the end of the script execution.
 
-** **Note**: Without -q, you're changing the current line from the <a href="..\events\On_ParseLine.html">On_ParseLine</a> event, you'll get an error otherwise.
+** **Note**: Without -q, you're changing the current line from the <a href="..\events\on_parseline.html">On_ParseLine</a> event, you'll get an error otherwise.
 
 
 <br><b>-a</b>
@@ -78,7 +78,7 @@ None
 
 <H4>See also</H4>
 
-<a href="..\events\On_ParseLine.html">On_ParseLine</a><br>
+<a href="..\events\on_parseline.html">On_ParseLine</a><br>
 <a href="..\identifiers\parseutf.html">$parseutf</a><br>
 </body>
 </html>

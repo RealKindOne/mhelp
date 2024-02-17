@@ -11,7 +11,7 @@ Language=0x409 English (United States)
 Title=mhelp
 
 [WINDOWS]
-Buttons=,"contents.hhc","index.hhk","index.html","index.html",,,,,0x2520,,0x304e,,,,,,,,0
+Buttons=,"contents.hhc","index.hhk","index.html","index.html",,,,,0x22520,,0x304e,,,,,,2,,0
 
 
 [FILES]

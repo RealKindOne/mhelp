@@ -47,7 +47,7 @@ A single /sockread may not be enough to read the entire buffer (if you are readi
 
 This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, :doc: `see below </commands/sockread#last_line_not_showing_up>` .
 
-<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, <a href="..\events\On_SockClose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
+<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, <a href="..\events\on_sockclose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
 
 It is important to note that the data received will vary in size. Practically speaking, we receive several kilobytes per second, it is easy to assume that the data you want is going to be sent and received the same way and above all, the way you want, but that's incorrect, you might receive very small packet at a very small speed.
 
@@ -89,7 +89,7 @@ on *:sockread:name:{
  }
 }
 </pre>
-And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="..\events\On_SockClose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="..\identifiers\sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
+And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="..\events\on_sockclose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="..\identifiers\sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
 
 <pre class ="code">
 alias testHTTP {

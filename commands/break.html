@@ -41,12 +41,12 @@ Alias isValue {
     */
     if ($var(*,$v1).value == $1-) {
       %found = $var(*,%count)
-      ;break
+      ; break
       break
     }
     inc %count
   }
-  ;return value
+  ; return value
   return %found
 }
 
