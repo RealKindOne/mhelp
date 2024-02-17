@@ -1,0 +1,122 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>RAW Events</title></head>
+<H1>RAW Events</H1>
+<br>
+<br>
+Raw events allow you to handle IRC event in their native, unmodified, format. Every message you receive from the server before mIRC processes it is called a raw message. And it might look a little different from the one you see after it gets parsed.
+
+<H4>Raw Messages</H4>
+
+Below is an example of a typical raw irc message that is received when a user talks in a channel:
+
+<pre class ="code">
+:Kevin!bncworld@I-Have.a.cool.vhost.com PRIVMSG #mIRC :I feel lucky today</pre>
+
+What most of us would see would look a little different. In my case it looks like this:
+
+<pre class ="code">
+15:43 &lt;@Kevin&gt; I feel lucky today</pre>
+
+As you can see, mIRC has processed the raw message and displayed it in a convenient manner. There are many occasions where we might want to override this behavior or even handle messages that mIRC might not natively support. In this article we will see at least two such cases.
+
+<H4>/debug</H4>
+
+Before we can talk about the actual events themselves it's important that we get a better understanding on what these raw messages look like. mIRC provides a continent way to do just that with the use of the <a href="..\commands\debug.html">/debug</a> command. The /debug command can be used to display all the raw messages that gets passed between you and the server. The debug command can be called using the following syntax:
+
+<pre class ="code">/debug &lt;@window&gt;</pre>
+
+We suggest you create a window with an editbox so that you can execute commands from within the same window.
+
+'''Note''': The message are shown undecoded (utf8)
+
+<pre class ="code">//window -e @raw | debug @raw</pre>
+
+<H4>Raw Numeric</H4>
+
+Using the debug window we have open. Let’s execute a /whois command on someone in our channel. You might see something similar to this:
+
+<pre class ="code">
+-> :irc.server.name WHOIS foo
+ <- :irc.server.name 311 bar foo ~Ident name-B21D62.lolhat.com :Foo Jenkins
+ <- :irc.server.name 319 bar foo :+#foobar @#kekelar %#scripting
+ <- :irc.server.name 312 bar foo irc.server.name :Server Description
+ <- :irc.server.name 307 bar foo :has identified for this nick
+ <- :irc.server.name 335 bar foo :is a Bot on name
+ <- :irc.server.name 671 bar foo :is using a Secure Connection
+ <- :irc.server.name 318 bar foo :End of /WHOIS list.
+ </pre>
+
+You may have noticed that following the server’s name there is a strange number: 311, 319, 312, 307... These numbers are known as '''raw numeric'''. Most, but not all, raw messages will have a number that we can use to uniquely identify the message. For example '''318''' will always mean "End of /WHOIS list." Raw '''numeric 319''' will always give us a list of channels the user is on. That number will prove to be invaluable in writing scripts that deal with raw message.
+
+<H4>Numeric Raw Event</H4>
+
+The syntax for the raw event is:
+
+<pre class ="code">raw &lt;numeric&gt;:&lt;matchtext&gt;:{
+   ; code to handle the message
+}</pre>
+
+'''Note:''' The on raw event triggers every time a raw numeric and a pattern matched, regardless of who or what caused the event to happen.
+
+You can see how the numeric is a very important part of a raw event. The matchtext can be a <a href="wildcard.html">wildcard</a> pattern by which mIRC will try to match against.
+
+Recall that raw 319 is the list of channel the user is you whoised is on:
+
+<pre class ="code">
+:irc.my-irc-network.net 319 &lt;myname&gt; &lt;nick&gt; :&lt;[mode]#channel&gt; &lt;[mode]#channel2&gt; &lt;[mode]#channel3&gt;...</pre>
+
+Our raw event will look like this:
+
+<pre class ="code">raw 319:*:{
+  ; $1 = &lt;myname&gt;
+  ; $2 = &lt;nick&gt;
+  ; $3 = &lt;[mode]#channel 1&gt;
+  ; $4 = &lt;[mode]#channel 2&gt;
+  ; $5 = &lt;[mode]#channel 3&gt;
+  ; $6 ...
+}</pre>
+
+<H4>Example: Channels-On-Join</H4>
+
+In this example we will create a script that will message all the channels a user is on. Our example will be composed of two parts: an on join event and an on raw event.
+
+We will need to use the on join event to be able to know when the user joins a channel. Recall that the raw event will trigger whenever any matching raw message is received. To ensure our raw event only happens when we want it to we will set a variable to indicate it.
+
+The on join part:
+
+<pre class ="code">on *:join:#:{
+   ; make a variable called "%whois.nick" to the channel's name
+   ; We will use this variable later on in the raw event.
+   set %whois. $+ $nick $chan
+   ; whois the user
+   whois $nick
+}</pre>
+
+Recall that $2 is the user we whoised. We will need that to check if %whois.nick is set. Our code will look like this:
+
+<pre class ="code">raw 319:*:{
+   ;We indicated that the event should trigger on the server's numeric value of 319
+   if (%whois. [ $+ [ $2 ] ]) {
+     ;In the if statement we check if we actually /whoised this user
+     msg %whois. [ $+ [ $2 ] ] [WHOIS] $2 is on $3-.
+     unset %whois. $+ $2
+   }
+ }</pre>
+
+<H4>Non-Numeric Raw Event</H4>
+As we have seen, not every raw event has a numeric value. The syntax for such events are:
+
+<pre class ="code">raw &lt;event&gt;:&lt;matchtext&gt;:{
+   ; code to handle the message
+}</pre>
+
+An example of using it is for SASL authentication. Where the following events will be used (on a network like FreeNode):
+
+<pre class ="code">raw cap:* ack sasl *:{ }
+raw cap:* ls *:{ }
+raw authenticate:*:{ }
+</pre>
+</body>
+</html>
