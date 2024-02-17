@@ -17,6 +17,8 @@ Buttons=,"contents.hhc","index.hhk","index.html","index.html",,,,,0x2520,,0x304e
 [FILES]
 default.css
 index.html
+commands.html
+identifiers.html
 commands\abook.html
 commands\action.html
 commands\add.html
@@ -872,6 +874,7 @@ other\local_identifiers.html
 other\picture_windows.html
 other\playing_music.html
 other\regex.html
+other\sendmessage.html
 other\string_manipulation.html
 other\token.html
 other\variables.html
