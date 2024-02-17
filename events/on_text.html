@@ -18,9 +18,9 @@ on &lt;level&gt;:text:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;
 
 == Matchtext ==
 
-A '''&lt;matchtext&gt;''' is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the {{mIRC|/filter}} command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
+A '''&lt;matchtext&gt;''' is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the <a href="..\commands\filter.html">/filter</a> command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
 
-=== Wildcard text pattern ===
+<H4>Wildcard text pattern</H4>
 The matchtext can contain wild characters:
 * * - matches any text
 * ? - matches any single letter
@@ -33,7 +33,7 @@ For Example:
 * *!test* - the matchtext will match any text that has "!test" in it (anywhere)
 * !test & - the matchtext will match any text that start with the word test !test and is only followed by a second word
 
-=== The basic text pattern ===
+<H4>The basic text pattern</H4>
 The most basic on text event is the normal <a href="..\other\wildcard.html">wildcard</a><br> pattern:
 
 <pre class ="code">on *:text:!help:#:{
@@ -47,7 +47,7 @@ Sometimes we want to get the user's input. We can use the & to match a single wo
   msg $chan $2's random color is: %color $+ .
 }</pre>
 
-=== RegEx text pattern ===
+<H4>RegEx text pattern</H4>
 The matchtext parameter can also be a Regular Expression Pattern by using the {{mIRC|Access levels#Level_prefixes|'$' event prefix}}.
 
 Example:
@@ -56,7 +56,7 @@ Example:
   msg $chan Test Worked!
 }</pre>
 
-=== Dynamic text pattern ===
+<H4>Dynamic text pattern</H4>
 Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier.
 
 Example:

@@ -14,39 +14,40 @@ $sockerr is not a local identifier only set inside event, it is set after any /s
 <pre class ="code">
 $sockerr
 </pre>
+
 <H4>Parameters</H4>
 None
 
 <H4>Properties</H4>
 None
 
-== Error codes ==
+<H4>Error codes</H4>
 
 Remember that using a /sock* command will change the $sockerr value, so these error codes must be checked prior any /sock* command
 
-=== on SOCKOPEN ===
-* 0: success
-* 3: failure establishing socket connection (W)
-* 4: error resolving given hostname
+<H4>on SOCKOPEN</H4>
+<b>0</b>: success
+<br><b>3</b>: failure establishing socket connection (W)
+<br><b>4</b>: error resolving given hostname
 
-=== on SOCKLISTEN ===
-* 0: new socket successfully accepted
-* 1: error occurred on listening socket (W)
-* 2: error accepting new socket (W)
-* 4: not enough memory for new socket
+<H4>on SOCKLISTEN</H4>
+<b>0</b>: new socket successfully accepted
+<br><b>1</b>: error occurred on listening socket (W)
+<br><b>2</b>: error accepting new socket (W)
+<br><b>4</b>: not enough memory for new socket
 
-=== on SOCKREAD ===
-* 0: data received
-* 3: error on connected socket occurred (W)
+<H4>on SOCKREAD</H4>
+<b>0</b>: data received
+<br><b>3</b>: error on connected socket occurred (W)
 
-=== on SOCKWRITE ===
-* 0: all data successfully written
-* 3: error trying to send data (W)
+<H4>on SOCKWRITE</H4>
+<b>0</b>: all data successfully written
+<br><b>3</b>: error trying to send data (W)
 
-=== on SOCKCLOSE ===
-* 0: EOF from other end received
-* 3: an error occurred while receiving data, or a SSL error occurred (W)
-* 5: a certain(?) SSL error occurred during sockopen
+<H4>on SOCKCLOSE</H4>
+<b>0</b>: EOF from other end received
+<br><b>3</b>: an error occurred while receiving data, or a SSL error occurred (W)
+<br><b>5</b>: a certain(?) SSL error occurred during sockopen
 
 '''Note 1:''' (W) = For these errors, $sock().wserr contains a specific WinSock error number and $sock().wsmsg the Winsock error text
 
@@ -63,6 +64,7 @@ Added: mIRC v5.3 (13 Dec 1997)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="sock.html">$sock</a><br>
 <a href="sockname.html">$sockname</a><br>

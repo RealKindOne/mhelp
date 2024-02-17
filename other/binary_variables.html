@@ -72,7 +72,7 @@ Position in binary variables is 1-based, where the first byte value in a binary 
 
 If a binary variable has length N, position N is the last byte of the variable. Because appending to a binary variable requires calculating and writing to position N+1, several of the binary commands allow using position -1 to append to a variable. Also, instead of using $bvar to find the length of a variable, some of them also allow -1 in the length parameter for writing the entire variable.
 
-=== Unicode ===
+<H4>Unicode</H4>
 
 Writing unicode characters to binary variables using the -t switch causes the length of the binary variable to be longer than the length of the text string written to them. Unicode characters 128-2047 add 2 bytes to a binary variable and 2048-65535 add 3 each. When adding text to a variable you can use -ta instead of -t to avoid encoding Unicode characters 128-255 as 2 bytes, but only if the text value being added contains no Unicode characters greater than 255.
 <pre class ="code">
@@ -114,7 +114,7 @@ Compress contents of &versions
 encrypt and encode contents of &versions
 //noop $encode(&versions,bcm,password)
 </pre>
-=== Modifying existing Binary Variables ===
+<H4>Modifying existing Binary Variables</H4>
 
 Binary variables are different than text variables in how you add values to them, and what happens when you add shorter content to an existing variable with longer content. If you add 3 bytes to position 1 of a binary variable with length of 5, the 3 added bytes replace the 3 bytes in those positions, and the values in positions 4-5 remain unless you use the -c switch:
 <pre class ="code">

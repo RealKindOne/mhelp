@@ -34,19 +34,19 @@ on *:parseline:out:$(PRIVMSG & :Hello?):echo -a $parseline
 on $*:parseline:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 </pre>
 
-== {{mIRC|/parseline}} ==
+== <a href="..\commands\parseline.html">/parseline</a> ==
 
-Inside this event, you can use {{mIRC|/parseline}} without the -q switch to change the line.
+Inside this event, you can use <a href="..\commands\parseline.html">/parseline</a> without the -q switch to change the line.
 
 == Local identifiers ==
 
 The on parseline event exposes 3 local identifiers:
 
-=== {{mIRC|$parsetype}} ===
+<H4><a href="..\identifiers\parsetype.html">$parsetype</a></H4>
 
 Return the type of line, "in" or "out"
 
-=== {{mIRC|$parseline}} ===
+<H4><a href="..\identifiers\parseline.html">$parseline</a></H4>
 
 Return the line being sent/received.
 
@@ -54,7 +54,7 @@ Return the line being sent/received.
 <pre class ="code">var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)</pre>
 
-=== {{mIRC|$parseutf}} ===
+<H4><a href="..\identifiers\parseutf.html">$parseutf</a></H4>
 
 Return $true if mIRC is going to decode/encode utf8 the message after the on parseline event
 

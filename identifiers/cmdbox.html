@@ -4,17 +4,21 @@
 <head><title>$cmdbox</title></head>
 <H1>$cmdbox</H1>
 <br>
-<br>The <b>$cmdbox</b> identifier will return <a href="true.html">$true</a> if a command or script was initiated via the ''command editbox''. Otherwise, it will return <a href="false.html">$false</a>.
+<br>The <b>$cmdbox</b> identifier will return <a href="true.html">$true</a> if a command or script was initiated via the command editbox. Otherwise, it will return <a href="false.html">$false</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $cmdbox
 </pre>
+
 <H4>Parameters</H4>
 None
 
-== Command editbox ==
-The '''command editbox''' is actived by typing the following command in any mIRC window:
+<H4>Properties</H4>
+None
+
+<H4>Command editbox</H4>
+The command editbox is actived by typing the following command in any mIRC window:
 <pre class ="code">/editbox -q1</pre>
 
 This will enable the secondary command-line, which is the command editbox, in the current window for which this identifier is useful for.
@@ -23,10 +27,10 @@ This will enable the secondary command-line, which is the command editbox, in th
 Create a command editbox in the active window:
 <pre class ="code">/editbox -q1</pre>
 
-Next, type the following in both editboxes, and hit the '''Enter''' key:
+Next, type the following in both editboxes, and hit the ENTER key:
 <pre class ="code">//echo -a $cmdbox</pre>
 
-Depending on which window you performed this on first, the echo will show either <a href="true.html">$true</a><br>, or <a href="false.html">$false</a><br>.
+Depending on which window you performed this on first, the echo will show either <a href="true.html">$true</a>, or <a href="false.html">$false</a>.
 
 <H4>Compatibility</H4>
 Added: mIRC v6.01 (10 Feb 2002)

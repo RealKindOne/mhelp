@@ -13,7 +13,7 @@
 
 There are two kinds of variables: local and global. '''Scope''' refers to the visibility of variables in your code. In other word, where these variables can be ''seen'' from.
 
-=== Local Variables ===
+<H4>Local Variables</H4>
 
 '''Local Variables''' are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
 
@@ -52,7 +52,7 @@ alias wronger {
 
 If you were to execute the above by typing ''/wrong'', you would get the following error: '''* /echo: insufficient parameters'''. This is because the local variable, in this case ''%myvar'', has been stored within the ''wrong'' alias code block, and is, therefore, unavailable to the ''/wronger'' alias that has been called.
 
-=== Global Variables ===
+<H4>Global Variables</H4>
 
 A '''global variable''' is a variable that is accessible from every alias or event. They can be created and edited from every script. They are not deleted unless they are purposely destroyed using the unset command (we will talk about that later on).
 
@@ -86,7 +86,7 @@ If %var doesn't exist, it will create a global variable.
 
 If you have already set a variable you can unset it at any time during using the /unset command. The unset command supports a single variable or multiple variables. Generally, there is no reason to unset local variables as they will get destroyed anyway at the conclusion of the script execution.
 
-=== Syntax: ===
+<H4>Syntax:</H4>
 
 <pre class ="code">;unset a single variable
 unset %variable
@@ -94,7 +94,7 @@ unset %variable
 ;unset multiple variables
 unset %var1 %var2 %var3</pre>
 
-The /unset command supports {{mirc|wildcard}} characters for each of the variable, to be able to unset multiple variables. For example:
+The /unset command supports <a href="..\other\wildcard.html">wildcard</a> characters for each of the variable, to be able to unset multiple variables. For example:
 
 <pre class ="code">alias unsetWildExample {
   set %exampleHello hello there
@@ -195,7 +195,7 @@ For Example:
 
 In many occasions you may need to save individualized data (data for a particular user or channel for example). Dynamic variables allow you to do just that. A dynamic variable's name usually consists of a static part (a part that doesn't change) and a dynamic part (the part that changes).
 
-=== Setting Values ===
+<H4>Setting Values</H4>
 
 The basic syntax to set a dynamic variable is:
 
@@ -225,7 +225,7 @@ The static part is ''color.'', which is never going to change, and the dynamic p
 # mIRC evaluates the identifier $nick to "John" and $2 to blue<br /><pre class ="code">set %color. $+ John blue</pre>
 # mIRC will then append "John" to "%color." Before executing the /set command, thus the final variable looks like this:<br /><pre class ="code">%color.John blue</pre>
 
-=== Retrieving Values ===
+<H4>Retrieving Values</H4>
 
 '''Static Variables'''
 
@@ -328,7 +328,7 @@ Variables routines are a bit special because usually, the first argument given t
 
 Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose doesn't evaluate the variable name.
 
-=== Quirks in /var ===
+<H4>Quirks in /var</H4>
 
 If most commands cannot preserve spaces, /var can preserve spaces in all situations except if you provide a single trailing space:
 <pre class ="code">//var -s %a $+($chr(32),a,$chr(32),$chr(32),b,$chr(32),$chr(32)),%b $+($chr(32),a,$chr(32),$chr(32),b,$chr(32)) | echo -a $len(%a) $len(%b)</pre>which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it's a single trailing space), you can use the new -p switch to fix this.
@@ -364,7 +364,7 @@ or
 
 is not doing the trick
 
-=== Quirks in /set /inc and /dec ===
+<H4>Quirks in /set /inc and /dec</H4>
 
 /set /inc and /dec is less strict than /var, the assignment does not have to start with a %:
 
@@ -376,7 +376,7 @@ works correctly, however /set also allow dynamic switches, this leads to a new q
 
 <pre class ="code">//var %var 1 | set -u $+ %var %setting</pre>should set %setting but won't, you can use % $+ setting to workaround this issue.
 
-=== Quirks in /unset ===
+<H4>Quirks in /unset</H4>
 
 /unset can unset a variable not starting with a variable name:
 <pre class = "code">

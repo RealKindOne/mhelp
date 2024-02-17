@@ -7,16 +7,16 @@
 <br>
 Dialogs make it possible to create custom dialog windows inside of mIRC. The <a href="..\commands\dialog.html">/dialog</a> command opens new dialogs, and the <a href="dialog_components.html">dialog components</a> are the objects within the dialog, such as buttons, labels, etc.
 
-=== What dialogs are ===
+<H4>What dialogs are</H4>
 Dialogs are simply graphical user interfaces that present options to a user's screen in a graphical form. For instance, a web browser is display through its own dialog. Windows users may have used applications such as notepad, or Microsoft Word. All of these applications use dialogs, or forms of graphical user interfaces to present their applications in an appealing form.
 
-=== mIRC Dialogs ===
+<H4>mIRC Dialogs</H4>
 mIRC dialogs are created by users through custom scripts. Through these dialog interactions, the dialogs adhere to an event listener, the <a href="..\events\on_dialog.html">On_Dialog</a> event. Through this event, all aspects of the custom dialogs, as well as their controls, can be monitored, tracked, and modified.
 
-=== Scope ===
+<H4>Scope</H4>
 The scope of this article is to generally familiarize users with the term '''dialogs''', and what exactly it is they are used for within mIRC. Since these components are geared towards more advanced scripters, beginners should make sure they have already gone through the preceding tutorials from the {{mIRC|Introduction}} page, all the way leading up to '''Dialogs'''
 
-=== Two types of dialog ===
+<H4>Two types of dialog</H4>
 
 They are two type of dialogs - modal dialogs which block access to other parts of the mIRC interface until they are closed, and modeless dialogs which can be left open whilst continuing to allow access to the rest of mIRC (i.e. effectively a separate mIRC-based window).
 
@@ -56,7 +56,7 @@ Any control can be used in the dialog with the "result" style, the value returne
 
 '''Note''': Since modal dialog block the current script execution, you cannot call $dialog that way from remote script event.
 
-=== Creating a dialog table ===
+<H4>Creating a dialog table</H4>
 
 Custom dialogs are created by defining a dialog table, the content of that table represents the look of the dialog, the controls etc, a table is defined by using the &lt;dialog&gt; keyword:
 
@@ -103,7 +103,7 @@ You can also use a variable name as a style for any control, the variable is set
 ;use a variable to define the width and an identifier to define the height of the dialog, when the dialog is closed, %myedit will contain the content of the editbox.
 edit "", 2, 10 10 %dialog_width $dialog_height, autohs %myedit</pre>
 
-=== Mnemonic ===
+<H4>Mnemonic</H4>
 
 The "text" parameter of controls showing text can include the '&' character to create a mnemonic. If you want to get the '&' rendered literaly, use &&.
 
@@ -133,13 +133,13 @@ For example, the following menu definition reproduces the File menu of the mIRC 
 }
 </pre>
 
-=== /did command & $did identifier ===
+<H4>/did command & $did identifier</H4>
 
 The <a href="..\commands\did.html">/did</a> command can be used to change the various state of the control while <a href="..\identifiers\did.html">$did</a> can be used to retrieve values and states of controls.
 
 Check the <a href="dialog_components.html">dialog components</a>, which describe the usage of the two per control.
 
-=== Others tools ===
+<H4>Others tools</H4>
 
 ==== /didtok, $didtok, $didwm and $didreg ====
 
@@ -147,7 +147,7 @@ Check the <a href="dialog_components.html">dialog components</a>, which describe
 
 {{mIRC|$didtok}}(name,id,C) returns a tokenized list of item from a combo/edit/list control.
 
-{{mIRC|$didwm}}(name,id,wildcard,N) and {{mIRC|$didreg}}(name,id,regex,N) returns the number of the line that match the {{mirc|wildcard}} expression, starting at the optional line N, in the the control.
+{{mIRC|$didwm}}(name,id,wildcard,N) and {{mIRC|$didreg}}(name,id,regex,N) returns the number of the line that match the <a href="..\other\wildcard.html">wildcard</a> expression, starting at the optional line N, in the the control.
 
 ==== /loadbuf, /savebuf and /filter ====
 

@@ -35,7 +35,7 @@ Any command like this suffers the problem, we also refer to this problem as the 
 * /scid
 * /dde
 
-=== The /timer command ===
+<H4>The /timer command</H4>
 Perhaps the most problematic command of them all is the /timer command. The /timer command is used to delay the execution of another command (it has others features but this is the interesting one).
 
 Because of this, you must pass a new command to be executed after the delay to the timer command:
@@ -151,7 +151,7 @@ Because <a href="..\identifiers\chan.html">$chan</a> (or #) was not escaped, it 
 
 You might want to watch out for <a href="..\identifiers\nick.html">$nick</a> as well, some servers allow nicknames to have the '$' character.
 
-=== /scon and /scid ===
+<H4>/scon and /scid</H4>
 Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="..\commands\timer.html">/timer</a> command, any unknown content must be escaped somehow.
 
 Though, unlike <a href="..\commands\timer.html">/timer</a>, the <a href="..\commands\scid.html">/scid</a> and <a href="..\commands\scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
@@ -179,7 +179,7 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 '''Note''': /scid and /scon can be used to change the current connection only, in this case you can just execute the command normally after, does not work for /scon -a for example.
 
-=== /dde ===
+<H4>/dde</H4>
 
 /dde has the same issue and the same solution as /timer, just use $safe on the problematic parameters.
 

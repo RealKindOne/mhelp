@@ -11,7 +11,7 @@ To be able to use this event, you need to get the udp socket to stay opened (by 
 
 <br><b>Note:</b>If this event triggers but no /sockread is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
-mIRC in general only understand $crlf terminated line. With socket, mIRC will stop at {{mIRC|$lf}} terminated line and any {{mIRC|$cr}} before a $lf is removed.
+mIRC in general only understand $crlf terminated line. With socket, mIRC will stop at <a href="..\identifiers\lf.html">$lf</a> terminated line and any <a href="..\identifiers\cr.html">$cr</a> before a $lf is removed.
 
 <br><b>Note:</b>A single /sockread may not be enough to read the entire buffer. You should keep reading until <a href="..\identifiers\sockbr.html">$sockbr</a> is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on udpread event is re-triggered if:
 

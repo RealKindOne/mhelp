@@ -6,9 +6,9 @@
 <br>
 <br>
 
-This page does not attempt to describe what [[Unicode]] is but rather how mIRC handles it (or in some cases doesn't handle it). The technical terms are omitted on purpose.
+This page does not attempt to describe what Unicode is but rather how mIRC handles it (or in some cases doesn't handle it). The technical terms are omitted on purpose.
 
-=== mIRC and Unicode ===
+<H4>mIRC and Unicode</H4>
 
 Before Unicode (mIRC 7.x), mIRC supported Windows' code pages, handling various character sets used in different parts of the world. Code pages encode characters in 8 bits (1 byte): 8 bits can be used to represent 256 values. Code pages all use the first 128 values for ASCII, and then each code page adds the required characters for the language e.g. é for French, although before unicode, for Japanese or Chinese language, they already needed more than 256 values and where already using special encoding, using more than one byte.
 <br>
@@ -27,7 +27,7 @@ Drawback: Characters over 65535 are encoded in utf16 as two 16 bits unit called 
  𦀀 -- 2
 </pre>
 What happens here is that mIRC pass the two surrogates to /echo, /echos call a Windows' function to display the text, and it is this Windows' function that will 'decode' the surrogates and display the character correctly. As you can see from the example above, although a single character is displayed, $len() is 2, showing that mirc sees two characters.
-=== $regsubex ===
+<H4>$regsubex</H4>
 Whilst rendering functions will normally display characters over 65536 correctly when programmed in this way, some usages of some functions in mIRC, such as $regsubex, won't handle the surrogate as expected.
 <pre class ="code">
 //echo -ag $regsubex(aa,/(a)/gu,$chr($gettok(55357 56607,\n,32))) vs $replace(ab,a,$chr(55357),b,$chr(56607))
@@ -36,7 +36,7 @@ For $regsubex this is because mIRC is using the 8 bits pcre api: when replacing 
 <br>
 '''Note:''' In fact mIRC does convert the two surrogates to their utf8 representation, except that this is not really correct because surrogates are not really characters; they are just code points used to form others characters, therefore it's improper to decode those bytes to that character because the general algorithm for UTF8 can still be used, and is used by mIRC here, to encode the lone surrogate. So, when mIRC decodes what $regsubex generated, to UTF8, it recognizes the illegal sequence and simply return the characters corresponding to the byte, so you get 3 characters per surrogate.
 
-=== $utfencode / $utfdecode ===
+<H4>$utfencode / $utfdecode</H4>
 You can also express those characters with their UTF8 representation using <a href="..\identifiers\utfdecode.html">$utfdecode</a>, which decodes UTF8:
 
 <pre class ="code">
@@ -54,7 +54,7 @@ $utfencode can be used to encode text to utf8:
 Ã¨
 </pre>
 
-=== Code Pages ===
+<H4>Code Pages</H4>
 The scripting language still somewhat support code pages, you can decode text to utf8 while the bytes in the text are interpreted in the given code page.
 
 Each code page has a number (Gdi charset):
@@ -95,11 +95,11 @@ $sha1(é) for example can be tricky, this is going to give the hash of the two b
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
 And this is happening pretty much everywhere.
 
-{{mIRC|/raw|/raw -n}} can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
+{{mIRC|/raw}} -n can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
 
-{{mIRC|/sockwrite|/sockwrite -u}} can be used to the same effect, won't encode characters in the range 0-255 to utf8.
+{{mIRC|/sockwrite}} -u can be used to the same effect, won't encode characters in the range 0-255 to utf8.
 
-=== Normalization ===
+<H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.
 
 For example "Ô" can be sent from another IRC client either as $chr(212) or decomposed into a capital O $chr(79) followed by a combining circumflex $chr(770).
@@ -112,7 +112,7 @@ Experimentation suggests that mIRC does not normally recognize combining charact
 
 To complicate things still further, some unicode characters look the same as or very similar to other completely different characters - and some of these characters are always considered unequal in strict Unicode whilst others can be converted during normalization. mIRC treats such characters as different under all circumstances.
 
-=== Case insensitive comparisons ===
+<H4>Case insensitive comparisons</H4>
 
 Without normalization, mIRC therefore fails to correctly compare unicode characters. This is not only true for the scripting language but anywhere in mIRC.
 
@@ -142,7 +142,7 @@ So case insensitive comparisons can be made by explicitly converting both sides 
 ;Ô === $upper(ô) $true , Ô == $upper(ô) $true
 </pre>
 
-=== Special Unicode characters ===
+<H4>Special Unicode characters</H4>
 
 There are also some special unicode characters that e.g. determine RTL / LTR display and these can cause unexpected results when displayed. However unless someone is deliberately trying to create mischief (e.g. a file name which looks innocuous but is in fact a virus laden executable file), these are not normally a problem.
 

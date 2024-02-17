@@ -7,7 +7,7 @@
 <br>
 In many cases, it is easier to code a large program by working with a single, small, unit of logic at a time. Aliases, more commonly known in other languages as functions, are blocks of code which performs a specific task and can be relatively independent of the rest of the script. Most aliases are created to be used multiple times by different scripts. In addition to their normal usage, aliases can also be used to create custom [[#Shortcuts_and_Function_Keys|shortcuts and function keys operations]].
 
-=== Syntax: ===
+<H4>Syntax:</H4>
 Aliases have the following basic syntax:
 
 <pre class ="code">;single-line alias
@@ -32,7 +32,7 @@ This will print:
 
 <pre>Hello World!</pre>
 
-=== Alias arguments ===
+<H4>Alias arguments</H4>
 
 Data can be passed to aliases via the argument list. The argument list is always evaluated from left to right. The arguments are passed to the alias via the $N identifiers, where N is a numeric value from starting at one.
 
@@ -46,7 +46,7 @@ Alias example will have $1 returning 'A', $2 returning 'B', $3 returning 'C', an
 
 The exact rules on how $N work is identical to the how they work with the [[Token Manipulation - mIRC#Tokenizing_a_string|/tokenize command]]. More information about $1- {{mIRC|$1-|here}}
 
-=== Aliases Tab ===
+<H4>Aliases Tab</H4>
 
 The aliases tab is designed specifically for aliases only. Note that because it can only be used for aliases, the "alias" prefix must be left out:
 
@@ -56,11 +56,11 @@ The aliases tab is designed specifically for aliases only. Note that because it 
 
 <br><b>Note:</b>Aliases from the aliases tab can freely call aliases from the remote tab and vice versa.
 
-=== Commands vs. Identifiers ===
+<H4>Commands vs. Identifiers</H4>
 
 in mSL, aliases can serve as both '''identifiers''' and '''commands'''. These two terms are used to describe the type of alias it is. In general, a '''command''' will usually not return anything but simply process some type of data. An '''Identifier''' on the other hand will generally return some kind of a value.
 
-=== Aliases Prefixes ===
+<H4>Aliases Prefixes</H4>
 
 ==== Command Prefixes ====
 
@@ -93,7 +93,7 @@ This will bypass the Identifier Warning message but it's a bit unclear why this 
 
 You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me
 
-=== Restriction on alias name ===
+<H4>Restriction on alias name</H4>
 
 Given the alias prefixes above, you cannot start the name of an alias with a command prefix if you are going to call it as a command, same idea for identifier.
 
@@ -227,7 +227,7 @@ We can also call it as a command:
 
 Also note that when an alias is called as a /my_alias command it inherits the $parms string as existing in the parent alias, but when called as $my_alias identifier the $parms string is set to $null.
 
-=== replacing built-in commands ===
+<H4>replacing built-in commands</H4>
 
 You can intercept any script's use of a built-in command, as long as they have not used the ! prefix to force execution of the built-in command without searching all the aliases for a match. For example, here's something to trap echo commands and remove colors, bold, etc from the displayed string:
 
@@ -338,7 +338,7 @@ By default, every alias is public. This means any script from any file is able t
   ;code
 }</pre>
 
-=== Exposing private and public functionality ===
+<H4>Exposing private and public functionality</H4>
 
 It's possible to allow more functionality for local aliases and hide that from outside scripts.
 
@@ -351,7 +351,7 @@ alias example {
 
 If some code local to that script file calls example, the local alias will execute. If some other code outside of this script file calls it the second alias will execute instead. Note that the local alias must be on top, or else the other aliases inside that script will see only the non-local alias above it.
 
-=== Alias order ===
+<H4>Alias order</H4>
 
 The order used by mIRC to locate your alias is as follow:
 

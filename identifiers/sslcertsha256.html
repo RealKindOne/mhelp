@@ -88,7 +88,7 @@ Note that the information you input when creating the certificate is contained i
 
 To the best of my knowledge, 2048-bit RSA is 'good enough', so if you're willing to have a 2048-bit RSA key, then there's only a few quick steps and the certificate is created. To allow mIRC to create your certificate, skip down to Method#2.
 
-=== Method#1 - creating the CertFP certificate using OpenSSL ===
+<H4>Method#1 - creating the CertFP certificate using OpenSSL</H4>
 
 This is a supplement to the Libera.Chat guide for setting up SASL External using an RSA certificate: https://libera.chat/guides/certfp
 
@@ -222,7 +222,7 @@ If you have several servers in that serverlist 'group', and some of them don't u
 
 And you're done! Except to remember to guard the .PEM file the same way you guard your NickServ password. The private key .pem file does not contain any NickServ password, but it can be used to login your NickServ account at that server, and if they can login as you, they could alter the settings inside the NickServ account
 
-=== METHOD#2 Creating the SASL EXTERNAL certificate inside mIRC ===
+<H4>METHOD#2 Creating the SASL EXTERNAL certificate inside mIRC</H4>
 
 A) Go to mIRC options and find the item for connect/options/SSL
 

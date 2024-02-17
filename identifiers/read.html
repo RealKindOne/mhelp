@@ -28,7 +28,7 @@ $read [switches] [line#] filename
 <br><b>r</b> - Indicates that <matchtext> is a regex pattern.
 <br><b>p</b> - When evaluating text in the absence of the 'n' switch, treats the pipe symbol as a command separator allowing the remainder of the line to be executed as a /command.
 
-=== Notes: ===
+<H4>Notes:</H4>
 * All searches are case-insensitive.
 * Line can end with $cr or $lf or $crlf or end-of-file. Does not treat $chr(26) as End-of-File-Marker. Contents of a line past $chr(0) are ignored.
 * If 't' switch is NOT used - if line 1 is not a number, $read functions normally. If line 1 is a number, random lines will be chosen only for the first N lines, and $readn returns 1 through N while returning the contents of actual lines 2 through N+1.

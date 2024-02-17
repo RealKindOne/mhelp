@@ -36,7 +36,7 @@ The output after executing the above code (/hello) is "Hello World!"
 <H4>Substrings</H4>
 A substring is a string that is part of a longer string. There are a number of built-in identifiers that can be used to retrieve a smaller portion of the original string.
 
-=== $left() and $right() ===
+<H4>$left() and $right()</H4>
 The first two identifiers you should be familiar with are the <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
 
 <pre class ="code">$left(&lt;string&gt;, &lt;length&gt;)
@@ -64,7 +64,7 @@ This gets the five left-most characters ("Hello") and the five right-most charac
 
 <pre>Hello World!</pre>
 
-=== $mid() ===
+<H4>$mid()</H4>
 <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the {{mirc|$mid}}() identifier is a more powerful alternative. {{mirc|$mid}}() has the following syntax:
 
 <pre class ="code">$mid(&lt;string&gt;, &lt;start&gt;)
@@ -101,7 +101,7 @@ SOME RANDOM LINE! = $true $false
 some random line! = $false $true
 </pre>
 
-=== $lower() and $upper() ===
+<H4>$lower() and $upper()</H4>
 The {{mirc|$lower}}() and {{mirc|$upper}}() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
 
 <pre class ="code">
@@ -140,7 +140,7 @@ Which will print "2".
 
 <H4>Substring Replacement and Removal</H4>
 
-=== Replacement ===
+<H4>Replacement</H4>
 There are two built-in string replacement identifiers, {{mirc|$replace}} and {{mirc|$replacex}}. The major difference between the two is that the later one will not apply replacement to any of the replaced strings.
 
 It should be noted that both will replace ALL ocurrences of a substring within a string, not just the 1st encountered.
@@ -180,7 +180,7 @@ $replacex will provide the same in this case.
 
 <br><b>Note:</b>{{mirc|$replacecs}}/{{mirc|$replacexcs}} are case-sensitive versions of {{mirc|$replace}}/{{mirc|$replacex}}; it has the same syntax.
 
-=== Substring Removal ===
+<H4>Substring Removal</H4>
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
 
 <pre class ="code">$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, <substring3>, ...])</pre>
@@ -197,7 +197,7 @@ Produces:
 
 Two more identifiers you should be aware of are {{mirc|$str}}() and {{mirc|$strip}}().
 
-=== $str() ===
+<H4>$str()</H4>
 $str returns the same exact string repeated N amount of times. The syntax is:
 
 <pre class ="code">$str(&lt;string&gt;, &lt;N&gt;)</pre>
@@ -210,7 +210,7 @@ Produces:
 
 <pre class ="code">ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
 
-=== $strip() ===
+<H4>$strip()</H4>
 The $strip identifier can remove control codes from a string. The syntax for it is:
 
 <pre class ="code">;Removes all control codes (bold/underline/italics/color/reverse)

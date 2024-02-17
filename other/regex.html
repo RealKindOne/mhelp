@@ -59,7 +59,7 @@ Example:
 
 This represent one regular expression (or one pattern) with 2 captured backreferences.
 
-=== Sanitizing the input ===
+<H4>Sanitizing the input</H4>
 
 If you pass value dynamically in a regex pattern, you have to escape any characters in such value that could otherwise be interpreted by the PCRE regex engine.
 
@@ -76,7 +76,7 @@ There's no way to escape a character inside the escaping sequence \Q\E, you have
 == Regex Identifiers ==
 The four main identifiers, ''$regex'', ''$regsub'', ''$regml'', and ''$regsubex'', can take an optional ''Name'' as a parameter. This name can be used to get the backreference captured by the regex match. If a name is not specified, mIRC uses a default one.
 
-=== $regex ===
+<H4>$regex</H4>
 <pre class ="code">$regex([name],&lt;input&gt;,&lt;regex&gt;)</pre>
 
 The sample above performs a regular expression match and returns the number of matches found.
@@ -92,7 +92,7 @@ You may see a negative value being returned if an error occured, the list below 
 * -21 - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 * -26 - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
-=== $regml ===
+<H4>$regml</H4>
 <pre class ="code">$regml([name],N)</pre>
 ''$regml'' can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if ''0'' is specified as the Nth reference, then the total number of backreferences is returned.
 
@@ -105,20 +105,20 @@ Below is an example of a regular expression, using ''name'' as the optional ''[N
 <pre class ="code">//noop $regex(name, teasat, /([es])(a)/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2) -- $regml(name,3) -- $regml(name,4)</pre>would display "4 : e -- a -- s -- a "
 You can now access the Nth captured group for a given match number with <a href="..\identifiers\regmlex.html">$regmlex</a>.
 
-=== $regmlex ===
+<H4>$regmlex</H4>
 <pre class ="code">$regmlex([name],M,N)</pre>
 
 
 As stated above for $regml, when /g is used, $regml can be inconvenient: you cannot get all the captured group for a given match number for sure when you don't know about the pattern or input string in advance, this identifier allows you to retrieve these captured groups (backreferences). M is the Mth match and N is the Nth capturing group, N default to 1 if not specified. It supports the same properties as $regml.
 
 
-=== $regsub ===
+<H4>$regsub</H4>
 <pre class ="code">$regsub([name], &lt;input&gt;, &lt;regex&gt;, &lt;subtext&gt;, &lt;%varname&gt;)</pre>
 Performs a regular expression match, like $regex, and then performs a substitution using &lt;subtext&gt;. Returns the number of substitution made and fills &lt;%varname&gt; with the resulting text
 
 <pre class ="code">//var %res | noop $regsub(name,test,/([es])/g,t,%res) | echo -a $regml(name,0) : $regml(name,1) -- $regml(name,2) : %res</pre>
 
-=== $regsubex ===
+<H4>$regsubex</H4>
 <pre class ="code">$regsubex([name],&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;)</pre>
 $regsubex is a more modern version of $regsub, in that it performs the match, then the substitution, and finally returns the result of the substitution.
 
@@ -289,7 +289,7 @@ These are encoded in the pattern by the use of metacharacters, which do not stan
 
 There are two different sets of metacharacters: those that are recognized anywhere in the pattern except within square brackets, and those that are recognized within square brackets.
 
-=== Outside square brackets ===
+<H4>Outside square brackets</H4>
 
 The metacharacters are as follows:
 <pre class ="code">
@@ -306,7 +306,7 @@ The metacharacters are as follows:
  +   1 or more quantifier, also "possessive quantifier"
  {   start min/max quantifier
 </pre>
-=== Inside a character class ===
+<H4>Inside a character class</H4>
 
 Part  of  a  pattern  that is in square brackets is called a "character class".
 
@@ -318,7 +318,7 @@ In a character class the only metacharacters are:
  [   POSIX character class (only if followed by POSIX syntax)
  ]   terminates the character class
 </pre>
-=== The Backslash \ ===
+<H4>The Backslash \</H4>
 
 The backslash character has several uses. Firstly, if it is followed by a character that is not a number or a letter, it takes away any special meaning that character may have.
 

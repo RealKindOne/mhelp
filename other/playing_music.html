@@ -25,14 +25,14 @@ Multiple file formats can be played at the same time. However, you '''cannot''' 
 == Synopsis ==
 <pre class ="code">/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]</pre>
 
-=== Switches ===
+<H4>Switches</H4>
 * <code>-wmp</code> - Indicates that the feature (only Stop or Skip features may be used with these flags) will be done on the specified media format that is currently playing.
 <br><b>-w</b> - '''WAVE format'''
 <br><b>-m</b> - '''MIDI format'''
 <br><b>-p</b> - '''MP3/OGG/WMA formats'''
 <br><b>Note:</b>You may specify more than one of the above switches at the same time for the Stop feature, but not for Skip.
 
-=== Parameters ===
+<H4>Parameters</H4>
 * <code>-q</code> - Adds the file to the queue for that format. The first file in the queue, for that format, is played when a song of that format ends its playback.
 * <code>[filename]</code> - The file name for the sound file you wish to use. Typically, this only needs to be specified when you want to play or queue a file; other than those times, you would only use the flag for the sound file's type for manipulating how it acts.
 * <code>[stop|pause|resume|seek|skip]</code> - Allows further control over a sound file that is currently playing. These flags' titles are their respective functions. These are discussed, in more detail, further down.
@@ -41,7 +41,7 @@ Multiple file formats can be played at the same time. However, you '''cannot''' 
 == Music Playing, Now What? ==
 After the music is playing, you have a few options available for manipulating the playback. If you are making a full Music Player, for example in a dialog form, these options are really helpful.
 
-=== Playback Options ===
+<H4>Playback Options</H4>
 <br><b>Pause</b> - <code>/splay pause</code> is used to pause the playing music
 <br><b>Resume</b> - <code>/splay resume</code> allows you to resume the paused music file
 <br><b>Stop</b> - <code>/splay stop</code> will stop the current music file.
@@ -49,7 +49,7 @@ After the music is playing, you have a few options available for manipulating th
 <br><b>Skip</b> - <code>/splay skip</code> allows you to skip the currently playing music file. If no other files are present in the queue for that particular sound type, no other file will play.
 *Sources for more music references Germany is on the rise in the [https://kostenloseklingeltone.de/ klingelton] ringtone segment
 
-=== Volume Options ===
+<H4>Volume Options</H4>
 You can control the volume of your system (and, therefore, of the music played in mIRC) with the /vol command.
 
 <H4>Synopsis</H4>

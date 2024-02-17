@@ -75,7 +75,7 @@ on *:connect:{
   timer 1 1 join %auto_join
 }</pre>
 
-=== Replacing Tokens ===
+<H4>Replacing Tokens</H4>
 To replace a token you can use $puttok and the $reptok. $puttok replaces by the Nth token while $reptok replaces by the token's value.
 <pre class ="code">var %str = $puttok(&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 var %str = $reptok(&lt;list&gt;, &lt;token&gt;, &lt;NewToken&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)</pre>
@@ -85,7 +85,7 @@ alias maskIP return $puttok($1, xxx, 3-, 46)
 ; //echo -a $maskIP(192.168.1.1)
 ; 192.168.xxx.xxx</pre>
 
-=== Removing tokens ===
+<H4>Removing tokens</H4>
 
 There are two identifiers that lets you remove tokens from the list: $deltok allows the deletion of tokens by their position while $remtok can be used to delete tokens by their value.
 
@@ -136,7 +136,7 @@ var %result = $matchtok(&lt;list&gt;, &lt;substring&gt;, &lt;Nth_pos&gt;, &lt;co
 var %result = $wildtok(&lt;list&gt;, &lt;wildstring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 ;to get the Nth token
 var %tok = $gettok(&lt;list&gt;, &lt;N&gt;, &lt;code_point&gt;)</pre>
-$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports {{mirc|wildcard}} characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
+$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports <a href="..\other\wildcard.html">wildcard</a> characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
 <pre class ="code">//echo -a $findtok(a a b c d, a, 0, 32)
 2
 //echo -a $matchtok(this is an example, e, 1, 32)
@@ -150,13 +150,13 @@ test
 
 In addition to the identifiers we've introduced above, there are a few identifiers that have a more general purpose.
 
-=== Size of list ===
+<H4>Size of list</H4>
 
 To get the size or number of tokens in a list, you can use the $numtok identifier:
 
 <pre class ="code">var %count = $numtok(&lt;list&gt;, &lt;code_point&gt;)</pre>
 
-=== Existence and Sorting ===
+<H4>Existence and Sorting</H4>
 
 The $istok identifier is perhaps the most commonly used identifier in the entire language. It simply returns true or false if the token exists in a list or not.
 
@@ -182,7 +182,7 @@ The sorting options are <em>n</em> for numeric, <em>c</em> for channel prefix, a
 //echo -a $sorttok(+aa @bb +cc dd @ee, 32, c)
 @bb @ee +aa +cc dd</pre>
 
-=== Tokenizing a string ===
+<H4>Tokenizing a string</H4>
 Recall from an earlier tutorial that when you call an alias as a command, all the parameters you pass to it are stored in $N. It's possible to programmatically create this same result using the /tokenize command. That command lets you break down a string into tokens that will be stored in $N.
 
 <pre class ="code">tokenize &lt;code_point&gt; &lt;string&gt;</pre>

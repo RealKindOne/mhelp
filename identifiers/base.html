@@ -35,10 +35,10 @@ returns: 000123.45
 converts the color rgb number index 8 from decimal to hexadecimal, zero padded to 6 digits.
 Default Output is 00FFFF not FFFF00 because mIRC stores colors as GBR not RGB.
 
-//var %n $pi  | echo -a %n $base(%n,10,16,0,12) $base($calc(%n * 16^6),10,16,6,12) 
+//var %n $pi  | echo -a %n $base(%n,10,16,0,12) $base($calc(%n * 16^6),10,16,6,12)
 ; returns: 3.14159265358979323846 3.243F7 3243F6A.8885A
 ; precision of output is input rounded to 6 fraction digits
-//echo -a $base(1.0000005,10,10) returns 1.000001  
+//echo -a $base(1.0000005,10,10) returns 1.000001
 
 //var %n $crc(abc,0) | echo -a %n $base(%n,16,36,7)
 ; Converts 8-digit hexadecimal
@@ -66,7 +66,7 @@ returned: 15 vs 1170
 
 To store the 128 hexadecimal digits of the sha512 hash digest in fewer digits, you can't use $base to accurately translate more than 13 digits at a time, until v7.72.
 //var %digits 13 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
-//var %digits  9 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) ) 
+//var %digits  9 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
 These show that base36 requires 10.05 digits to store 13 hex digits, or 6.96 digits to store 9 hex digits. Rounding up, this means both methods shrink the strings by the same 4 digits. (13->11 vs 9->7) It's more efficient to translate the string 9 digits at a time into 14 groups of 9, then translate the remaining 2 digits separately, for a total length of 14*7+2=100:
 
 alias short_hash {
@@ -91,11 +91,11 @@ But beginning v7.72 the above is not needed as the accurate results are obtained
 </pre>
 starting v7.72 the accuracy for large integers is always enabled by default, but precision for fractions is only enabled if in bigfloat mode:
 <pre class ="code">
-//var -s %var.bx 10000000000000000000000000001 | echo -a $base(%var.bx,10,10) 
+//var -s %var.bx 10000000000000000000000000001 | echo -a $base(%var.bx,10,10)
 result: 10000000000000000000000000001
-//var -s %var.bf 0.10000000000000000000000000001 | echo -a $base(%var.bf,10,10) 
+//var -s %var.bf 0.10000000000000000000000000001 | echo -a $base(%var.bf,10,10)
 result: 0.10000000000000000000000000001
-//var -s %var.bx 0.10000000000000000000000000001 | echo -a $base(%var.bx,10,10) 
+//var -s %var.bx 0.10000000000000000000000000001 | echo -a $base(%var.bx,10,10)
 result: 0.1
 </pre>
 

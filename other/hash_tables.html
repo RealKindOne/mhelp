@@ -163,7 +163,7 @@ To delete pairs from the table, you need to use the /hdel command. Its syntax is
 hdel -w &lt;table_name&gt; &lt;wild_item&gt;
 ;hdel has a -s switch which is the same as /hadd's</pre>
 
-If the -w switch is used, a {{mirc|wildcard}} pattern for the item can be specified to delete multiple items at once. If we go back to our example:
+If the -w switch is used, a <a href="..\other\wildcard.html">wildcard</a> pattern for the item can be specified to delete multiple items at once. If we go back to our example:
 
 <pre class = "code">/hdel -s colors Lisa</pre>
 Will leave our table looking like this:
@@ -242,7 +242,7 @@ To complete destroy a table and all its values, you can use the hfree command:
 /hfree -w &lt;*wild*table*&gt;
 ;hfree has a -s switch which shows the action taken, as the other hashtable commands have</pre>
 
-With the -w switch you can specify a {{mirc|wildcard}} pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
+With the -w switch you can specify a <a href="..\other\wildcard.html">wildcard</a> pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
 
 == Searching for a Item and value pair ==
 The $hfind identifier can be used to search the table for a particular pair.
@@ -273,7 +273,7 @@ mIRC's hash tables are implemented as follows.
 # When you create a hash table, it is created with a defined number of "slots" (or "buckets").
 # When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
 # When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
-# When you get an item by position using {{mIRC|$hget|$hget(table,position)}}, or use $hfind to search data or search using {{mirc|wildcard|wildcards}} or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
+# When you get an item by position using {{mIRC|$hget|$hget(table,position)}}, or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
 
 If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
 

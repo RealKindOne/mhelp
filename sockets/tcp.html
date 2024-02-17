@@ -18,15 +18,15 @@ Before we can do anything else we must first create a new connection to a specif
 
 A '''handle''' simply is a unique name by which we can refer to this exact socket.
 
-=== Creating a secured Connection ===
+<H4>Creating a secured Connection</H4>
 I am sure you are very familiar with the padlock icon next to the URL in your browser. That icon indicated that website uses secure http (also known as HTTPS). The default port for HTTPS is 443. The /sockopen command can also be used to create secured SSL connections as well using the following syntax:
 
 <pre class ="code">sockopen -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
-=== IPv4 vs. IPv6 Sockets ===
+<H4>IPv4 vs. IPv6 Sockets</H4>
 The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check {{mIRC|Ipv6|this page}} for more informations about IPv6.
 
-=== Connection Example ===
+<H4>Connection Example</H4>
 
 ==== Example 1 ====
 Since we want to socket to our silly demo page, http://www.zigwap.com/mirc/sockets_demo, our sockopen command will look something like this:
@@ -65,13 +65,13 @@ In the example above we introduced another command, the <a href="..\commands\soc
 ; The following will clear the mark:
 sockmark &lt;handle&gt;</pre>
 
-The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A {{mirc|wildcard}} pattern can be used in the handle parameter to set the value of multiple sockets at once.
+The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A <a href="..\other\wildcard.html">wildcard</a> pattern can be used in the handle parameter to set the value of multiple sockets at once.
 
 <pre class ="code">; Our socket mark value:
 $sock(&lt;handle&gt;).mark</pre>
 
 == Transmitting a Request After a Successful Connection ==
-When a successful connection to the remote end-point has been established, the {{mIRC|on sockopen}} event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
+When a successful connection to the remote end-point has been established, the <a href="..\events\on_SockOpen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 
 <br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
 
@@ -81,7 +81,7 @@ The typical syntax for the on sockopen event is:
   ;Your requests goes here
 }</pre>
 
-As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="..\commands\sockwrite.html">/sockwrite</a><br> command. The sockwrite command has the following syntax:
+As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="..\commands\sockwrite.html">/sockwrite</a> command. The sockwrite command has the following syntax:
 
 <pre class ="code">
 sockwrite [-tn] &lt;name&gt; &lt;text|%var|&binvar&gt;
@@ -91,7 +91,7 @@ sockwrite -b[tn] &lt;name&gt; &lt;numbytes&gt; &lt;text|%var|&binvar&gt;
 
 By default, all space-delimited tokens that begin with the '&' symbol are treated as binary variables. The -t switch can be used to make the /sockwrite command treat it all as plain text instead.
 
-=== The Sockwrite -n Switch and $crlf ===
+<H4>The Sockwrite -n Switch and $crlf</H4>
 Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line doesn't already ends with a $crlf.
 
 Consider the following piece of code:
@@ -123,14 +123,14 @@ CCCCC</pre>
 
 Understanding this concept is important to understanding how to send data correctly via protocols like HTTP.
 
-=== /sockwrite's limit ===
+<H4>/sockwrite's limit</H4>
 
 Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending.
 The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
 
 In a typical script using HTTP and the {{mIRC|TCP Sockets#POST_vs_GET.3F|GET method}} to grab something from a website, it's unlikely that you will reach this limit but note that when using {{mIRC|TCP Sockets#POST_vs_GET.3F|POST}}, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event {{mIRC|on events/on sockwrite#Examples|here}}
 
-=== Sending Data Example ===
+<H4>Sending Data Example</H4>
 
 ==== Example 1 (Continue) ====
 
@@ -202,7 +202,7 @@ The most basic GET request will follow this basic syntax:
 
  GET /folder/file.html HTTP/1.1
  Host: www.example.com
- <blank line>
+ &lt;blank line&gt;
 
 Let's take a look at the header a little closer:
 
@@ -246,7 +246,7 @@ When working with binary data or if the line is too long to be read into an ordi
 Reading into a binary variable will by default reads 4096 bytes unless you specify [numbytes] the number of byte to be read, there is a -n switch which can be used to read $crlf-terminated lines into the binary variable as well.
 
 
-=== Debugging ===
+<H4>Debugging</H4>
 Because the on sockread triggers when we get our data, it is the most interesting part of our script. Many people find it easier to script and debug when they can see the entire page source code. The script below can be used to see everything the server sent us in a custom window (@ $+ sockname):
 
 <pre class ="code">;Print the entire server's reply to a custom window
@@ -257,7 +257,7 @@ on *:sockread:Example1: {
   aline -p @ $+ $sockname : $+ %read
 }</pre>
 
-=== Dealing with HTML code ===
+<H4>Dealing with HTML code</H4>
 One of the first things you will have to deal with when writing HTTP scripts is HTML code and lots of it. The single most common task is to simply get rid of some unwanted HTML tags that enclose your code. Below is a very small, yet extremely handy alias that will strip most HTML tags away:
 
 <pre class ="code">alias noHTML return $regsubex($1, /&lt;[^&gt;]+(?:&gt;|$)|^[^&lt;&gt;]+&gt;/g, $null)</pre>
@@ -272,7 +272,7 @@ Will print the following result:
 
 Keep this alias safe. Trust me, this tiny alias will become one of your most precious possessions.
 
-=== Error Handling ===
+<H4>Error Handling</H4>
 Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
 Remember, inside the on sockopen event, $sockerr allows you to know if the connection was sucessful or not.
 
@@ -290,7 +290,7 @@ A basic example would look like this:
 
 Checking for an error gives you the opportunity to handle it in a sane way. Most scripts report that an error has occurred instead of simply stopping in their tracks.
 
-=== Reading Data Example ===
+<H4>Reading Data Example</H4>
 
 ==== Example 1 (Continue) ====
 
@@ -344,7 +344,7 @@ If you tried to print the youtube page we did (http://www.youtube.com/watch?v=FD
 on *:sockread:YouTube: {
   var %x
   sockread %x
-  if ($regex(%x, <meta name="title" content="(.+)">)) {
+  if ($regex(%x, &lt;meta name="title" content="(.+)"&gt;)) {
     ; parse the title
     set %title. $+ $sockName $regml(1)
   }
