@@ -5,7 +5,7 @@
 <H1>$com</H1>
 <br>
 <br>
-The <b>$com</b> calls a member of an open COM connection with the specified method and parameter, or returns informations about a currently opened COM or returns the value of the specified variable name
+The <b>$com</b> calls a member of an open COM connection with the specified method and parameter, or returns information about a currently opened COM or returns the value of the specified variable name
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -32,25 +32,25 @@ $com(name/N) - returns the name of the Nth open COM connection or the name of th
 <br><b>10</b> (2+8) Set a property by reference and return a value *
 
 <br><b>type1</b> - The variable type, can be:
-<br><b>|i1</b> single byte signed integer || 0 to 225
-<br><b>|ui1</b> single byte unsigned integer || 0 to 255
-<br><b>|i2</b> two byte signed integer || -32768 to 32767
-<br><b>|ui2</b> two byte unsigned integer || 0 to 65535
-<br><b>|i4</b> four byte signed integer || +/- 2147483647
-<br><b>|ui4</b> Holds unsigned 32-bit (4-byte) integers || 0 through 4,294,967,295
-<br><b>|int</b> integer || -2147483648 to 2147483647
-<br><b>|uint</b> unsigned integer || 0 to 4294967295
-<br><b>|r4</b> real, 4-byte floating point number || 1.17549435E-38 to 3.40282347E+38
-<br><b>|r8</b> double real, 8-byte floating point number || 2.2250738585072014E-308 - 1.7976931348623157E+308
-<br><b>|cy</b> eight byte curreny number || -922337203685477.5625 to 922337203685477.5625
-<br><b>|date</b> contains date and time, stored as an 8-byte floating-point number || +/-79,228,162,514,264,337,593,543,950,335
-<br><b>|decimal</b> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. || +/-79,228,162,514,264,337,593,543,950,335
-<br><b>|bool</b> contain any string or numeric representation.
-<br><b>|bstr</b> null-terminated unicode character string value. || A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
-<br><b>|variant</b>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
-<br><b>|dispatch</b>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
-<br><b>|unknown</b> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
-<br><b>|error</b> This data type indicates a 32-bit error code (DBTYPE_ERROR)
+<br><b>i1</b> single byte signed integer || 0 to 225
+<br><b>ui1</b> single byte unsigned integer || 0 to 255
+<br><b>i2</b> two byte signed integer || -32768 to 32767
+<br><b>ui2</b> two byte unsigned integer || 0 to 65535
+<br><b>i4</b> four byte signed integer || +/- 2147483647
+<br><b>ui4</b> Holds unsigned 32-bit (4-byte) integers || 0 through 4,294,967,295
+<br><b>int</b> integer || -2147483648 to 2147483647
+<br><b>uint</b> unsigned integer || 0 to 4294967295
+<br><b>r4</b> real, 4-byte floating point number || 1.17549435E-38 to 3.40282347E+38
+<br><b>r8</b> double real, 8-byte floating point number || 2.2250738585072014E-308 - 1.7976931348623157E+308
+<br><b>cy</b> eight byte curreny number || -922337203685477.5625 to 922337203685477.5625
+<br><b>date</b> contains date and time, stored as an 8-byte floating-point number || +/-79,228,162,514,264,337,593,543,950,335
+<br><b>decimal</b> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. || +/-79,228,162,514,264,337,593,543,950,335
+<br><b>bool</b> contain any string or numeric representation.
+<br><b>bstr</b> null-terminated unicode character string value. || A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
+<br><b>variant</b>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
+<br><b>dispatch</b>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
+<br><b>unknown</b> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
+<br><b>error</b> This data type indicates a 32-bit error code (DBTYPE_ERROR)
 
 <br>
 <br>
@@ -82,7 +82,9 @@ Added: mIRC v5.9 (26 Apr 2001)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
+<a href="..\other\com.html">COM</a><br>
 <a href="comval.html">$comval</a><br>
 <a href="comerr.html">$comerr</a><br>
 <a href="..\commands\comopen.html">/comopen</a><br>

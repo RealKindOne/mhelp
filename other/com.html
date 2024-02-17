@@ -31,7 +31,7 @@ To close the COM connection, we need to use the handle name we used to create th
 
 <source lang="mIRC">/comclose &lt;hName&gt;</source>
 
-Before we can go on to use the COM object, we have to confirm a successful connection has been established. The {{mIRC|$comerr}} will return 1 if the connection has failed, 0 otherwise.
+Before we can go on to use the COM object, we have to confirm a successful connection has been established. The <a href="..\identifiers\comerr.html">$comerr</a> will return 1 if the connection has failed, 0 otherwise.
 
 === Connecting/Disconnecting Example ===
 Below is a simple example of connecting to the windows script shell and disconnecting.
@@ -132,7 +132,7 @@ Unlike mSL, COM objects must have a data type for every value. For example, if w
 To make a variable by reference, postfix the data type with an asterisk and a variable name, for example: int* pIntOfBeer.
 
 <H4>Invoking members</H4>
-To invoke a member of a COM object, we use the {{mIRC|$com}} identifier using the following sytax:
+To invoke a member of a COM object, we use the <a href="..\identifiers\com.html">$com</a> identifier using the following sytax:
 
 <source lang="mIRC">;member with no arguments
 $com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>)
@@ -152,7 +152,7 @@ where object is the WshShell object and strCommand is the string value indicatin
 #The Exec method accepts 1 argument
 #The argument is a string - data type is bstr
 
-Using the information above we can write our {{mIRC|$com}} identifier to invoke that method:
+Using the information above we can write our <a href="..\identifiers\com.html">$com</a> identifier to invoke that method:
 
 <source lang="mIRC">;Exec is the Object's member we are invoking
 ;1 = Call a member of an object
@@ -160,7 +160,7 @@ Using the information above we can write our {{mIRC|$com}} identifier to invoke 
 ;calc is what we are trying to execute
 $com(shellCOM, Exec, 1, bstr, calc)</source>
 
-{{mIRC|$com}} will return either 1 if the invocation of the Object's member was successful, 0 otherwise. It is a good practice to check if the invocation was a success. Below is the complete script:
+<a href="..\identifiers\com.html">$com</a> will return either 1 if the invocation of the Object's member was successful, 0 otherwise. It is a good practice to check if the invocation was a success. Below is the complete script:
 
 <source lang="mIRC">alias openCalc {
   .comopen shellCOM WScript.Shell
@@ -177,13 +177,13 @@ $com(shellCOM, Exec, 1, bstr, calc)</source>
 }</source>
 
 <H4>Value of A Property / Enumerated Collection</H4>
-Retrieving a value from an enumerated collection or a property (like a variable) can be done using the {{mIRC|$comval}} identifier following this syntax:
+Retrieving a value from an enumerated collection or a property (like a variable) can be done using the <a href="..\identifiers\comval.html">$comval</a> identifier following this syntax:
 
 <source lang="mIRC">$comval(&lt;hName&gt;, &lt;N&gt;>, &lt;member&gt;>)</source>
 If the member returns an enumeration of values, you can traverse through them. When n = 0, it will return the total number of values in the enumeration.
 
 <H4>Retrieving return values</H4>
-Recall from before, if we use invocation method value 2, we are indicating we want a return value. Well, to retrieve that value we can use the {{mIRC|$com}} identifier in a different way:
+Recall from before, if we use invocation method value 2, we are indicating we want a return value. Well, to retrieve that value we can use the <a href="..\identifiers\com.html">$com</a> identifier in a different way:
 
 <source lang="mIRC">var %value = $com(&lt;hName&gt;).result</source>
 
@@ -265,7 +265,7 @@ At this point we have a COM connection called "SWbemServices" which is an object
   }
 }</source>
 
-Since we are now at the Win32_Porocessor object, all we have to do is retrieve the values. Recall from above that we can do that using the {{mIRC|$comval}} identifier:
+Since we are now at the Win32_Porocessor object, all we have to do is retrieve the values. Recall from above that we can do that using the <a href="..\identifiers\comval.html">$comval</a> identifier:
 
 <source lang="mIRC">$comval(Win32_Processor, 1, &lt;property&gt;>)</source>
 Where &lt;property&gt;> can be any of the members of the Win32_Processor class that can be [http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx found here].
@@ -299,7 +299,7 @@ Returns something like:
  * CPU Info: Intel(R) Core(TM) i7 CPU 980x @ 3.33GHz
 
 <H4>Other useful properties</H4>
-The {{mIRC|$com}} identifier has a few other useful properties:
+The <a href="..\identifiers\com.html">$com</a> identifier has a few other useful properties:
 
 {| class="wikitable"
 |-
@@ -313,7 +313,7 @@ The {{mIRC|$com}} identifier has a few other useful properties:
 |-
 |progid || object's name
 |-
-|dispatch/unknown || return {{mIRC|$true}} or {{mIRC|$null}} if a pointer to this object exists
+|dispatch/unknown || return <a href="..\identifiers\true.html">$true</a> or <a href="..\identifiers\null.html">$null</a> if a pointer to this object exists
 |}
 
 

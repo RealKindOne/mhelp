@@ -39,7 +39,7 @@ You can use <a href="crlf.html">$crlf</a> to get multiple lines.
 The $? identifier has some parsing issues, it has been replaced by <a href="input.html">$input</a> to overcome these issues:
 
 
-* $? can be used without the '=' sign as long as you either don't pass as an input request message (just $?), or that this paramater contain a balanced number of quotes:.
+* $? can be used without the '=' sign as long as you either don't pass as an input request message (just $?), or that this parameter contain a balanced number of quotes:.
 
 ** $? $?"test" $?"test words" etc are all valid usages.
 
@@ -48,7 +48,7 @@ The $? identifier has some parsing issues, it has been replaced by <a href="inpu
 * //echo -a $?"message with multiple words" $?!"test"
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
 
-==Examples==
+<H4>Example</H4>
 Below are three examples that display exactly how to use each individual property:
 
 ===Basic===

@@ -15,7 +15,7 @@ The <b>ON start</b> event triggers either when mIRC is started, or a script file
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event is triggered.
 
-==Examples==
+<H4>Example</H4>
 Add a pre-typed command to connect to certain networks upon pressing enter to the editbox:
 <pre class ="code">on *:START:{
   var %c $chr(124) server -m
@@ -23,7 +23,7 @@ Add a pre-typed command to connect to certain networks upon pressing enter to th
 }</pre>
 
 
-Create a [[Hash Tables - mIRC|hash table]] named '''''ircpoints''''' and load data from a file named '''''ircpoints.hsh''''' into the table if the file exists:
+Create a <a href="..\other\hash_table.html">Hash Table</a> named '''''ircpoints''''' and load data from a file named '''''ircpoints.hsh''''' into the table if the file exists:
 <pre class ="code">
 on *:START:{
   if (!$hget(ircpoints)) { hmake ircpoints }

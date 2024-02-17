@@ -30,7 +30,7 @@ Clear the clipboard and put "Hello world!" in it:
 <pre class ="code">
 /clipboard Hello World!
 </pre>
-Put 'abcd' into clipboard then append efgh and carriage return:
+Put "abcd" into clipboard then append "efgh" and carriage return:
 <pre class ="code">
 //clipboard abcd | clipboard -an efgh | echo -a $cb(0).len / $cb(1).len / $cb(1)
 ; returns: 10 / 8 / abcdefgh

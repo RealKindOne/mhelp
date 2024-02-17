@@ -2,3 +2,7 @@
 *.chm
 *.chw
 *.sh
+identifiers/sed*
+commands/sed*
+events/sed*
+other/sed*

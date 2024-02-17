@@ -52,17 +52,21 @@ The <b>/cnick</b> command allows you to modify items from the address book's nic
       - turns nick colors on or off
 
 <H4>Example</H4>
+Turn nick color on:
 <pre class ="code">
-; Turn nick color on
 /cnick on
-; Add color 5 for all Operators
+</pre>
+Add color 5 for all Operators:
+<pre class ="code">
 /cnick * 5 @
-; Add color 3 for all half-op
+</pre>
+Add color 3 for all half-op:
+<pre class ="code">
 /cnick * 3 %
 </pre>
 
 
-<p>AutoColor
+<H4>AutoColor</H4>
 
 <p>Starting v7.58 you can now have nicks pseudo-randomly colored based on the nick. The rules appear to be:</p>
 <p>1. colors chosen for the auto-color palette depend on the RGB value of $color(background) (even if that is a different color than the background for the nicklist)</p>
@@ -84,7 +88,7 @@ The <b>/cnick</b> command allows you to modify items from the address book's nic
 <pre class ="code">
 //var %color $nick($chan,$1).color | !.cnick -m2s $+ $calc(1+$cnick(0)) ;dummycolor $+ %color %color @ | !.color background $color(background)
 </pre>
-<p>This creates a menu item that shows you the color being used by that nick, and you can add a dummy rule to your nick colors list which uses that color - by simply right-clicking on a nick that you can't read because that color does not contrast against the background, and choosing this command. Note that it contains the command to reset the background to the existing background color, because that's necssary to force the autocolors to reset based on the new palette that has 1 fewer colors in it.</p>
+<p>This creates a menu item that shows you the color being used by that nick, and you can add a dummy rule to your nick colors list which uses that color - by simply right-clicking on a nick that you can't read because that color does not contrast against the background, and choosing this command. Note that it contains the command to reset the background to the existing background color, because that's necessary to force the autocolors to reset based on the new palette that has 1 fewer colors in it.</p>
 
 <p>If you want to use that color again, you can simply go to the Nick Colors tab of the address book and delete it.</p>
 

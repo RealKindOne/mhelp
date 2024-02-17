@@ -36,7 +36,7 @@ The on sockwrite event can be used to write additional data when the previous da
 
 == Examples ==
 
-=== Example 1 - Time Protocol ===
+<H4>Example 1 - Time Protocol</H4>
 This example will use the Time Protocol to display the current time. The Time Protocol is a very simple network protocol that provides site-independent, machine readable date and time. The protocol is defined in RFC 868.
 
 From RFC 868:
@@ -122,7 +122,7 @@ Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can jus
   sockclose $sockname
 }</pre>
 
-=== Example 2 - QOTD Protocol ===
+<H4>Example 2 - QOTD Protocol</H4>
 
 In this example we will use an interesting protocol, the Quote Of The Day, RFC 865. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers don't have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other)
 
