@@ -80,33 +80,41 @@ Start is the start of the substring from the left. A negative value indicates a 
 Will output "won't work".
 
 <H4>Case Transformation</H4>
-The {{mirc|$islower}} and {{mirc|$isupper}} identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters ({{mIRC|$true}}), or else they return {{mIRC|$false}}. The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
+The <a href="..\identifiers\islower.html">$islower</a>  and <a href="..\identifiers\isupper.html">$isupper</a>  identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="..\identifiers\true.html">$true</a> ), or else they return <a href="..\identifiers\false.html">$false</a> . The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
 
-<pre class ="code">alias case_example {
+<pre class ="code">
+alias case_example {
   var %x = Some random line!
   echo -a %x = $isupper(%x) $islower(%x)
   var %x = $upper(%x)
   echo -a %x = $isupper(%x) $islower(%x)
   var %x = $lower(%x)
   echo -a %x = $isupper(%x) $islower(%x)
-}</pre>
+}
+</pre>
 
 Will generate the following output:
 
-<pre>Some random line! = $false $false
+<pre class ="code">
+Some random line! = $false $false
 SOME RANDOM LINE! = $true $false
-some random line! = $false $true</pre>
+some random line! = $false $true
+</pre>
 
 === $lower() and $upper() ===
 The {{mirc|$lower}}() and {{mirc|$upper}}() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
 
-<pre class ="code">//echo -a $upper(HeLlO tHeRe)
-//echo -a $lower(HeLlO tHeRe)</pre>
+<pre class ="code">
+//echo -a $upper(HeLlO tHeRe)
+//echo -a $lower(HeLlO tHeRe)
+</pre>
 
 Will produce:
 
-<pre>HELLO THERE
-hello there</pre>
+<pre class ="code">
+HELLO THERE
+hello there
+</pre>
 
 <H4>Searching</H4>
 There are a number of identifiers that can be used to search for a substring within a string. The first one is the $pos identifier which has the following syntax:

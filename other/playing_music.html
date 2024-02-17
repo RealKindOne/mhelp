@@ -20,7 +20,7 @@ mIRC supports the following media formats: <code>.wma,.mp3,.wav,.mid,.ogg</code>
 
 <br><b>Note:</b>The <code>.mp3,.wma & .ogg</code> formats are all considered the same format when using the <code>/splay</code> command.
 
-Multiple file formats can be played at the same time. However, you '''cannot''' play multiple files, of the same format, at the same time. For instance, you can play a ''.wav'' file at the same time as an ''.mp3'' file, but you cannot play a ''.wav'' file and another ''.wav'' file at the same time. The second ''.wav'' file will take precedence if you're not queuing the file: the first ''.wav'' file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <code>.mp3,.wma & .ogg</code>; they are all treated the same with the {{mIRC|/splay}} command, so only one of those types may play at a time.
+Multiple file formats can be played at the same time. However, you '''cannot''' play multiple files, of the same format, at the same time. For instance, you can play a ''.wav'' file at the same time as an ''.mp3'' file, but you cannot play a ''.wav'' file and another ''.wav'' file at the same time. The second ''.wav'' file will take precedence if you're not queuing the file: the first ''.wav'' file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <code>.mp3,.wma & .ogg</code>; they are all treated the same with the <a href="..\commands\splay.html">/splay</a> command, so only one of those types may play at a time.
 
 == Synopsis ==
 <pre class ="code">/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]</pre>
@@ -74,7 +74,7 @@ The <code>ON MP3END, ON WAVEEND & ON MIDIEND</code> events will trigger for the 
 on &lt;level&gt;:mp3end|midiend|waveend|songend:&lt;commands&gt;
 </pre>
 
-The local identifier, {{mIRC|$filename}}, will return the complete file name that has finished playing.
+The local identifier, <a href="..\identifiers\filename.html">$filename</a>, will return the complete file name that has finished playing.
 
 == Any useful $identifier I can use? ==
 Of course! Here is the list:

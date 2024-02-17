@@ -5,18 +5,18 @@
 <H1>INI Files</H1>
 <br>
 <br>
-An '''initialization file''' (also known as '''INI file''') is a plain text file with a distinct structure that allows for more convenient and organized data storage. An initialization file is convenient and permanent storage space, however it relatively slow compared to window buffers and [[Hash Tables - mIRC|hash tables]]. If speed is needed, [[Hash Tables - mIRC|hash tables]] are a much superior choice.
+An initialization file (also known as "INI file") is a plain text file with a distinct structure that allows for more convenient and organized data storage. An initialization file is convenient and permanent storage space, however it relatively slow compared to window buffers and <a href="hash_tables.html">Hash Tables</a>. If speed is needed, hash tables are a much superior choice.
 
-== File Structure ==
+<H4>File Structure</H4>
 An ini file is composed of names, values, sections, and comments.
 
-=== Property ===
+<H4>Property</H4>
 A property is the basic item that makes up the ini file. An equal sign delimiter separates the name from the value (name being on the left of the equal sign). Every name has a value associated with it.
 
 <pre class ="code">item   = value
 item2  = value 2</pre>
 
-=== Section ===
+<H4>Section</H4>
 
 Sections Parameters are grouped together into a section. The name of the section is placed on a line of its own (enclosed by a pair of square brackets). All parameters after the section are automatically associated with that section.
 
@@ -26,10 +26,10 @@ item = value</pre>
 == Storing Information ==
 mIRC offers a number of convenient commands and identifiers to read/write from/to an ini file.
 
-=== Writing to an ini file ===
+<H4>Writing to an ini file</H4>
 The writeini command can be used to write an item (and its value) in a specific section of the ini file.
 
-<pre class ="code">/writeini [-n] <inifile> <section> <item> <value></pre>
+<pre class ="code">/writeini [-n] &lt;inifile&gt; &lt;section&gt; &lt;item&gt; &lt;value&gt;</pre>
 
 The -n switch no longer exists on mIRC 7.x and newer. On older mIRCs: The -n switch is used when the file exceeds 65,536 bytes (64 KB). It's a good idea to place it there if you think the file will get pretty big in the future.
 
@@ -48,7 +48,7 @@ You can easily see the actual ini file using the following command:
 
 <pre class ="code">//run notepad.exe reminder.ini</pre>
 
-=== Reading from an INI ===
+<H4>Reading from an INI</H4>
 Reading a property from an INI file is pretty simple:
 
 <pre class ="code">$readini(filename[, np], section, item)</pre>
@@ -67,17 +67,17 @@ Will output:
 <pre>Mike: 10/10/1990
 Jenna: 2/28/1983</pre>
 
-=== Security Consideration ===
+<H4>Security Consideration</H4>
 '''ALWAYS''' use the ''''n'''' switch unless you have a very good reason to not use it!
 
-=== Deleting Items and Sections ===
+<H4>Deleting Items and Sections</H4>
 
 The remini can be used to delete an item or an entire section from an ini file:
 
 <pre class ="code">;remove an item
-/remini <inifile> <section> <item>
+/remini &lt;inifile&gt; &lt;section&gt; &lt;item&gt;
 ;remove an entire section
-/remini <inifile> <section></pre>
+/remini &lt;inifile&gt; &lt;section&gt;</pre>
 
 For example:
 
@@ -85,7 +85,7 @@ For example:
 
 will remove mike's entry from the ini file.
 
-=== Other INI file manipulations ===
+<H4>Other INI file manipulations</H4>
 
 Here is some code written by Sophist for the [https://github.com/DukeLupus/dlFilter dlFilter mIRC script] to provide some identifiers for mIRC options stored in the ini file for which there are no standard identifiers. These examples are those that were needed for dlFilter; there are many more to be discovered.
 
@@ -114,7 +114,6 @@ alias -l mIRCopt {
   return $gettok(%ini,$3,$asc($comma))
 }</pre>
 
-[[Category:mIRC|ini files]]
 
 == mIRC.ini ==
 The file that stores mIRC's settings is named mirc.ini. Some [https://web.archive.org/web/20060108113735/http://www.mishscript.de/help/mircini/index.htm outdated documentation] is available via the WayBack Machine.

@@ -88,7 +88,7 @@ You may see a negative value being returned if an error occured, the list below 
 * -6 - memory could not be allocated
 * -7 - memory could not be allocated (specific to retrieving capturing groups)
 * -8 - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)
-* -14 - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occured as well. If this error is returned because compiling the pattern failed, {{mIRC|$regerrstr}} is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
+* -14 - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occured as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
 * -21 - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 * -26 - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
@@ -103,7 +103,7 @@ Below is an example of a regular expression, using ''name'' as the optional ''[N
 
 '''Note''': $regml is a list of all captures accross all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
 <pre class ="code">//noop $regex(name, teasat, /([es])(a)/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2) -- $regml(name,3) -- $regml(name,4)</pre>would display "4 : e -- a -- s -- a "
-You can now access the Nth captured group for a given match number with {{mIRC|$regmlex}}.
+You can now access the Nth captured group for a given match number with <a href="..\identifiers\regmlex.html">$regmlex</a>.
 
 === $regmlex ===
 <pre class ="code">$regmlex([name],M,N)</pre>
@@ -267,13 +267,13 @@ The difference is that you now have a pair of bracket, which are processed first
 '''Note''': the more you are nesting, the more you need to get mIRC to see the correct things, which easily gets ugly, calling an alias in the subtext to do the replacement is recommended.
 
 == /filter ==
-{{mIRC|/filter}} supports the ''-g'' switch, which uses a regular expression. It is important to note that the back-reference value cannot be obtained using '''$regml''' if a custom alias is used as the output (''-k''). In order to be able to use '''$regml''', '''$regex''' would need to be called.
+<a href="..\commands\filter.html">/filter</a> supports the ''-g'' switch, which uses a regular expression. It is important to note that the back-reference value cannot be obtained using '''$regml''' if a custom alias is used as the output (''-k''). In order to be able to use '''$regml''', '''$regex''' would need to be called.
 
 == $hfind ==
 '''$hfind''' can be used along with '''regex'''. However, '''$hfind''' does not support the custom '''S''' modifier.
 
 == /write, $read, $fline, etc ==
-These, and many more, are various places where [[regular expression|Regular Expression]] can be used.
+These, and many more, are various places where regular expression can be used.
 
 == Syntax ==
 

@@ -1,7 +1,12 @@
-{{mirc title|Token Manipulation}}
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Token Manipulation</title></head>
+<H1>Token Manipulation</H1>
+<br>
+<br>
 If you are like many people who are coming from another programming language it might come as a surprise to you that there are no true arrays in mSL. This is because the paradigm is a little different: an array in mSL can be thought of as simply a list or vector of tokens. In mSL, a '''token''' is simply a string of characters that is separated by a single, unique character. mIRC provides an extensive set of identifiers and commands to help you manipulate this list of tokens.
 
-<head><title>is</title></head>
 == Lists ==
 
 To better understand this concept; let's consider a simple alias that returns the day of the week from a given Nth day. In this case, our list of tokens will look something like this:
@@ -86,7 +91,7 @@ There are two identifiers that lets you remove tokens from the list: $deltok all
 
 <pre class ="code">var %str = $deltok(&lt;list&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 ;$deltok also supports a range of tokens
-var %str = $deltok(&lt;list&gt;, <Nth_pos-N2th_pos>, &lt;code_point&gt;)
+var %str = $deltok(&lt;list&gt;, &lt;Nth_pos-N2th_pos&gt;, &lt;code_point&gt;)
 var %str = $remtok(&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)</pre>
 
 $deltok can delete a single token or multiple depending on the specified range. $remtok's &lt;Nth_pos&gt; parameter is used to specify the Nth matching token to be removed. If &lt;Nth_pos&gt; is 0, all matching tokens are removed.
@@ -159,7 +164,7 @@ The $istok identifier is perhaps the most commonly used identifier in the entire
 
 Another useful feature is the $sorttok identifier which lets you sort the list of tokens numerically, alphabetically, or according to the channel mode prefix. Using r with any of the options will reverse the order.
 
-<pre class ="code">var %result = $sorttok(&lt;list&gt;, &lt;code_point&gt;, <sortingOption>)</pre>
+<pre class ="code">var %result = $sorttok(&lt;list&gt;, &lt;code_point&gt;, &lt;sortingOption&gt;)</pre>
 
 A common application is to validate that a value is one of a few possible options.
 
@@ -196,3 +201,5 @@ For example:
 * $istok -> $istokcs
 * $matchtok -> $matchtokcs
 * $findtok -> $findtokcs
+</body>
+</html>

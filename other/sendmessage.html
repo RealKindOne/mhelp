@@ -74,7 +74,7 @@ This call returns 1 on success, 0 if it fails.
 
 If during a remote event, such as on TEXT, your script calls a DLL which then uses {{Win32|SendMessage()}} to execute a command or evaluate an identifier, you can tell {{Win32|SendMessage()}} to execute in the context of that remote event.
 
-During a remote event, a {{mIRC|$eventid}} identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
+During a remote event, a <a href="..\identifiers\eventid.html">$eventid</a> identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
 
  SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
 

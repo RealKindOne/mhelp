@@ -49,7 +49,7 @@ What happens here is that the parameters passed to the /timer command are evalua
 
 The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="..\identifiers\day.html">$day</a>'s value&gt;"
 
-When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because {{mIRC|$day}} can only return a day of the week. If {{mIRC|$day}} is monday, evaluating the plain text monday will always produce monday.
+When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="..\identifiers\day.html">$day</a> can only return a day of the week. If <a href="..\identifiers\day.html">$day</a> is monday, evaluating the plain text monday will always produce monday.
 
 But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
@@ -90,7 +90,7 @@ The spacing is very important. Our new !reminder script now looks like this:
 
 <pre class ="code">on *:text:!reminder & *:#:{
   if ($2 !isnum) {
-    notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; <message>
+    notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
   }
   .timer 1 $2 notice $nick [Reminder] $safe($3-) (Set $safe($2) seconds ago)
@@ -105,15 +105,15 @@ And Mike now can't do anything harmful.
 
 /timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
-The command associated with the timer now becomes <code>{{mIRC|/notice}} Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by {{mIRC|/notice}}, will produce the correct result (the original input of Mike).
+The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by {{mIRC|/notice}}, will produce the correct result (the original input of Mike).
 
-Now you don't need to do that for any {{mIRC|/timer}} command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
+Now you don't need to do that for any <a href="..\commands\timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
 '''Note''': Since mIRC 7.44, an $unsafe identifier has been added which behaves just like $safe (the name was changed to unsafe to avoid misleading new users), delaying the execution of one level.
 
 ===== $chan/# =====
 
-You may think {{mIRC|$chan}} can't be evaluated in an malicious way but that's not true, if the {{mIRC|$chan}} (also #) identifier is unknown, you should encode it as well.
+You may think <a href="..\identifiers\chan.html">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="..\identifiers\chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
 
 The reason for this is mIRC allows prefixing an identifier with the pound sign to make mIRC prefixes (if needed) the evaluated string by the pound symbol. For example:
 
@@ -123,7 +123,7 @@ This will produce the following result:
 
 <pre class ="code">#A #B</pre>
 
-So what does that have to do with {{mIRC|$chan}} and timers? Everything!
+So what does that have to do with <a href="..\identifiers\chan.html">$chan</a> and timers? Everything!
 
 Consider the following bot's code:
 
@@ -147,20 +147,20 @@ Everything works just fine under normal conditions. But Mike knows better than t
 * Rejoined channel #$($bot_pass)
 -Bot- Hello Mike, Welcome to foo_bar_42</pre>
 
-Because {{mIRC|$chan}} (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
+Because <a href="..\identifiers\chan.html">$chan</a> (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
 
-You might want to watch out for {{mIRC|$nick}} as well, some servers allow nicknames to have the '$' character.
+You might want to watch out for <a href="..\identifiers\nick.html">$nick</a> as well, some servers allow nicknames to have the '$' character.
 
 === /scon and /scid ===
-Both of these commands were created to evaluate/execute code on a given connection. Just like the {{mIRC|/timer}} command, any unknown content must be escaped somehow.
+Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="..\commands\timer.html">/timer</a> command, any unknown content must be escaped somehow.
 
-Though, unlike {{mIRC|/timer}}, the {{mIRC|/scid}} and {{mIRC|/scon}} are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
+Though, unlike <a href="..\commands\timer.html">/timer</a>, the <a href="..\commands\scid.html">/scid</a> and <a href="..\commands\scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
 
 <pre class ="code">on *:text:!global *:#:{
   scon -at1 amsg [AMSG] $1-
 }</pre>
 
-The script is designed to do a global amsg (i.e. perform an {{mIRC|/amsg}} on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of {{mIRC|/scon}} triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
+The script is designed to do a global amsg (i.e. perform an <a href="..\commands\amsg.html">/amsg</a> on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of <a href="..\commands\scon.html">/scon</a> triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
 
 * $safe solution:
 
@@ -185,11 +185,11 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 == /flash ==
 
-Though /flash is the only command doing it for now, more command might do this in the future. {{mIRC|/flash}} does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by {{mIRC|/flash}}, and mIRC will also evaluate the text parameter once when applying the flash:
+Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by {{mIRC|/flash}}, and mIRC will also evaluate the text parameter once when applying the flash:
 
 <pre class ="code">on *:text:!testflash:#:/flash $ $+ me</pre>
 
-So $ $+ me evaluates to "{{mIRC|$me}}" by {{mIRC|/flash}}, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
+So $ $+ me evaluates to "<a href="..\identifiers\me.html">$me</a>" by <a href="..\commands\flash.html">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
 
 The $safe solution must be used there.
 
@@ -203,7 +203,7 @@ If you have visited #mSL on swiftirc, and you had some code that used {{mIRC|$re
 So what are some of its consequences? Consider the following greet script:
 
 <pre class ="code">on *:text:!setgreet*:#:{
-  if (!$2-) { notice $nick Syntax Error: !setgreet <greet> | return }
+  if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
 }
@@ -217,7 +217,7 @@ Let's see what happens:
 
 <pre class ="code">
 <Mike> !setgreet
--Bot- Syntax Error: !setgreet <greet>
+-Bot- Syntax Error: !setgreet &lt;greet&gt;
 <Mike> !setgreet Two things are certain in life, death and taxes. - Benjamin Franklin
 -Bot- [Greet] Greet Saved.
 /hop
@@ -240,7 +240,7 @@ $readini(..., n, ...)</pre>
 Our new code would look like this:
 
 <pre class ="code">on *:text:!setgreet*:#:{
-  if (!$2-) { notice $nick Syntax Error: !setgreet <greet> | return }
+  if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
 }
@@ -263,7 +263,7 @@ if ($1 == 1) return item : echo -ag > $!!me
 }</pre>
 
 == $calc() ==
-ALL unknown (in advance) input to {{mIRC|$calc}} should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
+ALL unknown (in advance) input to <a href="..\identifiers\calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
 
 <pre class ="code">//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)</pre>
 
@@ -271,7 +271,7 @@ Which will produce the following result:
 
  %x = 12345
 
-'''Surprise!''' We bet you did not expect that to happen. (This is actually a side effect of {{mIRC|$calc}} being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
+'''Surprise!''' We bet you did not expect that to happen. (This is actually a side effect of <a href="..\identifiers\calc.html">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
 
 Now let's take a look at a more practical example:
 
@@ -343,7 +343,7 @@ Due to the way mIRC handles {{mIRC|$iif|$iif()}} statements, by wrapping a condi
 <pre class ="code">//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)</pre>
 
 The above will echo "See what I mean {{mIRC|/return|/!return 1}}", and neither the truthy or falsey statements are returned nor is the outter echo statement executed.
-This is happening because internally, {{mIRC|$iif}} is calling the /if construct in the following way:
+This is happening because internally, <a href="..\identifiers\iif.html">$iif</a> is calling the /if construct in the following way:
 <pre class ="code"> //if (condition) !return 1 | !return 0</pre>
 which gives:
 <pre class ="code"> //if ( (1) echo -a See what I mean) !return 1 | !return 0</pre>
