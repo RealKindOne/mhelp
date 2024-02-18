@@ -7,7 +7,6 @@
 <br>
 The <b>/sockopen</b> command initiates a connection to the specified addresses and port; a named address can be substituted for an IP address (which will get resolved to an IP address eventually). On success, the on sockopen event should get executed.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockopen [-de[swap]tn46] [bindip] &lt;name&gt; &lt;address&gt; &lt;port&gt;
@@ -29,9 +28,9 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
 <br><b>-t</b>
       - initiates an SSL negotiation on a non-SSL connection (STARTTLS feature), this is not meant to be used when creating the socket but later after the connection has been established, trigger on sockopen a second time with $sock().starttls set to $true
 <br><b>-4</b>
-      - specify the IPv4 context when resolving address (enforce ipv4 when it is disabled entirely because your status window is in 'ipv6 mode'
+      - specify the IPv4 context when resolving address (enforce IPv4 when it is disabled entirely because your status window is in 'IPv6 mode'
 <br><b>-6</b>
-      - specify the IPv6 context when resolving address (enforce ipv6)
+      - specify the IPv6 context when resolving address (enforce IPv6)
 <br><b>-n</b>
       - disable Nagle algorithm on socket
 
@@ -74,7 +73,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\sockname.html">$sockname</a><br>
 <a href="..\identifiers\sock.html">$sock</a><br>
 <a href="socklist.html">/socklist</a><br>

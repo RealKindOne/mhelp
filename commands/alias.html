@@ -25,20 +25,17 @@ The <b>/alias</b> command can be used to add, replace and remove aliases. This c
 - If specified, the commands that are associated with the alias (you can specify multiple commands on one line by separating them properly with :doc: `pipes </beginner/bootcamp.html#piping>` ), if not specified the alias is removed.
 
 <H4>Example</H4>
+Adds a new alias by the name "cookies". You can now do "/cookies":
 <pre class ="code">
-; Adds a new alias by the name "cookies"
-; You can now do /cookies
 /Alias /Cookies /me hands out the cookie jar
-
-; We replaced the old cookies alias with this new one
+</pre>
+We replaced the old cookies alias with this new one:
+<pre class ="code">
 /Alias /Cookies /me Steals someone's cookies!
-
-; Remove the alias
+</pre>
+Remove the alias:
+<pre class ="code">
 /Alias /Cookies
-; Output:
-; * Added '/Cookies' alias
-; * Replaced '/Cookies' alias
-; * Removed '/Cookies' alias
 </pre>
 
 <H4>Compatibility</H4>

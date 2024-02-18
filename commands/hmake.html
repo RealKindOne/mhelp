@@ -20,7 +20,6 @@ Linked List
 
 Because the hash table uses chaining to resolve collisions and due to the fact mIRC does not rehash or grows the array, using a hash table created with 1 bucket can be used to create a linked list. New items are added to the start of the chain (i.e. $hget(&lt;table_name&gt;, 1) will always be last item added). Additionally, changing the value or removing an item does not alter the overall order of the list.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /hmake [-smNhL] &lt;table_name&gt; [num_buckets]
@@ -207,7 +206,6 @@ Added: mIRC v5.8 (14 Dec 2000)
 None
 
 <H4>See also</H4>
-
 <a href="hfree.html">/hfree</a><br>
 <a href="hload.html">/hload</a><br>
 <a href="hsave.html">/hsave</a><br>

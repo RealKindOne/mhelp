@@ -7,7 +7,6 @@
 <br>
 The <b>/hload</b> command loads a text file to an hash table. /hload does not create the table, it must already have been created by <a href="hmake.html">/hmake</a> then saved to disk using <a href="hsave.html">/hsave</a>.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /hload -sBbnmN &lt;name&gt; &lt;filename&gt;
@@ -70,7 +69,6 @@ If using /hload -i or -b or -n switches, it assumes the data was /hsave'ed to di
 If /hload into a table containing existing items, any match between existing item name and the items loaded from disk replaces the existing item's value with the value from disk, but any other existing items in the table are not affected by an /hload command.
 
 <H4>See also</H4>
-
 <a href="hmake.html">/hmake</a><br>
 <a href="hfree.html">/hfree</a><br>
 <a href="hsave.html">/hsave</a><br>

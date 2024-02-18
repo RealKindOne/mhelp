@@ -7,7 +7,6 @@
 <br>
 The <b>/debug</b> command outputs raw server messages to a file or a custom window  Incoming messages are prefixed with "<-" and outgoing messages are prefixed with "->".
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /debug [-cinptrNoN] [color_index] [on | off | @window | filename] [identifier]
@@ -32,8 +31,10 @@ The <b>/debug</b> command outputs raw server messages to a file or a custom wind
 <H4>Parameters</H4>
 <b>[color]</b>
       - Optional text color for the debug window (Partly overridden by -rN and/or -oN) Can be color index 0-99
-<br><b>[on|off]</b>
-      - Turns debug on or off
+<br><b>on</b>
+      - Enable debugging
+<br><b>off</b>
+      - Disable debugging
 <br><b>[@window|filename]</b>
       - outputs to a custom @window or a file
 <br><b>[identifier]</b>
@@ -88,7 +89,6 @@ Added: mIRC v6.0 (16 Aug 2002)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\debug.html">$debug</a><br>
 <a href="..\identifiers\rawmsg.html">$rawmsg</a><br>
 </body>

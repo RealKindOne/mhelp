@@ -7,7 +7,6 @@
 <br>
 The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you specify it assumes it is an address and tries to resolve it. Otherwise it assumes it is a nickname and performs a <a href="userhost.html">/userhost</a> to find the user's address and then resolves it. If you specify an IP address, it looks up the host name. You can queue multiple /dns requests, and you can view the current queue by using /dns with no parameters.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /dns [-46ch] [nick|address]
@@ -15,9 +14,9 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
 
 <H4>Switches</H4>
 <b>-4</b>
-      - allows IPv4 results to be returned (enforce ipv4 for status window which are in ipv6 mode)
+      - allows IPv4 results to be returned (enforce IPv4 for status window which are in IPv6 mode)
 <br><b>-6</b>
-      - allows IPv6 results to be returned (enforce ipv6 for ipv4-only machine, note that you can't connect to it, not so useful)
+      - allows IPv6 results to be returned (enforce IPv6 for IPv4-only machine, note that you can't connect to it, not so useful)
 <br><b>-c</b>
       - clears all currently queued DNS requests, except for the one currently in progress
 <br><b>-h</b>
@@ -29,11 +28,11 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
 
 <H4>Example</H4>
 <pre class ="code">
-; using default setting for ipv6
+; using default setting for IPv6
 /dns Ouims
-; specifically allowing for ipv4 results
+; specifically allowing for IPv4 results
 /dns -4 Ouims
-; specifically allowing for ipv6 results
+; specifically allowing for IPv6 results
 /dns -6 Ouims
 ; both
 /dns -46 Ouims
@@ -48,7 +47,6 @@ Added: mIRC v3.8 (25 Nov 1995)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\dns.html">$dns</a><br>
 </body>
 </html>

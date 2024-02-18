@@ -7,7 +7,6 @@
 <br>
 The <b>/pdcc</b> command attempts to speed up the mIRC DCC send feature by sending packets ahead of acks, or acknowledgements.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /pdcc [on|off]
@@ -18,17 +17,23 @@ The <b>/pdcc</b> command attempts to speed up the mIRC DCC send feature by sendi
 None
 
 <H4>Parameters</H4>
-<br><b>on</b>
-      - Enable DCC pumping.
-
+<b>on</b>
+      - Enable DCC pumping
 <br><b>off</b>
       - Disable DCC pumping
 
-<br><b>Note:</b> If no parameter is specified, mIRC will simply echo to the main screen the status of DCC send pumps, eg: whether they are **ON** or **OFF**.
-
 <H4>Example</H4>
+Show pdcc status:
+<pre class ="code">
+/pdcc
+</pre>
+Enable pdcc:
 <pre class ="code">
 /pdcc on
+</pre>
+Disable pdcc:
+<pre class ="code">
+/pdcc off
 </pre>
 
 <H4>Compatibility</H4>

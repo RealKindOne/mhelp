@@ -7,7 +7,6 @@
 <br>
 The <b>/write</b> command can be used to manipulate a text file in various ways. Used without switches mIRC will append the line to the end of the text file. If the file does not exist, mIRC will create it. If &lt;words&gt;, &lt;wildcard&gt;, or &lt;regex&gt; contains spaces, they must be enclosed by a pair of quotes.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /write [-cidnamN l&lt;line&gt; s&lt;words&gt; w&lt;wildcard&gt; r&lt;/regex/&gt;] &lt;filename&gt; [text]
@@ -41,6 +40,7 @@ There is a difference in how /write behave vs /write -s or /write -w when it com
 
  When N = 0, the current behavior is used, N = 1 means a $crlf is added only if a $crlf isn't always there, N = 2 means a $crlf is never added.
 </pre>
+
 <H4>Parameters</H4>
 <b>&lt;filename&gt;</b>
       - The file name to manipulate
@@ -81,7 +81,6 @@ Added: mIRC v3.8 (25 Nov 1995)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\read.html">$read</a><br>
 <a href="..\identifiers\readn.html">$readn</a><br>
 <a href="..\identifiers\mircini.html">$mircini</a><br>

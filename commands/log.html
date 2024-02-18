@@ -7,7 +7,6 @@
 <br>
 The <b>/log</b> command turns logging on and off for a window, if you specify a filename the logs file dialog is not popped up.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /log &lt;on|off|default&gt; &lt;window&gt; [-f filename]
@@ -18,14 +17,20 @@ The <b>/log</b> command turns logging on and off for a window, if you specify a 
       - if specified, the [filename] parameter must be the filename used to log the window
 
 <H4>Parameters</H4>
-<b>&lt;on|off&gt;</b>
-      - turns the log on/off
+<b>on</b>
+      - Enable logging
+<br><b>off</b>
+      - Disable logging
 <br><b>&lt;window&gt;</b>
       - the window you want to turn log on/off
 
 <H4>Example</H4>
+Enable logging for a specific channel:
 <pre class ="code">
 /log on #channel
+</pre>
+Disable logging for a specific channel:
+<pre class = "code">
 /log off #test
 </pre>
 

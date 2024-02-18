@@ -14,7 +14,6 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 
 <br><b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /sockwrite -abnt &lt;name&gt; [numbytes] &lt;text|&lt;%var&gt;|&binvar&gt;
@@ -24,7 +23,7 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 <b>-b</b>
       - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise
 <br><b>-n</b>
-      - Appens a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf
+      - Appends a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf
 <br><b>-t</b>
       - Forces mIRC to send anything beginning with a & as plain text
 <br><b>-a</b>
@@ -43,7 +42,7 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 <H4>Example</H4>
 <pre class ="code">
 
-See the page for the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event for more informations and examples about /sockwrite
+See the page for the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event for more information and examples about /sockwrite
 
 </pre>
 
@@ -54,7 +53,6 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-
 <a href="sockopen.html">/sockopen</a><br>
 <a href="sockread.html">/sockread</a><br>
 <a href="sockmark.html">/sockmark</a><br>

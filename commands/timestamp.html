@@ -9,7 +9,6 @@ The <b>/timestamp</b> command can be used to enable and disable timestamps as we
 
 The -g and -f switches can only be used to set new formats.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /timestamp &lt;on|off|default&gt;
@@ -32,8 +31,10 @@ The -g and -f switches can only be used to set new formats.
       - Sets log timestamp format
 
 <H4>Parameters</H4>
-<b>&lt;on|off&gt;</b>
-      - Turns logging on or off
+<b>on</b>
+      - Enable timestamps
+<br><b>off</b>
+      - Disable timestamps
 <br><b>[window_name]</b>
       - The name of the window to apply the settings to
 <br><b>&lt;format&gt;</b>
@@ -147,6 +148,7 @@ TimeZone:
 
             with GMT
 </pre>
+
 <H4>Example</H4>
 <pre class ="code">
 ; set log timestamp
@@ -165,7 +167,6 @@ Added: mIRC vmIRC 3.9 ()
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\timestampfmt.html">$timestampfmt</a><br>
 <a href="..\identifiers\logstampfmt.html">$logstampfmt</a><br>
 <a href="..\identifiers\logstamp.html">$logstamp</a><br>

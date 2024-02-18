@@ -5,11 +5,9 @@
 <H1>/aop</H1>
 <br>
 <br>
-
 Auto-OP is a feature that can be used to manage access for a channel. Whenever a user whose address matches an address in the auto-op list joins the channel, mIRC will automatically OP them.
 <br>
 The <b>/AOP</b> command can also be used to disable or enable this feature as well as add and remove users from and to the list.
-
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -28,8 +26,10 @@ The <b>/AOP</b> command can also be used to disable or enable this feature as we
       - list all of the auto-op entry
 
 <H4>Parameters</H4>
-<b>&lt;on|off&gt;</b>
-      - Turns the auto-op feature on/off.
+<b>on</b>
+      - Enable auto-op
+<br><b>off</b>
+      - Disable auto-op
 <br><b>&lt;nick/address&gt;</b>
       - The nickname or address of the person to be added to the auto-op list. Both nickname and addresses are acceptable. Addresses can be <a href="..\other\wildcard.html">wildcard</a> addresses.
 <br><b>[#channel`,#channel2,...]</b>
@@ -40,18 +40,23 @@ The <b>/AOP</b> command can also be used to disable or enable this feature as we
       - Optional network name to apply the auto-op to.
 
 <H4>Example</H4>
+Turn on auto op
 <pre class ="code">
-;Turn on auto op
 /aop on
-
-;Add Madgoat to the auto-op list. Address type 2, network Undernet
+</pre>
+Add Madgoat to the auto-op list. Address type 2, network Undernet
+<pre class ="code">
 /aop MadGoat 2 Undernet
-
-;Remove Madgoat from the auto-op list
+</pre>
+Remove Madgoat from the auto-op list
+<pre class ="code">
 /aop -r MadGoat 2 Undernet
-
-;Turn off auto op
+</pre>
+Turn off auto op
+<pre class ="code">
 /aop off
+</pre>
+<pre class ="code">
 /*
 The above example will output:
 
@@ -72,7 +77,6 @@ Added: mIRC v5.9 (15 Jun 2001)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\aop.html">$aop</a><br>
 <a href="..\identifiers\avoice.html">$avoice</a><br>
 <a href="..\identifiers\auto.html">$auto</a><br>

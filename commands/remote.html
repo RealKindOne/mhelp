@@ -7,7 +7,6 @@
 <br>
 The <b>/remote</b> command toggles the remote, CTCPS, and raw events processing. With no parameters, the /remote command displays the current state (either disabled or enabled).
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /remote [on|off]
@@ -17,22 +16,27 @@ The <b>/remote</b> command toggles the remote, CTCPS, and raw events processing.
 None
 
 <H4>Parameters</H4>
-<b>[on|off]</b>
-      - Enables or disables events processing
+<b>on</b>
+      - Enable the event processing
+<br><b>off</b>
+      - Disable the event processing
 
 <H4>Example</H4>
-<pre class ="code">
-
 To see the current state:
-
-
-    /remote
-
+<pre class ="code">
+/remote
+</pre>
 Which will print something like:
-
-
-    * Remote is on (Ctcps,Events,Raw)
-
+<pre class ="code">
+* Remote is on (Ctcps,Events,Raw)
+</pre>
+Disable remotes:
+<pre class ="code">
+/remote off
+</pre>
+Enable remotes:
+<pre class ="code">
+/remote on
 </pre>
 
 <H4>Compatibility</H4>
@@ -42,7 +46,6 @@ Added: mIRC v4.0 (20 Mar 1996)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\remote.html">$remote</a><br>
 <a href="..\identifiers\rawmsg.html">$rawmsg</a><br>
 <a href="ctcps.html">/ctcps</a><br>

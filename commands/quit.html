@@ -7,20 +7,24 @@
 <br>
 The <b>/quit</b> command disconnects you from IRC and will give the optional message as the reason for your departure.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
-/quit [msg]
+/quit [message]
 </pre>
 
 <H4>Switches</H4>
 None
 
 <H4>Parameters</H4>
-<b>[msg]</b>
+<b>[message]</b>
       - The optional quit message
 
 <H4>Example</H4>
+Quit without a message:
+<pre class ="code">
+/quit
+</pre>
+Quit with a message:
 <pre class ="code">
 /quit I was never here.
 </pre>
@@ -32,7 +36,6 @@ Added: mIRC v2.1a (28 Feb 1995)
 None
 
 <H4>See also</H4>
-
 <a href="disconnect.html">/disconnect</a><br>
 <a href="..\events\on_kick.html">On_Kick</a><br>
 <a href="..\events\on_quit.html">On_Quit</a><br>

@@ -9,7 +9,6 @@ The <b>/reload</b> command reloads the specified alias/remote/popup file, you ca
 
 <br><b>Note:</b> since mIRC v7.31, if you use the monitoring file options ( alt + r + r + o ) and a file warning dialog is opened for the file you are reloading, the dialog is automatically closed.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /reload &lt;-a|-pscqnm|-ruvsN&gt; &lt;filename&gt;
@@ -27,14 +26,9 @@ The <b>/reload</b> command reloads the specified alias/remote/popup file, you ca
 <b>&lt;filename&gt;</b>
       - The filename to be reloaded.
 
-<H4>Example</H4>
+<H4>Example</H4>Loads scriptfile.mrc without triggering ON START or ON LOAD events. If it's already loaded, this moves it to position 1 in the remote script list.
 <pre class ="code">
-
-Loads scriptfile.mrc without triggering ON START or ON LOAD events. If it's already loaded, this moves it to position 1 in the remote script list.
-
-
-    /reload -rs1 scriptfile.mrc
-
+/reload -rs1 scriptfile.mrc
 </pre>
 
 <H4>Compatibility</H4>
@@ -44,7 +38,6 @@ Added: mIRC v5.4 (24 Jul 1998)
 None
 
 <H4>See also</H4>
-
 <a href="load.html">/load</a><br>
 <a href="..\events\on_load.html">On Load</a><br>
 <a href="..\events\on_start.html">On Start</a><br>

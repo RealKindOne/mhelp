@@ -9,7 +9,6 @@ The <b>/returnex</b> command immediately leaves the current subroutine and retur
 
 This command was added undocumented mainly to allow people to call an identifier in the subtext parameter of <a href="..\identifiers\regsubex.html">$regsubex</a>, without seeing their returned value missing spaces but you can use it for that purpose anywhere.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /returnex [value]
@@ -31,14 +30,17 @@ alias space_example {
   ; Prints 5: A&lt;space&gt;B&lt;space&gt;C
   echo -a $len($strip_space)
 }
-
-; Return with the spaces intact
+</pre>
+Return with the spaces intact:
+<pre class ="code">
 alias preserve_space returnex $get_abc
-
-; Collaps spaces
+</pre>
+Collapse spaces:
+<pre class ="code">
 alias strip_space return $get_abc
+</pre>
+Just an example string "&lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;"
 
-; Just an example string "&lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;"
 alias get_abc returnex $+($chr(32), A, $chr(32), $chr(32), B, $chr(32), $chr(32), C, $chr(32))
 </pre>
 
@@ -49,7 +51,6 @@ Added: mIRC v6.2 (23 Nov 2006)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\result.html">$result</a><br>
 <a href="alias.html">/alias</a><br>
 <a href="return.html">/return</a><br>

@@ -7,7 +7,6 @@
 <br>
 The <b>/strip</b> command is used to essentially enable or disable certain control-code stripping within mIRC.
 
-
 <H4>Synopsis</H4>
 <pre class ="code">
 /strip [+-burc]
@@ -20,32 +19,32 @@ You can chain +letter and -letter combo where + enables and - disables
 <br><b>o</b>
       - Turns off stripping entirely
 <br><b>b</b>
-      - Bold
+      - Bold - $chr(2)
 <br><b>u</b>
-      - Underline
+      - Underline - $chr(31)
 <br><b>r</b>
-      - Reverse
+      - Reverse - $chr(22)
 <br><b>c</b>
-      - Color
+      - Color - $chr(3)
 <br><b>i</b>
-      - Italic
+      - Italic - $chr(29)
 <br><b>e</b>
-      - StrikeThrough
+      - StrikeThrough - $chr(30)
 
 <H4>Parameters</H4>
 None
 
 <H4>Example</H4>
 
-Disable all control code stripping
+Disable all control code stripping:
 <pre class ="code">
 /strip -burc
 </pre>
-Enable stripping on bold, disable on color codes**
+Enable stripping on bold, disable on color codes:
 <pre class ="code">
 /strip -b+c
 </pre>
-Enable stripping on reverse and underline, disable on bold and color codes**
+Enable stripping on reverse and underline, disable on bold and color codes:
 <pre class ="code">
 /strip +ru-bc
 </pre>
@@ -57,7 +56,6 @@ Added: mIRC v4.7 (09 Dec 1996)
 None
 
 <H4>See also</H4>
-
 <a href="..\identifiers\strip.html">$strip</a><br>
 </body>
 </html>
