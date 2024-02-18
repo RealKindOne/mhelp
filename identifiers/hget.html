@@ -5,7 +5,7 @@
 <H1>$hget</H1>
 <br>
 <br>
-The <b>$hget</b> identifier returns informations about hash tables
+The <b>$hget</b> identifier returns information about hash tables
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -19,7 +19,7 @@ $hget(name/N, item, [&binvar]) - returns the data associated with the item
 
 <H4>Properties</H4>
 <b>.unset</b> - When passing an item, you can use the .unset property to get the unset time of the item if any
-<br><b>.state</b> -Return some internal informations about the table. The format returned is 3 tokens space separated, the first word is the number of items in the table, the second is in the format &lt;nbr_used_buckets&gt;/&lt;totalnbr_buckets&gt;, while the third consists of four number separated by a slash as well, but it's unknown what they really mean.
+<br><b>.state</b> -Return some internal information about the table. The format returned is 3 tokens space separated, the first word is the number of items in the table, the second is in the format &lt;nbr_used_buckets&gt;/&lt;totalnbr_buckets&gt;, while the third consists of four number separated by a slash as well, but it's unknown what they really mean.
 <br><b>.hash</b> -Return the name of the algorithm used by the hash table, which can be passed using the -h switch in <a href="..\commands\hmake.html">/hmake</a>
 <br><b>.data</b> - returns the contents of the hash table item.
 

@@ -39,7 +39,7 @@ You should be checking for error with $sockerr before reading data, here is a li
 
 <pre class ="code">
 on *:udpread:name:{
-  if ($sockerr) { echo -s An error occured while trying to read data: $sock($sockname).wsmsg | return }
+  if ($sockerr) { echo -s An error occurred while trying to read data: $sock($sockname).wsmsg | return }
   else {
     sockread %a
     echo -s rcvd: %a

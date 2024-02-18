@@ -17,7 +17,7 @@ The <b>ON UDPWRITE</b> is an event which was added in mIRC with UDP, but never h
 
 == Writing more ==
 
-It is possible that the data hasn't sent successfuly, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on UDPWRITE event:
+It is possible that the data hasn't sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on UDPWRITE event:
 
 * '''0''' - The data has been written sucessfuly.
 * '''3''' - Error occurred while trying to send the data, $sock().wsmsg will contain a more specific error message.
@@ -26,7 +26,7 @@ It is possible that the data hasn't sent successfuly, especially with UDP, you s
 
 <pre class ="code">
 on *:udpwrite:name:{
-  if ($sockerr) { echo -s An error occured while trying to read data: $sock($sockname).wsmsg | return }
+  if ($sockerr) { echo -s An error occurred while trying to read data: $sock($sockname).wsmsg | return }
 }
 </pre>
 

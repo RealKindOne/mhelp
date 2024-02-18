@@ -20,7 +20,7 @@ $1 returns the word that matched, stripped from its control code.
 
 '''Note''': $hotlink() can be used to get the word that matched with control codes preserved.
 
-The event triggers for various mouse events: sclick, dclick, rclick, mouse, uclick, you can use {{mIRC|$hotlink|$hotlink()}} to get the mouse event as well as informations about the line number, the word position etc..
+The event triggers for various mouse events: sclick, dclick, rclick, mouse, uclick, you can use {{mIRC|$hotlink|$hotlink()}} to get the mouse event as well as information about the line number, the word position etc..
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -51,7 +51,7 @@ on ^*:HOTLINK:*help*:#:{
 on *:HOTLINK:*:*:echo clicked word $1 in line $hotline $hotlinepos
 </pre>The first ^ event is triggered when you move your mouse over a word that matches *help* in a channel window. You can then check $1 to see if you want the hotlink hand to appear over the word. If you halt the event, no hand will appear. The second non-^ event is triggered when you double-click on a word which has been filtered through the first hotlink event.
 
-This implementation was very limited and is deprecated, <a href="..\identifiers\hotline.html">$hotline</a> and <a href="..\identifiers\hotlinepos.html">$hotlinepos</a> still work as they should with the new implementation but can be considered somewhat deprecated as the general {{mirc|$hotlink|$hotlink()}} now gathers all the precious informations.
+This implementation was very limited and is deprecated, <a href="..\identifiers\hotline.html">$hotline</a> and <a href="..\identifiers\hotlinepos.html">$hotlinepos</a> still work as they should with the new implementation but can be considered somewhat deprecated as the general {{mirc|$hotlink|$hotlink()}} now gathers all the precious information.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

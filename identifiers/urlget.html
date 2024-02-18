@@ -19,7 +19,7 @@ $urlget(N/ID)[.prop]
 <b>url</b> - the url to access, must be prefixed with http:// or https:// (maximum url characters are <b>2000</b>)
 <br><b>hgpuadfbrtic</b> - switches to indicate how to proceed:
 <br><b>hgpuad</b> - <b>h</b> for HEAD, <b>g</b> for GET, <b>p</b> for POST, <b>u</b> for PUT, <b>a</b> for PATCH, <b>d</b> for DELETE
-<br><b>fb</b> - <b>f</b> to output the answer (without the responses headers) to a file, <b>b</b> to ouput to a binvar
+<br><b>fb</b> - <b>f</b> to output the answer (without the responses headers) to a file, <b>b</b> to output to a binvar
 <br><b>r</b> - resumes the processing,
 <br><b>t</b> - uses .part file if necessary
 <br><b>i</b> - ignores SSL errors
@@ -41,7 +41,7 @@ $urlget(N/ID)[.prop]
 <br><b>.alias</b> - returns the name of the alias used
 <br><b>.id</b> - returns the ID.
 <br><b>.state</b> - returns the state (ok, connect, download, fail)
-<br><b>.size</b> - returns the value of the content-lenght header
+<br><b>.size</b> - returns the value of the content-length header
 <br><b>.resume</b> - returns 0 or 1 depending on if you are resumed/paused?
 <br><b>.rcvd</b> - returns the number of bytes received after the header, could be different from .size after a failed download.
 <br><b>.time</b> - returns the time taken to complete the processing, in millisecond

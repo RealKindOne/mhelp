@@ -21,7 +21,7 @@ The <b>ON SOCKCLOSE</b> event triggers when a {{mIRC|Sockets#mIRC Sockets|TCP so
 
 The reason a socket is closed could be because of an error, rather than because the remote host closed your connection on purpose, you should check <a href="..\identifiers\sockerr.html">$sockerr</a> for error, here is a list of the possible value for $sockerr inside the on sockclose event:
 
-<br><b>0</b> - EOF from the remote host received, this actually means the remote host closed your connection successfuly.
+<br><b>0</b> - EOF from the remote host received, this actually means the remote host closed your connection successfully.
 <br><b>3</b> - An error occurred while receiving data, or a SSL error occurred (most likely SSL cert cypher incompatibility), $sock().wsmsg will contain a more specific error message.
 <br><b>5</b> - An SSL error of some kind occurred when trying to initialize the connection. Unlikely to happen. If you get this you most likely are trying to initiate an SSL socket connection without SSL capabilities (check <a href="..\identifiers\sslready.html">$sslready</a>, which is $false if you don't have them)
 
@@ -29,7 +29,7 @@ The reason a socket is closed could be because of an error, rather than because 
 When the socket closes, echo that the socket has closed and some details about it to the active window:
 <pre class ="code">ON *:SOCKCLOSE:*: {
   if (!$sockerr) echo -ag ::=> $sockname Connection to $sock($sockname).ip on port $sock($sockname).port closed by the remote host!
-  else echo -ag ::=> An error occured with the socket $sock($sockname).wsmsg
+  else echo -ag ::=> An error occurred with the socket $sock($sockname).wsmsg
 }</pre>
 
 <H4>Compatibility</H4>
