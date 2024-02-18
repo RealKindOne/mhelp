@@ -7,27 +7,29 @@
 <br>
 The <b>$gettok</b> identifier returns the Nth $asc(C)-delimited token from a list.
 
-TODO - $gettokcs()
-
-
 <H4>Synopsis</H4>
 <pre class ="code">
-$gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
+$gettok(&lt;LIST&gt;,&lt;N-N2&gt;,&lt;C&gt;)
 </pre>
 <H4>Parameters</H4>
 <b>LIST</b> - Text list delimited by a character into tokens<br />
-<br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
+<br><b>N-N2</b> - The token(s) to be returned.<br />
 <br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 <br>
-If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
-If N is greater than the total number of tokens, returns {{mIRC|$null|$null}} <br />
-If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
-N- returns all tokens beginning with the Nth token.
-N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
-<b>Note:</b> You can reverse the order of the number: $gettok(a b c,3-2,32) is the same as $gettok(a b c,2-3,32)<br />
-<b>Note:</b> N2 can also be negative: $gettok(a b c d e f,-2-3,32) return the token from the 3rd token to the -2th but $gettok(a b c d e f,-2--3,32) return e f, from -3 to -2<br />
-<b>Note:</b> For readability you can also code this as '''$gettok(a-b-c-d-e,2,$asc(-))'''.
+If you pass $null for <b>N-N2</b>, $null is returned.
+If you pass a single number N, it represents a single token to retrieve, passing 0 will return the number of token, same as <a href="numtok.html">$numtok</a><br>, passing N greater than the number of token returns $null
+Otherwise, it's a range of tokens to retrieve, in the format N-N2:
+-Both N and N2 can be negative, in this case the position they refer to starts from the end of the string instead. $gettok(a b c d e f g,-3--5,32) will get the tokens from position -5 (c) to position -3 (e) resulting in "c d e"
+-N2 can be smaller than N, $gettok will work it out: $gettok(string,2-1,C) = $gettok(string,1-2,C)
+-If the lower bound is greater than the number of tokens, $null is returned $gettok(a b,3-4,32)
+-If the upper bound is greater than the number of tokens, it gets all tokens starting from the lower bound onward, $gettok(a b c,2-5,32) = $gettok(a b c,2-3,32) = "b c"
+-N2 is optional, $gettok(string,N-,C) will gets all tokens onward, starting at the Nth position.
+-The character '-' used to separate the two numbers can be spaced out <b>N - N2</b>, no need to use $+ to build dynamic ranges.
 
+Note: if you need to get everything but the last token, $gettok(,1--2,32) will return the first token when only one token is there: $gettok(a b,1--2,32) is "a" but $gettok(a,1--2,32) is "a" again, not $null, if you need $null, use $deltok(string,-1,C).
+
+
+  
 <H4>Properties</H4>
 None
 
