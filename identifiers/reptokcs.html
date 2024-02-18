@@ -5,7 +5,7 @@
 <H1>$reptokcs</H1>
 <br>
 <br>
-The <b>$reptokcs</b> identifier replaces the Nth matching token in text with a new token using case sensitivity. If N = 0, applies to all matching items.
+The <b>$reptokcs</b> identifier replaces the Nth matching token in text with a new token using case sensitivity.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -15,7 +15,7 @@ $reptokcs(&lt;list&gt;,token,new,N,C)
 <b>&lt;list&gt;</b> - The list of tokens (can be empty)
 <br><b>token</b> - the token used to match
 <br><b>new</b> - the token used to replace the matching token.
-<br><b>N</b> - The Nth matching token, default to 1, if N is 0, applies to all matching tokens.
+<br><b>N</b> - The Nth matching token, default to 1, if N is 0, applies to all matching tokens. Cannot be negative. If N is greater than the number of token, original input is returned.
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character separating the tokens
 
 <H4>Properties</H4>
