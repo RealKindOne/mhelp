@@ -18,7 +18,7 @@ Consider the following code:
 
 <pre class = "code">//echo -a Hello World, it's $me $+ !</pre>
 
-[[File:Eval1.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval1.png"></div>
 
 Typical code is evaluated from left to right, one word at a time.
 
@@ -52,7 +52,7 @@ In this example we surrounded $x(2) with a pair of bracket. The code produced th
 </pre>
 From the output you can see that $x(2) was evaluated first (as shown in the graph below). Once the content of the evaluation bracket was evaluated, the parser went on to evaluating the rest of the line like it would normally from left to right.
 
-[[File:Eval2.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval2.png"></div>
 
 <br><b>Note:</b>Changing the order of evaluation does not change the position of the evaluated value in the actual line.
 
@@ -63,7 +63,7 @@ alias eval_example {
   echo -a $x(1) [ $x(2) ] $x(3) [ $x(4) ]
 }</pre>
 
-[[File:Eval3.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval3.png"></div>
 
 The code above produced the following results:
 <pre class ="code">
@@ -93,7 +93,7 @@ The code above produces the following result:
  B
  A
 </pre>
-[[File:Eval4.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval4.png"></div>
 
 The graph above demonstrates how once the parser enters the outer pair of brackets, the entire process starts all over and the first thing that gets evaluated are the inner brackets.
 
@@ -181,7 +181,7 @@ The above code prints:
 
 <b>Note:</b> The graph below was made as though [ [ [ [ [ $!!exe ] ] ] ] ] with fives 5 '!' on $exe instead of two, but for technical reason 3 or more '!' can't be rendered for now.
 
-[[File:Eval6.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval6.png"></div>
 
 
 Here is a more interesting example of multiple evaluations:
@@ -196,7 +196,7 @@ The above code will print:
 <pre class ="code">
  Surprise!
 </pre>
-[[File:Eval7.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval7.png"></div>
 
 <H4>Solving the space issue using $+()</H4>
 By now we already know that the following code will only evaluated once since it violates the first rule: spaces in the code segment.
@@ -249,7 +249,7 @@ Let's wrap this section with a strange line of code:
 
 <pre class = "code">//var %x = % $+ y, %y%x = Works! | echo -a [ %x $+ %x ]</pre>
 
-[[File:Eval8.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval8.png"></div>
 
 <H4>A [ $+ B ] Format</H4>
 With the A [ $+ B ] Format, we have:
@@ -277,7 +277,7 @@ Here is a better example
 The code above prints:
  Example!
 
-[[File:Eval10.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval10.png"></div>
 
 Note that other, unrelated, tokens are still evaluated as we expect:
 
@@ -295,7 +295,7 @@ The most common application of this is '''dynamic variables'''. Consider the fol
 
 <pre class = "code">//var %foo.6 = Works! | echo -a %foo. [ $+ [ $calc(2*3) ] ]</pre>
 
-[[File:Eval9.png]]
+<div style="display: block; text-align: center;"><img src="..\images\eval9.png"></div>
 
 The most common form is %var. [ $+ [ $nick ] ] which allow you to retrieve a value from a variable specifically created for $nick.
 
@@ -313,7 +313,7 @@ Here both [ ] are resolved at the same time. However after [ ] are resolved, the
 
 //echo -a David $+( $me )
 
-And here $+() will normally evaluate $me, so doing that results in a double evaluatation of the parameter, watch out.
+And here $+() will normally evaluate $me, so doing that results in a double evaluation of the parameter, watch out.
 
 More importantly, since the resolution of [ ] happens before the identifier itself is evaluated, it will correctly parse code that is a direct result of the evaluation brackets. Here is some code to demonstrate this behavior:
 
