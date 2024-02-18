@@ -14,8 +14,13 @@ $instok(&lt;list&gt;,token,N,C)
 <H4>Parameters</H4>
 <b>&lt;list&gt;</b> - The list of tokens (can be empty)
 <br><b>token</b> - the token to insert
-<br><b>N</b> - The Nth position to insert the token into, can be negative (start from end)
+<br><b>N</b> - The Nth position to insert the token into
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
+
+If you pass $null for <b>N</b>, $null is returned.
+Otherwise, it's the Nth position to insert the token:
+-passing 0 will insert the token at the end
+-N can be negative, in this case the position it refers to starts from the end of the string instead. $instok(a b c d e,h,-2,32) = "a b c h d e"  
 
 <H4>Properties</H4>
 None
