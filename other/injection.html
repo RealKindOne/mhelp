@@ -49,7 +49,7 @@ What happens here is that the parameters passed to the /timer command are evalua
 
 The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="..\identifiers\day.html">$day</a>'s value&gt;"
 
-When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="..\identifiers\day.html">$day</a> can only return a day of the week. If <a href="..\identifiers\day.html">$day</a> is monday, evaluating the plain text monday will always produce monday.
+When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="..\identifiers\day.html">$day</a> can only return a day of the week. If <a href="..\identifiers\day.html">$day</a> is Monday, evaluating the plain text Monday will always produce Monday.
 
 But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
