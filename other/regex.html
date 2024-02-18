@@ -82,13 +82,13 @@ The four main identifiers, ''$regex'', ''$regsub'', ''$regml'', and ''$regsubex'
 The sample above performs a regular expression match and returns the number of matches found.
 
 If the /g modifier is used, that number can be greater than 1.
-You may see a negative value being returned if an error occured, the list below is not exhaustive, but the error ommited are the one that can only happen because of a bug in mIRC in the way it uses pcre, which should never happen in practice.
+You may see a negative value being returned if an error occurred, the list below is not exhaustive, but the error omitted are the one that can only happen because of a bug in mIRC in the way it uses pcre, which should never happen in practice.
 
 * -5 - rare, the compiled pattern has an error in it, could be due to a bug in pcre or because the pattern has been overwritten
 * -6 - memory could not be allocated
 * -7 - memory could not be allocated (specific to retrieving capturing groups)
 * -8 - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)
-* -14 - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occured as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
+* -14 - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
 * -21 - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 * -26 - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
@@ -101,7 +101,7 @@ $regml also has a ''.pos'' property, which returns the position within the input
 Below is an example of a regular expression, using ''name'' as the optional ''[Name]'' property, and then using $regml to reference the match(es):
 <pre class ="code">//noop $regex(name, test, /([es])/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2)</pre> would display "2 : e -- s"
 
-'''Note''': $regml is a list of all captures accross all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
+'''Note''': $regml is a list of all captures across all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
 <pre class ="code">//noop $regex(name, teasat, /([es])(a)/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2) -- $regml(name,3) -- $regml(name,4)</pre>would display "4 : e -- a -- s -- a "
 You can now access the Nth captured group for a given match number with <a href="..\identifiers\regmlex.html">$regmlex</a>.
 
@@ -221,7 +221,7 @@ Indeed, the processing of '''<nowiki>[ ] and [[ ]]</nowiki>''' is done for the w
 The example above conveys how only the '''[[ ]]''' has changed. Remember '''$+''' was not evaluated because the subtext parameter of $regsubex is not evaluated until the regex match is performed.
 
 Now, the outer '''$regsubex''' is evaluated, it gets its parameters (without evaluating the subtext), makes the regex match, and calls the subtext for each match, the subtext is:
-<pre class ="code">$regsubex(<value of \t from the outer $regsubex>,/(.)/g,$upper( [ \ $+ t ] ))</pre>
+<pre class ="code">$regsubex(&lt;value of \t from the outer $regsubex&gt;,/(.)/g,$upper( [ \ $+ t ] ))</pre>
 
 And when this $regsubex evaluates (for each replacement of the outer $regsubex) [ \ $+ t ] will first produce \t, and everything works as we wanted.
 

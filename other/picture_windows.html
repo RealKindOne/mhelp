@@ -39,17 +39,17 @@ There are 11 commands to draw to a picture window, all of them support the -n sw
 
 Once you have made all your draws and are ready to paint the changes, any call to one of these /draw commands without the -n switch will do it (makes sense when we know not using the -n switch always paint the changes, causing flickers). You naturally want to use the simple /drawdot @mywin for that.
 
-'''Note''': this section won't give full details about the commands, click on a command to see more informations about that command.
+'''Note''': this section won't give full details about the commands, click on a command to see more information about that command.
 <br>
 <a href="..\commands\drawdot.html">/drawdot</a> can be used to draw dots at specific coordinates with a specific size and color.
 <br>
 <a href="..\commands\drawline.html">/drawline</a> can be used to draw lines at specific coordinates with a specific size and color, if more than four points are given, the next line is drawn from the end of the last line to that point, chaining lines.
 <br>
-<a href="..\commands\drawrect.html">/drawrect</a> can be used to draw rectangles or ellipses at specific coordinates with a specific size and color, you can specify more than one set of coordinate and size parameters and they are drawn seperately.
+<a href="..\commands\drawrect.html">/drawrect</a> can be used to draw rectangles or ellipses at specific coordinates with a specific size and color, you can specify more than one set of coordinate and size parameters and they are drawn separately.
 <br>
 <a href="..\commands\drawfill.html">/drawfill</a> can be used to fill an area with the specified color starting at a specific coordinate, you can either use this to keep filling as long as the color is the one you specified (surface fill) or to keep filling as long as the color is not the one you specified (border fill).
 <br>
-<a href="..\commands\drawtext.html">/drawtext</a> can be used to draw text at the specified coordinate, using the specified font name and font size, it supports basic formating via switches.
+<a href="..\commands\drawtext.html">/drawtext</a> can be used to draw text at the specified coordinate, using the specified font name and font size, it supports basic formatting via switches.
 <br>
 <a href="..\commands\drawsave.html">/drawsave</a> which actually can't be used to draw to a bitmap, is used to save an area to a .bmp or .jpg file.
 <br>
@@ -126,7 +126,7 @@ The <a href="..\identifiers\mouse.html">$mouse</a> identifier doesn't take any p
 
 <H4>Indirect events</H4>
 
-Using $mouse.key, you get a value which when using the AND operator, yield useful informations:
+Using $mouse.key, you get a value which when using the AND operator, yield useful information:
 
 * if ($mouse.key & 1) is true if the left mouse button is pressed.
 * if ($mouse.key & 2) is true if the control key is pressed.
@@ -140,7 +140,7 @@ Others useful properties:
 * '''.x & .y''' - returns the coordinate of the mouse on the x/y axis, relative to the active window.
 * '''.mx & .my''' - returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
 * '''.dx & .dy''' - returns the coordinate of the mouse on the x/y axis, relative to the desktop.
-* '''.lb''' - returns $true if a mouse event occured over a listbox, $false if it did not.
+* '''.lb''' - returns $true if a mouse event occurred over a listbox, $false if it did not.
 
 == The <a href="..\identifiers\click.html">$click</a> identifier ==
 

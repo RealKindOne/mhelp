@@ -24,7 +24,7 @@ I am sure you are very familiar with the padlock icon next to the URL in your br
 <pre class ="code">sockopen -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
 <H4>IPv4 vs. IPv6 Sockets</H4>
-The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check {{mIRC|Ipv6|this page}} for more informations about IPv6.
+The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check {{mIRC|Ipv6|this page}} for more information about IPv6.
 
 <H4>Connection Example</H4>
 
@@ -73,7 +73,7 @@ $sock(&lt;handle&gt;).mark</pre>
 == Transmitting a Request After a Successful Connection ==
 When a successful connection to the remote end-point has been established, the <a href="..\events\on_SockOpen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 
-<br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
+<br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
 
 The typical syntax for the on sockopen event is:
 
