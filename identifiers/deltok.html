@@ -17,7 +17,7 @@ $deltok(list,N-N2,C)
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character seperating the tokens
 
 If you pass $null for <b>N-N2</b>, the original list is returned.
-If you pass a single number N, it represents a single token to delete, passing 0 will return the original string, passing N greater than number of token returns the original string.
+If you pass a single number N, it represents a single token to delete, passing 0 will return the original string, passing N greater than the number of tokens returns the original string.
 Otherwise, it's a range of tokens to delete in the format N-N2:
 -Both N and N2 can be negative, in this case the position they refer to starts from the end of the string instead. $deltok(a b c d e f g,-3--5,32) will delete the tokens from position -5 (c) to position -3 (e) resulting in "a b f g"
 -Both N and N2 can be 0, in which case they refer to the first position, same as using 1.
