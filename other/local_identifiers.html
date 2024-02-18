@@ -5,30 +5,30 @@
 <H1>Local Identifiers</H1>
 <br>
 <br>
-<b>Local identifiers</b> are <a href="..\identifiers.html">identifiers</a> which only function inside specific events. Attempting to call such identifiers from outside of their designed scope might have undesired results or might simply return <a href="..\identifier\null.html">$null</a>.
+<b>Local identifiers</b> are <a href="..\identifiers.html">identifiers</a> which only function inside specific events. Attempting to call such identifiers from outside of their designed scope might have undesired results or might simply return <a href="..\identifiers\null.html">$null</a>.
 <br>
 <br>
 Below is a list of all the local identifiers for all events.
 
 <H4>All events</H4>
 
-<a href="..\identifier\event.html">$event</a> - returns the name of the event<br>
-<a href="..\identifier\halted.html">$halted</a> - returns $true if the default actions for this event has been halted<br>
-<a href="..\identifier\eventid.html">$eventid</a> - returns an ID so that dll can evaluate local identifiers during events.<br>
-<a href="..\identifier\eventparms.html">$eventparms</a> - if the event has a matchtext, returns the value of the matchtext with spaces preserved<br>
-<a href="..\identifier\matchkey.html">$matchkey</a> - if the event has a matchtext, returns the value of the matchtext, with spaces lost.
+<a href="..\identifiers\event.html">$event</a> - returns the name of the event<br>
+<a href="..\identifiers\halted.html">$halted</a> - returns $true if the default actions for this event has been halted<br>
+<a href="..\identifiers\eventid.html">$eventid</a> - returns an ID so that dll can evaluate local identifiers during events.<br>
+<a href="..\identifiers\eventparms.html">$eventparms</a> - if the event has a matchtext, returns the value of the matchtext with spaces preserved<br>
+<a href="..\identifiers\matchkey.html">$matchkey</a> - if the event has a matchtext, returns the value of the matchtext, with spaces lost.
 
 <H4>IRC related events which involve an user</H4>
-<a href="..\identifier\address.html">$address</a> - returns the address of the user triggering the event in the format user@host<br>
-<a href="..\identifier\maddress.html">$maddress</a> - returns the address of the user for that event, as provided by the server<br>
-<a href="..\identifier\fulladdress.html">$fulladdress</a> - returns the full address of the user triggering the event in the format nick!user@host<br>
-<a href="..\identifier\nick.html">$nick</a> - returns the nickname of the user triggering the event<br>
-<a href="..\identifier\rawmsg.html">$rawmsg</a> - returns the raw server line message<br>
-<a href="..\identifier\rawbytes.html">$rawbytes</a> - returns the undecoded raw line message.<br>
-<a href="..\identifier\site.html">$site</a> - return the part after the @ in $address<br>
-<a href="..\identifier\wildsite.html">$wildsite</a> - returns the address of the user triggering the event in the format *!*@host<br>
-<a href="..\identifier\ulevel.html">$ulevel</a> - returns the level of the user that was matched for the triggered event.<br>
-<a href="..\identifier\clevel.html">$clevel</a> - returns the matching event level for a triggered event
+<a href="..\identifiers\address.html">$address</a> - returns the address of the user triggering the event in the format user@host<br>
+<a href="..\identifiers\maddress.html">$maddress</a> - returns the address of the user for that event, as provided by the server<br>
+<a href="..\identifiers\fulladdress.html">$fulladdress</a> - returns the full address of the user triggering the event in the format nick!user@host<br>
+<a href="..\identifiers\nick.html">$nick</a> - returns the nickname of the user triggering the event<br>
+<a href="..\identifiers\rawmsg.html">$rawmsg</a> - returns the raw server line message<br>
+<a href="..\identifiers\rawbytes.html">$rawbytes</a> - returns the undecoded raw line message.<br>
+<a href="..\identifiers\site.html">$site</a> - return the part after the @ in $address<br>
+<a href="..\identifiers\wildsite.html">$wildsite</a> - returns the address of the user triggering the event in the format *!*@host<br>
+<a href="..\identifiers\ulevel.html">$ulevel</a> - returns the level of the user that was matched for the triggered event.<br>
+<a href="..\identifiers\clevel.html">$clevel</a> - returns the matching event level for a triggered event
 
 <br>
 They apply to:
@@ -77,53 +77,53 @@ They apply to:
 There a few more local identifier related to IRC which exists only in specific IRC events/case:
 <br>
 <br>
-<a href="..\identifier\banmask.html">$banmask</a> - used inside <a href="..\events\on_ban.html">On_Ban</a> and <a href="..\events\on_unban.html">On_Unban</a>, returns the mask that is being banned/unbanned<br>
-<a href="..\identifier\bnick.html">$bnick</a> - used inside <a href="..\events\on_ban.html">On_Ban</a> and <a href="..\events\on_unban.html">On_Unban</a>, returns the nickname that is being banned/unbanned, if any<br>
-<a href="..\identifier\chan.html">$chan</a> - used inside events which trigger for channel window<br>
-<a href="..\identifier\hnick.html">$hnick</a> - used inside <a href="..\events\on_help.html">On_Help</a> and <a href="..\events\on_dehelp.html">On_DeHelp</a>, returns the nickname being given +h/-h<br>
-<a href="..\identifier\knick.html">$knick</a> - used inside <a href="..\events\on_kick.html">On_Kick</a>, returns the nickname being kicked<br>
-<a href="..\identifier\newnick.html">$newnick</a> - used inside <a href="..\events\on_nick.html">On_Nick</a>, returns the new nickname<br>
-<a href="..\identifier\opnick.html">$opnick</a> - used inside <a href="..\events\on_op.html">On_Op</a>, <a href="..\events\on_deop.html">On_DeOp</a>, <a href="..\events\on_owner.html">On_Owner</a> and <a href="..\events\on_deowner.html">On_DeOwner</a>, returns the nickname being opped/deopped/owner'd/deowner'd<br>
-<a href="..\identifier\vnick.html">$vnick</a> - used inside the <a href="..\events\on_voice.html">On_Voice</a> and <a href="..\events\on_devoice.html">On_DeVoice</a> events, returns the name of the voiced/devoiced nickname<br>
-<a href="..\identifier\cd.html">$cd</a> - used inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, returns the current directory of the connected user<br>
-<a href="..\identifier\parseline.html">$parseline</a> <a href="..\identifier\parsetype.html">$parsetype</a> <a href="..\identifier\parseutf.html">$parseutf</a> - available in the <a href="..\events\on_parseline.html">On_ParseLine</a> event, returns the raw line, the in/out type of direction, and whether or not mIRC is going to decode to utf8 respectively.<br>
-<a href="..\identifier\msgstamp.html">$msgstamp</a> - returns UTC timestamp for a irc server message that has an IRCv3 @time prefix tag
+<a href="..\identifiers\banmask.html">$banmask</a> - used inside <a href="..\events\on_ban.html">On_Ban</a> and <a href="..\events\on_unban.html">On_Unban</a>, returns the mask that is being banned/unbanned<br>
+<a href="..\identifiers\bnick.html">$bnick</a> - used inside <a href="..\events\on_ban.html">On_Ban</a> and <a href="..\events\on_unban.html">On_Unban</a>, returns the nickname that is being banned/unbanned, if any<br>
+<a href="..\identifiers\chan.html">$chan</a> - used inside events which trigger for channel window<br>
+<a href="..\identifiers\hnick.html">$hnick</a> - used inside <a href="..\events\on_help.html">On_Help</a> and <a href="..\events\on_dehelp.html">On_DeHelp</a>, returns the nickname being given +h/-h<br>
+<a href="..\identifiers\knick.html">$knick</a> - used inside <a href="..\events\on_kick.html">On_Kick</a>, returns the nickname being kicked<br>
+<a href="..\identifiers\newnick.html">$newnick</a> - used inside <a href="..\events\on_nick.html">On_Nick</a>, returns the new nickname<br>
+<a href="..\identifiers\opnick.html">$opnick</a> - used inside <a href="..\events\on_op.html">On_Op</a>, <a href="..\events\on_deop.html">On_DeOp</a>, <a href="..\events\on_owner.html">On_Owner</a> and <a href="..\events\on_deowner.html">On_DeOwner</a>, returns the nickname being opped/deopped/owner'd/deowner'd<br>
+<a href="..\identifiers\vnick.html">$vnick</a> - used inside the <a href="..\events\on_voice.html">On_Voice</a> and <a href="..\events\on_devoice.html">On_DeVoice</a> events, returns the name of the voiced/devoiced nickname<br>
+<a href="..\identifiers\cd.html">$cd</a> - used inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, returns the current directory of the connected user<br>
+<a href="..\identifiers\parseline.html">$parseline</a> <a href="..\identifiers\parsetype.html">$parsetype</a> <a href="..\identifiers\parseutf.html">$parseutf</a> - available in the <a href="..\events\on_parseline.html">On_ParseLine</a> event, returns the raw line, the in/out type of direction, and whether or not mIRC is going to decode to utf8 respectively.<br>
+<a href="..\identifiers\msgstamp.html">$msgstamp</a> - returns UTC timestamp for a irc server message that has an IRCv3 @time prefix tag
 
 <H4>Non IRC events</H4>
 
 Here is a list for non IRC events:
 <br>
 <br>
-<a href="..\identifier\filename.html">$filename</a> - used inside <a href="..\events\on_filesent.html">On_FileSent</a>, <a href="..\events\on_getfail.html">On_GetFail</a>, <a href="..\events\on_midiend.html">On_MidiEnd</a>, <a href="..\events\on_waveend.html">On_WaveEnd</a>, <a href="..\events\on_songend.html">On_SongEnd</a>, <a href="..\events\on_nosound.html">On_NoSound</a>, <a href="..\events\on_playend.html">On_PlayEnd</a>, <a href="..\events\on_mp3end.html">On_MP3End</a>, returns the filename that was involved<br>
-<a href="..\identifier\hostline.html">$hostline</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns the full line containing the word which made the event triggers.<br>
-<a href="..\identifier\hostlink.html">$hostlink</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns information about the context in which the on hotlink event triggered<br>
-<a href="..\identifier\hotlinepos.html">$hotlinepos</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns line number and word position of the matched word<br>
-<a href="..\identifier\parseline.html">$parseline</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the line being parsed<br>
-<a href="..\identifier\parsetype.html">$parsetype</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the type of message, in/out<br>
-<a href="..\identifier\parseutf.html">$parseutf</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns $true if the line is going to be utf8 encoded/decoded after the event<br>
-<a href="..\identifier\target.html">$target</a> - used inside events which accept a window parameter, returns the name of the window<br>
-<a href="..\identifier\agentname.html">$agentname</a> - used inside <a href="..\events\on_agent.html">On_Agent</a>, returns the name of the agent.<br>
-<a href="..\identifier\window.html">$window</a> - returns the name of the window that was left in a 'leave' menu {} event, whereas $leftwin is not a local identifier<br>
-<a href="..\identifier\ctrlenter.html">$ctrlenter</a> - used inside <a href="..\events\on_input.html">On_Input</a>, returns $true if keys control+enter have been used to trigger the event.<br>
-<a href="..\identifier\inpaste.html">$inpaste</a> - used inside <a href="..\events\on_input.html">On_Input</a>, returns $true if the event is triggering because you are pasting (multiple lines usually), not because you pressed enter.<br>
-<a href="..\identifier\did.html">$did</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the ID of the control that is triggering the event<br>
-<a href="..\identifier\dname.html">$dname</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the name of the dialog that is triggering the event<br>
-<a href="..\identifier\devent.html">$devent</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the name of the event that is triggering the on dialog event.<br>
-<a href="..\identifier\keyval.html">$keyval</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a>, returns the value of the keypress, always a number.<br>
-<a href="..\identifier\keychar.html">$keychar</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a>, returns the character of the keypress.<br>
-<a href="..\identifier\keyrpt.html">$keyrpt</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a>, returns $true if the event triggers because the key is held down.<br>
-<a href="..\identifier\menu.html">$menu</a> - used inside menu { } event, returns the name of the menu<br>
-<a href="..\identifier\menutype.html">$menutype</a> - used inside menu { } event, returns the type of the menu<br>
-<a href="..\identifier\menucontext.html">$menucontext</a> - used inside menu { } event, returns the context in which the popup was created<br>
-<a href="..\identifier\sockbar.html">$sockbar</a> - used inside socket events where /sockread is allowed, returns the number of bytes read<br>
-<a href="..\identifier\sockname.html">$sockname</a> - used inside socket events, returns the name of the socket<br>
-<a href="..\identifier\signal.html">$signal</a> - used inside <a href="..\events\on_signal.html">On_Signal</a> event, returns the name of the signal.<br>
-<a href="..\identifier\iaddress.html">$iaddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the ip address, if available<br>
-<a href="..\identifier\raddress.html">$raddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the resolved address<br>
-<a href="..\identifier\naddress.html">$naddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the address being resolved<br>
-<a href="..\identifier\modefirst.html">$modefirst</a> - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the first<br>
-<a href="..\identifier\modelast.html">$modelast</a> - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the last<br>
-<a href="..\identifier\mode.html">$mode</a> - used typically inside <a href="..\events\on_rawmode.html">On_RawMode</a>, returns the Nth nick affected by a mode.
+<a href="..\identifiers\filename.html">$filename</a> - used inside <a href="..\events\on_filesent.html">On_FileSent</a>, <a href="..\events\on_getfail.html">On_GetFail</a>, <a href="..\events\on_midiend.html">On_MidiEnd</a>, <a href="..\events\on_waveend.html">On_WaveEnd</a>, <a href="..\events\on_songend.html">On_SongEnd</a>, <a href="..\events\on_nosound.html">On_NoSound</a>, <a href="..\events\on_playend.html">On_PlayEnd</a>, <a href="..\events\on_mp3end.html">On_MP3End</a>, returns the filename that was involved<br>
+<a href="..\identifiers\hostline.html">$hostline</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns the full line containing the word which made the event triggers.<br>
+<a href="..\identifiers\hostlink.html">$hostlink</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns information about the context in which the on hotlink event triggered<br>
+<a href="..\identifiers\hotlinepos.html">$hotlinepos</a> - used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns line number and word position of the matched word<br>
+<a href="..\identifiers\parseline.html">$parseline</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the line being parsed<br>
+<a href="..\identifiers\parsetype.html">$parsetype</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the type of message, in/out<br>
+<a href="..\identifiers\parseutf.html">$parseutf</a> - used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns $true if the line is going to be utf8 encoded/decoded after the event<br>
+<a href="..\identifiers\target.html">$target</a> - used inside events which accept a window parameter, returns the name of the window<br>
+<a href="..\identifiers\agentname.html">$agentname</a> - used inside <a href="..\events\on_agent.html">On_Agent</a>, returns the name of the agent.<br>
+<a href="..\identifiers\window.html">$window</a> - returns the name of the window that was left in a 'leave' menu {} event, whereas $leftwin is not a local identifier<br>
+<a href="..\identifiers\ctrlenter.html">$ctrlenter</a> - used inside <a href="..\events\on_input.html">On_Input</a>, returns $true if keys control+enter have been used to trigger the event.<br>
+<a href="..\identifiers\inpaste.html">$inpaste</a> - used inside <a href="..\events\on_input.html">On_Input</a>, returns $true if the event is triggering because you are pasting (multiple lines usually), not because you pressed enter.<br>
+<a href="..\identifiers\did.html">$did</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the ID of the control that is triggering the event<br>
+<a href="..\identifiers\dname.html">$dname</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the name of the dialog that is triggering the event<br>
+<a href="..\identifiers\devent.html">$devent</a> - used inside <a href="..\events\on_dialog.html">On_Dialog</a>, returns the name of the event that is triggering the on dialog event.<br>
+<a href="..\identifiers\keyval.html">$keyval</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a>, returns the value of the keypress, always a number.<br>
+<a href="..\identifiers\keychar.html">$keychar</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a>, returns the character of the keypress.<br>
+<a href="..\identifiers\keyrpt.html">$keyrpt</a> - used inside <a href="..\events\on_keydown.html">On_KeyDown</a>, returns $true if the event triggers because the key is held down.<br>
+<a href="..\identifiers\menu.html">$menu</a> - used inside menu { } event, returns the name of the menu<br>
+<a href="..\identifiers\menutype.html">$menutype</a> - used inside menu { } event, returns the type of the menu<br>
+<a href="..\identifiers\menucontext.html">$menucontext</a> - used inside menu { } event, returns the context in which the popup was created<br>
+<a href="..\identifiers\sockbar.html">$sockbar</a> - used inside socket events where /sockread is allowed, returns the number of bytes read<br>
+<a href="..\identifiers\sockname.html">$sockname</a> - used inside socket events, returns the name of the socket<br>
+<a href="..\identifiers\signal.html">$signal</a> - used inside <a href="..\events\on_signal.html">On_Signal</a> event, returns the name of the signal.<br>
+<a href="..\identifiers\iaddress.html">$iaddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the ip address, if available<br>
+<a href="..\identifiers\raddress.html">$raddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the resolved address<br>
+<a href="..\identifiers\naddress.html">$naddress</a> - used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the address being resolved<br>
+<a href="..\identifiers\modefirst.html">$modefirst</a> - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the first<br>
+<a href="..\identifiers\modelast.html">$modelast</a> - used inside any channel specific mode event (on op, on dehelp, but not on rawmode or on mode), returns $true if the mode you're dealing with is the last<br>
+<a href="..\identifiers\mode.html">$mode</a> - used typically inside <a href="..\events\on_rawmode.html">On_RawMode</a>, returns the Nth nick affected by a mode.
 
 <H4>$1-</H4>
 
