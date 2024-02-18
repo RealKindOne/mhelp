@@ -9,7 +9,7 @@
 The ''$?'' identifier is used to request immediate user-input.
 
 
-==Synopsis==
+<H4>Synopsis</H4>
 <pre class ="code">
 $?="[Input Request Message]"
 </pre>
@@ -18,16 +18,16 @@ $?="[Input Request Message]"
 == Usage ==
 There are four ways you can use this identifier:
 
-* '''$?="Give Me Input"'''
+<br><b>$?="Give Me Input"</b>
 :: ''Displays an input request with the words 'Give Me Input' above the input box.''
-* '''$?*="Give Me Password"'''
+<br><b>$?*="Give Me Password"</b>
 :: ''Displays a password input request: the input is treated as a password field. The input is shown as •••''
-* '''$?!="Give Me Input"'''
+<br><b>$?!="Give Me Input"</b>
 :: ''Displays an input request with a Yes & No button, with the words 'Give Me Input' above them.''
 ::: - If you click '''Yes''', the input returns <a href="true.html">$true</a>, otherwise it returns <a href="false.html">$false</a>, <span style="color: #B30000;">even if you don't click '''No'''</span> and exit out other ways.
-* '''$?N="Give me input!'''
+<br><b>$?N="Give me input!</b>
 :: ''Where N is a positive number > 1 representing the $N identifier, If the value of $N is $null, you are asked to provide it, otherwise $N is returned.
-* '''$?#="Give me input!'''
+<br><b>$?#="Give me input!</b>
 :: ''where # represent $chan, If the value of $chan is $null, you are asked to provide it, otherwise $chan is returned
 
 You can use <a href="crlf.html">$crlf</a> to get multiple lines.

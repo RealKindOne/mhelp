@@ -43,15 +43,15 @@ The following call to SendMessage() makes mIRC perform the commands that you spe
 
  SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
 
-* '''mHwnd''' - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
-* '''WM_MCOMMAND''' - Which should be defined as WM_USER + 200
-* '''cMethod''' - How mIRC should process the message, where:
+<br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
+<br><b>WM_MCOMMAND</b> - Which should be defined as WM_USER + 200
+<br><b>cMethod</b> - How mIRC should process the message, where:
 ** 1 = As if typed in editbox (default).
 ** 2 = As if typed in editbox, send as plain text
 ** 4 = Use flood protection if turned on, can be or'd with 1 or 2, and 8
 ** 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this. This can be or'd with 1 or 2, and 4.
 
-* '''cIndex''' - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
+<br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
 
 This call returns 1 on success, 0 if it fails.
 
@@ -61,12 +61,12 @@ The following call to SendMessage() makes mIRC evaluate the contents of any line
 
  SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
 
-* '''mHwnd''' - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
-* '''WM_MEVALUATE''' - Should be defined as WM_USER + 201
-* '''cMethod''' - How mIRC should process the message, where:
+<br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
+<br><b>WM_MEVALUATE</b> - Should be defined as WM_USER + 201
+<br><b>cMethod</b> - How mIRC should process the message, where:
 ** 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this.
 
-* '''cIndex''' - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
+<br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
 
 This call returns 1 on success, 0 if it fails.
 
@@ -83,20 +83,20 @@ This will cause the command/evaluation to execute in the context of the remote e
 == Extended Version Information ==
 
 If '''cMethod''' is set to -1, you can set '''cIndex''' to:
-* '''-1''' - to receive the mIRC version number.
-* '''-2''' - to receive the cMethod options that are supported.
+<br><b>-1</b> - to receive the mIRC version number.
+<br><b>-2</b> - to receive the cMethod options that are supported.
 
 == Extended Error Information ==
 
 If cMethod is or'd with the value 16, this will make SendMessage() return more useful error values instead of just 0 for failure and 1 for success. The return values are:
-* '''0''' - Success.
-* '''1''' - Failure, You can OR that value to get more specific errors:
-** '''2''' - Bad mapped filename.
-** '''4''' - Bad mapped file size.
-** '''8''' - Bad eventid.
-** '''16''' - Bad server.
-** '''32''' - Bad script - means that the script does not exist
-** '''64''' - Disabled (if disabled in lock dialog).
+<br><b>0</b> - Success.
+<br><b>1</b> - Failure, You can OR that value to get more specific errors:
+<br><b>2</b> - Bad mapped filename.
+<br><b>4</b> - Bad mapped file size.
+<br><b>8</b> - Bad eventid.
+<br><b>16</b> - Bad server.
+<br><b>32</b> - Bad script - means that the script does not exist
+<br><b>64</b> - Disabled (if disabled in lock dialog).
 
 1 alone means that a script error occurred, 16 and 32 can only happen if you use $eventid in SendMessage() in the context of a remote event but the script from which it was called no longer exist.
 

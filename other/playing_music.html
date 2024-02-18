@@ -22,7 +22,7 @@ mIRC supports the following media formats: <code>.wma,.mp3,.wav,.mid,.ogg</code>
 
 Multiple file formats can be played at the same time. However, you '''cannot''' play multiple files, of the same format, at the same time. For instance, you can play a ''.wav'' file at the same time as an ''.mp3'' file, but you cannot play a ''.wav'' file and another ''.wav'' file at the same time. The second ''.wav'' file will take precedence if you're not queuing the file: the first ''.wav'' file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <code>.mp3,.wma & .ogg</code>; they are all treated the same with the <a href="..\commands\splay.html">/splay</a> command, so only one of those types may play at a time.
 
-== Synopsis ==
+<H4>Synopsis</H4>
 <pre class ="code">/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]</pre>
 
 <H4>Switches</H4>
@@ -80,7 +80,7 @@ The local identifier, <a href="..\identifiers\filename.html">$filename</a>, will
 Of course! Here is the list:
 
 * $vol(&lt;wave | midi | song | master&gt;) - Returns a number between 0 and 65535 for the specified type.
-** '''Property:''' If the .mute property is used, it returns a $true/$false value, the mute setting for that type.
+<br><b>Property:</b> If the .mute property is used, it returns a $true/$false value, the mute setting for that type.
 * $inwave, $inmidi, $insong - Return $true if the specified wave, midi, mp3/wma/ogg type is playing, $false otherwise.
 <H4>Properties</H4>
 <b>.fname</b> - Returns the complete filename
@@ -89,7 +89,7 @@ Of course! Here is the list:
 <br><b>.pause</b> - Returns $true if the song is paused
 * $sound(&lt;type&gt;) - Returns the directory specified in the Sound Requests section of the Options dialog, where type can be wave, midi, mp3, wma, or ogg.
 * $sound(&lt;filename&gt;) - Returns either the directory for that file type, as above, or information about the sound file. Currently, only mp3 files are supported.
-** '''Properties:''' .album, .title, .artist, .year, .comment, .genre, .track, .length, .version, .bitrate, .vbr, .sample, .mode, .copyright, .private, .crc, .id3, .tag, .tags
+<br><b>Properties:</b> .album, .title, .artist, .year, .comment, .genre, .track, .length, .version, .bitrate, .vbr, .sample, .mode, .copyright, .private, .crc, .id3, .tag, .tags
 ** Return the corresponding value, the above properties always return the id3v1 values of the mp3 file. If you want to retrieve the id3v2 values, you can use the .tag and .tags properties:
 <pre class ="code">alias showtags {
  if ($1- == $null) { echo 2 -e * /showtags: please specify filename, eg. /showtags file.mp3 | halt }

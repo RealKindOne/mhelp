@@ -5,21 +5,19 @@
 <H1>Dynamic-link Library (DLL)</H1>
 <br>
 <br>
-mIRC allows programs to make calls to various '''dynamic-link libraries''' ('''DLL'''s) designed to work with mIRC. The main reason you would want to do this is that processing information in a DLL can be far faster than doing so in a mIRC script, so for intensive data processing a DLL would be more efficient.
-
-'''Note:'''  mIRC also supports calling {{mIRC|COM}} objects, for calling non-standard DLLs.
+mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) designed to work with mIRC. The main reason you would want to do this is that processing information in a DLL can be far faster than doing so in a mIRC script, so for intensive data processing a DLL would be more efficient.
+<br>
+'''Note:'''  mIRC also supports calling <a href="com.html">COM</a> objects, for calling non-standard DLLs.
 
 = Using a Dll =
 
 <H4>Synopsis</H4>
-
+<pre class ="code">
  /dll &lt;filename&gt; &lt;procname&gt; [data]
-
  /dll -u &lt;filename&gt;
-
  $dll(&lt;filename&gt;, &lt;procname&gt;, [data])
-
  $dllcall(&lt;filename&gt;, &lt;alias&gt;, &lt;procname&gt;, [data])
+</pre>
 
 <H4>Switches</H4>
 <b>-u</b> - Unloads the dll
@@ -30,7 +28,7 @@ mIRC allows programs to make calls to various '''dynamic-link libraries''' ('''D
 <br><b>[data]</b> - The optional parameters for the function/procedure, used by the procname as input and as return =2 command or =3 return string.
 <br><b>&lt;alias&gt;</b> - If you use <a href="..\identifiers\dllcall.html">$dllcall</a>, it calls the function asynchronously, meaning that the code won't stop processing until the dll function finishes, $dllcall won't return a value. Instead, mIRC calls the specified &lt;alias&gt; when the function finishes.
 
-= Creating a Dll =
+<H4>Creating a Dll</H4>
 
 '''Note''': We won't deal with how to create a dll in details, the scripter here must be familiar with dll creation already.
 

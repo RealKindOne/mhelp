@@ -37,7 +37,7 @@ You can create a modeless dialog using the <a href="..\commands\dialog.html">/di
 
 &lt;table&gt; is the name of the dialog table to use
 
-==== Modal dialog ====
+<H4>Modal dialog</H4>
 
 You can create a modal dialog using the <a href="..\identifiers\dialog.html">$dialog</a> identifier with the following syntax:
 <pre class ="code">
@@ -105,7 +105,7 @@ edit "", 2, 10 10 %dialog_width $dialog_height, autohs %myedit</pre>
 
 <H4>Mnemonic</H4>
 
-The "text" parameter of controls showing text can include the '&' character to create a mnemonic. If you want to get the '&' rendered literaly, use &&.
+The "text" parameter of controls showing text can include the '&' character to create a mnemonic. If you want to get the '&' rendered literally, use &&.
 
 '''Note''': even if a control renders the mnemonic correctly, the shortcut may not work, it's not working to switch tab for example.
 
@@ -141,15 +141,18 @@ Check the <a href="dialog_components.html">dialog components</a>, which describe
 
 <H4>Others tools</H4>
 
-==== /didtok, $didtok, $didwm and $didreg ====
+<b>/didtok, $didtok, $didwm and $didreg</b>
+<br>
+<br>
 
 <a href="..\commands\didtok.html">/didtok</a> &lt;name&gt; &lt;id&gt; &lt;C&gt; &lt;text&gt;      will add a tokenized list of item to a list/combo/edit control, for example "/didtok name 1 44 red,green,blue" would add the item "red", "gree", and "blue" to that control
 
-{{mIRC|$didtok}}(name,id,C) returns a tokenized list of item from a combo/edit/list control.
+<a href="..\identifiers\didtok.html">$didtok</a>(name,id,C) returns a tokenized list of item from a combo/edit/list control.
 
-{{mIRC|$didwm}}(name,id,wildcard,N) and {{mIRC|$didreg}}(name,id,regex,N) returns the number of the line that match the <a href="..\other\wildcard.html">wildcard</a> expression, starting at the optional line N, in the the control.
-
-==== /loadbuf, /savebuf and /filter ====
+<a href="..\identifiers\didwm.html">$didwm</a>(name,id,wildcard,N) and <a href="..\identifiers\didreg.html">$didreg</a>(name,id,regex,N) returns the number of the line that match the <a href="..\other\wildcard.html">wildcard</a> expression, starting at the optional line N, in the the control.
+<br>
+<br>
+<b>/loadbuf, /savebuf and /filter</b>
 
 You can <a href="..\commands\filter.html">/filter</a> from and to a combo/edit/list control.
 <br>

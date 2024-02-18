@@ -30,10 +30,10 @@ Now, the language features some commands where one or more of their parameters a
 
 Any command like this suffers the problem, we also refer to this problem as the double evaluation problem. They are fortunately not a lot of these commands, here is a list:
 
-* /timer
-* /scon
-* /scid
-* /dde
+<br>/timer
+<br>/scon
+<br>/scid
+<br>/dde
 
 <H4>The /timer command</H4>
 Perhaps the most problematic command of them all is the /timer command. The /timer command is used to delay the execution of another command (it has others features but this is the interesting one).
@@ -105,7 +105,7 @@ And Mike now can't do anything harmful.
 
 /timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
-The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by {{mIRC|/notice}}, will produce the correct result (the original input of Mike).
+The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by <a href="..\commands\notice.html">/notice</a>, will produce the correct result (the original input of Mike).
 
 Now you don't need to do that for any <a href="..\commands\timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
@@ -185,7 +185,7 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 == /flash ==
 
-Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by {{mIRC|/flash}}, and mIRC will also evaluate the text parameter once when applying the flash:
+Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="..\commands\flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
 
 <pre class ="code">on *:text:!testflash:#:/flash $ $+ me</pre>
 

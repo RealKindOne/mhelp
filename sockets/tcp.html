@@ -59,7 +59,7 @@ In this example I thought we would do something different. Providing a YouTube l
 }</pre>
 
 == The Socket Mark ==
-In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the {{mIRC|$sock|$sock().mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="..\identifiers\sock.html">$sock</a>.mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
 <pre class ="code">sockmark &lt;handle&gt; &lt;value&gt;
 ; The following will clear the mark:
@@ -274,7 +274,7 @@ Keep this alias safe. Trust me, this tiny alias will become one of your most pre
 
 <H4>Error Handling</H4>
 Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
-Remember, inside the on sockopen event, $sockerr allows you to know if the connection was sucessful or not.
+Remember, inside the on sockopen event, $sockerr allows you to know if the connection was successful or not.
 
 A basic example would look like this:
 

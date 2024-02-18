@@ -32,19 +32,19 @@ alias getday {
 
 The example above will return the day of the week given its Nth position, for example $getday(1) will return Sunday.  Notice how $gettok took the list of days, the position (first argument), and the delimiter. 44 is the code point for the comma character (U+002C). We will talk about how the $gettok identifier works in more detail later on.
 
-== Delimiter ==
+<H4>Delimiter</H4>
 
 As we said before, a delimiter is a single character used to specify the boundary between two separate tokens in a list. For all the built-in token manipulation commands and identifiers, the delimiter is the <strong>code point</strong> value of the character. For more information, check out Unicode.
 
 It is important to note that you cannot represent a $null or empty token. Additionally, multiple consecutive delimiters are treated as a single delimiter. Leading and trailing delimiters are ignored.
 
-== $N Identifiers ==
+<H4>$N Identifiers</H4>
 
 You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the [[Aliases - mIRC|aliases tutorial]]. The number of tokens in $N is stored in $0.
 
 It is important to note that you can also populate the $N identifiers via the [[#Tokenizing_a_string|/tokenize command]].
 
-== Adding/Inserting/Replace tokens to a list ==
+<H4>Adding/Inserting/Replace tokens to a list</H4>
 
 There are two built-in ways to add or insert a token into a list: the $addtok and $instok identifiers.
 
@@ -103,7 +103,7 @@ A B C
 //echo -a $remtok(A:B:C:A:B:C:A:B:C, A, 0, 58)
 B:C:B:C:B:C</pre>
 
-== Practical applications ==
+<H4>Practical applications</H4>
 
 By now, you should be seeing why arrays in other languages can be visualized as a list of tokens in mSL. Below is a practical example of a simple queue (a FIFO, first-in-first-out, data structure). You can run the driver by calling /queue_example.
 
@@ -127,7 +127,7 @@ alias queue_example {
 
 The script above uses character with the code point of 7 as its delimiter. The script works pretty well for small values (can store as much as 200 items with an average value length of 20 characters or 20 lines with an average of 200 characters per line). Clearly one of the preconditions is that the value cannot contain any characters with a code point value of 7. This example is clearly not suitable for large queues or queues that must execute really fast. (The reason we've used code point 7 is because it's a control character that means bell signal. This makes it one of the least likely characters to be used as a value).
 
-== Token Searching/Retrieval ==
+<H4>Token Searching/Retrieval</H4>
 
 Sometimes we do not know the position or the entire value of a token. There are a number of built-in identifiers to help search a list for a specific token. To search for a token in a string there are three useful identifiers for that: $findtok, $matchtok, and $wildtok. To retrieve the Nth token from a string there is $gettok.
 <pre class ="code">;will return the position of the Nth matching token
@@ -146,7 +146,7 @@ test
 //echo -a $gettok(192.168.1.0, 1, 46)
 192</pre>
 
-== Miscellaneous Identifiers ==
+<H4>Miscellaneous Identifiers</H4>
 
 In addition to the identifiers we've introduced above, there are a few identifiers that have a more general purpose.
 
@@ -192,14 +192,16 @@ For example
 <pre class ="code">//tokenize 32 A B C | echo -a $0 - $3, $2, $1
 3 - C, B, A</pre>
 
-== Case Sensitivity ==
+<H4>Case Sensitivity</H4>
 
 None of the identifiers explained above are case sensitive. If you wish to work with a case sensitive list or tokens, it's still possible. All the identifiers have their counterpart case sensitive version. They follow the same syntax and they names are identifier with the addition of the "cs" at the end.
-
+<br>
+<br>
 For example:
-
-* $istok -> $istokcs
-* $matchtok -> $matchtokcs
-* $findtok -> $findtokcs
+<br>
+<br>
+<br>$istok -> $istokcs
+<br>$matchtok -> $matchtokcs
+<br>$findtok -> $findtokcs
 </body>
 </html>

@@ -101,26 +101,26 @@ Result in:
 
 Mouse events can be defined in a {{mIRC|custom windows#Custom Window's Menu|script menu definition}}, a picture window support the following mouse events:
 
-* '''mouse''' - mouse moved at a new coordinate, you can check {{mIRC|$mouse|$mouse.x}} and {{mIRC|$mouse|$mouse.y}} to get the new coordinate of the mouse.
-* '''sclick''' - clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
-* '''dclick''' - double clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
-* '''uclick''' - mouse released at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
-* '''rclick''' - right clicked at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
-* '''lbclick''' - selected a line in the listbox, you can check $1 to get the line number of the selected line.
-* '''leave''' - mouse left the window, you can check <a href="..\identifiers\leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
-* '''drop''' - mouse drag and dropped at {{mIRC|$mouse|$mouse.x}} {{mIRC|$mouse|$mouse.y}}.
+<br><b>mouse</b> - mouse moved at a new coordinate, you can check $mouse.x and $mouse.y to get the new coordinate of the mouse.
+<br><b>sclick</b> - clicked at $mouse.x $mouse.y
+<br><b>dclick</b> - double clicked at $mouse.x $mouse.y
+<br><b>uclick</b> - mouse released at $mouse.x $mouse.y
+<br><b>rclick</b> - right clicked at $mouse.x $mouse.y
+<br><b>lbclick</b> - selected a line in the listbox, you can check $1 to get the line number of the selected line.
+<br><b>leave</b> - mouse left the window, you can check <a href="..\identifiers\leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
+<br><b>drop</b> - mouse drag and dropped at $mouse.x $mouse.y.
 
 == Keyboard Events ==
 
-You can catch keyboard input using the {{mIRC|on events/on keydown|on keydown}} and {{mIRC|on events/on keyup|on keyup}} events, which triggers when a key is pressed and released respectively.
+You can catch keyboard input using the <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a> events, which triggers when a key is pressed and released respectively.
 
 Synopsis:
 <pre class ="code">
 on &lt;level&gt;:&lt;keydown|keyup&gt;:&lt;@window&gt;:&lt;keys&gt;:&lt;command&gt;
 </pre>
-&lt;keys&gt; can be a comma sepereated list of key, which are nothing more than number, representing a key, <a href="..\identifiers\keyval.html">$keyval</a> returns the key code while <a href="..\identifiers\keychar.html">$keychar</a> returns the actual character of the key. <a href="..\identifiers\keyrpt.html">$keyrpt</a> returns $true if the event is triggering because the key is being held down (on keydown only).
+&lt;keys&gt; can be a comma separated list of key, which are nothing more than number, representing a key, <a href="..\identifiers\keyval.html">$keyval</a> returns the key code while <a href="..\identifiers\keychar.html">$keychar</a> returns the actual character of the key. <a href="..\identifiers\keyrpt.html">$keyrpt</a> returns $true if the event is triggering because the key is being held down (on keydown only).
 
-== The $mouse identifier ==
+<H4>The $mouse identifier</H4>
 
 The <a href="..\identifiers\mouse.html">$mouse</a> identifier doesn't take any parameter, but has the following properties:
 
@@ -136,13 +136,13 @@ Using $mouse.key, you get a value which when using the AND operator, yield usefu
 
 Others useful properties:
 
-* '''.win''' - returns the name of the active window.
-* '''.x & .y''' - returns the coordinate of the mouse on the x/y axis, relative to the active window.
-* '''.mx & .my''' - returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
-* '''.dx & .dy''' - returns the coordinate of the mouse on the x/y axis, relative to the desktop.
-* '''.lb''' - returns $true if a mouse event occurred over a listbox, $false if it did not.
+<br><b>.win</b> - returns the name of the active window.
+<br><b>.x & .y</b> - returns the coordinate of the mouse on the x/y axis, relative to the active window.
+<br><b>.mx & .my</b> - returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
+<br><b>.dx & .dy</b> - returns the coordinate of the mouse on the x/y axis, relative to the desktop.
+<br><b>.lb</b> - returns $true if a mouse event occurred over a listbox, $false if it did not.
 
-== The <a href="..\identifiers\click.html">$click</a> identifier ==
+<H4>The <a href="..\identifiers\click.html">$click</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -150,7 +150,7 @@ $click(@window,N)
 </pre>
 mIRC store a history of x,y value when you click on a window, $click() returns the Nth x,y click.
 
-== The <a href="..\identifiers\inellipse.html">$inellipse</a> identifier ==
+<H4>The <a href="..\identifiers\inellipse.html">$inellipse</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -158,7 +158,7 @@ $inellipse(x,y,x,y,w,h)
 </pre>
 Returns $true if the first point x y is inside the ellipse specified by the 'x y w h' parameters, and $false if it is not.
 
-== The <a href="..\identifiers\inrect.html">$inrect</a> identifier ==
+<H4>The <a href="..\identifiers\inrect.html">$inrect</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -166,7 +166,7 @@ $inrect(x,y,x,y,w,h)
 </pre>
 Returns $true if the first point x y is inside the rectangle specified by the 'x y w h' parameters, and $false if it is not.
 
-== The <a href="..\identifiers\inroundrect.html">$inroundrect</a> identifier ==
+<H4>The <a href="..\identifiers\inroundrect.html">$inroundrect</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -174,7 +174,7 @@ $inroundrect(x,y,x,y,w,h,w,h)
 </pre>
 Returns $true if the first point x y is inside the rounded rectangle specified by the 'x y w h' parameters, where the extra 'w h' parameters represent the value used in /drawrect to get the rounded corner, and $false if it is not.
 
-== The <a href="..\identifiers\inpoly.html">$inpoly</a> identifier ==
+<H4>The <a href="..\identifiers\inpoly.html">$inpoly</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -182,7 +182,7 @@ $inpoly(x,y,x1,y1,x2,y2,...)
 </pre>
 Returns $true if the first point x y is inside the polygon defined by the specified points 'x1 y1 x2 y2 ...' parameters, and $false if it is not.
 
-== The <a href="..\identifiers\onpoly.html">$onpoly</a> identifier ==
+<H4>The <a href="..\identifiers\onpoly.html">$onpoly</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -190,7 +190,7 @@ $onpoly(n1,n2,x1,y1,x2,y2,x3,y3,...)
 </pre>
 Returns $true if two polygon overlap, $false otherwise. The first n1 and n2 parameters represent the number of points in the first and in the second polygon respectively. The rest of the parameters are the x,y points used for each polygon.
 
-== The <a href="..\identifiers\rgb.html">$rgb</a> identifier ==
+<H4>The <a href="..\identifiers\rgb.html">$rgb</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -200,7 +200,7 @@ $rgb(R,G,B) returns the RGB value formed with the specified Red, Green and Blue 
 
 $rgb(N) return the R,G,B format used to form the specified RGB color value.
 
-== The <a href="..\identifiers\getdot.html">$getdot</a> identifier ==
+<H4>The <a href="..\identifiers\getdot.html">$getdot</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -208,7 +208,7 @@ $getdot(@window,x,y)
 </pre>
 Returns the RGB value of the pixel at the specified coordinate in the specified window.
 
-== The <a href="..\identifiers\height.html">$height</a> identifier ==
+<H4>The <a href="..\identifiers\height.html">$height</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -216,7 +216,7 @@ $height(@text,fontname,fontsize)
 </pre>
 Returns height of text in pixels for the specified font.
 
-== The <a href="..\identifiers\width.html">$width</a> identifier ==
+<H4>The <a href="..\identifiers\width.html">$width</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -224,7 +224,7 @@ $width(text,fontname,fontsize,B,C)
 </pre>
 Returns width of text in pixels for the specified font, B can be non zero for a bold font, C can be non zero if you want control codes to be processed.
 
-== The <a href="..\identifiers\window.html">$window</a> identifier ==
+<H4>The <a href="..\identifiers\window.html">$window</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">
@@ -235,7 +235,7 @@ $window, $window(&lt;@&lt;name|wid&gt;|N&gt;,N)
 When used with arguments, if you use a name, it can be a <a href="..\other\wildcard.html">wildcard</a> and can be used with the N parameter to represent the Nth window matching.
 As far as picture window are concerned, $window() has only one couple of properties you can use, '''.bw & .bh''' will return the width & height of the bitmap.
 
-== The <a href="..\identifiers\pic.html">$pic</a> identifier ==
+<H4>The <a href="..\identifiers\pic.html">$pic</a> identifier</H4>
 
 Synopsis:
 <pre class ="code">

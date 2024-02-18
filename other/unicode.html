@@ -95,9 +95,9 @@ $sha1(é) for example can be tricky, this is going to give the hash of the two b
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
 And this is happening pretty much everywhere.
 
-{{mIRC|/raw}} -n can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
+<a href="..\commands\raw.html">/raw</a> -n can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
 
-{{mIRC|/sockwrite}} -u can be used to the same effect, won't encode characters in the range 0-255 to utf8.
+<a href="..\commands\sockwrite.html">/sockwrite</a> -u can be used to the same effect, won't encode characters in the range 0-255 to utf8.
 
 <H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.

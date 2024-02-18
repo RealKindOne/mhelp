@@ -23,20 +23,20 @@ Note: A single computer might have thousands of COM objects available.
 <H4>Opening and closing a COM connection</H4>
 To open a COM connection to a specific object, we use the following syntax:
 
-<source lang="mIRC">/comopen &lt;hName&gt; &lt;progid&gt;></source>
+<pre class ="code">/comopen &lt;hName&gt; &lt;progid&gt;></pre>
 
 The '''&lt;hName&gt;''' is the handle name of the COM connection to which we will need to refer to at a later time to call methods from this object. It is wise to name it something meaningful. The '''&lt;progid&gt;>''' is the programmatic identifier we discussed earlier.
 
 To close the COM connection, we need to use the handle name we used to create that connection.
 
-<source lang="mIRC">/comclose &lt;hName&gt;</source>
+<pre class ="code">/comclose &lt;hName&gt;</pre>
 
 Before we can go on to use the COM object, we have to confirm a successful connection has been established. The <a href="..\identifiers\comerr.html">$comerr</a> will return 1 if the connection has failed, 0 otherwise.
 
 === Connecting/Disconnecting Example ===
 Below is a simple example of connecting to the windows script shell and disconnecting.
 
-<source lang="mIRC">alias example {
+<pre class ="code">alias example {
   .comopen shellCOM WScript.Shell
   if ($comerr) {
     echo $color(info) -aet * Error connection to the Windows Script Host
@@ -45,7 +45,7 @@ Below is a simple example of connecting to the windows script shell and disconne
     ;no errors, continue here
     .comclose shellCOM
   }
-}</source>
+}</pre>
 
 <H4>Object interaction</H4>
 Before we can talk about how to interact with the COM object we have connected to, we have to discuss a few other things first.
@@ -134,12 +134,12 @@ To make a variable by reference, postfix the data type with an asterisk and a va
 <H4>Invoking members</H4>
 To invoke a member of a COM object, we use the <a href="..\identifiers\com.html">$com</a> identifier using the following sytax:
 
-<source lang="mIRC">;member with no arguments
+<pre class ="code">;member with no arguments
 $com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>)
 ;member with one argument
 $com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>, &lt;type&gt;>, &lt;value&gt;>)
 ;member with N amount of arguments
-$com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>, &lt;type1&gt;>, &lt;value1&gt;>, ..., &lt;typeN&gt;>, &lt;valueN&gt;>)</source>
+$com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>, &lt;type1&gt;>, &lt;value1&gt;>, ..., &lt;typeN&gt;>, &lt;valueN&gt;>)</pre>
 
 === Invoking example ===
 For example, if we go back to the WScript.Shell object. Let's say we wanted to open calc using the exec method we saw earlier. First, let's revisit the MSDN page of the [http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx Exec Method].
@@ -154,15 +154,15 @@ where object is the WshShell object and strCommand is the string value indicatin
 
 Using the information above we can write our <a href="..\identifiers\com.html">$com</a> identifier to invoke that method:
 
-<source lang="mIRC">;Exec is the Object's member we are invoking
+<pre class ="code">;Exec is the Object's member we are invoking
 ;1 = Call a member of an object
 ;bstr is the string data type of "calc"
 ;calc is what we are trying to execute
-$com(shellCOM, Exec, 1, bstr, calc)</source>
+$com(shellCOM, Exec, 1, bstr, calc)</pre>
 
 <a href="..\identifiers\com.html">$com</a> will return either 1 if the invocation of the Object's member was successful, 0 otherwise. It is a good practice to check if the invocation was a success. Below is the complete script:
 
-<source lang="mIRC">alias openCalc {
+<pre class ="code">alias openCalc {
   .comopen shellCOM WScript.Shell
   if ($comerr) {
     echo $color(info) -aet * Error connection to the Windows Script Host
@@ -174,18 +174,18 @@ $com(shellCOM, Exec, 1, bstr, calc)</source>
     }
     .comclose shellCOM
   }
-}</source>
+}</pre>
 
 <H4>Value of A Property / Enumerated Collection</H4>
 Retrieving a value from an enumerated collection or a property (like a variable) can be done using the <a href="..\identifiers\comval.html">$comval</a> identifier following this syntax:
 
-<source lang="mIRC">$comval(&lt;hName&gt;, &lt;N&gt;>, &lt;member&gt;>)</source>
+<pre class ="code">$comval(&lt;hName&gt;, &lt;N&gt;>, &lt;member&gt;>)</pre>
 If the member returns an enumeration of values, you can traverse through them. When n = 0, it will return the total number of values in the enumeration.
 
 <H4>Retrieving return values</H4>
 Recall from before, if we use invocation method value 2, we are indicating we want a return value. Well, to retrieve that value we can use the <a href="..\identifiers\com.html">$com</a> identifier in a different way:
 
-<source lang="mIRC">var %value = $com(&lt;hName&gt;).result</source>
+<pre class ="code">var %value = $com(&lt;hName&gt;).result</pre>
 
 <H4>Object dispatching</H4>
 In many cases, you might need to invoke a member on an object that is nested inside another object (sometimes that object might be nested inside another object as well). In most cases the parent object will have a member method that when called will return an instance of the child object that we could use. This operation is called dispatching. In the process we dispatch the child object onto its own COM connection with its own handle name. This will allow us to conveniently access this object's members (and perhaps access more child objects).
@@ -194,7 +194,7 @@ Note: when dispatching an object, the parent object will still remain open. If n
 
 Dispatching takes this general syntax:
 
-<source lang="mIRC">;open parent object
+<pre class ="code">;open parent object
 comopen mainObj some.object
 ;dispatch the child's object onto his own com connection, named childObj
 var %result = $com(mainObj, memberName, 3, dispatch* childObj)
@@ -203,7 +203,7 @@ comclose mainObj
 ;do something with the child object
 var %result = $com(childObj, memberName, 1, ...)
 ;close the child object
-comclose childObj</source>
+comclose childObj</pre>
 
 === Dispatching example - CPU info ===
 One good example of using a dispatch is if you wanted to retrieve some information pertaining to your computer's processor. The processor information will be stored in an instance of the [http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx Win32_Processor class]. Here is the tricky part: the Win32_Processor is found deep inside the windows API:
@@ -219,18 +219,18 @@ From the hierarchy tree above you can see we are going to have to dispatch twice
 
 Let's start writing our code: opening a COM connection the SWbemLocator object:
 
-<source lang="mIRC">alias getProcInfo {
+<pre class ="code">alias getProcInfo {
   .comopen SWbemLocator WbemScripting.SWbemLocator
   if ($comerr) echo $color(info) -aet * Error connection to WbemScripting.SWbemLocator
   else {
     ;rest of code here...
     .comopen SWbemLocator
   }
-}</source>
+}</pre>
 
 Now, from the SWbemLocator object, we need to use the ConnectServer method to dispatch and get a SWbemServices object.
 
-<source lang="mIRC">alias getProcInfo {
+<pre class ="code">alias getProcInfo {
   .comopen SWbemLocator WbemScripting.SWbemLocator
   if ($comerr) echo $color(info) -aet * Error connection to WbemScripting.SWbemLocator
   else {
@@ -242,11 +242,11 @@ Now, from the SWbemLocator object, we need to use the ConnectServer method to di
       .comclose SWbemServices
     }
   }
-}</source>
+}</pre>
 
 At this point we have a COM connection called "SWbemServices" which is an object instance of the SWbemServices Class. Now all we have to do is use the InstanceOf method and dispatch to a new COM connection to get the Win32_Processor Object.
 
-<source lang="mIRC">alias getProcInfo {
+<pre class ="code">alias getProcInfo {
   .comopen SWbemLocator WbemScripting.SWbemLocator
   if ($comerr) echo $color(info) -aet * Error connection to WbemScripting.SWbemLocator
   else {
@@ -263,16 +263,16 @@ At this point we have a COM connection called "SWbemServices" which is an object
       }
     }
   }
-}</source>
+}</pre>
 
 Since we are now at the Win32_Porocessor object, all we have to do is retrieve the values. Recall from above that we can do that using the <a href="..\identifiers\comval.html">$comval</a> identifier:
 
-<source lang="mIRC">$comval(Win32_Processor, 1, &lt;property&gt;>)</source>
+<pre class ="code">$comval(Win32_Processor, 1, &lt;property&gt;>)</pre>
 Where &lt;property&gt;> can be any of the members of the Win32_Processor class that can be [http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx found here].
 
 Let's get the "name" property, which usually holds a string of interesting things.
 
-<source lang="mIRC">alias getProcInfo {
+<pre class ="code">alias getProcInfo {
   .comopen SWbemLocator WbemScripting.SWbemLocator
   if ($comerr) echo $color(info) -aet * Error connection to WbemScripting.SWbemLocator
   else {
@@ -290,7 +290,7 @@ Let's get the "name" property, which usually holds a string of interesting thing
       }
     }
   }
-}</source>
+}</pre>
 
 Which can be invoked by just typing:
  /getProcInfo
@@ -334,7 +334,7 @@ ProgID: Msxml2.ServerXMLHTTP.3.0
 Object's Members: [http://msdn.microsoft.com/en-us/library/ms760305(v=VS.85).aspx XMLHTTPRequest Members]
 
 Example:
-<source lang="mIRC">/*
+<pre class ="code">/*
 ############################################################
 #              Get source of a file/website                #
 #                                                          #
@@ -368,7 +368,7 @@ Alias file_get_contents {
       return %r
     }
   }
-}</source>
+}</pre>
 
 === Queue example ===
 ProID: System.Collections.Queue
@@ -377,7 +377,7 @@ Object's Members: [http://msdn.microsoft.com/en-us/library/system.collections.qu
 
 Example:
 
-<source lang="mIRC">/*
+<pre class ="code">/*
 #########################################################################
 #                           Queue                                       #
 #                                                                       #
@@ -426,7 +426,7 @@ alias queue {
 alias freeQueue {
   ;close the com connection, if exists
   if ($com($1)) .comclose $1
-}</source>
+}</pre>
 
 === Sendkeys example ===
 ProID: WScript.Shell
@@ -435,13 +435,13 @@ Object's Members: [http://msdn.microsoft.com/en-us/library/ahcz2kh6(v=VS.85).asp
 
 Example:
 
-<source lang="mIRC">;sends "Hello there!" to the editbox and presses enter
+<pre class ="code">;sends "Hello there!" to the editbox and presses enter
 alias sendkeys {
   ;open a com connection
   .comopen x WScript.Shell
   ;excute the sendkeys() method and close the com connection
   .comclose x $com(x, sendkeys, 1, bstr, Hello there!{ENTER})
-}</source>
+}</pre>
 
 === RAM information ===
 ProID: WbemScripting.SWbemLocator
@@ -458,7 +458,7 @@ Hierarchy Tree:
 ******Retrieved using the its ProgID: [http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx WbemScripting.SWbemLocator]
 
 Example:
-<source lang="mIRC">/*
+<pre class ="code">/*
 ####################################
 #              RAM Info            #
 #                                  #
@@ -508,7 +508,7 @@ alias -l getType {
     VRAM,SRAM,RAM,ROM,Flash,EEPROM,FEPROM,EPROM,CDRAM,3DRAM,SDRAM,SGRAM, $&
     RDRAM,DDR,DDR-2
   return $gettok(%types, $calc($1 +1), 44)
-}</source>
+}</pre>
 
 
 <H4>Finding ProgIDs</H4>
