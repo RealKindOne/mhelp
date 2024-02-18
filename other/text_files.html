@@ -1,0 +1,130 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Text Files</title></head>
+<H1>Text Files</H1>
+<br>
+<br>
+Plain text files are files you can edit via a basic editor like notepad and has no special structure. Below are a few handy commands and identifiers to work with plain text files.
+
+== File Info ==
+To determine if a file exists we can use the $isfile() identifier.
+
+<pre class ="code">$isfile(file.txt)</pre>
+
+In many cases you'd want to check the number of lines in the file. $lines() will help you there.
+
+<pre class ="code">$lines(file.txt)</pre>
+
+== Reading From a Text File ==
+The $read() identifier is a very powerful command that can be used to read from a text file in a variety of ways.
+
+=== n Switch ===
+By default, $read will evaluate the text it reads as if it was mSL code. To prevent this behavior you must use the n switch. Throughout this article we will ALWAYS use that switch. Improper use of the $read() identifier without the 'n' switch could {{mIRC|mSL Injection|leave your script highly vulnerable}}.
+
+=== Reading a Random Line ===
+The most basic functionality $read() offers is the ability to read a random line from a particular file. The syntax is:
+
+<pre class ="code">; read a random line from file.txt
+$read(file.txt, n)</pre>
+
+=== Reading a Specific Line ===
+To read a specific line from a file you can specify the line number as the third argument.
+
+<pre class ="code">$read(file.txt, n, line)</pre>
+
+=== Searching the File ===
+$read() offers three methods for searching a file: 
+
+* Scanner
+* {{mirc|wildcard|Wildcard Pattern}}
+* Regular Expression Pattern
+
+==== Scanner ====
+The scanner is the most primitive search of the three. It will go through each line comparing the pattern provided to the first part of the line. If a match is found, mIRC will return the text that followed the pattern. 
+
+Consider the following abbr.txt:
+
+<pre>lol laughing out loud
+lmao Laughing my ass off
+btw by the way
+brb be right back</pre>
+
+We can use the following alias to get the abbreviation we are looking for.
+
+<pre class ="code">alias abbr return $read(abbr.txt, ns, $1)</pre>
+
+Executing the following code:
+
+<pre class ="code">//echo -a $abbr(lol)
+//echo -a $abbr(brb)</pre>
+
+Will produce the following output:
+
+<pre>laughing out loud
+be right back</pre>
+
+==== Wildcard And RegEx Patterns ====
+Both the {{mirc|wildcard}} pattern matching and the regex pattern matching works by searching for the first matching line and returning the entire line. It follows the same syntax as the scanner:
+
+<pre class ="code">; A wildcard pattern match:
+$read(file.txt, nw, *wildmatch*)
+
+; A regex pattern match:
+$read(file.txt, nr, /pattern/)</pre>
+
+==== Starting Line ====
+If you specify a line number after the pattern, that line will be used as the first line to start searching from. 
+
+For Example:
+
+<pre class ="code">; Start searching from line 400:
+$read(file.txt, nw, *hello*, 400)</pre>
+
+== Iterating Over Matches ==
+$readn is an identifier that returns the line that $read() matched. We can use that to start searching for our pattern on the next line. 
+
+For example, to search all the line containing the word 'test' in a file, we can construct a loop like this:
+
+<pre class ="code">//while ($read(file.txt, nw, *test*, $calc($readn + 1))) echo -a $v1</pre>
+
+In the code above, $readn starts at 0. We use $calc() to start at line 1. Every match $read() will start searching on the next line. When no more matches are after the line specified $read will return $null - terminating the loop.
+
+== Writing to a Plain Text File ==
+The /write command can be used to manipulate a text file in a variety of ways.
+
+=== Appending a Line ===
+/write's simplest operation is the append operation. By default, /write will write a text line to the end of the file.
+
+<pre class ="code">/write text.txt &lt;string&gt;</pre>
+
+=== Inserting a Line ===
+To insert text at specific line we have the following syntax:
+
+<pre class ="code">/write -il&lt;line&gt; file.txt &lt;text&gt;</pre>
+
+For example, the following line will write "Hello There!" at line 2.
+
+<pre class ="code">/write -il2 file.txt Hello There!</pre>
+
+=== Deleting a Line ===
+The /write command provides the ability to delete a specific line from a file.
+
+<pre class ="code">; Delete line &lt;line&gt; from a file:
+/write -dl&lt;line&gt; file.txt</pre>
+
+== Clearing A File ==
+The -c switch on /write can be combined to clear the file before writing to it.
+
+<pre class ="code">; clear the file
+/write -c file.txt</pre>
+
+== Deleting a File ==
+The delete a file, you can use the /remove command:
+
+<pre class ="code">/remove file.txt
+; send to the recycle bin
+/remove -b file.txt</pre>
+
+</body>
+</html>

@@ -870,8 +870,11 @@ other\com.html
 other\conditional_statements.html
 other\ctcp.html
 other\custom_windows.html
+other\dll.html
 other\eval_brackets.html
+other\file_handling.html
 other\hash_tables.html
+other\ini_files.html
 other\injection.html
 other\local_identifiers.html
 other\picture_windows.html
@@ -880,6 +883,7 @@ other\raw_events.html
 other\regex.html
 other\sendmessage.html
 other\string_manipulation.html
+other\text_files.html
 other\token.html
 other\unicode.html
 other\variables.html

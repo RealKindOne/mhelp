@@ -1,0 +1,113 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>File Handling</title></head>
+<H1>File Handling</H1>
+<br>
+<br>
+File Handling allows you to manipulate files on disk using separate, simple operations. This allows for efficiency.
+
+To understand how it works, you must be familiar with text file operations such as <a href="..\commands\write.html">/write</a> and <a href="..\identifiers\read.html">$read</a>.
+
+
+== <a href="..\commands\fopen.html">/fopen</a> ==
+
+/fopen [-nox] &lt;name&gt; &lt;filename&gt;
+
+<a href="..\commands\fopen.html">/fopen</a> opens the filename and use the specified name to reference it.
+
+The command fail by default if the file does not exist, the -n switch creates the file if it does not exist, but fails if it exists. The -o switch creates a new file if it does not exist but overwrites the file if it exists. The -x switch opens the file for exclusive access, others processes cannot access that file
+
+'''Note:''' if /fopen fails, it does not halt processing, you must check <a href="..\identifiers\ferr.html">$ferr</a> to see if any error occurred, see below.
+
+After you opened a file with /fopen, you have a pointer of the content of the file, it starts at 0. This pointer is the starting position to read/write from.
+
+== <a href="..\commands\fseek.html">/fseek</a> ==
+
+/fseek -lnwr &lt;name&gt; &lt;position&gt;
+
+<a href="..\commands\fseek.html">/fseek</a> sets the read/write pointer to the specified &lt;position&gt; in the file, unless you use a switch:
+
+* -l - sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line
+* -n - sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter
+* -w - sets the pointer to the beginning of the line matching the {{mirc|wildcard}} expression, use &lt;position&gt; to specify the {{mirc|wildcard}} expression
+* -r - sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression
+
+If /fseek fails, it sets the pointer to the end of the file, you must check $fopen().eof or $feof to know if /fseek failed.
+
+== <a href="..\commands\fwrite.html">/fwrite</a> ==
+
+/fwrite [-bn] &lt;name&gt; <text | &binvar>
+
+<a href="..\commands\fwrite.html">/fwrite</a> allows you to write to the file at the current pointer position, -b specify a binary variable, -n adds a $crlf at the end of the line.
+
+== <a href="..\commands\fclose.html">/fclose</a> ==
+
+/fclose &lt;name | wildcard&gt;
+
+<a href="..\commands\fclose.html">/fclose</a> closes all the matching name ({{mirc|wildcard}} expression allowed)
+
+== <a href="..\commands\flist.html">/flist</a> ==
+
+<a href="..\commands\flist.html">/flist</a> just lists all the current handles.
+
+== <a href="..\identifiers\fopen.html">$fopen</a>(name | N) ==
+
+<a href="..\identifiers\fopen.html">$fopen</a> Returns the name of that handle if it exists, or the Nth handle.
+
+Properties:
+* .fname - returns the complete filename opened for that handle
+* .pos - returns the current position of the read/write pointer
+* .eof - returns $true if the end of the file has been reached
+* .err - returns $true if an error occurred on the file
+
+In a script, <a href="..\identifiers\ferr.html">$ferr</a> = $fopen(handle).err and <a href="..\identifiers\feof.html">$feof</a> = $fopen(handle).eof, always returns the state of last involved handle in a file handing command.
+
+'''Note:''' Since file access errors will not halt a script, the eof and err properties or identifiers must be checked after each file access command.
+
+== <a href="..\identifiers\fread.html">$fread</a>(name | N) ==
+
+This form of <a href="..\identifiers\fread.html">$fread</a> returns the next $crlf delimited line, useful to read line by line
+
+== <a href="..\identifiers\fread.html">$fread</a>(name | N, M, &binvar) ==
+
+This form of <a href="..\identifiers\fread.html">$fread</a> returns the number of bytes read (from the file pointed by name or the Nth handle) into the specified binary variable, where M is the number of bytes to read.
+
+== <a href="..\identifiers\fgetc.html">$fgetc</a>(name | N) ==
+
+<a href="..\identifiers\fgetc.html">$fgetc</a> returns the next character.
+
+== When to use File handling ==
+It important to know when to use explicit file handling, and when you can use <a href="..\commands\write.html">/write</a> and <a href="..\identifiers\read.html">$read</a>.
+
+Let's take a look at /write, /write is a powerful tool which allows you to write to a file according to several predefined options.
+
+A simple "/write filename.txt line" involves the following file handling operations:
+
+* /fopen - opens the file
+* /fseek - goes to the end of the file
+* /fwrite - writes to the file
+* /fclose - closes the file
+
+So, executing /write twice involves 8 file handling operations; the more you have to write, the more operations you create. If you do /write three times, the 12 operations can be reduced to 5:
+
+<pre class ="code">
+; assuming text.txt is empty
+write test.txt line 1
+write test.txt line 2
+write test.txt line 3
+
+; is better written as
+fopen test test.txt
+fwrite -n line 1
+fwrite -n line 2
+fwrite -n line 3
+fclose test
+</pre>
+
+The same thing applies to reading, $read opens the file, try to match and close the file, so any consecutive call to $read means the file is opened/closed each time. If you are looking for a particular line, you can avoid multiple $read calls by searching with /fseek.
+
+Whenever you are going to use /write or $read in a loop to write/read a lot of things, if the loop isn't small and if the file isn't small, it might get slow very quickly, and you should consider using file handling.
+
+</body>
+</html>
