@@ -25,7 +25,7 @@ mIRC has built-in modals dialog, <a href="..\identifiers\_question.html">$?</a>'
 
 Modeless dialog can be opened indefinitely and does not halt the script execution.
 
-==== Modeless dialog ====
+<H4>Modeless dialog</H4>
 
 You can create a modeless dialog using the <a href="..\commands\dialog.html">/dialog</a> command with the -m switch, there are others switch that can be used at creation time and after the creation of the dialog to change various states.
 
@@ -88,7 +88,7 @@ The -l switch makes the table local, only that script file can open it. &lt;name
 * title - Optional, can be used to set the text displayed in the titlebar of the dialog
 * icon - Optional, can be used to set the icon of the dialog, the filename parameter is the filename to use for the icon, the index parameter can be used to specify the Nth icon from a file
 * size - Required, set the size of the dialog, you can use -1 for any of the x, y, w and h parameter to specify a default position, x and y sets as -1 should center the dialog in the window
-* option - Can be used to set different options for the dialog, type is a space seperated list of options:
+* option - Can be used to set different options for the dialog, type is a space separated list of options:
 ** pixels - x y w h values are in pixels - this is the default option if you don't use the dbu or map options.
 ** dbu - x y w h values are in dialog base units (DBUs) - this option attempts to make the dialog look the same on any size display - however anecdotal evidence suggests that there are issues with DBU when user has Windows 10 Settings / System / Display / Scaling set to > 100%.
 ** map - x y w h values are in MAP units - this (undocumented) option will also try to ensure that the dialog looks the same under any size display even when Windows 10 Display Scaling is > 100%. MAP units are '''not''' the same as DBUs and you will have to recalculate x y w & h values if you switch from DBU to MAP. There are no MAP equivalents for $dbuw and $dbuh identifiers.

@@ -187,12 +187,12 @@ on *:sockclose:name:{
 
 If you are using HTTP 1.1 and you actually want the socket to remain open, you would need to grab the value of the content-length header, store that in a variable and increase another variable with the length of what you are reading, if the length of the received buffer + the value of that variable equal the value of the content length, you should first try to see if you have a line by reading with /sockread %a, and if no byte is read, then use /sockread -f %a.
 
+<a name="example"></a>
 <H4>Example</H4>
-
 
 Here is an example which will read and echo to the status window what is sent by a server line by line.
 
-<br><b>Note:</b> leading/consecutives and trailing spaces and non-printable characters won't be shown correctly.
+<br><b>Note:</b> leading/consecutive and trailing spaces and non-printable characters won't be shown correctly.
 
 <br><b>Note2:</b> too long line will produce an error.
 

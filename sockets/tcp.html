@@ -292,8 +292,9 @@ Checking for an error gives you the opportunity to handle it in a sane way. Most
 
 <H4>Reading Data Example</H4>
 
-==== Example 1 (Continue) ====
-
+<b>Example 1 (Continue)</b>
+<br>
+<br>
 When I printed out the entire source the server sent us. The first part is the header, follows by a blank space, and follows by the actual page data. It should look something like this:
 
 <pre class ="code">
@@ -337,7 +338,9 @@ The first part is the header, follows by a blank space, and follows by the actua
   }
 }</pre>
 
-==== Example 2 (YouTube, Continue) ====
+<b>Example 2 (YouTube, Continue)</b>
+<br>
+<br>
 If you tried to print the youtube page we did (http://www.youtube.com/watch?v=FDw0NdhK6QU) you will quickly realize how long the youtube webpage is. For this reason I will not show it here. The way we parse that page is very much like the one we did for the first example:
 
 <pre class ="code">
@@ -370,7 +373,7 @@ on *:sockread:YouTube: {
 }
 </pre>
 
-== Connection Terminated ==
+<H4>Connection Terminated</H4>
 It is possible for the remote end-point to terminate a connection, the same way you can /sockclose a connection early. When this happens the on sockclose event will trigger. The syntax for that event is:
 
 <pre class ="code">on *:sockclose:&lt;handle&gt;: {

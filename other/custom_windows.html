@@ -7,17 +7,17 @@
 <br>
 Prior to mIRC 5.5, <b>Custom Windows</b> was the main method for making a GUI (graphical user interface).
 
-== Custom Windows ==
+<H4>Custom Windows</H4>
 A custom window is just another window, like a channel window or a server window but with the added ability to control every aspect of it. The following commands allow you to modify, add, and change things in that custom window of yours.
 
-== Window Components ==
+<H4>Window Components</H4>
 A custom window has the ability to contain the following 3 components:
 
 
 <img src="..\images\window_components.png">
 
 
-== Creating a window ==
+<H4>Creating a window</H4>
 Before you can do anything with a window, you must actually create it. All windows must have a name, their name must also start with the '@' symbol. The name can be anything as long as it doesn't contain spaces. Use the <a href="..\commands\window.html">/window</a> command to create a window:
 
 <pre class ="code">/window @&lt;WindowName&gt; [x y [w h]]</pre>
@@ -110,7 +110,7 @@ will generate the following menu:
 <img src="..\images\custom_win_menu.png">
 
 
-== Getting Info ==
+<H4>Getting Info</H4>
 There are a number of identifiers that can be used to retrieved information from a custom window.
 
 The $window identifier can be used to retrieve window-specific information:
@@ -118,36 +118,22 @@ The $window identifier can be used to retrieve window-specific information:
 <pre class ="code">$window(@name | N )</pre>
 
 Some of $window's more helpful properties are:
+<br>
+<br><b>x, y, w, h  </b> -  left, top, width, and height
+<br><b>dx, dy, dw, dh  </b> -  left, top, width and height position relative to the desktop
+<br><b>state  </b> -  Returns the window's state (minimized/maximized/hidden/normal)
+<br><b>title  </b> -  Returns the window's title
+<br><b>font  </b> -  Returns the window's font
+<br><b>fontsize  </b> -  Returns the window's font size
+<br><b>ontop  </b> -  Returns $true/$false if the window is set ontop
+<br><b>wid  </b> -  Returns the window's ID
+<br><b>sbtext  </b> -  Returns the switchbar button text
+<br><b>sbcolor  </b> -  Returns the switchbar highlight color
+<br><b>sbstate  </b> -  Returns the switchbar button state
+<br><b>tdbstate  </b> -  Returns the treebar button state
 
-{| class="wikitable"
-! Property !! Description
-|-
-| x, y, w, h || left, top, width, and height
-|-
-| dx, dy, dw, dh || left, top, width and height position relative to the desktop
-|-
-| state || Returns the window's state (minimized/maximized/hidden/normal)
-|-
-| title || Returns the window's title
-|-
-| font || Returns the window's font
-|-
-| fontsize || Returns the window's font size
-|-
-| ontop || Returns $true/$false if the window is set ontop
-|-
-| wid || Returns the window's ID
-|-
-| sbtext || Returns the switchbar button text
-|-
-| sbcolor || Returns the switchbar highlight color
-|-
-| sbstate || Returns the switchbar button state
-|-
-| tdbstate || Returns the treebar button state
-|}
 
-== Retrieving Text ==
+<H4>Retrieving Text</H4>
 You can retrieve a line of text from a custom window using the $line identifier:
 
 <pre class ="code">$line(@windowName, N, T)</pre>

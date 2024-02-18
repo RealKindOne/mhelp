@@ -165,7 +165,7 @@ The way mIRC evaluates those markers is special, it is important at this point t
 
 '''$regsubex''' is a bit different, it has its own parsing routine. By design, '''$regsubex''' must not evaluate the ''subtext'' parameter before doing the regex match. The steps for '''$regsubex''' are shown below:
 * Process [ ] and [[ ]].
-* Seperate parameters, evaluate the 'input' and the 'regex' parameters.
+* separate parameters, evaluate the 'input' and the 'regex' parameters.
 * Perform the regex match.
 * Tokenize <a href="..\identifiers\1-.html">$1-</a><br> according to the number of markers used in the 'subtext' parameters.
 * Replaces any markers used in the subtext with their corresponding '''$N''' identifiers's values.

@@ -384,7 +384,7 @@ works correctly, however /set also allow dynamic switches, this leads to a new q
 </pre>
 /unset suffers from an evaluation problem, a common problem is using the same logic as /set, for example:
 <pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b</pre>
-You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it won't, mIRC won't evaluate %b at all, thinking it's a seperate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
+You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it won't, mIRC won't evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
 
 To workaround this problem, you must use evaluation brackets to force the evaluation:
 <pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ [ %b ]</pre>

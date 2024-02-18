@@ -54,7 +54,7 @@ Both 'data' and 'params' are allocated with a number of bytes that is close to (
 
 These functions must use the [[stdcall calling convention]]. (This is also the standard calling convention for all other [[Microsoft]] [[Win32 API]] functions.)
 
-=== Note on C++ Dll and stdcall ===
+<H4>Note on C++ Dll and stdcall</H4>
 
 If you are making a [[C++]] dll, you need to use the extern "C" directive on all the function that you want to export (all the function called from mIRC including the LoadDll and UnloadDll routine), which indicates the function has "[[C]]" linkage as opposed to "[[C++]]".
 
@@ -70,7 +70,7 @@ Creating a file for that can be annoying, on Visual Studio you can use a #pragma
 
 '''Note:''' If you use GCC Gnu to compile, it has something similar to __stdcall, __attribute__((stdcall)).
 
-== Return value ==
+<H4>Return value</H4>
 
 The function returns an integer, this value indicates what mIRC should do:
 

@@ -5,10 +5,10 @@
 <H1>Socket Introduction</H1>
 <br>
 <br>
-mIRC Sockets are a set of <a href="..\commands.html">commands</a>, <a href="..\identifiers.html">identifiers</a>, and {{mIRC|on events|events}} that allow scripts to create network sockets. mIRC supports both {{mIRC|sockets/udp|UDP}} and {{mIRC|sockets/tcp|TCP}} sockets.
+mIRC Sockets are a set of <a href="..\commands.html">commands</a>, <a href="..\identifiers.html">identifiers</a>, and <a href="..\events.html">On Events</a> that allow scripts to create network sockets. mIRC supports both <a href="udp.html">UDP</a> and <a href="tcp.html">TCP</a> sockets.
 
-== Socket ==
-A '''socket''' is one endpoint of a two-way communication link between two processes running on a network. A socket is bound to a port number by which it can be identified. In mSL it is also bound to a specific name which we will call a handle. An endpoint is simply a combination of an IP address and a port number.
+<H4>Socket</H4>
+A socket is one endpoint of a two-way communication link between two processes running on a network. A socket is bound to a port number by which it can be identified. In mSL it is also bound to a specific name which we will call a handle. An endpoint is simply a combination of an IP address and a port number.
 
 The following is an example of an endpoint:
 
@@ -36,54 +36,63 @@ A port number is a 16-bit positive integer ranging from 0 to 65535. (2^16-1), gi
 
 Be careful not to be confused between the client and server ports. The server port is the port in which the client (you) will attempt to establish a connection; the server listens to incoming connection on this port. The client port is the port at the client's end, which are an incremental number and a much higher port number.
 
-{| class="wikitable"
-|+ Commonly Used Ports
-! Application !! Port
-|-
-|FTP || 20/21
-|-
-|SSH || 22
-|-
-|HTTP || 80
-|-
-|POP3 (Email) || 110
-|-
-|HTTP over SSL (HTTPS) || 443
-|}
+<br>
+<br>
+Commonly Used Ports
+<br>
+<br>
+<br><b>FTP</b> 20/21
+<br><b>SSH</b> 22
+<br><b>HTTP</b> 80
+<br><b>POP3 (Email)</b> 110
+<br><b>HTTP over SSL (HTTPS)</b> 443
 
-== mIRC Sockets ==
+
+<H4>mIRC Sockets</H4>
 There are two types of Internet sockets (there are actually more, but only these two types are available natively through mIRC):
 
 * Stream Sockets
 * Datagram Sockets
 
-== Stream Sockets ==
-{{main|mirc/sockets/tcp|l1=mIRC TCP Sockets}}
-'''Stream sockets''' achieve a higher level transmission quality. Stream sockets are a connection-oriented protocol. The Transmission Control Protocol, '''TCP''', does this by making sure that your data arrives in the correct order and error-free. Most applications like mIRC itself, a telnet client, and your web browser use that protocol.
+<H4>Stream Sockets</H4>
+<a href="tcp.html">TCP Sockets</a><br>
+<br>
+Stream sockets achieve a higher level transmission quality. Stream sockets are a connection-oriented protocol. The Transmission Control Protocol, TCP, does this by making sure that your data arrives in the correct order and error-free. Most applications like mIRC itself, a telnet client, and your web browser use that protocol.
 
-== Datagram Sockets ==
-{{main|mirc/sockets/udp|l1=mIRC UDP Sockets}}
-'''Datagram sockets''' on the other hand are called connectionless. You may have heard '''UDP''' or the User Datagram Protocol. The reason they are called connectionless is because they do not have to maintain an open connection as you do with stream sockets. As a consequence, data may arrive just fine, it may arrive out of order, or it might even get lost and never arrive.
+<H4>Datagram Sockets</H4>
+<a href="udp.html">UDP Sockets</a><br>
+<br>
+Datagram sockets on the other hand are called connectionless. You may have heard UDP or the User Datagram Protocol. The reason they are called connectionless is because they do not have to maintain an open connection as you do with stream sockets. As a consequence, data may arrive just fine, it may arrive out of order, or it might even get lost and never arrive.
 
 So why on earth would anyone use that you may ask? Speed, speed, and ... more speed! UDP is much faster. Your data gets the address slapped on it and gets fired away. This protocol is best suited for streaming and games where speed is the top most priority.
 
-== Summary ==
+<H4>Summary</H4>
 Below is a recap of the two socket types available:
+<br>
+<br>
+<b>TCP vs UDP</b>
+<br>
+<br>
 
-{| class="wikitable"
-|+ TCP vs UDP
-! TCP !! UDP
-|-
-| '''Goal:''' Used when reliable transport required and speed is secondary || '''Goal:''' Used when speed is required and guaranteed delivery is secondary
-|-
-| Connection-Oriented Protocol ||  Connectionless Service
-|-
-| Reliable <br />Order is guaranteed <br />No data loss || Unreliable - "best effort" delivery <br />Order is not guaranteed <br />Possible data loss
-|-
-| Decent Speed || Fast
-|}
+<br><b>TCP</b>
+<br>
+<br><b>Goal:</b> Used when reliable transport required and speed is secondary
+<br>Connection-Oriented Protocol
+<br>Reliable
+<br>Order is guaranteed
+<br>No data loss
+<br>Decent Speed
 
-== Where do we go from here? ==
+<br><b>UDP</b>
+<br>
+<br><b>Goal:</b> Used when speed is required and guaranteed delivery is secondary
+<br>Connectionless Service
+<br>Unreliable - "best effort" delivery
+<br>Order is not guaranteed
+<br>Possible data loss
+<br>Fast
+
+<H4>Where do we go from here?</H4>
 So where do you go from here? Basic on the kind of socket you are looking to work with you will have to decide whether you want <a href="tcp.html">TCP</a> or <a href="udp.html">UDP</a>.
 
 </body>

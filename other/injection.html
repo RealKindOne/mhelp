@@ -63,7 +63,7 @@ But what if we didn't have $day? what if we had something like $2? Let's conside
 
 When the correct input is provided, this script works wonderfully. For example:
 
-<pre class ="code"><Mike> !reminder 18000 jill's birthday tomorrow!
+<pre class ="code">&lt;Mike&gt; !reminder 18000 jill's birthday tomorrow!
 -Bot- [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)</pre>
 
 Indeed, /timer evaluated the parameter once: $2 is evaluated to 18000 and $3- to "jill's birthday tomorrow!"
@@ -72,7 +72,7 @@ The associated command of the timer is correctly <code>notice Mike [Reminder] ji
 
 Although this script might seem simple, let's take a look at what happens when someone provides incorrect or even malicious input as in this case:
 
-<pre class ="code"><Mike> !reminder 0 . | ns drop nick | quit hacked!
+<pre class ="code">&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
 -Bot- [Reminder] . (Set 0 seconds ago)
 * Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
 
@@ -98,14 +98,14 @@ The spacing is very important. Our new !reminder script now looks like this:
 
 Let's take a look at what happens now:
 
-<pre class ="code"><Mike> !reminder 0 . | ns drop nick | quit hacked!
+<pre class ="code">&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
 -Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)</pre>
 
 And Mike now can't do anything harmful.
 
 /timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
-The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a><br>, when evaluated once by <a href="..\commands\notice.html">/notice</a>, will produce the correct result (the original input of Mike).
+The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a>, when evaluated once by <a href="..\commands\notice.html">/notice</a>, will produce the correct result (the original input of Mike).
 
 Now you don't need to do that for any <a href="..\commands\timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
@@ -183,7 +183,7 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 /dde has the same issue and the same solution as /timer, just use $safe on the problematic parameters.
 
-== /flash ==
+<H4>/flash</H4>
 
 Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="..\commands\flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
 
@@ -193,10 +193,10 @@ So $ $+ me evaluates to "<a href="..\identifiers\me.html">$me</a>" by <a href=".
 
 The $safe solution must be used there.
 
-= Injection via $identifiers =
+<H4>Injection via $identifiers</H4>
 
-== $readini() and $read() ==
-If you have visited #mSL on swiftirc, and you had some code that used {{mIRC|$read|$read()}} or {{mIRC|$readini|$readini()}} without the n switch you would most likely had people yelling at you to always use it. But why? The reason is:
+<H4>$readini() and $read()</H4>
+If you have visited #mSL on swiftirc, and you had some code that used <a href="..\identifiers\read.html">$read</a> or <a href="..\identifiers\readini.html">$readini</a> without the n switch you would most likely had people yelling at you to always use it. But why? The reason is:
 
  '''By default BOTH $read() and $readini() treat the text in the file as code!'''
 
@@ -216,20 +216,20 @@ on !*:join:#:{
 Let's see what happens:
 
 <pre class ="code">
-<Mike> !setgreet
+&lt;Mike&gt; !setgreet
 -Bot- Syntax Error: !setgreet &lt;greet&gt;
-<Mike> !setgreet Two things are certain in life, death and taxes. - Benjamin Franklin
+&lt;Mike&gt; !setgreet Two things are certain in life, death and taxes. - Benjamin Franklin
 -Bot- [Greet] Greet Saved.
 /hop
 * Rejoined channel #foobar
 <Bot> [foobar] Two things are certain in life, death and taxes. - Benjamin Franklin
-<Mike> !setgreet Hello $findfile(C:\, *, 1, quit hacked!)
+&lt;Mike&gt; !setgreet Hello $findfile(C:\, *, 1, quit hacked!)
 -Bot- [Greet] Greet Saved.
 /hop
 * Rejoined channel #foobar
 * Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
 
-In this example Mike used the fact that {{mIRC|$findfile|$findfile()}} can execute a command when it finds a matching file. It should be clear how dangerous this can be.
+In this example Mike used the fact that <a href="..\identifiers\findfile.html">$findfile</a> can execute a command when it finds a matching file. It should be clear how dangerous this can be.
 
 So how do we fix it? Using the '''n''' option!
 
@@ -262,7 +262,7 @@ alias testsm {
 if ($1 == 1) return item : echo -ag > $!!me
 }</pre>
 
-== $calc() ==
+<H4>$calc()</H4>
 ALL unknown (in advance) input to <a href="..\identifiers\calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
 
 <pre class ="code">//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)</pre>
@@ -290,10 +290,10 @@ Like most people, this user has an on connect event to register his user and a s
 
 Let's see what Mike can do to him:
 
-<pre class ="code"><Mike> !calc 3*5+55
-<Wiz126> [Calc] 3*5+55 = 70
-<Mike> !calc %password
-<Wiz126> [Calc] %password = 123456</pre>
+<pre class ="code">&lt;Mike&gt; !calc 3*5+55
+&lt;Wiz126&gt; [Calc] 3*5+55 = 70
+&lt;Mike&gt; !calc %password
+&lt;Wiz126&gt; [Calc] %password = 123456</pre>
 
 It's clear how Mike was able to get the value of a pretty important variable.
 
@@ -324,7 +324,7 @@ Something similar can be done with $decode, but it only works if $decode(string)
 //var -s %a $remove($encode(echo 4 -a hello world,m),=) | timer 1 1 $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m)
 </pre>
 
-== $findfile $finddir $hfind $dllcall etc ==
+<H4>$findfile $finddir $hfind $dllcall etc</H4>
 
 This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It's harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it's just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
 
@@ -334,15 +334,15 @@ This category relates to identifiers who have a 'command parm' or a 'callback al
 //noop $findfile(.,*,1, echo 4 -a hello world )
 </pre>
 
-= Injection via Bugs =
+<H4>Injection via Bugs</H4>
 There are currently a few bugs in mIRC that allow for mSL injection, most in a round-a-bout fashion
 
-== $iif( (cond) /cmd, true, false ) ==
-Due to the way mIRC handles {{mIRC|$iif|$iif()}} statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
+<H4>$iif( (cond) /cmd, true, false )<H4>
+Due to the way mIRC handles <a href="..\identifiers\iif.html">$iif</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
 
 <pre class ="code">//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)</pre>
 
-The above will echo "See what I mean {{mIRC|/return|/!return 1}}", and neither the truthy or falsey statements are returned nor is the outter echo statement executed.
+The above will echo "See what I mean <a href="..\commands\return.html">/!return 1</a>", and neither the truthy or falsey statements are returned nor is the outer echo statement executed.
 This is happening because internally, <a href="..\identifiers\iif.html">$iif</a> is calling the /if construct in the following way:
 <pre class ="code"> //if (condition) !return 1 | !return 0</pre>
 which gives:
@@ -351,7 +351,7 @@ And the quirk is there, this syntax actually executes the echo command.
 
 The abuse of this is limited as the user of mIRC would either have to code the malformed $iif() statement or be tricked into issuing it from something such as the editbox. Be careful!
 
-= Injection via mIRC configuration =
+<H4>Injection via mIRC configuration</H4>
 
 You should inspect your mIRC settings for certain things which can be used to exploit you. If you check these things, you can help defend against some exploits which depend on a combination of factors, where just severing 1 link in the chain prevents the exploit.<br>
 
@@ -369,15 +369,17 @@ alias identwarntest {
 
 If you do not have identifier warning, and the above identifier is the mis-typing of an identifier which was supposed to return either "echo -a" or "notice $nick" or "msg #channel", then without identifier warning being checked, that identifier evaluates to $null, causing the remainder of the command to be executed. If the 1st word is not a valid command, mIRC sends the command to a server in case that's a valid server command, which makes it possible to leak sensitive info in some cases. By halting the script with an identifier warning, this gives a chance to fix your script.
 
-# Initialization Warning
-
+<br><b>Initialization Warning</b>
+<br>
+<br>
 This warns if the /load command or the script-editor's /file/open has loaded a script containing :START" or :LOAD: events which would execute code immediately. This still doesn't defend against scripts containing :TEXT: or other events which could be triggered *later*, and doesn't defend if /reload was used instead of /load.
 
-# Monitor File Changes
-
+<br><b>Monitor File Changes</b>
+<br>
+<br>
 This warns if a loaded script has changed without being changed by the scripts editor itself. Sometimes it can be caused by your editing scripts in a 3rd party editor such as notepad, but it could also be caused by a script using /write to alter itself or a different script.
-
-* It's possible to have a script loaded that you don't realize.
+<br>
+It's possible to have a script loaded that you don't realize.
 
 <pre class ="code">
 //write $chr(160) test | .reload -rs999 $chr(160)
@@ -389,8 +391,8 @@ This creates a file without a filetype, where the filename itself is not visible
 //var %i 1 | while ($script(%i)) { echo -a %i : $qt($nopath($script(%i))) | inc %i }
 </pre>
 
-* Restricting DCC Get filetypes.
-
+Restricting DCC Get filetypes.
+<br>
 You should view the contents of your downloads folder with suspicion if you don't know from whom you received the file. If you disable filetype blocking, you should do it temporarily, by using the "turn ignore back on in xx minutes" feature, which causes the 'disable' choice to revert back to the prior 'accept only' or 'ignore only' setting.<br>
 
 While you can either configure Options/DCC/Ignore as 'ignore only' to specify a list of filetypes to be blocked, or as 'accept only' to specify a list of the only filetypes accepted, 'ignore only' requires updating the list as new executable filetypes need to be added. It's probably better to use 'accept only', since this allows you to manage the list of the only filetypes which are accepted. You should block all executable filetypes, without expecting to be able to inspect the download folder for suspicious items.
@@ -399,7 +401,7 @@ While you can either configure Options/DCC/Ignore as 'ignore only' to specify a 
 //var %a $chr(8238) $+ piz.!wen.oediv.ezicr.exe | echo -a write %a test
 </pre>
 
-As you can see from the above command, this is a filename ending with .exe, which means it's an executible filetype. However, if your windows font is unicode-aware, and you use "/run ." to view the contents of your mirc folder, you'll see that this .exe file appears as if it's a .zip file. If someone created an .exe file containing the icon normally associated with .zip files, then renames it to this filename, and then uses DCC to send this file to you - it would appear as if it's a .zip file that's safe to click on to view the contents. This next event handler creates a log of the files you've received via DCC, and allows you to check later to see who sent an unknown file to you.
+As you can see from the above command, this is a filename ending with .exe, which means it's an executable filetype. However, if your windows font is unicode-aware, and you use "/run ." to view the contents of your mirc folder, you'll see that this .exe file appears as if it's a .zip file. If someone created an .exe file containing the icon normally associated with .zip files, then renames it to this filename, and then uses DCC to send this file to you - it would appear as if it's a .zip file that's safe to click on to view the contents. This next event handler creates a log of the files you've received via DCC, and allows you to check later to see who sent an unknown file to you.
 
 <pre class ="code">
 on *:FILERCVD:*:{
@@ -407,7 +409,7 @@ on *:FILERCVD:*:{
 }
 </pre>
 
-= Injection via server command =
+<H4>Injection via server command</H4>
 
 IRC servers accept strings containing $crlf $lf or $cr and will execute text following the line-ending as a 2nd server command using whatever permissions belong to your nick at that time.
 <pre class ="code">
@@ -421,7 +423,7 @@ This exploit cannot be achieved by responding to an ON TEXT command, because the
 
 However, this exploit can take advantage of scripts which send text to channels which can contain them. Examples could include the above examples of an evaluated command inside a $decode string, or can be accomplished by a script which messages the title/description or other content from a webpage that the attacker controls. Another method can be 'now playing' scripts which message text to channel describing information about the mp3 song that is either beginning or ending. While it's common for fields like $sound(filename.mp3).comment to contain $cr's, they generally are not displayed in channel messages. However, it's also possible for Album or Title to also contain them.
 
-In addition to executing commands to give @op privileges to someone, the malicious commands could include things like making you drop your nickserv account at some ircd's. Also, they can induce you to execute commands which have a future effect, such as adding a nick to a chanserv access list, or a command to add Mallory's certificate fingerprint to your nickserv account, which would allow them to take channel actions in the future, or to login your nickserv account any time in the future, even if you change your nickserv password. While those would almost certainly trigger a confirmation message from chanserv or nickserv, those messages often go into the status window, and would often be unseen, especially if they happened while your keyboard is unattended.
+In addition to executing commands to give @op privileges to someone, the malicious commands could include things like making you drop your NickServ account at some ircd's. Also, they can induce you to execute commands which have a future effect, such as adding a nick to a ChanServ access list, or a command to add Mallory's certificate fingerprint to your NickServ account, which would allow them to take channel actions in the future, or to login your NickServ account any time in the future, even if you change your NickServ password. While those would almost certainly trigger a confirmation message from ChanServ or NickServ, those messages often go into the status window, and would often be unseen, especially if they happened while your keyboard is unattended.
 
 To defend against such an exploit, any command sent to the server (not only a channel message) containing text that could come from a source which contains line-ending characters should be sanitized to remove/disable them.
 
