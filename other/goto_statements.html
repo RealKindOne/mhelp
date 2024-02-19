@@ -6,10 +6,10 @@
 <br>
 <br>
 <b>GOTO</b> is a command that allows you to jump unconditionally to a specific location within a procedure. Gotos can 'jump' forward or backward within a script but they may not leave the alias or event itself (they cannot jump to any calling routine as well). The goto command tells mIRC to jump to another line which matches a label.
- 
-Although in many cases the use of gotos can often lead to [[Wikipedia:spaghetti-code|spaghetti-code]]. and can usually be replaced with easier to read and follow [[While Loops - mIRC|while statements]] and [[Conditional statements - mIRC|if statements]], it is still important to understand this command and have it in your toolbox.
+<br>
+Although in many cases the use of gotos can often lead to spaghetti-code. and can usually be replaced with easier to read and follow <a href="while_loops.html">while statements</a> and <a href="conditional_statements.html">if statements</a>, it is still important to understand this command and have it in your toolbox.
 
-== Syntax ==
+<H4>Syntax</H4>
 The goto command has the following syntax:
 
 <pre class ="code">goto label</pre>
@@ -20,7 +20,7 @@ A line is labeled using the following syntax:
 
 The label has to start with the colon symbol (:) and must be a single word.</p>
 
-== Jumping ==
+<H4>Jumping</H4>
 
 There is a neat difference in the way mIRC jumps backward and the way it jumps forward.
 To get mIRC to reach a goto label that is before the current position, mIRC must has seen that goto label, for example:
@@ -64,21 +64,21 @@ goto label
 == Conditional transfer of control ==
 Many times you only want a script to go to a specific location according to a certain condition. You can use an if statement to achieve this. A simple syntax looks like this:
 
-<pre class ="code">if (<condition>) {
+<pre class ="code">if (&lt;condition&gt;) {
   goto label
 }</pre>
 
-== Goto Loops ==
+<H4>Goto Loops</H4>
 Goto statements can also be used to create a loop by jumping back to a previous location in the script. The example below is a simple loop counting from 1 to 10. If for any reason you mistakenly caused your script to execute endlessly, you manually break the loop using the Ctrl+Break keys.
 
 <pre class ="code">Alias Count {
   :loop
   var %c $calc(%c + 1)
   echo -a %c
-  if (%c <= 9) goto loop
+  if (%c &lt;= 9) goto loop
 }</pre>
 
-== Random Name Example ==
+<H4>Random Name Example</H4>
 Sometimes a goto can result in smaller code if we need a do-while style loop like other languages. A practical example of this is a random nickname generator which excludes us from the list. Such alias might look like this:
 
 <pre class ="code">; precondition: $nick($chan, 0) > 1
@@ -88,19 +88,17 @@ alias rnd {
   return $v1
 }</pre>
 
-== Error Handling ==
+<H4>Error Handling</H4>
 Although it is rare to use this feature, the "error" label is a designated goto section for error checking.
 If there is an error in the script, mIRC try to find an :error label in the current routine.
 If no :error label is found in the current routine, mIRC will propagate the error backward to any calling routine and look for an :error label in those routines.
-
-
+<br>
 This gives you the ability to continue with the script at any point regardless of the error, if you want.
-
-
+<br>
 After catching an error with :error, you must check for an error by checking $error with a typical /if statement to make sure you reached the :error part because of an error and not because the script is just reaching that point.
-
+<br>
 If you want to keep going with the code, use /reseterror as soon as possible, this reset the error (and therefore $error's value), mIRC leaves the error state and you can safely execute anything you want.
-
+<br>
 If you don't use /reseterror, you can also use /return to tell mIRC to look for a different :error label in previous routines.
 If you don't use /reseterror or /return you must be careful:
 mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can't do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
@@ -139,7 +137,7 @@ The /reseterror command effectively prevents mIRC from halting the script and al
 Alias Foo {
   echo -a $FooBar
 }
-Alias Bar { 
+Alias Bar {
   return $mid($1)
 }
 Alias FooBar {

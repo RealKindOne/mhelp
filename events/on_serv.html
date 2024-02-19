@@ -25,7 +25,7 @@ This event fills the <a href="..\identifiers\cd.html">$cd</a> identifier with th
 
 ON *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
 
-In the above example, the '''msg''' is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the {{mIRC|=$nick}} identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
+In the above example, the '''msg''' is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the <a href="..\identifiers\_nick.html">=$nick</a> identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
 
 The next example will send the user the current folder they are in if they type '''!folder''':
 <pre class ="code">; Listen for !folder on the SERV event

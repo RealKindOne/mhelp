@@ -5,11 +5,11 @@
 <H1>SendMessage</H1>
 <br>
 <br>
+The <b>SendMessage()</b> function can be used to communicate with mIRC from your external process (e.g. another program or a <a href="dll.html">dll</a>). mIRC provides a number of private Window Messages to evaluate or execute commands and identifiers.
 
-The {{Win32|SendMessage()}} function can be used to communicate with mIRC from your external [[process]] (e.g. another program or a [[dll]]). mIRC provides a number of private [[Window Messages]] to evaluate or execute commands and identifiers.
+<H4>Initializing communication</H4>
 
-== Initializing communication ==
-The external programs that send these messages must create a mapped file with the [http://msdn.microsoft.com/en-us/library/windows/desktop/aa366537%28v=vs.85%29.aspx CreateFileMapping()] function:
+The external programs that send these messages must create a mapped file with the CreateFileMapping() function: [see note below for external link]
 <pre class ="code">
  CreateFileMapping(
    _In_      HANDLE hFile,
@@ -20,7 +20,7 @@ The external programs that send these messages must create a mapped file with th
    _In_opt_  LPCTSTR lpName
  );
 </pre>
-* Use INVALID_HANDLE_VALUE for the hFile parameter, which basically allows the sytem to handle the file for us.
+* Use INVALID_HANDLE_VALUE for the hFile parameter, which basically allows the system to handle the file for us.
 * Use NULL for lpAttributes, for a default security.
 * Use PAGE_READWRITE for flProtect, to be able to read and write from/to the file.
 * Use 0 for dwMaximumSizeHigh and 4096 for dwMaximumSizeLow to indicate a file of that size
@@ -31,7 +31,7 @@ The external programs that send these messages must create a mapped file with th
 
 '''Note''': To prevent simultaneous access to the mapped file, your code must check whether the mapped file exists or not before using it. If it exists, you should assume that it is in use by another program, and should try again later.
 
-== Communicating ==
+<H4>Communicating</H4>
 
 After creating the mapped file, you need to write to that file the line mIRC will receive, see the examples to get an idea about how to write to that file.
 
@@ -70,23 +70,24 @@ SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
 
 This call returns 1 on success, 0 if it fails.
 
-== Remote Event Context ==
+<H4>Remote Event Context</H4>
 
-If during a remote event, such as on TEXT, your script calls a DLL which then uses {{Win32|SendMessage()}} to execute a command or evaluate an identifier, you can tell {{Win32|SendMessage()}} to execute in the context of that remote event.
+If during a remote event, such as on TEXT, your script calls a DLL which then uses SendMessage() to execute a command or evaluate an identifier, you can tell SendMessage() to execute in the context of that remote event.
 
 During a remote event, a <a href="..\identifiers\eventid.html">$eventid</a> identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
-
- SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
+<pre class ="code">
+SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
+</pre>
 
 This will cause the command/evaluation to execute in the context of the remote event identified by cEventId. If cEventId is 0, this indicates a non-remote event.
 
-== Extended Version Information ==
+<H4>Extended Version Information</H4>
 
 If '''cMethod''' is set to -1, you can set '''cIndex''' to:
 <br><b>-1</b> - to receive the mIRC version number.
 <br><b>-2</b> - to receive the cMethod options that are supported.
 
-== Extended Error Information ==
+<H4>Extended Error Information</H4>
 
 If cMethod is or'd with the value 16, this will make SendMessage() return more useful error values instead of just 0 for failure and 1 for success. The return values are:
 <br><b>0</b> - Success.
@@ -130,6 +131,10 @@ int main(int argc, char * argv[])
 }
 </pre>
 You must pass the handle of the main mIRC window or a valid channel, query etc window as the first parameter of the program in the command line for it to work.
+
+<H4>Notes</H4>
+
+https://msdn.microsoft.com/en-us/library/windows/desktop/aa366537%28v=vs.85%29.aspx
 
 </body>
 </html>

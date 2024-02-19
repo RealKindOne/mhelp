@@ -7,25 +7,35 @@
 <br>
 <b>Hash tables</b> is an associative array with item-data pairing. That is, data stored in the table is associated with a specific item. Logically speaking, a basic table would like something like this:
 
-{| class="wikitable"
-! Item !! Data
-|-
-|Item1 || Data1
-|-
-|Item2 || Data2
-|-
-|Item3 || Data3
-|}
+<table>
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>Item1 </td>
+<td> Data1
+</td></tr>
+<tr>
+<td>Item2 </td>
+<td> Data2
+</td></tr>
+<tr>
+<td>Item3 </td>
+<td> Data3
+</td></tr>
+</table>
+
 
 mIRC provides facilities for manipulating the table and the values in a variety of ways.
 
-== General Details ==
+<H4>General Details</H4>
 
 Hash tables, unlike INI files, are stored completely in memory and are never written to disk (unless the /hsave command is used), making them much faster when it comes to storing and retrieving information. The performance gain is much more obvious with a large amount of item/data pairs.
 
 <br><b>Note:</b>Because hash tables are only in memory, it must be saved to a disk file using /hsave if mIRC needs to have the hashtable in memory after an exit then restart. You can reload the table from a file after mIRC restarts.
 
-== Creating a table ==
+<H4>Creating a table</H4>
 
 A hash table must be created before you can work with it. This also applies to loading a hash table from a file. To create a table you need to use the /hmake command. The syntax is:
 
@@ -79,18 +89,28 @@ The -s switch is needed to "show" the action, otherwise these commands are silen
 * Added item 'Gary' to hash table 'colors'
 </pre>
 
-{| class="wikitable"
-|+ "Colors" Hash Table
-! Item !! Data
-|-
-|Mary || Green
-|-
-|John || Blue
-|-
-|Lisa || Red
-|-
-|Gary || Orange
-|}
+<table>
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>Mary </td>
+<td> Green
+</td></tr>
+<tr>
+<td>John </td>
+<td> Blue
+</td></tr>
+<tr>
+<td>Lisa </td>
+<td> Red
+</td></tr>
+<tr>
+<td>Gary </td>
+<td> Orange
+</td></tr>
+</table>
 
 If you add an item name which already exists in the table, the new data replaces the existing item's data.
 
@@ -168,16 +188,24 @@ If the -w switch is used, a <a href="..\other\wildcard.html">wildcard</a> patter
 <pre class = "code">/hdel -s colors Lisa</pre>
 Will leave our table looking like this:
 
-{| class="wikitable"
-|+ "Colors" Hash Table
-! Item !! Data
-|-
-|Mary || Green
-|-
-|John || Blue
-|-
-|Gary || Orange
-|}
+<table>
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>Mary </td>
+<td> Green
+</td></tr>
+<tr>
+<td>John </td>
+<td> Blue
+</td></tr>
+<tr>
+<td>Gary </td>
+<td> Orange
+</td></tr>
+</table>
 
 But we can add Lisa again:
 
@@ -267,7 +295,7 @@ Which will return "Mary". because Mary appeared before Gary in the iteration lis
 
 '''Note 2:''' Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="..\identifiers\hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
 
-== Technical Explanation ==
+<H4>Technical Explanation</H4>
 mIRC's hash tables are implemented as follows.
 
 # When you create a hash table, it is created with a defined number of "slots" (or "buckets").
@@ -434,7 +462,6 @@ The FNV1a hash is performed against the upper-case string of the hash name, allo
 That means that it's possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
 
 <H4>See Also</H4>
-More detailed information can be found at the pages for each hashtable-related command and identifier.
 <a href="..\commands\hmake.html">/hmake</a><br>
 <a href="..\commands\hfree.html">/hfree</a><br>
 <a href="..\commands\hload.html">/hload</a><br>

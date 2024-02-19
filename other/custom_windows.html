@@ -50,7 +50,7 @@ The following commands can be used to add, modify, delete, insert, or replace th
 <br><b>Change color of a line</b> - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default. <pre class ="code">/cline [-rm] [color] &lt;@name&gt; &lt;N&gt;</pre>
 <br><b>Select a line</b> - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line. <pre class ="code">/sline [color] &lt;@name&gt; &lt;N&gt;</pre>
 
-== Customizing the window ==
+<H4>Customizing the window</H4>
 The titlebar command can be used to change the window's title.
 
 <pre class ="code">/titlebar @window &lt;text&gt;</pre>
@@ -58,7 +58,8 @@ The titlebar command can be used to change the window's title.
 
 <pre class ="code">/renwin &lt;@oldname&gt; &lt;@newname&gt; [topic]</pre>
 
-== Custom Window's Menu ==
+<a name="custom_windows_menu"></a>
+<H4>Custom Window's Menu</H4>
 You can also create a customized right click menu for the window, this can be done using one of the two ways:
 
   <ol>
@@ -76,7 +77,7 @@ The first option is using a popup file. This method is very much like the popups
   <event>: /commands
 }</pre>
 
-There are 8 possible built-in events; however, only 3 of them pertain to regular custom windows (the rest can only be used in a {{mIRC|Picture Windows#Mouse Events|Picture Window}}.
+There are 8 possible built-in events; however, only 3 of them pertain to regular custom windows (the rest can only be used in a <a href="picture_windows.html#mouse_event">Picture window</a>.
 
 <br><b>dclick</b> - Triggers when a mouse has double clicked on the window.
 <br><b>rclick</b> - Triggers when a mouse right clicked on the window.

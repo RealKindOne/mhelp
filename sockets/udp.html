@@ -5,11 +5,11 @@
 <H1>UDP Sockets</H1>
 <br>
 <br>
-mIRC has built-in support for UDP Sockets. This tutorial is the '''UDP Sockets''' continuation of the {{mIRC|sockets|Sockets (Intro) tutorial}}. If you haven't read that, please do so first before moving on to this one.
+mIRC has built-in support for UDP Sockets. This tutorial is the UDP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one.
 
 Recall that UDP is a connectionless protocol service. Because of this there are no on sockopen/sockread/sockclose events for the different stages like TCP. The basic idea is you send a message and quit, or you send a message and wait for response.
 
-== Sending A Packet ==
+<H4>Sending A Packet</H4>
 The /sockudp command allows you to send data to a specific address at a specific port destination. The syntax is:
 
 <pre class ="code">; Sending some data
@@ -19,14 +19,14 @@ By default, /sockudp sends the entire data specified. The -b switch can be used 
 
 If you are expecting some data back, the -k switch can be used to force the UDP socket to remain open. This will allow you to listen to incoming data.
 
-== Listening for Incoming Data ==
+<H4>Listening for Incoming Data</H4>
 If you are expecting data back (I.E. if you specified the -k switch) you can listen for incoming data via the on udpread event.
 
 <pre class ="code">on *:udpread:&lt;handle&gt;:{
    ; your code goes here
 }</pre>
 
-== Socket Failure and More Data Sending ==
+<H4>Socket Failure and More Data Sending</H4>
 
 The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger $sockerr set to a non-zero value.
 
