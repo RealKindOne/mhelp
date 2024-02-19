@@ -873,10 +873,12 @@ other\custom_windows.html
 other\dll.html
 other\eval_brackets.html
 other\file_handling.html
+other\goto_statements.html
 other\hash_tables.html
 other\ini_files.html
 other\injection.html
 other\local_identifiers.html
+other\operations.html
 other\picture_windows.html
 other\playing_music.html
 other\raw_events.html
@@ -887,6 +889,7 @@ other\text_files.html
 other\token.html
 other\unicode.html
 other\variables.html
+other\while_loops.html
 other\wildcard.html
 sockets\sockets.html
 sockets\tcp.html

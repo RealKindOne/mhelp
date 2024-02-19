@@ -1,0 +1,155 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>Goto Statements</title></head>
+<H1>Goto Statements</H1>
+<br>
+<br>
+<b>GOTO</b> is a command that allows you to jump unconditionally to a specific location within a procedure. Gotos can 'jump' forward or backward within a script but they may not leave the alias or event itself (they cannot jump to any calling routine as well). The goto command tells mIRC to jump to another line which matches a label.
+ 
+Although in many cases the use of gotos can often lead to [[Wikipedia:spaghetti-code|spaghetti-code]]. and can usually be replaced with easier to read and follow [[While Loops - mIRC|while statements]] and [[Conditional statements - mIRC|if statements]], it is still important to understand this command and have it in your toolbox.
+
+== Syntax ==
+The goto command has the following syntax:
+
+<pre class ="code">goto label</pre>
+
+A line is labeled using the following syntax:
+
+<pre class ="code">label</pre>
+
+The label has to start with the colon symbol (:) and must be a single word.</p>
+
+== Jumping ==
+
+There is a neat difference in the way mIRC jumps backward and the way it jumps forward.
+To get mIRC to reach a goto label that is before the current position, mIRC must has seen that goto label, for example:
+<pre class ="code">
+alias test {
+if (a == b) {
+  :label
+}
+goto label
+}
+</pre>
+displays "* /goto: 'label' not found (line N, script.mrc)"
+since the condition does not get executed, the goto label is not seen by mIRC.
+
+Change the code to:
+<pre class ="code">
+alias test {
+if (a == a) {
+  :label
+  inc -us %test
+if (%test == 2) return
+}
+goto label
+}
+</pre>
+Now the goto is seen by mIRC and you should see %test being increased to 1 and then to 2.
+
+To get mIRC to jump to a goto label that is after the current position, this is less strict: mIRC parse the code without executing it, which means it is basically parsing the code according to major rules defining the language, the '{', '}', '|' and newlines tokens. so considering the following:
+<pre class ="code">
+alias test {
+goto label
+if (a == b) {
+  :label
+  inc -us %test
+if (%test == 2) return
+}
+goto label
+}
+</pre>The first /goto label statement gets mIRC to parse the rest as token, probably just words, and :label is found despite the if statement being false, %test is increased to 1 and then to 2, proving that the label is found from the first time with the first goto label (forward jump) and then backward since the label was found the first time.
+
+== Conditional transfer of control ==
+Many times you only want a script to go to a specific location according to a certain condition. You can use an if statement to achieve this. A simple syntax looks like this:
+
+<pre class ="code">if (<condition>) {
+  goto label
+}</pre>
+
+== Goto Loops ==
+Goto statements can also be used to create a loop by jumping back to a previous location in the script. The example below is a simple loop counting from 1 to 10. If for any reason you mistakenly caused your script to execute endlessly, you manually break the loop using the Ctrl+Break keys.
+
+<pre class ="code">Alias Count {
+  :loop
+  var %c $calc(%c + 1)
+  echo -a %c
+  if (%c <= 9) goto loop
+}</pre>
+
+== Random Name Example ==
+Sometimes a goto can result in smaller code if we need a do-while style loop like other languages. A practical example of this is a random nickname generator which excludes us from the list. Such alias might look like this:
+
+<pre class ="code">; precondition: $nick($chan, 0) > 1
+alias rnd {
+  :retry
+  if ($nick($chan, $rand(1, $nick($chan, 0))) == $me) goto retry
+  return $v1
+}</pre>
+
+== Error Handling ==
+Although it is rare to use this feature, the "error" label is a designated goto section for error checking.
+If there is an error in the script, mIRC try to find an :error label in the current routine.
+If no :error label is found in the current routine, mIRC will propagate the error backward to any calling routine and look for an :error label in those routines.
+
+
+This gives you the ability to continue with the script at any point regardless of the error, if you want.
+
+
+After catching an error with :error, you must check for an error by checking $error with a typical /if statement to make sure you reached the :error part because of an error and not because the script is just reaching that point.
+
+If you want to keep going with the code, use /reseterror as soon as possible, this reset the error (and therefore $error's value), mIRC leaves the error state and you can safely execute anything you want.
+
+If you don't use /reseterror, you can also use /return to tell mIRC to look for a different :error label in previous routines.
+If you don't use /reseterror or /return you must be careful:
+mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can't do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
+
+<pre class ="code">
+/*  EXAMPLE 1
+    This typical example shows that after reaching :error and without using /reseterror, /echo itself works, but see the next example, a lot of simple operation might be done there.
+    Since we don't halt or reset the error, mIRC will display both our echo and its own error for $rand.
+ */
+Alias Example {
+  echo -a $rand(1,)
+  return
+  :error
+  echo -a Error: $error
+}
+/* EXAMPLE 2
+   In this case, we try to execute /echo again after a /if error, but on $regsubex, for some reasons, that $regsubex gets mIRC to silentely halts while inside a routine.
+   You should get the first echo 'ok' and an echo '> $str(ab,2000)' is expected, but you shouldn't see it.
+   Use /reseterror first and it works as expected.
+*/
+alias testgoto {
+  if
+  :error
+  echo -a ok | echo -a > $regsubex($str(ab,2000),/(a*)b*(a*)*b/,)
+}
+/* EXAMPLE 3
+Although this example might look a little confusing, bear with me:
+Calling alias /Foo will echo what alias FooBar returns.
+Alias foobar will return what alias bar returns.
+Because alias bar errors out (since $mid is missing a few parameters), mIRC will look for an :error label in alias Bar but won't find any.
+So it will look in the previous routine, the alias FooBar. an :error label is found in the alias FooBar.
+It is executed, echoing Error followed by the error message and returning 1000 to alias foo.
+The /reseterror command effectively prevents mIRC from halting the script and allows it to finish executing.
+*/
+
+Alias Foo {
+  echo -a $FooBar
+}
+Alias Bar { 
+  return $mid($1)
+}
+Alias FooBar {
+  return $Bar(Example)
+  :error
+  echo -a Error Using Value 1000 instead! ( $+ $error $+ )
+  reseterror
+  return 1000
+}
+</pre>
+
+</body>
+</html>
