@@ -55,6 +55,9 @@ commands\clearial.html
 commands\cline.html
 commands\clipboard.html
 commands\close.html
+commands\closechats.html
+commands\closedccs.html
+commands\closefserves.html
 commands\closemsg.html
 commands\commands.html
 commands\cnick.html
@@ -281,6 +284,7 @@ commands\vnotice.html
 commands\vol.html
 commands\wallchops.html
 commands\wallvoices.html
+commands\wavplay.html
 commands\while.html
 commands\window.html
 commands\winhelp.html
