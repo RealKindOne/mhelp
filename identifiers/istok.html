@@ -11,37 +11,41 @@ The <b>$istok</b> identifier returns $true if a matching token exists, or $false
 <pre class ="code">
 $istok(&lt;list&gt;,&lt;token&gt;,&lt;C&gt;)
 </pre>
-<H4>Parameters</H4>
-<br><b>LIST</b> - Text list delimited by a character into tokens<br />
-'''Token:''' - The token searched for in LIST<br />
-<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 
-The search is for entire token, not partials, and the search is NOT case-sensitive. If you need the token search to be case-sensitive, use {{mIRC|$istokcs|$istokcs}} which has the same syntax}}
+<H4>Parameters</H4>
+<b>LIST</b> - Text list delimited by a character into tokens
+<br><b>Token:</b> - The token searched for in LIST
+<br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens
+
+The search is for entire token, not partials, and the search is NOT case-sensitive. If you need the token search to be case-sensitive, use <a href="istokcs.html">$istokcs</a> which has the same syntax
 
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
+If this alias is executed in the <a href="..\events\on_Connect.html">on_Connect</a><br> and <a href="..\events\on_Disconnect.html">on_Disconnect</a><br> events, this triggers on BOTH events because {{mIRC|isin|isin}} matches on CONNECT being a substring of DISCONNECT. Better is.
+<pre class ="code">
 //if ($event isin DISCONNECT JOIN) goto LABEL
-
-If this alias is executed in the <a href="..\events\on_Connect.html">on_Connect</a><br> and <a href="..\events\on_Disconnect.html">on_Disconnect</a><br> events, this triggers on BOTH events because {{mIRC|isin|isin}} matches on CONNECT being a substring of DISCONNECT. Better is:
+</pre>
+Searches for exact match of the value of the $event string against the tokens in the space-delimited list of tokens
+<pre class ="code">
 //if ($istok(CONNECT JOIN,$event,32)) goto LABEL
-; searches for exact match of the value of the $event string against the tokens in the space-delimited list of tokens.
-
-
+</pre>
+Returns false because $istok does not match the substring xls against the token xlsx
+<pre class ="code">
 //var %filename spreadsheet.xls | var %filetype $gettok($noqt(%filename),-1,46) | echo -a %filetype $istok(xlsx xlsm,%filetype,32)
-; returns false because $istok does not match the substring xls against the token xlsx
-
-
+</pre>
+Returns $true because match is case-insensitive
+<pre class ="code">
 //echo -a $asctime($ctime,dddd) $istok(SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY,$asctime($ctime,dddd),32)
-; returns $true because match is case-insensitive
-
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="addtok.html">$addtok</a><br>
 <a href="deltok.html">$deltok</a><br>

@@ -7,9 +7,124 @@
 <br>
 Dialog Components are individual <a href="dialog.html">dialogs</a> elements that can be added onto the main dialog window. Below is a list of all the natively provided dialog components in mIRC.
 
+<br>
+<br>
+
+<table border="0" cellpadding="0" cellspacing="25px" style="background: rgba(0,0,0,.01); border-radius: 6px; box-shadow: 0 0 7px rgba(0,0,0,.17); margin: 0 auto;">
+<tr style="color: rgba(0,0,0,.65);">
+<th>Button</th>
+<th>Check</th>
+<th>Toggle</th>
+<th>Text</th>
+</tr>
+<tr>
+<td>
+<div class="center">
+<a href="#Button" title="#Button">
+<img src="..\images\dialog_button_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Check" title="#Check">
+<img src="..\images\dialog_check_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Toggle" title="#Toggle">
+<img src="..\images\dialog_toggle_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center"><a href="#Text" title="#Text">
+<img src="..\images\dialog_text_example.png"></a>
+</div>
+</td>
+</tr>
+<tr style="color: rgba(0,0,0,.65);">
+<th>Group Box</th>
+<th>Icon</th>
+<th>Edit</th>
+<th>Scroll</th>
+</tr>
+<tr>
+<td>
+<div class="center">
+<a href="#Group_Box" title="#Group Box">
+<img src="..\images\dialog_group_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Icon" title="#Icon">
+<img src="..\images\dialog_image_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Edit" title="#Edit">
+  <img src="..\images\dialog_text_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Scroll" title="#Scroll">
+<img src="..\images\dialog_scroll_example.png"></a>
+</div>
+</td>
+</tr>
+<tr style="color: rgba(0,0,0,.65);">
+<th>Link</th>
+<th>Menu</th>
+<th>Radio</th>
+<th>Tab</th>
+</tr>
+<tr>
+<td>
+<div class="center">
+<a href="#Link" title="#Link"><img src="..\images\dialog_link_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Menu" title="#Menu"><img src="..\images\dialog_menu_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Radio" title="#Radio"><img src="..\images\dialog_radio_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Tab" title="#Tab"><img src="..\images\dialog_tab_example.png"></a>
+</div>
+</td></tr>
+<tr style="color: rgba(0,0,0,.65);">
+<th>List</th>
+<th>Combo</th>
+</tr>
+<tr>
+<td>
+<div class="center">
+<a href="#List" title="#List">
+<img src="..\images\dialog_list_example.png"></a>
+</div>
+</td>
+<td>
+<div class="center">
+<a href="#Combo" title="#Combo">
+<img src="..\images\dialog_combo_example.png"></a>
+</div>
+</td>
+</tr>
+</table>
+
+
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Button"></a>
 <H2>Button</H2>
 The button control is a user interface control that responds to click events.
 
@@ -84,7 +199,7 @@ on *:dialog:example:sclick:1-4:{
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Check"></a>
 <H2>Check</H2>
 The checkbox control is a user interface element that permits the user to select or deselect an option. The checkbox control is a combination of a check box and a label. The mIRC check control has three states: Checked, Unchecked, and Indeterminate.
 
@@ -177,7 +292,7 @@ alias -l dstate {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Text"></a>
 <H2>Text</H2>
 
 <H4>Styles</H4>
@@ -251,7 +366,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Group_Box"></a>
 <H2>Group Box</H2>
 This is a static control with a group box frame and an optional title that shows up at the top of the frame.
 
@@ -324,7 +439,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Icon"></a>
 <H2>Icon</H2>
 An icon control is a simple container that holds images and icons.
 
@@ -405,7 +520,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Edit"></a>
 <H2>Edit</H2>
 The edit control can behave as a normal text box as well as a rich text control.
 
@@ -502,7 +617,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Scroll"></a>
 <H2>Scroll</H2>
 A scrollbar is a simple dialog component that can be used to scroll something. A scrollbar operates within a given range.
 
@@ -576,7 +691,7 @@ on *:dialog:example:scroll:2:{
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Link"></a>
 <H2>Link</H2>
 A link control, just like a label, is a static control with the additional behavior that, when you put your mouse over the control, the cursor because a little hand, indicating you can interact with that link, usually to open an URL.
 
@@ -646,7 +761,7 @@ on *:dialog:example:sclick:1: url -a $did(example,$did)</pre>
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Menu"></a>
 <H2>Menu</H2>
 A menu control that allows a hierarchical organization of elements called menu items.
 
@@ -721,7 +836,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Radio"></a>
 <H2>Radio</H2>
 Radio buttons are a group of controls that can be configured to only allow the user to choose one of a predefined set of options.
 
@@ -814,7 +929,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Tab"></a>
 <H2>Tab</H2>
 A tab control is a container component capable of holding all of the other components. A tab control can have multiple tabs, and each tab can store another set of controls.
 
@@ -839,7 +954,7 @@ To add a control to a tab item, specify the "tab &lt;id&gt;" style for the contr
 <b>/did</b>
 <br>
 
-<br><b>-f</b>u - sets focus on the tab
+<br><b>-f</b> - sets focus on the tab
 <br><b>-e</b> - enables the tab
 <br><b>-b</b> - disables the tab
 <br><b>-v</b> - makes the tab visible
@@ -899,7 +1014,7 @@ dialog Example {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="List"></a>
 <H2>List</H2>
 The list control provides a way to display a list of items.
 
@@ -1003,7 +1118,7 @@ on 1:dialog:example:init:*: {
 
 <!-- --------------------------------------------------------------------- -->
 
-
+<a name="Combo"></a>
 <H2>Combo</H2>
 The combo control provides a way to choose an item from a selection of items in either a list, or from a drop-down fashion selection box.
 
@@ -1044,8 +1159,9 @@ The combo control provides a way to choose an item from a selection of items in 
 
 <b>$did</b>
 <br>
-
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
+</pre>
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 

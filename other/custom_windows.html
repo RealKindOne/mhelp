@@ -43,12 +43,12 @@ The code above will create a desktop window with an editbox and a side-listbox.
 == Text Operations ==
 The following commands can be used to add, modify, delete, insert, or replace the lines in the chatbox or the side-listbox:
 
-* '''Add a line''' - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/aline [-ni] [color] &lt;@name&gt; &lt;text&gt;</pre>
-* '''Delete a line''' - This command is used to delete the Nth line from the window. The N2 line can be specified to give a range of line ex: 4-7 will delete line 4, 5, 6, and 7. <pre class ="code">/dline [color] &lt;@name&gt; &lt;N[-N2]&gt;</pre>
-* '''Insert a line''' - This command allows you to add a line of text after the Nth line. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/iline [-ni] [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
-* '''Replace a line''' - This command is used to replace the Nth line of a window with another line. The [color] is the color number for the line. <pre class ="code">/rline [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
-* '''Change color of a line''' - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default. <pre class ="code">/cline [-rm] [color] &lt;@name&gt; &lt;N&gt;</pre>
-* '''Select a line''' - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line. <pre class ="code">/sline [color] &lt;@name&gt; &lt;N&gt;</pre>
+<br><b>Add a line</b> - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/aline [-ni] [color] &lt;@name&gt; &lt;text&gt;</pre>
+<br><b>Delete a line</b> - This command is used to delete the Nth line from the window. The N2 line can be specified to give a range of line ex: 4-7 will delete line 4, 5, 6, and 7. <pre class ="code">/dline [color] &lt;@name&gt; &lt;N[-N2]&gt;</pre>
+<br><b>Insert a line</b> - This command allows you to add a line of text after the Nth line. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/iline [-ni] [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
+<br><b>Replace a line</b> - This command is used to replace the Nth line of a window with another line. The [color] is the color number for the line. <pre class ="code">/rline [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
+<br><b>Change color of a line</b> - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default. <pre class ="code">/cline [-rm] [color] &lt;@name&gt; &lt;N&gt;</pre>
+<br><b>Select a line</b> - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line. <pre class ="code">/sline [color] &lt;@name&gt; &lt;N&gt;</pre>
 
 == Customizing the window ==
 The titlebar command can be used to change the window's title.
@@ -78,9 +78,9 @@ The first option is using a popup file. This method is very much like the popups
 
 There are 8 possible built-in events; however, only 3 of them pertain to regular custom windows (the rest can only be used in a {{mIRC|Picture Windows#Mouse Events|Picture Window}}.
 
-* '''dclick''' - Triggers when a mouse has double clicked on the window.
-* '''rclick''' - Triggers when a mouse right clicked on the window.
-* '''lbclick''' - Triggers when an item from the side-listbox was clicked.
+<br><b>dclick</b> - Triggers when a mouse has double clicked on the window.
+<br><b>rclick</b> - Triggers when a mouse right clicked on the window.
+<br><b>lbclick</b> - Triggers when an item from the side-listbox was clicked.
 
 In addition to built-in events, you can also add your own custom menu items.
 

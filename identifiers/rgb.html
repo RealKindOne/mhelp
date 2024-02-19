@@ -13,27 +13,27 @@ The <b>$rgb</b> identifier converts between R,G,B vs color-number, or returns sy
 $rgb(&lt;R,G,B&gt; | &lt;N&gt; | &lt;SystemColorName&gt; )
 </pre>
 <H4>Parameters</H4>
-;Method#1 - Converting R,G,B to single RGB Color Number
-{{ArgsList
+
+<b>Method 1</b> - Converting R,G,B to single RGB Color Number
+<br>
 <br><b>R</b> - Red Color intensity from 0-255
 <br><b>G</b> - Green Color intensity from 0-255
 <br><b>B</b> - Blue Color intensity from 0-255
-}}
-;Method#2 - Converting Color Number to R,G,B
-{{ArgsList
-| N | Decimal RGB Color Number from 0 through 2^24-1
-}}
-;Method#3 - Return RGB Color Number for System Color Settings
-{{ArgsList
-| SystemColorName | Must be a name from the following list: face, shadow, hilight, 3dlight, frame, and text, and returns an RGB color value.
-}}
+<br>
+<br>
+<b>Method 2</b> - Converting Color Number to R,G,B
+<br>
+<br><b>N</b> - Decimal RGB Color Number from 0 through 2^24-1
+<br>
+<br>
+<b>Method 3</b> - Return RGB Color Number for System Color Settings
+<br>
+<br><b>SystemColorName</b> - Must be a name from the following list: face, shadow, hilight, 3dlight, frame, and text, and returns an RGB color value.
 
 <H4>Properties</H4>
-
 None
 
 <H4>Example</H4>
-
 <pre class ="code">
 //echo -a The RGB color number for #7 (olive) is $color(7) with R,G,B values $rgb($color(7))
 ; The RGB color number for #7 (olive) is 32764 with R,G,B values 252,127,0

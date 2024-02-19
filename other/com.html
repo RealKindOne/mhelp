@@ -8,7 +8,7 @@
 Component Object Model (COM) is a specification for applications (like exe and dll files) to make their functionality available to any COM-compliant application. The applications interact with each other through a collection of functions called interfaces. The advantages of COM objects are that they are object-oriented, customizable, modular, upgradeable, and language-independent. Regardless of in which language they were programmed, any other language/script that supports the COM specification will be able to use it. mSL offers a variety of commands and identifiers to handle COM objects.
 
 <H4>Com objects</H4>
-A '''COM object''' is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or '''ProgID'''.
+A COM object is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or '''ProgID'''.
 
 Some examples of COM object with their ProgIDs:
 * iTunes.Application - an interface that lets you interact with the iTunes application
@@ -55,33 +55,20 @@ Object's '''Members''' are all the methods and properties that are provided by t
 
 === Invoke method ===
 The invocation method is the way the invocation should be applied. Some members of the object require that they just be called, others might return a value. Sometimes we might need to set some kind of a property by either a value or by reference. Below is a list of possible methods:
-
-{| class="wikitable"
-|-
-! Value !! Method
-|-
-| 1 || Call a member of an object
-|-
-| 2 || Return a value
-|-
-| 3 || (1+2) Call a member and return a value *
-|-
-| 4 || Set a property
-|-
-| 5 || (1+4) Set a property with a member call *
-|-
-| 6 || (2+4) Set a property and return a value *
-|-
-| 7 || (1+2+4) Set a property and return a value with a member call *
-|-
-| 8 || Set a property by reference
-|-
-| 9 || (1+8) Set a property by reference with a member call *
-|-
-| 10 || (2+8) Set a property by reference and return a value *
-|}
-
-* These methods with an * are the result of a combination of multiple methods using the four basic methods (1, 2, 4, and 8). For example 5 = 1 + 4, set a property with a member call. Other combinations not included in the table above are possible.
+<br>
+<br><b>1</b> - Call a member of an object
+<br><b>2</b> - Return a value
+<br><b>3</b> - (1+2) Call a member and return a value *
+<br><b>4</b> - Set a property
+<br><b>5</b> - (1+4) Set a property with a member call *
+<br><b>6</b> - (2+4) Set a property and return a value *
+<br><b>7</b> - (1+2+4) Set a property and return a value with a member call *
+<br><b>8</b> - Set a property by reference
+<br><b>9</b> - (1+8) Set a property by reference with a member call *
+<br><b>10</b> - (2+8) Set a property by reference and return a value *
+<br>
+<br>
+These methods with an * are the result of a combination of multiple methods using the four basic methods (1, 2, 4, and 8). For example 5 = 1 + 4, set a property with a member call. Other combinations not included in the table above are possible.
 
 === Variable Type ===
 Unlike mSL, COM objects must have a data type for every value. For example, if we want to invoke a method that takes an integer value, we have to use the int data type. Below is a list of possible variable data types.

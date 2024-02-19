@@ -49,7 +49,7 @@ $v1 is filled with 2 (the 1st term of the C condition) and $v2 is filled with 1 
 Note: see the <a href="..\other\injection.html">injection</a><br> page for explanation/examples of how malformed $iif syntax can trick users into executing code from the editbox. This next example causes you to perform the /QUIT command if you remove the 'echo -a' from it:
 
 <pre class ="code">
-//echo -a $iif(($regsubex(dim[int:x];for[x=0:20:3]x*TAN-1<<DEG[]<<SQ[],/[^A1NT]/g,)) echo -a $base($v1, 34, 35) I accidentally math, I math right! )
+//echo -a $iif(($regsubex(dim[int:x];for[x=0:20:3]x*TAN-1&lt;&;lt;DEG[]&lt;&lt;SQ[],/[^A1NT]/g,)) echo -a $base($v1, 34, 35) I accidentally math, I math right! )
 </pre>
 
 Note: $iif is a relatively slow identifier, and in some situations it can benchmark faster to replace it with a /set and an /if command pair.
@@ -62,8 +62,11 @@ if ($rand(0,1)) var %a True
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.4 (23 Jun 1998)}<H4>Notes</H4>
+Added: mIRC v5.4 (23 Jun 1998)
+
+<H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 <a href="..\commands\if.html">/if</a><br>
