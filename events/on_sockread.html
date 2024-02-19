@@ -21,8 +21,8 @@ The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the spe
 
 It's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
 
-* '''0''' - Data received correctly.
-* '''3''' - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.
+<br><b>0</b> - Data received correctly.
+<br><b>3</b> - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.
 
 <H4>Example</H4>
 

@@ -19,8 +19,8 @@ The <b>ON SOCKWRITE</b> event triggers when data has been sent on a socket, even
 
 It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a><br> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
 
-* '''0''' - The data has been written successfuly.
-* '''3''' - Error occurred while trying to send the data, $sock($sockname).wsmsg will contain a more specific error message.
+<br><b>0</b> - The data has been written successfully.
+<br><b>3</b> - Error occurred while trying to send the data, $sock($sockname).wsmsg will contain a more specific error message.
 
 <H4>Example</H4>
 
@@ -57,7 +57,7 @@ The length of the data to be sent would be unknown, to make the script very well
 
 We are naturally not using a single line otherwise our limit would be of the line length limit of mIRC (4150 bytes).
 
-The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use {{mIRC|File handling}}. After {{mIRC|/fopen|/fopening}} the file, use <a href="..\identifiers\fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
+The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use <a href="..\other\file_handling.html">file handling</a>. After <a href="..\commands\fopen.html">/fopen</a>'ing the file, use <a href="..\identifiers\fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
 
 <pre class ="code">
 ;When you are about to send

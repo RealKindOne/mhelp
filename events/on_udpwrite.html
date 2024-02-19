@@ -19,8 +19,8 @@ The <b>ON UDPWRITE</b> is an event which was added in mIRC with UDP, but never h
 
 It is possible that the data hasn't sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on UDPWRITE event:
 
-* '''0''' - The data has been written sucessfuly.
-* '''3''' - Error occurred while trying to send the data, $sock().wsmsg will contain a more specific error message.
+<br><b>0</b> - The data has been written successfully.
+<br><b>3</b> - Error occurred while trying to send the data, $sock().wsmsg will contain a more specific error message.
 
 <H4>Example</H4>
 
@@ -32,10 +32,11 @@ on *:udpwrite:name:{
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
+<br>
+Removed: mIRC v7.33 (27 May 2014)
 
-Removed: mIRC v7.33
-
-Removed On:27/05/2014
+<H4>Notes</H4>
+None
 
 <H4>See also</H4>
 

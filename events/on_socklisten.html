@@ -25,10 +25,10 @@ You can use /sockaccept &lt;newsocket&gt; to accept a socket, mIRC create the ne
 
 You should be checking for $sockerr before accepting the connection to see if an error occurred, here is a list of the possible value for $sockerr in the on SOCKLISTEN event:
 
-* '''0''' - New socket successfuly accepted.
-* '''1''' - Error occurred on listening socket, $sock().wsmsg will contain a more specific error message. Note that getting this error is considered rare.
-* '''2''' - Error accepting new socket, $sock().wsmsg will contain a more specific error message.
-* '''4''' - Not enough memory for new socket. Note that getting this error is considered rare.
+<br><b>0</b> - New socket successfully accepted.
+<br><b>1</b> - Error occurred on listening socket, $sock().wsmsg will contain a more specific error message. Note that getting this error is considered rare.
+<br><b>2</b> - Error accepting new socket, $sock().wsmsg will contain a more specific error message.
+<br><b>4</b> - Not enough memory for new socket. Note that getting this error is considered rare.
 
 <H4>Example</H4>
 
