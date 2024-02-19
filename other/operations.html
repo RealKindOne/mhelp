@@ -7,43 +7,62 @@
 <br>
 By now, you should have a pretty good idea of what variables are and how to use them. Now, all you need to be able to do is operate on them. That's exactly what mIRC Operators lets you do. Operators are special symbols or keywords that perform specific operations on two or three operands in mIRC.
 
-== Operators ==
+<H4>Operators</H4>
 mIRC provides the following types of operators:
+<br>
+<br>Arithmetic Operators
+<br>Math Comparison Operators
+<br>String Comparison Operators
+<br>Lexicographical String Comparison Operators
+<br>Logical Operators
+<br>Channel-related Operators
+<br>List-related Operators
 
-<br>* Arithmetic Operators
-<br>* Math Comparison Operators
-<br>* String Comparison Operators
-<br>* Lexicographical String Comparison Operators
-<br>* Logical Operators
-<br>* Channel-related Operators
-<br>* List-related Operators
-
-=== Arithmetic Operators ===
+<H4>Arithmetic Operators</H4>
 mIRC supports the following arithmetic operators:
 
-{| class="wikitable"
-! Operator !! Syntax
-|-
-| Addition || a + b
-|-
-| Subtraction || a - b
-|-
-| Multiplication || a * b
-|-
-| Division || a / b
-|-
-| Modulo || a % b
-|-
-| Power || a ^ b
-|-
-| Bitwise AND || a & b
-|-
-| Floor division (does not work with /set and /var) || a // b
-|}
+<table>
+<tr>
+<th>Operator</th>
+<th>Syntax</th>
+</tr>
+<tr>
+<td>Addition</td>
+<td>a + b</td>
+</tr>
+<td>Subtraction</td>
+<td>a - b</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>a * b</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>a / b</td>
+</tr>
+<tr>
+<td>Modulo</td>
+<td>a % b</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>a ^ b</td>
+</tr>
+<tr>
+<td>Bitwise AND</td>
+<td>a & b</td>
+</tr>
+<tr>
+<td>Floor division (does not work with /set and /var)</td>
+<td>a // b</td>
+</tr>
+</table>
 
-They can be used in conjunction with the {{mIRC|/var}} or {{mIRC|/set}} commands as well as using the {{mIRC|$calc}} Identifier. One special feature of the {{mIRC|$calc}} identifier over the {{mIRC|/var}} and {{mIRC|/set}} commands is that it supports combination of operators as well as parenthesis to be able to change the order of operations.
 
-<syntaxhighlight lang="mirc">alias example {
+They can be used in conjunction with the <a href="..\commands\var.html">/var</a> or <a href="..\commands\set.html">/set</a> commands as well as using the <a href="..\identifiers\calc.html">$calc</a> Identifier. One special feature of the <a href="..\identifiers\calc.html">$calc</a> identifier over the <a href="..\commands\var.html">/var</a> and <a href="..\commands\set.html">/set</a> commands is that it supports combination of operators as well as parenthesis to be able to change the order of operations.
+
+<pre class ="code">alias example {
   var %x = 5
   ;5 * 5 = 25
   %x = %x * 5
@@ -56,35 +75,76 @@ They can be used in conjunction with the {{mIRC|/var}} or {{mIRC|/set}} commands
   ;25 + 7 - 2 = 30
   %x = $calc(%x + %y - 2)
   echo -a %x
-}</syntaxhighlight>
+}</pre>
 
-== Math Comparison Operators ==
+<H4>Math Comparison Operators</H4>
 Math Comparison operators allow you to compare two values:
 
-{| class="wikitable"
-! Syntax !! Name !! Result
-|-
-|%x == %y || Equal || True, if %x is equal to %y.
-|-
-|%x != %y || Not equal || True, if %x is not equal to %y.
-|-
-|%x &lt; %y || Less than || True, if %x is strictly less than %y.
-|-
-|%x &gt; %y || Greater than || True, if %x is strictly greater than %y.
-|-
-|%x &lt;= %y || Less than or equal to || True, if %x is less than or equal to %y.
-|-
-|%x &gt;= %y || Greater than or equal to || True, if %x is greater than or equal to %y.
-|-
-|%x // %y || Multiple Of (Divides) || True, if %x divides %y.
-|-
-|%x \\ %y || Not Multiple Of (Not Divides) || True, if %x does not divides %y.
-|-
-|%x & %y || Bitwise And || True, if (bit representation of) %x AND %y is a none zero.
-|}
+<table>
+  <tr>
+    <th>Syntax</th>
+    <th>Name</th>
+    <th>Result</th>
+  </tr>
+<tr>
+<td>%x == %y</td>
+<td> Equal</td>
+<td> True, if %x is equal to %y.
+</td>
+</tr>
+<tr>
+<td>%x != %y</td>
+<td> Not equal</td>
+<td> True, if %x is not equal to %y.
+</td>
+</tr>
+<tr>
+<td>%x &lt; %y</td>
+<td> Less than</td>
+<td> True, if %x is strictly less than %y.
+</td>
+</tr>
+<tr>
+<td>%x &gt; %y</td>
+<td> Greater than</td>
+<td> True, if %x is strictly greater than %y.
+</td>
+</tr>
+<tr>
+<td>%x &lt;= %y</td>
+<td> Less than or equal to</td>
+<td> True, if %x is less than or equal to %y.
+</td>
+</tr>
+<tr>
+<td>%x &gt;= %y</td>
+<td> Greater than or equal to</td>
+<td> True, if %x is greater than or equal to %y.
+</td>
+</tr>
+<tr>
+<td>%x // %y</td>
+<td> Multiple Of (Divides)</td>
+<td> True, if %x divides %y.
+</td>
+</tr>
+<tr>
+<td>%x \\ %y</td>
+<td> Not Multiple Of (Not Divides)</td>
+<td> True, if %x does not divides %y.
+</td>
+</tr>
+<tr>
+<td>%x & %y</td>
+<td> Bitwise And</td>
+<td> True, if (bit representation of) %x AND %y is a none zero.
+</td>
+</tr>
+</table>
 
-Example:
-<syntaxhighlight lang="mirc">alias example2 {
+<H4>Example</H4>
+
+<pre class ="code">alias example2 {
   ;true (3 a multiple of 9)
   if (3 // 9) echo yes!
   ;false
@@ -94,37 +154,71 @@ Example:
   ;00000000 = 0
   ;true, we used the '!' to negate the operator
   if (10 !& 4) echo yes
-}</syntaxhighlight>
+}</pre>
 
-== String Comparison Operators ==
-mIRC provides a set of operators that can be used to compare two strings. The two iswm and iswmcs operators support two {{mirc|wildcard}} characters as well, the question mark (?) substitutes for any one character and the asterisk character ("*") substitutes for any zero or more characters.
+<H4>String Comparison Operators</H4>
+mIRC provides a set of operators that can be used to compare two strings. The two iswm and iswmcs operators support two <a href="wildcard.html">wildcard</a> characters as well, the question mark (?) substitutes for any one character and the asterisk character ("*") substitutes for any zero or more characters.
 
-{| class="wikitable"
-! Syntax !! Name !! Result
-|-
-|%x isin %y || Is In || True, if %x is fully found inside %y.
-|-
-|%x isincs %y || Is In (case sensitive) || True, if %x is fully found inside (case sensitive) %y.
-|-
-|%x iswm %y || Wildcard Matching || True, if wildcard string %x matches %y.
-|-
-|%x iswmcs %y || Wildcard Matching (case sensitive) || True, if wildcard string %x matches (case sensitive) %y.
-|-
-|%x isnum<br />%x isnum N<br />%x isnum N-<br />%x isnum N-M<br /> || Is Digit<br />Is Digit, Equal to<br />Is Digit, Greater than or equal to<br />Is Digit, in Range || True, if %x is a number<br /> True, if %x is number N<br />True, if %x is number N or greater<br />True, if %x is a number between N and M (inclusively)
-|-
-|%x isletter<br />%x isletter N<br /> || Is a Letter<br />Is a Letter In A List<br /> || True, if %x is a letter<br />True, if %x is a letter in a list of letters
-|-
-|%x isalnum || Alphanumeric Characters || True, if %x contains only alphabetic or numeric characters.
-|-
-|%x isalpha || Alphabetic Characters || True, if %x contains only alphabetic characters.
-|-
-|%x islower || All lower case letters || True, if %x does not contain any upper case letters. %x can contain non alphabetic characters.
-|-
-|%x isupper || All upper case letters || True, if %x does not contain any lower case letters. %x can contain non alphabetic characters.
-|}
+<table>
+<tr>
+<th>Syntax</th>
+<th>Name</th>
+<th>Result</th>
+</tr>
+<tr>
+<td>%x isin %y</td>
+<td>Is In</td>
+<td>True, if %x is fully found inside %y.</td>
+</tr>
+<tr>
+<td>%x isincs %y</td>
+<td>Is In (case sensitive)</td>
+<td>True, if %x is fully found inside (case sensitive) %y.</td>
+</tr>
+<tr>
+<td>%x iswm %y</td>
+<td>Wildcard Matching</td>
+<td>True, if wildcard string %x matches %y.</td>
+</tr>
+<tr>
+<td>%x iswmcs %y</td>
+<td>Wildcard Matching (case sensitive)</td>
+<td>True, if wildcard string %x matches (case sensitive) %y.</td>
+</tr>
+<tr>
+<td>%x isnum<br />%x isnum N<br />%x isnum N-<br />%x isnum N-M<br /></td>
+<td>Is Digit<br />Is Digit, Equal to<br />Is Digit, Greater than or equal to<br />Is Digit, in Range</td>
+<td>True, if %x is a number<br /> True, if %x is number N<br />True, if %x is number N or greater<br />True, if %x is a number between N and M (inclusively)</td>
+</tr>
+<tr>
+<td>%x isletter<br />%x isletter N<br /></td>
+<td>Is a Letter<br />Is a Letter In A List<br /></td>
+<td>True, if %x is a letter<br />True, if %x is a letter in a list of letters</td>
+</tr>
+<tr>
+<td>%x isalnum</td>
+<td>Alphanumeric Characters</td>
+<td>True, if %x contains only alphabetic or numeric characters.</td>
+</tr>
+<tr>
+<td>%x isalpha</td>
+<td>Alphabetic Characters</td>
+<td>True, if %x contains only alphabetic characters.</td>
+</tr>
+<tr>
+<td>%x islower</td>
+<td>All lower case letters</td>
+<td>True, if %x does not contain any upper case letters. %x can contain non alphabetic characters.</td>
+</tr>
+<tr>
+<td>%x isupper</td>
+<td>All upper case letters</td>
+<td>True, if %x does not contain any lower case letters. %x can contain non alphabetic characters.</td>
+</tr>
+</table>
 
-Example:
-<syntaxhighlight lang="mirc">alias example3 {
+<H4>Example</H4>
+<pre class ="code">alias example3 {
   var %x = Hello!
   if (?ell?? iswm %x) echo true
   ;false, because of '!'
@@ -132,120 +226,219 @@ Example:
   %x = 5
   if (%x isnum 1-10) echo true
   if (%x isnum)  echo true
-}</syntaxhighlight>
+}</pre>
 
-== Lexicographical String Comparison Operators ==
-A lexicographical comparison is a comparison generally used to sort words alphabetically in dictionaries and indexes. If both strings are equal but one is shorter than the other, the shorter string is ''lexicographically less'' than the longer one.
+<H4>Lexicographical String Comparison Operators</H4>
 
-{| class="wikitable"
-! Syntax !! Name !! Result
-|-
-|a == b || Case insensitive character comparison || True, if character a is equal to character b, case insensitive.
-|-
-|a === b || Case sensitive character comparison || True, if character a is equal to character b, case sensitive.
-|-
-|a != b<br />a !== b || Case insensitive character comparison || True, if character a is not equal to character b, case insensitive.
-|-
-|a !=== b || Case sensitive character comparison || True, if character a is not equal to character b, case sensitive.
-|-
-|str1 == str2 || Case insensitive String comparison || True, if str1 equals str2 in a case insensitive manner.
-|-
-|str1 === str2 || Case sensitive String comparison || True, if str1 equals str2 in a case sensitive manner.
-|-
-|str1 != str2<br />str1 !== str2 || Case insensitive String comparison || True, if str1 does not equal str2 in a case insensitive manner.
-|-
-|str1 !=== str2 || Case sensitive String comparison || True, if str1 does not equal str2 in a case sensitive manner.
-|-
-|a < b || Lexicographically Less Than || True, if the {{mIRC|$asc}}(a) comes before {{mIRC|$asc}}(b)
-|-
-|a > b || Lexicographically Greater Than || True, if the $asc(a) comes after $asc(b)
-|-
-|str1 < str2 || Lexicographically Less Than || True, if str1 comes before str2
-|-
-|str1 > str2 || Lexicographically Greater Than || True, if str1 comes after str2
-|}
+A lexicographical comparison is a comparison generally used to sort words alphabetically in dictionaries and indexes. If both strings are equal but one is shorter than the other, the shorter string is lexicographically less than the longer one.
 
-== Logical Operators ==
+<table class="wikitable">
+<tbody><tr>
+<th> Syntax </th>
+<th> Name </th>
+<th> Result
+</th></tr>
+<tr>
+<td>a == b </td>
+<td> Case insensitive character comparison </td>
+<td> True, if character a is equal to character b, case insensitive.
+</td></tr>
+<tr>
+<td>a === b </td>
+<td> Case sensitive character comparison </td>
+<td> True, if character a is equal to character b, case sensitive.
+</td></tr>
+<tr>
+<td>a != b<br/>a !== b </td>
+<td> Case insensitive character comparison </td>
+<td> True, if character a is not equal to character b, case insensitive.
+</td></tr>
+<tr>
+<td>a !=== b </td>
+<td> Case sensitive character comparison </td>
+<td> True, if character a is not equal to character b, case sensitive.
+</td></tr>
+<tr>
+<td>str1 == str2 </td>
+<td> Case insensitive String comparison </td>
+<td> True, if str1 equals str2 in a case insensitive manner.
+</td></tr>
+<tr>
+<td>str1 === str2 </td>
+<td> Case sensitive String comparison </td>
+<td> True, if str1 equals str2 in a case sensitive manner.
+</td></tr>
+<tr>
+<td>str1 != str2<br/>str1 !== str2 </td>
+<td> Case insensitive String comparison </td>
+<td> True, if str1 does not equal str2 in a case insensitive manner.
+</td></tr>
+<tr>
+<td>str1 !=== str2 </td>
+<td> Case sensitive String comparison </td>
+<td> True, if str1 does not equal str2 in a case sensitive manner.
+</td></tr>
+<tr>
+<td>a &lt; b </td>
+<td> Lexicographically Less Than </td>
+<td> True, if the <a href="..\identifiers\asc.html">$asc</a> (a) comes before <a href="..\identifiers\asc.html">$asc</a>(b)
+</td></tr>
+<tr>
+<td>a &gt; b </td>
+<td> Lexicographically Greater Than </td>
+<td> True, if the $asc(a) comes after $asc(b)
+</td></tr>
+<tr>
+<td>str1 &lt; str2 </td>
+<td> Lexicographically Less Than </td>
+<td> True, if str1 comes before str2
+</td></tr>
+<tr>
+<td>str1 &gt; str2 </td>
+<td> Lexicographically Greater Than </td>
+<td> True, if str1 comes after str2
+</td></tr></tbody></table>
+
+
+<H4>Logical Operators</H4>
 In an if statement, you are allowed to have more than one condition. Each condition has to be connected to the other using a logical operator. There are two logical operators: || meaning OR and && meaning AND.
 
-Example:
-<syntaxhighlight lang="mirc">if ((%x < 0) || (%x >  10)) {</syntaxhighlight>
+<H4>Example</H4>
+<pre class ="code">if ((%x < 0) || (%x >  10)) {</pre>
 
 In the if statement above, %x has to be less than 0 OR greater than 10 to make the if statement be true.
 
-<syntaxhighlight lang="mirc">if ((%input isupper) && ($len(%input) < 10)) {</syntaxhighlight>
+<pre class ="code">if ((%input isupper) && ($len(%input) < 10)) {</pre>
 
 The if statement above will only be true if %a contains only upper case letters and its total length is less than 10.
 
-=== Short-circuit evaluation ===
+<H4>Short-circuit evaluation</H4>
 mIRC will only evaluate as much of the condition has it needs. Consider the AND example from above, if %input doesn't contain only upper case letters, the second condition will never even evaluate. This is important to keep in mind when using custom identifiers inside an if statement.
 
 
-== Channel-related Operators ==
+<H4>Channel-related Operators</H4>
+
 mIRC also provides a set of commands to involve IRC channels:
 
-{| class="wikitable"
-! Syntax !! Name !! Result
-|-
-|%x ison %y || Is On || True, if nick %x is on channel %y.
-|-
-|%x isop %y || Is an Operator || True, if nick %x is an operators on channel %y.
-|-
-|%x isowner %y || Is an Owner || True, if nick %x is an owner on channel %y.
-|-
-|%x ishop %y || Is a Halfop || True, if nick %x is a halfop on channel %y.
-|-
-|%x isvoice %y || Is a Voice || True, if nick %x is a voice on channel %y (isvo operator also supported).
-|-
-|%x isreg %y || Is a Regular || True, if nick %x is a regular user on channel %y.
-|-
-|%x ischan || Is a Channel || True, if channel %x is a channel you are on and if the %x channel window is still open (doesn't matter if you are connected or not).
-|-
-|%x isban %y || Is a ban || True, if ban address %x is a ban on channel %y. (taken from IBL)
-|-
-|%x isquiet %y || Is a quiet ban || True, if ban address %x is a quiet ban on channel %y. (taken from IQL)
-|}
+<table>
+<tr>
+<th> Syntax </th>
+<th> Name </th>
+<th> Result
+</th></tr>
+<tr>
+<td>%x ison %y </td>
+<td> Is On </td>
+<td> True, if nick %x is on channel %y.
+</td></tr>
+<tr>
+<td>%x isop %y </td>
+<td> Is an Operator </td>
+<td> True, if nick %x is an operators on channel %y.
+</td></tr>
+<tr>
+<td>%x isowner %y </td>
+<td> Is an Owner </td>
+<td> True, if nick %x is an owner on channel %y.
+</td></tr>
+<tr>
+<td>%x ishop %y </td>
+<td> Is a Halfop </td>
+<td> True, if nick %x is a halfop on channel %y.
+</td></tr>
+<tr>
+<td>%x isvoice %y </td>
+<td> Is a Voice </td>
+<td> True, if nick %x is a voice on channel %y (isvo operator also supported).
+</td></tr>
+<tr>
+<td>%x isreg %y </td>
+<td> Is a Regular </td>
+<td> True, if nick %x is a regular user on channel %y.
+</td></tr>
+<tr>
+<td>%x ischan </td>
+<td> Is a Channel </td>
+<td> True, if channel %x is a channel you are on and if the %x channel window is still open (doesn&#39;t matter if you are connected or not).
+</td></tr>
+<tr>
+<td>%x isban %y </td>
+<td> Is a ban </td>
+<td> True, if ban address %x is a ban on channel %y. (taken from IBL)
+</td></tr>
+<tr>
+<td>%x isquiet %y </td>
+<td> Is a quiet ban </td>
+<td> True, if ban address %x is a quiet ban on channel %y. (taken from IQL)
+</td>
+</tr>
+</table>
 
-'''Note''': the operator ishelp is the same as the operator ishop, and the operator isvo is the same as the operator isvoice
+<br><b>Note:</b>: the operator ishelp is the same as the operator ishop, and the operator isvo is the same as the operator isvoice
 
-Example:
-<syntaxhighlight lang="mirc">alias example4 {
+<H4>Example</H4>
+<pre class ="code">alias example4 {
   ;am I on #mIRC
   if (#mIRC ischan) echo yes
   ;is that ban on #mSL's internal ban list?
   if (*!*@example.com isban #offTopic) echo yes
   ;am I an OP on #mIRC?
   if ($me isop #mIRC) echo yes
-}</syntaxhighlight>
+}</pre>
 
-== List-related Operators ==
+<H4>List-related Operators</H4>
 mIRC has 5 additional operators to check mIRC internal lists:
 
-{| class="wikitable"
-! Syntax !! Name !! Result
-|-
-|%x isaop<br />%x isaop %y || In Auto-Op List<br />In Auto-Op List For Chan || True, if host %x is in the auto-op list.<br />True, if host %x is in the auto-op list for channel %y.
-|-
-|%x isavoice<br />%x isavoice %y || In Auto-Voice List<br />In Auto-Voice List For Chan || True, if host %x is in the auto-voice list.<br /> True, if host %x is in the auto-voice list for channel %y.
-|-
-|%x isignore<br />%x isignore %y || In Ignore List<br />In Ignore List For Type || True, if host %x is in the ignore list.<br />True, if host %x is in the ignore list for type %y.
-|-
-|%x isprotect<br />%x isprotect %y || In Protect List<br />In Protect List For Chan || True, if host %x is in the protect list.<br />True, if host %x is in the protect list for channel %y.
-|-
-|%x isnotify || In Notify List || True, if host %x is in the notify list.
-|}
 
-'''Note''': the operator isauto is the same as the operator isaop.
+<table>
+<tr>
+<th>Syntax</th>
+<th>Name</th>
+<th>Result</th>
+</tr>
 
-Example:
-<syntaxhighlight lang="mirc">Alias example5 {
+<tr>
+<td>%x isaop<br />%x isaop %y</td>
+<td>In Auto-Op List<br />In Auto-Op List For Chan</td>
+<td>True, if host %x is in the auto-op list.<br />True, if host %x is in the auto-op list for channel %y.</td>
+</tr>
+
+<tr>
+<td>%x isavoice<br />%x isavoice %y</td>
+<td>In Auto-Voice List<br />In Auto-Voice List For Chan</td>
+<td>True, if host %x is in the auto-voice list.<br /> True, if host %x is in the auto-voice list for channel %y.</td>
+</tr>
+
+<tr>
+<td>%x isignore<br />%x isignore %y</td>
+<td>In Ignore List<br />In Ignore List For Type</td>
+<td>True, if host %x is in the ignore list.<br />True, if host %x is in the ignore list for type %y.</td>
+</tr>
+
+<tr>
+<td>%x isprotect<br />%x isprotect %y</td>
+<td>In Protect List<br />In Protect List For Chan</td>
+<td>True, if host %x is in the protect list.<br />True, if host %x is in the protect list for channel %y.</td>
+</tr>
+
+<tr>
+<td>%x isnotify</td>
+<td>In Notify List</td>
+<td>True, if host %x is in the notify list.</td>
+</tr>
+</table>
+
+<br><b>Note:</b>: the operator isauto is the same as the operator isaop.
+
+<H4>Example</H4>
+<pre class ="code">Alias example5 {
   ;is the host in the auto-op list
   if (dave101!*@* isaop) echo yes
 
   ;assume we have ignore all ctcps: /ignore -tw *!*@*
   ;check if *!*@* in the ignore list for CTCPs:
   if (*!*@* isignore ctcp) echo yes
-}</syntaxhighlight>
+}</pre>
 
 </body>
 </html>
