@@ -1,0 +1,52 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>=$nick</title></head>
+<H1>=$nick</H1>
+<br>
+<br>
+<b>=$nick</ is a special identifier. Inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, if you want to send a message to the dcc chat/serv window rather than to send a message as a private message on IRC, you have to prefix the nickname with the equal sign '='. For convenience =$nick can be used as a shortcut for = $+ $nick, where $nick is evaluated properly.
+
+<H4>Synopsis</H4>
+<pre>=$nick</pre>
+
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Examples</H4>
+<pre class ="code">
+; Event messages a user back inside of a DCC Chat
+; when they type: !myaddress [N], where [N] is a number, 0-9, of
+; their address mask.
+
+ON *:CHAT:!myaddress *: {
+
+  ; Set the %num variable to whatever comes after !myaddress
+  var %num = $2
+
+  ; Verify that %num is a number, greater than or equal to 0,
+  ; and less than 10 (0-9) since those are the only available
+  ; options for $address(Nick,<N>).
+  if ((%num isnum) && (%num >= 0) && (%num < 10)) {
+
+    ; Using the =$nick identifier, a message is sent to the
+    ; user, with their address mask utilizing the number mask
+    ; they have requested.
+    msg =$nick !myaddress Result: $address($nick,%num)
+  }
+}
+</pre>
+
+Now, any user in a DCC Chat can type: '''!myadress 3''', and it would return their address masked in the form of: *!*Nickname@provider.net
+
+<H4>Compatibility</H4>
+Added: mIRC v3.1 (23 Apr 1995)
+
+<H4>See also</H4>
+<a href="..\events\on_chat.html">On_Chat</a><br>
+<a href="..\events\on_serv.html">on_Serv</a><br>
+</body>
+</html>
