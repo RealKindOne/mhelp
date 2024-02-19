@@ -10,13 +10,9 @@ The <b>ON MODE</b> event triggers when a user changes channel modes on a channel
 This event fills the '''<a href="..\identifiers\chan.html">$chan</a>''', '''<a href="..\identifiers\nick.html">$nick</a><br>''', and <a href="..\identifiers\1-.html">$1-</a> identifiers with details relative to this event.
 
 {| class="wikitable" style="margin-left: 105px; line-height: 25px;"
-|-
 ! Identifier !! Description
-|-
 | '''$chan''' || The channel where modes were changed.
-|-
 | '''$nick''' || The person who modified the channel modes.
-|-
 | <a href="..\identifiers\1-.html">$1-</a><br> || The new channel modes.
 |}
 
@@ -30,11 +26,8 @@ This event fills the '''<a href="..\identifiers\chan.html">$chan</a>''', '''<a h
 <br><b>&lt;#[,#]&gt;</b> - The channel, or channels, to match the event listener. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
 
 {| class="wikitable" style="margin-left: 105px;"
-|-
 ! Target !! Description
-|-
 | # || Can remain '''#''', to target all channels, or be a specific channel name.
-|-
 | [,#] || Can add multiple channels to target beyond the initial specified channel name.
 |}
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.

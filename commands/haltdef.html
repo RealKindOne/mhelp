@@ -7,7 +7,6 @@
 <br>
 The <b>/haltdef</b> command halts the default processing of an event. When mIRC is about to trigger an event, mIRC will first check for events that use the <a href="..\other\access_levels.html#carrot">^ prefix</a>, and then check the regular events. After processing events using the '^' prefix, mIRC will apply the default action for that event, usually displaying text, but it can be highlighting a window etc.. Using /haltdef only have an effect inside an event using the '^' prefix, and will prevent mIRC from performing his default action.
 
-<br><b>Note:</b> Not all events support the '^' prefix, you can find a list of events supporting the <a href="..\other\access_levels.html#carrot">^ prefix</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -44,7 +43,8 @@ raw 312:*: {
 Added: mIRC v5.4 (24 Jul 1998)
 
 <H4>Notes</H4>
-None
+Not all events support the '^' prefix, you can find a list of events supporting the <a href="..\other\access_levels.html#carrot">^ prefix</a>.
+
 
 <H4>See also</H4>
 <a href="halt.html">/halt</a><br>

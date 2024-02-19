@@ -117,7 +117,7 @@ sockwrite -n $sockname CCCCC
 
 Sent the following data:
 
-<pre>AAAAA
+<pre class ="code">AAAAA
 BBBBB
 CCCCC</pre>
 
@@ -157,7 +157,7 @@ We will now add the sockopen part of our YouTube script. Recall that we stored t
 == URL Encoding ==
 Some characters have special meanings when used in the URL. You might be familiar with URLs that look like this:
 
-<pre>http://www.example.com/foo.php?request&name=value</pre>
+<pre class ="code">http://www.example.com/foo.php?request&name=value</pre>
 
 If we want to send something that includes characters like the '=', '?' and '&' we must escape them before they can be safely used. The exact rules are specified by the RFC 1738 (Top of page 3).
 
@@ -180,7 +180,7 @@ Consider the following example:
 
 Will print:
 
-<pre>Hello%20%26%20Goodbye%3F
+<pre class ="code">Hello%20%26%20Goodbye%3F
 Hello & Goodbye?</pre>
 
 Note the escaped characters. You should almost always encode all user input:

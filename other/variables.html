@@ -135,7 +135,7 @@ If a variable is referred to but does not exist, it returns the value $null. Lik
 
 Upon executing ''/nullExample'', you will notice that mIRC will echo the following to the active window:
 
-<pre>%example1 is null!
+<pre class ="code">%example1 is null!
 %example2 is also null!</pre>
 
 == Math Operations ==
@@ -237,7 +237,7 @@ Retrieving values from static variables is pretty straightforward. Let's assume 
 
 Simply put, this will echo the following to the active window where you typed the ''/showVar'' command:
 
-<pre>Here is the value of %myvar: abc</pre>
+<pre class ="code">Here is the value of %myvar: abc</pre>
 
 
 '''Dynamic Variables'''
@@ -246,7 +246,7 @@ Retrieving a value from a dynamic variable is a little bit more complicated. The
 
 1. Using Bracket evaluation [ ]
 
-<pre class ="code">%<static> [ $+ [ <dynamic> ] ]</pre>
+<pre class ="code">%&lt;static&gt; [ $+ [ &lt;dynamic&gt; ] ]</pre>
 
 This is the [[Evaluation_Brackets - mIRC|evaluation brackets]] method. They allow us to force mIRC to evaluate part of a statement before anything else. Take a look at the rest of the myColor script:
 
@@ -313,7 +313,7 @@ You can also get the value of a dynamic variable by using <a href="..\identifier
 
 $eval allows you to force an expression to evaluate more than once, a bit like the brackets [ ], but brackets are meant to alter the order of evaluation of a line, which itself can have its own drawbacks.
 
-<pre class ="code">$eval($+(%,<static>,<dynamic>),2)</pre>From our earlier example:
+<pre class ="code">$eval($+(%,&lt;static&gt;,&lt;dynamic&gt;),2)</pre>From our earlier example:
 <pre class ="code">var %color = %color. [ $+ [ $2 ] ]</pre>
 is the same as
 <pre class ="code">var %color = $eval($+(%,color.,$2),2)</pre>$+(%,color.,$2) will produce the plain text "%color.John", and that is then evaluated a second time (the 2 in $eval(,2)) to produce the value of the variable just like usual. Note that with the brackets method, you also get a double evaluation, but they happen at a different levels.
@@ -338,7 +338,7 @@ If most commands cannot preserve spaces, /var can preserve spaces in all situati
 <pre class = "code">
 //var -s %a,$+(%,b) 1
 </pre>
-This will set the variable '%a,$+(%,b)' to the value 1, mIRC will consider your second assigment invalid and therefore it's just part of the current variable name.
+This will set the variable '%a,$+(%,b)' to the value 1, mIRC will consider your second assignment invalid and therefore it's just part of the current variable name.
 
 <pre class = "code">
 //var -s $+(%,b) 1,%a 2
@@ -395,7 +395,7 @@ Another issue also occurs with variable inside identifier:
 </pre>
 This will correctly unset the variable %ab, %a is not evaluated inside $+(), you can use $() on the variable to force evaluation.
 
-== Conclusion ==
+<H4>Conclusion</H4>
 Variables are a great resource to have at your fingertips within mIRC! As you've seen, they are very powerful, and yet don't require too much of a headache to understand :)
 
 </body>

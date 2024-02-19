@@ -58,9 +58,9 @@ This call returns 1 on success, 0 if it fails.
 <H4>Evaluating Identifiers and Variables</H4>
 
 The following call to SendMessage() makes mIRC evaluate the contents of any line that you specify:
-
- SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
-
+<pre class ="code">
+SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
+</pre>
 <br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
 <br><b>WM_MEVALUATE</b> - Should be defined as WM_USER + 201
 <br><b>cMethod</b> - How mIRC should process the message, where:

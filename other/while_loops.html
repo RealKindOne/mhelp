@@ -7,10 +7,10 @@
 <br>
 In many occasions, you may end up doing a task over and over again in a single script (For example, counting from 0 to 10, or sending a message to multiple people or channels). A while loop is a control flow statement that allows code to be executed repeatedly based on a given condition. The code inside the while loop block will get executed as long as the condition is true.
 
-== Syntax ==
+<H4>Syntax</H4>
 The basic syntax of a while loop is:
 
-<pre class ="code">while (<condition>) {
+<pre class ="code">while (&lt;condition&gt;) {
   ;Code here will be executed
 }</pre>
 
@@ -48,7 +48,7 @@ We can rewrite that alias:
 
 <pre class ="code">Alias whileExample1 {
   var %line = 1
-  while (%line <= 10) {
+  while (%line &lt;= 10) {
     echo -a Line number: %line
     inc %line
   }
@@ -71,10 +71,10 @@ Take a look at this example:
 <pre class ="code">alias nestedLoopExample {
   var %x = 1
   ;outer loop
-  while (%x <= 3) {
+  while (%x &lt;= 3) {
     var %y = 1
     ;inner loop
-    while (%y <= 3) {
+    while (%y &lt;= 3) {
       echo -a %x - %y
       inc %y
     }
@@ -84,7 +84,7 @@ Take a look at this example:
 
 This code will generate the following output:
 
-<pre>1 - 1
+<pre class ="code">1 - 1
 1 - 2
 1 - 3
 2 - 1
@@ -110,7 +110,7 @@ mIRC support the following types of statements:
 *The {{mIRC|/return|return statement}}
 *The {{mIRC|goto statements|goto statement}}
 
-'''Note:''' In this tutorial, we will not cover the {{mIRC|/return}} or the {{mIRC|/goto}} commands.
+'''Note:''' In this tutorial, we will not cover the <a href="..\commands\return.html">/return</a> or the <a href="..\commands\goto.html">/goto</a> commands.
 
 ==== break statement ====
 The ''break statement'' lets you break out of the currently executing while loop at any point.  The break statement will only break out of the while loop in which it is nested in.
@@ -130,7 +130,7 @@ In the example below, we set variable "%x" to 10 and decrease it by one each tim
 
 The output is:
 
-<pre>10
+<pre class ="code">10
 9
 8
 7
@@ -155,7 +155,7 @@ If multiple while loops are involved, the outer loops will not be effected.
 
 The output is:
 
-<pre>5
+<pre class ="code">5
 4
 3
 2
@@ -178,11 +178,11 @@ Take a look at this example:
   }
 }</pre>
 
-In the example above we created a loop to go from 0 to 20. The if statement checks if the number is odd. If true, we make it jump to the next iteration (Via the {{mIRC|/continue}} command). The last statement of the loop's body is used to print the number.
+In the example above we created a loop to go from 0 to 20. The if statement checks if the number is odd. If true, we make it jump to the next iteration (Via the <a href="..\commands\continue.html">/continue</a> command). The last statement of the loop's body is used to print the number.
 
 The output is:
 
-<pre>2
+<pre class ="code">2
 4
 6
 8
@@ -205,14 +205,14 @@ In the example below we will count from 1 to 10 using a while loop. Variable "%a
 
 <pre class ="code">alias refExample {
   var %a 1
-  while (%a <= 10) {
+  while (%a &lt;= 10) {
     echo -a Count: $v1
     inc %a
   }
 }</pre>
 
 
-== Infinite Loops ==
+<H4>Infinite Loops</H4>
 
 An infinite loop happens when a condition always evaluates to true. Most times, its due to an error. If that's the case, you can force mIRC to break out of it using the '''Ctrl+Break''' key combinations.
 Such a condition may be used on purpose, where you need to use the break statement to break out of the loop, but you can always rewrite the code otherwise to avoid this type of condition
@@ -232,7 +232,7 @@ echo -a $v1
 
 </pre>
 
-== Keeping mIRC responsive ==
+<H4>Keeping mIRC responsive</H4>
 
 Whilst your loops are looping, mIRC is not able to process any other activities such as messages sent from the server or your own keystrokes or mouse clicks. So while loops which loop a lot of times can result in mIRC appearing to lag or be unresponsive.<br>
 
@@ -250,9 +250,9 @@ c. Split the loops into smaller chunks and use .timer 0 1 to queue the next chun
 
 d. Make your while() loop more efficient by enabling it to use less overhead. If you are processing the lines in a disk file in a way which can't be accomplished using /filter -k, ensure your while (condition) itself uses fewer resources.
 
-<pre>
-var %i 0 | while (%line <= $lines(file.txt)) { inc %i | do stuff }
-var %i 0 , %total $lines(file.txt) | while (%line <= %total) { inc %i | do stuff }
+<pre class ="code">
+var %i 0 | while (%line &lt;= $lines(file.txt)) { inc %i | do stuff }
+var %i 0 , %total $lines(file.txt) | while (%line &lt;= %total) { inc %i | do stuff }
 </pre>
 
 The 1st alternative will be slower due to repeatedly calculating the same thing.<br>

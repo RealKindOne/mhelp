@@ -265,7 +265,7 @@ Which will return "Mary". because Mary appeared before Gary in the iteration lis
 
 '''Note 1:''' Using a non-hashed method for finding an item or data using <a href="..\identifiers\hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="..\identifiers\hget.html">$hget</a> using its item name.
 
-'''Note 2:''' Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using {{mIRC|$hget|$hget(table,n)}} because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
+'''Note 2:''' Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="..\identifiers\hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
 
 == Technical Explanation ==
 mIRC's hash tables are implemented as follows.
@@ -273,7 +273,7 @@ mIRC's hash tables are implemented as follows.
 # When you create a hash table, it is created with a defined number of "slots" (or "buckets").
 # When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
 # When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
-# When you get an item by position using {{mIRC|$hget|$hget(table,position)}}, or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
+# When you get an item by position using <a href="..\identifiers\hget.html">$hget</a>(table,position), or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
 
 If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
 
@@ -403,7 +403,7 @@ alias assigned_to_bucket { return $calc(1+($fnv1a-32-mod-alt($upper($1)) % $$2))
 
 This fnv1a-32-mod-alt alias performs the 32-bit variant of the FNV1a hash against a text string. The FNV1a hash has been modified by mixing steps suggested by Brett Mulvey, and are performed by the 3 lines following the while loop. Note that this alias is non-standard because it adds codepoints 256-65535 as numbers larger than 8-bit values, but the FNV1a algorithm and the Mulvey mixing steps are designed where input is limited to 8 bits.
 
-This algorithm attemps to create a hash whose output is well distributed across the 2^32 possible 32-bit values, and has significantly different values for input strings very similar to each other. If buckets=101, the hash output value is divided by 101, and the remainder is in the range 0-100. That remainder is used to assign the item to a bucket. When a script later searches for that item name, the hash is performed against the item name to identify which bucket it would have been assigned to, allowing mIRC to shrink the search to just the small fraction of items assigned to that same bucket.
+This algorithm attempts to create a hash whose output is well distributed across the 2^32 possible 32-bit values, and has significantly different values for input strings very similar to each other. If buckets=101, the hash output value is divided by 101, and the remainder is in the range 0-100. That remainder is used to assign the item to a bucket. When a script later searches for that item name, the hash is performed against the item name to identify which bucket it would have been assigned to, allowing mIRC to shrink the search to just the small fraction of items assigned to that same bucket.
 
 <pre class = "code">
 alias bucket_sort2 {

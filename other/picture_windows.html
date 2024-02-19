@@ -97,7 +97,7 @@ Result in:
 <img src="..\images\draw.gif">
 <br>
 <br>
-== Mouse Events ==
+<H4>Mouse Events</H4>
 
 Mouse events can be defined in a {{mIRC|custom windows#Custom Window's Menu|script menu definition}}, a picture window support the following mouse events:
 
@@ -127,13 +127,13 @@ The <a href="..\identifiers\mouse.html">$mouse</a> identifier doesn't take any p
 <H4>Indirect events</H4>
 
 Using $mouse.key, you get a value which when using the AND operator, yield useful information:
-
-* if ($mouse.key & 1) is true if the left mouse button is pressed.
-* if ($mouse.key & 2) is true if the control key is pressed.
-* if ($mouse.key & 4) is true if the shift key is pressed.
-* if ($mouse.key & 8) is true if the alt key is pressed.
-* if ($mouse.key & 16) is true if the right mouse button is pressed.
-
+<pre class ="code">
+if ($mouse.key & 1) is true if the left mouse button is pressed.
+if ($mouse.key & 2) is true if the control key is pressed.
+if ($mouse.key & 4) is true if the shift key is pressed.
+if ($mouse.key & 8) is true if the alt key is pressed.
+if ($mouse.key & 16) is true if the right mouse button is pressed.
+</pre>
 Others useful properties:
 
 <br><b>.win</b> - returns the name of the active window.

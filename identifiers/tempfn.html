@@ -14,7 +14,7 @@ $tempfn([path])
 </pre>
 <H4>Parameters</H4>
 None
-<br><b>[path]</b> - absolute or relative foldername for the temp file. If path not provided, default is $mircdir, and any path provided MUST exist. If Parenthesis is used is blank path, returns $null.
+<br><b>[path]</b> - absolute or relative folder name for the temp file. If path not provided, default is $mircdir, and any path provided MUST exist. If Parenthesis is used is blank path, returns $null.
 <H4>Properties</H4>
 None
 <H4>Example</H4>
@@ -22,7 +22,7 @@ None
 //echo -a $tempfn
 </pre>
 
-It does not create the disk filename, but offers the string as a "safe" filename that can be used without it already existing as a disk file or foldername.
+It does not create the disk filename, but offers the string as a "safe" filename that can be used without it already existing as a disk file or folder name.
 
 The string returned is $mircdir $+ mirc $+ $rand(0,$calc(2^31-2)) $+ .tm_
 
@@ -30,7 +30,7 @@ The string returned is $mircdir $+ mirc $+ $rand(0,$calc(2^31-2)) $+ .tm_
 <pre class ="code">
 //echo -a $tempfn(temp)
 </pre>
-Same except the string lists the filename's path as being in the temp subfolder beneath $mircdir. Halts with error if that foldername doesn't exist. Handles strings like ".." or "c:" or "\path" the same way as $findfile.
+Same except the string lists the filename's path as being in the temp subfolder beneath $mircdir. Halts with error if that folder name doesn't exist. Handles strings like ".." or "c:" or "\path" the same way as $findfile.
 
 It is up to the user to use a folder where you have write permissions for actually creating the file. If D: is a DVD drive, $tempfn(D:\) returns a string containing D:\ as the path, even if the disk write would fail.
 

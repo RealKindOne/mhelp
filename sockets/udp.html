@@ -34,14 +34,16 @@ The on sockwrite event can be used to write additional data when the previous da
    ; your code goes here
 }</pre>
 
-=<H4>Example</H4>=
+<H4>Example</H4>
 
-<H4>Example 1 - Time Protocol</H4>
+<b>Time Protocol</b>
+<br>
+<br>
 This example will use the Time Protocol to display the current time. The Time Protocol is a very simple network protocol that provides site-independent, machine readable date and time. The protocol is defined in RFC 868.
 
 From RFC 868:
 
-<pre>When used via UDP the time service works as follows:
+<pre class ="code">When used via UDP the time service works as follows:
 
  S: Listen on port 37 (45 octal).
  U: Send an empty datagram to port 37.
@@ -90,7 +92,7 @@ Let's make sense of this 32bit time value, shall we?
 
 Once again, from the RFC 868:
 
-<pre>The Time
+<pre class ="code">The Time
 
  The time is the number of seconds since 00:00 (midnight) 1 January 1900
  GMT, such that the time 1 is 12:00:01 am on 1 January 1900 GMT; this
@@ -118,12 +120,14 @@ Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can jus
   var %time = $base(%bin, 2, 10)
 
   ; print the time and close the socket
-  echo -a Currnt Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
+  echo -a Current Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
   sockclose $sockname
 }</pre>
-
-<H4>Example 2 - QOTD Protocol</H4>
-
+<br>
+<br>
+<b>QOTD Protocol</b>
+<br>
+<br>
 In this example we will use an interesting protocol, the Quote Of The Day, RFC 865. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers don't have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other)
 
 Send a request:

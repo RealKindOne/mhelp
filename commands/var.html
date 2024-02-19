@@ -15,9 +15,9 @@ The var command can perform one math operation via one of the arithmetic operato
 
 **Set Evaluation Routine:**
 Internally, the var command simply breaks down the line (by commas) and passes the arguments to /set. The set command has its own evaluation routine which lets you dynamically concatenate additional values onto the variable name before the assignment takes place.
-
-    //var -s % $+ $ctime ABC
-
+<pre class ="code">
+//var -s % $+ $ctime ABC
+</pre>
 Will create a variable like %1209425041 with the value of 'ABC'; Similarly this can be used with $nick and $chan in on events.
 
 <H4>Synopsis</H4>

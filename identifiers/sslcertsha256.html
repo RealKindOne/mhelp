@@ -11,7 +11,7 @@ The <b>$sslcertsha256</b> identifier returns the sha256 fingerprint of the clien
 <pre class ="code">
 $sslcertsha256
 </pre>
-<H4>Paramters</H4>
+<H4>Parameters</H4>
 None
 <H4>Properties</H4>
 None
@@ -108,7 +108,7 @@ First thing we'll do is create a .pem file that contains BOTH your public certif
 
 Each of the following commands has a variable named %prog which contains "openssl.exe", which will work if that program is in a folder mentioned in the PATH variable of your Windows environment. If OpenSSL is not in there, you can simply edit that string in each of these commands, to include the whole path, like "c:\Program Files\OpenSSL\bin\openssl.exe"
 
-If you have OpenSSL installed, but aren't sure exactly where, this next command shows you the name of all folders on your entire C: drive who have 'openssl' in the foldername. THIS WILL TAKE A LONG TIME. OpenSSL.exe is usually in a \bin\ subfolder beneath the folder you installed the program into.
+If you have OpenSSL installed, but aren't sure exactly where, this next command shows you the name of all folders on your entire C: drive who have 'openssl' in the folder name. THIS WILL TAKE A LONG TIME. OpenSSL.exe is usually in a \bin\ subfolder beneath the folder you installed the program into.
 
 //noop $finddir(c:\,*openssl*,0,echo -s $1-)
 

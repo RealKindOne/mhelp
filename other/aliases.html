@@ -30,7 +30,7 @@ The keyword "alias" is required to tell mIRC the following code is an alias. "he
 
 This will print:
 
-<pre>Hello World!</pre>
+<pre class ="code">Hello World!</pre>
 
 <H4>Alias arguments</H4>
 
@@ -117,7 +117,7 @@ We can run the code using the follow statement:
 
 This will produce the following result:
 
-<pre>
+<pre class ="code">
 4 arguments passed
 The first 3 arguments are:
 Arg1 = A
@@ -145,7 +145,7 @@ we can call that identifier using like this:
 <pre class ="code">//echo -a $example</pre>
 This will print:
 
-<pre>hello there!</pre>
+<pre class ="code">hello there!</pre>
 
 By default, 'return' strips leading/trailing/consecutive spaces from the result before returning it. Consider the following aliases:
 <pre class ="code">
@@ -174,7 +174,7 @@ alias convert {
 
 For example:
 
-<pre>//echo -a $convert(1)
+<pre class ="code">//echo -a $convert(1)
 0.017453
 //echo -a $convert(15.5)
 0.270526</pre>
@@ -191,7 +191,7 @@ alias convert {
 
 For example:
 
-<pre>//echo -a $convert(10).deg2rad
+<pre class ="code">//echo -a $convert(10).deg2rad
 0.174533
 //echo -a $convert(0.174533).rad2deg
 10.000004
@@ -217,12 +217,12 @@ alias logfind {
 
 We can call that alias as an identifier, for example:
 
-<pre>//echo -a $logfind(*kicked*)
+<pre class ="code">//echo -a $logfind(*kicked*)
 [12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))</pre>
 
 We can also call it as a command:
 
-<pre>/logfind *kicked*
+<pre class ="code">/logfind *kicked*
 * Logfind Match: [12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))</pre>
 
 Also note that when an alias is called as a /my_alias command it inherits the $parms string as existing in the parent alias, but when called as $my_alias identifier the $parms string is set to $null.
@@ -293,7 +293,7 @@ alias foo {
 
 Output:
 
-<pre>/example
+<pre class ="code">/example
 result!</pre>
 
 In addition, aliases can be coded to work in verbose mode or not. If the command was prefixed with the dot (.) symbol, $show will return $false, otherwise it will $true. For example:
@@ -321,7 +321,7 @@ Aliases can be used to redefine function keys and shortcuts by simply renaming t
 
 For Example:
 
-<pre>alias SF1 {
+<pre class ="code">alias SF1 {
   echo -a Shift+F1 was pressed!
 }
 alias cF4 { echo -sg cF4 executed prevents ctrl+F4 closing active window! }

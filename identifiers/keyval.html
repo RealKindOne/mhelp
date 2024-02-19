@@ -18,7 +18,7 @@ $keyval
 None
 
 <H4>Example</H4>
-Create an alias that launches a custom, {{mirc|picture window}} which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
+Create an alias that launches a custom, <a href="..\other\picture_windows.html">picture window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
 <pre class ="code">alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
@@ -33,8 +33,9 @@ ON *:char:@myWindow:*: {
 </pre>
 
 The following command can now be typed into any mIRC command prompt:
+<pre class ="code">
 /keyDownTest
-
+</pre>
 Below is an image reflecting what this example will look like:
 
 <br>
@@ -43,13 +44,14 @@ Below is an image reflecting what this example will look like:
 <br>
 <br>
 
-Note that this makes use of a {{mirc|picture window}}, as well as the {{mirc|/drawtext|drawtext command}}. These types of {{mirc|picture windows|windows}} and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
+Note that this makes use of a <a href="..\other\picture_windows.html">picture window</a>, as well as the <a href="..\commands\drawtext.html">/drawtext</a> command. These types of picture windows and their tools can be very powerful in creating some amazing graphical layouts, as well as mIRC games.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\events\on_keyup.html">On_KeyUp</a><br>
 <a href="..\events\on_keydown.html">On_KeyDown</a><br>

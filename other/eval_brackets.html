@@ -275,7 +275,9 @@ Here is a better example
 <pre class = "code">//var %x$a$b$c$d = Example! | echo -a %x [ $+ $a $+ $b $+ $c $+ $d ]</pre>
 
 The code above prints:
- Example!
+<pre class ="code">
+Example!
+</pre>
 
 <div style="display: block; text-align: center;"><img src="..\images\eval10.png"></div>
 
@@ -284,7 +286,9 @@ Note that other, unrelated, tokens are still evaluated as we expect:
 <pre class = "code">//echo -a X [ $+ $a $+ $b $+ $c $me ]</pre>
 
 As expected, we get:
- X$a$b$c David
+<pre class ="code">
+X$a$b$c David
+</pre>
 
 <H4>A [ $+ [ B ] ] Format</H4>
 The A [ $+ B ] format is not very helpful alone since B is never evaluated. We can combine our ability to evaluate things multiple times with the A [ $+ B ] format to form some more usable things.
@@ -306,13 +310,13 @@ By now you know evaluation brackets happen before the code itself evaluates, but
 <H4>Spaced out [ ]</H4>
 
 If you space out the [ ] inside the identifier, the previous rules apply
-
- //echo -a [ $me ] $+( [ $!me ] )
-
+<pre class ="code">
+//echo -a [ $me ] $+( [ $!me ] )
+</pre>
 Here both [ ] are resolved at the same time. However after [ ] are resolved, the line becomes:
-
+<pre class ="code">
 //echo -a David $+( $me )
-
+</pre>
 And here $+() will normally evaluate $me, so doing that results in a double evaluation of the parameter, watch out.
 
 More importantly, since the resolution of [ ] happens before the identifier itself is evaluated, it will correctly parse code that is a direct result of the evaluation brackets. Here is some code to demonstrate this behavior:

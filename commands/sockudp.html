@@ -69,7 +69,7 @@ ON *:UDPREAD:gettime: {
   var %time = $base(%bin, 2, 10)
 
   ; Print the time.
-  echo -ag Currnt Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
+  echo -ag Current Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
 
   ; Close the socket
   sockclose $sockname

@@ -14,31 +14,68 @@ $asctime[([N,]format)]
 <H4>Parameters</H4>
 <b>N</b> - This parameter is optional, but normally would point to a value derived from <a href="ctime.html">$ctime</a>.
 
-<br><b>format</b> - This is where the formatting options would go. If you do not specify a <a href="ctime.html">$ctime</a> number '''N''' to evaluate, the formatting is performed on the current date and time.
+<br><b>format</b> - This is where the formatting options would go. If you do not specify a <a href="ctime.html">$ctime</a> number <b>N</b> to evaluate, the formatting is performed on the current date and time.
+
+<br>
+<br>
+<br>
+
+<table style="margin-left: 185px; width: 450px;">
+
+<tr>
+<th> <b>Property</b> </th>
+<th> Format </th>
+<th> Result
+</th></tr>
+<tr>
+<td> <b>Day</b> </td>
+<td> <span style="display: block;">d</span><span style="display: block;">dd</span><span style="display: block;">ddd</span><span style="display: block;">dddd</span></td>
+<td> <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Mon</span><span style="display: block;">Monday</span>
+</td></tr>
+<tr>
+<td> <b>Month</b> </td>
+<td> <span style="display: block;">m</span><span style="display: block;">mm</span><span style="display: block;">mmm</span><span style="display: block;">mmmm</span> </td>
+<td> <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Jan</span><span style="display: block;">January</span>
+</td></tr>
+<tr>
+<td> <b>Year</b> </td>
+<td> <span style="display: block;">y</span><span style="display: block;">yyyy</span> </td>
+<td> <span style="display: block;">14</span><span style="display: block;">2014</span>
+</td></tr>
+<tr>
+<td> <b>Hours</b> </td>
+<td> <span style="display: block;">h</span><span style="display: block;">hh</span><span style="display: block;">H</span><span style="display: block;">HH</span> </td>
+<td> <span style="display: block;">5</span><span style="display: block;">05</span><span style="display: block;">13</span><span style="display: block;">13</span>
+</td></tr>
+<tr>
+<td> <b>Minutes</b> </td>
+<td> <span style="display: block;">n</span><span style="display: block;">nn</span> </td>
+<td> <span style="display: block;">1</span><span style="display: block;">01</span>
+</td></tr>
+<tr>
+<td> <b>Seconds</b> </td>
+<td> <span style="display: block;">s</span><span style="display: block;">ss</span> </td>
+<td> <span style="display: block;">1</span><span style="display: block;">01</span>
+</td></tr>
+<tr>
+<td> <b>AM/PM</b> </td>
+<td> <span style="display: block;">t</span><span style="display: block;">tt</span><span style="display: block;">T</span><span style="display: block;">TT</span> </td>
+<td> <span style="display: block;">a/p</span><span style="display: block;">am/pm</span><span style="display: block;">A/P</span><span style="display: block;">AM/PM</span>
+</td></tr>
+<tr>
+<td> <b>Ordinal</b> </td>
+<td> <span style="display: block;">oo</span> </td>
+<td> <span style="display: block;">st nd rd th</span>
+</td></tr>
+<tr>
+<td> <b>Timezone</b> </td>
+<td> <span style="display: block;">z</span><span style="display: block;">zz</span><span style="display: block;">zzz</span> </td>
+<td> <span style="display: block;">+o</span><span style="display: block;">+oooo</span><span style="display: block;">+oooo GMT</span>
+</td></tr>
+</table>
 
 
-
-
-| '''Day''' || <span style="display: block;">d</span><span style="display: block;">dd</span><span style="display: block;">ddd</span><span style="display: block;">dddd</span>|| <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Mon</span><span style="display: block;">Monday</span>
-|-
-| '''Month''' || <span style="display: block;">m</span><span style="display: block;">mm</span><span style="display: block;">mmm</span><span style="display: block;">mmmm</span> || <span style="display: block;">1</span><span style="display: block;">01</span><span style="display: block;">Jan</span><span style="display: block;">January</span>
-|-
-| '''Year''' || <span style="display: block;">y</span><span style="display: block;">yyyy</span> || <span style="display: block;">14</span><span style="display: block;">2014</span>
-|-
-| '''Hours''' || <span style="display: block;">h</span><span style="display: block;">hh</span><span style="display: block;">H</span><span style="display: block;">HH</span> || <span style="display: block;">5</span><span style="display: block;">05</span><span style="display: block;">13</span><span style="display: block;">13</span>
-|-
-| '''Minutes''' || <span style="display: block;">n</span><span style="display: block;">nn</span> || <span style="display: block;">1</span><span style="display: block;">01</span>
-|-
-| '''Seconds''' || <span style="display: block;">s</span><span style="display: block;">ss</span> || <span style="display: block;">1</span><span style="display: block;">01</span>
-|-
-| '''AM/PM''' || <span style="display: block;">t</span><span style="display: block;">tt</span><span style="display: block;">T</span><span style="display: block;">TT</span> || <span style="display: block;">a/p</span><span style="display: block;">am/pm</span><span style="display: block;">A/P</span><span style="display: block;">AM/PM</span>
-|-
-| '''Ordinal''' || <span style="display: block;">oo</span> || <span style="display: block;">st nd rd th</span>
-|-
-| '''Timezone''' || <span style="display: block;">z</span><span style="display: block;">zz</span><span style="display: block;">zzz</span> || <span style="display: block;">+o</span><span style="display: block;">+oooo</span><span style="display: block;">+oooo GMT</span>
-|}
-
-'''Quick Note:''' All of the formatting parameters can touch each other, and they will be properly converted. For example: '''$asctime(hhnnss)''' would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
+<b>Quick Note:</b> All of the formatting parameters can touch each other, and they will be properly converted. For example: '''$asctime(hhnnss)''' would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
 
 
 <H4>Example</H4>
