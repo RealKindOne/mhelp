@@ -77,7 +77,7 @@ on *:sockwrite:socket:{
 }
 </pre>
 
-Note that this is how you should theorically handle the sending of an unknown length of data. However, if the sending buffer is empty, you can send more than 16384 bytes (as long as you can set the binary variable holding more than that) using a binary variable. mIRC will correctly cut that in chunk of 16384 bytes or less. This then only becomes a problem if you are willing to queue more without waiting for it to be sent (which could take some times, you would end up with an error because the sending buffer is full, and you would need the above event)
+Note that this is how you should theoretically handle the sending of an unknown length of data. However, if the sending buffer is empty, you can send more than 16384 bytes (as long as you can set the binary variable holding more than that) using a binary variable. mIRC will correctly cut that in chunk of 16384 bytes or less. This then only becomes a problem if you are willing to queue more without waiting for it to be sent (which could take some times, you would end up with an error because the sending buffer is full, and you would need the above event)
 
 <H4>Compatibility</H4>
 Added: mIRC v3.5 (07 Aug 1995)

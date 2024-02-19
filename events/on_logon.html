@@ -25,7 +25,7 @@ Echo to the active window some information before the login information is sent,
 <pre class ="code">on ^*:logon:*:echo -a Connecting to $server through the $network network...</pre>
 
 Create a popup window which shows up after a successful connection is established:
-<pre class ="code">on ^*:logon:*:noop $input(Successfully connected to: $server $+ !,io,Connection Successful)</pre>
+<pre class ="code">on ^*:logon:*:noop $input(successfully connected to: $server $+ !,io,Connection Successful)</pre>
 
 The event above will generate a popup-window much like the one in the screenshot below:
 

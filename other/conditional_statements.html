@@ -5,18 +5,18 @@
 <H1>Conditional Statements</H1>
 <br>
 <br>
+A <b>conditional statement</b> is a control flow construct in mIRC that can execute a set of commands only after comparing or testing a condition. A condition in mIRC has a false truth value if it's <a href="..\identifiers\null.html">$null</a>, <a href="..\identifiers\false.html">$false</a>, or 0.
 
-A <b>conditional statement</b> is a [[control flow]] construct in mIRC that can execute a set of commands only after comparing or testing a ''condition''. A condition in mIRC has a false [[truth value]] if it's <a href="..\identifiers\null.html">$null</a>, <a href="..\identifiers\false.html">$false</a>, or 0.
-
-== Intro ==
+<H4>Intro</H4>
 You almost never want a script to simply do the same exact thing over and over. In many occasions, you want it to compare two things and decide what to do upon the result of that comparison. For example:
+<br>
+<br>
+<br>Did the user select blue or red?
+<br>Is the number less than 10?
+<br>Am I on channel #mIRC?
+<br>Is the %counter variable assigned or not?
 
-:* Did the user select blue or red?
-:* Is the number less than 10?
-:* Am I on channel #mIRC?
-:* Is the %counter variable assigned or not?
-
-== If Statements ==
+<H4>If Statements</H4>
 
 In many occasions, you will find the need to do a different task based on a condition. The if statement allows you to control what part of your program gets executed or ignored based on conditional statement. Without a conditional statement like an if statement a script would run almost the exact same way each time.
 
@@ -29,12 +29,13 @@ The basic syntax for an if statement is:
 }</pre>
 
 A typical conditional statement consists of two operands and an operator. An operand is an entity on which an operation is performed. Take for example the following conditional statement:
-
- 2 > 3
+<pre class ="code">
+2 > 3
+</pre>
 
 In the example above, ">" is the symbol for the greater than operator. The example above has 2 operands: 2 and 3. In the case of the example above, the answer is false, 2 is not greater than 3.
 
-== Operators ==
+<H4>Operators</H4>
 {{main|Operators - mIRC}}
 mIRC provides the following types of operators:
 
@@ -66,7 +67,7 @@ sample output:
 
 In the example above, we used an if statement to check if the user input ($1) was less than zero so we could handle it differently than a positive decimal number. When the if statement evaluates to true, the code inside its body, enclosed by a pair of curly brackets, get executed, in our case it also made it return the value to the calling routine, effectively preventing the other statement from ever getting executed.
 
-== Else ==
+<H4>Else</H4>
 
 The else statement gives you the ability to execute a block of code when the conditional statement of the if part was false. Notice the else part does not have a conditional statement of its own, it simply acts upon the result of the if statement.
 
@@ -93,7 +94,7 @@ Alias greet {
   echo -a Good %time $+ !
 }</pre>
 
-== ElseIf ==
+<H4>ElseIf</H4>
 
 I am sure at this point you are already thinking what If you had more than one condition that needs to go to a different block of code. An elseif statement is when you have multiple conditional statement that each needs to do something different. If the initial if statement returned false, mIRC will then move on to the elseif and evaluate its condition just like if it was a normal if. If the condition was true, it will execute its body. If the condition of the elseif was false, it will move on to the next elseif or else.
 
@@ -131,7 +132,7 @@ How would that look in a real scenario? Remember our time of day script? What if
   echo -a Good %time $+ !
 }</pre>
 
-== Reference of parameters ==
+<H4>Reference of parameters</H4>
 
 mIRC provides two identifiers to retrieve the first or second parameter of the conditional statement. Please note, the identifiers will return the first and second parameter of the last condition following short-circuit evaluation guidelines.
 
@@ -149,7 +150,7 @@ Will have the following output:
 
 <pre>yes, 4 is less than 5</pre>
 
-== IIF Identifier ==
+<H4>IIF Identifier</H4>
 
 IIF, inline if, is a built in identifier that evaluates a condition, similar to /if statement, and returns one of two values if the condition was true or false.
 

@@ -39,7 +39,7 @@ on *:FILERCVD:*.txt:{
     var %oldsize $file($filename).size
     var %i $decompress($filename)
     var %newsize $file($filename).size
-    if (%i) echo -a Successfully decompressed incoming file from size %oldsize to %newsize $+ : $filename
+    if (%i) echo -a successfully decompressed incoming file from size %oldsize to %newsize $+ : $filename
     else echo -a Unsuccessful attempt to decompress incoming file: $filename
   }
 }

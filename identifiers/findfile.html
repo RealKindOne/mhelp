@@ -25,14 +25,14 @@ $findfile(dir, wildcard , N , [depth , [@window | command] ] )
 Note: DIR can be absolute \path or c:\path or relative to $mircdir. Does not need ending slash. Accepts forward/backward slashes interchangeably but always output backslash.
 
 <H4>Properties</H4>
-<b>.shortfn</b> - causes N > 0 or $1- within 5th parameter to return short filenames and/or foldernames when a case-insensitive evaluation of the filename is not a valid DOS filename. (Invalid characters, more than 1 period, filename prefix longer than 8, file extension longer than 4, etc)
+<b>.shortfn</b> - causes N > 0 or $1- within 5th parameter to return short filenames and/or folder names when a case-insensitive evaluation of the filename is not a valid DOS filename. (Invalid characters, more than 1 period, filename prefix longer than 8, file extension longer than 4, etc)
 
 Note: Returned string can contain multiple consecutive spaces if the file/folder names contain them, causing $file() and other mIRC identifiers to fail. This problem can be avoided by using .shortfn which never contains any spaces.
 
 <H4>Example</H4>
 <pre class ="code">
 //noop $findfile( c:\program files\, * ,0,2,echo -s $ord($findfilen) $1-).shortfn
-  echoes all filenames in c:\program files\ and 1 level beneath it. .shortfn causes all foldernames and pathnames to be converted to short filenames if necessary. The "Program Files" folder appears as PROGRA~1 regardless of the way it was spelled for DIR.
+  echoes all filenames in c:\program files\ and 1 level beneath it. .shortfn causes all folder names and pathnames to be converted to short filenames if necessary. The "Program Files" folder appears as PROGRA~1 regardless of the way it was spelled for DIR.
 //noop //echo -a $findfile( c:\proGra~1\, * ,0,2,echo -s $ord($findfilen) $1-)
   same, except the "Program Files" folder is displayed exactly as spelled for DIR.
 </pre>

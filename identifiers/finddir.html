@@ -24,7 +24,7 @@ $finddir(dir,wildcard,N,[depth,[@window | command]])[.property]
 Note: DIR can be absolute \path or c:\path or relative to $mircdir. Does not need ending slash. Accepts forward/backward slashes interchangeably but always output backslash.
 
 <H4>Properties</H4>
-<b>.shortfn</b> - causes N > 0 or $1- within 5th parameter to return short filenames and/or foldernames when a case-insensitive evaluation of the filename is not a valid DOS filename. (Invalid characters, more than 1 period, filename prefix longer than 8, file extension longer than 4, etc)
+<b>.shortfn</b> - causes N > 0 or $1- within 5th parameter to return short filenames and/or folder names when a case-insensitive evaluation of the filename is not a valid DOS filename. (Invalid characters, more than 1 period, filename prefix longer than 8, file extension longer than 4, etc)
 
 Note: Returned string can contain multiple consecutive spaces if the file/folder names contain them, causing $file() and other mIRC identifiers to fail. This problem can be avoided by using .shortfn which never contains any spaces.
 

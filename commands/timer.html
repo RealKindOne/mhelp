@@ -71,11 +71,11 @@ Manipulator
 <H4>Quirks</H4>
 You can check the :doc: `msl injection </beginner/injection.html>` page to learn more about /timer's double evaluation issues.
 
-/timer also has a special evaluation routine which checks for variable assignement (except /var), for example:
+/timer also has a special evaluation routine which checks for variable assignment (except /var), for example:
 <pre class ="code">
 //timer -ho 1 0 set -s %test 5 $(|) unset -s %test
 </pre>
-Works correctly: /timer does not evaluate the variable %test both times as it recognize the assignement.
+Works correctly: /timer does not evaluate the variable %test both times as it recognize the assignment.
 
 However this behavior is too intrusive, it is not possible to properly check for variable assigment:
 <pre class ="code">
