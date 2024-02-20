@@ -6,17 +6,16 @@
 <br>
 <br>
 The <b>$maddress</b> identifier return the address that was matched for the event, or returns information about the user list.
-
 <br>
 <br>
-<b>Note:</b> This feature has essentially been replaced by <a href="ulist.html">$ulist</a>.
-
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="ulist.html">$ulist</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $maddress
 $maddress(&lt;address&gt;,[L,&lt;N&gt;]).[property]
 </pre>
+
 <H4>Parameters</H4>
 <b>&lt;address&gt;</b> - the address used to match, you can specify * for all address, non complete address are completed with wildcards
 <br><b>L</b> - if you specify L, only matching addresses that contain the specified level L are returned. Optional, but if you provide L, you must provide N below
@@ -36,6 +35,7 @@ Added: mIRC v4.6 (07 Sep 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="fulladdress.html">$fulladdress</a><br>
 <a href="wildsite.html">$wildsite</a><br>
