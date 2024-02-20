@@ -13,5 +13,13 @@
 		<param name="Name" value="Welcome">
 		<param name="Local" value="index.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="mIRC Commands">
+		<param name="Local" value="commands.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="mIRC Identifiers">
+		<param name="Local" value="identifiers.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>

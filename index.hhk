@@ -34,6 +34,10 @@
 		<param name="Local" value="identifiers\_plusplus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="=$nick">
+		<param name="Local" value="identifiers\_nick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$1-">
 		<param name="Local" value="identifiers\1-.html">
 		</OBJECT>
