@@ -4,7 +4,7 @@
 <head><title>$1-</title></head>
 <H1>$1-</H1>
 <br>
-<br>The <b>$1-</b> identifier returns a list of argument passed to an alias or returns the text message associated with an {{mIRC|on events|mSL Events}}. $1- is also filled by the {{mIRC|/tokenize}} command, and is also given different values within the command string for $findfile and $finddir. It also is used in popups menus to reference the 1-or-more nicks highlighted in that channel.
+<br>The <b>$1-</b> identifier returns a list of argument passed to an alias or returns the text message associated with an <a href="..\events.html">mSL Events</a>. $1- is also filled by the <a href="..\commands\tokenize.html">/tokenize</a> command, and is also given different values within the command string for $findfile and $finddir. It also is used in popups menus to reference the 1-or-more nicks highlighted in that channel.
 
 '''Note''': $1- is built by tokenizing the parameters/text, which means that leading/trailing/consecutive spaces are lost, see <a href="parms.html">$parms</a>, which is the same as $1-, but preserves spaces. However the /tokenize command destroys the existing $parms string as $null without replacing it with the tokenizing of the new $1- string.
 
@@ -12,7 +12,7 @@ If $1- represents the full line/parameters, you can use $1 to only reference the
 
 You can use $0 to return the total number of words or the total number of parameters.
 
-You can append text to $1, $2 etc without using {{mIRC|$+}}, as long as your text does not contain a digit, for example:
+You can append text to $1, $2 etc without using <a href="_plus.html">$+</a>, as long as your text does not contain a digit, for example:
 <pre class ="code">
 //tokenize 32 Khaled | echo -a $1's skills are impressive!
 </pre>If your attached text contains a number, mIRC skips every character in your text up to the last number and use the remaining text.
@@ -22,7 +22,7 @@ You can append text to $1, $2 etc without using {{mIRC|$+}}, as long as your tex
 result: Khaledbar vs Khaledfoo123bar and Khaled vs Khaledxyz and parm3test and Khaled xyz parm3 but is null
 </pre>
 
-'''Range'''
+<H4>Range</H4>
 
 $1- returns the full line/parameters because '-' is actually used to set a range.
 
@@ -37,9 +37,10 @@ $1-
 </pre>
 <H4>Properties</H4>
 None
-== Range in Token functions ==
 
-When using certain {{mIRC|token_manipulation|Tokens function}} such as <a href="gettok.html">$gettok</a>, you can sometimes use a range for the N parameter, in this case you can specify a range too, but with an extra feature, both number can be negative.
+<H4>Range in Token functions</H4>
+
+When using certain <a href="..\other\token.html">Tokens function</a> such as <a href="gettok.html">$gettok</a>, you can sometimes use a range for the N parameter, in this case you can specify a range too, but with an extra feature, both number can be negative.
 
 Negative numbers means that mIRC looks from the end instead of the start:
 <pre class ="code">

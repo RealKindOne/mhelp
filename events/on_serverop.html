@@ -7,7 +7,7 @@
 <br>
 The <b>ON SERVEROP</b> event triggers when a server ops a user on a channel.
 
-This event also fills the <a href="..\identifiers\opnick.html">$opnick</a> with the nickname of the user who was added to [[Channel operator - IRC|Channel operator]] status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the server.
+This event also fills the <a href="..\identifiers\opnick.html">$opnick</a> with the nickname of the user who was added to channel operator status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the server.
 
 
 <H4>Synopsis</H4>
@@ -24,7 +24,7 @@ Acknowledge when a user has been elevated to channel operator by the server:
 <pre class ="code">ON *:SERVEROP:#:msg # Congratulations, $opnick $+ ! The server, $nick $+ , just made you an operator!</pre>
 
 <H4>Compatibility</H4>
-{{mIRC compatibility|3.3}}
+Added: mIRC v3.3 (21 Jun 1995)
 
 <H4>Notes</H4>
 None
