@@ -19,8 +19,8 @@ $gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 <br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
 <br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 <br>
-If N=0, returns total number of tokens, same as {{mIRC|$numtok|$numtok(TEXT,C)}} <br />
-If N is greater than the total number of tokens, returns {{mIRC|$null|$null}} <br />
+If N=0, returns total number of tokens, same as <a href="numtok.html">$numtok</a>(TEXT,C)}} <br />
+If N is greater than the total number of tokens, returns <a href="null.html">$null</a> <br />
 If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
 N- returns all tokens beginning with the Nth token.
 N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
@@ -80,7 +80,7 @@ $gettok puts range numbers in the correct order before evaluating them.
 ; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
 </pre>
 
-<br><b>Note:</b>$gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use {{mIRC|$replace|$replace}} to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use {{mIRC|$replace|$replace}} on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
+<br><b>Note:</b>$gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
 
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)

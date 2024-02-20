@@ -4,12 +4,17 @@
 <head><title>$hmatch</title></head>
 <H1>$hmatch</H1>
 <br>
-<br>{{Deprecated feature|new=<a href="hfind.html">$hfind</a><br>}}'''$hmatch''' Searches an hash table for the Nth item name which matches the <a href="..\other\wildcard.html">wildcard</a> text. Returns item name.
+<br>
+The <b>$hmatch</b> identifier searches an hash table for the Nth item name which matches the <a href="..\other\wildcard.html">wildcard</a> text. Returns item name.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="hfind.html">$hfind</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$hmatch(name/N, wildtext, N)
+$hmatch(name/N, wildtext, N)[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>name/N</b> - the Nth hash table or the name of it
 <br><b>text</b> - the <a href="..\other\wildcard.html">wildcard</a> expression to use to find a match
@@ -19,7 +24,9 @@ $hmatch(name/N, wildtext, N)
 <b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.
 
 <H4>Example</H4>
-
+<pre class ="code">
+TODO
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.81 (09 Nov 2000)

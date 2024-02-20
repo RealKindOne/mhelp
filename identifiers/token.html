@@ -4,7 +4,11 @@
 <head><title>$gettok</title></head>
 <H1>$gettok</H1>
 <br>
-<br>{{Deprecated feature|new=<a href="gettok.html">$gettok</a><br>}}'''$token</b> identifier returns the Nth $asc(C)-delimited token from a list.
+<br>
+The <b>$token</b> identifier returns the Nth $asc(C)-delimited token from a list.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="gettok.html">$gettok</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -29,9 +33,11 @@ None
 
 <H4>Example</H4>
 Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
-
+Returns "b".
+<pre class ="code">
 //echo -a $token(a-b-c-d-e,2,45)
-; returns b
+</pre>
+
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
