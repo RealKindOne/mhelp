@@ -192,7 +192,7 @@ Note the escaped characters. You should almost always encode all user input:
    sockwrite -n example $crlf
 }</pre>
 
-== POST vs GET? ==
+<H4>POST vs GET?</H4>
 By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: '''POST''' and '''GET'''. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
 
  <form id="FooBar" '''method="post"''' action="">
@@ -219,7 +219,7 @@ Next is the Host header:
 
 The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
 
-== Reading Incoming Data ==
+<H4>Reading Incoming Data</H4>
 Once the server receives your request, it will send the response back to you. This will trigger the <a href="..\events\on_sockread.html">On_SockRead</a> event. The basic syntax of the on sockread event is:
 
 <pre class ="code">on *:sockread:&lt;handle&gt;: {
@@ -265,7 +265,7 @@ One of the first things you will have to deal with when writing HTTP scripts is 
 
 Consider this simple example:
 
-<pre class ="code">//echo -a $noHTML(<strong>Example</strong> - <p>This is an <em>example</em></p>)</pre>
+<pre class ="code">//echo -a $noHTML(&lt;strong&gt; Example&lt;/strong&gt; - &lt;p&gt;This is an &lt;em&gt;example&lt;/em&gt;&lt;/p&gt;)</pre>
 
 Will print the following result:
 

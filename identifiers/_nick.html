@@ -5,10 +5,12 @@
 <H1>=$nick</H1>
 <br>
 <br>
-<b>=$nick</ is a special identifier. Inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, if you want to send a message to the dcc chat/serv window rather than to send a message as a private message on IRC, you have to prefix the nickname with the equal sign '='. For convenience =$nick can be used as a shortcut for = $+ $nick, where $nick is evaluated properly.
+<b>=$nick</b> is a special identifier. Inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, if you want to send a message to the dcc chat/serv window rather than to send a message as a private message on IRC, you have to prefix the nickname with the equal sign '='. For convenience =$nick can be used as a shortcut for = $+ $nick, where $nick is evaluated properly.
 
 <H4>Synopsis</H4>
-<pre>=$nick</pre>
+<pre class ="code">
+=$nick
+</pre>
 
 <H4>Parameters</H4>
 None
@@ -44,6 +46,10 @@ Now, any user in a DCC Chat can type: '''!myadress 3''', and it would return the
 
 <H4>Compatibility</H4>
 Added: mIRC v3.1 (23 Apr 1995)
+
+<H4>Notes:</H4>
+<!-- Copied from mirc.chm -->
+These events react to all users level 1 and above because of the way dcc chat works
 
 <H4>See also</H4>
 <a href="..\events\on_chat.html">On_Chat</a><br>
