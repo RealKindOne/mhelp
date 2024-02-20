@@ -9,15 +9,15 @@ The <b>$maxlenl</b> identifier return the maximum number of characters that can 
 
 The current value is 10240
 
-== Line Length Limit ==
+<H4>Line Length Limit</H4>
 
 The value of this identifier return a bit less that the real limit. The real limit is often referred to as the line length limit, it was previously 4150 (where $maxlenl would most likely have returned a safe value of 4096), it is currently 10340, 100 more than the safe limit of $maxlenl's 10240, and this is to account for the length of the command, switches etc, but note that if you come up with a total length of 100+ for your command + switches (think about /write -w"longstringhere"), you obviously won't have 8192 character left, but less.
 
 Versions History of $maxlenl and Line Length Limit:
-* 900-ish through v6.31
-* 4096+54=4150 Version v6.32 through v7.52 (before $maxlenl identifier existed)
-* 8192+100=8292 v7.53 through v7.61 with creation of $maxlenl in v7.53
-* 10240+100=10340 v7.62 through current
+<br>900-ish through v6.31
+<br>4096+54=4150 Version v6.32 through v7.52 (before $maxlenl identifier existed)
+<br>8192+100=8292 v7.53 through v7.61 with creation of $maxlenl in v7.53
+<br>10240+100=10340 v7.62 through current
 
 The main reason this was increased from 8192 to 10240 bytes was to support IRCv3 tags whose length is currently capped at 8191 plus a trailing space, which does not count against the 510 limit for the IRC message itself, but the combined string needed to fit within $maxlenl.
 
@@ -56,6 +56,7 @@ Added: mIRC v7.53 (29 Nov 2018)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="maxlens.html">$maxlens</a><br>
 <a href="maxlenm.html">$maxlenm</a><br>

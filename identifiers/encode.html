@@ -5,7 +5,7 @@
 <H1>$encode</H1>
 <br>
 <br>
-The <b>$encode</b> identifier allows you to encode literal text, or text in {{mIRC|Variables|%vars}} or {{mIRC|binary variables|&binvars}}. The '''$encode''' identifier uses either [[Uuencode]] or [[Base64|MIME]] or Base32 or Z85 to encode. Additionally, $encode is capable of utilizing [[Blowfish]] to encrypt the target before encoding using u/m/a/v encoding.
+The <b>$encode</b> identifier allows you to encode literal text, or text in <a href="..\other\variables.html">%vars</a> or <a href="..\other\binary_variables.html">binary variables</a>. The $encode identifier uses either Uuencode or MIME or Base32 or Z85 to encode. Additionally, $encode is capable of utilizing Blowfish to encrypt the target before encoding using u/m/a/v encoding.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -17,10 +17,10 @@ $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 </pre>
 <H4>Parameters</H4>
 <b>text/%var/&binvar</b> - The target to be encoded
-<br><b>b</b> - Target is a {{mIRC|binary variables|&binvar}}
+<br><b>b</b> - Target is a <a href="..\other\binary_variables.html">binary variables</a>
 <br><b>t</b> - Target is text (this is default target type)
-<br><b>u</b> - Target should be encoded using [[Uuencode]] (this is default encode type when 'tuma' not used)
-<br><b>m</b> - Target should be encoded using [[Mime]] (base64) (favored; has shortest output)
+<br><b>u</b> - Target should be encoded using Uuencode (this is default encode type when 'tuma' not used)
+<br><b>m</b> - Target should be encoded using Mime (base64) (favored; has shortest output)
 <br><b>a</b> - Target should be encoded using Base32
 <br><b>v</b> - Target should be encoded using Z85
 <br><b>N</b> - Integer Reference index for the Nth chunk (can't use without at least 1 switch)
@@ -39,18 +39,18 @@ $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 
 <H4>Encryption</H4>
 
-| c | CBC encryption mode defaults to using a mirc-generated pseudo-random binary salt. Adds 16-byte header inside u/m/a/v encoding: Salted__ $+ 8-byte-random-binary-salt.
-| e | ECB encryption mode, 'sir' switches become invalid.
+<br><b>c</b> - CBC encryption mode defaults to using a mirc-generated pseudo-random binary salt. Adds 16-byte header inside u/m/a/v encoding: Salted__ $+ 8-byte-random-binary-salt.
+<br><b>e</b> - ECB encryption mode, 'sir' switches become invalid.
 Note: 'c' is ignored if both of the conflicting c/e are used. Using 'c' or 'e' requires the key Parameter#3 be present. If the key is blank, instead of being an invalid parameter, it substitutes as if the user used a key consisting entirely of 0x00 bytes.
-| l | Literal key parameter used as key. For 'c' this avoids using an algorithm to hash the key parameter. For 'e' this changes the key length limit from 72 down to 56 bytes. However $encode allows using 'cl' but ignores it when you do not use 's'.
-| s | user defined 8-byte salt instead of random. (valid only when 'c' also used) When shorter than 8 bytes, is padded to 8 using 0x00 bytes. Same 16-byte header as non-s, except the 8-byte salt is the 1st 8 bytes of Parameter#4. Salt is interpreted in ANSI mode without encoding codepoints 128-255 to 2 bytes, and codepoint >255 is an invalid parameter. Warning: $encode truncates a string longer than 8 instead of treating as an invalid parameter
-| r | random IV (valid only when 'c' also used. Adds 16-byte header inside u/m/a/v encoding: RandomIV $+ X... where X is the randomly generated literal IV.  When not using 'l', this uses a hash method that's much weaker than the algorithm used for salted keys.
-| i | same as 'r' except uses user-defined string provided in Parameter#4 using same string handling rules as used when that parameter is a SALT belonging to the 's' switch. If also used alongside 'r', the string placed inside the 16-byte header is the user-defined string instead of random. If 'r' is not used, the exact same key/iv is used, except there is no 16-byte header inserted in front of the ciphertext. 's' and 'i' should not be used together, as 'i' causes 's' to be ignored.
+<br><b>l</b> - Literal key parameter used as key. For 'c' this avoids using an algorithm to hash the key parameter. For 'e' this changes the key length limit from 72 down to 56 bytes. However $encode allows using 'cl' but ignores it when you do not use 's'.
+<br><b>s</b> - user defined 8-byte salt instead of random. (valid only when 'c' also used) When shorter than 8 bytes, is padded to 8 using 0x00 bytes. Same 16-byte header as non-s, except the 8-byte salt is the 1st 8 bytes of Parameter#4. Salt is interpreted in ANSI mode without encoding codepoints 128-255 to 2 bytes, and codepoint >255 is an invalid parameter. Warning: $encode truncates a string longer than 8 instead of treating as an invalid parameter
+<br><b>r</b> - random IV (valid only when 'c' also used. Adds 16-byte header inside u/m/a/v encoding: RandomIV $+ X... where X is the randomly generated literal IV.  When not using 'l', this uses a hash method that's much weaker than the algorithm used for salted keys.
+<br><b>i</b> - same as 'r' except uses user-defined string provided in Parameter#4 using same string handling rules as used when that parameter is a SALT belonging to the 's' switch. If also used alongside 'r', the string placed inside the 16-byte header is the user-defined string instead of random. If 'r' is not used, the exact same key/iv is used, except there is no 16-byte header inserted in front of the ciphertext. 's' and 'i' should not be used together, as 'i' causes 's' to be ignored.
 Random IV/Salt created in the absence of Parameter#4 can contain 0x00 bytes in any position.
-| z | 1-8 0x00's padding ( no more than 1 of 'z n p' should be used at the same time)
-| n | padding 0x80 plus 0-7 0x00's
-| p | 1-8 0x20 spaces padding
-|   | Padding when none of 'znp' used = PKCS#7: Append N bytes of $chr(N) where N is 1-8
+<br><b>z</b> - 1-8 0x00's padding ( no more than 1 of 'z n p' should be used at the same time)
+<br><b>n</b> - padding 0x80 plus 0-7 0x00's
+<br><b>p</b> - 1-8 0x20 spaces padding
+<br><b>"&lt;space&gt;"</b> - Padding when none of 'znp' used = PKCS#7: Append N bytes of $chr(N) where N is 1-8
 }}
 
 Notes:
@@ -245,6 +245,7 @@ Added: mIRC v5.8 (05 Sep 2000)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="encode.html">$encode</a><br>
 <a href="rand.html">$rand</a><br>

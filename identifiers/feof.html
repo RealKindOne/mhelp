@@ -11,10 +11,13 @@ The <b>$feof</b> identifier returns 1 if the end of the file was reached from th
 <pre class ="code">
 $feof
 </pre>
+
 <H4>Parameters</H4>
 None
+
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">//write -c test.txt test | fopen test test.txt | echo -a $fread(test) | echo -a $feof | echo -a > $fread(test) | echo -a $feof | fclose test | remove test.txt</pre>
 Note that when reading a file line by line with $fread, you need one extra evaluation so that $feof is set to 1
@@ -24,6 +27,7 @@ Added: mIRC v6.1 (29 Aug 2003)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="ferr.html">$ferr</a><br>
 <a href="fopen.html">$fopen</a><br>

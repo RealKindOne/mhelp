@@ -28,10 +28,10 @@ After you opened a file with /fopen, you have a pointer of the content of the fi
 
 <a href="..\commands\fseek.html">/fseek</a> sets the read/write pointer to the specified &lt;position&gt; in the file, unless you use a switch:
 
-* -l - sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line
-* -n - sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter
-* -w - sets the pointer to the beginning of the line matching the {{mirc|wildcard}} expression, use &lt;position&gt; to specify the {{mirc|wildcard}} expression
-* -r - sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression
+<br><b>-l</b> - sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line
+<br><b>-n</b> - sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter
+<br><b>-w</b> - sets the pointer to the beginning of the line matching the <a href="wildcard.html">wildcard</a> expression, use &lt;position&gt; to specify the <a href="wildcard.html">wildcard</a> expression
+<br><b>-r</b> - sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression
 
 If /fseek fails, it sets the pointer to the end of the file, you must check $fopen().eof or $feof to know if /fseek failed.
 
@@ -45,7 +45,7 @@ If /fseek fails, it sets the pointer to the end of the file, you must check $fop
 
 /fclose &lt;name | wildcard&gt;
 
-<a href="..\commands\fclose.html">/fclose</a> closes all the matching name ({{mirc|wildcard}} expression allowed)
+<a href="..\commands\fclose.html">/fclose</a> closes all the matching name <a href="wildcard.html">wildcard</a> expression allowed)
 
 == <a href="..\commands\flist.html">/flist</a> ==
 

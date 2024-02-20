@@ -7,14 +7,14 @@
 <br>
 <b>Binary variables</b> are a special storage offered by mIRC that can hold an array of bytes of arbitrary length.
 
-== Overview ==
-mIRC's '''binary &variables''' are distinguished from its text %variables by beginning with the & ampersand symbol, while text variables begin with the % percent symbol. They differ from text variables in content, scope, duration, and length.
+<H4>Overview</H4>
+mIRC's <b>binary &variables</b> are distinguished from its text %variables by beginning with the & ampersand symbol, while text variables begin with the % percent symbol. They differ from text variables in content, scope, duration, and length.
 
-* They are composed of byte values, which can be any of the values 0-255. Among other differences, they can contain the $chr(0) value, which text variables cannot.
-* Their scope is similar to that of local identifiers such as $nick and $rawmsg. They exist as long as scripting engine is running, then are deleted.
-* Binary variables are not saved to the variables file (default name is vars.ini) the way global %variables are saved. To preserve them, you must either write them to a disk file, save to a hashtable item, or use $encode to save them to a %variable or hashtable.
-* While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.
-* mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compatibility reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.
+<br>They are composed of byte values, which can be any of the values 0-255. Among other differences, they can contain the $chr(0) value, which text variables cannot.
+<br>Their scope is similar to that of local identifiers such as $nick and $rawmsg. They exist as long as scripting engine is running, then are deleted.
+<br>Binary variables are not saved to the variables file (default name is vars.ini) the way global %variables are saved. To preserve them, you must either write them to a disk file, save to a hashtable item, or use $encode to save them to a %variable or hashtable.
+<br>While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.
+<br>mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compatibility reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.
 
 Some uses for Binary Variables include:
 
@@ -148,7 +148,7 @@ Create unique name to avoid destroying existing variable:
 <pre class ="code">
 //var %a $(myalias,$ticks,$ctime) | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text</pre>
 
-See {{mIRC|Variables}} in the Guide for more details on creating dynamic variable names.
+See <a href="variables.html">Variables</a> in the Guide for more details on creating dynamic variable names.
 
 Note: If your temporary variable is no longer needed and is lengthy, you may wish to use /bunset to reduce memory usage if you are also creating other lengthy binary variables during that script execution. Otherwise, it will be deleted when the script execution ends.
 

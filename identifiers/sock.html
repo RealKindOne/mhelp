@@ -11,6 +11,7 @@ The <b>$sock</b> identifier returns information about currently opened sockets.
 <pre class ="code">
 $sock(name,N)[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>name</b> -The name of the socket, you can use a <a href="..\other\wildcard.html">wildcard</a> expression and use the N parameter to get the Nth socket
 <br><b>N</b> - The Nth matching socket, to be used with a <a href="..\other\wildcard.html">wildcard</a> expression, default to 1
@@ -26,7 +27,7 @@ $sock(name,N)[.property]
 <br><b>.rq</b> - returns the number of bytes queued in the receive buffer
 <br><b>.ls</b> - returns the number of seconds since the connection last sent data
 <br><b>.lr</b> - returns the number of seconds since the connection last received data
-<br><b>.mark</b> - returns the data marked from {{mIRC|/sockmark}} (data storage tied to the socket, 512 bytes max)
+<br><b>.mark</b> - returns the data marked from <a href="..\commands\sockmark.html">/sockmark</a> (data storage tied to the socket, 512 bytes max)
 <br><b>.type</b> - returns the socket type, TCP or UDP
 <br><b>.saddr</b> - returns the source address of the last received UDP packet
 <br><b>.sport</b> - return the source port of the last received UDP packet
@@ -51,6 +52,7 @@ Added: mIRC v5.3 (13 Dec 1997)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\commands\sockopen.html">/sockopen</a><br>
 <a href="..\commands\sockwrite.html">/sockwrite</a><br>

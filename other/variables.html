@@ -15,7 +15,7 @@ There are two kinds of variables: local and global. '''Scope''' refers to the vi
 
 <H4>Local Variables</H4>
 
-'''Local Variables''' are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
+Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
 
 '''Note''': Local variables can be seen from the execution of /scon or /scid: //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
 
@@ -322,6 +322,7 @@ This method is easier to read/handle than the bracket, you can simply get the pl
 
 '''Note''': $eval is often used in the simple form $()
 
+<a name="quirks"></a>
 <H4>Special behaviors & quirks</H4>
 
 Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC doesn't evaluate it.

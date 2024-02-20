@@ -5,13 +5,17 @@
 <H1>$banmask</H1>
 <br>
 <br>
-The <b>$banmask</b> identifier returns the current user ban through either an <a href="..\events\on_ban.html">on_ban</a>, or an {{mIRC|on events/on ban|ON UNBAN Event}}. Most of the time, a banmask returns a <a href="..\other\wildcard.html">wildcard</a> address, generally resembling ''*user*@host.net''.
+The <b>$banmask</b> identifier returns the current user ban through either an <a href="..\events\on_ban.html">On_Ban</a>, or an <a href="..\events\on_unban.html">On_UnBan</a>. Most of the time, a banmask returns a <a href="..\other\wildcard.html">wildcard</a> address, generally resembling ''*user*@host.net''.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $banmask
 </pre>
+
 <H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
 None
 
 <H4>Example</H4>
@@ -30,14 +34,16 @@ ON *:UNBAN:#: {
 </pre>
 
 <H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="bnick.html">$bnick</a><br>
 <a href="ibl.html">$ibl</a><br>
 <a href="..\commands\ban.html">/ban</a><br>
 <a href="..\events\on_ban.html">On_Ban</a><br>
-<a href="..\events\on_unban.html">On_unban</a><br>
+<a href="..\events\on_unban.html">On_UnBan</a><br>
 </body>
 </html>

@@ -342,7 +342,7 @@ Using the student birthday example for simplicity and relating it to hash tables
 
 '''HOWEVER...'''
 
-Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using {{mIRC|$hget|$hget(table,n)}}, or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
+Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using <a href="..\identifers\hget.html">$hget</a>(table,n)}}, or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
 
 '''Summary:''' If you are doing only lookup by position or are using $hfind, then you should use a bucket size of 1 to save memory and avoid the small overhead of iterating over empty buckets.
 

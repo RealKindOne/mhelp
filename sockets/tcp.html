@@ -12,7 +12,7 @@ Now that you have some familiarity with the different types of sockets we can go
 
 Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to [http://www.youtube.com/ YouTube] and get the title of the page and the view count.
 
-== Creating a Connection ==
+<H4>Creating a Connection</H4>
 Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="..\commands\sockopen.html">/sockopen</a> command:
 
 <pre class ="code">sockopen &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
@@ -25,7 +25,7 @@ I am sure you are very familiar with the padlock icon next to the URL in your br
 <pre class ="code">sockopen -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
 <H4>IPv4 vs. IPv6 Sockets</H4>
-The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check {{mIRC|Ipv6|this page}} for more information about IPv6.
+The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check <a href="..\other\ipv6.html">this link</a> for more information about IPv6.
 
 <H4>Connection Example</H4>
 
@@ -60,7 +60,7 @@ In this example I thought we would do something different. Providing a YouTube l
 }</pre>
 
 == The Socket Mark ==
-In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="..\identifiers\sock.html">$sock</a>.mark}} identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="..\identifiers\sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
 <pre class ="code">sockmark &lt;handle&gt; &lt;value&gt;
 ; The following will clear the mark:
