@@ -7,6 +7,17 @@
 <br>
 The <b>$calc</b> can be used to perform mathematical calculations. The accuracy of results is limited to that of the 53-bit 'double' range, including the bits representing any fraction. The results are returned with any fraction rounded to the 6th decimal place, with the period or any zeroes-within-the-fraction stripped from being the rightmost digit of the output.
 
+<br>
+<br>
+<center><img src="..\images\warning.png"></a>
+<b>WARNING:</b> This identifier can be dangerous.
+<img src="..\images\warning.png"></a></center>
+<center>
+More information <a href="..\other\injection.html">here</a>.
+</center>
+<br>
+<br>
+
 <H4>Synopsis</H4>
 <pre class ="code">
 $calc(operations)
@@ -43,17 +54,17 @@ Then the level#3 operations within each group are performed left-to-right.
 Finally the + and - groups groups are added/subtracted together from left-to-right order.
 
 <H4>Example</H4>
-'''Echo a simple addition calculation to the active window'''
+Echo a simple addition calculation to the active window:
 <pre class ="code">//echo -a $calc(3 + 5)</pre>
 
-'''Echo a manipulated order of operations calculation to the active window'''
+Echo a manipulated order of operations calculation to the active window:
 <pre class ="code">//echo -a $calc(3 * 4 * (3 + 5)))</pre>
 Note that the extra closing parenthesis doesn't cause an error, but best practice is to avoid this, because future versions may not be as forgiving.
 
-'''Echo the remainder of the calculation, by invoking the modulus operator, to the active window'''
+Echo the remainder of the calculation, by invoking the modulus operator, to the active window:
 <pre class ="code">//echo -a $calc(10 % 3)</pre>
 
-'''Create a simple alias to take in two parameters, then raise the first to the power of the second, and return the value'''
+Create a simple alias to take in two parameters, then raise the first to the power of the: second, and return the value
 <pre class ="code">alias power {
 
   ; Make sure both inputs are numbers

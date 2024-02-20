@@ -7,6 +7,17 @@
 <br>
 The <b>/timer</b> command can be used to create a general purpose timer. A timer is a way to execute code at some specific interval or time and delay. Timers can be named and unnamed. Unnamed timers will get the lowest numeric timer index available. Named timers are specifically useful if you need to recall that timer at a later period - to pause it, resume it, or simply reset it. Starting a timer with a name that already exists will override the old timer. Timers are not blocking command, they only get executed after the alias/event/etc is complete, losing the access to the local scope.
 
+<br>
+<br>
+<center><img src="..\images\warning.png"></a>
+<b>WARNING:</b> This command can be dangerous.
+<img src="..\images\warning.png"></a></center>
+<center>
+More information <a href="..\other\injection.html">here</a>.
+</center>
+<br>
+<br>
+
 <H4>Synopsis</H4>
 <pre class ="code">
 /timers [off]

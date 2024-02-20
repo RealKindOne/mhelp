@@ -16,7 +16,7 @@ An eval injection vulnerability consists of two things:
 <br>
 Injections happen because of a simple side effect of the main rules definiting the syntaxes/semantics of the language.
 <br>
-= Injection via commands =
+<H4>Injection via commands</H4>F
 
 For a command, the interesting rule used by the parser to make it working is to evaluate $identifiers and %variables once before passing their value to the command:
 <pre class ="code">
@@ -337,7 +337,7 @@ This category relates to identifiers who have a 'command parm' or a 'callback al
 <H4>Injection via Bugs</H4>
 There are currently a few bugs in mIRC that allow for mSL injection, most in a round-a-bout fashion
 
-<H4>$iif( (cond) /cmd, true, false )<H4>
+<H4>$iif( (cond) /cmd, true, false )</H4>
 Due to the way mIRC handles <a href="..\identifiers\iif.html">$iif</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
 
 <pre class ="code">//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)</pre>
