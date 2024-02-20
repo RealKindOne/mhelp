@@ -80,11 +80,11 @@ Each code page has a number (Gdi charset):
 * 255 - OEM_CHARSET
 </pre>
 '''Note''': GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using C = 1.
-
+<br>
 For example, if you want to get the text (FROM GREEK TO UTF8), which used the ISO-8859-7 (GREEK) encoding for Greek letters, in utf8, you need to encode that to utf8, interpreting the bytes as per in the GREEK code page, and then to decode that to utf8: $utfdecode($utfencode(text,161))
-
+<br>
 If you want to send the text in GREEK over IRC, mIRC will encode the bytes internally so you must encode the text in utf8, and then decode to utf8, interpreting the bytes as per in the GREEK code page: /raw -n privmsg #chan $utfdecode($utfencode(text),161)
-
+<br>
 It must be noted that some commands and identifiers will encode your text to utf8, changing the integrity of your input.
 Each character is represented as 16 bits internally, the array of character is not an array of byte, it's an array of 16 bit (two bytes).
 But let's take a look at "/msg #chan é".
@@ -94,28 +94,28 @@ However there are others features where it's not so simple.
 $sha1(é) for example can be tricky, this is going to give the hash of the two bytes.
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
 And this is happening pretty much everywhere.
-
+<br>
 <a href="..\commands\raw.html">/raw</a> -n can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
-
+<br>
 <a href="..\commands\sockwrite.html">/sockwrite</a> -u can be used to the same effect, won't encode characters in the range 0-255 to utf8.
 
 <H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.
-
+<br>
 For example "Ô" can be sent from another IRC client either as $chr(212) or decomposed into a capital O $chr(79) followed by a combining circumflex $chr(770).
-
-Normalisation is a means of ensuring that all such characters are encoded either as the single integrated character or using modifiers in order that strings which might have a mixture of these techniques can be compared.
-
+<br>
+Normalization is a means of ensuring that all such characters are encoded either as the single integrated character or using modifiers in order that strings which might have a mixture of these techniques can be compared.
+<br>
 mIRC does not support normalization of Unicode strings either explicitly OR implicitly when comparing strings.
-
+<br>
 Experimentation suggests that mIRC does not normally recognize combining characters and will not display the combining character at all, which can lead to communication confusion. So a "Ô" sent decomposed into capital O $chr(79) followed by a combining circumflex $chr(770) will be displayed as "O".
-
+<br>
 To complicate things still further, some unicode characters look the same as or very similar to other completely different characters - and some of these characters are always considered unequal in strict Unicode whilst others can be converted during normalization. mIRC treats such characters as different under all circumstances.
 
 <H4>Case insensitive comparisons</H4>
 
 Without normalization, mIRC therefore fails to correctly compare unicode characters. This is not only true for the scripting language but anywhere in mIRC.
-
+<br>
 For example if you set a highlight entry with unicode letter, it won't work for a lower/uppercase version of that letter, same with <a href="..\commands\if.html">/if</a>'s "==" comparison operator with unicode letter:
 
 <pre class ="code">

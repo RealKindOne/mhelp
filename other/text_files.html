@@ -7,7 +7,7 @@
 <br>
 Plain text files are files you can edit via a basic editor like notepad and has no special structure. Below are a few handy commands and identifiers to work with plain text files.
 
-== File Info ==
+<H4>File Info</H4>
 To determine if a file exists we can use the $isfile() identifier.
 
 <pre class ="code">$isfile(file.txt)</pre>
@@ -20,7 +20,7 @@ In many cases you'd want to check the number of lines in the file. $lines() will
 The $read() identifier is a very powerful command that can be used to read from a text file in a variety of ways.
 
 === n Switch ===
-By default, $read will evaluate the text it reads as if it was mSL code. To prevent this behavior you must use the n switch. Throughout this article we will ALWAYS use that switch. Improper use of the $read() identifier without the 'n' switch could {{mIRC|mSL Injection|leave your script highly vulnerable}}.
+By default, $read will evaluate the text it reads as if it was mSL code. To prevent this behavior you must use the n switch. Throughout this article we will ALWAYS use that switch. Improper use of the $read() identifier without the 'n' switch could leave your script <a href="injection.html">highly vulnerable</a>.
 
 === Reading a Random Line ===
 The most basic functionality $read() offers is the ability to read a random line from a particular file. The syntax is:
@@ -34,14 +34,14 @@ To read a specific line from a file you can specify the line number as the third
 <pre class ="code">$read(file.txt, n, line)</pre>
 
 === Searching the File ===
-$read() offers three methods for searching a file: 
+$read() offers three methods for searching a file:
 
-* Scanner
-* {{mirc|wildcard|Wildcard Pattern}}
-* Regular Expression Pattern
+<br>Scanner
+<br>{{mirc|wildcard|Wildcard Pattern}}
+<br>Regular Expression Pattern
 
 ==== Scanner ====
-The scanner is the most primitive search of the three. It will go through each line comparing the pattern provided to the first part of the line. If a match is found, mIRC will return the text that followed the pattern. 
+The scanner is the most primitive search of the three. It will go through each line comparing the pattern provided to the first part of the line. If a match is found, mIRC will return the text that followed the pattern.
 
 Consider the following abbr.txt:
 
@@ -65,7 +65,7 @@ Will produce the following output:
 be right back</pre>
 
 ==== Wildcard And RegEx Patterns ====
-Both the {{mirc|wildcard}} pattern matching and the regex pattern matching works by searching for the first matching line and returning the entire line. It follows the same syntax as the scanner:
+Both the <a href="wildcard.html">wildcard</a> pattern matching and the regex pattern matching works by searching for the first matching line and returning the entire line. It follows the same syntax as the scanner:
 
 <pre class ="code">; A wildcard pattern match:
 $read(file.txt, nw, *wildmatch*)
@@ -74,7 +74,7 @@ $read(file.txt, nw, *wildmatch*)
 $read(file.txt, nr, /pattern/)</pre>
 
 ==== Starting Line ====
-If you specify a line number after the pattern, that line will be used as the first line to start searching from. 
+If you specify a line number after the pattern, that line will be used as the first line to start searching from.
 
 For Example:
 
@@ -82,7 +82,7 @@ For Example:
 $read(file.txt, nw, *hello*, 400)</pre>
 
 == Iterating Over Matches ==
-$readn is an identifier that returns the line that $read() matched. We can use that to start searching for our pattern on the next line. 
+$readn is an identifier that returns the line that $read() matched. We can use that to start searching for our pattern on the next line.
 
 For example, to search all the line containing the word 'test' in a file, we can construct a loop like this:
 
@@ -119,7 +119,7 @@ The -c switch on /write can be combined to clear the file before writing to it.
 <pre class ="code">; clear the file
 /write -c file.txt</pre>
 
-== Deleting a File ==
+<H4>Deleting a File</H4>
 The delete a file, you can use the /remove command:
 
 <pre class ="code">/remove file.txt
