@@ -138,6 +138,7 @@ Upon executing ''/nullExample'', you will notice that mIRC will echo the followi
 <pre class ="code">%example1 is null!
 %example2 is also null!</pre>
 
+<a name="math_operations"></a>
 <H4>Math Operations</H4>
 You can do one math operation with variable when setting a value.
 
@@ -248,7 +249,7 @@ Retrieving a value from a dynamic variable is a little bit more complicated. The
 
 <pre class ="code">%&lt;static&gt; [ $+ [ &lt;dynamic&gt; ] ]</pre>
 
-This is the [[Evaluation_Brackets - mIRC|evaluation brackets]] method. They allow us to force mIRC to evaluate part of a statement before anything else. Take a look at the rest of the myColor script:
+This is the <a href="eval_brackets.html">evaluation_brackets</a> method. They allow us to force mIRC to evaluate part of a statement before anything else. Take a look at the rest of the myColor script:
 
 <pre class ="code">on *:text:!favColor *:#:{
   var %color = %color. [ $+ [ $2 ] ]

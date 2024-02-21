@@ -134,7 +134,7 @@ Note that itemnames are always written as UTF8 encoded because that's the way th
 -b and -B do error checking on the data when loading, stopping when encountering a bad item 'record', such as encountering end-of-file prior to the end of the record as defined by either length byte. If 0x00 is encountered in the middle of the itemname, both the item and data are hadd'ed to the table, with the itemname truncated prior to the 0x00.
 
 <br>Disk Structure: -i switch with optional [section]
-If optional SECTION parameter not used, /hsave -i and /hload -i use the default section name hashtable enclosed in square braces. Otherwise, the optional parameter following the filename is used as the .ini's section name. /hsave -i overwrites only the active section name, without affecting other section names existing in the .ini file. If your optional parameter is wrapped inside square braces, mIRC assumes it should wrap your parameter again, so your disk file would contain a section header like [[parameter]]
+If optional SECTION parameter not used, /hsave -i and /hload -i use the default section name hashtable enclosed in square braces. Otherwise, the optional parameter following the filename is used as the .ini's section name. /hsave -i overwrites only the active section name, without affecting other section names existing in the .ini file. If your optional parameter is wrapped inside square braces, mIRC assumes it should wrap your parameter again, so your disk file would contain a section header like parameter.
 Each Item is written to that section as a single line in the format ItemName=DataValue
 
 <H4>See also</H4>

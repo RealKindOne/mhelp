@@ -18,12 +18,11 @@ None
 None
 
 <H4>Example</H4>
-Echo the value of $lactive to the active window
+Echo the value of $lactive to the active window:
 <pre class ="code">
 //echo -a $lactive
 </pre>
-
- Listen for an active window change, then echo the last active window
+Listen for an active window change, then echo the last active window:
 <pre class ="code">
 ON *:ACTIVE:*:echo -a * Active window is now $active $+ . Previous active window was $lactive</pre>
 

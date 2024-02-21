@@ -129,10 +129,10 @@ Otherwise:
 <br><b><span style="margin-left: 20px;">pass</span></b> - using this method means that the **[password]** parameter (the server password) is what contains your nickname's password (default if you don't use -l, typically IRC server will try to identify you to service such as NickServ using your current nickname and the server password provided)
 
 <br><b><span style="margin-left: 20px;">sasl</span></b> - using this method means that mIRC will use SASL PLAIN to identify you. The next parameter can be:
-<br>
-*** **nick:password** - nick is the registered nick/account and password is the password for that account (this indeed means that you can connect to IRC server with a nickname that is different from the NickServ nickname/account and still be logged to that account)
-<br>
-*** **password** - a password only, mIRC will use your current nickname to auth you
+
+<br><b><span style="margin-left: 30px;">nick:password</span></b> - nick is the registered nick/account and password is the password for that account (this indeed means that you can connect to IRC server with a nickname that is different from the NickServ nickname/account and still be logged to that account)
+
+<br><b><span style="margin-left: 30px;">password</span></b> - a password only, mIRC will use your current nickname to auth you
 <br>
 *** mIRC will first interpret this parameter as nick:pass if a ':' is present and only if that fails it will try that value as a password only, using your current nickname to auth.
 

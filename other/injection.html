@@ -24,7 +24,7 @@ echo -a $me
 </pre>
 Here <a href="..\identifiers\me.html">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="..\identifiers\me.html">$me</a> is passed as the second parameter to the /echo command.
 
-== Nested command ==
+<H4>Nested command</H4>
 
 Now, the language features some commands where one or more of their parameters are actually meant to be a new command with its own parameters. That new command is meant to be used later automatically by mIRC, this is where the injection happens.
 
@@ -250,7 +250,7 @@ on !*:join:#:{
   }
 }</pre>
 
-== $submenu ==
+<H4>$submenu</H4>
 
 The value returned by the alias called by $submenu is evaluated a second time, again, $safe and similar methods are your friend:
 
@@ -308,7 +308,7 @@ on *:text:!calc *:#:{
   }
 }</pre>
 
-== $decode ==
+<H4>$decode</H4>
 
 This is not really an exploit, but is a way for someone to disguise their malicious command. It can't be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it's a command which begins with a % or a $, but that behavior does not extend to remote scripts.
 

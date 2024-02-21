@@ -75,7 +75,7 @@ Fun!</pre>
 '''Note''': As you may have noticed, from the editbox, you can only pipe statements, you can't use newlines.
 
 You will notice that after the first ''//echo'' command, once we've piped, we do not need to type any more slashes; this is because mIRC interprets the rest of the statements via the first initial two slashes.
-If you use one slash here, "Scripting | echo Is | echo Fun!" will be echoed, because the pipes have not been interpreted as statements seperator, we usually refer to something that can be interpreted that is not interpreted as 'plain text'. We also refer to the processing of anything special (we've only seen the pipe character for now, but they are others) as 'evaluation', we will discuss it later.
+If you use one slash here, "Scripting | echo Is | echo Fun!" will be echoed, because the pipes have not been interpreted as statements separator, we usually refer to something that can be interpreted that is not interpreted as 'plain text'. We also refer to the processing of anything special (we've only seen the pipe character for now, but they are others) as 'evaluation', we will discuss it later.
 
 When you begin an editbox command with a double "//", it does not execute the 1st command if the // is immediately followed by a space character, so be sure to not have an unnecessary space at the beginning. This example echoes only the "test2" message:
 
@@ -104,13 +104,13 @@ Before we continue, let us note a few things regarding the above code:
 # The statements in the editor are always executed as though two forward slashes were used, you cannot force a statement not to be evaluated.
 # Because we used the '''alias''' keyword, the code must go in the '''Remote Tab''' of the script editor. In order to use that code from the aliases tab, you must remove the "alias" keyword. The rest of the code stays the same.
 <br>
-=== Remote tab ===
+<H4>Remote tab</H4>
 <br>
 <br>
 <img src="..\images\fun_alias_remote.png">
 <br>
 <br>
-=== Aliases tab ===
+<H4>Aliases tab</H4>
 <br>
 <br>
 <img src="..\images\fun_alias_alias.png">
@@ -128,8 +128,8 @@ That should print our text again:
 Is
 Fun!</pre>
 
-== A block of code: ==
-When we have a group of related commands, we call it a '''block of code'''. Most scripts, however, are not as short as our example and putting it all on one long line, or ''piping'', is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC "this block of code belongs to this alias". We do that by enclosing the block of code in a pair of brackets:
+<H4>A block of code</H4>
+When we have a group of related commands, we call it a "block of code". Most scripts, however, are not as short as our example and putting it all on one long line, or ''piping'', is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC "this block of code belongs to this alias". We do that by enclosing the block of code in a pair of brackets:
 
 <pre class ="code">alias name {
   statement 1
@@ -323,8 +323,8 @@ alias second {
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
-== Identifiers ==
-{{main|mirc/aliases|l1=Aliases}}
+<H4>Identifiers</H4>
+<a href="aliases.html">aliases</a>
 
 Before we wrap up this tutorial, we need to talk about one last concept: $identifiers. All identifiers have a dollar symbol sigil and have the following syntax: 
 

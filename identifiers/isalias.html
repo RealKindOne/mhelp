@@ -21,16 +21,15 @@ $isalias(name,[N])[.property]
 <br><b>.alias</b> - returns the alias definition, you can access a multiline alias with the N parameter.
 
 
-
-'''Note''': If you have an alias named "test" inside a remote file A and another alias with the same name in another remote file B, even in B is loaded after A, if you execute the alias from an alias/event/etc inside file B, it will execute your alias in file B, you may be expecting this but the author here wasn't until recently. I was thinking it would always execute the first found alias in the order of loaded file unless the alias in B is local here. $isalias behaves the same way, if you call $isalias from a remote file, it will always use the alias defined inside that remote file if it exists, this suggests that alias are always local to a remote script, the -l switch when defining alias with the alias keyword wouldn't be that useful?
-
 <H4>Example</H4>
 <pre class ="code">//echo -a $isalias(join)</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.4 (23 Jun 1998)}
+Added: mIRC v5.4 (23 Jun 1998)
+
 <H4>Notes</H4>
-None
+If you have an alias named "test" inside a remote file A and another alias with the same name in another remote file B, even in B is loaded after A, if you execute the alias from an alias/event/etc inside file B, it will execute your alias in file B, you may be expecting this but the author here wasn't until recently. I was thinking it would always execute the first found alias in the order of loaded file unless the alias in B is local here. $isalias behaves the same way, if you call $isalias from a remote file, it will always use the alias defined inside that remote file if it exists, this suggests that alias are always local to a remote script, the -l switch when defining alias with the alias keyword wouldn't be that useful?
+
 <H4>See also</H4>
 <a href="script.html">$script</a><br>
 <a href="alias.html">$alias</a><br>

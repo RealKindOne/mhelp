@@ -62,7 +62,7 @@ Using the while loop, we can repeat the echo statement as many times as we want.
 #The second statement inside the while loop will cause the "%line" variable to increase by 1 (if no number is specified the default is one).
 #Go back to step 2.
 
-== Nested Loops ==
+<H4>Nested Loops</H4>
 
 A ''nested loop'' is a loop that is situated within the body of the other. In a nested loop, the first iteration of the outer loop causes the inner loop to execute. The inner loop will execute its body as long as its condition is true. Upon completion the outer loop executes again, causing the inner loop to execute again. This sequence of events will keep on executing until the outer loop is complete. There is no limit to how many loops can be nested inside each other.
 
@@ -192,7 +192,7 @@ The output is:
 
 Notice, the result is all the even numbers between 2 to 20. If you are wondering how did it echo 20 even though our conditional statement tells mIRC anything less than 20. We have an answer:  when %x gets to 19, the if statement will cause the /continue command to execute, as a result, the program control goes back to the conditional statement, 19 < 20, which is true. %x then gets increased by 1 to 20, which will then make it to the echo command.
 
-== Reference of parameters ==
+<H4>Reference of parameters</H4>
 
 mIRC provides two identifiers to retrieve the first or second parameter of the while's conditional statement. Please note, the identifiers will return the first and second parameter of the $TRUE condition following short-circuit evaluation guidelines.
 

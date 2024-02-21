@@ -7,9 +7,7 @@
 <br>
 mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) designed to work with mIRC. The main reason you would want to do this is that processing information in a DLL can be far faster than doing so in a mIRC script, so for intensive data processing a DLL would be more efficient.
 <br>
-'''Note:'''  mIRC also supports calling <a href="com.html">COM</a> objects, for calling non-standard DLLs.
-
-= Using a Dll =
+<br><b>Note:</b>  mIRC also supports calling <a href="com.html">COM</a> objects, for calling non-standard DLLs.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -30,7 +28,7 @@ mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) de
 
 <H4>Creating a Dll</H4>
 
-'''Note''': We won't deal with how to create a dll in details, the scripter here must be familiar with dll creation already.
+<br><b>Note:</b> We won't deal with how to create a dll in details, the scripter here must be familiar with dll creation already.
 
 Because mIRC wasn't unicode before, the exported functions used to be the following function prototype:
 
@@ -52,13 +50,13 @@ If you call a non unicode dll with mIRC being unicode, mIRC must call the protot
 
 Both 'data' and 'params' are allocated with a number of bytes that is close to ($maxlenl+100)*2+N where N is 100 or a bit more, and this is true both unicode and non unicode mode. This effectively mean that you can write that many bytes into the buffer yourself in both mode.
 
-These functions must use the [[stdcall calling convention]]. (This is also the standard calling convention for all other [[Microsoft]] [[Win32 API]] functions.)
+These functions must use the stdcall calling convention. (This is also the standard calling convention for all other Microsoft Win32 API functions.)
 
 <H4>Note on C++ Dll and stdcall</H4>
 
-If you are making a [[C++]] dll, you need to use the extern "C" directive on all the function that you want to export (all the function called from mIRC including the LoadDll and UnloadDll routine), which indicates the function has "[[C]]" linkage as opposed to "[[C++]]".
+If you are making a C++ dll, you need to use the extern "C" directive on all the function that you want to export (all the function called from mIRC including the LoadDll and UnloadDll routine), which indicates the function has "C" linkage as opposed to "C++".
 
-The interesting difference is that [[C]] linkage does not use "mangling" when exporting your function, an operation which rename your functions with additional information to help the linking process.
+The interesting difference is that C linkage does not use "mangling" when exporting your function, an operation which rename your functions with additional information to help the linking process.
 
 <pre class ="code">extern "C" int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);</pre>
 
@@ -68,7 +66,7 @@ To solve this problem, most of the linker will allow you to provide a .def file,
 
 Creating a file for that can be annoying, on Visual Studio you can use a #pragma directive to do that on the fly, the examples illustrate this
 
-'''Note:''' If you use GCC Gnu to compile, it has something similar to __stdcall, __attribute__((stdcall)).
+<br><b>Note:</b> If you use GCC Gnu to compile, it has something similar to __stdcall, __attribute__((stdcall)).
 
 <H4>Return value</H4>
 
@@ -79,9 +77,9 @@ The function returns an integer, this value indicates what mIRC should do:
 <br><b>2</b> - Means that you have filled the 'data' variable with a command which mIRC should perform, you can also fill the "parms" variable with the parameters to use, if any.
 <br><b>3</b> - Means that the DLL has filled the data variable with the result that $dll() as an identifier should return.
 
-'''Note''': this only applies when using $dll or /dll.
+<br><b>Note:</b> this only applies when using $dll or /dll.
 
-== Keeping a Dll loaded ==
+<H4>Keeping a Dll loaded</H4>
 
 In the past, by default, a DLL used to be unloaded immediately after you made the /dll or $dll()/$dllcall call.
 
@@ -109,7 +107,7 @@ typedef struct {
 <br><b>mBeta</b> - contains the mIRC $beta version number, for public betas.
 <br><b>mBytes</b> - as of v7.64 contains the max safe byte length that can be placed into the 'data' and 'parms' buffers. This is always the double of the line length limit even when converting to utf8 with non unicode dll.
 
-== Unloading the Dll ==
+<H4>Unloading the Dll</H4>
 
 mIRC will automatically unload a DLL if it is not used for ten minutes, or when mIRC exits.
 
@@ -125,7 +123,7 @@ The mTimeout value can be:
 
 <H4>Examples</H4>
 
-== Example 1 : Using Visual studio (C++) ==
+<H4>Example 1 : Using Visual studio (C++)</H4>
 
 This example use a non-unicode project. We don't use a .def file but a #pragma comment to export functions.
 
@@ -237,7 +235,7 @@ Use $dll(yourdll.dll,from_event,$eventid) inside an event where $nick exists, th
 
 Use $dll(yourdll.dll,usingSM,) which will use SendMessage() to execute a command in mIRC, it will also evaluate a line of code and return the result in $dll().
 
-== Example 2 : Using GNU GCC on Windows (C) ==
+<H4>Example 2 : Using GNU GCC on Windows (C) </H4>
 
 <pre class ="code">
 //To compile, use:

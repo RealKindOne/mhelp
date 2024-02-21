@@ -5,16 +5,22 @@
 <H1>$iaddress</H1>
 <br>
 <br>
-The <b>$iaddress</b> identifier returns the ip address, if avaible, inside an {{mIRC|on dns}} event.
+The <b>$iaddress</b> identifier returns the ip address, if available, inside an <a href="..\events\on_dns.html">On_Dns</a> event.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="dns.html">$dns().addr</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $iaddress
 </pre>
+
 <H4>Parameters</H4>
 None
+
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">on *:dns:echo -a $iaddress</pre>
 
@@ -22,7 +28,8 @@ None
 Added: mIRC v4.7 (09 Dec 1996)
 
 <H4>Notes</H4>
-None
+Depreciated: mIRC v6.0 (03 Feb 2002)
+
 <H4>See also</H4>
 <a href="dns.html">$dns</a><br>
 <a href="raddress.html">$raddress</a><br>

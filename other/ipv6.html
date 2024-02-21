@@ -28,10 +28,10 @@ Firstly a quick reminder about the purpose of DNS - if you already understand th
 
 Both IPv4 and v6 use numeric addresses to identify computers and how they are connected in order to route information between them - when we humans need to use these numeric addresses we represent them as 1.2.3.4 for IPv4 and 1234:5678:90AB:CDEF:1234:5678:90AB:CDEF for IPv6. Whilst these numeric addresses are great for computers to route packets, they are not so good for giving a computer a name or for identifying the services it provides, and of course the number used to route packets can change over time even if it is still the same computer you are trying to talk to. (In other words "I am a name not just a number".)
 
-The names given to computers on the Internet (like www.wikichip.org or irc.undernet.org) are called Domain Names or hostnames, and the service provided to convert Domain Names to IP addresses is called DNS.
+The names given to computers on the Internet (like www.mirc.com or irc.undernet.org) are called Domain Names or hostnames, and the service provided to convert Domain Names to IP addresses is called DNS.
 
 <H4>mIRC's quirks</H4>
-Although mIRC can make IPv6 connections to explicitly specified IPv6 addresses out of the box without '''any''' mIRC configuration settings needing to be set, unfortunately this is '''not''' the same as mIRC fully supporting IPv6 without any configuration. Whilst you '''can''' connect using an explicit IPv6 address if you wanted to (presumably having looked it up yourself manually from a hostname), we almost always prefer to use hostnames and allow programs like mIRC to lookup the associated IP addresses.
+Although mIRC can make IPv6 connections to explicitly specified IPv6 addresses out of the box without '''any''' mIRC configuration settings needing to be set, unfortunately this is <b>not</b> the same as mIRC fully supporting IPv6 without any configuration. Whilst you '''can''' connect using an explicit IPv6 address if you wanted to (presumably having looked it up yourself manually from a hostname), we almost always prefer to use hostnames and allow programs like mIRC to lookup the associated IP addresses.
 
 mIRC does have a configuration setting for IPv6 - though it is not easy to find in mIRC's Options dialog, and even when you find it the description is not accurate. The configuration setting can be found at Tools > Options ... (alt + o) > Connect / Options > Ports... and is called "Enable IPv6 support and prioritize IPv6 over IPv4 connections" - but despite the description, this option is not needed to be set to "enable IPv6" and it only "prioritizes" IPv6 over IPv4 in some circumstances, whilst in other circumstances mIRC is effectively only supporting either IPv6 or IPv4 but not both. ''If you have IPv6 connectivity to the Internet, you should read and understand this page before deciding to set or unset this configuration option.''
 
@@ -60,7 +60,7 @@ Only when the internal state is IPv6/v4 will mIRC reliably make connections rega
 
 The internal state of the status window is set as follows:
 
-* When a new status window is opened, the IP version state is set to IPv4 if the mIRC option '''Enable IPv6 support and prioritize IPv6 over IPv4 connections''' is '''not''' enabled, and v6/v4 if it '''is''' enabled. (This setting can be found at Tools Options... (alt + o) > Connect > Options > Ports...)
+* When a new status window is opened, the IP version state is set to IPv4 if the mIRC option '''Enable IPv6 support and prioritize IPv6 over IPv4 connections''' is <b>not</b> enabled, and v6/v4 if it <b>is</b> enabled. (This setting can be found at Tools Options... (alt + o) > Connect > Options > Ports...)
 * Making a connection via a host name without specifying the IP version explicitly (i.e. you don't user /server -4 or -6 and don't specify an explicit IP address) does not change the status windows DNS lookup state.
 * Making a connection using an explicit IP address or the -4 or -6 switches, changes the DNS lookup state to that IP version.
 * It is not possible to change the DNS lookup state for an existing status window back to v6/v4 once it has changed to v4 or v6. It can only be reset by opening a new status window.
@@ -80,7 +80,7 @@ Scripts using /server, /dns or /sockopen which were written for mIRC v6 (i.e. be
 
 '''Summary:''' If your status window is IPv6/v4 state, then you should be able to connect to IPv4 and IPv6 hosts without any issues. But there is no easy way for a user or a script to determine when the IPv6/v4 state has been changed to IPv4 or IPv6, and then things may start to break.
 
-=== IPv6 ===
+<H4>IPv6</H4>
 This is the state you are in if you used /server -6 or used /server with an explicit IPv6 address.
 
 In this state, mIRC does not resolve hostname to an IPv4 address without explicitly requesting mIRC to do so using a -4 switch. IPv4 using hostnames is effectively disabled for this status window.
@@ -91,7 +91,7 @@ Scripts using /server, /dns or /sockopen which were written for mIRC v6 (i.e. be
 
 '''Summary:''' If your status window is IPv6 state, then if you want to lookup or connect to an IPv4-only hostname, you need to explicitly code -4 on the /server, /dns or /sockopen command.
 
-=== IPv4 ===
+<H4>IPv4</H4>
 This is the state you are if you opened the status window with IPv6 priority not enabled or if you made a connection to an IRC server using either an explicit IPv4 address or used /server -4.
 
 In this state, mIRC does not resolve hostname to an IPv6 address without explicitly requesting mIRC to do so using a -6 switch. IPv6 using hostnames is effectively disabled for this status window.
@@ -102,7 +102,7 @@ Scripts using /server, /dns or /sockopen which were written for mIRC v6 (i.e. be
 
 '''Summary:''' If your status window is IPv4 state, then if you want to lookup or connect to an IPv6-only hostname, you need to explicitly code -6 on the /server, /dns or /sockopen command.
 
-== Some examples ==
+<H4>Some examples</H4>
 The following examples are for users who have both IPv4 and IPv6 internet connectivity:
 
 === Manual server connection ===
@@ -118,14 +118,14 @@ This is true regardless of the "IPv6 priority" setting.
 # For some reason user connects to irc.net by IPv6 (for whatever reason).
 # Same script to connect to www.ipv4only.com by IPv4 breaks for no reason apparent to the user.
 
-== Additional SockOpen restriction ==
+<H4>Additional SockOpen restriction</H4>
 When using /sockopen -d to bind to a specific network card IP address on your own PC (i.e. to make the socket connection originate from a specific IP address when you have several), mIRC will base its DNS resolution and subsequent connection on the IP version of the IP address you specify to bind to.
 
 If you bind to an IPv6 address (e.g. /sockopen -d 1234:5678:90AB:CDEF:1234:5678:90AB:CDEF hostname), then mIRC will only do an IPv6 lookup on the hostname (because the bind address is IPv6 and so the connection has to be IPv6, so no point in looking up IPv4 addresses).
 
 If you bind to an IPv4 address (e.g. /sockopen -d 1.2.3.4 hostname), then mIRC will only do an IPv4 lookup on the hostname (because the bind address is IPv4 and so the connection has to be IPv4, so no point in looking up IPv6 addresses).
 
-== To priorities or Not to priorities? That is the question! ==
+<H4>To priorities or Not to priorities? That is the question!</H4>
 Assuming that you have IPv6 connectivity of some sort on your PC, you are (or perhaps should be) worrying about whether you should set the IPv6 priority option or not.
 
 As described above, setting IPv6 priority gives you the best chance of network connections succeeding (particularly if you ensure that you preserver the IPv6/v4 state of your status window), but it also means that your hostname-based connections will all be IPv6 where possible, and only IPv4 when an IPv6 address is not available for the hostname.
@@ -134,7 +134,7 @@ If your IPv6 internet connection is native, then it is likely that the performan
 
 On the other hand, if your IPv6 internet connectivity is delivered using a gateway protocol like Teredo on your individual PC or 6to4 as part of your network infrastructure, then it is likely that your the performance of your IPv6 connections will be substantially slower than your IPv4 connections because the traffic from your PC to the server doesn't go via the shortest/quickest route but instead is sent via a gateway. In this situation, you are recommended <b>not</b> to set IPv6 priority, continue to connect via IPv4 and live with the occasions when connections to IPv6 are not made - which at present, whilst servers generally still all have IPv4 addresses, should be fairly rare. If you do set IPv6 priority in this situation, your IRC connections will default to IPv6 and be slower, but your ability to connect to both types of server is enhanced.
 
-== Recommendations for scripters ==
+<H4>Recommendations for scripters</H4>
 To ensure that connections are made whenever they are possible, regardless of the IP version used by the status window's state, scripts should explicitly use the -46 switch on every /dns and /sockopen command in order to make a connection on the opposite IP version when needed. Scripts that have been written without this (e.g. written before IPv6 was implemented in mIRC) will not have backward compatibility and will not work reliably.
 
 Including these switches will make your script work in all circumstances regardless of the IP state of the status window:
