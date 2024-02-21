@@ -47,7 +47,7 @@ mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha256, if 
 
 //bset -ta &string 1 chloé | echo -a $sha1(&string,1)
 
-== Error Messages ==
+<H4>Error Messages</H4>
 Note that $sha256 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha256 is lowercase while $crc returns uppercase hex.
 
 * Error accessing file: $sha256

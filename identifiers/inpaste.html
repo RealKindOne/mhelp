@@ -12,7 +12,7 @@ The <b>$inpaste</b> identifier returns $true if a user triggered the <a href="..
 <br> Clipboard contains at least one of $cr $lf $crlf
 <br> Paste from the clipboard triggers the ON INPUT event
 <br> $inpaste is used within the ON INPUT or ON PARSELINE:out event
-*Note: If you paste text into the editbox which doesn't trigger the INPUT event, pressing <enter> later messaging the pasted text to #channel does not set $inpaste to $true.
+*Note: If you paste text into the editbox which doesn't trigger the INPUT event, pressing &lt;enter&gt; later messaging the pasted text to #channel does not set $inpaste to $true.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -38,8 +38,8 @@ on *:PARSELINE:out:*:{ echo -s debug $scriptline $event : $inpaste is $true only
 
 <pre class ="code">
 if ($inpaste) echo -a INPUT event triggered by paste from clipboard
-elseif ($ctrlenter) echo -a INPUT event triggered by pressing <enter> and <Ctrl> keys together
-else echo -a INPUT event triggered by pressing <enter>
+elseif ($ctrlenter) echo -a INPUT event triggered by pressing &lt;enter&gt; and <Ctrl> keys together
+else echo -a INPUT event triggered by pressing &lt;enter&gt;
 </pre>
 
 <H4>Compatibility</H4>

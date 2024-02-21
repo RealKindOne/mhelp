@@ -5,11 +5,11 @@
 <H1>$ticks</H1>
 <br>
 <br>
-The <b>$ticks</b> identifier retrieves the number of [[milliseconds]] that have elapsed since the system was [[uptime|started]]. $ticks is most often used in [[benchmarking]].
+The <b>$ticks</b> identifier retrieves the number of milliseconds that have elapsed since the system was started. $ticks is most often used in benchmarking.
 
 
-== Details ==
-The $ticks identifier is used to retrieves the current system [[uptime]] in [[milliseconds]]. The identifier is limited to the resolution of the [[system timer]] which is typically in the range of 10 milliseconds to 16 milliseconds. Prior to mIRC version 7.33 the $ticks identifier used the [[GetTickCount - Win32|GetTickCount()]] function which meant the value $ticks returned would wrap around to zero after 49.71 days. In 7.33 the $ticks identifier was switched to use the [[GetTickCount64 - Win32|GetTickCount64()]] function, eliminating this issue (which wraps around once every 584.9 million years).
+<H4>Details</H4>
+The $ticks identifier is used to retrieves the current system uptime in milliseconds. The identifier is limited to the resolution of the system timer which is typically in the range of 10 milliseconds to 16 milliseconds. Prior to mIRC version 7.33 the $ticks identifier used the <b>GetTickCount()</b> function which meant the value $ticks returned would wrap around to zero after 49.71 days. In 7.33 the $ticks identifier was switched to use the <b>GetTickCount64()</b> function, eliminating this issue (which wraps around once every 584.9 million years).
 
 
 <H4>Synopsis</H4>

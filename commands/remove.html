@@ -23,25 +23,24 @@ The <b>/remove</b> command can be used to delete a file permanently or sends it 
 <br><b>Note:</b> If filename contains 2+ consecutive spaces, this command searches for a filename without the duplicate space, and deletes that file instead, if it exists.
 
 <H4>Example</H4>
+Create and write to a file:
 <pre class ="code">
-
-
-    create and write to a file:
-    /write foo.txt Hello There
-    remove the file:
-    /remove foo.txt
-    delete a filename containing space from downloads subfolder:
-    //.remove $qt(downloads\test filename.txt)
-
-<br><b>Note:</b> The dot prefix hides both the success message and the "no such file" error.
-
+/write foo.txt Hello There
+</pre>
+Remove the file:
+<pre class ="code">
+/remove foo.txt
+</pre>
+Delete a filename containing space from downloads subfolder:
+<pre class ="code">
+//.remove $qt(downloads\test filename.txt)
 </pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.0 (20 Mar 1996)
 
 <H4>Notes</H4>
-None
+The dot prefix hides both the success message and the "no such file" error.
 
 <H4>See also</H4>
 <a href="..\identifiers\mircdir.html">$mircdir</a><br>

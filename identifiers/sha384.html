@@ -21,7 +21,7 @@ The <b>$sha384</b> identifier calculates the sha384 hash of a text string, <a hr
 
 If the N parameter isn't used, the default 0 is used (which is different than $crc which has default of N=2.)
 
-* Note: sha384 is a 'one way' cryptographic hash that's part of the SHA2 family, which also contains the sha224 sha256 and sha512 hashes, of which mIRC has not added sha224. sha384 is identical to the sha512 hash except for having a different initial 512-bit 'magic' constant, and that the hash digest displays only 6 of the 64-bit hashing variables instead of displaying all 8. This makes it no faster or slower than sha512, and no less or more secure than using the first 96 digits of the sha512 hash. Due to the 64 hex digits which aren't displayed, sha384 has 128 bits of strength against the 'length extension' attack, which is an attack against incorrect authentication using $sha384(<secret> <public string>) instead of using $hmac(public string, secret, sha512).
+* Note: sha384 is a 'one way' cryptographic hash that's part of the SHA2 family, which also contains the sha224 sha256 and sha512 hashes, of which mIRC has not added sha224. sha384 is identical to the sha512 hash except for having a different initial 512-bit 'magic' constant, and that the hash digest displays only 6 of the 64-bit hashing variables instead of displaying all 8. This makes it no faster or slower than sha512, and no less or more secure than using the first 96 digits of the sha512 hash. Due to the 64 hex digits which aren't displayed, sha384 has 128 bits of strength against the 'length extension' attack, which is an attack against incorrect authentication using $sha384(&lt;secret&gt; &lt;public string&gt;) instead of using $hmac(public string, secret, sha512).
 <H4>Properties</H4>
 None
 <H4>Example</H4>
@@ -45,7 +45,7 @@ mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha384, if 
 
 <pre class ="code">//var %a chloé | bset -t &bin1 1 %a | bset -ta &bin2 1 %a | echo -a $sha1(&bin1,1) vs $sha1(&bin2,1) or $bvar(&bin1,1-) vs $bvar(&bin2,1-)</pre>
 
-== Error Messages ==
+<H4>Error Messages</H4>
 Note that $sha384 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha384 is lowercase while $crc returns uppercase hex.
 
 <pre class ="code">* Error accessing file: $sha384</pre>

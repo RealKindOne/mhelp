@@ -21,7 +21,7 @@ Because PARSELINE will be called for every matching line, care should be taken t
 == Notes ==
 '''Note 1:''' For ''out'' lines, the text you are matching against has a $LF as the last character that you need to account for in your match text. e.g.
 <pre class ="code">on *:parseline:out:PRIVMSG *Hello:echo -a $parseline</pre>
-will '''not''' be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
+will <b>not</b> be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
 <pre class ="code">
 on *:parseline:out:PRIVMSG *Hello?:echo -a $parseline
 on *:parseline:out:PRIVMSG *Hello*:echo -a $parseline</pre>

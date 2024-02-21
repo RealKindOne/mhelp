@@ -27,7 +27,7 @@ The real number of bytes read by /sockread can be retrieved using <a href="..\id
 <b>-f</b>
       - When reading a terminated line (/sockread &lt;%var&gt; or /sockread -n &var), forces mIRC to fill the variable with whatever text is in the receive buffer, even if it does not end in a terminated line.
 <br><b>-n</b>
-      - Reads a terminated line into a <a href="..\other\binary_variables.html">Binary Variables</a>. If the incoming line does not contain a terminated line, no byte will be read into the <a href="..\other\binary_variables.html">Binary Variables</a> , unless you specify the **-f** switch.
+      - Reads a terminated line into a <a href="..\other\binary_variables.html">Binary Variables</a>. If the incoming line does not contain a terminated line, no byte will be read into the <a href="..\other\binary_variables.html">Binary Variables</a> , unless you specify the <b>-f</b> switch.
 
 <H4>Parameters</H4>
 <b>[numbytes]</b>
@@ -39,19 +39,20 @@ The real number of bytes read by /sockread can be retrieved using <a href="..\id
 <H4>Reading</H4>
 
 A single /sockread may not be enough to read the entire buffer (if you are reading line by line for example). You might want to keep reading until <a href="..\identifiers\sockbr.html">$sockbr</a> (the number of bytes read) is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on sockread event is re-triggered if:
+<br>
+<br>    a) you were reading into a &binvar.
 
-    a) you were reading into a &binvar.
-
-    b) you were reading into a &lt;%var&gt; and there is still a terminated line in the buffer waiting to be read.
-
-This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, :doc: `see below </commands/sockread#last_line_not_showing_up>` .
-
+<br>    b) you were reading into a &lt;%var&gt; and there is still a terminated line in the buffer waiting to be read.
+<br>
+<br>
+This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, <a href="sockread.html#last_line">see below</a>.
+<br>
 <br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, <a href="..\events\on_sockclose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
-
+<br>
 It is important to note that the data received will vary in size. Practically speaking, we receive several kilobytes per second, it is easy to assume that the data you want is going to be sent and received the same way and above all, the way you want, but that's incorrect, you might receive very small packet at a very small speed.
-
-A common situation when dealing with HTML is to check the source of the page you are working with, to identify something that is unlikley to change, and to use that as a reference. Doing this is not bad, but the way it is usually implemented by mIRC user is incorrect.
-
+<br>
+A common situation when dealing with HTML is to check the source of the page you are working with, to identify something that is unlikely to change, and to use that as a reference. Doing this is not bad, but the way it is usually implemented by mIRC user is incorrect.
+<br>
 The common errors are to blindly try to match what you saw in the source as you read it with your socket but also to try to read from the received buffer assuming it will always have the data already, let's consider the following source of a page:
 
 "this is my reference:
@@ -164,6 +165,7 @@ on *:sockread:name:{
 
 <br><b>General Note:</b> it can be a good idea and might be simpler for you to read everything to a file and then parse that file.
 
+<a name="last_line"></a>
 <H4>Last line not showing up</H4>
 
 Another common problem is reading the last line sent by an HTTP server, which isn't a terminated line (no $crlf or $lf).

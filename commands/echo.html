@@ -9,8 +9,8 @@ The <b>/echo</b> command prints text to the specified window. This command does 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/echo [colour-number] [-deghi[N]tsaqlbfnmr] [window] &lt;text&gt;
-/echo -c[deghi[N]tsaqlbfnmr] &lt;colour-name&gt; [window] &lt;text&gt;
+/echo [color-number] [-deghi[N]tsaqlbfnmr] [window] &lt;text&gt;
+/echo -c[deghi[N]tsaqlbfnmr] &lt;color-name&gt; [window] &lt;text&gt;
 </pre>
 
 <H4>Switches</H4>
@@ -43,7 +43,7 @@ Other switches
 <br>
 
 <br><b>-c</b>
-      - Indicates that the &lt;colour-name&gt; parameter is provided as the 1st parameter following the switch(es).
+      - Indicates that the &lt;color-name&gt; parameter is provided as the 1st parameter following the switch(es).
 <br><b>-e</b>
       - Encloses the text with a pair of lines containing the line separator. Note: does not add a leading line if it already consists entirely of the line separator.
 <br><b>-g</b>
@@ -57,16 +57,16 @@ Other switches
 <br><b>-q</b>
       - Honors the $show flag. (Displays nothing if the alias was called with the . prefix)
 <br><b>-n</b>
-      - Prevents switchbar button/treebar colour change
+      - Prevents switchbar button/treebar color change
 <br><b>-m</b>
-      - Treats the line as an user message, colours the window button in the switchbar/treebar with the "Message" colour defined in the option alt+o>Display.
+      - Treats the line as an user message, colors the window button in the switchbar/treebar with the "Message" color defined in the option alt+o>Display.
 
 <H4>Parameters</H4>
-<b>[colour-number]</b>
-      - A numeric colour value (0 to 99) Note: 99 is $colour(listbox text) instead of $colour(normal) even in #channel and Status window where background is $colour(background). If $colour(listbox text) is the same index as $colour(background), 99 tries $colour(normal) then $colour(gray) searching for a colour that doesn't match the background colour.
-<br><b>&lt;colour-name&gt;</b>
-      - When the -c switch is used, the next parameter must be one of the following: action, ctcp, highlight, info, info2, invite, join, kick, mode, nick, normal, notice, notify, other, own, part, quit, topic, wallops, whois, "listbox text", gray, listbox, "treebar text", treebar Note: Quotes are needed for items which are 2 words. Note: If colour for that name matches $colour(background) it is displayed as $colour(normal) until the colour index for background is changed.
-     <br>Note: If colour name not in the list of recognized names, defaults to 'normal'. Note: If you later change the colour index for a colour name, the echoed lines change to that colour.
+<b>[color-number]</b>
+      - A numeric color value (0 to 99) Note: 99 is $color(listbox text) instead of $color(normal) even in #channel and Status window where background is $color(background). If $color(listbox text) is the same index as $color(background), 99 tries $color(normal) then $color(gray) searching for a color that doesn't match the background color.
+<br><b>&lt;color-name&gt;</b>
+      - When the -c switch is used, the next parameter must be one of the following: action, ctcp, highlight, info, info2, invite, join, kick, mode, nick, normal, notice, notify, other, own, part, quit, topic, wallops, whois, "listbox text", gray, listbox, "treebar text", treebar Note: Quotes are needed for items which are 2 words. Note: If color for that name matches $color(background) it is displayed as $color(normal) until the color index for background is changed.
+     <br>Note: If color name not in the list of recognized names, defaults to 'normal'. Note: If you later change the color index for a color name, the echoed lines change to that color.
 <br><b>[window]</b>
       - The target @window/#channel/query
 <br><b>Note:</b> If you use /echo to send text to a custom @window which has been opened by <a href="window.html">/window -s</a> , the line will be added at the bottom of the window rather than being inserted in the correct sort position.
@@ -106,22 +106,22 @@ echo #test $timestamp This line always has a timestamp
 </pre>
 4: Colours
 <pre class ="code">
-//echo 4 -at abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to colour 4 (red)
-//echo -act ctcp abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to "ctcp" colour ( $+ $colour(ctcp) $+ )
-//echo -at $chr(3) $+ 04 $+ abc $chr(22) def $chr(15) The timestamp and this text appear as "normal" colour ( $+ $colour(normal) $+ )
+//echo 4 -at abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to color 4 (red)
+//echo -act ctcp abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to "ctcp" color ( $+ $color(ctcp) $+ )
+//echo -at $chr(3) $+ 04 $+ abc $chr(22) def $chr(15) The timestamp and this text appear as "normal" color ( $+ $color(normal) $+ )
 </pre>
-5: Switchbar/treebar colours
+5: Switchbar/treebar colors
 <pre class ="code">
 ; See mirc-options/display
-; The 1st line causes the switchbar to change to the "event" colour.
-; The 2nd line -m causes the switchbar to change to the "messages" colour, overriding the default EVENT colour.
-; The 3rd line -n leaves the switchbar colour unchanged.
-; Note that Chanserv giving the joined nick OP level is a separate event, and mIRC will change the -m override, and that event will colour the switchbar as the EVENT colour.
+; The 1st line causes the switchbar to change to the "event" color.
+; The 2nd line -m causes the switchbar to change to the "messages" color, overriding the default EVENT color.
+; The 3rd line -n leaves the switchbar color unchanged.
+; Note that Chanserv giving the joined nick OP level is a separate event, and mIRC will change the -m override, and that event will color the switchbar as the EVENT color.
 
 on ^*:JOIN:#:{
-  echo $colour(join) -t # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
-  echo $colour(join) -tm # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
-  echo $colour(join) -tn # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
+  echo $color(join) -t # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
+  echo $color(join) -tm # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
+  echo $color(join) -tn # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
   haltdef
 }
 

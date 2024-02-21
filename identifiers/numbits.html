@@ -9,7 +9,7 @@ The <b>$numbits</b> identifier returns the bit length of N, the number of bits i
 
 Not to be confused with <a href="bits.html">$bits</a>
 
-== Details ==
+<H4>Details</H4>
 Numbits is the number of bits needed to represent the input number. In effect, for non-negative numbers it's the equivalent of $len($base(N,10,2)), and $numbits($calc(2^N)) is N+1. Thought, the return string from $base is limited by $maxlenl.
 
 Results are inaccurate in non-bigfloat mode for N >= 2^32, as well as for negative numbers.

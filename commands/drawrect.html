@@ -41,19 +41,21 @@ The <b>/drawrect</b> command can be used to draw a rectangle in a picture window
       - Co-ordinates for a rectangle in pixels, x and y are the top left corner.
 
 <H4>Example</H4>
+Draws a rectangle that is blue (colour 2) with border thickness of 7, at co-ordinates 15,10 with a width of 200 and height of 150:
 <pre class ="code">
-; Draws a rectangle that is blue (colour 2) with border thickness of 7, at co-ordinates 15,10 with a width of 200 and height of 150.
 /drawrect @window 2 7 15 10 200 150
-
-; Same as above but the corners are drawn using a 5x5 ellipse.
+</pre>
+Same as above but the corners are drawn using a 5x5 ellipse:
+<pre class ="code">
 /drawrect -d @window 2 7 15 10 200 150 5 5
-
-; Draws a filled green rectangle using an RGB colour value.
+</pre>
+Draws a filled green rectangle using an RGB colour value:
+<pre class ="code">
 /drawrect -fr @window 65280 1 5 5 20 20
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v (27 Nov 2022)
+Added: mIRC v5.3 (13 Dec 1997)
 
 <H4>Notes</H4>
 None

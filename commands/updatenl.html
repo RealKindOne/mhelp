@@ -20,9 +20,8 @@ None
 
 <H4>Example</H4>
 
-
-Let's suppose only A, B and C are in the channel #example. Suddendly, B parts.
-If we have this event, only triggering when $nick == $me (using the ! event prefix):
+Let's suppose only A, B and C are in the channel #example. Suddenly, B parts.
+<br>If we have this event, only triggering when $nick == $me (using the <a href="..\other\access_levels.html#exclamation">! prefix</a>.)
 <pre class ="code">
 on !*:part:#example:{
   echo -a $nick($chan,0)

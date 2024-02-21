@@ -121,7 +121,8 @@ These show that all keys entirely consisting of all 0x00 bytes...
 //var %key 000 00 0 0 0 000000000000000000000000000 | echo -a $hotp(%key,9,sha1,9) $len(%key) key %key
 These produce a different string than the all-zeroes hex string does, showing that keys of length 40/64/128 containing an odd number of hexadecimal digits do strip the spaces before decoding the remaining string, but they do not append or prepend the 0 digit to handle the not-paired hex digit, so they are processing the string in an unknown manner. Moving the space to a different position shows the spaces are stripped before decoding the string into identical keys. Having an odd-number of zeroes in the 40-byte string always returns the same number that's different than the number returned when there's an even number of zeroes. But so far I have not been able to figure out how mIRC decodes a hex string containing an odd number of hex digits.
 </pre>
-== Warning ==
+
+<H4>Warning</H4>
 Through v7.53, $hmac and $hotp and $totp using hash method sha512 or sha384 and a key whose length is 65-128 returned an incorrect value due to replacing the key with its own hash for lengths 65+ instead of only for 129+.
 //echo -a $hotp($str(z,65),0,sha512,9) should be 187092660
 <H4>Compatibility</H4>
@@ -130,10 +131,6 @@ Added: mIRC v7.42 (17 Jul 2015)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-{{collist
-|count = 3
-|style = width: 60%; display: inherit;
-|
 <a href="totp.html">$totp</a><br>
 <a href="hmac.html">$hmac</a><br>
 <a href="encode.html">$encode</a><br>
@@ -143,5 +140,5 @@ None
 <a href="sha512.html">$sha512</a><br>
 <a href="sha384.html">$sha384</a><br>
 <a href="md5.html">$md5</a><br>
-}}</body>
+</body>
 </html>

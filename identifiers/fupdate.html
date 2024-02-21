@@ -16,8 +16,8 @@ None
 <H4>Properties</H4>
 None
 <H4>Example</H4>
+Save current /fupdate setting, then display mirc.ini to status window, then restore previously existing setting:
 <pre class ="code">
-; save current /fupdate setting, then display mirc.ini to status window, then restore previously existing setting:
 //var -s %a fupdate $fupdate | fupdate 99 | filter -fs mirc.ini * | fupdate %fupdate
 </pre>
 <H4>Compatibility</H4>
@@ -27,5 +27,6 @@ Added: mIRC v7.65 (07 May 2021)
 The /fupdate setting always reverts to default 0 each time mIRC restarts, so it must be reset each time using an ON START or perform-on-connect command
 
 <H4>See also</H4>
-<a href="..\commands\fupdate.html">/fupdate</a><br></body>
+<a href="..\commands\fupdate.html">/fupdate</a><br>
+</body>
 </html>

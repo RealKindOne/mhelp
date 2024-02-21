@@ -5,12 +5,13 @@
 <H1>$snick</H1>
 <br>
 <br>
-The <b>$snick</b> identifier returns the Nth selected nickname on the specified channel
+The <b>$snick</b> identifier returns the Nth selected nickname on the specified channels nicklist.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $snick(#chan,N)
 </pre>
+
 <H4>Parameters</H4>
 <b>#chan</b> - The channel name you want to know the selected nickname from
 <br><b>N</b> - The Nth selected nickname on that channel.
@@ -19,13 +20,25 @@ $snick(#chan,N)
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $snick(0)</pre>
+Print the total number of selected nicks for a channel:
+<pre class ="code">
+//echo -a $snick(#chan,0)
+</pre>
+Print the second nick selected for a channel:
+<pre class ="code">
+//echo -a $snick(#chan,2)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>Notes</H4>
-None
+
+To clear the selected nicks you can use:
+<pre class ="code">
+/sline -r #chan
+</pre>
+
 <H4>See also</H4>
 <a href="snicks.html">$snicks</a><br>
 </body>

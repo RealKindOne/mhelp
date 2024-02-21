@@ -5,8 +5,7 @@
 <H1>/set</H1>
 <br>
 <br>
-The <b>/set</b> command can be used to replace the value of an existing variable or create a new variable and assign it the given value. By default /set creates global variable, this can be changed via the -l switch. Unlike the <a href="var.html">/var</a> command, set cannot assign a value to multiple variables at once. It support :doc: `one math operation </beginner/variables.html#math-operations>` .
-
+The <b>/set</b> command can be used to replace the value of an existing variable or create a new variable and assign it the given value. By default /set creates global variable, this can be changed via the -l switch. Unlike the <a href="var.html">/var</a> command, set cannot assign a value to multiple variables at once. It support <a href="..\other\variables.html#math_operations">on math operation</a>.
 Set evaluation routine
 
 The set command has its own evaluation routine which lets you dynamically concatenate additional values onto the variable name before the assignment takes place.
@@ -15,7 +14,7 @@ The set command has its own evaluation routine which lets you dynamically concat
 </pre>
 Will create a variable like %1209425041 with the value of 'ABC'; Similarly this can be used with $nick and $chan in on events.
 
-<br><b>Note:</b> /set will fail to evaluate your variable if you have dynamic parameters before the name, read more :doc: `here </beginner/variables.html#special-behaviors-quirks>`
+<br><b>Note:</b> /set will fail to evaluate your variable if you have dynamic parameters before the name, read more <a href="..\other\variables.html#quirks">here</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">

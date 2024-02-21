@@ -18,7 +18,7 @@ None
 <H4>Example</H4>
 <pre class ="code">//echo -a $sslcertsha256</pre>
 
-== Creating A certificate ==
+<H4>Creating A certificate</H4>
 
 I'm stashing this here because I'm not sure where else it would belong here
 
@@ -124,7 +124,7 @@ The OpenSSL command will create/overwrite the certificate/private-key file using
 
 If you change the name, be sure to leave the .pem alone.
 
-OpenSSL will prompt you to enter 7 kinds of personal information. It doesn't matter what you input, if anything. Some of these have a default string that's used if you just press <enter>, but you can force each item to be blank by just inputting a '.' period character.
+OpenSSL will prompt you to enter 7 kinds of personal information. It doesn't matter what you input, if anything. Some of these have a default string that's used if you just press &lt;enter&gt;, but you can force each item to be blank by just inputting a '.' period character.
 
 None of the information is validated for truthfulness, though it can be limited as to length. The country code doesn't check to see if it's a real country, but it does require it be either blank or be 2 characters. The 'common name' and 'email address' fields are probably limited to be no longer than 64.
 
@@ -145,13 +145,13 @@ If you use '.' to force all fields to be blank, you'll get this error because Op
 This is mostly harmless. Whenever creating a certificate, OpenSSL needs to have randomness to help make sure the primes are not guessable. Unless you've configured OpenSSL differently, it looks to open this filename in the output folder each time you make a certificate, in order to grab randomness from prior keys you generated. Since the .rnd filename didn't already exist in your AdiIRC folder, that's what this message means, even though it did create that filename. If you repeat the above command to make a new certificate, it overwrites the existing certificate and makes a new one, and this time the error message won't be there, and it grabs the old entropy from .rnd to combine with the new entropy it has.
 
 The above command syntax is the same as suggested by Libera.Chat, and you may have trouble if you change some of the options.
-
-	 -days 1096
-
+<pre class ="code">
+-days 1096
+</pre>
 This sets the expiration date to be in 3 years. As that future time approaches, you can do this all over again, at which point certificates might also be using longer keys.
-
-	rsa:4096 -sha256
-
+<pre class ="code">
+rsa:4096 -sha256
+</pre>
 This sets RSA to use a 4096-bit modulus. The larger you use, the longer it takes to generate the certificate, and it takes slightly longer during the SASL handshake. Using larger keys might also limit which servers will accept such a key length, and mIRC only supports using 1 certificate to be shared by all servers where you're using SASL External.
 
 The -sha256 defines which hash is used when creating the authentication signature. This is NOT the same string as the certificate's fingerprint that you're supposed to feed to NickServ later.
@@ -159,10 +159,10 @@ The -sha256 defines which hash is used when creating the authentication signatur
 (#B)
 
 This next part is optional, but it's good to take a look at an overview of your certificate, to make sure it looks like you want it to. It will also show the fingerprint, but we can avoid the need to manually type/paste that string to NickServ. The file being opened in notepad contains ONLY information about your public certificate, so this libera.txt is safe to send to someone, unlike libera.pem which also contains your private key.
-
+<pre class ="code">
 //var %prog "openssl.exe" | /run cmd /k %prog x509 -in libera.pem -fingerprint -sha512 -text -out libera.txt & notepad libera.txt
-
-This should create libera.txt as a summary file of your certificate, then load it into notepad for you. The 1st line is the sha512 fingerprint, which is simply the sha512 hash of the entire certificate that's underneath the mime encoding you see there. See that near the top, just below the fingerprint, are lines labeled "Issuer:" and "Subject:". These have the identifier information you entered while creating the certificate. If there's something there that you didn't put there, it's one of the defaults resulting from just pressing <enter> at a prompt, instead of the '.' character. If you want, you can go back and re-do the certificate until you get it right.
+</pre>
+This should create libera.txt as a summary file of your certificate, then load it into notepad for you. The 1st line is the sha512 fingerprint, which is simply the sha512 hash of the entire certificate that's underneath the mime encoding you see there. See that near the top, just below the fingerprint, are lines labeled "Issuer:" and "Subject:". These have the identifier information you entered while creating the certificate. If there's something there that you didn't put there, it's one of the defaults resulting from just pressing &lt;enter&gt; at a prompt, instead of the '.' character. If you want, you can go back and re-do the certificate until you get it right.
 
 The reason both "Issuer:" and "Subject:" lines of information are identical is because this is a 'self signed certificate', which means it was signed by whoever has the matching private key (you), instead of being signed by a 'Certificate Authority' who has verified the identity of the person claiming to control this certificate.
 
@@ -183,9 +183,9 @@ Note that if you let mIRC create the certificate instead, the default filename t
 <b>Welcome people who let mIRC create the 2048-bit RSA key, here is where they continue with installing their certificate.</b>
 
 Now "OK" your way out of the options menu, and mIRC is now using the certificate. You can confirm that you now have a certificate loaded, by using this command:
-
+<pre class ="code">
 //echo -a fingerprint: $sslcertsha256
-
+</pre>
 If you go back into the menu and browse for a different filename.pem, the fingerprint returned by this identifier immediately changes.
 
 This is the fingerprint that SwiftIRC wants, but isn't the sha512 fingerprint that Libera.Chat needs. However it does let you confirm that you are using a certificate, since the identifier returns a blank if it's not currently using a certificate.
@@ -203,9 +203,9 @@ If you perform "//whois $me" while being identified to NickServ, the reply tells
 If you do not see your certificate listed in the /whois reply, make sure you connected using an SSL port where the number is preceded by the + sign. If not, reconnect to the network and try again.
 
 (#G) Now that you've reconnected and have identified to NickServ, send this command to NickServ telling it to add the fingerprint of whatever certificate you used to connect to the server:
-
-	/msg NickServ CERT ADD
-
+<pre class ="code">
+/msg NickServ CERT ADD
+</pre>
 If this fails, then NickServ doesn't see you currently using any certificate.
 
 The only other fail should be if NickServ tells you that this fingerprint is already attached to a different account. So either you did it, someone else stole your certificate and did it, or you're about to become famous for being the 1st person to create an sha512 collision between 2 different files.
@@ -217,9 +217,9 @@ If successful, you'll receive a reply showing the fingerprint added. At Libera.C
 If you have several servers in that serverlist 'group', and some of them don't use an SSL port, then this authentication fails if you happen to connect using a non-SSL port.
 
 (#I) Now reconnect to the server, and somewhere among the Status Window messages from the server while connecting should be a message similar to:
-
-	SASL authentication successful
-
+<pre class ="code">
+SASL authentication successful
+</pre>
 And you're done! Except to remember to guard the .PEM file the same way you guard your NickServ password. The private key .pem file does not contain any NickServ password, but it can be used to login your NickServ account at that server, and if they can login as you, they could alter the settings inside the NickServ account
 
 <H4>METHOD#2 Creating the SASL EXTERNAL certificate inside mIRC</H4>

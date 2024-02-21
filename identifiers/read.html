@@ -32,18 +32,10 @@ $read [switches] [line#] filename
 <H4>Switches</H4>
 <br><b>n</b> - Do not evaluate $identifiers contained in the returned line.
 <br><b>t</b> - Do not treat a numeric line#1 as if it's the total number of lines in the text file.
-<br><b>s</b> - Search for line beginning with <matchtext> and returns the remainder of the line beyond the spaces following <matchtext>
-<br><b>w</b> - Scan for line matching <matchtext> which can be a <a href="..\other\wildcard.html">wildcard</a>. If not a wildcard the line must be exact match. Returns the entire contents of the matching line
-<br><b>r</b> - Indicates that <matchtext> is a regex pattern.
+<br><b>s</b> - Search for line beginning with &lt;matchtext&gt; and returns the remainder of the line beyond the spaces following &lt;matchtext&gt;
+<br><b>w</b> - Scan for line matching &lt;matchtext&gt; which can be a <a href="..\other\wildcard.html">wildcard</a>. If not a wildcard the line must be exact match. Returns the entire contents of the matching line
+<br><b>r</b> - Indicates that &lt;matchtext&gt; is a regex pattern.
 <br><b>p</b> - When evaluating text in the absence of the 'n' switch, treats the pipe symbol as a command separator allowing the remainder of the line to be executed as a /command.
-
-<H4>Notes:</H4>
-* All searches are case-insensitive.
-* Line can end with $cr or $lf or $crlf or end-of-file. Does not treat $chr(26) as End-of-File-Marker. Contents of a line past $chr(0) are ignored.
-* If 't' switch is NOT used - if line 1 is not a number, $read functions normally. If line 1 is a number, random lines will be chosen only for the first N lines, and $readn returns 1 through N while returning the contents of actual lines 2 through N+1.
-* If NO switches are used,  $read(file,0) returns the contents of line 1 if it's a number, or returns $null if contents are anything else.
-* matchtext must have the presence/absence of spaces in order to match lines having/not-having those spaces, even leading/trailing/consecutive.
-* Undocumented legacy syntax can be used  where parameters follow the identifier without being enclosed within quotes.
 
 <H4>Example</H4>
 <pre class ="code">
@@ -135,10 +127,16 @@ Every $cr and every $lf  are seen as a line-ending, except for 1 $cr immediately
 
 <H4>Compatibility</H4>
 For modern documented syntax:
-{{mIRC compatibility|3.6}}
+Added: mIRC v3.6 (31 Aug 1995)
 
-<H4>Notes</H4>
-None
+<H4>Notes:</H4>
+<br>All searches are case-insensitive.
+<br>Line can end with $cr or $lf or $crlf or end-of-file. Does not treat $chr(26) as End-of-File-Marker. Contents of a line past $chr(0) are ignored.
+<br>If 't' switch is NOT used - if line 1 is not a number, $read functions normally. If line 1 is a number, random lines will be chosen only for the first N lines, and $readn returns 1 through N while returning the contents of actual lines 2 through N+1.
+<br>If NO switches are used,  $read(file,0) returns the contents of line 1 if it's a number, or returns $null if contents are anything else.
+<br>matchtext must have the presence/absence of spaces in order to match lines having/not-having those spaces, even leading/trailing/consecutive.
+<br>Undocumented legacy syntax can be used  where parameters follow the identifier without being enclosed within quotes.
+
 <H4>See also</H4>
 <a href="..\commands\bread.html">/bread</a><br>
 <a href="fread.html">$fread</a><br>

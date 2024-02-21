@@ -59,13 +59,13 @@ If the text doesn't have Unicode code points above 255, to avoid having Unicode 
 
 //bset -ta &string 1 chloé | echo -a $sha1(&string,1)
 
-== Warning ==
+<H4>Warning</H4>
 From v7.54 back through at least v6.35, and probably as far back as v6.3 when it was added, $sha1 can corrupt the contents of the &binvar it is hashing. If the length is 128+, and the file is split into 64-byte chunks, the 1st chunk is never affected, but each of the other 64-byte chunks that are not consisting entirely of 0x00 bytes is corrupted. This can be seen in the above example hashing the first 1000 bytes of mirc.exe, where v7.54 and earlier versions produce different hashes when repeating the exact same command against the same &binvar. In those same versions, this also affects using the same &binvar as the data hashed by $hmac when it uses sha1 has the hash. It returns the correct hash of the input &binvar in spite of destroying it.
 //bset &v 128 1 | noop $sha1(&v,1) | echo -a $bvar(&v,1-)
 
 Users of those versions needing to use the contents of the &binvar after hashing would need to use a throw-away temporary &binvar whose contents are not needed after being hashed. 
 
-== Error Messages ==
+<H4>Error Messages</H4>
 Note that $sha1 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha1 is lowercase while $crc returns uppercase hex.
 
 * Error accessing file: $sha1

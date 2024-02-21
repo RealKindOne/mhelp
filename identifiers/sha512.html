@@ -26,26 +26,34 @@ None
 
 <H4>Example</H4>
 Echo the SHA512 hash of plain text string ''abc'' to the active window:
+<pre class ="code">
 //echo -a $sha512(abc)
 or
+</pre>
+<pre class ="code">
 //echo -a $sha512(abc,0)
+</pre>
 The DATA is case-sensitive, so hash of "abc" is different than hash of "ABC"
 
 Echo the SHA512 hash of the zero-length null string to the active window:
+<pre class ="code">
 //echo -a $sha512($null)
-
+</or>
 Echo the SHA512 hash of the first 1000 bytes of the mIRC program you're running to the active window:
+<pre class ="code">
 //bread $qt($mircexe) 0 1000 &snip | echo -a $sha512(&snip,1)
-
+</pre>
 Echo the SHA512 hash of the contents of the mIRC program you're running to the active window:
+<pre class ="code">
 //echo -a $sha512($mircexe,2)
-
+</pre>
 Note that because the default is N=0, '''$sha512($mircexe)''' is the SHA512 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br />
 mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha512, if the text doesn't have code points above 255, you can avoid the utf8 encoding issue by using a binvar with the -a switch.
-
+<pre class ="code">
 //bset -ta &string 1 chloé | echo -a $sha1(&string,1)
+</pre>
 
-== Error Messages ==
+<H4>Error Messages</H4>
 Note that $sha512 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha512 is lowercase while $crc returns uppercase hex.
 
 * Error accessing file: $sha512

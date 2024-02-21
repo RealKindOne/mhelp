@@ -47,12 +47,12 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
 <H4>Example</H4>
 <pre class ="code">
 Alias irc_connect {
-  ; Initiate a connection with "irc.freenode.org" on port 6669, Secured connection
-  sockopen -e IRC irc.freenode.org +6697
+  ; Initiate a connection with "irc.swiftirc.net" on port 6669, Secured connection
+  sockopen -e IRC irc.swiftirc.net +6697
 }
 
 On *:sockopen:IRC:{
-  ;Send our USER and NICK irc commands
+  ; Send our USER and NICK irc commands
   sockwrite -n IRC USER Tester $+ $rand(1,100) Test Test:mSL Testing $+ $crlf
   sockwrite -n IRC NICK Tester $+ $rand(1,100) $crlf
 }
