@@ -21,7 +21,7 @@ $nick(#,N/nick,aohvr,aohvr)
 
 <br><b>N/nick</b>Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
 
-<br><b>aohvr</b>Optional: The first '''aohvr''' characters target all users of a '''specific type''', while the second '''aohvr''' excludes a '''specific type''' from the target list.
+<br><b>aohvr</b>Optional: The first <b>aohvr</b> characters target all users of a <b>specific type''', while the second <b>aohvr</b> excludes a <b>specific type</b> from the target list.
 
 <H4>Specific Types</H4>
 <br><b>a</b>All users
@@ -58,7 +58,7 @@ Echo to the active screen the number of operators in the channel:
 Echo to the active screen all elevated users only, excluding regular users:
 <pre class ="code">//echo -a Total users: $iif($active ischan,$nick(#,0,a,r))</pre>
 
-Create an alias that will open a [[Custom windows - mIRC|custom @window]], and detail the user list:
+Create an alias that will open a <a href="..\other\custom_windows.html">custom window</a>, and detail the user list:
 <pre class ="code">alias getUserDetails {
 
   ; Make sure the active window is a channel

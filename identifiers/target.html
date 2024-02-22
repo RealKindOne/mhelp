@@ -39,7 +39,7 @@ ON *:OPEN:?:*: {
   ; Set the window name to the dynamic $target identifier
   %w = @ $+ $target
 
-  ; If the custom logging window is not open, create and 
+  ; If the custom logging window is not open, create and
   ; minimize it.
   if (!$window(%w)) { window -n %w }
 

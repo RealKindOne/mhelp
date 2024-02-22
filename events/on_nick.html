@@ -7,23 +7,12 @@
 <br>
 The <b>ON NICK</b> event triggers when a user is on the same channel as you, and they change their nickname.
 
-This event fills the '''<a href="..\identifiers\newnick.html">$newnick</a>''' and '''<a href="..\identifiers\nick.html">$nick</a><br>''' identifiers.
-
-{| class="wikitable" style="line-height: 25px; margin-left: 75px;"
-|-
-! Identifier !! Description
-|-
-| '''$newnick''' || The new nickname of the user. You can use it with $comchan for example.
-|-
-| '''$nick''' || The user's previous nickname.
-|}
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:NICK:&lt;commands&gt;</pre>
 
 <H4>Local Identifiers</H4>
-TODO
+<a href="..\identifiers\newnick.html">$newnick</a> - The new nickname of the user. You can use it with $comchan for example.
+<br><a href="..\identifiers\nick.html">$nick</a> - The user's previous nickname.
 
 <H4>Example</H4>
 Echo the nickname change, and disregard mIRC's default nick change message:
