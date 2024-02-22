@@ -7,15 +7,15 @@
 <br>
 The <b>ON SONGEND</b> event triggers whenever a file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
-This event fills the <a href="..\identifiers\filename.html">$filename</a> identifier, which will be set to the complete location and filename of the sound file that just ended.
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SONGEND:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\filename.html">$filename</a> - Return the complete location and filename of the sound file that just ended.
 
 <H4>Example</H4>
 Echo to the active window when the sound file has ended, including its filename:

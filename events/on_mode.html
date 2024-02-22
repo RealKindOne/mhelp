@@ -11,8 +11,7 @@ This event fills the '''<a href="..\identifiers\chan.html">$chan</a>''', '''<a h
 
 {| class="wikitable" style="margin-left: 105px; line-height: 25px;"
 ! Identifier !! Description
-| '''$chan''' || The channel where modes were changed.
-| '''$nick''' || The person who modified the channel modes.
+
 | <a href="..\identifiers\1-.html">$1-</a><br> || The new channel modes.
 |}
 
@@ -30,8 +29,11 @@ This event fills the '''<a href="..\identifiers\chan.html">$chan</a>''', '''<a h
 | # || Can remain '''#''', to target all channels, or be a specific channel name.
 | [,#] || Can add multiple channels to target beyond the initial specified channel name.
 |}
-<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
+
+<H4>Local Identifiers</H4>
+| '''$chan''' || The channel where modes were changed.
+| '''$nick''' || The person who modified the channel modes.
 <H4>Example</H4>
 Notice the channel when a user changes channel modes, and the local mIRC client is a channel operator:
 <pre class ="code">ON @*:MODE:#:notice # $nick has modified the channel modes to: $1-</pre>

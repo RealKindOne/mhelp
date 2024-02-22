@@ -7,18 +7,19 @@
 <br>
 The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevated to voice.
 
-This event also fills the <a href="..\identifiers\vnick.html">$vnick</a> identifier with the nickname of the user who was added to channel voice status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the user who added them.
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger..
-<br><b>&lt;matchtext&gt;</b> - The text to match in the event..
 <br><b>&lt;#[,#]&gt;</b> - The channel, or channels where the event listens.
+
 <br><span style="margin-left: 20px;"><b>#</b> - Any channel if left by itself, otherwise refers to a specific channel
 <br><span style="margin-left: 20px;"><b>[,#]</b> - List of specific channel names
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\vnick.html">$vnick</a> - The nick being voiced.
+<br><a href="..\identifiers\nick.html">$nick</a> - The person who voiced the nick.
 
 <H4>Example</H4>
 Acknowledge when a user has had their user level elevated to voice:
@@ -31,12 +32,12 @@ Added: mIRC v4.72 (09 Jan 1997)
 None
 
 <H4>See also</H4>
-<a href="on_deop.html">On_DEOP</a><br>
-<a href="on_deowner.html">On_DEOWNER</a><br>
-<a href="on_voice.html">On_Voice</a><br>
+<a href="on_deop.html">On_DeOp</a><br>
+<a href="on_deowner.html">On_DeOwner</a><br>
+<a href="on_devoice.html">On_DeVoice</a><br>
 <a href="on_help.html">On_Help</a><br>
-<a href="on_op.html">On_OP</a><br>
-<a href="on_owner.html">On_OWNER</a><br>
+<a href="on_op.html">On_Op</a><br>
+<a href="on_owner.html">On_Owner</a><br>
 <a href="..\commands\mode.html">/mode</a><br>
 <a href="..\identifiers\mode.html">$mode</a><br>
 </body>

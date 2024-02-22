@@ -7,7 +7,6 @@
 <br>
 The <b>ON SERV</b> event, much like the <a href="on_chat.html">On_Chat</a> event, is triggered when a message is sent via an <a href="..\commands\fserve.html">/fserve</a> command window.
 
-This event fills the <a href="..\identifiers\cd.html">$cd</a> identifier with the current folder that the user is in within the <a href="..\commands\fserve.html">/fserve</a> command.
 
 
 <H4>Synopsis</H4>
@@ -16,8 +15,13 @@ This event fills the <a href="..\identifiers\cd.html">$cd</a> identifier with th
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-<br><b>&lt;matchtext&gt;</b> - The text that to be matched. Much like the <a href="on_text.html">On_Text</a><br> event, this can be any combination of text letters, numbers, and <a href="..\other\wildcard.html">wildcards</a>.
+<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\_nick.html">=$nick</a> - Refer to the dcc chat window, rather than a query window.
+<br><a href="..\identifiers\cd.html">$cd</a> - Returns the current folder that the user is in within the <a href="..\commands\fserve.html">/fserve</a> command.
+
 
 <H4>Example</H4>
 <pre class ="code">; This event waits for any user on a DCC Chat to use the
@@ -25,9 +29,10 @@ This event fills the <a href="..\identifiers\cd.html">$cd</a> identifier with th
 
 ON *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
 
-In the above example, the '''msg''' is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the <a href="..\identifiers\_nick.html">=$nick</a> identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
-
-The next example will send the user the current folder they are in if they type '''!folder''':
+In the above example, the <b>msg</b> is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the <a href="..\identifiers\_nick.html">=$nick</a> identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
+<br>
+<br>
+The next example will send the user the current folder they are in if they type <b>!folder</b>:
 <pre class ="code">; Listen for !folder on the SERV event
 ON *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
 

@@ -5,9 +5,7 @@
 <H1>On Agent</H1>
 <br>
 <br>
-
 The <b>ON AGENT</b> triggers when an Agent has finished speaking.
-
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:AGENT:&lt;commands&gt;</pre>
@@ -16,16 +14,10 @@ The <b>ON AGENT</b> triggers when an Agent has finished speaking.
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - This is the area in which you want to perform the commands to execute after an Agent has finished speaking.
 
-<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
-
-The on agent event expose one local identifier:
-
-<H4><a href="..\identifiers\agentname.html">$agentname</a></H4>
-
-Return the name of the agent triggering the event
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\agentname.html">$agentname</a> - Return the name of the agent triggering the event
 
 <H4>Example</H4>
-
 After an Agent finishes speaking, echoes that it finished
 <pre class ="code">ON *:AGENT:echo -s agent $agentname finished talking</pre>
 

@@ -5,9 +5,7 @@
 <H1>On Filercvd</H1>
 <br>
 <br>
-The <b>ON FILERCVD</b> event triggers whenever a file is received successfully via <a href="..\commands\dcc.html">/dcc</a> send}}.
-
-This event fills <a href="..\identifiers\filename.html">$filename</a>, <a href="..\identifiers\address.html">$address</a>, and <a href="..\identifiers\nick.html">$nick</a> with the filename, user's address, and the user's nickname (if available), respectively.
+The <b>ON FILERCVD</b> event triggers whenever a file is received successfully via <a href="..\commands\dcc.html">/dcc</a> send command.
 
 
 <H4>Synopsis</H4>
@@ -17,13 +15,10 @@ This event fills <a href="..\identifiers\filename.html">$filename</a>, <a href="
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;filename&gt;</b> - The filename(s) that should match the received file. Separate multiple values by commas. These can be <a href="..\other\wildcard.html">wildcard</a>. Example: "*.txt,*.doc,my*.txt"
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
-<br>
-<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
 
-<a href="..\identifiers\filename.html">$filename</a>
-<br>
-<br>
-Returns the complete filename of the received file.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\filename.html">$filename</a> - Returns the complete filename of the received file.
+<br><a href="..\identifiers\nick.html">$nick</a> with the filename, user's address, and the user's nickname (if available), respectively.
 
 <H4>Example</H4>
 Echo the name of the filename received to the active window:

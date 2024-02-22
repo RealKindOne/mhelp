@@ -1,13 +1,11 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>On Usermode</title></head>
-<H1>On Usermode</H1>
+<head><title>On UserMode</title></head>
+<H1>On UserMode</H1>
 <br>
 <br>
 The <b>ON USERMODE</b> event triggers when the local mIRC client's usermodes have been changed on a connection.
-
-This event fills the <a href="..\identifiers\1-.html">$1-</a> identifier with the new usermodes for the client.
 
 
 <H4>Synopsis</H4>
@@ -16,6 +14,9 @@ This event fills the <a href="..\identifiers\1-.html">$1-</a> identifier with th
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\1-.html">$1-</a> The new usermodes for the client.
 
 <H4>Example</H4>
 Halt the default mIRC response, and then echo the new details to the active window:

@@ -16,9 +16,11 @@ The <b>ON RAWMODE</b> allows a script to intercept and interpret the modes of a 
 <br><b>#[,#]</b> - The channel, or channel names, to listen on.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
+<H4>Local Identifiers</H4>
+$1-
 
 <H4>Example</H4>
-Intercept all '''RAWMODE''' events, echo them to the target window in plain text, and halt mIRC's notifications:
+Intercept all RAWMODE events, echo them to the target window in plain text, and halt mIRC's notifications:
 <pre class ="code">ON ^*:RAWMODE:*: {
   echo $target * RAWMODE: $1-
   haltdef

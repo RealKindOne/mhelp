@@ -15,12 +15,15 @@ When triggered by a '''Send''', this event fills the <a href="..\identifiers\fil
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
-<br><b>&lt;Chat|Send|Fserve&gt;</b> - The text that to be matched. Can also be a <a href="..\other\wildcard.html">wildcard</a>.
+<br><b>&lt;Chat|Send|Fserve&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 
 <br><b>Chat</b> - Triggers if the event is caused by a DCCSERVER Chat.
 <br><b>Send</b> - Triggers if the event is caused by a DCCSERVER Send.
 <br><b>Fserve</b> - Triggers if the event is caused by a DCCSERVER Fserve.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+TODO
 
 <H4>Example</H4>
 Echo to the active screen some information when a <a href="..\commands\halt.html">/halt</a> is being received:
@@ -29,7 +32,7 @@ Echo to the active screen some information when a <a href="..\commands\halt.html
 The <b>ON DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a <a href="..\commands\dcc.html">/dcc</a> send if the file extension is ".exe":
 <pre class ="code">ON *:DCCSERVER:Send:if ($right($filename,4) == .exe) { echo -a User $nick just tried to send a file with an .exe extension. It has been declined. | halt }</pre>
 
-The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other '''ON DCCSERVER''' events to prevent anything from happening.
+The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other <b>ON DCCSERVER</b> events to prevent anything from happening.
 
 Echo when a user attempts to initiate a <a href="..\commands\dcc.html">/dcc</a> chat:
 <pre class ="code">ON *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>

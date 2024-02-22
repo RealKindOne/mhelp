@@ -17,11 +17,11 @@ The <b>ON SOCKLISTEN</b> event triggers when a connection is made on a listening
 
 == Accepting a connection ==
 
-'''Note''': By design, you cannot prevent a socket from being accepted, as in, Windows accepts the connection even before mIRC.
+<br><b>Note:</b> By design, you cannot prevent a socket from being accepted, as in, Windows accepts the connection even before mIRC.
 
 You can use /sockaccept &lt;newsocket&gt; to accept a socket, mIRC create the new socket.
 
-'''Note''': If a new connection occurs on a listening socket but there is no on socklisten event matching that socket, the connection is rejected.
+<br><b>Note:</b> If a new connection occurs on a listening socket but there is no on socklisten event matching that socket, the connection is rejected.
 
 You should be checking for $sockerr before accepting the connection to see if an error occurred, here is a list of the possible value for $sockerr in the on SOCKLISTEN event:
 

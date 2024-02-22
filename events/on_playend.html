@@ -7,7 +7,6 @@
 <br>
 The <b>ON PLAYEND</b> event triggers when mIRC has finished <a href="..\commands\play.html">/play'ing</a> a text file to a channel, or user.
 
-This event fills the <a href="..\identifiers\filename.html">$filename</a> identifier with the file that just finished playing.
 
 
 <H4>Synopsis</H4>
@@ -16,6 +15,9 @@ This event fills the <a href="..\identifiers\filename.html">$filename</a> identi
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\filename.html">$filename</a> Return the file name that just finished playing.
 
 <H4>Example</H4>
 Echo the name of the file that finished playing to the active window:

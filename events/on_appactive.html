@@ -15,12 +15,16 @@ The <b>ON APPACTIVE</b> event monitors when the mIRC application has had its act
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
+<H4>Local Identifiers</H4>
+TODO
+
 <H4>Example</H4>
 <pre class ="code">
 ; Listen for mIRC's appactive event, then echo
 ; some information to the active window.
 
-ON *:APPACTIVE:echo -a * mIRC now has an appactive status of $appactive $+ .</pre>
+ON *:APPACTIVE:echo -a * mIRC now has an appactive status of $appactive $+ .
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)

@@ -1,14 +1,13 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>On Waveend</title></head>
-<H1>On Waveend</H1>
+<head><title>On WaveEnd</title></head>
+<H1>On WaveEnd</H1>
 <br>
 <br>
 The <b>ON WAVEEND</b> event triggers whenever a wav file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
 This event fills the <a href="..\identifiers\filename.html">$filename</a> identifier, which will be set to the complete location and filename of the sound file that just ended.
-
 
 <H4>Synopsis</H4>
 <pre class ="code">ON &lt;level&gt;:WAVEEND:&lt;commands&gt;</pre>
@@ -16,6 +15,9 @@ This event fills the <a href="..\identifiers\filename.html">$filename</a> identi
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+None
 
 <H4>Example</H4>
 Echo to the active window when the sound file has ended, including its filename:

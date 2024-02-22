@@ -5,8 +5,7 @@
 <H1>On GetFail</H1>
 <br>
 <br>
-The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via <a href="..\commands\dcc.html">/dcc</a>send and it fails.
-
+The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via <a href="..\commands\dcc.html">/dcc</a> send and it fails.
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:GETFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
@@ -14,14 +13,11 @@ The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via <a 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 
-<br><b>&lt;filename&gt;</b> - The filename(s) that should match the received file. separate multiple values by commas. These can be <a href="..\other\wildcard.html">wildcard</a>. Example: ''*.txt,*.doc,my*.txt''
+<br><b>&lt;filename&gt;</b> - The filename(s) that should match the received file. Separate multiple values by commas. These can be <a href="..\other\wildcard.html">wildcard</a>. Example: ''*.txt,*.doc,my*.txt''
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
-
-<H4><a href="..\identifiers\filename.html">$filename</a><br></H4>
-
-Returns the complete filename of the received file.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\filename.html">$filename</a> - Returns the complete filename of the received file.
 
 <H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:

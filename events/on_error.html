@@ -7,26 +7,22 @@
 <br>
 The <b>ON ERROR</b> event is triggered when an server sends an error message, most-likely a disconnect message.
 
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:ERROR:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;matchtext&gt;</b> - The corresponding {{mIRC|on text|matchtext}} for the event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
-<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
-
-<H4><a href="..\identifiers\1-.html">$1-</a></H4>
-
-Returns the error message.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\1-.html">$1-</a> - Returns the error message.
 
 <H4>Example</H4>
-This example will trigger if the response ''full'' is in the server-returned error:
+This example will trigger if the response "full" is in the server-returned error:
 <pre class ="code">ON *:ERROR:*full*:echo -s This server is most-likely full. Server sent error: $1-</pre>
 
-This example triggers if the word ''ban'' is within the server error:
+This example triggers if the word "ban" is within the server error:
 <pre class ="code">ON *:ERROR:*ban*:echo -s You're most-likely banned from this server. Server sent error: $-</pre>
 
 <H4>Compatibility</H4>

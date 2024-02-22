@@ -1,14 +1,11 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>On Nosound</title></head>
-<H1>On Nosound</H1>
+<head><title>On NoSound</title></head>
+<H1>On NoSound</H1>
 <br>
 <br>
 The <b>ON NOSOUND</b> event triggers when a remote user attempts to send a <a href="..\commands\sound.html">/sound</a> command and the file does not exist on the local mIRC system.
-
-This event fills the <a href="..\identifiers\filename.html">$filename</a><br> identifier with the file name of the attempted sound.
-
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:NOSOUND:&lt;commands&gt;</pre>
@@ -16,6 +13,10 @@ This event fills the <a href="..\identifiers\filename.html">$filename</a><br> id
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\filename.html">$filename</a><br> - Returns the file name of the attempted sound.
+
 
 <H4>Example</H4>
 Send a message to the user when sound file does not exist:

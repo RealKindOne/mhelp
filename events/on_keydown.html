@@ -7,7 +7,7 @@
 <br>
 The <b>ON KEYDOWN</b> event is triggered when a key is pressed down inside of a <a href="..\other\custom_windows.html">custom window</a>.
 
-'''Note''': Before version 7.62, on keydown was broken, it was incorrectly trying to do two things at once, reporting keypress and the resulting character of keypresses.
+<br><b>Note:</b> Before version 7.62, on keydown was broken, it was incorrectly trying to do two things at once, reporting keypress and the resulting character of keypresses.
 The idea was to report the key being pressed in $keyval, and the resulting character in $keychar. From the very beginning, $keyval was incorrect because it returned the ASCII value of the character being pressed instead of the corresponding keycode which comes with the internal WM_KEYDOWN windows message, which has a different value for letters than ASCII. And then, if you needed to press two keys to get a character, something related to 'dead key' as well, you couldn't get the resulting character properly. For example if you press control + o, you need to get the control key being pressed, the 'o' key being pressed, and the resulting character, which is a $chr(15). It was not even possible to change on keydown to report things correctly because keypresses and resulting character comes from two different message, and the resulting character is only known in the second one, which is always sent second. So on keydown was changed to only report keypress, which is way more correct. The event now to get the resulting character no matter what, like if you're trying to script a visual editbox in a picture window, you need to use the new created event, <a href="on_char.html">On_Char</a>.
 
 
@@ -23,14 +23,12 @@ The idea was to report the key being pressed in $keyval, and the resulting chara
 
 <pre class ="code">ON *:KEYDOWN:@myWindow:38,42,55,78:echo -a $keyval</pre> see https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for a list of key code
 
-<H4>Identifiers</H4>
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\keyval.html">$keyval</a>- The Windows keycode value of the key pressed, this has nothing to do with ascii or unicode code point, the list can be found here https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 
-This event fills the following identifiers:
-<a href="..\identifiers\keyval.html">$keyval</a><br> The Windows keycode value of the key pressed, this has nothing to do with ascii or unicode code point, the list can be found here https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes</div>
+<br><a href="..\identifiers\keychar.html">$keychar</a> - The actual character pressed if there is one, see the note above, this is kept for backward compatibility reason, scripters should not use this value inside on keydown
 
-<a href="..\identifiers\keychar.html">$keychar</a><br> The actual character pressed if there is one, see the note above, this is kept for backward compatibility reason, scripters should not use this value inside on keydown</div>
-
-<a href="..\identifiers\keyrpt.html">$keyrpt</a><br> If the key is being held down/repeating</div>
+<br><a href="..\identifiers\keyrpt.html">$keyrpt</a> - If the key is being held down/repeating
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="..\other\picture_windows.html">Picture Window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:

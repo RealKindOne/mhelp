@@ -6,14 +6,9 @@
 <br>
 <br>
 The <b>ON Char</b> event is triggered when a character results from pressing one or more inside of a <a href="..\other\custom_windows.html">custom window</a>.
-
+<br>
+<br>
 See the note about the <a href="on_keydown.html">On_KeyDown</a> event, pressing control + o should result in two keypress being reported from on keydown, and control + o generates the character with code point 15, on char will trigger for that character.
-
-This event fills the following identifiers:
-<br><a href="..\identifiers\keyval.html">$keyval</a> - The unicode codepoint of the character resulting from keypresses
-<br><a href="..\identifiers\keychar.html">$keychar</a> - The actual character resulting from keypresses
-<br><a href="..\identifiers\keyrpt.html">$keyrpt</a> - If the key is being held down/repeating
-
 
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:char:&lt;@&gt;:&lt;codepoint,...,codepointN&gt;:&lt;commands&gt;</pre>
@@ -23,6 +18,11 @@ This event fills the following identifiers:
 <br><b>&lt;@&gt;</b> - The <a href="..\other\custom_windows.html">custom window</a> where this event should listen. Can be '''@''' for all windows.
 <br><b>&lt;codepoint&gt;</b> - The specific characters' codepoints to listen for. Can specify multiple codepoints, such as:
 <pre class ="code">ON *:char:@myWindow:38,42,55,78:echo -a $keyval</pre>
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\keyval.html">$keyval</a> - The unicode codepoint of the character resulting from keypresses
+<br><a href="..\identifiers\keychar.html">$keychar</a> - The actual character resulting from keypresses
+<br><a href="..\identifiers\keyrpt.html">$keyrpt</a> - If the key is being held down/repeating
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="..\other\picture_windows.html">picture window</a> which listens for resulting character from keypresses and displays the character and if it is repeating:

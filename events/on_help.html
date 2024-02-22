@@ -7,22 +7,18 @@
 <br>
 The <b>ON HELP</b> event triggers whenever a user on a channel has been elevated to helper/halfop (mode +h) status in a channel.
 
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:HELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;*&gt;&lt;#&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
-<br><b>*</b> - Any channel window
-<br><b>#</b> - Any channel window
+<br><span style="margin-left: 20px;"><b>*</b> - Any channel window
+<br> <span style="margin-left: 20px;"><b>#</b> - Any channel window
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
-<br><a href="..\other\local_identifiers.html">Local Identifiers</a><br>
-
-<a href="..\identifiers\hnick.html">$hnick</a>
-
-Returns the nickname of the user being helped.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\hnick.html">$hnick</a> - Returns the nickname of the user being helped.
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to helper:

@@ -1,0 +1,97 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>MatchText</title></head>
+<H1>Match Text</H1>
+<br>
+<br>
+A <b>&lt;matchtext&gt;</b> is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the <a href="..\commands\filter.html">/filter</a> command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
+The <b>ON text</b> event is a mIRC event that triggers when a remote user (I.E. not the local user) receives a channel or a query message.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+on &lt;level&gt;:text:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;
+</pre>
+
+
+<H4>Wildcard text pattern</H4>
+The matchtext can contain wild characters:
+<br>
+<br><b>*</b> - matches any text
+<br><b>?</b> - matches any single letter
+<br><b>&</b> - matches any single word
+<br>
+<br>
+For Example:
+<br>
+<br><b>!test</b> - the matchtext will only match if the ONLY word is "!test"
+<br><b>!test*</b> - the matchtext will match if the text starts with "!test"
+<br><b>*!test</b> - the matchtext will match if the text ends with the word "!test"
+<br><b>*!test*</b> - the matchtext will match any text that has "!test" in it (anywhere)
+<br><b>!test &</b> - the matchtext will match any text that start with the word test !test and is only followed by a second word
+
+<H4>The basic text pattern</H4>
+The most basic on text event is the normal <a href="..\other\wildcard.html">wildcard</a><br> pattern:
+
+<pre class ="code">on *:text:!help:#:{
+  notice $nick For Help just state your question and pastebin any relevant code.
+}</pre>
+
+Sometimes we want to get the user's input. We can use the & to match a single word (in this case it will be a name, although it doesn't matter)
+
+<pre class ="code">on *:text:!color &:?:{
+  var %color = $gettok(white black red blue brown yellow orange green, $rand(1, 8), 32)
+  msg $chan $2's random color is: %color $+ .
+}</pre>
+
+<H4>RegEx text pattern</H4>
+The matchtext parameter can also be a Regular Expression Pattern by using the <a href="..\other\access_levels.html#sigal">$ event prefix</a>.
+
+Example:
+
+<pre class ="code">on $*:text:/^!test$/i:#:{
+  msg $chan Test Worked!
+}</pre>
+
+<H4>Dynamic text pattern</H4>
+Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier.
+
+Example:
+
+<pre class ="code">on *:text:$(*slaps $me $+ *):#:{
+  describe $chan Slaps $nick with dried-up sandwich!
+}</pre>
+
+Or
+
+<pre class ="code">on *:text:$(!example * $+ %match $+ *):#:{
+  describe $chan This is an example, $+ $nick $+ !
+}</pre>
+
+If the entire match text pattern contains a SINGLE variable, the $() is not required, this technique can also be used for any other parameter of an event.
+
+Example:
+
+<pre class ="code">;Assume %text is set to !cool
+on *:text:%text:#:{
+  msg $chan I am the coolest!
+}</pre>
+
+It is also possible to use regular expressions with dynamic match text.
+
+<pre class ="code">on $*:text:$(/^!slaps $me $+ /Si):#:{
+  describe $chan Slaps $nick with dried-up sandwich!
+}</pre>
+
+<H4>Compatibility</H4>
+TODO
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+
+
+</body>
+</html>

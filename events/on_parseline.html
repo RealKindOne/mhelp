@@ -38,17 +38,9 @@ on $*:parseline:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 
 Inside this event, you can use <a href="..\commands\parseline.html">/parseline</a> without the -q switch to change the line.
 
-== Local identifiers ==
-
-The on parseline event exposes 3 local identifiers:
-
-<H4><a href="..\identifiers\parsetype.html">$parsetype</a></H4>
-
-Return the type of line, "in" or "out"
-
-<H4><a href="..\identifiers\parseline.html">$parseline</a></H4>
-
-Return the line being sent/received.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\parsetype.html">$parsetype</a> - Return the type of line, "in" or "out"
+<br><a href="..\identifiers\parseline.html">$parseline</a> - Return the line being sent/received.
 
 <br><b>Note:</b>For ''out'' lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
 <pre class ="code">var %pl $parseline
