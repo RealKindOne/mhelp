@@ -22,12 +22,52 @@
 		<param name="Local" value="identifiers.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="mIRC On_Events">
+		<param name="Local" value="events.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Sockets">
+		<param name="Local" value="sockets\sockets.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TCP">
+		<param name="Local" value="sockets\tcp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UDP">
+		<param name="Local" value="sockets\udp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Custom Windows">
+		<param name="Local" value="other\custom_windows.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Picture Windows">
+		<param name="Local" value="other\picture_windows.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="COM">
+		<param name="Local" value="other\com.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DLL">
 		<param name="Local" value="other\dll.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendMessage()">
 		<param name="Local" value="other\sendmessage.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IPv6">
+		<param name="Local" value="other\ipv6.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Access Levels">
+		<param name="Local" value="other\access_levels.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Token Manipulation">
+		<param name="Local" value="other\token.html">
 		</OBJECT>
 </UL>
 </BODY></HTML>
