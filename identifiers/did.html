@@ -31,8 +31,8 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 <br><b>.visible</b> - returns $true if control is visible, otherwise $false
 <br><b>.enabled</b> - returns $true if control is enabled, otherwise $false
 <br><b>.isid</b> - returns $true if id exists in the dialog, otherwise $false
-<br><b>.csel</b> - returns line number of Nth checked box in a listcb control, if N = 0, returns number of checkmarked lines
-<br><b>.cstate</b> - returns 0 = off, 1 = on for item in a listcb control
+<br><b>.csel</b> - returns line number of Nth checked box in a list checkbox control, if N = 0, returns number of checkmarked lines
+<br><b>.cstate</b> - returns 0 = off, 1 = on for item in a list checkbox control
 </pre>
 <H4>Parameters</H4>
 <b>&lt;name&gt;</b> - name of the dialog
@@ -70,8 +70,9 @@ ON *:DIALOG:whatEvents:*:*: {
 }</pre>
 
 Once saved into a script file inside of the mIRC remotes, the above example can be executed by typing the following command:
+<pre class ="code">
 /whatEvents
-
+</pre>
 Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.
 
 <H4>Compatibility</H4>

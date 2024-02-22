@@ -24,9 +24,9 @@ Here is how the while loop works:
 === true conditions ===
 So we said the while loop will continue to iterate as long as the condition is true. But what exactly does that mean? In mSL, a condition is true if the outcome of the condition is NOT 0, <a href="..\identifiers\null.html">$null</a>, or <a href="..\identifiers\false.html">$false</a>. For example let %x be 5, if the condition is while <a href="..\identifiers\calc.html">$calc</a>(%x - 5)) {, since 5-5 is 0, the while loop's condition is false, thus it will not execute any code inside it.
 
-'''Note''': If you are using an operator, for example while (0 == 0) {, the operator is going to define if the condition is true or not, 0 being equal to 0, this condition is true.
+<br><b>Note:</b> If you are using an operator, for example while (0 == 0) {, the operator is going to define if the condition is true or not, 0 being equal to 0, this condition is true.
 
-==== Example 1 ====
+<H4>Example 1</H4>
 Take a look at the following alias:
 
 <pre class ="code">alias whileExample1 {
@@ -107,9 +107,9 @@ The <a href="..\commands\return.html">return statement</a><br>
 The <a href="goto_statements.html">goto statement</a></br>
 <br>
 <br>
-<b>Note:<b> In this tutorial, we will not cover the <a href="..\commands\return.html">/return</a> or the <a href="..\commands\goto.html">/goto</a> commands.
+<b>Note:</b> In this tutorial, we will not cover the <a href="..\commands\return.html">/return</a> or the <a href="..\commands\goto.html">/goto</a> commands.
 
-==== break statement ====
+<H4>break statement</H4>
 The ''break statement'' lets you break out of the currently executing while loop at any point.  The break statement will only break out of the while loop in which it is nested in.
 
 <pre class ="code">break</pre>
@@ -158,7 +158,7 @@ The output is:
 2
 1</pre>
 
-==== continue statement ====
+<H4>continue statement</H4>
 
 A ''continue statement'' in mIRC will cause the program control to jump to the end of the loop body. causing it to evaluate the conditional statement again skipping any subsequent code. A continue statement can only be used within a loop.
 
@@ -211,7 +211,7 @@ In the example below we will count from 1 to 10 using a while loop. Variable "%a
 
 <H4>Infinite Loops</H4>
 
-An infinite loop happens when a condition always evaluates to true. Most times, its due to an error. If that's the case, you can force mIRC to break out of it using the '''Ctrl+Break''' key combinations.
+An infinite loop happens when a condition always evaluates to true. Most times, its due to an error. If that's the case, you can force mIRC to break out of it using the <b>CTRL+BREAK</b> key combinations.
 Such a condition may be used on purpose, where you need to use the break statement to break out of the loop, but you can always rewrite the code otherwise to avoid this type of condition
 <pre class ="code">
 ;returns a random nickname on a channel while excluding yourself ($me) from the list
@@ -222,7 +222,7 @@ while (1) {
   }
 }
 
-;Equivalent:
+; Equivalent:
 
 while ($nick($chan,$r(1,$nick($chan,0))) == $me) /
 echo -a $v1

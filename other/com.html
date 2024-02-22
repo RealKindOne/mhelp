@@ -11,12 +11,13 @@ Component Object Model (COM) is a specification for applications (like exe and d
 A COM object is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or '''ProgID'''.
 
 Some examples of COM object with their ProgIDs:
-* iTunes.Application - an interface that lets you interact with the iTunes application
-* WScript.Shell - an interface that provides access to the native windows shell
-* Shell.Application - an interface that provides methods to control the shell and execute commands within the shell, as well as methods to obtain other shell-related objects.
-* MSScriptControl.ScriptControl - an interface that provides methods to evaluate and execute scripts (The MSScript control supports VBScript and JavaScript scripting languages)
-* Word.Application - an interface that provides methods and properties associated with the Word application.
-* WMPlayer.ocx - An interface that provides methods and properties associated with the windows media player program
+<br>
+<br><b>iTunes.Application</b> - an interface that lets you interact with the iTunes application
+<br><b>WScript.Shell</b> - an interface that provides access to the native windows shell
+<br><b>Shell.Application</b> - an interface that provides methods to control the shell and execute commands within the shell, as well as methods to obtain other shell-related objects.
+<br><b>MSScriptControl.ScriptControl</b> - an interface that provides methods to evaluate and execute scripts (The MSScript control supports VBScript and JavaScript scripting languages)
+<br><b>Word.Application</b> - an interface that provides methods and properties associated with the Word application.
+<br><b>WMPlayer.ocx</b> - An interface that provides methods and properties associated with the windows media player program
 
 Note: A single computer might have thousands of COM objects available.
 
@@ -53,68 +54,164 @@ Before we can talk about how to interact with the COM object we have connected t
 === Members ===
 Object's '''Members''' are all the methods and properties that are provided by the Object. Later on, we will be able invoke these members. For example, The WScript.Shell object has as an [http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx Exec method] that lets us run an application in a child command-shell. [http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx Here is a link] to a complete list of properties and methods that the WScript.Shell object has.
 
-=== Invoke method ===
+<H4>Invoke method</H4>
 The invocation method is the way the invocation should be applied. Some members of the object require that they just be called, others might return a value. Sometimes we might need to set some kind of a property by either a value or by reference. Below is a list of possible methods:
 <br>
-<br><b>1</b> - Call a member of an object
-<br><b>2</b> - Return a value
-<br><b>3</b> - (1+2) Call a member and return a value *
-<br><b>4</b> - Set a property
-<br><b>5</b> - (1+4) Set a property with a member call *
-<br><b>6</b> - (2+4) Set a property and return a value *
-<br><b>7</b> - (1+2+4) Set a property and return a value with a member call *
-<br><b>8</b> - Set a property by reference
-<br><b>9</b> - (1+8) Set a property by reference with a member call *
-<br><b>10</b> - (2+8) Set a property by reference and return a value *
 <br>
+<table>
+<tr>
+<th> Value </th>
+<th> Method
+</th></tr>
+<tr>
+<td> 1 </td>
+<td> Call a member of an object
+</td></tr>
+<tr>
+<td> 2 </td>
+<td> Return a value
+</td></tr>
+<tr>
+<td> 3 </td>
+<td> (1+2) Call a member and return a value *
+</td></tr>
+<tr>
+<td> 4 </td>
+<td> Set a property
+</td></tr>
+<tr>
+<td> 5 </td>
+<td> (1+4) Set a property with a member call *
+</td></tr>
+<tr>
+<td> 6 </td>
+<td> (2+4) Set a property and return a value *
+</td></tr>
+<tr>
+<td> 7 </td>
+<td> (1+2+4) Set a property and return a value with a member call *
+</td></tr>
+<tr>
+<td> 8 </td>
+<td> Set a property by reference
+</td></tr>
+<tr>
+<td> 9 </td>
+<td> (1+8) Set a property by reference with a member call *
+</td></tr>
+<tr>
+<td> 10 </td>
+<td> (2+8) Set a property by reference and return a value *
+</td>
+</tr>
+</table>
 <br>
 These methods with an * are the result of a combination of multiple methods using the four basic methods (1, 2, 4, and 8). For example 5 = 1 + 4, set a property with a member call. Other combinations not included in the table above are possible.
 
-=== Variable Type ===
+<H4>Variable Type</H4>
 Unlike mSL, COM objects must have a data type for every value. For example, if we want to invoke a method that takes an integer value, we have to use the int data type. Below is a list of possible variable data types.
-
-{| class="wikitable"
-|-
-! Type !! Description !! Values
-|-
-|i1 || single byte signed integer || -128 to 127
-|-
-|ui1 || single byte unsigned integer || 0 to 255
-|-
-|i2 || two byte signed integer || -32768 to 32767
-|-
-|ui2 || two byte unsigned integer || 0 to 65535
-|-
-|i4 || four byte signed integer || +/- 2147483647
-|-
-|ui4 || Holds unsigned 32-bit (4-byte) integers || 0 through 4,294,967,295
-|-
-|int || integer || -2147483648 to 2147483647
-|-
-|uint || unsigned integer || 0 to 4294967295
-|-
-|r4 || real, 4-byte floating point number || 1.17549435E-38 to 3.40282347E+38
-|-
-|r8 || double real, 8-byte floating point number || 2.2250738585072014E-308 - 1.7976931348623157E+308
-|-
-|cy || eight byte curreny number || -922337203685477.5625 to 922337203685477.5625
-|-
-|date || contains date and time, stored as an 8-byte floating-point number || +/-79,228,162,514,264,337,593,543,950,335
-|-
-|decimal || Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. || +/-79,228,162,514,264,337,593,543,950,335
-|-
-|bool || contain any string or numeric representation.
-|-
-|bstr || null-terminated unicode character string value. || A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
-|-
-|variant ||can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
-|-
-|dispatch ||  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
-|-
-|unknown || This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
-|-
-|error || This data type indicates a 32-bit error code (DBTYPE_ERROR)
-|}
+<br>
+<br>
+<table class="wikitable">
+<tr>
+<th> Type </th>
+<th> Description </th>
+<th> Values
+</th></tr>
+<tr>
+<td>i1 </td>
+<td> single byte signed integer </td>
+<td> -128 to 127
+</td></tr>
+<tr>
+<td>ui1 </td>
+<td> single byte unsigned integer </td>
+<td> 0 to 255
+</td></tr>
+<tr>
+<td>i2 </td>
+<td> two byte signed integer </td>
+<td> -32768 to 32767
+</td></tr>
+<tr>
+<td>ui2 </td>
+<td> two byte unsigned integer </td>
+<td> 0 to 65535
+</td></tr>
+<tr>
+<td>i4 </td>
+<td> four byte signed integer </td>
+<td> +/- 2147483647
+</td></tr>
+<tr>
+<td>ui4 </td>
+<td> Holds unsigned 32-bit (4-byte) integers </td>
+<td> 0 through 4,294,967,295
+</td></tr>
+<tr>
+<td>int </td>
+<td> integer </td>
+<td> -2147483648 to 2147483647
+</td></tr>
+<tr>
+<td>uint </td>
+<td> unsigned integer </td>
+<td> 0 to 4294967295
+</td></tr>
+<tr>
+<td>r4 </td>
+<td> real, 4-byte floating point number </td>
+<td> 1.17549435E-38 to 3.40282347E+38
+</td></tr>
+<tr>
+<td>r8 </td>
+<td> double real, 8-byte floating point number </td>
+<td> 2.2250738585072014E-308 - 1.7976931348623157E+308
+</td></tr>
+<tr>
+<td>cy </td>
+<td> eight byte curreny number </td>
+<td> -922337203685477.5625 to 922337203685477.5625
+</td></tr>
+<tr>
+<td>date </td>
+<td> contains date and time, stored as an 8-byte floating-point number </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>decimal </td>
+<td> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>bool </td>
+<td> contain any string or numeric representation.
+</td></tr>
+<tr>
+<td>bstr </td>
+<td> null-terminated unicode character string value. </td>
+<td> A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
+</td></tr>
+<tr>
+<td>variant </td>
+<td>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
+</td></tr>
+<tr>
+<td>dispatch </td>
+<td>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
+</td></tr>
+<tr>
+<td>unknown </td>
+<td> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
+</td></tr>
+<tr>
+<td>error </td>
+<td> This data type indicates a 32-bit error code (DBTYPE_ERROR)
+</td>
+</tr>
+</table>
+<br>
+<br>
 
 To make a variable by reference, postfix the data type with an asterisk and a variable name, for example: int* pIntOfBeer.
 
@@ -287,22 +384,38 @@ Returns something like:
 
 <H4>Other useful properties</H4>
 The <a href="..\identifiers\com.html">$com</a> identifier has a few other useful properties:
+<br>
+<br>
+<table>
 
-{| class="wikitable"
-|-
-! Property !! Description
-|-
-|argerr || the argument that have caused the error
-|-
-|error || error value, when applicable
-|-
-|errortext || error description
-|-
-|progid || object's name
-|-
-|dispatch/unknown || return <a href="..\identifiers\true.html">$true</a> or <a href="..\identifiers\null.html">$null</a> if a pointer to this object exists
-|}
-
+<tbody><tr>
+<th> Property </th>
+<th> Description
+</th></tr>
+<tr>
+<td>argerr</td>
+<td> the argument that have caused the error
+</td></tr>
+<tr>
+<td>error</td>
+<td> error value, when applicable
+</td></tr>
+<tr>
+<td>errortext</td>
+<td> error description
+</td></tr>
+<tr>
+<td>progid</td>
+<td> object&#39;s name
+</td></tr>
+<tr>
+<td>dispatch/unknown </td>
+<td> return <a href="..\identifiers\true.html">$true</a> or <a href="..\identifiers\null.html">$null</a> if a pointer to this object exists
+</td>
+</tr>
+</table>
+<br>
+<br>
 
 <H4>Limitations of COM</H4>
 Currently mIRC/mSL's COM implantation has a few limitations that other languages may not encounter.

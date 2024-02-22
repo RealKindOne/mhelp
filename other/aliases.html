@@ -58,23 +58,23 @@ The aliases tab is designed specifically for aliases only. Note that because it 
 
 <H4>Commands vs. Identifiers</H4>
 
-in mSL, aliases can serve as both '''identifiers''' and '''commands'''. These two terms are used to describe the type of alias it is. In general, a '''command''' will usually not return anything but simply process some type of data. An '''Identifier''' on the other hand will generally return some kind of a value.
+in mSL, aliases can serve as both <a href="..\identifiers.html">identifiers</a> and <a href="..\commands.html">commands</a>. These two terms are used to describe the type of alias it is. In general, a command will usually not return anything but simply process some type of data. An identifier on the other hand will generally return some kind of a value.
 
 <H4>Aliases Prefixes</H4>
 
-==== Command Prefixes ====
+<H4>Command Prefixes</H4>
 
 ===== . prefix (silencing) =====
 
 You can prefix your command call by a dot '.' to prevent mIRC from displaying its typical message, such as <a href="..\commands\timer.html">.timer</a>.
 
-'''Note''': Silencing a custom aliases command call makes all the custom aliases command call in that original be silenced too, with no way to unsilence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
+<br><b>Note:</b> Silencing a custom aliases command call makes all the custom aliases command call in that original be silenced too, with no way to unsilence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
 
 ===== ! prefix (built-in call) =====
 
 By default, a command call will call any custom alias you may have defined, you can force a call to a mIRC built-in command by using the '!' prefix, /!join makes sure it calls the mIRC built-in join command instead of the custom join alias you may have defined.
 
-==== Identifier Prefixes ====
+<H4>Identifier Prefixes</H4>
 
 ===== $$ special construct (required value) =====
 
@@ -134,7 +134,7 @@ echo -a $me
 ;This identifier requires that we pass it some arguments:
 echo -a $calc(1 + 1)</pre>
 
-Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the '''/return''' keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
+Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the <a href="..\commands\return.html">/return</a> keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
 
 <pre class ="code">alias example {
   return hello there!
@@ -198,7 +198,7 @@ For example:
 //echo -a $convert($convert(15.5).deg2rad).rad2deg
 15.499998</pre>
 
-== Aliases as Both an Ident and Cmd ==
+== Aliases as Both an identifier and command ==
 
 Although most aliases do only serve as identifiers or commands, it is possible to act as both. 
 
@@ -361,7 +361,7 @@ The order used by mIRC to locate your alias is as follow:
 * If none is found, then mIRC check if this is a built-in command name
 * If still no match and if it was a command call, then it sends the command to the server , which sends back RAW numeric 421 if it's an invalid server command
 
-'''Note:''': The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
+<br><b>Note:</b>: The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
 
 <H4>See also</H4>
 

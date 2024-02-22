@@ -7,17 +7,19 @@
 <br>
 The <b>$bvar</b> identifier returns the contents of a binary variable. Default is returning the contents as decimal byte values in the range 0-255.
 
-'''Note''': $bvar(&var) used without N or M parameters returns the variable name if it exists, otherwise returns $null, this has to be used to check if a binary variable exists before checking $bvar(&bvar,0) to check if it has data.
+<br><b>Note:</b> $bvar(&var) used without N or M parameters returns the variable name if it exists, otherwise returns $null, this has to be used to check if a binary variable exists before checking $bvar(&bvar,0) to check if it has data.
 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$bvar(&binvar, [ N [ ,M] ] )
+$bvar(&binvar, [ N [ ,M] ] )[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>&binvar</b> - A binary variable name which begins with the & symbol.
 <br><b>N</b> - The beginning position within the binary variable. N=0 returns the length of the binary variable. Can also be range, N- or N1-N2 (N2 is a position then) but cannot be negative to start from the end. (First byte is index 1)
 <br><b>M</b> - Optional number of values to get from the binvar at position N, this is not a position in the binvar but an offset starting at N. If there are not M bytes beginning at the Nth position, returns all the remaining bytes beginning at the Nth position. if M is used, the form N1-N2 for N is ignored and only N1 is used as though $bvar(&,N,M) was used.
+
 <H4>Properties</H4>
 <b>.text</b> - returns a string from the bytes, bytes are decoded from utf8
 <br><b>.ansi</b> - returns a string from the bytes, bytes are not decoded from utf8
@@ -27,7 +29,7 @@ $bvar(&binvar, [ N [ ,M] ] )
 <br><b>.nlong</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in big-endian byte order (high value first)
 
 
-'''Note''': word/nword/long/nlong return non-byte values ONLY when M is not used and N is a positive integer without a hyphen, and do not return a series of numbers from a lengthy variable. They return the value from the 2 or 4 bytes beginning at the Nth byte, and returns $null if there are not the needed 2 or 4 bytes to completely fill the word/long.
+<br><b>Note:</b> word/nword/long/nlong return non-byte values ONLY when M is not used and N is a positive integer without a hyphen, and do not return a series of numbers from a lengthy variable. They return the value from the 2 or 4 bytes beginning at the Nth byte, and returns $null if there are not the needed 2 or 4 bytes to completely fill the word/long.
 
 <H4>Example</H4>
 <pre class ="code">//bset &abc 1 12 34 56 78 | echo -a $iif($bvar(&abc),$v1 exists) $iif($bvar(&xyz),$v1 exists) / $bvar(&abc) / $bvar(&xyz)

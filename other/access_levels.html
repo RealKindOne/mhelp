@@ -133,7 +133,7 @@ script1.mrc
 script2.mrc
 <pre class ="code">on &*:TEXT:*:?:echo -ga I triggered because $!halted == $halted $+ !</pre>
 
-The second event will trigger upon recieving any msg sent via query ''except'' '''!test''', because the first event calls the ''haltdef'' command upon receiving '''!test'''.
+The second event will trigger upon receiving any msg sent via query except <b>!test</b>, because the first event calls the haltdef command upon receiving <b>!test</b>.
 <a name="sigal"></a>
 <H4>$ prefix</H4>
 This event prefix means the matchtext of the event is a regular expression, the delimiter are required.

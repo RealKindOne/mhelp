@@ -34,7 +34,7 @@ Whilst rendering functions will normally display characters over 65536 correctly
 </pre>
 For $regsubex this is because mIRC is using the 8 bits pcre api: when replacing it has to convert your 16 bits unit ($chr(55357) in the first iteration) to UTF8.
 <br>
-'''Note:''' In fact mIRC does convert the two surrogates to their utf8 representation, except that this is not really correct because surrogates are not really characters; they are just code points used to form others characters, therefore it's improper to decode those bytes to that character because the general algorithm for UTF8 can still be used, and is used by mIRC here, to encode the lone surrogate. So, when mIRC decodes what $regsubex generated, to UTF8, it recognizes the illegal sequence and simply return the characters corresponding to the byte, so you get 3 characters per surrogate.
+<br><b>Note:</b> In fact mIRC does convert the two surrogates to their utf8 representation, except that this is not really correct because surrogates are not really characters; they are just code points used to form others characters, therefore it's improper to decode those bytes to that character because the general algorithm for UTF8 can still be used, and is used by mIRC here, to encode the lone surrogate. So, when mIRC decodes what $regsubex generated, to UTF8, it recognizes the illegal sequence and simply return the characters corresponding to the byte, so you get 3 characters per surrogate.
 
 <H4>$utfencode / $utfdecode</H4>
 You can also express those characters with their UTF8 representation using <a href="..\identifiers\utfdecode.html">$utfdecode</a>, which decodes UTF8:
@@ -79,7 +79,7 @@ Each code page has a number (Gdi charset):
 * 238 - EASTEUROPE_CHARSET
 * 255 - OEM_CHARSET
 </pre>
-'''Note''': GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using C = 1.
+<br><b>Note:</b> GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using C = 1.
 <br>
 For example, if you want to get the text (FROM GREEK TO UTF8), which used the ISO-8859-7 (GREEK) encoding for Greek letters, in utf8, you need to encode that to utf8, interpreting the bytes as per in the GREEK code page, and then to decode that to utf8: $utfdecode($utfencode(text,161))
 <br>

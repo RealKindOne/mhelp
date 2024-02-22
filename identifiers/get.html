@@ -21,7 +21,7 @@ $get($nick) used without the 2nd N parameter returns $nick if there is at least 
 When N >=1, $get(N) or $get($nick,N) returns the $nick associated with that transfer.<br />
 When sender changes nick, the $get is still associated with the old nick unless you use: {{mIRC|/dcc}} nick -sgcf &lt;oldnick&gt; &lt;newnick&gt;}}
 
-'''Note''': $get(-1) can be used during the {{mIRC|on events/on filercvd|ON FILERCVD}} and {{mIRC|on events/on getfail|ON GETFAIL}} events, it refers to the 'get' which triggered that event.
+<br><b>Note:</b> $get(-1) can be used during the {{mIRC|on events/on filercvd|ON FILERCVD}} and {{mIRC|on events/on getfail|ON GETFAIL}} events, it refers to the 'get' which triggered that event.
 
 <H4>Properties</H4>
 <b>.cid</b> - The connection id

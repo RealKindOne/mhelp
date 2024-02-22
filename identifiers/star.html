@@ -38,7 +38,7 @@ Then, for each token (here only '''$1 == abcd'''), mIRC evaluates the line. '''$
 There is a workaround for the above issue, and that is by using scid and scon:
 <pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
 
-'''Note''': This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.
+<br><b>Note:</b> This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.
 
 mIRC replaces '''$*'''  by the marker, but scon has an extra evaluation system which fits perfectly. The ''$*'' mechanism is enabled on scon, and mIRC stores the command of the ''$*'' as '''scon -r echo -a $!mid( `~$* ,2)''' mIRC then evaluates the line for each token, which then becomes: "scon -r echo -a $mid( abcd ,2)" Finally, the scon command is executed, resulting in the expected value being echoed.
 
@@ -54,7 +54,7 @@ If you are dealing with dynamic parameter and want to use $* again in the same s
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here</pre>
 
-'''Note''': This sexy workaround works even inside a loop, but a better workaround is to call an alias and to execute the new $* in there, the previous tokens will be cleared.
+<br><b>Note:</b> This sexy workaround works even inside a loop, but a better workaround is to call an alias and to execute the new $* in there, the previous tokens will be cleared.
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)

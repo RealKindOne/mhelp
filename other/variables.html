@@ -7,7 +7,7 @@
 <br>
 
 
-<b>mIRC variables</b> are items which can hold data temporarily, or permanently, for use at a later time.. You can create, edit, or delete them at any time. All mIRC variables must be prefixed with a % sigil (example %var or %cookies). Variables are untyped – therefore capable of storing letters, numbers, or strings at any given point.
+<b>mIRC variables</b> are items which can hold data temporarily, or permanently, for use at a later time.. You can create, edit, or delete them at any time. All mIRC variables must be prefixed with a % sigil (example %var or %cookies). Variables are untyped - therefore capable of storing letters, numbers, or strings at any given point.
 
 <H4>Variable Scope: Global vs. Local</H4>
 
@@ -17,7 +17,7 @@ There are two kinds of variables: local and global. '''Scope''' refers to the vi
 
 Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
 
-'''Note''': Local variables can be seen from the execution of /scon or /scid: //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
+<br><b>Note:</b> Local variables can be seen from the execution of /scon or /scid: //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
 
 Syntax:
 
@@ -27,7 +27,7 @@ var %temp = value
 ;multiple variables
 var %a = value, %b = second value, %c = and so on and so forth</pre>
 
-'''Note''': Since mIRC 6.21, you can avoid using the = sign when using the /var command.
+<br><b>Note:</b> Since mIRC 6.21, you can avoid using the = sign when using the /var command.
 
 Local variables are good for temporary things like string manipulations and math expressions. Most of your code will use local variables.
 
@@ -54,7 +54,7 @@ If you were to execute the above by typing ''/wrong'', you would get the followi
 
 <H4>Global Variables</H4>
 
-A '''global variable''' is a variable that is accessible from every alias or event. They can be created and edited from every script. They are not deleted unless they are purposely destroyed using the unset command (we will talk about that later on).
+A global variable is a variable that is accessible from every alias or event. They can be created and edited from every script. They are not deleted unless they are purposely destroyed using the unset command (we will talk about that later on).
 
 Syntax:
 
@@ -112,7 +112,7 @@ The /unset command supports <a href="..\other\wildcard.html">wildcard</a> charac
 }</pre>
 
 
-You can also unset all of the variables using the '''/unsetall''' command.
+You can also unset all of the variables using the <a href="..\commands\unsetall.html">/unsetall</a> command.
 
 <span style="color: #9E1010;">'''Caution:'''</span> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
 
@@ -166,7 +166,7 @@ For Example:
 <H4>Others Commands</H4>
 mIRC has two additional commands that can be used to easily increase and decrease the value of a numerical variable.
 
-The '''dec''' command allows you to decrease the value of a variable by 1 or by a given value if specified:
+The <a href="..\commands\dec.html">/dec</a> command allows you to decrease the value of a variable by 1 or by a given value if specified:
 
 <pre class ="code">dec %var [value]</pre>
 
@@ -179,7 +179,7 @@ For Example:
   echo -a %g
 }</pre>
 
-The '''inc''' command allows you to increase the value of a variable by 1 or by a given value if specified:
+The <a href="..\commands\inc.html">/inc</a> command allows you to increase the value of a variable by 1 or by a given value if specified:
 
 
 <pre class ="code">inc %var [value]</pre>
@@ -207,7 +207,7 @@ var %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
 
 Although you can omit the static part out, its strongly discouraged because variables should have a meaningful name that explains their purpose.
 
-'''Note''': You may have seen script using evaluation brackets to set a value to a dynamic variable, they are not required.
+<br><b>Note:</b> You may have seen script using evaluation brackets to set a value to a dynamic variable, they are not required.
 
 Let's take a look at an example:
 
@@ -228,8 +228,9 @@ The static part is ''color.'', which is never going to change, and the dynamic p
 
 <H4>Retrieving Values</H4>
 
-'''Static Variables'''
-
+<b>Static Variables</b>
+<br>
+<br>
 Retrieving values from static variables is pretty straightforward. Let's assume you have a variable called ''%myvar'' and it's value is '''abc''', you can get this value simply by referring to the variable outright:
 
 <pre class ="code">alias showVar {
@@ -241,8 +242,9 @@ Simply put, this will echo the following to the active window where you typed th
 <pre class ="code">Here is the value of %myvar: abc</pre>
 
 
-'''Dynamic Variables'''
-
+<b>Dynamic Variables</b>
+<br>
+<br>
 Retrieving a value from a dynamic variable is a little bit more complicated. There are two ways.
 
 1. Using Bracket evaluation [ ]
@@ -267,7 +269,7 @@ In the example above, we retrieved the color from the dynamic variable and set i
 
 When you first glance at this statement, it might look a bit confusing, but in fact it is pretty straightforward. Let us continue with John's example and assume someone else typed ''!favColor John'':
 
-#The first thing mIRC will evaluate is the innermost evaluation brackets '''[ ]''', in this case its ''$2'', which will evaluate to ''John''.<br /><pre class ="code">%color. [ $+ John ]</pre>
+#The first thing mIRC will evaluate is the innermost evaluation brackets <b>[ ]</b>, in this case its ''$2'', which will evaluate to ''John''.<br /><pre class ="code">%color. [ $+ John ]</pre>
 #mIRC will then evaluate the outer evaluation bracket "$+ John".<br />%color.John
 
 Here is another example:
@@ -299,7 +301,7 @@ What this does is create a bunch of static variables, each with ascending-ordere
 
 
 
-'''Note''': If you have multiple dynamic variable to add together, you need to add another pair of $+ [ ... ] for each element or use [ [ $var(%var,1) ] ] :
+<br><b>Note:</b> If you have multiple dynamic variable to add together, you need to add another pair of $+ [ ... ] for each element or use [ [ $var(%var,1) ] ] :
 
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 ] ] ]
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 $+ [ %dynamic3 ] ] ] ]
@@ -321,7 +323,7 @@ is the same as
 
 This method is easier to read/handle than the bracket, you can simply get the plain text variable you want with $+(), and then you evaluate that twice to get the content of the variable, this method is recommended, but note that it's a bit slower than the bracket.
 
-'''Note''': $eval is often used in the simple form $()
+<br><b>Note:</b> $eval is often used in the simple form $()
 
 <a name="quirks"></a>
 <H4>Special behaviors & quirks</H4>

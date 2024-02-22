@@ -10,14 +10,14 @@ The <b>$ignore</b> identifier returns the Nth address in the ignore list.
 <H4>Synopsis</H4>
 <pre class ="code">
 $ignore
-$ignore(N|address)
+$ignore(N|address)[.property]
 </pre>
 <H4>Parameters</H4>
 <b>N</b> - The Nth address in the ignore list, if N = 0, returns the total number of ignored addresses.
 <br><b>address</b> - An address that is currently ignored, the first matching address is used.
 
 
-'''Note''': without a parameter, $ignore returns $true if ignore is on $false otherwise
+<br><b>Note:</b> without a parameter, $ignore returns $true if ignore is on $false otherwise
 
 <H4>Properties</H4>
 <b>.type</b> - returns the ignore flag for the ignored address

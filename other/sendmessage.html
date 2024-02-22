@@ -25,11 +25,11 @@ The external programs that send these messages must create a mapped file with th
 * Use PAGE_READWRITE for flProtect, to be able to read and write from/to the file.
 * Use 0 for dwMaximumSizeHigh and 4096 for dwMaximumSizeLow to indicate a file of that size
 
-'''Note''': The mapped file must be at least 4096 bytes.
+<br><b>Note:</b> The mapped file must be at least 4096 bytes.
 
 * lpName is the name of the file, in previous version of mIRC, this parameter had to be "mIRC", you certainly can see the limitation with this, so it was extended, you can now specify a name of the form "mIRCN" where N is a number. You can also still use mIRC of course.
 
-'''Note''': To prevent simultaneous access to the mapped file, your code must check whether the mapped file exists or not before using it. If it exists, you should assume that it is in use by another program, and should try again later.
+<br><b>Note:</b> To prevent simultaneous access to the mapped file, your code must check whether the mapped file exists or not before using it. If it exists, you should assume that it is in use by another program, and should try again later.
 
 <H4>Communicating</H4>
 
@@ -39,7 +39,7 @@ After creating the mapped file, you need to write to that file the line mIRC wil
 
 The following call to SendMessage() makes mIRC perform the commands that you specify:
 
-'''Note''': the 'command' is placed into the editbox and enter is pressed is the exact behavior, this can be used to send IRC messages by not prefixing the command with slashes, but you must prefix it with at least one slash then, if you want to execute a command.
+<br><b>Note:</b> the 'command' is placed into the editbox and enter is pressed is the exact behavior, this can be used to send IRC messages by not prefixing the command with slashes, but you must prefix it with at least one slash then, if you want to execute a command.
 
  SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
 

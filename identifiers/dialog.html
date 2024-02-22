@@ -33,9 +33,9 @@ We can take a quick look at how to create a modal dialog via the following piece
 
 Here we can break down what we are looking at:
 
-* Name - The name you will give to the dialog and use to refer to it later.
-* Table - The table name used to create the dialog
-* Parent - The parent window of the dialog, this can be a window name or one of the following:
+<br>Name - The name you will give to the dialog and use to refer to it later.
+<br>Table - The table name used to create the dialog
+<br>Parent - The parent window of the dialog, this can be a window name or one of the following:
 :: -1 : Desktop window
 :: -2 : Main mIRC window
 :: -3 : Currently active window
@@ -60,12 +60,12 @@ $dialog(), in use as an identifier, can be used to get information regarding any
 <br><b>.title</b> - Returns the title of the dialog that you reference.
 <br><b>.modal</b> - If the dialog is a modal dialog, returns $true, otherwise returns $false.
 <br><b>.table</b> - Returns the dialog table that the dialog name you reference is using.
-<br><b>ok</b> - If you specify an 'OK' button, this will allow the identifier to specify the dialog .ID number of that button.
+<br><b>.ok</b> - If you specify an 'OK' button, this will allow the identifier to specify the dialog ID number of that button.
 <br><b>.cancel</b> - Same as above, but specifies the cancel button ID.
 <br><b>.result</b> - Same as above, but specifies the result button ID.
-<br><b>focus</b> - Allows you to retrieve the ID of the object control, within the dialog, that cu.rrently has focus.
+<br><b>.focus</b> - Allows you to retrieve the ID of the object control, within the dialog, that currently has focus.
 <br><b>.tab</b> - Returns the ID of the tab that is currently being displayed.
-<br><b>active</b> - If the dialog is the active window, returns $true, otherwise returns $false..
+<br><b>.active</b> - If the dialog is the active window, returns $true, otherwise returns $false..
 <br><b>.hwnd</b> - Returns the window handle of the current dialog window.
 
 <H4>Compatibility</H4>

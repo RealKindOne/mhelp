@@ -5,10 +5,11 @@
 <H1>$dqwindow</H1>
 <br>
 <br>
-The <b>$dqwindow</b> identifier returns the state of the single message window. When used in on TEXT/ACTION events, it also returns opening/writing/written states.
-
+The <b>$dqwindow</b> identifier returns the state of the single message window. When used in <a href="..\events\on_text.html">On_Text</a> / <a href="..\events\on_text.html">On_Action</a> events, it also returns opening/writing/written states.
+<br>
+<br>
 The value can be checked using the & bit comparison operator:
-
+<br>
 <br>$iif($dqwindow & 1,enabled,not enabled) - the single message window is enabled/disabled
 <br>$iif($dqwindow & 2,open,not open) - the single message window is open/not open
 <br>$iif($dqwindow & 4,opening,not opening) - the single message window is going to be opened (or not going to be opened) because of the message received, apply to IRC events only

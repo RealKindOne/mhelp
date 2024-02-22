@@ -21,5 +21,13 @@
 		<param name="Name" value="mIRC Identifiers">
 		<param name="Local" value="identifiers.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DLL">
+		<param name="Local" value="other\dll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SendMessage()">
+		<param name="Local" value="other\sendmessage.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>

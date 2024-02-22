@@ -10,7 +10,7 @@ File Handling allows you to manipulate files on disk using separate, simple oper
 To understand how it works, you must be familiar with text file operations such as <a href="..\commands\write.html">/write</a> and <a href="..\identifiers\read.html">$read</a>.
 
 
-== <a href="..\commands\fopen.html">/fopen</a> ==
+<H4><a href="..\commands\fopen.html">/fopen</a></H4>
 
 /fopen [-nox] &lt;name&gt; &lt;filename&gt;
 
@@ -18,11 +18,11 @@ To understand how it works, you must be familiar with text file operations such 
 
 The command fail by default if the file does not exist, the -n switch creates the file if it does not exist, but fails if it exists. The -o switch creates a new file if it does not exist but overwrites the file if it exists. The -x switch opens the file for exclusive access, others processes cannot access that file
 
-'''Note:''' if /fopen fails, it does not halt processing, you must check <a href="..\identifiers\ferr.html">$ferr</a> to see if any error occurred, see below.
+<br><b>Note:</b> if /fopen fails, it does not halt processing, you must check <a href="..\identifiers\ferr.html">$ferr</a> to see if any error occurred, see below.
 
 After you opened a file with /fopen, you have a pointer of the content of the file, it starts at 0. This pointer is the starting position to read/write from.
 
-== <a href="..\commands\fseek.html">/fseek</a> ==
+<H4><a href="..\commands\fseek.html">/fseek</a></H4>
 
 /fseek -lnwr &lt;name&gt; &lt;position&gt;
 
@@ -35,45 +35,46 @@ After you opened a file with /fopen, you have a pointer of the content of the fi
 
 If /fseek fails, it sets the pointer to the end of the file, you must check $fopen().eof or $feof to know if /fseek failed.
 
-== <a href="..\commands\fwrite.html">/fwrite</a> ==
+<H4><a href="..\commands\fwrite.html">/fwrite</a></H4>
 
 /fwrite [-bn] &lt;name&gt; <text | &binvar>
 
 <a href="..\commands\fwrite.html">/fwrite</a> allows you to write to the file at the current pointer position, -b specify a binary variable, -n adds a $crlf at the end of the line.
 
-== <a href="..\commands\fclose.html">/fclose</a> ==
+<H4><a href="..\commands\fclose.html">/fclose</a></H4>
 
 /fclose &lt;name | wildcard&gt;
 
 <a href="..\commands\fclose.html">/fclose</a> closes all the matching name <a href="wildcard.html">wildcard</a> expression allowed)
 
-== <a href="..\commands\flist.html">/flist</a> ==
+<H4><a href="..\commands\flist.html">/flist</a></H4>
 
 <a href="..\commands\flist.html">/flist</a> just lists all the current handles.
 
-== <a href="..\identifiers\fopen.html">$fopen</a>(name | N) ==
+<H4><a href="..\identifiers\fopen.html">$fopen</a>(name | N)</H4>
 
 <a href="..\identifiers\fopen.html">$fopen</a> Returns the name of that handle if it exists, or the Nth handle.
-
-Properties:
-* .fname - returns the complete filename opened for that handle
-* .pos - returns the current position of the read/write pointer
-* .eof - returns $true if the end of the file has been reached
-* .err - returns $true if an error occurred on the file
+<br>
+<br>
+<b>Properties:</b>
+<br><b>.fname</b> - returns the complete filename opened for that handle
+<br><b>.pos</b> - returns the current position of the read/write pointer
+<br><b>.eof</b> - returns $true if the end of the file has been reached
+<br><b>.err</b> - returns $true if an error occurred on the file
 
 In a script, <a href="..\identifiers\ferr.html">$ferr</a> = $fopen(handle).err and <a href="..\identifiers\feof.html">$feof</a> = $fopen(handle).eof, always returns the state of last involved handle in a file handing command.
 
-'''Note:''' Since file access errors will not halt a script, the eof and err properties or identifiers must be checked after each file access command.
+<br><b>Note:</b> Since file access errors will not halt a script, the eof and err properties or identifiers must be checked after each file access command.
 
-== <a href="..\identifiers\fread.html">$fread</a>(name | N) ==
+<H4><a href="..\identifiers\fread.html">$fread</a>(name | N)</H4>
 
 This form of <a href="..\identifiers\fread.html">$fread</a> returns the next $crlf delimited line, useful to read line by line
 
-== <a href="..\identifiers\fread.html">$fread</a>(name | N, M, &binvar) ==
+<H4><a href="..\identifiers\fread.html">$fread</a>(name | N, M, &binvar)</H4>
 
 This form of <a href="..\identifiers\fread.html">$fread</a> returns the number of bytes read (from the file pointed by name or the Nth handle) into the specified binary variable, where M is the number of bytes to read.
 
-== <a href="..\identifiers\fgetc.html">$fgetc</a>(name | N) ==
+<H4><a href="..\identifiers\fgetc.html">$fgetc</a>(name | N)</H4>
 
 <a href="..\identifiers\fgetc.html">$fgetc</a> returns the next character.
 
@@ -84,10 +85,10 @@ Let's take a look at /write, /write is a powerful tool which allows you to write
 
 A simple "/write filename.txt line" involves the following file handling operations:
 
-* /fopen - opens the file
-* /fseek - goes to the end of the file
-* /fwrite - writes to the file
-* /fclose - closes the file
+<br><b>/fopen</b> - opens the file
+<br><b>/fseek</b> - goes to the end of the file
+<br><b>/fwrite</b> - writes to the file
+<br><b>/fclose</b> - closes the file
 
 So, executing /write twice involves 8 file handling operations; the more you have to write, the more operations you create. If you do /write three times, the 12 operations can be reduced to 5:
 
@@ -106,7 +107,8 @@ fclose test
 </pre>
 
 The same thing applies to reading, $read opens the file, try to match and close the file, so any consecutive call to $read means the file is opened/closed each time. If you are looking for a particular line, you can avoid multiple $read calls by searching with /fseek.
-
+<br>
+<br>
 Whenever you are going to use /write or $read in a loop to write/read a lot of things, if the loop isn't small and if the file isn't small, it might get slow very quickly, and you should consider using file handling.
 
 </body>

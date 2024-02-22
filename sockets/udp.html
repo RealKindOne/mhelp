@@ -28,7 +28,7 @@ If you are expecting data back (I.E. if you specified the -k switch) you can lis
 
 <H4>Socket Failure and More Data Sending</H4>
 
-The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger $sockerr set to a non-zero value.
+The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger <a href="..\identifiers\sockerr.html">$sockerr</a> set to a non-zero value.
 
 <pre class ="code">on *:sockwrite:&lt;handle&gt;:{
    ; your code goes here

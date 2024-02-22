@@ -40,7 +40,7 @@ For example:
 
 The code above will create a desktop window with an editbox and a side-listbox.
 
-== Text Operations ==
+<H4>Text Operations</H4>
 The following commands can be used to add, modify, delete, insert, or replace the lines in the chatbox or the side-listbox:
 
 <br><b>Add a line</b> - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/aline [-ni] [color] &lt;@name&gt; &lt;text&gt;</pre>
@@ -85,7 +85,7 @@ There are 8 possible built-in events; however, only 3 of them pertain to regular
 
 In addition to built-in events, you can also add your own custom menu items.
 
-'''Note''': if you have built-in mouse events as well as custom menu items, the built-in events MUST be placed above the custom menu items. The basic syntax for the menu items is:
+<br><b>Note:</b> if you have built-in mouse events as well as custom menu items, the built-in events MUST be placed above the custom menu items. The basic syntax for the menu items is:
 
 <pre class ="code">menu @windowName {
   item: {
@@ -120,18 +120,18 @@ The $window identifier can be used to retrieve window-specific information:
 
 Some of $window's more helpful properties are:
 <br>
-<br><b>x, y, w, h  </b> -  left, top, width, and height
-<br><b>dx, dy, dw, dh  </b> -  left, top, width and height position relative to the desktop
-<br><b>state  </b> -  Returns the window's state (minimized/maximized/hidden/normal)
-<br><b>title  </b> -  Returns the window's title
-<br><b>font  </b> -  Returns the window's font
-<br><b>fontsize  </b> -  Returns the window's font size
-<br><b>ontop  </b> -  Returns $true/$false if the window is set ontop
-<br><b>wid  </b> -  Returns the window's ID
-<br><b>sbtext  </b> -  Returns the switchbar button text
-<br><b>sbcolor  </b> -  Returns the switchbar highlight color
-<br><b>sbstate  </b> -  Returns the switchbar button state
-<br><b>tdbstate  </b> -  Returns the treebar button state
+<br><b>.x, .y, .w, .h  </b> -  left, top, width, and height
+<br><b>.dx, .dy, .dw, .dh  </b> -  left, top, width and height position relative to the desktop
+<br><b>.state  </b> -  Returns the window's state (minimized/maximized/hidden/normal)
+<br><b>.title  </b> -  Returns the window's title
+<br><b>.font  </b> -  Returns the window's font
+<br><b>.fontsize  </b> -  Returns the window's font size
+<br><b>.ontop  </b> -  Returns $true/$false if the window is set ontop
+<br><b>.wid  </b> -  Returns the window's ID
+<br><b>.sbtext  </b> -  Returns the switchbar button text
+<br><b>.sbcolor  </b> -  Returns the switchbar highlight color
+<br><b>.sbstate  </b> -  Returns the switchbar button state
+<br><b>.tdbstate  </b> -  Returns the treebar button state
 
 
 <H4>Retrieving Text</H4>

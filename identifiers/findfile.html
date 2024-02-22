@@ -59,19 +59,18 @@ Note: Returned string can contain multiple consecutive spaces if the file/folder
   Multiple consecutive spaces in folder/file names can cause $file($1-).size to either fail to see an existing file or incorrectly see a similarly named filename without the extra spaces.
 </pre>
 
-<pre class ="code">
-DIR can be relative path to $mircdir. \windows\ is relative to the root folder on the same drive letter where $mircdir is. If $getdir is the downloads subfolder of $mircdir, which is c:\mIRC\, the following pair of commands return the same list of files, with the only difference being that mIRC displays the same spelling of the portion of the path entered as the DIR parameter. This means that while they both incorrectly capitalize the W in downloads, the 1st one shows the true c:\mIRC\ spelling while the 2nd one displays as the lower case used in the  DIR parameter.
 
+DIR can be relative path to $mircdir. \windows\ is relative to the root folder on the same drive letter where $mircdir is. If $getdir is the downloads subfolder of $mircdir, which is c:\mIRC\, the following pair of commands return the same list of files, with the only difference being that mIRC displays the same spelling of the portion of the path entered as the DIR parameter. This means that while they both incorrectly capitalize the W in downloads, the 1st one shows the true c:\mIRC\ spelling while the 2nd one displays as the lower case used in the  DIR parameter
+<pre class ="code">
 //echo -a $findfile(doWnloads,* ,0,2,echo -s $1- )
 //echo -a $findfile(c:\mirc748\doWnloads,* ,0,2,echo -s $1- )
-
+</pre>
 Because relative path can include the .. alias for the parent folder, both following examples show all filenames in the c:\ root folder, differing only by the DIR string used in the example:
-
+<pre class ="code">
 //echo -a $findfile(c:\No Such Folder\..\,*,0,1,echo -s $1- )
 //echo -a $findfile( $getdir $+ $str(..\,$calc($numtok($getdir,92) -1)) ,*,0,1,echo -s $1- )
-
-(Even though c:\No Such Folder\ does not exist, appending the ..\ starts with c:\ which does exist.)
 </pre>
+Even though c:\No Such Folder\ does not exist, appending the ..\ starts with c:\ which does exist.
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)
 

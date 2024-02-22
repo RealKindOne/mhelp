@@ -47,7 +47,7 @@ A single /sockread may not be enough to read the entire buffer (if you are readi
 <br>
 This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, <a href="sockread.html#last_line">see below</a>.
 <br>
-<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be retriggered as it should, <a href="..\events\on_sockclose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
+<br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be re-triggered as it should, <a href="..\events\on_sockclose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
 <br>
 It is important to note that the data received will vary in size. Practically speaking, we receive several kilobytes per second, it is easy to assume that the data you want is going to be sent and received the same way and above all, the way you want, but that's incorrect, you might receive very small packet at a very small speed.
 <br>
@@ -144,7 +144,7 @@ on *:sockread:name:{
 </pre>
 
 
-The same issue can happen, you cannot make sure there is a terminated line in the receive buffer. People mainly uses that because it avoids saving the state for the next time the event retriggers, indeed the correct way to read the next line once you found the reference is to try reading a terminated line using /sockread &lt;%var&gt; (or to use your own buffer and check when you have a new line, just like above) but you need to save the state if you can't find the next line currently:
+The same issue can happen, you cannot make sure there is a terminated line in the receive buffer. People mainly uses that because it avoids saving the state for the next time the event re-triggers, indeed the correct way to read the next line once you found the reference is to try reading a terminated line using /sockread &lt;%var&gt; (or to use your own buffer and check when you have a new line, just like above) but you need to save the state if you can't find the next line currently:
 
 <pre class ="code">
 on *:sockread:name:{
@@ -172,7 +172,7 @@ Another common problem is reading the last line sent by an HTTP server, which is
 
 Indeed, if you are using /sockread &lt;%var&gt;, you're will read properly line by line but that last line won't be read by this sockread command.
 
-We also saw how this non terminated line in the received buffer wouldn't make mIRC retrigger the on sockread event.
+We also saw how this non terminated line in the received buffer wouldn't make mIRC re-trigger the on sockread event.
 
 One solution which doesn't involve more than that, is to read that line from the on sockclose event, indeed you are sure on sockread read the previous line, so inside on sockclose, you should get only that last non terminated line, this time we use the -f switch to force the read:
 
@@ -232,7 +232,7 @@ on *:SOCKREAD:socket: {
         ;we try to read that much
         sockread %bytestoread &a
         bwrite source.txt -1 -1 &a
-        ;but $sockbr tells us how much we read, we decrease by that number (in case we received something smaller than what we want, this part of the code will retrigger in this case, until %bytestoread is 0)
+        ;but $sockbr tells us how much we read, we decrease by that number (in case we received something smaller than what we want, this part of the code will re-trigger in this case, until %bytestoread is 0)
         dec %bytestoread $sockbr
       }
       ;if we don't have a chunk

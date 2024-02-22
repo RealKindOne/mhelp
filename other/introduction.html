@@ -13,14 +13,14 @@ All of your code, regardless of its type, should go in the Script Editor. To ope
 
 Below is a screen shot of the mIRC Script Editor:
 
-<img src="..\images\remote_menu.png">
+<center><img src="..\images\remote_menu.png"></center>
 
 You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>. Let's try and get you familiar with each one. Before we dive into what these little (or rather big) guys do, let's get to know some basics first.
 
-== The very basics ==
+<H4>The very basics</H4>
 Let's take a few moments to help familiarize you with the following key components:
 
-=== Statements ===
+<H4>Statements</H4>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.
 
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.
@@ -38,7 +38,7 @@ statement 4</pre>
 
 <pre>echo -a statement 1 | statement 2 | statement 3 | statement 4</pre>
 
-=== What's with the slashes? ===
+<H4>What's with the slashes?</H4>
 If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code which is saved in the editor, but you can also execute anything from the editbox.
 
 In order to execute any code from the mIRC editbox (the box where you normally type all of your text), you must prefix the code with at least one forward slash.
@@ -47,17 +47,17 @@ You may use two forward slash, the difference between using one or two forward s
 
 We usually refer to commands by prefixing them with a slash.
 
-=== /echo command ===
+<H4>/echo command</H4>
 The most common type of statements are <a href="..\commands.html">commands</a>. Commands are a way to tell mIRC to perform a basic operation. By far the most common command you will be using is the <a href="..\commands\echo.html">/echo</a> command. The /echo command simply prints text to the screen. Every echo command prints on a line of its own. Even if the /echo command is typed into the editbox of a #channel, nobody in channel sees the message unless you do not begin the text with the "/" symbol.
 
 Let's dive right into an example! Type the following code into your editbox:
 
 <pre class ="code">//echo Hello World!</pre>
 
-When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result ('''Note:''' Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
+When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<br><b>Note:</b> Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
 
 <pre>Hello World!</pre>
-<img src="..\images\hello_edit.png">
+<center><img src="..\images\hello_edit.png"></center>
 
 The command will be in your editbox history, and you can use the UP ARROW key 1 or more times to bring previous commands into the editbox. You can press the &lt;enter&gt; key immediately to repeat the message or /command, or you can edit the text before pressing &lt;enter&gt;.
 
@@ -70,21 +70,21 @@ You should hopefully see the following results:
 <pre>Scripting
 Is
 Fun!</pre>
-<img src="..\images\fun_edit.png">
+<center><img src="..\images\fun_edit.png"></center>
 
-'''Note''': As you may have noticed, from the editbox, you can only pipe statements, you can't use newlines.
+<br><b>Note:</b> As you may have noticed, from the editbox, you can only pipe statements, you can't use newlines.
 
 You will notice that after the first ''//echo'' command, once we've piped, we do not need to type any more slashes; this is because mIRC interprets the rest of the statements via the first initial two slashes.
 If you use one slash here, "Scripting | echo Is | echo Fun!" will be echoed, because the pipes have not been interpreted as statements separator, we usually refer to something that can be interpreted that is not interpreted as 'plain text'. We also refer to the processing of anything special (we've only seen the pipe character for now, but they are others) as 'evaluation', we will discuss it later.
 
 When you begin an editbox command with a double "//", it does not execute the 1st command if the // is immediately followed by a space character, so be sure to not have an unnecessary space at the beginning. This example echoes only the "test2" message:
 
-<pre>// echo test1 | echo test2</pre>
+<pre class ="code">// echo test1 | echo test2</pre>
 
-=== Let's make it into an alias, shall we? ===
+<H4>Let's make it into an alias, shall we?</H4>
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as commands, much like the ''echo'' command is. All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
 
-==== Basic Alias ====
+<H4>Basic Alias</H4>
 A basic alias will look something like this:
 
 <pre>alias name &lt;statement&gt;</pre>
@@ -107,20 +107,20 @@ Before we continue, let us note a few things regarding the above code:
 <H4>Remote tab</H4>
 <br>
 <br>
-<img src="..\images\fun_alias_remote.png">
+<center><img src="..\images\fun_alias_remote.png"></center>
 <br>
 <br>
 <H4>Aliases tab</H4>
 <br>
 <br>
-<img src="..\images\fun_alias_alias.png">
+<center><img src="..\images\fun_alias_alias.png"></center>
 
-'''Note:''' When you want to execute an alias, you would refer to it as wanting to ''call the alias''.
+<br><b>Note:</b> When you want to execute an alias, you would refer to it as wanting to ''call the alias''.
 
 To call on our alias ''fun'', all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
 
-<pre>/fun</pre>
-'''Note:''' Two forward-slashes will also call it of course, but there are nothing to be evaluated so it would be the same.
+<pre class ="code">/fun</pre>
+<br><b>Note:</b> Two forward-slashes will also call it of course, but there are nothing to be evaluated so it would be the same.
 
 That should print our text again:
 
@@ -157,33 +157,34 @@ This should help you understand how brackets are used. They are others situation
 
 <pre class ="code">alias fun {
  if (1 == 1) echo Scripting
- if (2 == 3) echo Is 
+ if (2 == 3) echo Is
  if (3 == 3) { echo More | echo Or | echo Less }
  echo Fun!
 }</pre>
 This time the statement's echoing of ''More'', ''Or'' and ''Less'' all belong to the same ''if (3 == 3)'' statement. If you were to change that condition to something such as ''if (3 == 4)'', none of the echo commands will show up because this if statement is false.
-
+<br>
+<br>
 A few notes about the language limitations:
 
-# <span style="color: #DB0000;">The opening bracket ('''{''') '''must''' be on the same line as the alias keyword</span>
-# <span style="color: #DB0000;">The opening bracket '''must not''' touch anything</span>
-# <span style="color: #DB0000;">The closing bracket '''must not''' touch anything else</span>
-# <span style="color: #DB0000;">The closing bracket '''must''' be the last part of the block of code</span>
+<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same line as the alias keyword</span>
+<br><span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything.</span>
+<br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything else.</span>
+<br><span style="color: #DB0000;">The closing bracket <b>must</b> be the last part of the block of code.</span>
+<br>
+<br><b>Note:</b> Those limitations are only true for aliases, others context of the language can have some differences
 
-'''Note''': Those limitations are only true for aliases, others context of the language can have some differences
-
-=== <span style="color: #256B22;">Right Examples</span> ===
+<H4><span style="color: #256B22;">Right Examples</span></H4>
 
 <pre>alias example { echo hello! }</pre>
 Note the spaces before and after both the opening and closing brackets. This is a good example of a proper code block.
 
-<pre>alias example {
+<pre class ="code">alias example {
   echo hello!
 }</pre>
 The initial opening bracket is on the same line as the alias name, and it has proper spacing before itself. The statement within the block is also perfectly executed, and the closing bracket is on its own line. This is another example of a proper
 code block.
 
-=== <span style="color: #9E1010;">Wrong Examples</span> ===
+<H4><span style="color: #9E1010;">Wrong Examples</span></H4>
 
 <pre>alias example{echo hello! }</pre>
 The opening bracket is touching the "example" and "echo".
@@ -197,7 +198,7 @@ The closing bracket is touching the "hello!".
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
 
-=== Using a block of code ===
+<H4>Using a block of code</H4>
 Let's reuse the ''fun'' alias from before. However, this time we will put each statement on its own line:
 
 <pre class ="code">alias fun {
@@ -207,11 +208,11 @@ Let's reuse the ''fun'' alias from before. However, this time we will put each s
 }</pre>
 Notice how this is a perfect example of a Good code block, much like the sample that we viewed above? If you are noticing the repetitiveness of the ''echo'' command, don't worry, in later examples we will show you tricks on how to get around repeating certain reused commands in your code.
 
-== Comments ==
+<H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
 
-=== Single-line Comments ===
-The most basic comment is the '''single-line comment''', which has the following syntax:
+<H4>Single-line Comments</H4>
+The most basic comment is the single-line comment, which has the following syntax:
 
 <pre class ="code">; This is single-line comment.</pre>
 
@@ -227,12 +228,12 @@ Here is another basic example of a single-line comment:
   echo Fun!
 }</pre>
 
-<img src="..\images\fun_comment.png">
+<center><img src="..\images\fun_comment.png"></center>
 
-* Note: the case-insensitive keyword REM can be used interchangeably with the semicolon, except the REM cannot be touched to its right by any text. This makes REM a reserved keyword, and you cannot create an alias named '''rem''' then access it as /rem or $rem.
+<br><b>Note:</b> the case-insensitive keyword REM can be used interchangeably with the semicolon, except the REM cannot be touched to its right by any text. This makes REM a reserved keyword, and you cannot create an alias named <b>rem</b> then access it as /rem or $rem.
 
-=== Multi-line Comments ===
-The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the '''/*''' & '''*/''' characters. The syntax for a multi-line comment is:
+<H4>Multi-line Comments</H4>
+The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> & <b>*/</b> characters. The syntax for a multi-line comment is:
 
 <pre class ="code">
 if (/* iswm $1) /
@@ -242,29 +243,31 @@ if (/* iswm $1) /
 */</pre>
 Your text must go between the /* and the */ in order for it to be treated as a comment.
 
-A few notes about the language limitations: 
-# <span style="color: #DB0000;">Text may touch the opening '''/*''' on the right; however, '''/*''' must start the line</span>
-# <span style="color: #DB0000;">The closing '''*/''' must be on a line of its own</span>
-# Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the '''/*''' and the final comment line isn't indented if there's a closing brace on that line.
+A few notes about the language limitations:
+<br>
+<br>
+<br><span style="color: #DB0000;">Text may touch the opening <b>/*</b> on the right; however, <b>/*</b> must start the line</span>
+<br><span style="color: #DB0000;">The closing <b>*/</b> must be on a line of its own</span>
+<br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn't indented if there's a closing brace on that line.
 
-=== <span style="color: #256B22;">Right Examples</span> ===
-<pre>/* testing
+<H4><span style="color: #256B22;">Right Examples</span></H4>
+<pre class ="code">/* testing
    out
    a multi-line
    comment
 */</pre>
 or
-<pre>/*
+<pre class ="code">/*
    testing
    out
    a multi-line
    comment
 */</pre>
-In both of the above examples, the opening comment parameters are properly executed, 
-the lines are spaced out and the closing parameters are by themselves. These are both  
+In both of the above examples, the opening comment parameters are properly executed,
+the lines are spaced out and the closing parameters are by themselves. These are both
 examples of proper multi-line comment blocks.
 
-<pre>/*
+<pre class ="code">/*
 testing
 out
 a multi-line
@@ -285,8 +288,8 @@ indented
 */</pre>
 
 
-=== <span style="color: #9E1010;">Wrong Examples</span> ===
-<pre>/* testing
+<H4><span style="color: #9E1010;">Wrong Examples</span></H4>
+<pre class ="code">/* testing
    test */</pre>
 The */ is not on a line of Its own.
 
@@ -294,13 +297,13 @@ The */ is not on a line of Its own.
  /* comment */
 The */ is not on a line of Its own.
 
-== Multiple aliases ==
+<H4>Multiple aliases</H4>
 
 You can have multiple aliases in one single file but you cannot define an alias inside another alias, each alias must go on what we call the 'root' level, or 'top' level.
 
 When you start with an empty script file, you're on the top level, meaning you can add an alias there. Inside that alias, you're not on the top level, you're inside the alias, which can be seen as the level depth '1'. So if you want to add more aliases, always do so on the top level:
 
-=== <span style="color: #9E1010;">Wrong Example</span> ===
+<H4><span style="color: #9E1010;">Wrong Example</span></H4>
 <pre class ="code">
 alias first {
 
@@ -311,9 +314,9 @@ alias second {
 }
 </pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
 
-'''Note''': these aliases are empty for the sake of the example.
+<br><b>Note:</b> these aliases are empty for the sake of the example.
 
-=== <span style="color: #256B22;">Good Examples</span> ===
+<H4><span style="color: #256B22;">Good Examples</span></H4>
 <pre class ="code">
 alias first {
 
@@ -326,22 +329,22 @@ alias second {
 <H4>Identifiers</H4>
 <a href="aliases.html">aliases</a>
 
-Before we wrap up this tutorial, we need to talk about one last concept: $identifiers. All identifiers have a dollar symbol sigil and have the following syntax: 
+Before we wrap up this tutorial, we need to talk about one last concept: $identifiers. All identifiers have a dollar symbol sigil and have the following syntax:
 
 <pre class ="code">$name
-;or 
+;or
 $name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
 
 Identifiers are very similar to commands except that we use identifiers when we want a value.
 
-Commands seperate their parameters/arguments by space, while identifiers use a comma.
+Commands separate their parameters/arguments by space, while identifiers use a comma.
 Both commands and identifiers are also referred to as alias(es): you create a custom command/identifier by creating an alias.
 
 For example, if we want to print out our current nickname, we would use the following code:
 
 <pre class ="code">//echo -a $me</pre>
 
-=== $rand() ===
+<H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
 <pre class ="code">$rand(&lt;low&gt;, &lt;high&gt;)</pre>
@@ -354,54 +357,53 @@ Given both low bound and high bound number values, $rand will return a random nu
 
 Here is what we got when we called out /random alias a few times:
 
-<img src="..\images\random_example.png">
+<center><img src="..\images\random_example.png"></center>
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
-==Evaluating/Interpreting==
+<H4>Evaluating/Interpreting</H4>
 Remember what we said about the slashes in the editbox when executing commands? If you use two of them it will indicate to mIRC that it must evaluate the line. In the script editor, you don't need any slash as the lines are always executed as though two of them were used. The difference only applies when you execute commands from within an editbox inside mIRC.
 
 Interpreting, which is commonly referred to as 'evaluating', a line or an expression means the line/expression is processed according to the language's semantic. This is how mIRC can tell what is what and how to proceed. Evaluations also include looking for meaningful characters like '{' and '}' for blocks, '|' for piping, and so on. In order to get the value of an identifier, you would simply evaluate it like in the example below:
 
 <pre class ="code">//echo -a $me | echo -a $me</pre>
-The ''//'' indicates the the line should be evaluated. ''$me'' is replaced with the corresponding value twice because the spaced out pipe '|' is interpreted as the delimiter of commands.
+The <b>//</b> indicates the the line should be evaluated. ''$me'' is replaced with the corresponding value twice because the spaced out pipe '|' is interpreted as the delimiter of commands.
 <pre class ="code">/echo -a $me | echo -a $me</pre>
-The ''/'' indicates that the line should not be evaluated. ''$me'' is returned literally, as plain text as we saw earlier, and therefore is not replaced. The pipe is also not interpreted.
+The <b>/</b> indicates that the line should not be evaluated. ''$me'' is returned literally, as plain text as we saw earlier, and therefore is not replaced. The pipe is also not interpreted.
 
 <a href="variables.html">Variables</a> are also special, in that they need to be evaluated the same way as identifiers. Evaluating variables is the only way to extract the value that they hold.
 
 There is 1 small area where a //command typed in an editbox is interpreted differently than when the same command is placed inside an alias within a remote script. mIRC assumes that a command typed into the editbox which begins with the name of a variable or identifier is an error, so it halts execution at that point, and won't execute any remaining commands separated by the pipe symbol.
 
-<pre>//var %temp echo | echo -a message 1 | %temp echo -a test $me | echo -a message 2</pre>
+<pre class ="code">//var %temp echo | echo -a message 1 | %temp echo -a test $me | echo -a message 2</pre>
 
 If this line were in a remote script (where it doesn't matter whether or not the line begins with //), the %temp variable would be evaluated into its contents before executing that command, so it behaves as if the command begins with "echo echo" instead of "%temp echo", and it would display into the active window "echo -a test" followed by your current nick. However if you pasted the 4 commands into the editbox, it displays only "message 1", because it halts as soon as it encounters a command beginning with a $ or % symbol. You can force the editbox to evaluate a %variable or $identifier at the beginning of the command by wrapping it inside [ square braces ]. The square braces must not touch any other character except a SPACE, or else they will not be treated as the special symbol forcing evaluation in a situation where it would not normally evaluate.
 
-<pre>//var %temp echo | echo -a message 1 | [ %temp ] echo -a test $me | echo -a message 2</pre>
+<pre class ="code">//var %temp echo | echo -a message 1 | [ %temp ] echo -a test $me | echo -a message 2</pre>
 
 Adding the [ square braces ] forces the editbox to evaluate %temp, and it will then behave the same way it behaves in the remote script. If the %temp contents were $null (empty), the command in the remote script is executed as if "%temp echo -a test $me" changes to "echo -a test $me", and the displayed message changes from "echo -a test YourNick" to "test YourNick".
 
 The same thing happens when the editbox command begins with a dollar sign:
 
-<pre>//echo -a message 1 | $lower(echo) -a test | message 2</pre>
+<pre class ="code">//echo -a message 1 | $lower(echo) -a test | message 2</pre>
 
 This line inside a remote script displays both "test" and "message 2", but in the editbox it halts after displaying "message 1". By using the [ square braces ] you can force it to evaluate the identifier, and uses the returned value of the identifier as part of the command:
 
-<pre>//echo -a message 1 | [ $lower(echo) ] -a test | message 2</pre>
+<pre class ="code">//echo -a message 1 | [ $lower(echo) ] -a test | message 2</pre>
 
-== On your own: ==
+<H4>On your own:</H4>
 Below are a very few, basic commands that you can use to experiment with in a safe manner. Go ahead, try them out!
 
-=== Colors: ===
+<H4>Colors:</H4>
 Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
 
 <pre class ="code">alias example {
   echo -a �3This �4is �6a �10cool �15example�1.
 }</pre>
 
-You may have noticed that we added a strange new thing, '''-a'''. The -a is called a '''switch'''; switches slightly alter the way a command behaves. In the case of the ''/echo'' command, the -a switch specifies that we wanted the command to echo to the current active window. There is another switch, the '''-s switch''', which can be used to tell the echo command to print to the status window instead, regardless of which window you have open.
+You may have noticed that we added a strange new thing, <b>-a</b>. The -a is called a '''switch'''; switches slightly alter the way a command behaves. In the case of the ''/echo'' command, the -a switch specifies that we wanted the command to echo to the current active window. There is another switch, the '''-s switch''', which can be used to tell the echo command to print to the status window instead, regardless of which window you have open.
 
 Below is an example of how we use the '''-a''' switch:
-
-<img src="..\images\color_example.png">
+<center><img src="..\images\color_example.png"></center>
 
 Will produce:
 
@@ -423,9 +425,9 @@ Will produce the following result:
 
  The number <span style="color: #FF0000;">2</span> is even.
 
-'''Note:''' Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
+<br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
 
-=== Actions ===
+<H4>Actions</H4>
 Actions are very similar to your normal channel messages, except that they are displayed in a slightly different manner.
 
 <pre class ="code">; This is good for the channel you are in right now:
@@ -445,7 +447,7 @@ The code should produce something like this (''Your name will obviously be diffe
  <span style="color: #9C009C;">* @FooBar Feels Happy!
  * @FooBar Leaves</span>
 
-<img src="..\images\action_example.png">
+<center><img src="..\images\action_example.png"></center>
 
 If we wanted to specify a channel, we could have used:
 
@@ -454,7 +456,7 @@ If we wanted to specify a channel, we could have used:
   describe #MyChannel Leaves
 }</pre>
 
-== Where do we go from here? ==
+<H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
 
 Next up are the <a href="aliases.html">aliases</a>. If you feel comfortable with aliases, feel free to move on to <a href="variables.html">variables</a>.

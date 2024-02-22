@@ -40,7 +40,7 @@ $read() offers three methods for searching a file:
 <br><a href="wildcard.html">Wildcard</a> Pattern
 <br>Regular Expression Pattern
 
-==== Scanner ====
+<H4>Scanner</H4>
 The scanner is the most primitive search of the three. It will go through each line comparing the pattern provided to the first part of the line. If a match is found, mIRC will return the text that followed the pattern.
 
 Consider the following abbr.txt:
@@ -64,7 +64,7 @@ Will produce the following output:
 <pre class ="code">laughing out loud
 be right back</pre>
 
-==== Wildcard And RegEx Patterns ====
+<H4>Wildcard And RegEx Patterns</H4>
 Both the <a href="wildcard.html">wildcard</a> pattern matching and the regex pattern matching works by searching for the first matching line and returning the entire line. It follows the same syntax as the scanner:
 
 <pre class ="code">; A wildcard pattern match:
@@ -73,7 +73,7 @@ $read(file.txt, nw, *wildmatch*)
 ; A regex pattern match:
 $read(file.txt, nr, /pattern/)</pre>
 
-==== Starting Line ====
+<H4>Starting Line</H4>
 If you specify a line number after the pattern, that line will be used as the first line to start searching from.
 
 For Example:

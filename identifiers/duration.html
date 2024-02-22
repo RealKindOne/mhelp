@@ -17,18 +17,16 @@ $duration(timestring)
 </pre>
 <H4>Parameters</H4>
 <b>seconds</b> - The specific number of seconds to get the formatting for
-<br><b>N</b> - Can be either '''2''', which omits seconds from the results, or '''3''', which returns the time in hh:nn:ss format
+<br><b>N</b> - Can be either "2", which omits seconds from the results, or "3", which returns the time in hh:nn:ss format
 
 Beginning v7.63 correctly handles negative durations.
 <H4>Example</H4>
-Echo the formatting for '''38711810 seconds''':
+Echo the formatting for 38711810 seconds:
 <pre class ="code">//echo -a $duration(38711810)</pre>
+Result: 64wks 1hr 16mins 50secs
 
-'''Result'''
-64wks 1hr 16mins 50secs
-
+Echo the same
 <pre class ="code">//echo -a $duration(38711810,2)</pre>
-Same except does not display the seconds.
 '''Result'''
 64wks 1hr 16mins
 <pre class ="code">//echo -a $duration(38711810,3)</pre>

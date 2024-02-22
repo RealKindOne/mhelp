@@ -10,7 +10,7 @@ mIRC has built-in support for TCP Sockets. This tutorial is the TCP Sockets cont
 
 Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
 
-Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to [http://www.youtube.com/ YouTube] and get the title of the page and the view count.
+Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to (http://www.youtube.com) YouTube and get the title of the page and the view count.
 
 <H4>Creating a Connection</H4>
 Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="..\commands\sockopen.html">/sockopen</a> command:
@@ -29,7 +29,9 @@ The /sockopen command is directly influenced by the Ipv6 mode you have going on.
 
 <H4>Connection Example</H4>
 
-==== Example 1 ====
+<b>Example 1</b>
+<br>
+<br>
 Since we want to socket to our silly demo page, http://www.zigwap.com/mirc/sockets_demo, our sockopen command will look something like this:
 
 <pre class ="code">alias example1 {
@@ -42,8 +44,10 @@ The above alias will create a socket by the name "example1". We can use that nam
   sockclose example1
   sockopen example1 www.zigwap.com 80
 }</pre>
-
-==== Example 2 (YouTube) ====
+<br>
+<b>Example 2 (YouTube)</b>
+<br>
+<br>
 In this example I thought we would do something different. Providing a YouTube link like http://www.youtube.com/watch?v=FDw0NdhK6QU and the script will return information on the video.
 
 <pre class ="code">alias YouTube {
@@ -59,7 +63,7 @@ In this example I thought we would do something different. Providing a YouTube l
    }
 }</pre>
 
-== The Socket Mark ==
+<H4>The Socket Mark</H4>
 In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="..\identifiers\sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
 <pre class ="code">sockmark &lt;handle&gt; &lt;value&gt;
@@ -71,7 +75,7 @@ The socket mark is restricted to the same line limit as the rest of mIRC (just u
 <pre class ="code">; Our socket mark value:
 $sock(&lt;handle&gt;).mark</pre>
 
-== Transmitting a Request After a Successful Connection ==
+<H4>Transmitting a Request After a Successful Connection</H4>
 When a successful connection to the remote end-point has been established, the <a href="..\events\on_SockOpen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 
 <br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
@@ -133,7 +137,9 @@ In a typical script using HTTP and the {{mIRC|TCP Sockets#POST_vs_GET.3F|GET met
 
 <H4>Sending Data Example</H4>
 
-==== Example 1 (Continue) ====
+<b>Example 1 (Continue)</b>
+<br>
+<br>
 
 Remember that the page we want to socket to is http://www.zigwap.com/mirc/sockets_demo. Our sockopen event will look something like this: (In this example I will be using version 1.0 of HTTP)
 
@@ -145,7 +151,9 @@ Remember that the page we want to socket to is http://www.zigwap.com/mirc/socket
 
 <br><b>Note:</b>In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
 
-==== Example 2 (YouTube, Continue) ====
+<b>Example 2 (YouTube, Continue)</b>
+<br>
+<br>
 
 We will now add the sockopen part of our YouTube script. Recall that we stored the video ID in the socket mark? Well, we will now retrieve that ID using the $sock identifier and its mark property.
 
@@ -155,7 +163,7 @@ We will now add the sockopen part of our YouTube script. Recall that we stored t
   sockwrite -n YouTube
 }</pre>
 
-== URL Encoding ==
+<H4>URL Encoding</H4>
 Some characters have special meanings when used in the URL. You might be familiar with URLs that look like this:
 
 <pre class ="code">http://www.example.com/foo.php?request&name=value</pre>
@@ -200,23 +208,24 @@ By now you are probably asking yourself why did I use GET in our sockopen and ho
  </form>
 
 The most basic GET request will follow this basic syntax:
-
+<pre class ="code">
  GET /folder/file.html HTTP/1.1
  Host: www.example.com
  &lt;blank line&gt;
-
+</pre>
 Let's take a look at the header a little closer:
-
- GET /folder/file.html HTTP/1.1
+<pre class ="code">
+GET /folder/file.html HTTP/1.1
+</pre>
 
 This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
 
 <br><b>Note:</b>For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
-
+<br>
 Next is the Host header:
-
- Host: www.example.com
-
+<pre class ="code">
+Host: www.example.com
+</pre>
 The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
 
 <H4>Reading Incoming Data</H4>
@@ -381,7 +390,7 @@ It is possible for the remote end-point to terminate a connection, the same way 
    ;Your code goes here
 }</pre>
 
-<br><b>Note:</b>Only the remote end-port, not you, can trigger this event.
+<br><b>Note:</b> Only the remote end-port, not you, can trigger this event.
 
 </body>
 </html>

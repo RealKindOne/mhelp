@@ -5,7 +5,7 @@
 <H1>$opnick</H1>
 <br>
 <br>
-The <b>$opnick</b> identifier returns the nickname of a person who was opped/deopped during an <a href="..\events\on_op.html">On_OP</a>, <a href="..\events\on_deop.html">On_DEOP</a>, <a href="..\events\on_owner.html">On_Owner</a>, and <a href="..\events\on_deowner.html">On_DeOwner</a> event.
+The <b>$opnick</b> identifier returns the nickname of a person who was opped/deopped during an <a href="..\events\on_op.html">On_Op</a>, <a href="..\events\on_deop.html">On_DeOp</a>, <a href="..\events\on_owner.html">On_Owner</a>, and <a href="..\events\on_deowner.html">On_DeOwner</a> event.
 
 
 <H4>Synopsis</H4>
@@ -21,8 +21,10 @@ None
 <H4>Example</H4>
 A scripted event that will echo the nickname of the person who was just opped to the active window:
 <pre class ="code">ON *:OP:#:echo -a $opnick</pre>
+
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\events\on_op.html">On_OP</a><br>
 <a href="..\events\on_deop.html">On_DEOP</a><br>

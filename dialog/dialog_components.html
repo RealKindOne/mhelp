@@ -134,7 +134,7 @@ The button control is a user interface control that responds to click events.
 <H4>Styles</H4>
 <b>default</b> - Sets the button to be the default button. This causes the button to be selected upon dialog creation.
 <br><b>ok</b> - Sets the button to be the OK button. The OK button closes the dialog and in modal mode returns the return value set.
-<br><b>cancel</b> - Closes the dialog as if it was canceled – similar to clicking the X button.
+<br><b>cancel</b> - Closes the dialog as if it was canceled - similar to clicking the X button.
 <br><b>flat</b> - Creates a flat button (that depends on the OS and the theme used).
 <br><b>multi</b> - Allows the text in the button to wrap around to multiple lines.
 <br><b>disable</b> - Disables the button.
@@ -370,7 +370,7 @@ dialog Example {
 <H2>Group Box</H2>
 This is a static control with a group box frame and an optional title that shows up at the top of the frame.
 
-'''Note:''' This only displays the group box but does not actually group the controls that you position within it.
+<br><b>Note:</b> This only displays the group box but does not actually group the controls that you position within it.
 If you want to e.g. enable / disable them together, you need to do that programmatically.
 
 <H4>Synopsis</H4>
@@ -443,7 +443,7 @@ dialog Example {
 <H2>Icon</H2>
 An icon control is a simple container that holds images and icons.
 
-'''Note''': You cannot make an empty icon control, you must give a filename.
+<br><b>Note:</b> You cannot make an empty icon control, you must give a filename.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -770,7 +770,7 @@ A menu control that allows a hierarchical organization of elements called menu i
 item "&lt;text&gt;", &lt;id [, &lt;menuid&gt;]
 item break, &lt;id [, &lt;menuid&gt;]</pre>
 
-'''Note:''' Menu items can nest under other menus by simply specifying their parent menu ID.
+<br><b>Note:</b> Menu items can nest under other menus by simply specifying their parent menu ID.
 
 <H4>Styles</H4>
 This element has no available styles.
@@ -933,7 +933,7 @@ dialog Example {
 <H2>Tab</H2>
 A tab control is a container component capable of holding all of the other components. A tab control can have multiple tabs, and each tab can store another set of controls.
 
-'''Note''': You cannot have more than one tab control per dialog with mIRC
+<br><b>Note:</b> You cannot have more than one tab control per dialog with mIRC
 
 <H4>Synopsis</H4>
 <pre class ="code">tab "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
@@ -981,7 +981,7 @@ Properties:
 <br><b>.visible</b> - returns $true if the tab is visible, otherwise $false
 <br><b>.enabled</b> - returns $true if the tab is enabled, otherwise $false
 
-==== $dialog ====
+<H4>$dialog</H4>
 
 You can use $dialog(&lt;name&gt;).tab to know which tab is currently selected, returns the Nth tab number
 
