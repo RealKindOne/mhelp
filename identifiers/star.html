@@ -53,7 +53,7 @@ However, note that $* will remember the number of token it already went through,
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 4 5 6 7 8 | echo -a $* | echo -a here</pre>
 
-The first three tokens of the second tokenize, <b>4 5 6</b>, are dummy tokens which are passed to fill in the gap. <b>$*</b> is actually starting from the 4th token.
+The first three tokens of the second tokenize, <b>4 5 6</b>, are dummy tokens which are passed to fill in the gap. <b>$*</b> is actually starting from the 4th token.<br>
 If you are dealing with dynamic parameter and want to use $* again in the same scope, you can use <b>$str(AT,$0) $+</b> as the dummy tokens, where A is a non token character, and where T is a token character, that indeed makes sure the correct number of dummy tokens is used:
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here</pre>
