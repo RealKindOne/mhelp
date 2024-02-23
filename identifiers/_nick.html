@@ -5,7 +5,9 @@
 <H1>=$nick</H1>
 <br>
 <br>
-<b>=$nick</b> is a special identifier. Inside the <a href="..\events\on_chat.html">On_Chat</a> and <a href="..\events\on_serv.html">On_Serv</a> events, if you want to send a message to the dcc chat/serv window rather than to send a message as a private message on IRC, you have to prefix the nickname with the equal sign '='. For convenience =$nick can be used as a shortcut for = $+ $nick, where $nick is evaluated properly.
+<b>=$nick</b> is a special identifier as it is prefixed with an equal '=' sign. =$nick is equivalent to = $+ $nick and is there for convenience.<br>
+This format can be used to send a message to a <a href="..\events\on_chat.html">Dcc Chat</a> or <a href="..\events\on_serv.html">Dcc Serv</a> window.<br>
+If you don't prefix the nickname with an equal sign, the message is sent as a private IRC message.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -20,15 +22,10 @@ None
 
 <H4>Examples</H4>
 <pre class ="code">
-; Event messages a user back inside of a DCC Chat
-; when they type: !myaddress [N], where [N] is a number, 0-9, of
-; their address mask.
-
+; message an user back in a DCC chat when they type: !myaddress [N], where [N] is a number, 0-9, of their address mask.
 ON *:CHAT:!myaddress *: {
-
   ; Set the %num variable to whatever comes after !myaddress
   var %num = $2
-
   ; Verify that %num is a number, greater than or equal to 0,
   ; and less than 10 (0-9) since those are the only available
   ; options for $address(Nick,<N>).
@@ -41,15 +38,10 @@ ON *:CHAT:!myaddress *: {
   }
 }
 </pre>
-
 Now, any user in a DCC Chat can type: '''!myadress 3''', and it would return their address masked in the form of: *!*Nickname@provider.net
 
 <H4>Compatibility</H4>
 Added: mIRC v3.1 (23 Apr 1995)
-
-<H4>Notes:</H4>
-<!-- Copied from mirc.chm -->
-These events react to all users level 1 and above because of the way dcc chat works
 
 <H4>See also</H4>
 <a href="..\events\on_chat.html">On_Chat</a><br>
