@@ -5,7 +5,7 @@
 <H1>$*</H1>
 <br>
 <br>
-The <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within $1-. The way this works is much like a while loop. ''$*'' has been omitted from the help file since while loops were introduced, especially because the behavior of $* is quirky in some places.
+The <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within $1-. The way this works is much like a while loop. <b>$*</b> has been omitted from the help file since while loops were introduced, especially because the behavior of $* is quirky in some places.
 <br>
 <b>$*</b> is extremely powerful, because it is much faster than using a while loop on a list of tokens. Understanding how this works is pretty simple, so consider the following:
 
@@ -32,7 +32,7 @@ Well, mIRC takes the command $* appears in, and replaces all of the occurrences 
 Further examining the code, it is easy to understand why the above returns such a value:
 <pre class ="code">//tokenize 32 abcd | echo -a $mid($*,2)</pre>
 
-Why isn't this returning bcd? Because of the usage of the special marker `~$*, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
+Why isn't this returning bcd? Because of the usage of the special marker <b>`~$*</b>, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
 
 Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>$mid(`~$*,2)</b> becomes ~$*, and then mIRC replaces the marker by the token and executes the echo command.
 <br>
@@ -41,7 +41,7 @@ However, after an operation like $mid in this example, that marker cannot be fou
 There is a workaround for the above issue, and that is by using scid and scon:
 <pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
 <br>
-mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The $* mechanism is enabled on scon, and mIRC stores the command of the $* as <b>scon -r echo -a $!mid( `~$* ,2)</b>
+mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The <b>$*</b> mechanism is enabled on scon, and mIRC stores the command of the <b>$*</b> as <b>scon -r echo -a $!mid( `~$* ,2)</b>
     
 <br><b>Note:</b> This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.<br>
 
@@ -49,17 +49,17 @@ mIRC then evaluates the line for each token, which then becomes: <b>scon -r echo
 <br>
 Another issue is that you cannot call $* more than once in the same scope; the command will simply be skipped. However, this can also be circumvented/worked-around :
 
-Simply retokenize after using $*.
-However, note that $* will remember the number of token it already went through, $* will only start from the previous number of tokens + 1, look at this example:
+Simply retokenize after using <b>$*</b>.
+However, note that $* will remember the number of token it already went through, <b>$*</b> will only start from the previous number of tokens + 1, look at this example:
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 4 5 6 7 8 | echo -a $* | echo -a here</pre>
 
 The first three tokens of the second tokenize, <b>4 5 6</b>, are dummy tokens which are passed to fill in the gap. <b>$*</b> is actually starting from the 4th token.
-If you are dealing with dynamic parameter and want to use $* again in the same scope, you can use '''$str(AT,$0) $+''' as the dummy tokens, where A is a non token character, and where T is a token character, that indeed makes sure the correct number of dummy tokens is used:
+If you are dealing with dynamic parameter and want to use $* again in the same scope, you can use <b>$str(AT,$0) $+</b> as the dummy tokens, where A is a non token character, and where T is a token character, that indeed makes sure the correct number of dummy tokens is used:
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here</pre>
 
-<br><b>Note:</b> This sexy workaround works even inside a loop, but a better workaround is to call an alias and to execute the new $* in there, the previous tokens will be cleared and it is faster.
+<br><b>Note:</b> This sexy workaround works even inside a loop, but a better workaround is to call an alias and to execute the new <b>$*</b> in there, the previous tokens will be cleared and it is faster.
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
