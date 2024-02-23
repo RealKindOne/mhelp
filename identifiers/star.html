@@ -35,7 +35,7 @@ Why isn't this returning bcd? Because of the usage of the special marker <b>`~$*
 <br>
 Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>$mid(`~$*,2)</b> becomes ~$*, and then mIRC replaces the marker by the token and executes the echo command.
 <br>
-However, after an operation like $mid in this example, that marker cannot be found. Basically, it cannot be guaranteed that the correct value of the marker inside an identifier can be found later for replacement of that marker.
+However, after an operation like $mid in this example, that marker cannot be found. Basically, it cannot be guaranteed that the correct value of the marker inside an identifier can be found later for replacement of that marker. <br>
 
 There is a workaround for the above issue, and that is by using scid and scon:
 <pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
