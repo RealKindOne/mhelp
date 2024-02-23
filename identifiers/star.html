@@ -42,11 +42,11 @@ There is a workaround for the above issue, and that is by using scid and scon:
 <br>
 mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The <b>$*</b> mechanism is enabled on scon, and mIRC stores the command of the <b>$*</b> as <b>scon -r echo -a $!mid( `~$* ,2)</b>
     
-<br><br><b>Note:</b> This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.<br>
+<br><br><b>Note:</b> This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.<br><br>
 
 mIRC then evaluates the line for each token, which then becomes: <b>scon -r echo -a $mid( abcd ,2)</b> Finally, the scon command is executed, resulting in the expected value being echoed.
 <br>
-Another issue is that you cannot call $* more than once in the same scope; the command will simply be skipped. However, this can also be circumvented/worked-around :
+Another issue is that you cannot call $* more than once in the same scope; the command will simply be skipped. However, this can also be circumvented/worked-around :<br>
 
 Simply retokenize after using <b>$*</b>.
 However, note that $* will remember the number of token it already went through, <b>$*</b> will only start from the previous number of tokens + 1, look at this example:
