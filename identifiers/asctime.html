@@ -75,21 +75,23 @@ $asctime[([N,]format)]
 </table>
 
 
-<b>Quick Note:</b> All of the formatting parameters can touch each other, and they will be properly converted. For example: '''$asctime(hhnnss)''' would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
+<b>Quick Note:</b> All of the formatting parameters can touch each other, and they will be properly converted. For example: <b>$asctime(hhnnss)</b> would return the ''hours'', ''minutes'', and ''seconds'' all touching each other in a terrible format.
 
+<H4>Properties</H4>
+None
 
 <H4>Example</H4>
 
-Echo the current date and time
+Echo the current date and time:
 <pre class ="code">//echo -a $asctime</pre>
 
-Echo the current date in the format Month Day, Year
+Echo the current date in the format Month Day, Year:
 <pre class ="code">//echo -a $asctime(mmmm $+(dd,$chr(44)) yyyy)</pre>
 
-Using the $ctime of ''840240070'', format to Day Month Year hour:minute &lt;am/pm&gt;
+Using the $ctime of <b>840240070</b>, format to Day Month Year hour:minute &lt;am/pm&gt;:
 <pre class ="code">//echo -a $asctime(840240070,dd mmmm yyyy hh:nntt)</pre>
 
-Using the orbital format, we can add the proper orbitals to date digits
+Using the orbital format, we can add the proper orbitals to date digits:
 <pre class ="code">//echo -a $asctime(mmmm $+(doo,$chr(44)) yyyy)</pre>
 
 <H4>Compatibility</H4>

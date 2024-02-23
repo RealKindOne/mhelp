@@ -47,6 +47,7 @@ $totp(key[, time[, hash[, digits[, timestep]]]])
 
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">
 //var -s %key example key, %digits $totp(%key) , %ctime $calc($ctime //30*30 + 30) | while ($totp(%key,%ctime) != %digits) inc %ctime 30 | echo -a the digits %digits currently valid will next be valid in a 30 seconds window beginning at $asctime(%ctime)

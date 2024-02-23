@@ -3078,6 +3078,42 @@
 		<param name="Local" value="commands\xyzzy.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ison">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isop">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isowner">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ishop">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isvoice">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isreg">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ischan">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isban">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isquiet">
+		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="index">
 		<param name="Name" value="index">
 		<param name="Local" value="index.html">
@@ -3397,6 +3433,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_waveend">
 		<param name="Local" value="events\on_waveend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="While Loops">
+		<param name="Local" value="other\while_loops.html">
 		</OBJECT>
 </UL>
 </BODY></HTML>

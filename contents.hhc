@@ -69,5 +69,9 @@
 		<param name="Name" value="Token Manipulation">
 		<param name="Local" value="other\token.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="While Loops">
+		<param name="Local" value="other\while_loops.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>

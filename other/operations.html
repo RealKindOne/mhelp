@@ -232,7 +232,7 @@ mIRC provides a set of operators that can be used to compare two strings. The tw
 
 A lexicographical comparison is a comparison generally used to sort words alphabetically in dictionaries and indexes. If both strings are equal but one is shorter than the other, the shorter string is lexicographically less than the longer one.
 
-<table class="wikitable">
+<table>
 <tbody><tr>
 <th> Syntax </th>
 <th> Name </th>
@@ -315,7 +315,7 @@ The if statement above will only be true if %a contains only upper case letters 
 <H4>Short-circuit evaluation</H4>
 mIRC will only evaluate as much of the condition has it needs. Consider the AND example from above, if %input doesn't contain only upper case letters, the second condition will never even evaluate. This is important to keep in mind when using custom identifiers inside an if statement.
 
-
+<a name="channel_operations"></a>
 <H4>Channel-related Operators</H4>
 
 mIRC also provides a set of commands to involve IRC channels:
@@ -374,7 +374,7 @@ mIRC also provides a set of commands to involve IRC channels:
 </tr>
 </table>
 
-<br><b>Note:</b>: the operator ishelp is the same as the operator ishop, and the operator isvo is the same as the operator isvoice
+<br><b>Note:</b> the operator ishelp is the same as the operator ishop, and the operator isvo is the same as the operator isvoice
 
 <H4>Example</H4>
 <pre class ="code">alias example4 {
@@ -386,9 +386,9 @@ mIRC also provides a set of commands to involve IRC channels:
   if ($me isop #mIRC) echo yes
 }</pre>
 
+
 <H4>List-related Operators</H4>
 mIRC has 5 additional operators to check mIRC internal lists:
-
 
 <table>
 <tr>
@@ -428,7 +428,7 @@ mIRC has 5 additional operators to check mIRC internal lists:
 </tr>
 </table>
 
-<br><b>Note:</b>: the operator isauto is the same as the operator isaop.
+<br><b>Note:</b> the operator isauto is the same as the operator isaop.
 
 <H4>Example</H4>
 <pre class ="code">Alias example5 {

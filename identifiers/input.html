@@ -39,36 +39,138 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br><b>title</b> - the titlebar text.
 <br><b>text</b> - default text placed in the input editbox
 <br>
+
+<H4>Properties</H4>
+None
+
+
 The options, window, title, and text are optional parameters
 <br>
 By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. '''f''' switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. '''kN''' defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
 <br>
 For the '''options''' parameter, you can also use a number as a combination of value added together, without the presence of any letter switches, which is how $input was originally working:
 
-<br><b>1</b>  - show input editbox (equivalent of the 'e' switch)
-<br><b>2</b>  - show input password editbox (equivalent of 'p' switch)
-<br><b>4</b>  - ok button (equivalent of 'o')
-<br><b>8</b>  - yes/no buttons ('y')
-<br><b>16</b> - yes/no/cancel buttons ('n')
-<br><b>32</b> - return $ok, $yes, $no, $cancel, $retry for buttons. ('v')
-<br><b>64</b> - show the info icon ('i')
-<br><b>128</b> - show the question icon ('q')
-<br><b>256</b> - show the warning icon ('w')
-<br><b>512</b> - show the halt icon ('h')
-<br><b>1024</b> - insert 'window' as the 3rd parameter ('s')
-<br><b>2048</b> - activate the $input dialog when mIRC is not the active application ('a')
-<br><b>4096</b> - show the gold star icon ('t')
-<br><b>8192</b> - retry/cancel buttons ('r')
-<br><b>16384</b> - align buttons to the right ('g')
-<br><b>32768</b> - show the recycle bin icon ('c')
-<br><b>65536</b> - play icon-related sound ('d')
-<br><b>131072</b> - combo dropdown list ('m')
 <br>
+<br>
+<br>
+<table>
+<tr>
+<th>Number</th>
+<th>Description</th>
+<th>Switch</th>
+</tr>
+<tr>
+<td>1</td>
+<td>show input editbox</td>
+<td>e</td>
+</tr>
+<tr>
+<td>2</td>
+<td>show input password editbox</td>
+<td>p</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ok button</td>
+<td>o</td>
+</tr>
+<tr>
+<td>8</td>
+<td>yes/no buttons</td>
+<td>y</td>
+</tr>
+<tr>
+<td>16</td>
+<td>yes/no/cancel buttons</td>
+<td>n</td>
+</tr>
+<tr>
+<td>32</td>
+<td>return $ok, $yes, $no, $cancel, $retry for buttons.</td>
+<td>v</td>
+</tr>
+<tr>
+<td>64</td>
+<td>show the info icon</td>
+<td>i</td>
+</tr>
+<tr>
+<td>128</td>
+<td>show the question icon</td>
+<td>q</td>
+</tr>
+<tr>
+<td>256</td>
+<td>show the warning icon</td>
+<td>w</td>
+</tr>
+<tr>
+<td>512</td>
+<td>show the halt icon</td>
+<td>h</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>insert 'window' as the 3rd parameter</td>
+<td>s</td>
+</tr>
+<tr>
+<td>2048</td>
+<td>activate the $input dialog when mIRC is not the active application
+</td>
+<td>a</td>
+</tr>
+<tr>
+<td>4096
+</td>
+<td>show the gold star icon
+</td>
+<td>t
+</td>
+</tr>
+<tr>
+<td>8192
+</td>
+<td>retry/cancel buttons
+</td>
+<td>r
+</td>
+</tr>
+<tr>
+<td>16384
+</td>
+<td>align buttons to the right
+</td>
+<td>g
+</td>
+</tr>
+<tr>
+<td>32768</td>
+<td>show the recycle bin icon
+</td>
+<td>c</td>
+</tr>
+<tr>
+<td>65536</td>
+<td>play icon-related sound
+</td>
+<td>d</td>
+</tr>
+<tr>
+<td>131072</td>
+<td> combo dropdown list
+</td>
+<td>m</td>
+</tr>
+</table>
+<br>
+<br>
+
 <pre class ="code">
 $input(sup,5) is equivalent to $input(sup,eo)
 </pre>
 
-<br><b>Note:</b>This identifier <b>cannot</b> be used in a remote event. One way around this is to use a <a href="..\commands\timer.html">/timer</a> to initiate an input request after the script ends. Another way around it is to use <a href="..\commands\signal.html">/signal</a> to trigger an <a href="..\events\on_signal.html">On_Signal</a> event.
+<br><b>Note:</b> This identifier <b>cannot</b> be used in a remote event. One way around this is to use a <a href="..\commands\timer.html">/timer</a> to initiate an input request after the script ends. Another way around it is to use <a href="..\commands\signal.html">/signal</a> to trigger an <a href="..\events\on_signal.html">On_Signal</a> event.
 
 <H4>Example</H4>
 

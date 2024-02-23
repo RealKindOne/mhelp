@@ -22,7 +22,7 @@ Some uses for Binary Variables include:
 * holding content too long to be placed in text variables
 * displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.
 
-== /Commands and $Identifiers ==
+<H4>/Commands and $Identifiers</H4>
 
 There are a few commands and identifiers created specifically to manipulate binary variables:
 
@@ -66,7 +66,7 @@ In addition, other identifiers have been given functionality to accept binary va
 <br><a href="..\commands\fwrite.html">/fwrite</a> - Can write a binary variable to a disk file
 <br><a href="..\identifiers\fread.html">$fread</a> - Can read disk file contents into a binary variable
 
-== Position and Length ==
+<H4>Position and Length</H4>
 
 Position in binary variables is 1-based, where the first byte value in a binary variable is position 1. This is different than the position used by /bread and /bwrite to read/write binary variables to disk files, where file position 0 is the position for reading/writing the first byte of the file.
 
@@ -86,7 +86,7 @@ Note: If you add $chr(233) and $chr(10004) as 2 separate -ta commands, you can a
 <pre class ="code">
 //bset -ta &var5 1 $chr(233) | bset -ta &var5 -1 $chr(10004) | echo -a shows length is 4 -> $bvar(&var5,1-)</pre>
 
-== Creating Binary Variables Examples ==
+<H4>Creating Binary Variables Examples</H4>
 
 Binary variables can be created using one of the /commands or $identifiers which accept a binary variable as an output parameter, or by the /bset, /bcopy, and /bwrite commands created for that purpose.
 <pre class ="code">
@@ -105,7 +105,7 @@ Set &binvar to contents of clipboard
 Read from socket to &binvar
 on *:SOCKREAD:socket: { sockread 4096 &binsockread }
 </pre>
-== Modifying Binary Variables Examples ==
+<H4>Modifying Binary Variables Examples</H4>
 <pre class ="code">
 Replace all TAB characters with spaces:
 /breplace &binvar 9 32
@@ -124,14 +124,14 @@ The above example could be a string even longer than 10 if &var previously conta
 
 If you bset values into a variable at position 10, the first 9 positions are undefined, depending whether the variable already existed. If the variable already existed with length 4, the bytes at positions 5-9 are filled with value 0 (not text 0 which is byte value 48). If the variable did not yet exist, bytes at positions 1-9 are filled with value 0.
 
-== Binary Variables as Input Examples ==
+<H4>Binary Variables as Input Examples</H4>
 <pre class ="code">
 display $sha1 hash of contents of &versions
 //echo -a $sha1(&versions,1)
 write &versions to disk
 //bwrite -c test.dat 0 -1 &versions
 </pre>
-== 'local' Binary variables ==
+<H4>'local' Binary variables</H4>
 
 When using %variables within an alias, you can take advantage of their 'local' scope to safely re-use variable names without worrying about destroying variables used by other scripts or aliases. You can use "/var %a value" in an alias to set that local variable without worrying that you will destroy that same variable name being used by the alias which called your alias, and don't need to worry if your script calls another alias which also uses that same name as a local variable.
 
@@ -152,7 +152,7 @@ See <a href="variables.html">Variables</a> in the Guide for more details on crea
 
 Note: If your temporary variable is no longer needed and is lengthy, you may wish to use /bunset to reduce memory usage if you are also creating other lengthy binary variables during that script execution. Otherwise, it will be deleted when the script execution ends.
 
-== Saving binary variables ==
+<H4>Saving binary variables</H4>
 
 Because binary variables disappear as soon as your script execution ends, if you need to use your binary variable later, you will need to find a way to save it:
 

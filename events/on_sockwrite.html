@@ -12,10 +12,11 @@ The <b>ON SOCKWRITE</b> event triggers when data has been sent on a socket, even
 <pre class = "code">ON &lt;level&gt;:SOCKWRITE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
-== Writing more ==
+<H4>Writing more</H4>
 
 It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a><br> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
 

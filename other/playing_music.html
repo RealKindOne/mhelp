@@ -27,9 +27,9 @@ Multiple file formats can be played at the same time. However, you '''cannot''' 
 
 <H4>Switches</H4>
 * <code>-wmp</code> - Indicates that the feature (only Stop or Skip features may be used with these flags) will be done on the specified media format that is currently playing.
-<br><b>-w</b> - '''WAVE format'''
-<br><b>-m</b> - '''MIDI format'''
-<br><b>-p</b> - '''MP3/OGG/WMA formats'''
+<br><b>-w</b> - WAVE format
+<br><b>-m</b> - MIDI format
+<br><b>-p</b> - MP3/OGG/WMA formats
 <br><b>Note:</b>You may specify more than one of the above switches at the same time for the Stop feature, but not for Skip.
 
 <H4>Parameters</H4>
@@ -38,7 +38,7 @@ Multiple file formats can be played at the same time. However, you '''cannot''' 
 * <code>[stop|pause|resume|seek|skip]</code> - Allows further control over a sound file that is currently playing. These flags' titles are their respective functions. These are discussed, in more detail, further down.
 * <code>[pos]</code> - This optional parameter is used to point out the location in the music file, in milliseconds, for your sound to either start from or seek into.
 
-== Music Playing, Now What? ==
+<H4>Music Playing, Now What?</H4>
 After the music is playing, you have a few options available for manipulating the playback. If you are making a full Music Player, for example in a dialog form, these options are really helpful.
 
 <H4>Playback Options</H4>
@@ -63,7 +63,8 @@ You can control the volume of your system (and, therefore, of the music played i
 <br><b>-uN</b> - Sets the mute setting: N = 1 turns the mute on, N = 2 turns the mute off.
 <br><b>[volume]</b> - A number indicating the volume, range from 0 (no sound) to 65535 (max).
 
-== Sound Finished, Now What? ==
+<H4>Sound Finished, Now What?</H4>
+
 After a sound file has finished playing, it will trigger an event. These events '''will not''' trigger for a file stopped with <code>/splay stop</code> or skipped with <code>/splay skip</code> commands, regardless of the switches/parameters used.
 
 The <code>ON MP3END, ON WAVEEND & ON MIDIEND</code> events will trigger for the <code>.mp3,.wma,.ogg</code>, the <code>.wav</code> & the <code>.mid</code> formats, respectively. The ''undocumented'' <code>ON SONGEND</code> event will trigger for any of these five formats.
@@ -76,7 +77,8 @@ on &lt;level&gt;:mp3end|midiend|waveend|songend:&lt;commands&gt;
 
 The local identifier, <a href="..\identifiers\filename.html">$filename</a>, will return the complete file name that has finished playing.
 
-== Any useful $identifier I can use? ==
+<H4>Any useful $identifier I can use?</H4>
+
 Of course! Here is the list:
 
 * $vol(&lt;wave | midi | song | master&gt;) - Returns a number between 0 and 65535 for the specified type.

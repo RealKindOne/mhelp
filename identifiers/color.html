@@ -11,12 +11,15 @@
 <pre class ="code">
 $color(name/N)[.dd]
 </pre>
+
 <H4>Parameters</H4>
 <b>name</b> identifier returns the color index number for the specified name/action/event. Partial matches work as well: '''$color(action)'''
-<br><b>N</b> identifier returns the 24-bit integer RGB color value for index N where N is 0-99, of which 0-15 are displayed in the '''CTRL+K''' list and the '''ALT+K''' window.
+<br><b>N</b> identifier returns the 24-bit integer RGB color value for index N where N is 0-99, of which 0-98 are displayed in the <b>CTRL+K</b> list and the <b>ALT+K</b> window.
+
 <H4>Properties</H4>
 <b>.dd</b> When used with name, allows the color index numbers 0-9 to be returned in double-digit format, eg: 02 instead of 2. Does not work on RGB-returned values.
-== Names ==
+
+<H4>Names</H4>
 Most of the names are shown in the Alt+K dialog, and some of them use spaces due to similar name for the background color in that area. The names accepted by $color are the same names used by echo's -c switch. The names for the background colors are not shown:
 <pre class ="code">
 //echo -a $color(background)

@@ -12,7 +12,7 @@ Unicode is just another encoding and with mIRC being clean for unicode meant add
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$codepage(N/ID)
+$codepage(N/ID)[.property]
 </pre>
 <H4>Parameters</H4>
 <b>N/ID</b> - The Nth codepage to be returned, or 0 for the total number of codepage in the list, you can also pass an ID.
@@ -21,8 +21,7 @@ $codepage(N/ID)
 <br><b>Note:</b> first ID starts at 437 and only increases from that, while there's a total of only 58 codepages currently, and there should be no overlap given no new codepage are added.
 
 <H4>Properties</H4>
-
-<br><b>.name</b> - returns the name of the codepage
+<b>.name</b> - returns the name of the codepage
 <br><b>.desc</b> - returns the description of the codepage.
 <br><b>.id</b> - returns the ID of the codepage (default).
 
@@ -30,66 +29,73 @@ $codepage(N/ID)
 
 <pre class ="code">//var %a 1 | while ($codepage(%a)) { echo -sg $v1 -- $codepage(%a).name -- $codepage(%a).desc -- $codepage(%a).id  | inc %a }
 </pre>
-<pre class = "code">
-437 -- ibm437 -- OEM United States -- 437
-737 -- ibm737 -- OEM Greek -- 737
-775 -- ibm775 -- OEM Baltic -- 775
-850 -- ibm850 -- OEM Western European -- 850
-852 -- ibm852 -- OEM Central European -- 852
-855 -- ibm855 -- OEM Cyrillic -- 855
-857 -- ibm857 -- OEM Turkish -- 857
-858 -- ibm00858 -- OEM Multilingual -- 858
-860 -- ibm860 -- OEM Portuguese -- 860
-861 -- ibm861 -- OEM Icelandic -- 861
-862 -- dos-862 -- OEM Hebrew -- 862
-863 -- ibm863 -- OEM French Canadian -- 863
-864 -- ibm864 -- OEM Arabic -- 864
-865 -- ibm865 -- OEM Nordic -- 865
-866 -- cp866 -- OEM Russian -- 866
-869 -- ibm869 -- OEM Greek Modern -- 869
-874 -- windows-874 -- ANSI Thai -- 874
-932 -- shift_jis -- ANSI Japanese Shift-JIS -- 932
-936 -- gb2312 -- ANSI Chinese Simplified GB2312 -- 936
-949 -- ks_c_5601-1987 -- ANSI Korean Hangul -- 949
-950 -- big5 -- ANSI Chinese Traditional Big5 -- 950
-1250 -- windows-1250 -- ANSI Central European -- 1250
-1251 -- windows-1251 -- ANSI Cyrillic -- 1251
-1252 -- windows-1252 -- ANSI Western European -- 1252
-1253 -- windows-1253 -- ANSI Greek -- 1253
-1254 -- windows-1254 -- ANSI Turkish -- 1254
-1255 -- windows-1255 -- ANSI Hebrew -- 1255
-1256 -- windows-1256 -- ANSI Arabic -- 1256
-1257 -- windows-1257 -- ANSI Baltic -- 1257
-1258 -- windows-1258 -- ANSI Vietnamese -- 1258
-1361 -- johab -- Korean Johab -- 1361
-10000 -- macintosh -- MAC Roman -- 10000
-20866 -- koi8-r -- Russian KOI8-R -- 20866
-20932 -- euc-jp -- Japanese JIS X 0208/0212 -- 20932
-20936 -- x-cp20936 -- Chinese Simplified GB2312 -- 20936
-21866 -- koi8-u -- Ukrainian KOI8-U -- 21866
-28591 -- iso-8859-1 -- ISO Western European -- 28591
-28592 -- iso-8859-2 -- ISO Central European -- 28592
-28593 -- iso-8859-3 -- ISO South European -- 28593
-28594 -- iso-8859-4 -- ISO Baltic -- 28594
-28595 -- iso-8859-5 -- ISO Cyrillic -- 28595
-28596 -- iso-8859-6 -- ISO Arabic -- 28596
-28597 -- iso-8859-7 -- ISO Greek -- 28597
-28598 -- iso-8859-8 -- ISO Hebrew Visual -- 28598
-28599 -- iso-8859-9 -- ISO Turkish -- 28599
-28603 -- iso-8859-13 -- ISO Estonian -- 28603
-28605 -- iso-8859-15 -- ISO Latin-9 -- 28605
-38598 -- iso-8859-8-i -- ISO Hebrew Logical -- 38598
-50220 -- iso-2022-jp -- ISO Japanese JIS -- 50220
-50221 -- csiso2022jp -- ISO Japanese JIS Kana -- 50221
-50222 -- iso-2022-jp-sio -- ISO Japanese JIS X 0201 -- 50222
-50225 -- iso-2022-kr -- ISO Korean -- 50225
-50227 -- x-cp50227 -- ISO Chinese Simplified -- 50227
-50229 -- iso-2022-cn -- ISO Chinese Traditional -- 50229
-51949 -- euc-kr -- EUC Korean -- 51949
-52936 -- hz-gb-2312 -- Chinese Simplified HZ -- 52936
-54936 -- gb18030 -- Chinese Simplified GB18030 -- 54936
-65001 -- utf-8 -- Unicode UTF-8 -- 65001
-</pre>
+<table>
+  <tr>
+    <th>Codepage ID</th>
+    <th>Codepage Name</th>
+    <th>Codepage code</th>
+    <th>Codepage ID</th>
+
+  </tr>
+<tr><td>437 </td> <td> ibm437 </td> <td> OEM United States </td> <td> 437</td></tr>
+<tr><td>737 </td> <td> ibm737 </td> <td> OEM Greek </td> <td> 737</td></tr>
+<tr><td>775 </td> <td> ibm775 </td> <td> OEM Baltic </td> <td> 775</td></tr>
+<tr><td>850 </td> <td> ibm850 </td> <td> OEM Western European </td> <td> 850</td></tr>
+<tr><td>852 </td> <td> ibm852 </td> <td> OEM Central European </td> <td> 852</td></tr>
+<tr><td>855 </td> <td> ibm855 </td> <td> OEM Cyrillic </td> <td> 855</td></tr>
+<tr><td>857 </td> <td> ibm857 </td> <td> OEM Turkish </td> <td> 857</td></tr>
+<tr><td>858 </td> <td> ibm00858 </td> <td> OEM Multilingual </td> <td> 858</td></tr>
+<tr><td>860 </td> <td> ibm860 </td> <td> OEM Portuguese </td> <td> 860</td></tr>
+<tr><td>861 </td> <td> ibm861 </td> <td> OEM Icelandic </td> <td> 861</td></tr>
+<tr><td>862 </td> <td> dos-862 </td> <td> OEM Hebrew </td> <td> 862</td></tr>
+<tr><td>863 </td> <td> ibm863 </td> <td> OEM French Canadian </td> <td> 863</td></tr>
+<tr><td>864 </td> <td> ibm864 </td> <td> OEM Arabic </td> <td> 864</td></tr>
+<tr><td>865 </td> <td> ibm865 </td> <td> OEM Nordic </td> <td> 865</td></tr>
+<tr><td>866 </td> <td> cp866 </td> <td> OEM Russian </td> <td> 866</td></tr>
+<tr><td>869 </td> <td> ibm869 </td> <td> OEM Greek Modern </td> <td> 869</td></tr>
+<tr><td>874 </td> <td> windows-874 </td> <td> ANSI Thai </td> <td> 874</td></tr>
+<tr><td>932 </td> <td> shift_jis </td> <td> ANSI Japanese Shift-JIS </td> <td> 932</td></tr>
+<tr><td>936 </td> <td> gb2312 </td> <td> ANSI Chinese Simplified GB2312 </td> <td> 936</td></tr>
+<tr><td>949 </td> <td> ks_c_5601-1987 </td> <td> ANSI Korean Hangul </td> <td> 949</td></tr>
+<tr><td>950 </td> <td> big5 </td> <td> ANSI Chinese Traditional Big5 </td> <td> 950</td></tr>
+<tr><td>1250 </td> <td> windows-1250 </td> <td> ANSI Central European </td> <td> 1250</td></tr>
+<tr><td>1251 </td> <td> windows-1251 </td> <td> ANSI Cyrillic </td> <td> 1251</td></tr>
+<tr><td>1252 </td> <td> windows-1252 </td> <td> ANSI Western European </td> <td> 1252</td></tr>
+<tr><td>1253 </td> <td> windows-1253 </td> <td> ANSI Greek </td> <td> 1253</td></tr>
+<tr><td>1254 </td> <td> windows-1254 </td> <td> ANSI Turkish </td> <td> 1254</td></tr>
+<tr><td>1255 </td> <td> windows-1255 </td> <td> ANSI Hebrew </td> <td> 1255</td></tr>
+<tr><td>1256 </td> <td> windows-1256 </td> <td> ANSI Arabic </td> <td> 1256</td></tr>
+<tr><td>1257 </td> <td> windows-1257 </td> <td> ANSI Baltic </td> <td> 1257</td></tr>
+<tr><td>1258 </td> <td> windows-1258 </td> <td> ANSI Vietnamese </td> <td> 1258</td></tr>
+<tr><td>1361 </td> <td> johab </td> <td> Korean Johab </td> <td> 1361</td></tr>
+<tr><td>10000 </td> <td> macintosh </td> <td> MAC Roman </td> <td> 10000</td></tr>
+<tr><td>20866 </td> <td> koi8-r </td> <td> Russian KOI8-R </td> <td> 20866</td></tr>
+<tr><td>20932 </td> <td> euc-jp </td> <td> Japanese JIS X 0208/0212 </td> <td> 20932</td></tr>
+<tr><td>20936 </td> <td> x-cp20936 </td> <td> Chinese Simplified GB2312 </td> <td> 20936</td></tr>
+<tr><td>21866 </td> <td> koi8-u </td> <td> Ukrainian KOI8-U </td> <td> 21866</td></tr>
+<tr><td>28591 </td> <td> iso-8859-1 </td> <td> ISO Western European </td> <td> 28591</td></tr>
+<tr><td>28592 </td> <td> iso-8859-2 </td> <td> ISO Central European </td> <td> 28592</td></tr>
+<tr><td>28593 </td> <td> iso-8859-3 </td> <td> ISO South European </td> <td> 28593</td></tr>
+<tr><td>28594 </td> <td> iso-8859-4 </td> <td> ISO Baltic </td> <td> 28594</td></tr>
+<tr><td>28595 </td> <td> iso-8859-5 </td> <td> ISO Cyrillic </td> <td> 28595</td></tr>
+<tr><td>28596 </td> <td> iso-8859-6 </td> <td> ISO Arabic </td> <td> 28596</td></tr>
+<tr><td>28597 </td> <td> iso-8859-7 </td> <td> ISO Greek </td> <td> 28597</td></tr>
+<tr><td>28598 </td> <td> iso-8859-8 </td> <td> ISO Hebrew Visual </td> <td> 28598</td></tr>
+<tr><td>28599 </td> <td> iso-8859-9 </td> <td> ISO Turkish </td> <td> 28599</td></tr>
+<tr><td>28603 </td> <td> iso-8859-13 </td> <td> ISO Estonian </td> <td> 28603</td></tr>
+<tr><td>28605 </td> <td> iso-8859-15 </td> <td> ISO Latin-9 </td> <td> 28605</td></tr>
+<tr><td>38598 </td> <td> iso-8859-8-i </td> <td> ISO Hebrew Logical </td> <td> 38598</td></tr>
+<tr><td>50220 </td> <td> iso-2022-jp </td> <td> ISO Japanese JIS </td> <td> 50220</td></tr>
+<tr><td>50221 </td> <td> csiso2022jp </td> <td> ISO Japanese JIS Kana </td> <td> 50221</td></tr>
+<tr><td>50222 </td> <td> iso-2022-jp-sio </td> <td> ISO Japanese JIS X 0201 </td> <td> 50222</td></tr>
+<tr><td>50225 </td> <td> iso-2022-kr </td> <td> ISO Korean </td> <td> 50225</td></tr>
+<tr><td>50227 </td> <td> x-cp50227 </td> <td> ISO Chinese Simplified </td> <td> 50227</td></tr>
+<tr><td>50229 </td> <td> iso-2022-cn </td> <td> ISO Chinese Traditional </td> <td> 50229</td></tr>
+<tr><td>51949 </td> <td> euc-kr </td> <td> EUC Korean </td> <td> 51949</td></tr>
+<tr><td>52936 </td> <td> hz-gb-2312 </td> <td> Chinese Simplified HZ </td> <td> 52936</td></tr>
+<tr><td>54936 </td> <td> gb18030 </td> <td> Chinese Simplified GB18030 </td> <td> 54936</td></tr>
+<tr><td>65001 </td> <td> utf-8 </td> <td> Unicode UTF-8 </td> <td> 65001</td></tr>
+</table>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.69 (18 Jul 2022)

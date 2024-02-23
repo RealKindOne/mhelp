@@ -21,7 +21,7 @@ $nick(#,N/nick,aohvr,aohvr)
 
 <br><b>N/nick</b>Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
 
-<br><b>aohvr</b>Optional: The first <b>aohvr</b> characters target all users of a <b>specific type''', while the second <b>aohvr</b> excludes a <b>specific type</b> from the target list.
+<br><b>aohvr</b>Optional: The first <b>aohvr</b> characters target all users of a <b>specific type</b>, while the second <b>aohvr</b> excludes a <b>specific type</b> from the target list.
 
 <H4>Specific Types</H4>
 <br><b>a</b>All users
@@ -105,8 +105,9 @@ The results from the above will look something like this:
 
 
 <br><b>Note:</b>A nick can have several channel modes, and the nicklist will display only the highest level. To have an exact count of the nicks displaying a certain nick type, you should have the 3rd parameter be the list of all types of that level and greater, then have the 4th parameter be the nick types greater than the specified level. For example, networks supporting levels above @Operator also give +o. ~ChannelOwner is given modes +qo and &ProtectedOp is given mode +ao. Some networks allow the Founder to give +q to several other users, so the ~ prefix isn't always an indication that someone is the channel owner/founder.
-
+<pre class ="code">
 //echo -a There are $nick($chan,0,~&o,~&) nicks at the @operator level excluding Owners and SuperOps
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
