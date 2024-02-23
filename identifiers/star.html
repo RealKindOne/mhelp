@@ -5,7 +5,7 @@
 <H1>$*</H1>
 <br>
 <br>
-The <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within $1-. The way this works is much like a while loop. <br>
+<b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within $1-. The way this works is much like a while loop. <br>
 <b>$*</b> has been omitted from the help file since while loops were introduced, especially because the behavior of $* is quirky in some places.
 <br>
 <b>$*</b> is extremely powerful, because it is much faster than using a while loop on a list of tokens. Understanding how this works is pretty simple, so consider the following:
@@ -20,13 +20,18 @@ This can be written as:
 
 The above is much smaller, and a lot faster. Pretty cool, isn't it?
 
-<h4>Notes & Quirks</h4>
     
+<h4>Notes & Quirks</h4>
+
 Why was the <b>$*</b> identifier removed from the help file in the first place? Well, it was removed because it does not really work the same way that the other identifiers do, and because it is quirky.
 <br>
 mIRC takes the command $* appears in, and replaces all of the occurrences in the line by a special marker: <b>`~$*:</b> An example of how this is accomplished is shown below:
 
 <pre class ="code">//tokenize 32 abcd | echo -a $left($*,1) $+ $chr(3) $+ $mid($*,2)</pre>
+
+So if $1 is not $null, $* returns the value of the marker. If $1 is $null, $* will make the command it appears in do nothing but the rest of the script is processed:
+<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>    
+<br>    
 
 Further examining the code, it is easy to understand why the above returns such a value:
 <pre class ="code">//tokenize 32 abcd | echo -a $mid($*,2)</pre>
