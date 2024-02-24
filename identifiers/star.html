@@ -37,8 +37,7 @@ mIRC takes the command <b>$*</b> appears in, and replaces all of the occurrences
 <pre class ="code">//tokenize 32 abcd | echo -a $left($*,1) $+ $chr(3) $+ $mid($*,2)</pre>
 
 So if <b>$1</b> is not $null, <b>$*</b> returns the value of the marker. If <b>$1</b> is $null, <b>$*</b> will make the command it appears in do nothing but the rest of the script is processed:
-<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>    
-<br>    
+<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>        
 
 Further examining the code, it is easy to understand why the above returns such a value:
 <pre class ="code">//tokenize 32 abcd | echo -a $mid($*,2)</pre>
