@@ -10,26 +10,28 @@ Behave the same as <b>$+</b> outside <a href="/other/eval_brackets.html">evaluat
 
 <h4>History</h4>
 
-<b>$++</b> was added at a time where bracket evaluation [ ] did not exist and some identifier such as $read where not using parenthesis for parameters (called legacy syntax).
-There's only one mention of it in versions.txt for mIRC 4.1:
+<b>$++</b> was added at a time where bracket evaluation [ ] did not exist and some identifier such as $read where not using parenthesis for parameters (called legacy syntax).<br>
+There's only one mention of it in versions.txt for mIRC 4.1:<br>
 
-<i>Added $++ identifier which works the same as the $+ identifier but does the concatenation after the previous item has been evaluated, so something like this works now: /say " $+ $read c:\test.txt $++ "</i>
+<i>Added $++ identifier which works the same as the $+ identifier but does the concatenation after the previous item has been evaluated, so something like this works now: /say " $+ $read c:\test.txt $++ "</i><br>
 
-Using " $+ $read c:\test.txt $+ " at the time would cause the legacy $read syntax to consume the second <b>$+</b> to build the filename, which would be expected.
-Resulting in <b>$read</b> trying to read from file c:\test.txt" with the lone quote included, resulting in error.
-This is where <b>$++</b> would cause $read to stop and read from file c:\test.txt correctly, and only applies the concatenation with the " after.
+Using " $+ $read c:\test.txt $+ " at the time would cause the legacy $read syntax to consume the second <b>$+</b> to build the filename, which would be expected.<br>
+Resulting in <b>$read</b> trying to read from file c:\test.txt" with the lone quote included, resulting in error.<br>
+This is where <b>$++</b> would cause $read to stop and read from file c:\test.txt correctly, and only applies the concatenation with the " after.<br>
 
-<b>$++</b> works on version 4.1 and will fix the issue but the next version of mIRC was 4.5, and it introduced bracket evaluation.
-on mIRC 4.5 both " $+ $read test.txt $+ " and " $+ $read test.Txt $++ " will result in the line being read from the file being enclosed in quotes, and both crashes right after that.
-If the changelog for mIRC 4.1 was saying that it was now possible to quote a line with <b>$++</b>, the changelog of mIRC 4.5 was now saying that bracket evaluation should be used, no more mention of <b>$++</b>, just regular <b>$+</b>:
-<i>/notice $nick " $+ [ $read [ -s + [ $parm1 ] ] c:\text\note.txt ] $+ "</i>
-After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming <b>$+</b> or <b>$++</b> so it wasn't possible to read from a dynamically built filename until <b>$read()</b> was added.
-So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consuming <b>$+</b> to be able to get the concatenation done after <b>$read</b> finished, and it worked for only one version, after that it was made to behave like <b>$+</b>, with exception to inside evaluation bracket
+<b>$++</b> works on version 4.1 and will fix the issue but the next version of mIRC was 4.5, and it introduced bracket evaluation.<br>
+on mIRC 4.5 both " $+ $read test.txt $+ " and " $+ $read test.Txt $++ " will result in the line being read from the file being enclosed in quotes, and both crashes right after that.<br>
+If the changelog for mIRC 4.1 was saying that it was now possible to quote a line with <b>$++</b>, the changelog of mIRC 4.5 was now saying that bracket evaluation should be used, no more mention of <b>$++</b>, just regular <b>$+</b>:<br>
+<i>/notice $nick " $+ [ $read [ -s + [ $parm1 ] ] c:\text\note.txt ] $+ "</i><br>
+After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming <b>$+</b> or <b>$++</b> so it wasn't possible to read from a dynamically built filename until <b>$read()</b> was added.<br>
+So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consuming <b>$+</b> to be able to get the concatenation done after <b>$read</b> finished, and it worked for only one version, after that it was made to behave like <b>$+</b>, with exception to inside evaluation bracket<br>
 
 <h4>Outside evaluation bracket</h4>
-Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b>, they both behave as <b>$+</b>, at least there's no known case where <b>$+</b> and <b>$++</b> behave differently, but the legacy syntax stops at both as mentioned above:
+Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b>, they both behave as <b>$+</b>, at least there's no known case where <b>$+</b> and <b>$++</b> behave differently, but the legacy syntax stops at both as mentioned above:<br>
 
-//write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt
+<pre class ="code">
+//write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt <br>
+</pre>
 
 outputs "ok.txt vs "ok.txt showing that <b>$+</b> and <b>$++</b> both concatenated after the previous item was evaluated, both read the file test instead of test.txt
 
