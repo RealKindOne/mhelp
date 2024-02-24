@@ -63,6 +63,9 @@ Note: Even though HOTP supports hash=md5, you should avoid using md5 because HOT
 This is not due to the weakness in the hash output of md5, but instead is caused by how the 32-bit 'truncate' value is chosen from within the shorter md5 hash, often at offsets where - not only are there not 8 hex digits available at that position, but often one of the 8 hex digits used is the same digit used to determine the location of the 31-bit value. When using md5 as the hash, every implementation of HOTP i've seen appends hex digit 0's when there are only 2/4/6 hex digits available at that offset in the hash digests, causing some outputs to appear much more often than they should. SHA1 is a long enough hash digest which doesn't need to append the 0's and doesn't ever re-use the locator hex-digit as part of the 31-bit value.
 
 <H4>Example</H4>
+
+In a perfect world, both sides of the handshake keep track of the last counter used, then increment it to create a new output value without publicly sharing that counter. If one side of the transaction loses the data, there needs to be a mechanism for both sides to agree on a new counter without reusing a counter. Probably the best method is to either select a new key+counter, or select a new counter that's guaranteed to be greater than the previously used counters, such as using $ctime.
+
 <pre class ="code">
 ; //noop $handshake($nick,#channel)
 
@@ -71,9 +74,9 @@ alias handshake {
   var %a $hotp(%secret_key,%handshake_counter,sha256,6)
   if ($1 ison $2) /notice $1 password is %a for counter %handshake_counter
 }
+</pre>
 
-In a perfect world, both sides of the handshake keep track of the last counter used, then increment it to create a new output value without publicly sharing that counter. If one side of the transaction loses the data, there needs to be a mechanism for both sides to agree on a new counter without reusing a counter. Probably the best method is to either select a new key+counter, or select a new counter that's guaranteed to be greater than the previously used counters, such as using $ctime.
-
+<pre class ="code">
 //var %a 1234567890 , %a2 $encode(%a,a) | echo -a key %a is $hotp(%a,1,sha512) key %a2 is $hotp($encode(%a,a),1,sha512)
 Both return identical passwords because the 2nd usage identifies the key as a valid Base-32 encoded string that's a multiple of 8 greater than 8.
 

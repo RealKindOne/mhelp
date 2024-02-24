@@ -19,7 +19,7 @@ The <b>ON SOCKWRITE</b> event triggers when data has been sent on a socket, even
 <H4>Writing more</H4>
 
 It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a><br> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
-
+<br>
 <br><b>0</b> - The data has been written successfully.
 <br><b>3</b> - Error occurred while trying to send the data, $sock($sockname).wsmsg will contain a more specific error message.
 

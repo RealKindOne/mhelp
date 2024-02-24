@@ -5,7 +5,7 @@
 <H1>$wildtokcs</H1>
 <br>
 <br>
-The <b>$wildtokcs</b> identifier returns the Nth token that matches the <a href="..\other\wildcard.html">wildcard</a> string, using case sensitivity.
+The <b>$wildtokcs</b> identifier returns the Nth token that matches the <a href="..\other\wildcard.html">wildcard</a> string, using case sensitivity. <a href="wildtok.html">$wildtok</a> is the case insensitive equivalent.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -21,8 +21,9 @@ $wildtokcs(&lt;list&gt;,wildstring,N,C)
 None
 
 <H4>Example</H4>
-Return twO
-<pre class ="code">$wildtokcs(one two three twO, t*O,1,32)
+Return twO:
+<pre class ="code">
+//echo -a $wildtokcs(one two three twO, t*O,1,32)
 </pre>
 
 <H4>Compatibility</H4>

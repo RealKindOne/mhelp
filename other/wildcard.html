@@ -36,13 +36,13 @@ is not true because & is used as the bitwise operator, you can use $eval() to fo
 <pre class ="code">if ($(test &) iswm test this)</pre>
 
 If you need to use any of these special characters as plain text in an expression where they are taken as wildcard character (that is, not always the case for &), you can try to use a <a href="regex.html">regular expression</a> instead.
-
+<br>
 The number of function/feature of the language supporting wildcard matching is simply too high to make a list, but here are the main usage:
-
-* The iswm operator can be used with /if (and the like) to make a wildcard comparison:
+<br>
+The iswm operator can be used with /if (and the like) to make a wildcard comparison:
 <pre class ="code">
 if (test* iswm $1-) { }
-
+</pre>
 While there is a "?" wildcard for 1 character, and a "*" wildcard for zero-or-more characters, there isn't a wildcard for one-or-more characters. However you can obtain the same result by combining the ? and * together. For example, if you have a string where you want to remove leading zeroes, you can do something like:
 
 <pre class ="code">//var %a 00000123 | while (0* iswm %a) var %a $mid(%a,2) | echo -a result: %a</pre>
@@ -53,7 +53,6 @@ and this will always ensure the string cannot begin with '0'. However, if the in
 
 The iswm operator matches on a case-insensitive basis, but only as far as treating the a-z and A-Z ranges the same, so $upper($chr(233)) and $lower($chr(233)) will be seen as different. If you need to see 'Test' and 'test' as different, then use the iswmcs for a case-sensitive comparison where 'z' and 'Z' are no longer seen as the same.
 
-</pre>
 Wildcard-matches can also be used in <a href="..\identifiers\wildtok.html">token manipulation</a>, <a href="..\identifiers\hfind.html">hash tables</a>, <a href="..\identifiers\fline.html">custom windows</a>, <a href="..\events.html">On Events</a>, <a href="..\identifiers\var.html">variables</a>, etc. etc.
 </body>
 </html>

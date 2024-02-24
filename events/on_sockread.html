@@ -21,7 +21,7 @@ The <b>ON SOCKREAD</b> triggers when there is info waiting to be read on the spe
 <H4>Connection State</H4>
 
 It's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
-
+<br>
 <br><b>0</b> - Data received correctly.
 <br><b>3</b> - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.
 
@@ -33,23 +33,25 @@ Here is a basic outline:
 <pre class ="code">
 on *:sockread:example:{
 
-  ;if an error occurred ($sockerr is not 0)
+  ; If an error occurred ($sockerr is not 0)
   if ($sockerr) {
     echo -s An error occurred: $sock($sockname).wsmsg
   }
 
-  ;no error occurred ($sockerr was 0)
+  ; No error occurred ($sockerr was 0)
   else {
 
-    ;perform commands related to reading the data
+    ; Perform commands related to reading the data
 
-    ;declare %r as a local variable for use in /sockread
+    ; Declare %r as a local variable for use in /sockread
     var %r
 
-    ;read a line into %r from the buffer (this variable is subject to mIRC's Line Length Limit - see the /sockread page for more information)
+    ; Read a line into %r from the buffer (this variable is subject to
+    ; mIRC's Line Length Limit - see the /sockread page for more information)
     sockread %r
 
-    ;do things with %r, such as checking its value or extracting parts to output later
+    ; Do things with %r, such as checking its value or extracting parts to
+    ; output later
 
   }
 }

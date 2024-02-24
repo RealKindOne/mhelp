@@ -220,7 +220,7 @@ If you ever worked with HTTP 1.1, you know that it can send data in chunk, here 
 on *:sockopen:socket:{
   ... your request...
   sockmark $sockname 0
-  ;we write to source.txt
+  ; We write to source.txt
   .remove source.txt
   unset %bytestoread
 }
@@ -229,11 +229,13 @@ on *:SOCKREAD:socket: {
     if ($sock($sockname).mark) {
       ;if we have a chunk to read
       if (%bytestoread > 0) {
-        ;we try to read that much
+        ; We try to read that much
         sockread %bytestoread &a
         bwrite source.txt -1 -1 &a
-        ;but $sockbr tells us how much we read, we decrease by that number (in case we received something smaller than what we want, this part of the code will re-trigger in this case, until %bytestoread is 0)
-        dec %bytestoread $sockbr
+        ; But $sockbr tells us how much we read, we decrease by that number
+        ; (in case we received something smaller than what we want, this part
+        ; of the code will re-trigger in this case, until %bytestoread is 0)
+        ; dec %bytestoread $sockbr
       }
       ;if we don't have a chunk
       else {

@@ -6,6 +6,10 @@
 </HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$*">
+		<param name="Local" value="identifiers\star.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$!">
 		<param name="Local" value="identifiers\_exclamation.html">
 		</OBJECT>
@@ -1744,10 +1748,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$sslversion">
 		<param name="Local" value="identifiers\sslversion.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$star">
-		<param name="Local" value="identifiers\star.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$starting">

@@ -19,7 +19,7 @@ The <b>ON SOCKCLOSE</b> event triggers when a <a href="..\sockets\sockets.html#m
 <H4>Connection State</H4>
 
 The reason a socket is closed could be because of an error, rather than because the remote host closed your connection on purpose, you should check <a href="..\identifiers\sockerr.html">$sockerr</a> for error, here is a list of the possible value for $sockerr inside the on sockclose event:
-
+<br>
 <br><b>0</b> - EOF from the remote host received, this actually means the remote host closed your connection successfully.
 <br><b>3</b> - An error occurred while receiving data, or a SSL error occurred (most likely SSL cert cypher incompatibility), $sock().wsmsg will contain a more specific error message.
 <br><b>5</b> - An SSL error of some kind occurred when trying to initialize the connection. Unlikely to happen. If you get this you most likely are trying to initiate an SSL socket connection without SSL capabilities (check <a href="..\identifiers\sslready.html">$sslready</a>, which is $false if you don't have them)

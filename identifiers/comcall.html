@@ -19,40 +19,158 @@ $comcall(name,alias,member,method,type1,value1,...,typeN,valueN)
 <br><b>alias</b> - The name of an alias that will be called once the call returns
 <br><b>member</b> - The name of the function of the object
 <br><b>method</b> - A combination of the following value added together:
-
-<br><b>1 </b> DISPATCH_METHOD - Call a member of an object
-<br><b>2 </b> DISPATCH_PROPERTYGET - Return a value
-<br><b>3 </b> (1+2) Call a member and return a value *
-<br><b>4 </b> DISPATCH_PROPERTYPUT - Set a property
-<br><b>5 </b> (1+4) Set a property with a member call *
-<br><b>6 </b> (2+4) Set a property and return a value *
-<br><b>7 </b> (1+2+4) Set a property and return a value with a member call *
-<br><b>8 </b> DISPATCH_PROPERTYPUTREF - Set a property by reference
-<br><b>9 </b> (1+8) Set a property by reference with a member call *
-<br><b>10</b> (2+8) Set a property by reference and return a value *
 <br>
 <br>
-<br><b>type1</b> - The variable type, can be:
+<table>
+<tr>
+<th> Value </th>
+<th> Method
+</th></tr>
+<tr>
+<td> 1 </td>
+<td> DISPATCH_METHOD - Call a member of an object
+</td></tr>
+<tr>
+<td> 2 </td>
+<td> DISPATCH_PROPERTYGET - Return a value
+</td></tr>
+<tr>
+<td> 3 </td>
+<td> (1+2) Call a member and return a value *
+</td></tr>
+<tr>
+<td> 4 </td>
+<td> DISPATCH_PROPERTYPUT - Set a property
+</td></tr>
+<tr>
+<td> 5 </td>
+<td> (1+4) Set a property with a member call *
+</td></tr>
+<tr>
+<td> 6 </td>
+<td> (2+4) Set a property and return a value *
+</td></tr>
+<tr>
+<td> 7 </td>
+<td> (1+2+4) Set a property and return a value with a member call *
+</td></tr>
+<tr>
+<td> 8 </td>
+<td> DISPATCH_PROPERTYPUTREF - Set a property by reference
+</td></tr>
+<tr>
+<td> 9 </td>
+<td> (1+8) Set a property by reference with a member call *
+</td></tr>
+<tr>
+<td> 10 </td>
+<td> (2+8) Set a property by reference and return a value *
+</td>
+</tr>
+</table>
 <br>
-<br><b>i1</b> single byte signed integer || 0 to 225
-<br><b>ui1</b> single byte unsigned integer || 0 to 255
-<br><b>i2</b> two byte signed integer || -32768 to 32767
-<br><b>ui2</b> two byte unsigned integer || 0 to 65535
-<br><b>i4</b> four byte signed integer || +/- 2147483647
-<br><b>ui4</b> Holds unsigned 32-bit (4-byte) integers || 0 through 4,294,967,295
-<br><b>int</b> integer || -2147483648 to 2147483647
-<br><b>uint</b> unsigned integer || 0 to 4294967295
-<br><b>r4</b> real, 4-byte floating point number || 1.17549435E-38 to 3.40282347E+38
-<br><b>r8</b> double real, 8-byte floating point number || 2.2250738585072014E-308 - 1.7976931348623157E+308
-<br><b>cy</b> eight byte curreny number || -922337203685477.5625 to 922337203685477.5625
-<br><b>date</b> contains date and time, stored as an 8-byte floating-point number || +/-79,228,162,514,264,337,593,543,950,335
-<br><b>decimal</b> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. || +/-79,228,162,514,264,337,593,543,950,335
-<br><b>bool</b> contain any string or numeric representation.
-<br><b>bstr</b> null-terminated unicode character string value. || A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
-<br><b>variant</b>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
-<br><b>dispatch</b>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
-<br><b>unknown</b> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
-<br><b>error</b> This data type indicates a 32-bit error code (DBTYPE_ERROR)
+<br>
+<b>type1</b> - The variable type, can be:
+<br>
+<br>
+<table>
+<tr>
+<th> Type </th>
+<th> Description </th>
+<th> Values
+</th></tr>
+<tr>
+<td>i1 </td>
+<td> single byte signed integer </td>
+<td> 0 to 225
+</td></tr>
+<tr>
+<td>ui1 </td>
+<td> single byte unsigned integer </td>
+<td> 0 to 255
+</td></tr>
+<tr>
+<td>i2 </td>
+<td> two byte signed integer </td>
+<td> -32768 to 32767
+</td></tr>
+<tr>
+<td>ui2 </td>
+<td> two byte unsigned integer </td>
+<td> 0 to 65535
+</td></tr>
+<tr>
+<td>i4 </td>
+<td> four byte signed integer </td>
+<td> +/- 2147483647
+</td></tr>
+<tr>
+<td>ui4 </td>
+<td> Holds unsigned 32-bit (4-byte) integers </td>
+<td> 0 through 4,294,967,295
+</td></tr>
+<tr>
+<td>int </td>
+<td> integer </td>
+<td> -2147483648 to 2147483647
+</td></tr>
+<tr>
+<td>uint </td>
+<td> unsigned integer </td>
+<td> 0 to 4294967295
+</td></tr>
+<tr>
+<td>r4 </td>
+<td> real, 4-byte floating point number </td>
+<td> 1.17549435E-38 to 3.40282347E+38
+</td></tr>
+<tr>
+<td>r8 </td>
+<td> double real, 8-byte floating point number </td>
+<td> 2.2250738585072014E-308 - 1.7976931348623157E+308
+</td></tr>
+<tr>
+<td>cy </td>
+<td> eight byte curreny number </td>
+<td> -922337203685477.5625 to 922337203685477.5625
+</td></tr>
+<tr>
+<td>date </td>
+<td> contains date and time, stored as an 8-byte floating-point number </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>decimal </td>
+<td> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>bool </td>
+<td> contain any string or numeric representation.
+</td></tr>
+<tr>
+<td>bstr </td>
+<td> null-terminated unicode character string value. </td>
+<td> A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
+</td></tr>
+<tr>
+<td>variant </td>
+<td>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
+</td></tr>
+<tr>
+<td>dispatch </td>
+<td>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
+</td></tr>
+<tr>
+<td>unknown </td>
+<td> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
+</td></tr>
+<tr>
+<td>error </td>
+<td> This data type indicates a 32-bit error code (DBTYPE_ERROR)
+</td></tr></table>
+<br>
+<br>
 
 You can pass a binary variable by prefixing the type of the variable with an '&' sign eg. $com(name,member,method,&bstr &binvar)
 

@@ -24,7 +24,7 @@ You can use /sockaccept &lt;newsocket&gt; to accept a socket, mIRC create the ne
 <br><b>Note:</b> If a new connection occurs on a listening socket but there is no on socklisten event matching that socket, the connection is rejected.
 
 You should be checking for $sockerr before accepting the connection to see if an error occurred, here is a list of the possible value for $sockerr in the on SOCKLISTEN event:
-
+<br>
 <br><b>0</b> - New socket successfully accepted.
 <br><b>1</b> - Error occurred on listening socket, $sock().wsmsg will contain a more specific error message. Note that getting this error is considered rare.
 <br><b>2</b> - Error accepting new socket, $sock().wsmsg will contain a more specific error message.

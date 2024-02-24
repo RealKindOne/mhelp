@@ -19,7 +19,7 @@ The <b>ON SOCKOPEN</b> event triggers when a TCP socket connection initiated wit
 <H4>Connection State</H4>
 
 Because the sockopen event triggers for failed connections as well as successful connections, it's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a> before continuing with any commands. Here is a list of the possible values returned by $sockerr in the on SOCKOPEN event:
-
+<br>
 <br><b>0</b> - Success.
 <br><b>3</b> - Failure establishing socket connection: $sock($sockname).wsmsg will contain a more specific error message.
 <br><b>4</b> - Error resolving given hostname.
