@@ -9,7 +9,7 @@
 <b>$+</b> is a construct, it has the look of an identifier but does not return a value. It concatenates two things together.
 In addition to its normal behavior, $+ has a few special functions when used within <a href="/other/eval_brackets.html">evaluation brackets [ ]</a>
 <br>
-$+() on the other hand, is an identifier, taking parameters, where the returned value is just the concatenation of the passed parameters.
+<b>$+()</b> on the other hand, is an identifier, taking parameters, where the returned value is just the concatenation of the passed parameters.
 
 <br>
 <H4>Synopsis</H4>
@@ -20,7 +20,7 @@ $+(value,value1,etc)
 
 <H4>Parameters</H4>
 
-You can pass any number of parameter.
+You can pass any number of parameter to <b>$+()</b>
 
 <H4>Examples</H4>
 
@@ -44,6 +44,8 @@ echo -a $+(%x, %y, $day)
 </pre>
 
 <H4>See also</H4>
-Bracket Evaluation
+<a href="/other/eval_brackets.html">Evaluation Brackets</a>
+  <br>
+  <a href="/identifiers/_plusplus.html">$++</a>
 </body>
 </html>
