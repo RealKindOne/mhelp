@@ -64,7 +64,7 @@ If you are dealing with dynamic parameter and want to use $* again in the same s
 
 <pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here</pre>
 
-<br><b>Note:</b> This sexy workaround works even inside a loop, but a better workaround is to call an alias and to execute the new <b>$*</b> in there, the previous tokens will be cleared and it is faster.
+<br><b>Note:</b> This workaround works even inside a loop, but a better workaround is to call an alias and to execute the new <b>$*</b> in there, the previous tokens will be cleared and it is faster.
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)
