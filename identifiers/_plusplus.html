@@ -5,39 +5,40 @@
 <h1>$++</H1>
 <br>
 <br>
-<b>$++</b> is a very old construct, similar to <b><a href="_plus.html">$+</a></b> concatenator. Behave the same as $+ outside [ ] bracket evaluation. Inside [ ], it's not. There is no real practical purpose to use this identifier.
+<b>$++</b> is a very old construct, similar to <b><a href="_plus.html">$+</a></b> concatenator. <br>
+Behave the same as <b>$+</b> outside <a href="/other/eval_brackets.html">evaluation brackets [ ]</a>. Inside evaluation bracket, it's not. There is no real practical purpose to this identifier.
 
 <h4>History</h4>
 
-$++ was added at a time where bracket evaluation [ ] did not exist and some identifier such as $read where not using parenthesis for parameters (called legacy syntax).
+<b>$++</b> was added at a time where bracket evaluation [ ] did not exist and some identifier such as $read where not using parenthesis for parameters (called legacy syntax).
 There's only one mention of it in versions.txt for mIRC 4.1:
 
 <i>Added $++ identifier which works the same as the $+ identifier but does the concatenation after the previous item has been evaluated, so something like this works now: /say " $+ $read c:\test.txt $++ "</i>
 
-Using " $+ $read c:\test.txt $+ " at the time would cause the legacy $read syntax to consume the second $+ to build the filename, which would be expected.
-Resulting in $read trying to read from file c:\test.txt" with the lone quote included, resulting in error.
-This is where $++ would cause $read to stop and read from file c:\test.txt correctly, and only applies the concatenation with the " after.
+Using " $+ $read c:\test.txt $+ " at the time would cause the legacy $read syntax to consume the second <b>$+</b> to build the filename, which would be expected.
+Resulting in <b>$read</b> trying to read from file c:\test.txt" with the lone quote included, resulting in error.
+This is where <b>$++</b> would cause $read to stop and read from file c:\test.txt correctly, and only applies the concatenation with the " after.
 
-$++ works on version 4.1 and will fix the issue but the next version of mIRC was 4.5, and it introduced bracket evaluation.
+<b>$++</b> works on version 4.1 and will fix the issue but the next version of mIRC was 4.5, and it introduced bracket evaluation.
 on mIRC 4.5 both " $+ $read test.txt $+ " and " $+ $read test.Txt $++ " will result in the line being read from the file being enclosed in quotes, and both crashes right after that.
-If the changelog for mIRC 4.1 was saying that it was now possible to quote a line with $++, the changelog of mIRC 4.5 was now saying that bracket evaluation should be used, no more mention of $++, just regular $+:
+If the changelog for mIRC 4.1 was saying that it was now possible to quote a line with <b>$++</b>, the changelog of mIRC 4.5 was now saying that bracket evaluation should be used, no more mention of <b>$++</b>, just regular <b>$+</b>:
 <i>/notice $nick " $+ [ $read [ -s + [ $parm1 ] ] c:\text\note.txt ] $+ "</i>
-After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming $+ or $++ so it wasn't possible to read from a dynamically built filename until $read() was added.
-So $++ was introduced as a way to stop the $read legacy syntax from consuming $+ to be able to get the concatenation done after $read finished, and it worked for only one version, after that it was made to behave like $+, with exception to inside evaluation bracket
+After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming <b>$+</b> or <b>$++</b> so it wasn't possible to read from a dynamically built filename until <b>$read()</b> was added.
+So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consuming <b>$+</b> to be able to get the concatenation done after <b>$read</b> finished, and it worked for only one version, after that it was made to behave like <b>$+</b>, with exception to inside evaluation bracket
 
 <h4>Outside evaluation bracket</h4>
-Outside evaluation bracket, it does not matter if you use $+ or $++, they both behave as $+, at least there's no known case where $+ and $++ behave differently, but the legacy syntax stops at both as mentioned above:
+Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b>, they both behave as <b>$+</b>, at least there's no known case where <b>$+</b> and <b>$++</b> behave differently, but the legacy syntax stops at both as mentioned above:
 
 //write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt
 
-outputs "ok.txt vs "ok.txt showing that $+ and $++ both concatenated after the previous item was evaluated, both read the file test instead of test.txt
+outputs "ok.txt vs "ok.txt showing that <b>$+</b> and <b>$++</b> both concatenated after the previous item was evaluated, both read the file test instead of test.txt
 
 <h4>Inside evaluation bracket</h4>
-Inside brackets evaluation, $++ does differ from $+. As you may know, $+ inside bracket evaluation is not really behaving like it is outside of them.
+Inside brackets evaluation, <b>$++</b> does differ from <b>$+</b>. As you may know, <b>$+</b> inside bracket evaluation is not really behaving like it is outside of them.
 
 The [ A $++ B ] format does not achieve anything, it evaluates A and B once the same as A $+ B.
 
-The A [ $++ B ] format does not achieve anything, it evaluates A and B once, same as A $+ B, however, if you have anything after in the line, it will break, where $+ does not:
+The A [ $++ B ] format does not achieve anything, it evaluates A and B once, same as A $+ B, however, if you have anything after in the line, it will break, where <b>$+</b> does not:
 
 //echo -ag A [ $++ B ]
   works
@@ -51,10 +52,10 @@ The [ A $++ ] B format is similar to A [ $++ B ] except that it will only work w
 [ A $++ ] B
   * Break: evaluation error
 
-It is worth noting that if you're using the format [ A $+ ] B which has $+ instead of $++ after A, which is a buggy format propagating the non evaluation of token outside the [ ] bracket, you can reset the [ ] behavior with $++, sort of:
+It is worth noting that if you're using the format [ A $+ ] B which has <b>$+</b> instead of <b>$++</b> after A, which is a buggy format propagating the non evaluation of token outside the [ ] bracket, you can reset the [ ] behavior with <b>$++</b>, sort of:
 //echo -ag [ $!!!!!!me $+ ] $!!meB $+ $!!meC $++ $!!meD $+ $!!meE
 outputs $!!!me$!!meB$!!meC$meD$!!meE
-This get $!!meD evaluated twice while $!!meE is back to evaluation 0 with the $+, so the carried over behavior of [ ] are still there, but $++ force an evaluation somehow.
+This get $!!meD evaluated twice while $!!meE is back to evaluation 0 with the <b>$+</b>, so the carried over behavior of [ ] are still there, but <b>$++</b> force an evaluation somehow.
 
 <H4>Compatibility</H4>
 Added: mIRC v4.1 (27 Apr 1996)
