@@ -38,7 +38,7 @@ Further examining the code, it is easy to understand why the above returns such 
 
 Why isn't this returning bcd? Because of the usage of the special marker <b>`~$*</b>, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
 <br>
-Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>$mid(`~$*,2)</b> becomes ~$*, and then mIRC replaces the marker by the token and executes the echo command.
+Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>$mid(`~$*,2)</b> becomes <b>~$*</b>, and then mIRC replaces the marker by the token and executes the echo command.
 <br>
 However, after an operation like $mid in this example, that marker cannot be found. Basically, it cannot be guaranteed that the correct value of the marker inside an identifier can be found later for replacement of that marker. <br>
 
