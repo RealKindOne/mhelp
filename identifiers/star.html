@@ -8,19 +8,25 @@
 <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within <a href="1-.html">$1-</a> The way this works is much like a while loop. <br>
 It has been omitted from the help file since while loops were introduced, especially because the behavior of <b>$*</b> is quirky in some places.
 <br>
-It's extremely powerful because it is much faster than using a while loop on a list of tokens. Understanding how this works is pretty simple, so consider the following:
+It's extremely powerful because it is much faster than using a while loop on a list of tokens. 
 
+<h4>Synopsis</h4>
+$*
+<h4>Parameters</h4>
+None
+<h4>Properties</h4>
+None
+
+Understanding how <b>$*</b> works is pretty simple, so consider the following:
 <pre class ="code">var %list a b c d,%a 1
-while ($gettok(%list,%a,32)) {
+while ($gettok(%list,%a,32) != $null) {
     echo -a $v1
     inc %a
 }</pre>
 This can be written as:
 <pre class ="code">tokenize 32 a b c d | echo -a $*</pre>
-
 The above is much smaller, and a lot faster. Pretty cool, isn't it?
 
-    
 <h4>Notes & Quirks</h4>
 
 Why was the <b>$*</b> identifier removed from the help file in the first place? Well, it was removed because it does not really work the same way that the other identifiers do, and because it is quirky.
