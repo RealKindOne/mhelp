@@ -40,34 +40,25 @@ The <b>/AOP</b> command can also be used to disable or enable this feature as we
       - Optional network name to apply the auto-op to.
 
 <H4>Example</H4>
-Turn on auto op
+Display aop status:
+<pre class ="code">
+/aop
+</pre>
+Enable aop:
 <pre class ="code">
 /aop on
 </pre>
-Add Madgoat to the auto-op list. Address type 2, network Undernet
-<pre class ="code">
-/aop MadGoat 2 Undernet
-</pre>
-Remove Madgoat from the auto-op list
-<pre class ="code">
-/aop -r MadGoat 2 Undernet
-</pre>
-Turn off auto op
+Disable aop:
 <pre class ="code">
 /aop off
 </pre>
+Add Madgoat to the auto-op list. Address type 2, network Undernet:
 <pre class ="code">
-/*
-The above example will output:
-
-* Auto-Op is on
-    -
-* Added *!*@Example.com to auto-op list
-    -
-* Removed *!*@Example.com from auto-op list
-    -
-* Auto-Op is off
-*/
+/aop MadGoat 2 Undernet
+</pre>
+Remove Madgoat from the auto-op list:
+<pre class ="code">
+/aop -r MadGoat 2 Undernet
 </pre>
 
 <H4>Compatibility</H4>

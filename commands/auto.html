@@ -39,28 +39,24 @@ The <b>/auto</b> command can also be used to disable or enable this feature as w
       - Optional network name to apply the auto-op to.
 
 <H4>Example</H4>
+Display auto status:
 <pre class ="code">
-;Turn on auto op
+/auto
+</pre>
+Enable auto:
+<pre class ="code">
 /auto on
-
-;Add Madgoat to the auto-op list. Address type 2, network Undernet
+</pre>
+Disable auto:
+<pre class ="code">
+/auto off
+</pre>
+<pre class ="code">
+; Add Madgoat to the auto-op list. Address type 2, network Undernet
 /auto MadGoat 2 Undernet
 
-;Remove Madgoat from the auto-op list
+; Remove Madgoat from the auto-op list
 /auto -r MadGoat 2 Undernet
-
-;Turn off auto op
-/auto off
-/*
-The above example will output:
-* Auto-Op is on
--
-* Added *!*@Example.com to auto-op list
--
-* Removed *!*@Example.com from auto-op list
--
-* Auto-Op is off
-*/
 </pre>
 
 <H4>Compatibility</H4>
