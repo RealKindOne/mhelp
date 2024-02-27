@@ -18,7 +18,7 @@ The <b>ON SOCKWRITE</b> event triggers when data has been sent on a socket, even
 
 <H4>Writing more</H4>
 
-It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a><br> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
+It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
 <br>
 <br><b>0</b> - The data has been written successfully.
 <br><b>3</b> - Error occurred while trying to send the data, $sock($sockname).wsmsg will contain a more specific error message.
@@ -51,20 +51,21 @@ on *:sockwrite:socket:{
 </pre>
 
 Here is an example that will use on sockwrite to avoid getting an error because the sending buffer is full.
-
+<br>
 Let's assume you want to make a script which allows the user to input some text and create a pastebin link from that text using your favorite pastebin website.
-
+<br>
 The length of the data to be sent would be unknown, to make the script very well, you don't want to send the data line by line, that would be a waste, you want to send the maximum each time.
-
+<br>
 We are naturally not using a single line otherwise our limit would be of the line length limit of mIRC (4150 bytes).
-
+<br>
 The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use <a href="..\other\file_handling.html">file handling</a>. After <a href="..\commands\fopen.html">/fopen</a>'ing the file, use <a href="..\identifiers\fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
 
 <pre class ="code">
 ;When you are about to send
 var %f content.txt
 .fopen handle $qt(%f)
-;we check for the return value of $fread because if you get 0, the file is empty and there is nothing to send
+; We check for the return value of $fread because if you get 0, the file is empty and
+; there is nothing to send
 if ($fread(handle,16384,&tosend) > 0) sockwrite socket &tosend
 
 ;and then :

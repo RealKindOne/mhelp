@@ -7,16 +7,20 @@
 <br>
 The <b>ON TOPIC</b> event triggers in a channel when the topic is changed.
 
-This event fills <a href="..\identifiers\1-.html">$1-</a> with the new channel topic text.
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;#[,#]&gt;</b> - The channel, or channels to target. Leave as '''#''' to target all channels.
-<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+<br><b>&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel window
+<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window
+
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\1-.html">$1-</a> with the new channel topic text.
 
 <H4>Example</H4>
 Send an action to a channel when the topic is changed:
@@ -29,6 +33,7 @@ Note: # and $chan are interchangeable. $parms or $eventparms preserve leading/tr
 
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
+
 <H4>See also</H4>
 <a href="..\other\local_identifiers.html">Local Identifiers</a>
 <a href="..\other\access_levels.html">Access Levels</a>

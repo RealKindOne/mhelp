@@ -7,23 +7,20 @@
 <br>
 The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the <a href="..\commands\halt.html">/halt</a> command.
 
-When triggered by a '''Send''', this event fills the <a href="..\identifiers\filename.html">$filename</a> identifier with the file name attempting to be received.
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:DCCSERVER:&lt;Chat|Send|Fserve&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.s
 <br><b>&lt;Chat|Send|Fserve&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
-
-<br><b>Chat</b> - Triggers if the event is caused by a DCCSERVER Chat.
-<br><b>Send</b> - Triggers if the event is caused by a DCCSERVER Send.
-<br><b>Fserve</b> - Triggers if the event is caused by a DCCSERVER Fserve.
+<br><span style="margin-left: 20px;"><b>Chat</b> - Triggers if the event is caused by a DCCSERVER Chat.
+<br><span style="margin-left: 20px;"><b>Send</b> - Triggers if the event is caused by a DCCSERVER Send.
+<br><span style="margin-left: 20px;"><b>Fserve</b> - Triggers if the event is caused by a DCCSERVER Fserve.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Local Identifiers</H4>
-TODO
+<a href="..\identifiers\filename.html">$filename</a> - When triggered by a <b>Send</b>.
+
 
 <H4>Example</H4>
 Echo to the active screen some information when a <a href="..\commands\halt.html">/halt</a> is being received:

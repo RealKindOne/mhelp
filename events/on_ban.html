@@ -7,26 +7,23 @@
 <br>
 The <b>ON BAN</b> event is triggered whenever a user on a channel has been banned.
 
-
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:BAN:&lt;*.#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">ON &lt;level&gt;:BAN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
-<br><b>&lt;*&gt;&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can separate them by comma.
-
-<br><span style="margin-left: 20px;"><b>*</b> - Any channel window
+<br><b>&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
 <br><span style="margin-left: 20px;"><b>#</b> - Any channel window
-<br><span style="margin-left: 20px;"><b>#channel[,#]</b> - one or more specific channels, separate them by comma
+<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window
 
-<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
 <H4>Local Identifiers</H4>
 <a href="..\identifiers\banmask.html">$banmask</a> - Returns the banmask used to ban the user.
 <br><a href="..\identifiers\bnick.html">$bnick</a> - Returns the nickname of the user being banned. It is important to note that <a href="..\identifiers\bnick.html">$bnick</a><br> is not always filled, as some bans don't always contain the nickname.
 
-== Comparing levels ==
+<H4>Comparing levels</H4>
 
 You can compare the levels of the banner and the banned by prefixing the line with &lt;, &gt;, &lt;=, =&gt;, &lt;&gt; (different than), or =, in the following way:
 
