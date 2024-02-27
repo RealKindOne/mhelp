@@ -2,84 +2,78 @@
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <head><title>$?</title></head>
-<H1>$?</H1>
+<H1>$?[*!N#]</H1>
 <br>
 <br>
 The <b>$?</b> identifier can be used to ask for user-input
 <br>
 <br>
-<b>Note:</b> This feature is deprecated and has been replaced with <a href="input.html">$input</a>.
+<b>Note:</b> This identifier use the old format (legacy syntax) to pass parameter and is deprecated, it has been replaced with <a href="input.html">$input</a>. 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$?="[Input Request Message]"
+$?="[Input Request Message]"<br>
+$?*="[Input Request Message]"<br>
+$?!="[Input Request Message]"<br>
+$?#="[Input Request Message]"<br>
+$?N="[Input Request Message]"<br>
 </pre>
-: ''Displays an input box to get user-input. The "Input Request Message" is optional; if not specified, it default to "Enter reply:"''
+Displays an input box (dialog ) to get user-input. The "Input Request Message" is optional, if not specified, it default to "Enter reply:"
 
-<H4>Usage</H4>
-There are four ways you can use this identifier:
+  
+<H4>Parameters</H4>
+<h5>Type</h5>
+This identifier differs even from typical legacy syntax which use next token as the parameter like <b>$read</b>, and use a different identifier name to pass the type of user input.<br>
+Let's ignore the input request message parameter:
+<br><b>$?</b> Displays an input request with an editbox -- return the content of the editbox
+<br><b>$?*</b> Displays an input request with a passworded editbox, the input is treated as a password field: each character is shown as a '*' -- return the real content of the editbox
+<br><b>$?!</b> Displays an input request with a Yes & No button instead of an editbox (and instead of Ok & cancel buttons) -- return <a href="true.html">$true</a> if you click on <b>Yes</b>, otherwise (including not clicking on <b>No</b> but escaping away) it returns <a href="false.html">$false</a>
+<br><b>$?N</b> Where N is a positive number >= 1, representing the $N identifier, If the value of $N is $null, you are asked to provide a value as though you used $iif($N != $null,$N,$?), otherwise $N is returned.
+<br><b>$?#</b> If the value of $chan is $null, you are asked to provide a value as though you used $iif($chan != $null,$chan,$?), otherwise $chan is returned
+<h5>Text</h5>
+After the Type * ! N or #, you can pass an equal sign '=' followed by a quoted string, representing the text appearing inside the dialog.<br>
+You can use <a href="crlf.html">$crlf</a> to display multiple lines.
 
-<br><b>$?="Give Me Input"</b>
-:: ''Displays an input request with the words 'Give Me Input' above the input box.''
-<br><b>$?*="Give Me Password"</b>
-:: ''Displays a password input request: the input is treated as a password field. The input is shown as •••''
-<br><b>$?!="Give Me Input"</b>
-:: ''Displays an input request with a Yes & No button, with the words 'Give Me Input' above them.''
-::: - If you click '''Yes''', the input returns <a href="true.html">$true</a>, otherwise it returns <a href="false.html">$false</a>, <span style="color: #B30000;">even if you don't click '''No'''</span> and exit out other ways.
-<br><b>$?N="Give me input!</b>
-:: ''Where N is a positive number > 1 representing the $N identifier, If the value of $N is $null, you are asked to provide it, otherwise $N is returned.
-<br><b>$?#="Give me input!</b>
-:: ''where # represent $chan, If the value of $chan is $null, you are asked to provide it, otherwise $chan is returned
-
-You can use <a href="crlf.html">$crlf</a> to get multiple lines.
-
-<br><b>Note:</b> This fills the <a href="_exclamation.html">$!</a> identifier with the value entered in the editbox if you press ok or yes buttons<br>
+<br><b>Note:</b> This fills the <a href="_exclamation.html">$!</a> identifier with the same value returned from the identifier itself<br>
 
 <h4>Notes & quirks</h4>
 
 The $? identifier has some parsing issues, it has been replaced by <a href="input.html">$input</a> to overcome these issues:<br>
 
+If you don't pass the ending quote with the input message parameter, the script is halted. <br>
 
-* $? can be used without the '=' sign as long as you either don't pass as an input request message (just $?), or that this parameter contain a balanced number of quotes:.
+$? can be used without the '=' sign as long as you either don't pass as an input request message (just $?), or that this parameter contain a balanced number of quotes:<br>
 
-** $? $?"test" $?"test words" etc are all valid usages.
+$? $?"test" $?"test words" etc are all valid usages.<br>
 
-** In fact, mIRC start looking for a valid parameter when you start the first quote, $?ignored"this is the message" will actually ignore the part before the first quote
+ In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 
 * //echo -a $?"message with multiple words" $?!"test"
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
 
 <H4>Example</H4>
-Below are three examples that display exactly how to use each individual property:
-
-===Basic===
 <pre class ="code">
+;Echoes whatever the user types into the input field to the active window.
 alias testme {
   echo -a $?="Type something for me"
 }
-</pre>
-: ''Echoes whatever the user types into the input field to the active window.''
-
-<pre class ="code">
+;use password field
 alias testme {
   echo -a $?*="Enter Password:"
 }
-</pre>
-: ''Does the same as the first example, except while the user is typing, the characters are replaced by password characters. The typed value, however, is visibly legible when it is echoed to the active window.''
-
-<pre class ="code">
+;use yes/no button
 alias testme {
   echo -a $?!="Do you like chocolate?"
 }
-</pre>
-: ''Pops up an input request asking if the user likes chocolate. If they click '''Yes''', it echoes <a href="true.html">$true</a> to the active window; otherwise, it echoes <a href="false.html">$false</a>.''
-<pre class ="code">
+;will ask you to type something because $3 is not set
 alias testme {
   tokenize 32 A B
   echo -a $?3
 }
 </pre>
-: ''We tokenize the A B using token 32, which is the character for spaces. The script then asks the user for a 3rd token value, via '''$?3'''. Once the user enters that value, it is then echoed to the active window. If we use $?2 instead, B will be used without asking anything.''
 
+<h4>See Also</h4>
+<a href="input.html">$input</a>
+  <br>  
 </body>
 </html>
