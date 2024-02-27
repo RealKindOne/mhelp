@@ -2630,6 +2630,10 @@
 		<param name="Local" value="commands\logview.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/markasread">
+		<param name="Local" value="commands\markasread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/maxdepth">
 		<param name="Local" value="commands\maxdepth.html">
 		</OBJECT>
