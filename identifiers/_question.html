@@ -47,7 +47,7 @@ $? $?"test" $?"test words" etc are all valid usages.<br>
 
  In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 
-* //echo -a $?"message with multiple words" $?!"test"
+<pre class ="code">//echo -a $?"message with multiple words" $?!"test"</pre>
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
 
 <H4>Example</H4>
