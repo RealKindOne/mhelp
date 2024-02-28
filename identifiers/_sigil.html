@@ -7,7 +7,7 @@
 <br>
 The <b>$$</b> is a construct which allows you to halt the script if the identifier returns $null (it doesn't return a value). If used correctly it's a very short and simple way to halt a routine if a parameter is $null.
 
-<br><b>Note:</b> $$ is not executing a /halt or is not entirely equivalent to /halt, it's effectively a way to halt completely the script execution, just like /halt, except that /halt also implies /haltdef, whereas $$ does not. This can be used inside events to /halt without /haltdef'ing. You can use the construct '$$null' for example.
+$$ is not executing a /halt or is not entirely equivalent to /halt, it's effectively a way to halt completely the script execution, just like /halt, except that /halt also implies /haltdef, whereas $$ does not. This can be used inside events to /halt without /haltdef'ing. You can use the construct '$$null' for example.
 
 
 <H4>Synopsis</H4>
@@ -21,11 +21,11 @@ None
 <H4>Properties</H4>
 None
 
-<H4>Examples</H4>
+<H4>Notes & Examples</H4>
 Halts the echo unless the active window is a channel:
 <pre class ="code">//echo -a $$chan test</pre>
 
-* Note: starting from two $ onward, for example $$$, it returns the literal string "$$" or "$$$" in this case
+Starting from two $ onward, for example $$$, it returns the literal string "$$" or "$$$" in this case
 
 <pre class ="code">//tokenize 32 parm1 parm2 parm3 | echo 3 -a $ $$ | echo 4 -a $$3 | echo 5 -a $$3a,b</pre>
 <H4>Compatibility</H4>
