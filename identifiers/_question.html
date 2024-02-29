@@ -12,40 +12,33 @@ The <b>$?</b> identifier can be used to ask for user-input
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$?="[Input Request Message]"<br>
-$?*="[Input Request Message]"<br>
-$?!="[Input Request Message]"<br>
-$?#="[Input Request Message]"<br>
-$?N="[Input Request Message]"<br>
+$?[*!N#]="text"
 </pre>
-Displays an input box (dialog) to get user-input. The "Input Request Message" is optional, if not specified, it default to "Enter reply:"
+Displays an input box (dialog) to get user-input. The text parameter is optional, if not specified, it default to "Enter reply:"
 
-  
 <H4>Parameters</H4>
-<h3>Type</h3>
+<h6>Type</h6>
 This identifier differs even from typical legacy syntax which use next token as the parameter like <b>$read</b>, and use a different identifier name to pass the type of user input.
 <br><b>$?</b> Displays an input request with an editbox -- return the content of the editbox
 <br><b>$?*</b> Displays an input request with a passworded editbox, the input is treated as a password field: each character is shown as a '*' -- return the real content of the editbox
 <br><b>$?!</b> Displays an input request with a Yes & No button instead of an editbox (and instead of Ok & cancel buttons) -- return <a href="true.html">$true</a> if you click on <b>Yes</b>, otherwise (including not clicking on <b>No</b> but escaping away) it returns <a href="false.html">$false</a>
 <br><b>$?N</b> Where N is a positive number >= 1, representing the $N identifier, If the value of $N is $null, you are asked to provide a value as though you used $iif($N != $null,$N,$?), otherwise $N is returned.
 <br><b>$?#</b> If the value of $chan is $null, you are asked to provide a value as though you used $iif($chan != $null,$chan,$?), otherwise $chan is returned
-<h3>Text</h3>
+<h6>Text</h6>
 After the Type * ! N or #, you can pass an equal sign '=' followed by a quoted string, representing the text appearing inside the dialog.<br>
 You can use <a href="crlf.html">$crlf</a> to display multiple lines.
-<br><br>
+<br><br><br>
 This identifier fills the <a href="_exclamation.html">$!</a> identifier with the same value returned by the identifier itself<br>
 
 <h4>Notes & quirks</h4>
 
 The $? identifier has some parsing issues, it has been replaced by <a href="input.html">$input</a> to overcome these issues:<br>
 
-If you don't pass the ending quote with the input message parameter, the script is halted. <br>
+If you don't pass the ending quote with the text parameter while passing a starting quote, the script is halted. <br>
 
-$? can be used without the '=' sign as long as you either don't pass an input request message (just $?), or that this parameter contain a balanced number of quotes:<br>
+$? can be used without the '=' sign as long as you either don't pass a text parameter, or that this parameter contain a balanced number of quotes, $? $?"test" $?"test words" are all valid usages.<br>
 
-$? $?"test" $?"test words" etc are all valid usages.<br>
-
- In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
+In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 
 <pre class ="code">//echo -a $?"message with multiple words" $?!"test"</pre>
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
