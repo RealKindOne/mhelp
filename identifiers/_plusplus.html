@@ -43,28 +43,28 @@ Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b
 outputs "ok.txt vs "ok.txt showing that <b>$+</b> and <b>$++</b> both concatenated after the previous item was evaluated, both read the file test instead of test.txt
 
 <h4>Inside evaluation bracket</h4>
-Inside brackets evaluation, <b>$++</b> does differ from <b>$+</b>. As you may know, <b>$+</b> inside bracket evaluation is not really behaving like it is outside of them.
+Inside brackets evaluation, <b>$++</b> does differ from <b>$+</b>. As you may know, <b>$+</b> inside bracket evaluation is not really behaving like it is outside of them.<br>
 
-The [ A $++ B ] format does not achieve anything, it evaluates A and B once the same as A $+ B.
+The [ A $++ B ] format does not achieve anything, it evaluates A and B once the same as A $+ B.<br>
 
-The A [ $++ B ] format does not achieve anything, it evaluates A and B once, same as A $+ B, however, if you have anything after in the line, it will break, where <b>$+</b> does not:
+The A [ $++ B ] format does not achieve anything, it evaluates A and B once, same as A $+ B, however, if you have anything after in the line, it will break, where <b>$+</b> does not:<br>
 
-//echo -ag A [ $++ B ]
-  works
-vs
-//echo -ag A [ $++ B ] a
-  * Break: evaluation error
+//echo -ag A [ $++ B ]<br>
+  works<br>
+vs<br>
+//echo -ag A [ $++ B ] a<br>
+  * Break: evaluation error<br>
 
-The [ A $++ ] B format is similar to A [ $++ B ] except that it will only work with no B:
-[ A $++ ]
-  works, will evaluate A once
-[ A $++ ] B
-  * Break: evaluation error
+The [ A $++ ] B format is similar to A [ $++ B ] except that it will only work with no B:<br>
+[ A $++ ]<br>
+  works, will evaluate A once<br>
+[ A $++ ] B<br>
+  * Break: evaluation error<br>
 
-It is worth noting that if you're using the format [ A $+ ] B which has <b>$+</b> instead of <b>$++</b> after A, which is a buggy format propagating the non evaluation of token outside the [ ] bracket, you can reset the [ ] behavior with <b>$++</b>, sort of:
-//echo -ag [ $!!!!!!me $+ ] $!!meB $+ $!!meC $++ $!!meD $+ $!!meE
-outputs $!!!me$!!meB$!!meC$meD$!!meE
-This get $!!meD evaluated twice while $!!meE is back to evaluation 0 with the <b>$+</b>, so the carried over behavior of [ ] are still there, but <b>$++</b> force an evaluation somehow.
+It is worth noting that if you're using the format [ A $+ ] B which has <b>$+</b> instead of <b>$++</b> after A, which is a buggy format propagating the non evaluation of token outside the [ ] bracket, you can reset the [ ] behavior with <b>$++</b>, sort of:<br>
+//echo -ag [ $!!!!!!me $+ ] $!!meB $+ $!!meC $++ $!!meD $+ $!!meE<br>
+outputs $!!!me$!!meB$!!meC$meD$!!meE<br>
+This get $!!meD evaluated twice while $!!meE is back to evaluation 0 with the <b>$+</b>, so the carried over behavior of [ ] are still there, but <b>$++</b> force an evaluation somehow.<br>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.1 (27 Apr 1996)
