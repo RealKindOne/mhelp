@@ -44,22 +44,32 @@ Here's how the answer was calculated:
 The columns where both numbers are zero remain 0. The columns where only 1 of the 2 values is 1, and the column where both values were 1 is zero.
 
 $xor then returns the answer in base 10. Depending on which bits have changed to 0 or 1, the answer can be less than or greater than the 2 numbers:
+<br>
+<br>
+Return 28:
+<pre class ="code">
+//echo -a $base(00011100,2,10)
+</pre>
 
-<pre class ="code">//echo -a $base(00011100,2,10)
-; returns 28
-
+Return 4294967295 because -1 was translated to 4294967295 in a preliminary step. Then, the XOR of all numbers in the valid range against 0 is the same number:
+<pre class ="code">
 //echo -a $xor(-1,0)
-; returns 4294967295 because -1 was translated to 4294967295 in a preliminary step. Then, the XOR of all numbers in the valid range against 0 is the same number.
+</pre>
 
+Returns 0. Both numbers were outside valid range, so both were replaced with 2^32-1, and XOR of the same number against itself is always zero.
+<pre class ="code">
 //echo -a $xor(4444444444,5555555555)
-; returns 0. Both numbers were outside valid range, so both were replaced with 2^32-1, and XOR of the same number against itself is always zero.
+</pre>
 
+Goes to label only if exactly 1 of the 2 variables is 1
+<pre class ="code">
 //var %a $and(%a,1) | var %b $and(%b,1) | if ($xor(%a,%b)) goto label
-; Goes to label only if exactly 1 of the 2 variables is 1
+</pre>
 
+Result is 1, because both fractions are ignored.
+<pre class ="code">
 //echo -a $xor($pi,2.777777)
-; result is 1, because both fractions are ignored.
-
+</pre>
 //echo -a $xor(1,2) = 3 and $xor(-1,-2) is same as $xor(4294967295,4294967294)
 
 //echo -a $xor(-9999999999,0)

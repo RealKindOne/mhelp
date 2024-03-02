@@ -51,33 +51,40 @@ None
 <H4>Example</H4>
 <pre class ="code">
 //var -s %key example key, %digits $totp(%key) , %ctime $calc($ctime //30*30 + 30) | while ($totp(%key,%ctime) != %digits) inc %ctime 30 | echo -a the digits %digits currently valid will next be valid in a 30 seconds window beginning at $asctime(%ctime)
-
+</pre>
 $totp is a specific usage of $hotp, using the number of timestep intervals as the counter, and using 'timestep' as a floor divisor to ensure the result remains the same throughout a time interval.
+<pre class ="code">
 //var %key password , %ctime $ctime , %timestep 30 , %digits 9 , %hash sha256 , %interval $int($calc($ctime / %timestep)) | echo -a interval %interval ctime %ctime $totp(%key,%ctime,%hash,%digits,%timestep) same as $hotp(%key,%interval,%hash,%digits)
-
+</pre>
 Password changing every hour on-the-hour (long intervals are NOT recommended for most usage)
+<pre class ="code">
 //echo -a $totp(Secret case-sensitive Pass Key,$ctime,sha512,9,3600)
-
+</pre>
 Because password is short, allowed number of retries and length of interval should be short enough to deter brute-force attempts.
 
 Recognize password reply for the current 30-sec interval plus the prior or following intervals. Uses defaults sha1, 6 digits, and 30 sec interval:
+<pre class ="code">
 //var -s %t1 $ctime , %t2 = $ctime + 30 , %t3 = $ctime - 30 , %totp1 $totp(Secret Key,%t1) , %totp2 $totp(Secret Key,%t2) , %totp3 $totp(Secret Key,%t3) , %reply $rand(100000,999999) | if ($istok(%totp1 %totp2 %totp3,%reply,32)) echo Accepted $v1
-
+</pre>
 For internal use only because $ticks is different for everyone, password changes every 2.5 seconds, but not necessarily at :00 seconds rollovers.
 $totp(Secret Key,$ticks,sha256,9,2500)
 
 The RFC does not restrict timestep other than being an integer in the range [0,2^64-1]. However $totp limits the timestep range to [1,172800], and defaults to 30 if the parameter is not used, or is outside that range - valid or not. Because timestep outside the range 1-172800 defaults to 30, must calculate larger intervals separately, by changing timestep=1 and then calculating the adjusted 'time' value.
 
+<pre class ="code">
 //echo -a $totp(secret,$ctime,sha256,9,604800) changes every 30 seconds because a weekly timestep is not accepted while $totp(secret,$calc($ctime //604800),sha256,9,1) returns the expected result.
-
+</pre>
 * If you want a daily or weekly digits code, you may want to also adjust for the timezone and possibly the day of the week or the daylight setting.
 * Digits that changes daily at 9am local clock:
+<pre class ="code">
 //var -s %interval $int($calc(($ctime -9*3600)  // 86400))
-* Digits that changes daily at 9am UTC:
+</pre>* Digits that changes daily at 9am UTC:
+<pre class ="code">
 //var -s %interval $int($calc(($ctime -$timezone -$daylight -9*3600)  // 86400))
-* Digits that changes weekly on Tuesday at 6pm UTC (where Sunday=0 Tuesday=2 Saturday=6 and 6pm is the 18th hour):
+</pre>* Digits that changes weekly on Tuesday at 6pm UTC (where Sunday=0 Tuesday=2 Saturday=6 and 6pm is the 18th hour):
+<pre class ="code">
 //var -s %interval $int($calc(($ctime +86400*4 -$timezone -$daylight -86400*2 -18*3600)  // 604800)) | echo -a password for week %interval is $totp(secret,%interval,sha256,9,1)
-
+</pre>
 Since $totp does not quit with an error if the key is blank, your script can prevent using $totp without the valid key:
 * halt script with no message if %key is blank: $totp($$+(%key))
 * halt script with syntax error if %key is blank - requires finding a parameter where it quits with an error message, and 'time' or 'timestep' is not that, as it always returns a result based on *some* number unless it is blank, in which case it returns $null. However you can get it to halt with a syntax error message if the hash parameter is a string not containing a valid hashname, or if the digits parameter is a string that's not an integer in the 3-10 range:
@@ -85,20 +92,24 @@ $totp(%key,$ctime,$iif(%key == $null,foobar,sha1))
 
 This next example should be read before using MD5 as the hashname. Because of the HOTP/TOTP design, using MD5 results in the effect that 1/16th of the time the return value will always be 1 of 8 specific digit values, rather than the expected where using digits 3-9 has close to 1 per 10^digits chance for each number, and using digits=10 having each number returned 1 per 2^31 chance. The alias below calculates 1 million random TOTP codes using sha1 as the hashname, to see how many times any of these 8 10-digit numbers is returned. As expected, the number of matches is most likely zero, with a 1 per 2147 chance of there being 1 match. However changing the hashname to md5 results in the number of matches being approximately 1/16th of the number of tests, or 62500.
 
+<pre class ="code">
 //echo -a WARNING: SLOW | var %list 0251658240 0520093696 0788529152 1056964608 1325400064 1593835520 1862270976 2130706432 , %i 0 , %c 0 | while (%i < 1000000) { if ($istok(%list,$hotp($rand(1,999999999999),$rand(1,999999999999),sha1,10),32)) inc %c | inc %i } | echo -a %c matches out of %i results
-
+</pre>
 The above problem cannot be solved by rejecting these 8 results and requiring different ones, because there are other groups of digits which also have the same bias preference, though to a lesser degree. For example, a different 1/16th of the time the result can only be from a different group of 2048 numbers.
 
 If a hex key is shorter than 128 digits (or 256 if hash is sha384 or sha512) and is not one of the magic hex lengths of 40 64, you can make the key be seen as hex by appending enough '0' digits to make it be length 128:
 
+<pre class ="code">
 //var -s %key1 $base($rand(0,4294967295),10,16,8) , %key40 $left(%key1 $+ $str(0,128),40)  , %key64 $left(%key1 $+ $str(0,128),64) , %key128 $left(%key1 $+ $str(0,128),128) | echo -a $totp(%key40) same as $totp(%key64) same as $totp(%key128)
-
+</pre>
 Demonstrates that keys longer than the 64 or 128 bytes are replaced by the shorter hash digest of the key. %key1 is seen as text, and %key2 is seen as hex:
 
+<pre class ="code">
 //var -s %key1 $str(x,64) $rand(1,999999999) , %key2 $sha1(%key1) | echo -a $totp(%key1) same as $totp(%key2)
-
+</pre>
 The equivalent base32 lengths for the hex lengths 128 and 256 are 103 and 205. However the only 3 base32 lengths are 16,26,32. If you have a base32 key any length up through 103, you can translate it to a hex key of 128 digits and it will return the correct result:
 
+<pre class ="code">
 //var -s %base32 $regsubex($str(x,99),/x/g,$rand(a,z)) | bset -t &v 1 %base32 | noop $decode(&v,ba) | var -s %hexkey $regsubex($bvar(&v,1-),/([0-9]+)/g,$base(\t,10,16,2)) | while ($numtok(%hexkey,32) < 64) var %hexkey %hexkey 00 | var -s %hexkey2 $remove(%hexkey,$chr(32)) | echo -a spaces optional in hex key: $totp(%hexkey) same as $totp(%hexkey2)
 </pre>
 
