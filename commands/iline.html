@@ -45,13 +45,14 @@ The <b>/iline</b> command is used to insert a single line of text to a custom wi
 <H4>Example</H4>
 <pre class ="code">
 Alias Example {
-  ; open a desktop custom window (main window is a listbox, no side-listbox and with an editbox)
+  ; Open a desktop custom window (main window is a listbox, no side-listbox
+  ; and with an editbox)
   Window -lde @Foo
 
   ; Add a line, line colored in yellow (8)
   Aline 8 @Foo Line A
 
-  ; insert at line 1, color Dark Green (3), selected, clear old selection
+  ; Insert at line 1, color Dark Green (3), selected, clear old selection
   iline -s 3 @Foo 1 Line B
 }
 </pre>

@@ -12,7 +12,6 @@ Most notably, the results from <a href="..\identifiers\calc.html">$calc</a> are 
 
 <H4>Synopsis</H4><pre class ="code">
 /bigfloat [on|off]
-/bigfloat
 </pre>
 
 <H4>Switches</H4>
@@ -32,18 +31,29 @@ None
 </pre>
 
 <H4>Affected</H4>
-<pre class ="code">
+
 * Commands:
 /if ()
 /while ()
 When these compare the $v1 and $v2 terms, being in .bigfloat mode causes the comparison to not be in doubles mode. For example, since doubles mode only keeps the most significant 53 bits, if() and while() both think that 2^53 and 2^53+1 are the same number. However this shows that /bigfloat mode is able to see them as different, and the 'match bigfloat' message does not display:
+<pre class ="code">
 //var -s %a.bf 2 ^ 53 , %b.bf %a.bf + 1 , %a %a.bf , %b %b.bf , %x $bigfloat , %y.bf $bigfloat, %z $bigfloat , %foo $bigfloat %anything.bf $bigfloat | if (%a.bf == %b.bf) echo -a match bigfloat | if (%a == %b) echo -a match doubles
+</pre>
 Note how each individual varset was in bigfloat mode only if %anything.bf is used, as evidenced by x y z being set to $false $true $false. Using %varname.bf only affects each individual command, so while the 1st if() jumps into bigfloat mode due to using a varname ending with '.bf', that has no effect on the following command. Using %varname.bf only the *remainder* of the command, which was why %foo was set to $false $true. Since "/bigfloat off" is the only way to disable bigfloat mode, there's no way to jump-out-of bigfloat mode for the remainder of that command once %anything.bf has triggered bigfloat mode, so the following shows $false $true $true:
+
+<pre class ="code">
 //echo -a $bigfloat %varname.bf $bigfloat %varname.bx $bigfloat
+</pre>
+
 The /bigfloat ON|OFF used in the command parm behaves as if a child alias and has no effect on the outer(parent) command, so the following echoes are "$false $false" and "$true $true"
+
+<pre class ="code">
 //echo -a %varname.bx $bigfloat $left($findfile(.,*,1,bigfloat on ),0) $bigfloat
 //echo -a %varname.bf $bigfloat $left($findfile(.,*,1,bigfloat off),0) $bigfloat
+</pre>
+
 var/set math:
+
 note how %a.bf causes accurate result beyond doubles range, while the %a.bx variable only has 53 bits accuracy - though using the /bigfloat ON command would have enabled both.
 //var -s %a.bf 2 ^ 64 , %a.bx 2 ^ 64
 * Set %a.bf to 18446744073709551616
@@ -67,12 +77,14 @@ $and $xor $or $not
 $isbit $biton $bitoff
 
 $base may be the only function which autodetects whether the input is larger than 2^53 and automatically jumps into bigfloat results, and the next example does not need to use .bf variables nor be in BIGFLOAT ON mode to return results with more than 53 bits of accuracy:
-
+<pre class ="code">
 //echo -a $base($base($sha1(abc),16,10),10,16) same as... | echo -a $upper($sha1(abc))
+</pre>
 
 The scope of bigfloat mode is that the called alias inherits the mode setting from the parent, but the parent is not affected by any changed setting in the child alias. And, enabling /bigfloat ON is only in effect for the duration of that alias until using /bigfloat off, so it's not a global setting that can be applied to all scripts without placing /BIGFLOAT ON at the beginning of each child alias and in each ON EVENT handler. For example, the next alias is called from the editbox...
-
+<pre class ="code">
 alias bftestsub { var %mode $bigfloat | bigfloat $1 | return $qt(%mode -> $bigfloat) }
+</pre>
 
 //bigfloat off | bftestsub on | echo -a $bigfloat
 * BigFloat is off
@@ -98,11 +110,15 @@ Another is that for some usage this can needlessly trigger MAPM math routines wh
 Another is that you may need to verify the actual results to see if the bigfloat output is appropriate for your script, such as how in normal doubles mode it knows that $log2(2) is 1, but in .bigfloat mode it thinks the answer is 0.999999999999999985890799396948
 
 While this is named 'bigfloat' it also allows improved accuracy for extremely large 'bigintegers', though calculations can sometimes be very slow when some parameters are huge. However the speed of scripts can be affected by how well the operations can be supported by the MAPM package that is geared toward long and precise fractions, but doesn't have an optimized method for some simple things like bitwise math operations. Also, some functions like $powmod are intended for usage in bigfloat mode, and does not provide accurate math in doubles mode when some parameters are as small as sqrt(2^53). For example, (odd^positive mod even) must always be odd, but the following example returns an even-number result while in doubles mode, but the 3rd powmod being identical to the 1st powmod returns the correct result due to the 2nd powmod having been jumped into bigfloat mode due to using a varname ending with .bf
+
+<pre class ="code">
 //var -s %base.bf 3 , %base %base.bf , %exp 46 , %modulus 2 ^ 32 | echo -a $powmod(%base,%exp,%modulus) $bigfloat $powmod(%base.bf,%exp,%modulus) $bigfloat $powmod(%base,%exp,%modulus)
+</pre>
+
 By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accurance for some commands that need it, while skipping the slowdown for commands that don't.
 
 <H4>Bitwise</H4>
-<pre class="code">
+
 In v7.72, your mileage may vary, but beginning v7.73, even if bigfloat mode is enabled and if the numeric result would be expected to be >= 2^32, the bitwise identifiers return the same values as the historical uint32 range, unless the additional 'bitlength' parameter B is ALSO used. This means a 2nd parameter for $not and a 3rd parm for $and $xor $or $biton $bitoff $isbit. The B parameter defaults as 32 when not used, but if it is used, it's expected to be a 2^n value >= 32. But when it is not such a number, $int(B) is rounded up to be the next higher 2^n value.
 
 This ensures that these identifiers return the doubles-mode result unless the script signals their intent to have biginteger results by using the B parameter while in .bf mode. The B parameter is then used as replacement for 32 in a 2^B clipping behavior for the max value.
@@ -119,10 +135,12 @@ d.bf uses B=96 which is rounded up to B=128, so it's first clipped to 2^128-1 be
 e.bf is same as d.bf because B=65 and B=96 are both rounded to B=128
 f.bx is same as b.bf because B parm is ignored because it wasn't in .bf mode
 g.bf used B=512 to cast -3 by +2^512 to a positive before doing the math
-
+<pre class="code">
 //var -s %a.bf $calc(2^256-1) , %a.bx %a.bf , %b.bf $xor(%a.bf,3) , %c.bf $xor(%a.bf,3,256) , %d.bf $xor(%a.bf,3,96) , %e.bf $xor(%a.bf,3,65) , %f.bx $xor(%a.bx,3,512) , %g.bf $xor(-3,3,512)
+</pre>
 
 Being in bigfloat mode also affects $numbits, which cannot return larger than 32 in non-bigfloat mode:
+<pre class ="code">
 //echo -a $numbits($calc(2^53)) shows 32 because $bigfloat is false but %null.bf $numbits($calc(2^53)) shows 54 because $bigfloat is true
 </pre>
 
@@ -131,7 +149,8 @@ Being in bigfloat mode also affects $numbits, which cannot return larger than 32
 Added: mIRC v7.72 (27 Nov 2022)
 
 <H4>Notes</H4>
-None<br>
+None
+
 <H4>See also</H4>
 <a href="..\identifiers\abs.html">$abs</a><br>
 <a href="if.html">/if</a><br>

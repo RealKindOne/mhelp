@@ -40,20 +40,24 @@ Notes
 
 
 <H4>Example</H4>
+
 <pre class ="code">
-
-
 //hfree -w test | hload -im1n test $nopath($mircini) colors | var %tot $hget(test,0).item , %i 1 | while (%i &lt;= %tot) { echo -a $ord(%i) item is $hget(test,%i).item containing $hget(test,$hget(test,%i).item) | inc %i }
+</pre>
 * Loads color scheme names and event colors into items named after the integers 1 and greater. These are contained in the colors section of mirc.ini. If the 'n' switch were not used, the item names would instead be named the same as the items in mirc.ini; n0 n1 etc.
 * If using the -n switch, do not expect the same values to be loaded into the same integer item names from which they were /hsave'ed to disk, even if using 1 bucket.
 
+<pre class ="code">
 //hload -m test no_such_file | echo -a does not display
+</pre>
 * Attempting to load a non-existent filename is an error which halts execution of the script.
 
+<pre class ="code">
 //bset &var 1 $regsubex($str(x,256),/x/gi,$calc(\n -1) $chr(32)) | hfree -w test | hadd -mb test ascii &var | hsave -b test test.dat | hload -mb test2 test.dat | noop $hget(test,ascii,&copy) | echo 4 -a $bvar(&copy,1-)
+</pre>
 * Binary variable can be accurately saved to a hashtable item, then /hsave'ed to disk with the -b switch, then /hload'ed from disk with the -b switch. The display shows &copy containing an un-altered copy of the original binary variable.
 
-</pre>
+
 
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (14 Dec 2000)

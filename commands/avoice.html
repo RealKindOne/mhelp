@@ -41,29 +41,24 @@ The <b>/avoice</b> command can be used to disable or enable this feature as well
       - Optional network name to apply the auto-voice to.
 
 <H4>Example</H4>
+Display avoice status:
 <pre class ="code">
-;Turn on auto voice
+/avoice
+</pre>
+Enable avoice:
+<pre class ="code">
 /avoice on
-
-;Add Madgoat to the auto-voice list. Address type 2, network Undernet
+</pre>
+Disable avoice:
+<pre class ="code">
+/avoice off
+</pre>
+<pre class ="code">
+; Add Madgoat to the auto-voice list. Address type 2, network Undernet
 /avoice MadGoat 2 Undernet
 
-;Remove Madgoat from the auto-voice list
+; Remove Madgoat from the auto-voice list
 /avoice -r MadGoat 2 Undernet
-
-;Turn off auto voice3
-/avoice off
-/*
-The above example will output:
-
-* Auto-Voice is on
--
-* Added *!*@Example.com to auto-voice list
--
-* Removed *!*@Example.com from auto-voice list
--
-* Auto-Voice is off
-*/
 </pre>
 
 <H4>Compatibility</H4>

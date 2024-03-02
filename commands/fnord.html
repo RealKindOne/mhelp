@@ -18,29 +18,23 @@ None
 <H4>Parameters</H4>
 None
 
-Bugs
-----
-
-As of version 7.0, the text is the default color of the font due to the internal background/foreground color check that ensures the color of the text is not mistakenly set as the color of the background. The bug was fixed in mIRC 7.21.
-
 <H4>Example</H4>
 <pre class ="code">
-
-
-    /fnord
-
+/fnord
+</pre>
 The above example is the equivalent of the following echo command:
-
-
-    //echo -aeq $+($chr(3),$color(background),$chr(44),$color(background),Nothing to see here.)
-    Nothing to see here.
+<pre class ="code">
+//echo -aeq $+($chr(3),$color(background),$chr(44),$color(background),Nothing to see here.)
+</pre>
+<pre class ="code">
+Nothing to see here.
 </pre>
 
 <H4>Compatibility</H4>
-6.3
+Added: mIRC v6.3 (16 Aug 2007)
 
 <H4>Notes</H4>
-None
+As of version 7.0, the text is the default color of the font due to the internal background/foreground color check that ensures the color of the text is not mistakenly set as the color of the background. The bug was fixed in mIRC 7.21.
 
 <H4>See also</H4>
 <a href="echo.html">/echo</a><br>
