@@ -61,7 +61,7 @@ on *:text:!address:#:msg $chan address is $address
 
 If your UserID string is ABCDEFGHIJ, your address appears like ABCDEFGHIJ@host when identd is enabled and appears as ~ABCDEFGHI@host when it's disabled. When identd is enabled, the Type-3 *user mask is *BCDEFGHIJ@*.host, and *ABCDEFGHI@*.host when identd is disabled. (The server drops the last letter of the UserID only when the tilde causes the length to exceed 10, so RAT@host losing identd becomes address ~RAT@host without dropping the ending letter.)<br />
 
-The identd-enabled and identd-disabled Type-3 address masks of 10-character UserID's don't match each other because of the masks disagree over whether the UserID always ends with the J or always ends with an I. Also, the unneccessary removal of a non-tilde at the beginning of *user causes it to see an identd-enabled RAT@host and create Type-3 *AT@*.host mask which matches CAT@host, SAT@host, FAT@host, etc.
+The identd-enabled and identd-disabled Type-3 address masks of 10-character UserID's don't match each other because of the masks disagree over whether the UserID always ends with the J or always ends with an I. Also, the unnecessary removal of a non-tilde at the beginning of *user causes it to see an identd-enabled RAT@host and create Type-3 *AT@*.host mask which matches CAT@host, SAT@host, FAT@host, etc.
 
 This alias returns a slight alteration of $address(nick,3) which matches both identd/non-identd nicks, and limits false matches of other UserID's. It can be called like: //echo -a $address3alt(nick)
 

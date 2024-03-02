@@ -14,21 +14,21 @@ The <b>$nick</b> identifier can be called in two ways:
 <H4>Synopsis</H4>
 <pre class ="code">
 $nick
-$nick(#,N/nick,aohvr,aohvr)
+$nick(#,N/nick,aohvr,aohvr)[.property]
 </pre>
 <H4>Parameters</H4>
-<b>#</b>The channel name to look up nickname information.
+<b>#</b> - The channel name to look up nickname information.
 
-<br><b>N/nick</b>Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
+<br><b>N/nick</b> - Can be either a number to look up a particular Nth user (if N is 0, returns total matching users based on criteria), or can be a nickname to target a specific user.
 
 <br><b>aohvr</b>Optional: The first <b>aohvr</b> characters target all users of a <b>specific type</b>, while the second <b>aohvr</b> excludes a <b>specific type</b> from the target list.
 
 <H4>Specific Types</H4>
-<br><b>a</b>All users
-<br><b>o</b>Operators
-<br><b>h</b>Helpers
-<br><b>v</b>Voiced
-<br><b>r</b>Regular users
+<br><b>a</b> - All users
+<br><b>o</b> - Operators
+<br><b>h</b> - Helpers
+<br><b>v</b> - Voiced
+<br><b>r</b> - Regular users
 
 
 Except for Type 'a' which has been defined as all users in the channel, channel modes given to users and pnick characters can also be used as nick types. This includes networks where channel owner is given mode +q and pnick character ! or ~, and superop is given mode +a and pnick character &. This next table assumes channel is at a network supporting the additional channel modes given to nicks.

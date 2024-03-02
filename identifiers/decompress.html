@@ -26,9 +26,11 @@ There are patterns that often appear near the beginning, but there's no guarante
 Returns 1 if it decompressed the file, or 0 if it did not. A file can be compressed multiple times, so a decompressed file should either not begin with small-x or return 0 from a decompress attempt. 0 can indicate there's no-such-file, the file wasn't already compressed, or a failure to decompress corrupted data.
 
 
+
+<pre class ="code">
 ; Compresses binary variable then decompresses it. Assumes you have at least 1 color scheme containing white.
 //bset -t &snip 1 $read($mircini,ntw,*16777215*) | echo 4 -a / $bvar(&snip,1-) | noop $compress(&snip,b) | echo 5 -a \ $bvar(&snip,1-) | noop $decompress(&snip,b) | echo 6 -a $bvar(&snip,1-)
-
+</pre>
 
 <br><b>Note:</b>Cannot run as an identifier in a statement by itself, but should be an argument to another command or %variable.
 

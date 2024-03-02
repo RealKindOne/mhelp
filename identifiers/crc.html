@@ -5,9 +5,7 @@
 <H1>$crc</H1>
 <br>
 <br>
-
-The <b>$crc</b> calculates the [[32-bit checksum]] of a text, <a href="..\other\binary_variables.html">binary_variables</a><br>
-, or file. Hash is 32-bits, shown as 8 upper-case hexadecimal characters.
+The <b>$crc</b> calculates the 32-bit checksum of a text, <a href="..\other\binary_variables.html">binary_variables</a>, or file. Hash is 32-bits, shown as 8 upper-case hexadecimal characters.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -36,7 +34,7 @@ None
 
 <pre class ="code">
 ; Calculate the CRC-32 hash of the 256 bytes from $chr(0) through $chr(255):
-//var %i 0 | while (%i isnum 0-255) { bset &ascii $calc(1+%i) %i | inc %i } | echo -a $bvar(&ascii,1-) | echo -a $crc(&ascii,1) should be 29058C73 | write -c ascii.dat | bwrite ascii.dat 0 256 &ascii 
+//var %i 0 | while (%i isnum 0-255) { bset &ascii $calc(1+%i) %i | inc %i } | echo -a $bvar(&ascii,1-) | echo -a $crc(&ascii,1) should be 29058C73 | write -c ascii.dat | bwrite ascii.dat 0 256 &ascii
 </pre>
 
 <pre class ="code">
@@ -77,10 +75,10 @@ For calculating hash of $null string it returns nothing instead of the checksum 
 When given invalid N outside the 0-2 range, it uses default 2 instead of halting script with an error.
 
 <H4>Compatibility</H4>
-For $crc(filename):
-Added: mIRC v5.6 (03 Jun 1999) 
-For N=0-2 parameter:
-Added: mIRC v6.1 (29 Aug 2003) 
+For $crc(filename):<br>
+Added: mIRC v5.6 (03 Jun 1999)<br>
+For N=0-2 parameter:<br>
+Added: mIRC v6.1 (29 Aug 2003)<br>
 <H4>Notes</H4>
 None
 <H4>See also</H4>

@@ -18,17 +18,18 @@ $noqt(text)
 None
 
 <H4>Example</H4>
-Does not affect double-quotes within the text, only removes a single double-quote at the start/end of text.
+Does not affect double-quotes within the text, only removes a single double-quote at the start/end of text.<br>
 
-<pre class ="code">//var %ini $qt($mircini) echo -a %ini | echo -a $noqt(%ini)
-; 1st line returns path\filename of your mirc.ini with double-quotes around it.
-; 2nd line shows filename with surrounding double-quotes removed
+<br>1st line returns path\filename of your mirc.ini with double-quotes around it.
+<br>2nd line shows filename with surrounding double-quotes removed
+<pre class ="code">
+//var %ini $qt($mircini) echo -a %ini | echo -a $noqt(%ini)
 </pre>
 
+No change to internal quotes, removes 1 double-quote from start of string, no alteration of string ending because no double-quote already present<br>
+Returns: ""Test""String
 <pre class ="code">
 //echo -a $noqt("""Test""String)
-; returns: ""Test""String
-; No change to internal quotes, removes 1 double-quote from start of string, no alteration of string ending because no double-quote already present.
 </pre>
 
 <H4>Compatibility</H4>

@@ -13,16 +13,20 @@ The <b>$dialog()</b> identifier can be used in one of two ways:
 
 <H4>Modal vs Modeless</H4>
 mIRC has the ability to create a special kind of dialog, known as a modal dialog. Modal dialogs can be called from within a script using the $dialog() identifier. These dialogs are special in that they stop a script from continuing until one of the following conditions are met:
-
-# <span style="color: #BA0000;">The dialog is closed</span>
-# <span style="color: #BA0000;">The dialog returns a value</span>
-
+<br>
+<br>
+<span style="color: #BA0000;">The dialog is closed</span>
+<br>
+<span style="color: #BA0000;">The dialog returns a value</span>
+<br>
+<br>
 Modal dialogs are different from modeless dialogs for a variety of reasons, but the most important ones are:
-
-# They don't allow users to do anything else in mIRC until their conditions are met.
-# They return information via the $dialog() identifier inside the script.
-# They are generally only used when immediate action is necessary.
-
+<br>
+<br>They don't allow users to do anything else in mIRC until their conditions are met.
+<br>They return information via the $dialog() identifier inside the script.
+<br>They are generally only used when immediate action is necessary.
+<br>
+<br>
 Modal dialogs should never be used unless absolutely necessary; they are mainly for critical user input. While modeless dialogs can be executed and navigated away from, or even minimized, it should be noted that modal dialogs do not have these abilities.
 
 <H4>Creating A Modal Dialog</H4>
@@ -36,12 +40,12 @@ Here we can break down what we are looking at:
 <br>Name - The name you will give to the dialog and use to refer to it later.
 <br>Table - The table name used to create the dialog
 <br>Parent - The parent window of the dialog, this can be a window name or one of the following:
-:: -1 : Desktop window
-:: -2 : Main mIRC window
-:: -3 : Currently active window
-:: -4 : Currently active dialog (<br><b>Note:</b>If there is no dialog open, this defaults to -3)
+<br><span style="margin-left: 20px;"><b>-1</b> - Desktop window
+<br><span style="margin-left: 20px;"><b>-2</b> - Main mIRC window
+<br><span style="margin-left: 20px;"><b>-3</b> - Currently active window
+<br><span style="margin-left: 20px;"><b>-4</b> - Currently active dialog (<b>Note:</b> If there is no dialog open, this defaults to -3)
 
-<br><b>Note:</b>''This type of dialog cannot be called from a remote script event.''
+<br><b>Note:</b> This type of dialog cannot be called from a remote script event.
 
 <H4>Use As An Identifier</H4>
 $dialog(), in use as an identifier, can be used to get information regarding any dialog you specify, and its properties. To get the properties of a dialog you specify, you simply append a period after ''$dialog()'' and the property name, such as $dialog(mydialog).title to get the title of the dialog named ''mydialog''. Don't worry, this is all explained further below.
@@ -65,7 +69,7 @@ $dialog(), in use as an identifier, can be used to get information regarding any
 <br><b>.result</b> - Same as above, but specifies the result button ID.
 <br><b>.focus</b> - Allows you to retrieve the ID of the object control, within the dialog, that currently has focus.
 <br><b>.tab</b> - Returns the ID of the tab that is currently being displayed.
-<br><b>.active</b> - If the dialog is the active window, returns $true, otherwise returns $false..
+<br><b>.active</b> - If the dialog is the active window, returns $true, otherwise returns $false.
 <br><b>.hwnd</b> - Returns the window handle of the current dialog window.
 
 <H4>Compatibility</H4>

@@ -10,27 +10,24 @@
 <pre class ="code">
 $avoice
 $avoice(address/N)[.property]
-
-<br><b>Note:</b>$avoice by itself returns <a href="true.html">$true</a> if auto-voice is enabled, otherwise it returns <a href="false.html">$false</a>.
 </pre>
+
 <H4>Parameters</H4>
 <b>address</b> - Returns any match based on the specified address from the auto-voice list.
-
 <br><b>N</b> - Returns any match in the auto-voice list based on the Nth entry in the list. If N is 0, the total amount of addresses in the auto-voice list will be returned.
 
 <H4>Properties</H4>
 <b>.type</b> - If a match is found, returns the list of channels associated with its auto-voice.
-
 <br><b>.network</b> - Returns which network the auto-voice is associated with.
 
 <H4>Example</H4>
-Echo to the active window whether or not auto-voice is enabled
+Echo to the active window whether or not auto-voice is enabled, $true for enable, $false for disabled:
 <pre class ="code">//echo -a $avoice</pre>
 
-Echo to the active window the total number of addresses in the auto-voice list
+Echo to the active window the total number of addresses in the auto-voice list:
 <pre class ="code">//echo -a $avoice(0)</pre>
 
-Echo to the active window the network that the match is associated with
+Echo to the active window the network that the match is associated with:
 <pre class ="code">//echo -a $avoice(*testhost.com).network</pre>
 
 <H4>Compatibility</H4>
@@ -38,6 +35,7 @@ Added: mIRC v5.9 (26 Apr 2001)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="aop.html">$aop</a><br>
 <a href="auto.html">$auto</a><br>

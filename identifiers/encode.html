@@ -114,9 +114,10 @@ Echo to the active screen the following encode text, using Mime (base64) encodin
 <pre class ="code">//echo -a $encode(Hello there! This will be encoded using Mime.,m)</pre>
 Mime encodes 3 input bytes as 4 output text characters using a 64-item alphabet, padded with '=' to a length that's a multiple of 4.
 
-<pre class ="code">
+<br>
+<br>
 The 'N' parameter is ignored by $decode, but is used to encode individual chunks of long binary variables, potentially chopping UTF8 encoding characters across separate chunks. When 'N' is 0, returns the number of chunks in the input string, otherwise for N >= 1 it encodes the Nth group of 45 bytes in the input string. Note how this example splits the encoding, resulting in chunk 1 ending with the alt+195 byte and the chunk 2 begins with the alt+169 byte:
-
+<pre class ="code">
 //var -s %a $str($chr(233),100)) , %b $encode(%a,m,1) , %c $encode(%a,m,2) , %d $decode(%b,m) vs $decode(%c,m)
 </pre>
 
@@ -129,7 +130,15 @@ Decoding with matching u/m/a without using e|c displays the header and cipher bi
 
 <pre class ="code">
 /*
-These are 2 methods of encrypting channel messages where everyone in a channel uses the same shared password. They intentionally does not support '/me action' or /query windows, and handle only 1-word messages of length 25+. To defend against different users unknowingly using the same salt, the messages include the sender's nick as part of the key, which causes the same salt to NOT generate the same encryption key. Message is encrypted using a random salt, but the 'Salted__' header is removed from the mimed string before sent to channel, then added to message before decryption. Add 'g' switch to echoes to avoid them being logged.
+These are 2 methods of encrypting channel messages where everyone in a channel
+uses the same shared password. They intentionally does not support '/me action'
+or /query windows, and handle only 1-word messages of length 25+. To defend
+against different users unknowingly using the same salt, the messages include
+the sender's nick as part of the key, which causes the same salt to NOT generate
+the same encryption key. Message is encrypted using a random salt, but the
+'Salted__' header is removed from the mimed string before sent to channel,
+then added to message before decryption. Add 'g' switch to echoes to avoid
+them being logged.
 */
 ON *:TEXT:=*:##maroon,#channelname: { if (($2 != $null) || ($len($1) < 25)) return | fake_secret_chat $1 }
 ON &*:INPUT:##maroon,#channelname:{ if ((/* iswm $1) || ($ctrlenter) || ($inpaste)) return | fake_secret_chat $1- }
@@ -157,7 +166,24 @@ alias fake_secret_chat1 {
 }
 
 /*
-This is a more complicated channel encryption, which includes a shared salt contained in the #channel topic, allowing the same shared password to behave similar to an unrelated password each time the #topic salt changes. This uses a superior method to hash the key parameter without using MD5. Each message generates a new 9-byte string where each byte can be values 0-255, and the 12-byte mime-encoding of this string is included in the message sent to the channel, instead of the actual IV or Salt used to encrypt the message. This mime-string + sender's nick + topic salt + main password are hashed with SHA-512 to create a 64-byte secret string which is split into a 56-byte literal key parameter and an 8-byte salt parameter. Since text salt parameters are truncated if they contain embedded 0x00 bytes, the 9-byte message salt is changed to avoid strings where the 1st 7 bytes contain the 0x00 byte. The attacker cannot know either the key parameter or the IV without also knowing the %main_key for that channel. Assuming the 9-byte string is generated randomly, the only way to identify which of the 2 aliases was used to encrypt the message is whether the mimed string's length is 8N or 8N+1.
+This is a more complicated channel encryption, which includes a shared
+salt contained in the #channel topic, allowing the same shared password
+to behave similar to an unrelated password each time the #topic salt
+changes. This uses a superior method to hash the key parameter without
+using MD5. Each message generates a new 9-byte string where each byte
+can be values 0-255, and the 12-byte mime-encoding of this string is
+included in the message sent to the channel, instead of the actual IV
+or Salt used to encrypt the message. This mime-string + sender's
+nick + topic salt + main password are hashed with SHA-512 to create a
+64-byte secret string which is split into a 56-byte literal key parameter
+and an 8-byte salt parameter. Since text salt parameters are truncated
+if they contain embedded 0x00 bytes, the 9-byte message salt is changed
+to avoid strings where the 1st 7 bytes contain the 0x00 byte. The
+attacker cannot know either the key parameter or the IV without also
+knowing the %main_key for that channel. Assuming the 9-byte string is
+generated randomly, the only way to identify which of the 2 aliases
+was used to encrypt the message is whether the mimed string's length
+is 8N or 8N+1.
 */
 
 alias fake_secret_chat2 { if (!$chan) return
@@ -223,14 +249,19 @@ Note: 'mc' or 'mcr' or 'mcrl' switch combos also silently ignored the 57th-and-l
 //var -s %msg $encode(testtest,mc,$str(a,56) $+ key) | echo -a $version : $decode(%msg,mc,$str(a,56) )
 </pre>
 Security flaws remaining with v7.56:
-<pre class ="code">
+<br>
+<br>
 1. Allows encrypting where the key parameter is $null:
+<pre class ="code">
 //echo -a $encode(message,mc,$null)
+</pre>
 Your script must check to verify that %key is not null, or possibly halt the script such as with $$+(%key).
+
 2. Silently ignores invalid salt and IV parameters longer than 8, producing identical outputs, such as when using $ctime as the IV during a 100-seconds interval:
 /timer 110 1 echo -sg $ctime : $encode(message,mcs,$null,$ctime)
 (Only difference between 'i' and 'ir' is that 'ir' stuffs the IV parm into the header as if it's random. The extra 16 byte header lengthens the encrypted string. Your script must verify that $len(%saltparameter) is not greater than 8.
 3. Padding is broken because $decode does not let you recover the original message by specifying the 1 of 4 types of padding to remove. Also, other than scripting to check the length a decrypted &binvar, $decode does not warn you that the message did not contain valid padding, and even then it does not warn you if the wrong kind of padding was matched. For every message encoded using 'z' padding that's not a multiple of 8 bytes and which ends with a codepoint that's a multiple of 64 greater than 64 ends with the byte value 128: $decode makes a false match with 'n' padding, causing the final byte of the last character's encoding to be stripped, resulting in the final character of the text being displayed incorrectly. Your script should encode use the 'n' switch or using none of the n|p|z switches. By not warning whether the padding was wrong/missing, this makes it hard to detect whether the string has been maliciously truncated intransit.
+<pre class ="code">
 //bset -t &v 8 0 | while ($bvar(&v,0) == 8) { bset -tc &v 1 $str(.,$rand(1,7)) $+ $chr($calc(64*$rand(3,1023))) } | echo -a original: = $bvar(&v,1-) $bvar(&v,1-).text | noop $encode(&v,bmcz,key) $decode(&v,bmcz,key) | echo 4 -a decrypted = $bvar(&v,1-) $bvar(&v,1-).text
 </pre>
 

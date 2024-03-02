@@ -20,16 +20,25 @@ None
 
 <H4>Example</H4>
 Echo to the active window, the number of tokens delimited by the $chr(45) hyphen:
+<br>
+Returns 5:
+<pre class ="code">
+//echo -a $numtok(a-b-c-d-e,45)
+</pre>
 
-<pre class ="code">//echo -a $numtok(a-b-c-d-e,45)
-; returns 5</pre>
+Returns 4 because $chr(120) is lower-case x:
+<pre class ="code">
+//echo -a $numtok(1x2x3x4,120)
+</pre>
 
-<pre class ="code">//echo -a $numtok(1x2x3x4,120)
-; returns 4 because $chr(120) is lower-case x
+Also returns 4 because duplicate, leading, and trailing delimiters are stripped before $numtok processes the LIST:
+<pre class ="code">
 //echo -a $numtok(x1xxxx2x3x4x,120)
-; also returns 4 because duplicate, leading, and trailing delimiters are stripped before $numtok processes the LIST
+</pre>
+
+Returns 3 because the C token is case-sensitive, so capital X isn't a delimiter:
+<pre class ="code">
 //echo -a $numtok(1x2X3x4,120)
-; returns 3 because the C token is case-sensitive, so capital X isn't a delimiter
 </pre>
 
 <H4>Compatibility</H4>
@@ -37,6 +46,7 @@ Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="addtok.html">$addtok</a><br>
 <a href="deltok.html">$deltok</a><br>

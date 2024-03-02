@@ -13,7 +13,7 @@ The search starts at index = 1, but $bfind accept index 0 as well. Searches for 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$bfind(&binvar, N , M , [name])
+$bfind(&binvar, N , M , [name])[.property]
 </pre>
 
 <H4>Parameters</H4>
@@ -30,13 +30,15 @@ $bfind(&binvar, N , M , [name])
 
 <H4>Example</H4>
 <pre class ="code">//bset -t &var 1 test wavmIRC32WAV test | echo -a space beginning pos1: $bfind(&var,1,32) / space beginning pos11: $bfind(&var,11,32) / finds string '32' instead of chr(32) $bfind(&var,1,32).text / case-sensitive: $bfind(&var, 1, $asc(W) $asc(A) $asc(V) ) / case-insensitive: $bfind(&var,1,WAV).text / case-sensitive: $bfind(&var,1,WAV).textcs / not found: $bfind(&var,1,abc).text
-
+</pre>
 result: space beginning pos1: 5 / space beginning pos11: 18 / finds string '32' instead of chr(32) 13 / case-sensitive: 15 / case-insensitive: 6 / case-sensitive: 15 / not found: 0
-
+<br>
+<br>
 Note that 32 searches for ASCII 32 (space) except when .text is used. Searching for "WAV" is case-insensitive and finds the lowercase letters, but the search for the 3 ASCII values finds the matching case. Using .textcs is available as of 7.58 to search for a case-sensitive text string without translating it to byte values.
-
-
-;Note: starting position in the binvar is either N = 0 or 1
+<br>
+<br>
+Note: starting position in the binvar is either N = 0 or 1
+<pre class ="code">
 //bset -t &var 1 testing | echo -ag $bfind(&var,0,/./g).regex -- $bfind(&var,2,/^e/).regex
 ;7 -- 1
 </pre>
