@@ -262,17 +262,19 @@ alias testsm {
 if ($1 == 1) return item : echo -ag > $!!me
 }</pre>
 
+<a name="calc"></a>
 <H4>$calc()</H4>
 ALL unknown (in advance) input to <a href="..\identifiers\calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
 
 <pre class ="code">//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)</pre>
 
 Which will produce the following result:
-
+<pre class = "code">
  %x = 12345
-
-'''Surprise!''' We bet you did not expect that to happen. (This is actually a side effect of <a href="..\identifiers\calc.html">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
-
+</pre>
+<b>Surprise!</b> We bet you did not expect that to happen. (This is actually a side effect of <a href="..\identifiers\calc.html">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
+<br>
+<br>
 Now let's take a look at a more practical example:
 
 <pre class ="code">; Assume %password is set to 123456

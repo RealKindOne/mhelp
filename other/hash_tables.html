@@ -57,7 +57,7 @@ Or to put this another way, the optimum number of buckets is 1.282x the number o
 
 <br><b>Note:</b>See the notes at the bottom of the page for explanation why it can be helpful for buckets to be greater than the number of items in the table.
 
-== Adding Items ==
+<H4>Adding Items</H4>
 
 The /hadd command is used to add an item/data pair to the table. The syntax is:
 
@@ -120,7 +120,7 @@ If you add an item name which already exists in the table, the new data replaces
 
 This updates the Colors table, changing the item 'Gary' to contain the data 'Yellow' instead of 'Orange'.
 
-== Value retrieval ==
+<H4>Value retrieval</H4>
 To get a data value associated with a given item we will use the $hget identifier which has the following syntax:
 
 <pre class = "code">$hget(&lt;table_name&gt;, &lt;item&gt;)</pre>
@@ -137,7 +137,7 @@ The $hget identifier can also be used to check if a table exists using the follo
 ; If the table does exist, returns N for the Nth existing table
 Note: If $hget(colors) returns 2 indicating colors is the 2nd table, deleting the 1st table causes this command to return 1.
 
-== Iterating Over a Hash Table ==
+<H4>Iterating Over a Hash Table</H4>
 The $hget identifier can be used to iterate over the hash table. The syntax is:
 
 <pre class = "code">
@@ -215,7 +215,7 @@ But we can add Lisa again:
 
 If you repeat the /print_fav_colors list of items again, Lisa returns to her original position in the iterating list because her item name was assigned to a lower bucket number than the other names.
 
-== Saving/Loading Hash Table to/from file ==
+<H4>Saving/Loading Hash Table to/from file</H4>
 Because a hash table is stored exclusively in memory, it is important to save it to a file if one wishes to keep its content after a reboot or shut down. If a hash table is not stored in a file before mIRC closes, it will be gone for good.
 
 mIRC offers the /hsave and /hload commands to handle the saving and loading of hash tables from your hard disk.
@@ -263,7 +263,7 @@ To load the table we've just saved we would use the following code:
 
 If you /hload a saved file into a hashtable, it behaves the same way that /hadd does. It creates item names that do not yet exist, and updates the data values of any item names which already exist.
 
-== Deleting a Table ==
+<H4>Deleting a Table</H4>
 To complete destroy a table and all its values, you can use the hfree command:
 
 <pre class = "code">/hfree &lt;table_name&gt;
@@ -348,7 +348,7 @@ Not all hash table look-ups are able to use the hash to calculate the correct bu
 
 Finally, if you have a large hash table (perhaps several thousand records) that you want to search flexibly, then you might wish to consider whether something like mIRC SQLlite might suit your needs better.
 
-== Hash Algorithm ==
+<H4>Hash Algorithm</H4>
 
 This section describes the iteration sort order for hash tables. The algorithm used to sort tables has changed for v7.53, and will probably change in the future. Items are sorted into buckets differently in v6.35, then changed somewhere prior to v7.52. It changed again for v7.53, and there were probably different algorithms at other times in the past.
 
@@ -452,15 +452,15 @@ alias bucket_sort2 {
 </pre>
 
 This /bucket_sort2 alias uses the above FNV1a-32-mod-alt alias to calculate the bucket each item was assigned. It wasn't until the 23rd item name until an item was assigned to a bucket that wasn't already empty.
-
+<br>
 For v7.53, this displays the items with a bucket number that sequentially increases. For earlier versions, the bucket number displayed is in a jumbled order because this is not the algorithm used in those versions. It's possible that future mIRC versions will use a different algorithm or use FNV1a in a different manner, so you should not count on items being assigned to the same buckets in past or future mIRC versions.
-
+<br>
 And even if item names are assigned to the same bucket, the iteration order can list them differently. Note that Item9 and Item23 are both assigned to bucket 13 of 101, and they're listed in table1 in reverse order than their creation order. However it appears that once an item has been deleted from a bucket, future items added to that bucket may not always be be listed in reverse creation order. For example, the 2 comment lines delete Item9 and Item23, but differ in the order those item names are created again. If you remove the semi-colon from 1 of the 2 comment lines, the order lists Item9 before Item23, regardless which semi-colon you remove. Notice above how the "Gary" and "Mary" example using $hfind to find the 1st match could return a different item name, depending which one appeared first in the iteration list, which can vary depending on several factors.
-
+<br>
 The FNV1a hash is performed against the upper-case string of the hash name, allowing $hget and $hfind /hdel to locate items in a case-insensitive manner, and allows /hadd to avoid creating a duplicate of an existing item name. However /hadd and the hashing algorithm have different definitions of what 'upper' means. /hadd recognizes only A-Z and a-z as being case-insensitive equivalents of each other. When /hadd is asked to create an item name as each of the codepoints 1-65535, it creates 65535-26=65509 items because only the a-z vs A-Z items are considered duplicates.
-
+<br>
 That means that it's possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
-
+<br>
 <H4>See Also</H4>
 <a href="..\commands\hmake.html">/hmake</a><br>
 <a href="..\commands\hfree.html">/hfree</a><br>

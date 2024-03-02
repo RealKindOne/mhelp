@@ -20,14 +20,14 @@ The external programs that send these messages must create a mapped file with th
    _In_opt_  LPCTSTR lpName
  );
 </pre>
-* Use INVALID_HANDLE_VALUE for the hFile parameter, which basically allows the system to handle the file for us.
-* Use NULL for lpAttributes, for a default security.
-* Use PAGE_READWRITE for flProtect, to be able to read and write from/to the file.
-* Use 0 for dwMaximumSizeHigh and 4096 for dwMaximumSizeLow to indicate a file of that size
+<br>* Use INVALID_HANDLE_VALUE for the hFile parameter, which basically allows the system to handle the file for us.
+<br>* Use NULL for lpAttributes, for a default security.
+<br>* Use PAGE_READWRITE for flProtect, to be able to read and write from/to the file.
+<br>* Use 0 for dwMaximumSizeHigh and 4096 for dwMaximumSizeLow to indicate a file of that size
 
 <br><b>Note:</b> The mapped file must be at least 4096 bytes.
-
-* lpName is the name of the file, in previous version of mIRC, this parameter had to be "mIRC", you certainly can see the limitation with this, so it was extended, you can now specify a name of the form "mIRCN" where N is a number. You can also still use mIRC of course.
+<br>
+<br>* lpName is the name of the file, in previous version of mIRC, this parameter had to be "mIRC", you certainly can see the limitation with this, so it was extended, you can now specify a name of the form "mIRCN" where N is a number. You can also still use mIRC of course.
 
 <br><b>Note:</b> To prevent simultaneous access to the mapped file, your code must check whether the mapped file exists or not before using it. If it exists, you should assume that it is in use by another program, and should try again later.
 
@@ -46,10 +46,10 @@ The following call to SendMessage() makes mIRC perform the commands that you spe
 <br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
 <br><b>WM_MCOMMAND</b> - Which should be defined as WM_USER + 200
 <br><b>cMethod</b> - How mIRC should process the message, where:
-** 1 = As if typed in editbox (default).
-** 2 = As if typed in editbox, send as plain text
-** 4 = Use flood protection if turned on, can be or'd with 1 or 2, and 8
-** 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this. This can be or'd with 1 or 2, and 4.
+<br><b>1</b> = As if typed in editbox (default).
+<br><b>2</b> = As if typed in editbox, send as plain text
+<br><b>4</b> = Use flood protection if turned on, can be or'd with 1 or 2, and 8
+<br><b>8</b> = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this. This can be or'd with 1 or 2, and 4.
 
 <br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
 
@@ -64,7 +64,7 @@ SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
 <br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
 <br><b>WM_MEVALUATE</b> - Should be defined as WM_USER + 201
 <br><b>cMethod</b> - How mIRC should process the message, where:
-** 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this.
+<br><b>8</b> = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this.
 
 <br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
 
@@ -83,7 +83,7 @@ This will cause the command/evaluation to execute in the context of the remote e
 
 <H4>Extended Version Information</H4>
 
-If '''cMethod''' is set to -1, you can set '''cIndex''' to:
+If <b>cMethod</b> is set to -1, you can set <b>cIndex</b> to:
 <br><b>-1</b> - to receive the mIRC version number.
 <br><b>-2</b> - to receive the cMethod options that are supported.
 
@@ -112,22 +112,22 @@ LPSTR str;
 
 int main(int argc, char * argv[])
 {
-	char* command = "//echo -a Hello world";
-	char* evaluation = "m $+ $upper(irc)";
-	file = CreateFileMapping(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, 0, 4096, L"mIRC");
-	if (file == NULL)
-		exit(0);
-	str = (LPSTR)MapViewOfFile(file, FILE_MAP_ALL_ACCESS, 0, 0, 0);
-	if (str == NULL)
-		exit(0);
-	HWND mhwnd = (HWND)atoi(argv[1]);
-	//send //echo -s Hello world to mIRC
-	strcpy_s(str, 4096, command);
-	SendMessage(mhwnd, WM_MCOMMAND, 1, 0);
-	//Ask mIRC to evaluate and send back the result
-	strcpy_s(str, 4096, evaluation);
-	SendMessage(mhwnd, WM_MEVALUATE, 0, 0);
-	printf("%s", str);
+    char* command = "//echo -a Hello world";
+    char* evaluation = "m $+ $upper(irc)";
+    file = CreateFileMapping(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, 0, 4096, L"mIRC");
+    if (file == NULL)
+        exit(0);
+    str = (LPSTR)MapViewOfFile(file, FILE_MAP_ALL_ACCESS, 0, 0, 0);
+    if (str == NULL)
+        exit(0);
+    HWND mhwnd = (HWND)atoi(argv[1]);
+    //send //echo -s Hello world to mIRC
+    strcpy_s(str, 4096, command);
+    SendMessage(mhwnd, WM_MCOMMAND, 1, 0);
+    //Ask mIRC to evaluate and send back the result
+    strcpy_s(str, 4096, evaluation);
+    SendMessage(mhwnd, WM_MEVALUATE, 0, 0);
+    printf("%s", str);
 }
 </pre>
 You must pass the handle of the main mIRC window or a valid channel, query etc window as the first parameter of the program in the command line for it to work.

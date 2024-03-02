@@ -128,7 +128,7 @@ Will produce the following result:
 <H4>Number of Evaluations</H4>
 Until now we have been dealing with the order by which the interpreter evaluates things. We will now move on to looking at how many times a single evaluation block gets evaluated.
 
- Under normal conditions, every part of the line is evaluated exactly once.
+Under normal conditions, every part of the line is evaluated exactly once.
 
 For simplicity sake we will define a normal condition as any statement that does not contain $(), $eval(), or $evalnext(). The statement above should feel pretty intuitive. Consider:
 
@@ -136,12 +136,12 @@ For simplicity sake we will define a normal condition as any statement that does
 The above code is logically equivalent to:
 <pre class = "code">//echo -a $!me $!me</pre>
 
-In both cases everything is evaluated once. A '''single pair''' of evaluation brackets causes the interpreter to evaluate the code once.
+In both cases everything is evaluated once. A <b>single pair</b> of evaluation brackets causes the interpreter to evaluate the code once.
 
- A code segment is evaluated once more for every additional pair of enclosing evaluation brackets unless:
-      1.  The code segment contains spaces, and
-      2.  It does not contain $+ to "close the space gap"
- If the conditions above are violated, the code segment is evaluated only once. Any additional enclosing evaluation brackets are simply ignored.
+<br>A code segment is evaluated once more for every additional pair of enclosing evaluation brackets unless:
+<br>      1.  The code segment contains spaces, and
+<br>      2.  It does not contain $+ to "close the space gap"
+<br>If the conditions above are violated, the code segment is evaluated only once. Any additional enclosing evaluation brackets are simply ignored.
 
 We will talk about the $+ case later on.
 
@@ -153,7 +153,9 @@ A space in the code segment is a violation of the first part. This nullifies the
 alias example echo -a [ [ [ [ [ [ [ [ [ [ [ [ [ Hi! [ $!exe ] ] ] ] ] ] ] ] ] ] ] ] ] ]</pre>
 
 The code above will indeed print:
- Hi! $exe
+<pre class = "code">
+Hi! $exe
+</pre>
 
 <br><b>Note:</b>The exe alias was never called, not even once.
 Before we move on, it is important to note that if we have a code segment inside another code segment. That code segment follows the rules all over from the start. Consider the following example:
@@ -163,9 +165,9 @@ Before we move on, it is important to note that if we have a code segment inside
 The last part had a sub-code segment with no spaces: "[ [ $!me ] ]". Since $!me has no spaces, it will be evaluated once (to $me) and then the outer brackets will evaluate it once again to your name. In my case we get "a David". Since now we have a space in the code segment, all the outer brackets are nullified (as with the other two cases separated by &lt;=&gt;).
 
 The code above will produce something like:
-
- a $me &lt;=&gt; a $me &lt;=&gt; a David
-
+<pre class = "code">
+a $me &lt;=&gt; a $me &lt;=&gt; a David
+</pre>
 <H4>Multiple evaluations</H4>
 If we follow the simple rule above, we can easily evaluate a specific code segment multiple times. Consider the following example:
 
@@ -175,8 +177,8 @@ alias example echo -a [ [ [ $!!exe ] ] ]</pre>
 
 The above code prints:
 <pre class ="code">
- I was called!
- Hi!
+I was called!
+Hi!
 </pre>
 
 <b>Note:</b> The graph below was made as though [ [ [ [ [ $!!exe ] ] ] ] ] with fives 5 '!' on $exe instead of two, but for technical reason 3 or more '!' can't be rendered for now.
@@ -223,7 +225,7 @@ Inside evaluation brackets, the $+ concatenation construct (unlike $+(), $+ itse
 <H4>[ A $+ B ] Format</H4>
 The rule about [ A $+ B ] is:
 
- The '''[ token_A $+ token_B ]''' arrangement will cause token_A to evaluate once and then be concatenated to token_B (evaluated zero times). and then the concatenated string is evaluated. I.e.:
+ The <b>[ token_A $+ token_B ]</b> arrangement will cause token_A to evaluate once and then be concatenated to token_B (evaluated zero times). and then the concatenated string is evaluated. I.e.:
 <pre class ="code">
  [ A $+ B  ]  &lt;=&gt; $($(A, 1) $+ $(B, 0), 2)
 </pre>
