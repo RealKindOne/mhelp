@@ -36,10 +36,12 @@ Even though $pi has 20 decimal places, all results limited to 6 places. Note tha
 </pre>
 
 Because of floating point translation to/from base 10, the result is not always the fraction expected:
+<br>
+
 <pre class ="code">
 //var %i 1 , %list | while (%i isnum 1-100) { var %list %list $round(%i $+ .05 ,1) | inc %i } | echo -a round: %list
-; result: round: 1.1 2 3 4 5 6 7 8.1 9.1 10.1 11.1 12.1 13.1 14.1 15.1 16.1 17.1 18.1 19.1 20.1 21.1 22.1 23.1 24.1 25.1 26.1 27.1 28.1 29.1 30.1 31.1 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100
 </pre>
+result: round: 1.1 2 3 4 5 6 7 8.1 9.1 10.1 11.1 12.1 13.1 14.1 15.1 16.1 17.1 18.1 19.1 20.1 21.1 22.1 23.1 24.1 25.1 26.1 27.1 28.1 29.1 30.1 31.1 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100
 
 <H4>Compatibility</H4>
 Added: mIRC v5.1 (28 Aug 1997)

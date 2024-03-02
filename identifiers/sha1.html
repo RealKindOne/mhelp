@@ -5,8 +5,7 @@
 <H1>$sha1</H1>
 <br>
 <br>
-The <b>$sha1</b> identifier calculates the sha1 hash of a text, <a href="..\other\binary_variables.html">binary_variables</a><br>
-, or file. Hash is 160-bits, shown as 40 lower-case hexadecimal characters.
+The <b>$sha1</b> identifier calculates the sha1 hash of a text, <a href="..\other\binary_variables.html">binary_variables</a>, or file. Hash is 160-bits, shown as 40 lower-case hexadecimal characters.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -18,34 +17,34 @@ $sha1(plaintext|&binaryvar|filename,[N])
 <br><b>filename</b> - A filename, used with N = 2, return the sha1 hash of the content of the file
 
 <br>
-
-
 <br><b>N</b> Optional integer 0-2, where 0 returns hash of the plaintext string, 1 returns the hash of the data contained inside the named &binary variable, 2 returns the hash of the contents of the named disk filename<br />
 
 If the N parameter isn't used, the default 0 is used (which is different than $crc which has default of N=2.)
+
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 Echo the SHA1 hash of plain text string ''abc'' to the active window:
-//echo -a $sha1(abc)
+<pre class ="code">//echo -a $sha1(abc)
 or
-//echo -a $sha1(abc,0)
+//echo -a $sha1(abc,0)</pre>
 The DATA is case-sensitive, so hash of "abc" is different than hash of "ABC"
 
 Echo the SHA1 hash of the contents of the mIRC program you're running to the active window:
-//echo -a $sha1($mircexe,2)
+<pre class ="code">//echo -a $sha1($mircexe,2)</pre>
 
 Echo the SHA1 hash of the first 1000 bytes of the mIRC program you're running to the active window:
-//bread $qt($mircexe) 0 1000 &snip | echo -a $sha1(&snip,1) and again $sha1(&snip,1)
+<pre class ="code">//bread $qt($mircexe) 0 1000 &snip | echo -a $sha1(&snip,1) and again $sha1(&snip,1)</pre>
 
 Mode 0 allows string to be null, including %variable not existing.
-//unset %a | var %b $null | echo -a $sha1(%a) is $sha1(%b) is $sha1()
+<pre class ="code">//unset %a | var %b $null | echo -a $sha1(%a) is $sha1(%b) is $sha1()</pre>
 
 Mode 1 allows binvar to be zero length generates an error if the &binvar is not defined.
-//noop $regsubex(foo,$null,,,&v) | echo -a $bvar(&v) $sha1(&v,1) | echo -a $bvar(&v2) $sha1(&v2,1)
+<pre class ="code">//noop $regsubex(foo,$null,,,&v) | echo -a $bvar(&v) $sha1(&v,1) | echo -a $bvar(&v2) $sha1(&v2,1)</pre>
 
 Mode 2 allows filesize to be zero but not missing.
-//btrunc zero.dat 0 | echo -a $sha1(zero.dat,2) | remove zero.dat | echo -a $sha1(zero.dat,2)
+<pre class ="code">//btrunc zero.dat 0 | echo -a $sha1(zero.dat,2) | remove zero.dat | echo -a $sha1(zero.dat,2)</pre>
 
 Suggested Uses:
 * Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)
@@ -57,13 +56,16 @@ mIRC v7.x Unicode-encodes plaintext before providing to $sha1, so v7.x and v6.x 
 
 If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $sha1 as a binary variable:<br />
 
-//bset -ta &string 1 chloé | echo -a $sha1(&string,1)
+<pre class ="code">//bset -ta &string 1 chloé | echo -a $sha1(&string,1)</pre>
+
+
 
 <H4>Warning</H4>
 From v7.54 back through at least v6.35, and probably as far back as v6.3 when it was added, $sha1 can corrupt the contents of the &binvar it is hashing. If the length is 128+, and the file is split into 64-byte chunks, the 1st chunk is never affected, but each of the other 64-byte chunks that are not consisting entirely of 0x00 bytes is corrupted. This can be seen in the above example hashing the first 1000 bytes of mirc.exe, where v7.54 and earlier versions produce different hashes when repeating the exact same command against the same &binvar. In those same versions, this also affects using the same &binvar as the data hashed by $hmac when it uses sha1 has the hash. It returns the correct hash of the input &binvar in spite of destroying it.
+<pre class = "code">
 //bset &v 128 1 | noop $sha1(&v,1) | echo -a $bvar(&v,1-)
-
-Users of those versions needing to use the contents of the &binvar after hashing would need to use a throw-away temporary &binvar whose contents are not needed after being hashed. 
+</pre>
+Users of those versions needing to use the contents of the &binvar after hashing would need to use a throw-away temporary &binvar whose contents are not needed after being hashed.
 
 <H4>Error Messages</H4>
 Note that $sha1 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha1 is lowercase while $crc returns uppercase hex.
@@ -92,5 +94,5 @@ None
 <a href="hmac.html">$hmac</a><br>
 <a href="hotp.html">$hotp</a><br>
 <a href="totp.html">$totp</a><br>
-}}</body>
+</body>
 </html>

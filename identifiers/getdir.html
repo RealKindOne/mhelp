@@ -18,10 +18,12 @@ $getdir[( filespec )]
 None
 
 <H4>Example</H4>
-
+<pre class ="code">
 //if ($sound(*.mp3) != $getdir(*.mp3)) echo -a warning: MP3's do not download into the MP3 SOUND folder!
-
+</pre>
+<pre class ="code">
 //echo -a The default DCC GET folder for filetypes not defined in mIRC-options/dcc/folders is $getdir
+</pre>
 <pre class ="code">
 on *:FILESENT:*:{
   if ($getdir($filename) == $nofile($filename)) echo -a Note: $filename was sent from the DCC GET folder for that filename.

@@ -38,7 +38,7 @@ on *:PARSELINE:out:*:{ echo -s debug $scriptline $event : $inpaste is $true only
 
 <pre class ="code">
 if ($inpaste) echo -a INPUT event triggered by paste from clipboard
-elseif ($ctrlenter) echo -a INPUT event triggered by pressing &lt;enter&gt; and <Ctrl> keys together
+elseif ($ctrlenter) echo -a INPUT event triggered by pressing &lt;enter&gt; and CTRL keys together
 else echo -a INPUT event triggered by pressing &lt;enter&gt;
 </pre>
 

@@ -19,9 +19,9 @@ $get(N/nick[,N])[.property]
 When N = 0, $get(N) returns the total number of all transfers, and $get($nick,N) returns total transfers from $nick.<br />
 $get($nick) used without the 2nd N parameter returns $nick if there is at least 1 $get or $null if no transfers.<br />
 When N >=1, $get(N) or $get($nick,N) returns the $nick associated with that transfer.<br />
-When sender changes nick, the $get is still associated with the old nick unless you use: {{mIRC|/dcc}} nick -sgcf &lt;oldnick&gt; &lt;newnick&gt;}}
+When sender changes nick, the $get is still associated with the old nick unless you use: "<a href="..\commands\dcc.html">/dcc</a> nick -sgcf &lt;oldnick&gt; &lt;newnick&gt;"
 
-<br><b>Note:</b> $get(-1) can be used during the {{mIRC|on events/on filercvd|ON FILERCVD}} and {{mIRC|on events/on getfail|ON GETFAIL}} events, it refers to the 'get' which triggered that event.
+<br><b>Note:</b> $get(-1) can be used during the <a href="..\events\on_filercvd.html">ON FILERCVD</a> and <a href="..\events\on_getfail.html">ON GETFAIL</a> events, it refers to the 'get' which triggered that event.
 
 <H4>Properties</H4>
 <b>.cid</b> - The connection id
@@ -37,7 +37,7 @@ When sender changes nick, the $get is still associated with the old nick unless 
 <br><b>.resume</b> - If the transfer has been resumed, returns the location in the file from where the resume took place. Does not offer a way to discern between a transfer not resumed and a transfer resumed at offset zero
 <br><b>.secs</b> - The total number of seconds the transfer has been connected
 <br><b>.size</b> - The file size in bytes for the transfer
-<br><b>.status</b> - The status of the window; returns: '''sent''', '''active''', '''failed''', '''received''' or '''waiting'''
+<br><b>.status</b> - The status of the window; returns: <b>sent</b>, <b>active</b>, <b>failed</b>, <b>received</b> or <b>waiting</b>
 <br><b>.wid</b> - The mIRC window id for this window
 
 <H4>Example</H4>
