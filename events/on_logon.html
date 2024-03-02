@@ -7,7 +7,7 @@
 <br>
 The <b>ON LOGON</b> event triggers immediately after mIRC has begun connection to a server, and has sent the standard PASS, NICK, and USER information to the server.
 
-<br><b>Note:</b>This event can be prefixed with the '''^''' character to cause the event to trigger ''before'' the PASS, NICK, and USER information is sent to the server. Utilizing this '''^''' character, the events can even be <a href="..\commands\halt.html">/halt</a>, and no information sent to the server; this will most-likely cause a connection interruption, or disconnection entirely.
+<br><b>Note:</b>This event can be prefixed with the <a href="..\other\access_levels.html#carrot">^ prefix</a> character to cause the event to trigger <b>before</b> the PASS, NICK, and USER information is sent to the server. Utilizing this <b>^</b> character, the events can even be <a href="..\commands\halt.html">/halt</a>, and no information sent to the server; this will most-likely cause a connection interruption, or disconnection entirely.
 
 
 <H4>Synopsis</H4>
@@ -23,7 +23,7 @@ on &lt;level&gt;:logon:&lt;servername&gt;:&lt;commands&gt;
 <H4>Local Identifiers</H4>
 
 <H4>Example</H4>
-Echo to the active window some information before the login information is sent, using the '''^''' prefix:
+Echo to the active window some information before the login information is sent, using the <b>^</b> prefix:
 <pre class ="code">on ^*:logon:*:echo -a Connecting to $server through the $network network...</pre>
 
 Create a popup window which shows up after a successful connection is established:

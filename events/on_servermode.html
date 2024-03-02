@@ -7,36 +7,21 @@
 <br>
 The <b>ON SERVERMODE</b> event triggers when a server changes channel modes on a channel.
 
-== Overview == 
-This event fills the '''<a href="..\identifiers\chan.html">$chan</a>''', and <a href="..\identifiers\1-.html">$1-</a> identifiers with details relative to this event.
-
-{| class="wikitable" style="line-height: 25px;"
-|-
-! Identifier !! Description
-|-
-| '''$chan''' || The channel where modes were changed.
-|-
-| <a href="..\identifiers\1-.html">$1-</a><br> || The new channel modes.
-|}
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:SERVERMODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel window
+<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
-<br><b>&lt;#[,#]&gt;</b> - The channel, or channels, to match the event listener. Can also be a <a href="..\other\wildcard.html">wildcard</a><br>.
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\chan.html">$chan</a>
+<br><a href="..\identifiers\1-.html">$1-</a>
 
-{| class="wikitable" style="margin-left: 105px;"
-|-
-! Target !! Description
-|-
-| # || Can remain '''#''', to target all channels, or be a specific channel name.
-|-
-| [,#] || Can add multiple channels to target beyond the initial specified channel name.
-|}
-<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Example</H4>
 Notice the channel when the server changes channel modes, and the local mIRC client is a channel operator:

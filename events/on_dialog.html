@@ -13,11 +13,8 @@ The <b>ON DIALOG</b> event listens for events which take place inside of custom 
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-
 <br><b> &lt;name&gt;</b> - The dialog name that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
-
 <br><b> &lt;event&gt;</b> - The dialog event that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
-
 <br><b> &lt;id&gt;</b> - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
 
 <H4>Local Identifiers</H4>
@@ -42,8 +39,9 @@ The <b>ON DIALOG</b> event listens for events which take place inside of custom 
 
 
 <H4>Example</H4>
-Here we will create an alias that launches a dialog. This dialog has a '''mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
-<pre class ="code">; To use this example, simply type: /mouseListener
+Here we will create an alias that launches a dialog. This dialog has a <b>mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
+<pre class ="code">
+; To use this example, simply type: /mouseListener
 alias mouseListener dialog - $+ $iif($dialog(mouseListener),v,m) mouseListener mouseListener
 dialog -l mouseListener {
   title "Mouse Listener"
@@ -61,7 +59,7 @@ ON *:DIALOG:mouseListener:mouse:*: {
   did -ra $dname 5 $mouse.y
 }</pre>
 
-In the example above, we have created an <a href="..\other\aliases.html">alias</a>, '''mouseListener''', to handle a local <a href="..\dialog\dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
+In the example above, we have created an <a href="..\other\aliases.html">alias</a>, <b>/mouseListener</b>, to handle a local <a href="..\dialog\dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
 
 This example can be triggered by typing the following command:
 <pre class ="code">/mouseListener</pre>
@@ -70,8 +68,9 @@ Once the demo has begun, the mouse event will now listen. When the mouse begins 
 
 Clicking the ''Close'' button will close the dialog and halt event listening.
 
-Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\other\aliases.html">alias</a> called ''/whatEvents'' which will open up the local <a href="..\dialog\dialog.html">$didreg</a> ''whatEvents'':
-<pre class ="code">alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
+Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\other\aliases.html">alias</a> called <b>/whatEvents</b> which will open up the local <a href="..\dialog\dialog.html">$didreg</a> <b>whatEvents</b>:
+<pre class ="code">
+alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
   title "Events? What Events?"
   size -1 -1 136 112

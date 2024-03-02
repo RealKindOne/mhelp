@@ -7,9 +7,6 @@
 <br>
 The <b>ON SIGNAL</b> event triggers after a call to the <a href="..\commands\signal.html">/signal</a> command. This is a mechanism used to signal events in multiple script at the same time
 
-You can use <a href="..\identifiers\signal.html">$signal</a> to refer to the name of signal triggering the event and you can use <a href="..\identifiers\1-.html">$1-</a> to refer to the parameters passed to /signal
-
-
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:signal:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
@@ -17,6 +14,10 @@ You can use <a href="..\identifiers\signal.html">$signal</a> to refer to the nam
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\signal.html">$signal</a> - to refer to the name of signal triggering the event
+<br><a href="..\identifiers\1-.html">$1-</a> - to refer to the parameters passed to /signal
 
 <H4>Example</H4>
 <pre class ="code">ON *:signal:*:echo -s $signal -- $1-</pre>
