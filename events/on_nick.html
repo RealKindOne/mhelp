@@ -10,6 +10,10 @@ The <b>ON NICK</b> event triggers when a user is on the same channel as you, and
 <H4>Synopsis</H4>
 <pre class = "code">ON &lt;level&gt;:NICK:&lt;commands&gt;</pre>
 
+<H4>Parameters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
 <H4>Local Identifiers</H4>
 <a href="..\identifiers\newnick.html">$newnick</a> - The new nickname of the user. You can use it with $comchan for example.
 <br><a href="..\identifiers\nick.html">$nick</a> - The user's previous nickname.
