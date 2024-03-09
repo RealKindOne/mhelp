@@ -26,12 +26,18 @@ XOR is "Exclusive OR" comparison of a pair of bits. For each bit position it ret
 ; returns 28</pre>
 
 Here's how the answer was calculated:
-# If either number is below -4294967295 replace it with -4294967295
-# If either number is above +4294967295 replace it with +4294967295
-# If either number is below zero, add 4294967296 to bring it into range of 0 through 4294967295
-# Convert each number to binary, then line them up vertically so there are 2 rows, where each position pair is a single column.
-# Create a 3rd row, where each column's 0 or 1 value is the XOR of the bit pair directly above it
-# Convert the 3rd row from binary to base 10.
+<br>
+If either number is below -4294967295 replace it with -4294967295
+<br>
+If either number is above +4294967295 replace it with +4294967295
+<br>
+If either number is below zero, add 4294967296 to bring it into range of 0 through 4294967295
+<br>
+Convert each number to binary, then line them up vertically so there are 2 rows, where each position pair is a single column.
+<br>
+Create a 3rd row, where each column's 0 or 1 value is the XOR of the bit pair directly above it
+<br>
+Convert the 3rd row from binary to base 10.
 
 <pre class ="code">//echo -a $base(21,10,2,8) | echo -a $base(9,10,2,8) | echo -a $str(-,8) | echo -a $base($xor(21,9),10,2,8)
 ; returns:

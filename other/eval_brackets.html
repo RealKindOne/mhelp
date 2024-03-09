@@ -29,11 +29,11 @@ alias eval_example {
 
 If we run the code above we will get the following result:
 <pre class ="code">
- 1
- 2
- 3
- 4
- 1 2 3 4
+1
+2
+3
+4
+1 2 3 4
 </pre>
 As expected, $x(1) was evaluated first, $x(2) was evaluated second, $x(3) was evaluated third and $x(4) was evaluated last. Earlier we said that we can use evaluation brackets to change the order of evaluation. We will demonstrate that in our next example:
 
@@ -44,11 +44,11 @@ alias eval_example {
 
 In this example we surrounded $x(2) with a pair of bracket. The code produced the following result:
 <pre class = "code">
- 2
- 1
- 3
- 4
- 1 2 3 4
+2
+1
+3
+4
+1 2 3 4
 </pre>
 From the output you can see that $x(2) was evaluated first (as shown in the graph below). Once the content of the evaluation bracket was evaluated, the parser went on to evaluating the rest of the line like it would normally from left to right.
 
@@ -67,11 +67,11 @@ alias eval_example {
 
 The code above produced the following results:
 <pre class ="code">
- 2
- 4
- 1
- 3
- 1 2 3 4
+2
+4
+1
+3
+1 2 3 4
 </pre>
 This time we have two pairs of evaluation brackets. mIRC went from left to right evaluating $x(2) first then $x(4). The parser then went on to evaluate rest of the line.
 
@@ -89,9 +89,9 @@ alias eval_example {
 
 The code above produces the following result:
 <pre class ="code">
- C
- B
- A
+C
+B
+A
 </pre>
 <div style="display: block; text-align: center;"><img src="..\images\eval4.png"></div>
 
@@ -117,12 +117,12 @@ alias eval_example {
 
 Will produce the following result:
 <pre class ="code">
- ABC => ABC
- ACB => ACB
- BAC => BAC
- BCA => BCA
- CAB => CAB
- CBA => CBA
+ABC => ABC
+ACB => ACB
+BAC => BAC
+BCA => BCA
+CAB => CAB
+CBA => CBA
 </pre>
 
 <H4>Number of Evaluations</H4>
@@ -216,7 +216,7 @@ The easiest way to fix this issue is to surround the entire group with $+() and 
 
 Because we now have no spaces, the additional evaluation bracket is not ignored and our code is evaluated once again:
 <pre class = "code">
- a David
+a David
 </pre>
 
 <H4>$+ Special behaviors</H4>
@@ -356,17 +356,17 @@ The [ $v1 ] for the $changev1to3 alias, is resolved when the line is evaluated f
 
 The non spaced [ $v1 ] for the third parameter of $custom, is not resolved for the /noop command, here are the inbetween steps:
 
-* //if evaluates, the condition is '1' so $v1 is set 1
-* noop $changev1to2 $custom($v1,$changev1to3( [ $v1 ] ),[ $v1 ]) is the command to be executed for that if
-* [ ] are processed for the line, the [ $v1 ] for the $changev1to3 alias is resolved, so $v1 is our current value so far: 1
-* the line is evaluated, $changev1to2 is evaluated and set $v1 to 2
-* $custom is evaluated, its first parameter $v1, is then 2
-* the second parameter of $custom evaluates "$changev1to3( 1 )" to $null, but it sets $v1 to 3 ('1' is our previous $v1 code, although it's no problemo here, keep in mind: it's double evaluated!)
-* the third parameter of $custom evaluates: the [ ] are resolved, $v1 evaluates once (no double evaluation) to 3
+<br>//if evaluates, the condition is '1' so $v1 is set 1
+<br>noop $changev1to2 $custom($v1,$changev1to3( [ $v1 ] ),[ $v1 ]) is the command to be executed for that if
+<br>[ ] are processed for the line, the [ $v1 ] for the $changev1to3 alias is resolved, so $v1 is our current value so far: 1
+<br>the line is evaluated, $changev1to2 is evaluated and set $v1 to 2
+<br>$custom is evaluated, its first parameter $v1, is then 2
+<br>The second parameter of $custom evaluates "$changev1to3( 1 )" to $null, but it sets $v1 to 3 ('1' is our previous $v1 code, although it's no problemo here, keep in mind: it's double evaluated!)
+<br>The third parameter of $custom evaluates: the [ ] are resolved, $v1 evaluates once (no double evaluation) to 3
 
 <b>Note:</b> the non spaced [ $v1 ] is not required to get $v1 to be 3, not using [ ] would also correctly make $v1 3 since $changev1to3 was just called, but it illustrates that the [ ] are not resolved at the same stage depending on the spacing.
-
-'''Note2''': non spaced [ ] inside identifier are equivalent to $eval(), they do not make the identifier reevaluate the code:
+<br>
+<b>Note2:</b> non spaced [ ] inside identifier are equivalent to $eval(), they do not make the identifier reevaluate the code:
 <pre class ="code">
  //var %a 1,32 | echo -a $gettok(a b,[ %a ]) is just going to evaluate twice ,1,32 and then pass 1,32 as the second parameter to $gettok
 </pre>
@@ -404,7 +404,7 @@ The code above prints:
 Below are a few odd behaviors that are worth mentioning.
 
 <H4>[ A $+ ] B Format</H4>
-The reason we have not mentioned this format above is because its behavior is rather buggy. The [ A $+ ] B format behaves like [ A $+ B ] where B is evaluated zero times. This behavior propagates to multiple tokens as well. For example:
+The reason we have not mentioned this format above is because its behavior is rather buggy. The <b>[ A $+ ] B</b> format behaves like <b>[ A $+ B ]</b> where <b>B</b> is evaluated zero times. This behavior propagates to multiple tokens as well. For example:
 
 <pre class = "code">
 //echo -a [ A $+ ] $me $+ $me $+ $me

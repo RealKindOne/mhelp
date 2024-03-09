@@ -19,14 +19,14 @@ The <b>ON DISCONNECT</b> event triggers when mIRC has disconnected from an IRC s
 <a href="..\identifiers\1-.html">$1-</a> Returns the server disconnect message that is passed to mIRC.
 
 <H4>Example</H4>
-<pre class ="code">; Echo network, and time
-; when mIRC disconnected
+Echo network, and time when mIRC disconnected:
+<pre class ="code">
 ON *:DISCONNECT:echo -a Disconnected from $network on $asctime(dddd mmmm $+(ddoo,$chr(44), yyyy)) at $asctime(hh:mmtt) $+ . Server disconnect reason: $1-</pre>
 
 The following is an example of what will be displayed when mIRC has disconnected from a server:
 <pre class ="code">Disconnected from DALnet on Tuesday June 24th, 2014 at 02:06pm.</pre>
 
-The <a href="..\identifiers\asctime.html">$asctime</a><br> identifier has been used here in order to specifically format the current date and time.
+The <a href="..\identifiers\asctime.html">$asctime</a> identifier has been used here in order to specifically format the current date and time.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.02 (21 Apr 1997)

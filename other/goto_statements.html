@@ -61,7 +61,7 @@ goto label
 }
 </pre>The first /goto label statement gets mIRC to parse the rest as token, probably just words, and :label is found despite the if statement being false, %test is increased to 1 and then to 2, proving that the label is found from the first time with the first goto label (forward jump) and then backward since the label was found the first time.
 
-== Conditional transfer of control ==
+<H4>Conditional transfer of control</H4>
 Many times you only want a script to go to a specific location according to a certain condition. You can use an if statement to achieve this. A simple syntax looks like this:
 
 <pre class ="code">if (&lt;condition&gt;) {

@@ -27,7 +27,9 @@ Drawback: Characters over 65535 are encoded in utf16 as two 16 bits unit called 
  𦀀 -- 2
 </pre>
 What happens here is that mIRC pass the two surrogates to /echo, /echos call a Windows' function to display the text, and it is this Windows' function that will 'decode' the surrogates and display the character correctly. As you can see from the example above, although a single character is displayed, $len() is 2, showing that mirc sees two characters.
+
 <H4>$regsubex</H4>
+
 Whilst rendering functions will normally display characters over 65536 correctly when programmed in this way, some usages of some functions in mIRC, such as $regsubex, won't handle the surrogate as expected.
 <pre class ="code">
 //echo -ag $regsubex(aa,/(a)/gu,$chr($gettok(55357 56607,\n,32))) vs $replace(ab,a,$chr(55357),b,$chr(56607))

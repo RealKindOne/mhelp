@@ -16,24 +16,24 @@ In many cases you'd want to check the number of lines in the file. $lines() will
 
 <pre class ="code">$lines(file.txt)</pre>
 
-== Reading From a Text File ==
+<H4>Reading From a Text File</H4>
 The $read() identifier is a very powerful command that can be used to read from a text file in a variety of ways.
 
-=== n Switch ===
+<H4>n Switch</H4>
 By default, $read will evaluate the text it reads as if it was mSL code. To prevent this behavior you must use the n switch. Throughout this article we will ALWAYS use that switch. Improper use of the $read() identifier without the 'n' switch could leave your script <a href="injection.html">highly vulnerable</a>.
 
-=== Reading a Random Line ===
+<H4>Reading a Random Line</H4>
 The most basic functionality $read() offers is the ability to read a random line from a particular file. The syntax is:
 
 <pre class ="code">; read a random line from file.txt
 $read(file.txt, n)</pre>
 
-=== Reading a Specific Line ===
+<H4>Reading a Specific Line</H4>
 To read a specific line from a file you can specify the line number as the third argument.
 
 <pre class ="code">$read(file.txt, n, line)</pre>
 
-=== Searching the File ===
+<H4>Searching the File</H4>
 $read() offers three methods for searching a file:
 
 <br>Scanner
@@ -81,7 +81,7 @@ For Example:
 <pre class ="code">; Start searching from line 400:
 $read(file.txt, nw, *hello*, 400)</pre>
 
-== Iterating Over Matches ==
+<H4>Iterating Over Matches</H4>
 $readn is an identifier that returns the line that $read() matched. We can use that to start searching for our pattern on the next line.
 
 For example, to search all the line containing the word 'test' in a file, we can construct a loop like this:
@@ -90,15 +90,15 @@ For example, to search all the line containing the word 'test' in a file, we can
 
 In the code above, $readn starts at 0. We use $calc() to start at line 1. Every match $read() will start searching on the next line. When no more matches are after the line specified $read will return $null - terminating the loop.
 
-== Writing to a Plain Text File ==
+<H4>Writing to a Plain Text File</H4>
 The /write command can be used to manipulate a text file in a variety of ways.
 
-=== Appending a Line ===
+<H4>Appending a Line</H4>
 /write's simplest operation is the append operation. By default, /write will write a text line to the end of the file.
 
 <pre class ="code">/write text.txt &lt;string&gt;</pre>
 
-=== Inserting a Line ===
+<H4>Inserting a Line</H4>
 To insert text at specific line we have the following syntax:
 
 <pre class ="code">/write -il&lt;line&gt; file.txt &lt;text&gt;</pre>
@@ -107,13 +107,13 @@ For example, the following line will write "Hello There!" at line 2.
 
 <pre class ="code">/write -il2 file.txt Hello There!</pre>
 
-=== Deleting a Line ===
+<H4>Deleting a Line</H4>
 The /write command provides the ability to delete a specific line from a file.
 
 <pre class ="code">; Delete line &lt;line&gt; from a file:
 /write -dl&lt;line&gt; file.txt</pre>
 
-== Clearing A File ==
+<H4>Clearing A File</H4>
 The -c switch on /write can be combined to clear the file before writing to it.
 
 <pre class ="code">; clear the file

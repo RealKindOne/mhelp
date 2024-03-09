@@ -16,15 +16,17 @@ mIRC uses the 8bits version of PCRE 8.x library to implement regex with the foll
 <br> --enable-unicode-properties
 <br> --with-match-limit - around 1,000,000
 <br> --with-match-limit-recursion - 999
-
+<br>
 The newline sequence by default is $lf.
-
+<br>
+<br>
 mIRC has four custom modifiers for regex:
 <br><b>S</b> - Strips control codes from the input before matching (not supported by $hfind).
 <br><b>g</b> - Performs global matches: after one match has been found, mIRC tries to match again from the current position.
 <br><b>F</b> - Enable the correct regex behavior: before mIRC 7.44, non participating capturing group were ignored in $regml, see https://forums.mirc.com/ubbthreads.php/topics/260397
 <br><b>u</b> - Enable the (*UCP) option (makes \b and \w works for unicode letters) and the (*UTF8) option (forces the string and pattern to be interpreted as utf8).
-
+<br>
+<br>
 mIRC does not allow you to retrieve the full match. You can access simple captures but you cannot access named capture. Here is an alias which allow you to get the full match (made by jaytea):
 
 <pre class ="code">
@@ -80,7 +82,8 @@ The four main identifiers, <a href="..\identifiers\regex.html">$regex</a>, <a hr
 <pre class ="code">$regex([name],&lt;input&gt;,&lt;regex&gt;)</pre>
 
 The sample above performs a regular expression match and returns the number of matches found.
-
+<br>
+<br>
 If the /g modifier is used, that number can be greater than 1.
 You may see a negative value being returned if an error occurred, the list below is not exhaustive, but the error omitted are the one that can only happen because of a bug in mIRC in the way it uses pcre, which should never happen in practice.
 
@@ -94,11 +97,11 @@ You may see a negative value being returned if an error occurred, the list below
 
 <H4>$regml</H4>
 <pre class ="code">$regml([name],N)</pre>
-''$regml'' can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if ''0'' is specified as the Nth reference, then the total number of backreferences is returned.
+<b>$regml</b> can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if ''0'' is specified as the Nth reference, then the total number of backreferences is returned.
 
-$regml also has a ''.pos'' property, which returns the position within the input where the capture occurred.
+$regml also has a <b>.pos</b> property, which returns the position within the input where the capture occurred.
 
-Below is an example of a regular expression, using ''name'' as the optional ''[Name]'' property, and then using $regml to reference the match(es):
+Below is an example of a regular expression, using <b>name</b> as the optional <b>[Name]</b> property, and then using $regml to reference the match(es):
 <pre class ="code">//noop $regex(name, test, /([es])/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2)</pre> would display "2 : e -- s"
 
 <br><b>Note:</b> $regml is a list of all captures across all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
@@ -162,20 +165,23 @@ The way mIRC evaluates those markers is special, it is important at this point t
 <br>Process <b>[ ]</b>, which evaluates any variables/identifiers inside of the brackets once, and <b>[[ ]]</b>, which turns into <b>[ ]</b>.
 <br>Separates the identifier's parameters and evaluates each parameter once. These evaluations take place in order from left to right.
 <br>Passes the parameters to the identifier
-
-'''$regsubex''' is a bit different, it has its own parsing routine. By design, '''$regsubex''' must not evaluate the ''subtext'' parameter before doing the regex match. The steps for '''$regsubex''' are shown below:
-* Process [ ] and [[ ]].
-* separate parameters, evaluate the 'input' and the 'regex' parameters.
-* Perform the regex match.
-* Tokenize <a href="..\identifiers\1-.html">$1-</a> according to the number of markers used in the 'subtext' parameters.
-* Replaces any markers used in the subtext with their corresponding '''$N''' identifiers's values.
-* Evaluate the '''subtext''' parameter (one or more times, if /g is used).
-* Performs the substitutions and returns the result.
-
-mIRC internally uses <a href="..\identifiers\1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the '''subtext''' parameter (it is restored after).
-
+<br>
+<br>
+<b>$regsubex</b> is a bit different, it has its own parsing routine. By design, <b>$regsubex</b> must not evaluate the ''subtext'' parameter before doing the regex match. The steps for <b>$regsubex</b> are shown below:
+<br>
+<br>Process [ ] and [[ ]].
+<br>separate parameters, evaluate the 'input' and the 'regex' parameters.
+<br>Perform the regex match.
+<br>Tokenize <a href="..\identifiers\1-.html">$1-</a> according to the number of markers used in the 'subtext' parameters.
+<br>Replaces any markers used in the subtext with their corresponding <b>$N</b> identifiers's values.
+<br>Evaluate the '''subtext''' parameter (one or more times, if /g is used).
+<br>Performs the substitutions and returns the result.
+<br>
+<br>
+mIRC internally uses <a href="..\identifiers\1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the <b>subtext</b> parameter (it is restored after).
+<br>
 The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
-
+<br>
 Let's have a look at an example, consider the following subtext:
 <pre class ="code">\t \t \1 \n</pre>
 mIRC assigns the value of \t to ''$1'' & ''$2'', \1 is assigned to ''$3'' and finally, \n is assigned to ''$4''.
@@ -189,13 +195,13 @@ And now mIRC evaluates that for each match and use it as a replacement.
 An example of this is shown below:
 <pre class ="code">$regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)</pre>
 Here we have a break-down of the results of this regex:
-* The '''\6''' doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
-* When ''a'' is matched, '''\n''' is ''1'', and only one marker is used. Therefore, '''$1''' (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''
-* When ''b'' is matched, '''\n''' is ''2'', '''$1''' is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is '''g'''
-* And so on until '''\n + N - 1''' is greater than the total number of back-references, which at this point, '''$null''' is used.
+<br>The <b>\6</b> doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
+<br>When <b>a</b> is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''
+<br>When <b>b</b> is matched, <b>\n</b> is <b>2</b>, <b>$1</b> is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is <b>g</b>
+<br>And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, '''$null''' is used.
 
 <H4>Nested calls</H4>
-Nested '''$regsubex''' calls are possible, but caution must be taken with markers.
+Nested <b>$regsubex</b> calls are possible, but caution must be taken with markers.
 
 First of all, if you use the /g modifier in either the outer or the inner $regsubex call and you need to use the different backreferences made in either of them, you must give a name to either one or both of them, otherwise, the call of the inner $regsubex will overwrite the backreferences of the outer $regsubex (if you don't use a name, mIRC use a default name, which would be the same here).
 
@@ -210,8 +216,9 @@ The idea is to get mIRC to see something other than <b>\t</b> (inside that $uppe
 
 A simple $+ cannot be used:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper( \ $+ t ))</pre>
-Having this as the subtext of the $regsubex would end up calling '''$upper(\t)''' with plain text "\t", because the '''$+''' is going to be evaluated after the inner $regsubex made his own regex match & loop over its results, which is after both $regsubex looked for markers. Something need to be done before the markers of the inner $regsubex are replaced but after the outer $regsubex made his match: when the outer $regsubex is ready to loop over its result.
-
+Having this as the subtext of the $regsubex would end up calling <b>$upper(\t)</b> with plain text <b>\t</b>, because the <b>$+</b> is going to be evaluated after the inner $regsubex made his own regex match & loop over its results, which is after both $regsubex looked for markers. Something need to be done before the markers of the inner $regsubex are replaced but after the outer $regsubex made his match: when the outer $regsubex is ready to loop over its result.
+<br>
+<br>
 The solution is to use the <b>[[ \ $+ t ]]</b> construct:
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper( [[ \ $+ t ]] )))</pre>
 
@@ -219,14 +226,14 @@ Indeed, the processing of <b>[ ]</b> and <b>[[ ]]</b> is done for the whole line
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper( [ \ $+ t ] )))</pre>
 
 The example above conveys how only the <b>[[ ]]</b> has changed. Remember <b>$+</b> was not evaluated because the subtext parameter of $regsubex is not evaluated until the regex match is performed.
-
+<br>
 Now, the outer '''$regsubex''' is evaluated, it gets its parameters (without evaluating the subtext), makes the regex match, and calls the subtext for each match, the subtext is:
 <pre class ="code">$regsubex(&lt;value of \t from the outer $regsubex&gt;,/(.)/g,$upper( [ \ $+ t ] ))</pre>
 
 And when this $regsubex evaluates (for each replacement of the outer $regsubex) [ \ $+ t ] will first produce \t, and everything works as we wanted.
-
+<br>
 The more nested $regsubex you have, the more you have to make sure each subtext has the correct number of [[ ]].
-
+<br>
 Obviously, you can make this cleaner by calling a custom alias as the subtext with the markers passed as parameters and doing the nested $regsubex call here, but this is possible.
 
 <H4>No Marker</H4>

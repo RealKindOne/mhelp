@@ -112,9 +112,9 @@ typedef struct {
 mIRC will automatically unload a DLL if it is not used for ten minutes, or when mIRC exits.
 
 You can define an UnloadDll() routine in your DLL which mIRC will call when unloading a DLL to allow it to clean up:
-
+<pre class ="code">
 int __stdcall UnloadDll(int mTimeout);
-
+</pre>
 The mTimeout value can be:
 
 <br><b>0</b> - UnloadDll() is being called due to a DLL being unloaded with /dll -u.

@@ -11,7 +11,7 @@
 
 <H4>Variable Scope: Global vs. Local</H4>
 
-There are two kinds of variables: local and global. '''Scope''' refers to the visibility of variables in your code. In other word, where these variables can be ''seen'' from.
+There are two kinds of variables: local and global. <b>Scope</b> refers to the visibility of variables in your code. In other word, where these variables can be ''seen'' from.
 
 <H4>Local Variables</H4>
 
@@ -68,7 +68,7 @@ Because the /set command can only set a single variable at a time, you can use t
 <pre class ="code">;multiple variables
 var -g %var = foo, %var2 = bar, %var3 = foobar</pre>
 
-'''Practical use:''' a global variable is good for storing variables that you will need to use in the future from another script or at different time. (Login System, Away System, Sockets, Etc...)
+<b>Practical use:</b> a global variable is good for storing variables that you will need to use in the future from another script or at different time. (Login System, Away System, Sockets, Etc...)
 
 <H4>Semi global</H4>
 
@@ -114,7 +114,7 @@ The /unset command supports <a href="..\other\wildcard.html">wildcard</a> charac
 
 You can also unset all of the variables using the <a href="..\commands\unsetall.html">/unsetall</a> command.
 
-<span style="color: #9E1010;">'''Caution:'''</span> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
+<span style="color: #9E1010;"><b>Caution:</b> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
 
 <H4>$null values</H4>
 
@@ -143,11 +143,11 @@ Upon executing ''/nullExample'', you will notice that mIRC will echo the followi
 You can do one math operation with variable when setting a value.
 
 The operators supported are: '+' '-' '/' '*' '%' '^' where % is the modulus and ^ is power.
-
+<br>
 You must use a space around all 3 parameters and you must provide correct values, numbers can be float.
-
+<br>
 If you don't respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
-
+<br>
 It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is >= 2^31, the result is zero. If 1 input is valid and the other is < -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 <= n < 2^32, var can output negative numbers.
 
 For Example:
@@ -329,7 +329,7 @@ This method is easier to read/handle than the bracket, you can simply get the pl
 <H4>Special behaviors & quirks</H4>
 
 Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC doesn't evaluate it.
-
+<br>
 Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose doesn't evaluate the variable name.
 
 <H4>Quirks in /var</H4>
