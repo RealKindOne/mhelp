@@ -6,9 +6,11 @@
 <br>
 <br>
 The <b>/sockmark</b> command assigns temporary data to a socket to be referenced later using <a href="..\identifiers\sock.html">$sock</a> (&lt;name&gt;).mark. Leaving the [temp data] parameter <a href="..\identifiers\null.html">$null</a> will clear the socket mark. The sockmark command can be used to assign the same data to multiple sockets using a &lt;wild_name&gt; <a href="..\other\wildcard.html">wildcard</a> pattern.
-
-Limitations
-
+<br>
+<br>
+<b>Limitations</b>
+<br>
+<br>
 The [temp data] is limited to (4,141 - [length of &lt;sock_name&gt;]) characters. I.e. with a socket named "x", you can store up to 4140 characters.
 
 <H4>Synopsis</H4>

@@ -20,7 +20,8 @@ None
 None
 <H4>Examples</H4>
 <pre class ="code">
-; message an user back in a DCC chat when they type: !myaddress [N], where [N] is a number, 0-9, of their address mask.
+; Message an user back in a DCC chat when they type: !myaddress [N], where [N]
+; is a number, 0-9, of their address mask.
 ON *:CHAT:!myaddress *: {
   ; Set the %num variable to whatever comes after !myaddress
   var %num = $2

@@ -159,20 +159,20 @@ Second match is on 'ef':
 \a is "e f" while \A is "ef"
 </pre>
 The way mIRC evaluates those markers is special, it is important at this point to talk about the main steps happening when evaluating $identifiers:
-* Process '''[ ]''', which evaluates any variables/identifiers inside of the brackets once, and '''[[ ]]''', which turns into '''[ ]'''.
-* Separates the identifier's parameters and evaluates each parameter once. These evaluations take place in order from left to right.
-* Passes the parameters to the identifier
+<br>Process <b>[ ]</b>, which evaluates any variables/identifiers inside of the brackets once, and <b>[[ ]]</b>, which turns into <b>[ ]</b>.
+<br>Separates the identifier's parameters and evaluates each parameter once. These evaluations take place in order from left to right.
+<br>Passes the parameters to the identifier
 
 '''$regsubex''' is a bit different, it has its own parsing routine. By design, '''$regsubex''' must not evaluate the ''subtext'' parameter before doing the regex match. The steps for '''$regsubex''' are shown below:
 * Process [ ] and [[ ]].
 * separate parameters, evaluate the 'input' and the 'regex' parameters.
 * Perform the regex match.
-* Tokenize <a href="..\identifiers\1-.html">$1-</a><br> according to the number of markers used in the 'subtext' parameters.
+* Tokenize <a href="..\identifiers\1-.html">$1-</a> according to the number of markers used in the 'subtext' parameters.
 * Replaces any markers used in the subtext with their corresponding '''$N''' identifiers's values.
 * Evaluate the '''subtext''' parameter (one or more times, if /g is used).
 * Performs the substitutions and returns the result.
 
-mIRC internally uses <a href="..\identifiers\1-.html">$1-</a><br> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the '''subtext''' parameter (it is restored after).
+mIRC internally uses <a href="..\identifiers\1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the '''subtext''' parameter (it is restored after).
 
 The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
 
@@ -202,17 +202,17 @@ First of all, if you use the /g modifier in either the outer or the inner $regsu
 When mIRC replaces the markers, it will do so on the whole subtext parameter, consider:
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper(\t)))</pre>
 
-In the above example, the outer '''$regsubex''' will make the regex match, then it will loop on the result and replace ''\t'' accordingly everywhere in the subtext. Notice the subtext of the outer '''$regsubex''' is:
+In the above example, the outer '''$regsubex''' will make the regex match, then it will loop on the result and replace <b>\t</b> accordingly everywhere in the subtext. Notice the subtext of the outer '''$regsubex''' is:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper(\t))</pre>
-All occurences of '''\t''' (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside '''$upper'''; this means that the code won't work as expected. Typically we want this '''\t''' inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
+All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside '''$upper'''; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
 
-The idea is to get mIRC to see something other than '''\t''' (inside that $upper()) when looking for markers from the outer '''$regsubex''' context.
+The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer '''$regsubex''' context.
 
 A simple $+ cannot be used:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper( \ $+ t ))</pre>
 Having this as the subtext of the $regsubex would end up calling '''$upper(\t)''' with plain text "\t", because the '''$+''' is going to be evaluated after the inner $regsubex made his own regex match & loop over its results, which is after both $regsubex looked for markers. Something need to be done before the markers of the inner $regsubex are replaced but after the outer $regsubex made his match: when the outer $regsubex is ready to loop over its result.
 
-The solution is to use the '''<nowiki>[[ \ $+ t ]]</nowiki>''' construct:
+The solution is to use the <b>[[ \ $+ t ]]</b> construct:
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper( [[ \ $+ t ]] )))</pre>
 
 Indeed, the processing of <b>[ ]</b> and <b>[[ ]]</b> is done for the whole line. mIRC first changes this line into:

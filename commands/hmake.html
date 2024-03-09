@@ -174,7 +174,7 @@ or
 //hfree -w test | hinc -mcu5 test item-hinc 5 | hdec -cu5 test item-hdec-c 5 | timerx1 5 1 echo -a item-hinc $!hget(test,item-hinc) item-hdec $!hget(test,item-hdec-c)
 </pre>
 
-If needing items to always be in a predictable sequence, you can't count on using /hsave and /hload to preserve that order. '''These series of commands should be pasted separately in sequence, as a demonstration of each bullet point.''' When using buckets=1...
+If needing items to always be in a predictable sequence, you can't count on using /hsave and /hload to preserve that order. <b>These series of commands should be pasted separately in sequence, as a demonstration of each bullet point.</b> When using buckets=1...
 * Items listed in reverse order of creation. 1st created item is $hget(table,N) where N is the number of items in the table. i.e. $hget(table, $hget(table,0).item )
 <pre class ="code">
 //hfree -sw test | hmake -s test 1 | var %i 1 | while (%i &lt;= 10) { hadd test item $+ %i data | inc %i } | var %N 1 | while ($hget(test,%N).item) { echo 4 -a $ord(%N) item is $hget(test,%N).item | inc %N }

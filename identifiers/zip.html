@@ -34,7 +34,7 @@ $zip(file.zip,e[po],&lt;extractdir&gt; [,password])
     - used with <b>l</b> only, lists the Nth file/folder, or the total number of items with N = 0
 <br><b>&lt;file/folder&gt;</b> - used with <b>c</b>, the file/folder to add to the created zip file
 <br><b>&lt;extractdir&gt;</b> - used with <b>e</b>, the folder to extract the zip's content to
-<br><b>[password]</b> - password used to encrypt or decrypt each file added to zip. Can contain spaces. Valid only when using the 'p' switch.
+<br><b>[password]</b> - password used to encrypt or decrypt each file added to zip. Can contain spaces. Valid only when using the <b>p</b> switch.
 
 <H4>Properties</H4>
 <b>.size</b>
@@ -48,7 +48,7 @@ $zip(file.zip,e[po],&lt;extractdir&gt; [,password])
 
 If <b>l</b> is not used, $zip returns 1 for success and 0 for failure.
 
-<br><b>Note</b>: If .zip contains a potentially dangerous filename such as containing '../' then 'e' and 'l' return 0 and refuse to extract or list contents.
+<br><b>Note</b>: If .zip contains a potentially dangerous filename such as containing '../' then <b>e</b> and <b>l</b> return 0 and refuse to extract or list contents.
 
 <br><b>Warning</b>: Using the 'o' switch when extracting should NOT be used when extracting into $mircdir or any folder having important files in that folder or in any subfolders below it, especially if the zip was not created by YOU. $zip does not permit you to extract from the .zip into an existing folder name, even if it's empty. However, once you do use the 'o' switch, it allows you to extract into an existing folder name AND it also overwrites all matching files.
 
