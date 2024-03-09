@@ -12,7 +12,7 @@ Picture windows can be created via the <a href="..\commands\window.html">/window
 
 <br><b>Note:</b>-p only creates the bitmap, the size used in /window will by default set the window's size, to sets the size of the bitmap, you need to use the -f switch, which will automatically resize the size of the window for you.
 
-'''Note 1:''' One way to get a window size bigger than your actual maximum screen resolution is to open the window once using the switches +Lt and then to call /window -f again with the actual width and height.
+<b>Note1:</b> One way to get a window size bigger than your actual maximum screen resolution is to open the window once using the switches +Lt and then to call /window -f again with the actual width and height.
 
 A simple example:
 
@@ -33,10 +33,10 @@ A better example would be:
 
 Now the bitmap has the desired size.
 
-== Drawing ==
+<H4>Drawing</H4>
 
 There are 11 commands to draw to a picture window, all of them support the -n switch, which prevents mIRC from painting the change you just made to that window, this allows you to make smooth draws: if you make several draws at the same time or periodically without using the -n switch, you'll see a flicker between the draw, using -n on all your draws and then allowing mIRC to paint the changes 'merged' once will get rid of these flickers, it is not faster to draw with -n and vice versa.
-
+<br>
 Once you have made all your draws and are ready to paint the changes, any call to one of these /draw commands without the -n switch will do it (makes sense when we know not using the -n switch always paint the changes, causing flickers). You naturally want to use the simple /drawdot @mywin for that.
 
 <br><b>Note:</b> this section won't give full details about the commands, click on a command to see more information about that command.
@@ -63,9 +63,9 @@ Once you have made all your draws and are ready to paint the changes, any call t
 <br>
 <a href="..\commands\drawreplace.html">/drawreplace</a> can be used to replace a color with another in a specific area
 
-== /draw* example ==
+<H4>/draw* example</H4>
 
-Here is a simple alias using all of the command above except /drawsave and /drawpic.
+Here is a simple alias using all of the command above except /drawsave and /drawpic:
 
 <pre class ="code">
 alias picwin_example {
@@ -111,7 +111,7 @@ Mouse events can be defined in a <a href="custom_windows.html#custom_windows_men
 <br><b>leave</b> - mouse left the window, you can check <a href="..\identifiers\leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
 <br><b>drop</b> - mouse drag and dropped at $mouse.x $mouse.y.
 
-== Keyboard Events ==
+<H4>Keyboard Events</H4>
 
 You can catch keyboard input using the <a href="..\events\on_keydown.html">On_KeyDown</a> and <a href="..\events\on_keyup.html">On_KeyUp</a> events, which triggers when a key is pressed and released respectively.
 
@@ -231,10 +231,10 @@ Synopsis:
 <pre class ="code">
 $window, $window(&lt;@&lt;name|wid&gt;|N&gt;,N)
 </pre>
-'''$window''' itself returns the name of the window which was just left in the '''leave''' mouse event in a menu definition.
+<b>$window<b> itself returns the name of the window which was just left in the <b>leave</b> mouse event in a menu definition.
 
 When used with arguments, if you use a name, it can be a <a href="..\other\wildcard.html">wildcard</a> and can be used with the N parameter to represent the Nth window matching.
-As far as picture window are concerned, $window() has only one couple of properties you can use, '''.bw & .bh''' will return the width & height of the bitmap.
+As far as picture window are concerned, $window() has only one couple of properties you can use, <b>.bw</b> & <b>.bh</b> will return the width & height of the bitmap.
 
 <H4>The <a href="..\identifiers\pic.html">$pic</a> identifier</H4>
 

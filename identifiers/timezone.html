@@ -17,11 +17,11 @@ None
 <H4>Properties</H4>
 None
 
-== Notes ==
-* $timezone contains the seconds to subtract from UTC to match your computer clock time.
-* i.e. $gmt($ctime) == $asctime($calc($ctime + $timezone)), and $asctime($calc(0 + $timezone)) is "Thu Jan 01 00:00:00 1970" except for people whose $timezone is negative because $asctime does not accept negative time values.
-* When you change your computer's timezone, the file date/times change, but mIRC's $ctime does not. $file($mircexe).mtime remains the same regardless of $timezone and $daylight values.
-* $timezone changes when $daylight changes, so you'll find $timezone + $daylight remain the same total. In USA Eastern, you'll find that during the winter, $timezone is 18000 and $daylight is 0. In summer during Daylight/Summertime, $timezone drops by 3600 to 14400, and $daylight increases from 0 to 3600.
+<H4>Notes</H4>
+<br>$timezone contains the seconds to subtract from UTC to match your computer clock time.
+<br>i.e. $gmt($ctime) == $asctime($calc($ctime + $timezone)), and $asctime($calc(0 + $timezone)) is "Thu Jan 01 00:00:00 1970" except for people whose $timezone is negative because $asctime does not accept negative time values.
+<br>When you change your computer's timezone, the file date/times change, but mIRC's $ctime does not. $file($mircexe).mtime remains the same regardless of $timezone and $daylight values.
+<br>$timezone changes when $daylight changes, so you'll find $timezone + $daylight remain the same total. In USA Eastern, you'll find that during the winter, $timezone is 18000 and $daylight is 0. In summer during Daylight/Summertime, $timezone drops by 3600 to 14400, and $daylight increases from 0 to 3600.
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $timezone</pre>

@@ -5,7 +5,7 @@
 <H1>$banmask</H1>
 <br>
 <br>
-The <b>$banmask</b> identifier returns the current user ban through either an <a href="..\events\on_ban.html">On_Ban</a>, or an <a href="..\events\on_unban.html">On_UnBan</a>. Most of the time, a banmask returns a <a href="..\other\wildcard.html">wildcard</a> address, generally resembling ''*user*@host.net''.
+The <b>$banmask</b> identifier returns the current user ban through either an <a href="..\events\on_ban.html">On_Ban</a>, or an <a href="..\events\on_unban.html">On_UnBan</a>. Most of the time, a banmask returns a <a href="..\other\wildcard.html">wildcard</a> address, generally resembling <b>*user*@host.net</b>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -19,14 +19,14 @@ None
 None
 
 <H4>Example</H4>
-Message any channel where a ban has occurred, acknowledging the address the ban was placed on.
+Message any channel where a ban has occurred, acknowledging the address the ban was placed on:
 <pre class ="code">
 ON *:BAN:#: {
   msg # Uh, oh! Looks like the address $banmask has just been banned.
 }
 </pre>
 
-Message any channel where an unban has occurred, and report the address that was removed.
+Message any channel where an unban has occurred, and report the address that was removed:
 <pre class ="code">
 ON *:UNBAN:#: {
   msg # Oh, look! $banmask was just removed from the channel banlist.

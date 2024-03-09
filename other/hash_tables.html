@@ -176,7 +176,7 @@ The execution of the alias (/print_fav_colors) will produce the following result
 
 This listing is almost always not in the same order they're added, because items are first listed according to the bucket they are placed into, before items within the bucket are listed. This is the listing order for v7.53, while the order in v7.52 is 1)Gary 2)Mary 3) Lisa 4) John. The listing order can also change if you change the number of 'buckets' within the same mIRC version, and the order of any items assigned to the same bucket can also be affected by the order in which those items are added or whether items in that bucket were deleted or added. Therefore, you should not depend on Mary being listed before Gary. More details in a later Technical section.
 
-== Deleting Items ==
+<H4>Deleting Items</H4>
 To delete pairs from the table, you need to use the /hdel command. Its syntax is:
 
 <pre class = "code">hdel &lt;table_name&gt; &lt;item&gt;
@@ -272,7 +272,7 @@ To complete destroy a table and all its values, you can use the hfree command:
 
 With the -w switch you can specify a <a href="..\other\wildcard.html">wildcard</a> pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
 
-== Searching for a Item and value pair ==
+<H4>Searching for a Item and value pair</H4>
 The $hfind identifier can be used to search the table for a particular pair.
 
 <pre class = "code">; The Nth Item name that matches the wildcard pattern
@@ -291,9 +291,9 @@ If you specify 0 for Nth Item, the total number of matches will be returned inst
 
 Which will return "Mary". because Mary appeared before Gary in the iteration list of items. Prior to v7.53 it returned "Gary" because that name appeared first in the iteration list.
 
-'''Note 1:''' Using a non-hashed method for finding an item or data using <a href="..\identifiers\hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="..\identifiers\hget.html">$hget</a> using its item name.
+<b>Note1:</b> Using a non-hashed method for finding an item or data using <a href="..\identifiers\hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="..\identifiers\hget.html">$hget</a> using its item name.
 
-'''Note 2:''' Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="..\identifiers\hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
+<b>Note2:</b> Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="..\identifiers\hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
 
 <H4>Technical Explanation</H4>
 mIRC's hash tables are implemented as follows.

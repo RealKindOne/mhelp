@@ -99,7 +99,7 @@ Given the alias prefixes above, you cannot start the name of an alias with a com
 
 
 
-== Commands ==
+<H4>Commands</H4>
 
 A command usually does not return any value, but instead, it processes the arguments it's given. In a command, every argument is separated by a space. $0 will contain the total number of arguments passed to that alias. $N (where N is a number 1 to $0) will contain the arguments. For example:
 
@@ -161,7 +161,7 @@ output: a.a
 output: ..a..a..
 </pre>
 
-== Identifiers Properties ==
+<H4>Identifiers Properties</H4>
 
 Properties are a unique feature to identifiers with arguments. They allow you to pass one more additional remark to the alias. That remark can be retrieved from within the alias using the '''$prop''' identifier. Properties are usually a way to manipulate the arguments we pass to the alias.
 
@@ -198,7 +198,7 @@ For example:
 //echo -a $convert($convert(15.5).deg2rad).rad2deg
 15.499998</pre>
 
-== Aliases as Both an identifier and command ==
+<H4>Aliases as Both an identifier and command</H4>
 
 Although most aliases do only serve as identifiers or commands, it is possible to act as both. 
 
@@ -269,7 +269,7 @@ alias echo {
 
 This saves the $v1 and $v2 as they exist when entering the alias. Then before exit, it creates a dummy if() statement which has the effect of restoring them.
 
-== Aliases for other users ==
+<H4>Aliases for other users</H4>
 
 A consideration in creating aliases which might be executed by other users is to take into account that other users will not use the same colors that you do. There are large user bases who use each of black or white backgrounds, and there are lots of colors which contrast well against one yet have poor contrast against the other. In the default 'mIRC Classic" color set, 8 "Yellow" and 11 "LightCyan" do poorly against a White background, but do well against Black. On the other hand, 2 "NavyBlue" does well against White but poorly against Black. And of course, the White and Black text colors obviously don't contrast well against the same color background.
 
@@ -279,7 +279,7 @@ Another choice is to use echo's -c switch to set the color which that user has a
 
 <pre class ="code">/echo -ac info this displays in the same color as mIRC error messages</pre>
 
-== Additional alias features: ==
+<H4>Additional alias features:</H4>
 
 Regardless of whether or not an alias was called as a command or as an identifier, if it used the /return command to return back, you can get that value using the '''$result''' identifier.
 
@@ -330,7 +330,7 @@ alias F11 { echo -sg F11 executed prevents F11 toggling full-screen mode on/off 
 alias sF9 { echo -sg shift+F9 executed - skipping currently playing sound file! }
 </pre>
 
-== Local Aliases ==
+<H4>Local Aliases</H4>
 
 By default, every alias is public. This means any script from any file is able to call that alias (even from the editbox). An alias can be made local by using the -l switch. A local alias is only visible to local scripts - scripts that are in the same file as the alias itself. This is especially useful when your aliases have common names and you don't want to cause conflicts when distributing your script to other people.
 

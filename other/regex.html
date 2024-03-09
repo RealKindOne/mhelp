@@ -208,11 +208,11 @@ First of all, if you use the /g modifier in either the outer or the inner $regsu
 When mIRC replaces the markers, it will do so on the whole subtext parameter, consider:
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper(\t)))</pre>
 
-In the above example, the outer '''$regsubex''' will make the regex match, then it will loop on the result and replace <b>\t</b> accordingly everywhere in the subtext. Notice the subtext of the outer '''$regsubex''' is:
+In the above example, the outer <b>$regsubex</b> will make the regex match, then it will loop on the result and replace <b>\t</b> accordingly everywhere in the subtext. Notice the subtext of the outer <b>$regsubex</b> is:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper(\t))</pre>
-All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside '''$upper'''; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
+All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
 
-The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer '''$regsubex''' context.
+The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer <b>$regsubex</b> context.
 
 A simple $+ cannot be used:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper( \ $+ t ))</pre>
@@ -227,7 +227,7 @@ Indeed, the processing of <b>[ ]</b> and <b>[[ ]]</b> is done for the whole line
 
 The example above conveys how only the <b>[[ ]]</b> has changed. Remember <b>$+</b> was not evaluated because the subtext parameter of $regsubex is not evaluated until the regex match is performed.
 <br>
-Now, the outer '''$regsubex''' is evaluated, it gets its parameters (without evaluating the subtext), makes the regex match, and calls the subtext for each match, the subtext is:
+Now, the outer <b>$regsubex</b> is evaluated, it gets its parameters (without evaluating the subtext), makes the regex match, and calls the subtext for each match, the subtext is:
 <pre class ="code">$regsubex(&lt;value of \t from the outer $regsubex&gt;,/(.)/g,$upper( [ \ $+ t ] ))</pre>
 
 And when this $regsubex evaluates (for each replacement of the outer $regsubex) [ \ $+ t ] will first produce \t, and everything works as we wanted.
@@ -243,7 +243,7 @@ You cannot use a marker inside the subtext of the inner $regsubex to get the val
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper(\t)))</pre>
 
 You are tempted to think that \t inside $upper should always be "cd", because that's the only value that \t can have from the outer $regsubex and we just saw how the marker are replaced for the whole subtext, no matter where it appears. However, we also saw that mIRC does not blindly replace the markers with their real value, it uses the intermediate tokens identifiers ($1 etc), this is required otherwise element such as ) would be taken as closing parenthesis for identifier for example, or comma as argument separator inside an identifier:
-
+<br>
 Two markers are used in the subtext of the outer $regsubex, so mIRC make the match, cd is found twice so a two iterations loop is made, each time replacing the match with the evaluation of the subtext parameter. Right before that loop, because two markers are used, mIRC fills $1 with \t as well as $2 with \t and then evaluate the subtext, which gives before evaluation:
 
 <pre class ="code">$regsubex($1,/(.)/g,$upper( $+ $2 $+ )))</pre>
@@ -279,7 +279,7 @@ The difference is that you now have a pair of bracket, which are processed first
 <H4>$hfind</H4>
 <a href="..\identifiers\hfind.html">$hfind</a> can be used along with <b>regex</b>. However, <b>$hfind</b> does not support the custom <b>S</b> modifier.
 
-== /write, $read, $fline, etc ==
+<H4>/write, $read, $fline, etc</H4>
 These, and many more, are various places where regular expression can be used.
 
 <H4>Syntax</H4>

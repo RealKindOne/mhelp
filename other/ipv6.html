@@ -143,7 +143,7 @@ Including these switches will make your script work in all circumstances regardl
 <br>IPv6 state - -6 is already implied, and the -4 will additionally ensure that IPv4 DNS lookups will also be done;
 <br>IPv4 state - -4 is already implied, and the -6 will additionally ensure that IPv6 DNS lookups will also be done.
 
-== Impact of quirks in the future ==
+<H4>Impact of quirks in the future</H4>
 At present, almost all users and servers have IPv4 connections. Users connecting via IPv4 will be able to make connections to almost all servers over IPv4. Users who have IPv6 connectivity and set IPv6 priority will still get IPv4 connectivity by default unless they have explicitly connected a status window to a specific version.
 
 However with IPv4 addresses now officially exhausted, it will become increasingly likely that users and servers will be IPv6 only. Whilst IPv6 users can still set IPv6 priority and connect automatically to IPv4-only servers, IPv4-only users will NOT be able to connect to IPv6-only servers and will be forced to implement a gateway protocol like Teredo to get IPv6 connectivity for these situations. But as identified above, with the the current mIRC implementation it is <b>not</b> recommended to set IPv6 priority for gateway IPv6 which is substantially slower, and we can therefore reasonably expect the number of mIRC users experiencing connection difficulties of this form to increase substantially in the near future.
