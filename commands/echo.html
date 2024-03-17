@@ -135,17 +135,22 @@ on ^*:JOIN:#:{
 /window -g1 @window
 /window -g1 #channel
 </pre>
+
+The echo command modifies &lt;text&gt; by hiding duplicate spaces and non-printable characters including $chr(9) tab:<br>
+Returns: 8 abc def<br>
+Where the duplicate space is not displayed.
 <pre class ="code">
-; The echo command modifies &lt;text&gt; by hiding duplicate spaces and non-printable characters including $chr(9) tab.
 //var %a abc $+ $chr(32) $+ $chr(32) $+ def | echo -a $len(%a) %a
-; returns: 8 abc def
-; ... where the duplicate space is not displayed.
+</pre>
+
 //var %a abc $chr(9) def | echo -a $len(%a) %a
 ; returns: 9 abc def
 ; ... where there are 2 spaces appearing next to each other because they were not consecutive prior to the non-printable tab being hidden.
 ; All 6 letters are displayed on the same line because $crlf is non-printable:
 //var %a $+(abc,$crlf,def) | echo -a %a
-; Echo a blank line because it contains only non-printable characters:
+</pre>
+<pre class ="code">
+Echo a blank line because it contains only non-printable characters:
 //echo -a $crlf
 </pre>
 

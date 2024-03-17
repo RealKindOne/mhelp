@@ -8,7 +8,7 @@
 The <b>$bytes</b> identifier allows you to format a number of bytes.
 <br>
 <br>
-This cannot be used to format a string of number: not every number, especially decimal, are a valid representation of a number of bytes, the number passed to $bytes() is converted to a real number internally, it's not being viewed as a string and all the operations happens on the number
+This cannot be used to format a string of number: not every number, especially decimal, are a valid representation of a number of bytes, the number passed to $bytes() is converted to a real number internally, it's not being viewed as a string and all the operations happens on the number.
 
 
 <H4>Synopsis</H4>
@@ -41,22 +41,22 @@ Echo a byte value of GB to the active window with the suffix
 <pre class ="code">//echo -a $bytes(10000000000,g).suf</pre>
 
 When $bytes formats the number without being forced to use a specific suffix, it defaults to choosing a suffix which allows it to be presented as a number having no more than 3 numbers to the left of the decimal, and limits the fraction as no more than 2 digits. It doesn't display the suffix unless the .suf property is used. If the '3' switch is used, the display is modified so that the digits of the fraction also count as part of the 3 numbers, which can result in the fraction being shortened or even eliminated in order to limit the combined digit total to 3. The number is shortened into units of 1024's not 1000's.
-
+<br>
 Because of float rounding behavior, you cannot count on a completely accurate rounding if the rounding is chopping the '5' digit from the tail end of the fraction. Even for rounding of numbers to the left of the decimal, you should view these results only as an approximation.
-
+<br>
 This next example shows that a number 6 below 501kb is still being rounded as 500, and $bytes and $round both round this number down instead of rounding to be 11.4
 
 <pre class ="code">//echo -a $round(11.35,1) vs $bytes(11.35,3d) and $bytes($calc(500*1024+1018),3)
 result: 11.3 and 11.3 and 500</pre>
 
 The behavior of recognizing $bytes(1e4,b) as ten thousand is probably an incidental behavior similar to the way that other identifiers like $int and $abs also recognize scientific notation.
-
+<br>
 $bytes is not intended to handle extremely huge numbers, since the greatest suffix it recognizes is PB (terabytes), at which point it stops preventing the result from being presented with fewer numeric digits. There are no plans to give bigfloat support to this identifier, so scripts will need to use $round and string manipulation to achieve this goal. Here is an example demonstrating that $bytes does not have the bigfloat range accuracy, and demonstrates how to display numbers formatted with commas:
 <pre class ="code">
 //var -s %a.bf $calc(2^127 + $pi), %int $gettok(%a.bf,1,46), %frac $gettok(%a.bf,2,46) | echo -a $bytes(%a.bf,b) | echo -a $regsubex(%int,/([0-9])(?=([0-9]{3})+$)/g,\1 $+ $chr(44)) $+ $iif(%frac != $null,. $+ %frac)
 </pre>
-result:
-170,141,183,460,469,230,000,000,000,000,000,000,000
+result:<br>
+170,141,183,460,469,230,000,000,000,000,000,000,000<br>
 170,141,183,460,469,231,731,687,303,715,884,105,731.14159265358979323846264338328
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)

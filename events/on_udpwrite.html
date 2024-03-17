@@ -6,13 +6,15 @@
 <br>
 <br>
 The <b>ON UDPWRITE</b> is an event which was added in mIRC with UDP, but never has been documented. The event was meant to be used as the <a href="..\on_sockwrite.html">On_SockWrite</a> event for TCP, however the actual design ended up being that:
-* on sockwrite triggers for UDP socket if no error happened
-* on udpwrite will trigger if an error occurred.
+<br>
+<br>on sockwrite triggers for UDP socket if no error happened
+<br>on udpwrite will trigger if an error occurred.
 
 
 <br><b>Note:</b>This behavior was changed for consistency and backward compatibility in mIRC 7.33:
-* on udpwrite is no longer triggered.
-* on sockwrite triggers for UDP socket regardless of the error state.
+<br>
+<br>on udpwrite is no longer triggered.
+<br>on sockwrite triggers for UDP socket regardless of the error state.
 
 
 <H4>Writing more</H4>
