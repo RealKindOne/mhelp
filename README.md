@@ -23,4 +23,13 @@ You can click the sunglasses icon to view the "mhelp.chm" file.
 
 ## Editing
 
-The Program is a bit primitive, I use a external editor for editing all the files. (Close out of everything if you edit any of the "mhelp" files.)
+The program is a bit primitive, I use a external editor for editing all the files. (Close out of everything if you edit any of the "mhelp" files.)
+
+
+
+## NOTE:
+
+Windows has a security feature that prevents running non-installed (downloaded) .chm files. You will need to Unblock the file by Right clicking the .chm file, click Properties, Unblock, Ok.
+
+https://www.helpsmith.com/chm-cannot-be-displayed.php
+
