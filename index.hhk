@@ -3151,6 +3151,14 @@
 		<param name="Local" value="events\on_chat.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_chatclose">
+		<param name="Local" value="events\on_chatclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_chatopen">
+		<param name="Local" value="events\on_chatopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_close">
 		<param name="Local" value="events\on_close.html">
 		</OBJECT>

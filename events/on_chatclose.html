@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>On ChatClose</title></head>
+<H1>On ChatClose</H1>
+<br>
+<br>
+The <b>ON CHATCLOSE</b> event triggers within mIRC when a DCC CHAT session ends.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="on_close.html">On_Close</a>.
+
+<H4>Synopsis</H4>
+<pre class = "code">ON &lt;level&gt;:CHATCLOSE:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
+
+<H4>Local Identifiers</H4>
+<a href="..\identifiers\_nick.html">=$nick</a> - Refer to the dcc chat window, rather than a query window.
+
+<H4>Example</H4>
+<pre class ="code">
+ON 1:CHATCLOSE:/notice $me $nick just left the discussion!
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="on_open.html">On_Open</a><br>
+</body>
+</html>

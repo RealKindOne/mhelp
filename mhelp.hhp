@@ -799,6 +799,8 @@ events\on_appactive.html
 events\on_ban.html
 events\on_char.html
 events\on_chat.html
+events\on_chatclose.html
+events\on_chatopen.html
 events\on_close.html
 events\on_connect.html
 events\on_connectfail.html
