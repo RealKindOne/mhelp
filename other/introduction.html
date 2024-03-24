@@ -8,22 +8,14 @@
 
 This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.
 
-<H4>Where does the code go?</H4>
-All of your code, regardless of its type, should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.
-
-Below is a screen shot of the mIRC Script Editor:
-
-<center><img src="..\images\remote_menu.png"></center>
-
-You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>. Let's try and get you familiar with each one. Before we dive into what these little (or rather big) guys do, let's get to know some basics first.
-
 <H4>The very basics</H4>
 Let's take a few moments to help familiarize you with the following key components:
 
 <H4>Statements</H4>
-Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.
+Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
+Every statement is evaluated first, and then executed.
 
-If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.
+If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
 
 For example, the following two are the same:
 <a name="pipes"></a>
@@ -36,26 +28,79 @@ statement 2
 statement 3
 statement 4</pre>
 
-<pre>echo -a statement 1 | statement 2 | statement 3 | statement 4</pre>
+<h4>Commands statements</h4>
+
+Most statements are called "commands". Commands are performing some operations, without returning data to you. For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
+After a command follows its parameters, spaces delimited, some commands take no parameter.<br>
+Because of this, all commands tokenize their parameters by spaces, meaning that double spaces are trimmed to a single space, while leading and trailing spaces are always stripped.<br>
+mIRC scripting in general relies on the space character, it does not use quoted string.<br>
+However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
+And finally, some commands have limited quoted string support because they actually require two string.<br>
+Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter  
+
+<h4>Other statements</h4>
+If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b><br>
+Such statement involve more syntactic elements and are used to control the logical flow of the code
 
 <H4>What's with the slashes?</H4>
-If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code which is saved in the editor, but you can also execute anything from the editbox.
-
-In order to execute any code from the mIRC editbox (the box where you normally type all of your text), you must prefix the code with at least one forward slash.
-
-You may use two forward slash, the difference between using one or two forward slash is that with one, the rest of the line is not interpreted, we will discuss this difference later.
-
+If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
+In order to execute any code from the mIRC editbox, you must prefix the code with at least one forward slash character '/'.<br>
+You may use two forward slash, the difference between using one or two forward slash is that with one, the rest of the line is not interpreted/evaluated, we will discuss this difference later.<br>
 We usually refer to commands by prefixing them with a slash.
 
+<h4>Routine</h4>
+If you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
+A routine can be:<br>
+-a function, which has a name, functions are called aliases, a function can be executed as a command (custom command) but also as an identifier, more about identifier later<br>
+-an event, mIRC is an event-driven language which are automatically triggered by certain event happening, more about events later.<br>
+
+<H4>Where does the code go?</H4>
+All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.
+
+Below is a screen shot of the mIRC Script Editor:
+
+<center><img src="..\images\remote_menu.png"></center>
+
+You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.
+
+Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliasse file loaded.<br><br>
+Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
+There are 5 differents popups categories: status, channel, query, nicklist, and menubar. More about popups here<br><br>
+Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
+Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them. more about access level here<br>
+
+In the script editor, every commands are executed as though 2 '/' where used from the editbox, the line is evaluated before being executed.
+  
+<h4>Aliases</h4>
+Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. <br>
+The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as custom commands.<br>
+All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
+They have the following format:
+<pre class ="code">&lt;name&gt; &lt;statements&gt;
+</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated.
+<br>
+Here are some valid examples of aliases definition:<br>
+Single line alias in remote, single statement:
+<pre class ="code">alias test echo -a test</pre>
+Single line alias in alias, multiple statements:
+<pre class ="code">Both of these are the same:
+  test echo -a test | echo -a test1
+  test { echo -a test | echo -a test1 }
+</pre>
+
+<h4>Events<h4>
+If your statements don't belong to an alias, the other thing they can used with are events. <br>
+Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in, but they take parameters.
+<pre class ="code">on &lt;access_level&gt;:&lt;event_name&gt;:&lt;parameters&gt;:</pre>
+Some events have more parameters than the other, they always are splitted with a ':' character.
+Example:
+  <pre class ="code">on *:text:*:#:echo text!</pre>  
+  more about events here
+  
 <H4>/echo command</H4>
-The most common type of statements are <a href="..\commands.html">commands</a>. Commands are a way to tell mIRC to perform a basic operation. By far the most common command you will be using is the <a href="..\commands\echo.html">/echo</a> command. The /echo command simply prints text to the screen. Every echo command prints on a line of its own. Even if the /echo command is typed into the editbox of a #channel, nobody in channel sees the message unless you do not begin the text with the "/" symbol.
-
-Let's dive right into an example! Type the following code into your editbox:
-
 <pre class ="code">//echo Hello World!</pre>
-
-When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<br><b>Note:</b> Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
-
+When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<br>
+<b>Note:</b> Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
 <pre>Hello World!</pre>
 <center><img src="..\images\hello_edit.png"></center>
 
@@ -75,25 +120,8 @@ Fun!</pre>
 <br><b>Note:</b> As you may have noticed, from the editbox, you can only pipe statements, you can't use newlines.
 
 You will notice that after the first ''//echo'' command, once we've piped, we do not need to type any more slashes; this is because mIRC interprets the rest of the statements via the first initial two slashes.
-If you use one slash here, "Scripting | echo Is | echo Fun!" will be echoed, because the pipes have not been interpreted as statements separator, we usually refer to something that can be interpreted that is not interpreted as 'plain text'. We also refer to the processing of anything special (we've only seen the pipe character for now, but they are others) as 'evaluation', we will discuss it later.
-
-When you begin an editbox command with a double "//", it does not execute the 1st command if the // is immediately followed by a space character, so be sure to not have an unnecessary space at the beginning. This example echoes only the "test2" message:
-
-<pre class ="code">// echo test1 | echo test2</pre>
 
 <H4>Let's make it into an alias, shall we?</H4>
-Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as commands, much like the ''echo'' command is. All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
-
-<H4>Basic Alias</H4>
-A basic alias will look something like this:
-
-<pre>alias name &lt;statement&gt;</pre>
-
-We can tweak the statement of this alias just a little in order to perform multiple statements through the use of piping:
-
-<pre>alias name statement 1 | statement 2 | statement 3</pre>
-
-Notice that with the piping, this alias now performs multiple actions.
 
 Let's make the code we used above to print "Scripting Is Fun!", all on separate lines, and call this new alias "fun":
 
@@ -102,7 +130,6 @@ Before we continue, let us note a few things regarding the above code:
 
 # The two // were removed; we only really need one or two forward-slashes when we want to execute code directly from the editbox. Using slashes in your script editor adds nothing but clutter.
 # The statements in the editor are always executed as though two forward slashes were used, you cannot force a statement not to be evaluated.
-# Because we used the '''alias''' keyword, the code must go in the '''Remote Tab''' of the script editor. In order to use that code from the aliases tab, you must remove the "alias" keyword. The rest of the code stays the same.
 <br>
 <H4>Remote tab</H4>
 <br>
@@ -120,7 +147,6 @@ Before we continue, let us note a few things regarding the above code:
 To call on our alias ''fun'', all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
 
 <pre class ="code">/fun</pre>
-<br><b>Note:</b> Two forward-slashes will also call it of course, but there are nothing to be evaluated so it would be the same.
 
 That should print our text again:
 
@@ -129,7 +155,7 @@ Is
 Fun!</pre>
 
 <H4>A block of code</H4>
-When we have a group of related commands, we call it a "block of code". Most scripts, however, are not as short as our example and putting it all on one long line, or ''piping'', is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC "this block of code belongs to this alias". We do that by enclosing the block of code in a pair of brackets:
+When we have a group of related statement, we call it a "block of code". Most scripts, however, are not as short as our example and putting it all on one long line, or ''piping'', is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC "this block of code belongs to this alias". We do that by enclosing the block of code in a pair of brackets:
 
 <pre class ="code">alias name {
   statement 1
@@ -326,21 +352,33 @@ alias second {
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
-<H4>Identifiers</H4>
-<a href="aliases.html">aliases</a>
+<H4>evaluation/interpretation</H4>
 
-Before we wrap up this tutorial, we need to talk about one last concept: $identifiers. All identifiers have a dollar symbol sigil and have the following syntax:
+Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
 
-<pre class ="code">$name
-;or
-$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
+Evaluation/interpretation is what happens to statements when you use two slash from the editbox or execute something from the script editor.
+So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting block of code.
+Although we can't get this behavior from script in the script editor, using one slash from editbox will result in the pipe character as well as { and } not being interpreted as a statement separator and start/end of block of statements.
 
-Identifiers are very similar to commands except that we use identifiers when we want a value.
+<h4>$identifier & %variables</h4>
 
+Your statement and their parameters if any may be composed of identifiers.
+
+All identifiers starts with dollar symbol sigil.
+Generally speaking identifiers are performing and operation like commands, but they return a value, some identifiers are special constructs and don't return a value, they are used for various other operations.  
+Some identifiers can take parameters as well as properties.
+Without any parameter nor any properties, the basic syntax is:
+<pre class ="code">$name</pre> where name is referring to the name of an existing identifiers.
+If they take parameters, they use the ( and ) and a comma to separate arguments, much like other programming language:
+<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
+If they take a property, they use a dot '.' at the end followed by a known property name:
+<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
+
+When you create an alias, you can call it as a command by calling it as a statement, but you can also make your alias return a value and call your alias as a custom identifier.
+  
 Commands separate their parameters/arguments by space, while identifiers use a comma.
-Both commands and identifiers are also referred to as alias(es): you create a custom command/identifier by creating an alias.
 
-For example, if we want to print out our current nickname, we would use the following code:
+mIRC has a lot of built-in identifiers and commands. For example, if we want to print out our current nickname, we would use the following code:
 
 <pre class ="code">//echo -a $me</pre>
 
