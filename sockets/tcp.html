@@ -17,7 +17,7 @@ Before we can do anything else we must first create a new connection to a specif
 
 <pre class ="code">sockopen &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
-A '''handle''' simply is a unique name by which we can refer to this exact socket.
+A <b>handle</b> simply is a unique name by which we can refer to this exact socket.
 
 <H4>Creating a secured Connection</H4>
 I am sure you are very familiar with the padlock icon next to the URL in your browser. That icon indicated that website uses secure http (also known as HTTPS). The default port for HTTPS is 443. The /sockopen command can also be used to create secured SSL connections as well using the following syntax:
@@ -130,10 +130,10 @@ Understanding this concept is important to understanding how to send data correc
 
 <H4>/sockwrite's limit</H4>
 
-Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending.
-The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
+Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
+<br>
+In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="..\events\on_sockwrite.html">here</a>.
 
-In a typical script using HTTP and the {{mIRC|TCP Sockets#POST_vs_GET.3F|GET method}} to grab something from a website, it's unlikely that you will reach this limit but note that when using {{mIRC|TCP Sockets#POST_vs_GET.3F|POST}}, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event {{mIRC|on events/on sockwrite#Examples|here}}
 
 <H4>Sending Data Example</H4>
 
@@ -201,11 +201,13 @@ Note the escaped characters. You should almost always encode all user input:
 }</pre>
 
 <H4>POST vs GET?</H4>
-By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: '''POST''' and '''GET'''. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
+By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: <b>POST</b> and <b>GET</b>. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
 
- <form id="FooBar" '''method="post"''' action="">
+<pre class = "code">
+ &lt;form id="FooBar" '''method="post"''' action=""&gt;
     ...
- </form>
+ &lt;/form&gt;
+</pre>
 
 The most basic GET request will follow this basic syntax:
 <pre class ="code">
