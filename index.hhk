@@ -2666,6 +2666,10 @@
 		<param name="Local" value="commands\msg.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/nick">
+		<param name="Local" value="commands\nick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/noop">
 		<param name="Local" value="commands\noop.html">
 		</OBJECT>
