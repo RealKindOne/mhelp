@@ -171,6 +171,7 @@ commands\iline.html
 commands\inc.html
 commands\iuser.html
 commands\join.html
+commands\langdll.html
 commands\leave.html
 commands\linesep.html
 commands\links.html
@@ -531,6 +532,7 @@ identifiers\knick.html
 identifiers\lactive.html
 identifiers\lactivecid.html
 identifiers\lactivewid.html
+identifiers\langdll.html
 identifiers\lcm.html
 identifiers\left.html
 identifiers\leftwin.html

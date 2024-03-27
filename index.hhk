@@ -990,6 +990,10 @@
 		<param name="Local" value="identifiers\lactivewid.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$langdll">
+		<param name="Local" value="identifiers\langdll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$lcm">
 		<param name="Local" value="identifiers\lcm.html">
 		</OBJECT>
@@ -2592,6 +2596,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/join">
 		<param name="Local" value="commands\join.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/langdll">
+		<param name="Local" value="commands\langdll.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/leave">
