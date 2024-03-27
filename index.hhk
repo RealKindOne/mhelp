@@ -3094,6 +3094,50 @@
 		<param name="Local" value="commands\xyzzy.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="==">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="===">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="<">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="<=">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value=">">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="=>">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="//">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="\\">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="!=">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="!==">
+		<param name="Local" value="other\operations.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ison">
 		<param name="Local" value="other\operations.html#channel_operations">
 		</OBJECT>
@@ -3439,14 +3483,6 @@
 		<param name="Local" value="events\on_vcmd.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="injection">
-		<param name="Local" value="other\injection.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Eval Brackets">
-		<param name="Local" value="other\eval_brackets.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_voice">
 		<param name="Local" value="events\on_voice.html">
 		</OBJECT>
@@ -3457,6 +3493,14 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_waveend">
 		<param name="Local" value="events\on_waveend.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="injection">
+		<param name="Local" value="other\injection.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Eval Brackets">
+		<param name="Local" value="other\eval_brackets.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="While Loops">
