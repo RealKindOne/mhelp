@@ -36,15 +36,16 @@ If used with a music filename, the following properties are available:
 <br><b>.length</b> - Returns the full length of the song in milliseconds.
 <br><b>.version</b> - Gets the version number of the song, or track.
 <br><b>.bitrate</b> - Returns the bitrate for the file.
-<br><b>.vbr</b> - Gets the variable bit rate for the file.
+<br><b>.channels</b> - Returns the number of channels <b>0</b>, <b>1</b>, or <b>2</b>.
+<br><b>.vbr</b> - Returns <b>$true</b> or <b>$false</b> if variable bit rate is found.
 <br><b>.sample</b> - Returns the sampling frequency.
-<br><b>.mode</b> - Returns the mode: <b>mono</b>, <b>stereo</b>, etc.
+<br><b>.mode</b> - Returns the mode: <b>Joint Stereo</b>, <b>Dual Channel</b>, <b>Single Channel</b>, or <b>Stereo</b>.
 <br><b>.copyright</b> - Returns any copyright information.
 <br><b>.private</b> - Returns <b>$true</b> or <b>$false</b> for the private tag.
 <br><b>.crc</b> - Returns <b>$true</b> or <b>$false</b> if crc is found.
-<br><b>.id3</b> - Returns the id3 tag information.
-<br><b>.tag</b> - Used to retrieve id3v2 information.
-<br><b>.tags</b> - Used to retrieve id3v2 information.
+<br><b>.id3</b> - Returns the id3 tag version number.
+<br><b>.tag</b> - Returns total number of id3v2 tags.
+<br><b>.tags</b> - Returns all id3v2 tags associated with the file.
 
 <H4>Example</H4>
 Echo the artist name of the currently playing mp3 file to the active window:
