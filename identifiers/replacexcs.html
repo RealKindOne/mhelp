@@ -1,3 +1,46 @@
-#REDIRECT [[mirc/identifiers/$replacex]]</body>
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$replacexcs</title></head>
+<H1>$replacexcs</H1>
+<br>
+<br>
+The <b>$replacexcs</b> Performs search/replace on text strings, but doesn't replace what's already been replaced. <a href="replacexcs.html">$replacex</a> is the case-insensitive version.
+
+
+<b>Note:</b> $replace search each substring separately, $replace(1234,234,z,123,u) is 1z, "234" was first checked against "1234" and then "123" isn't even checked because we reached the end of the string. But $replacexcs does not work like that, $replacexcs(1234,234,z,123,u) is u4, because the main loop is done on the input string, trying for each position to match any of the substring, so 123 is found first.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$replacexcs(text , substring, replace, stringN, replaceN)
+</pre>
+
+<H4>Parameters</H4>
+<b>text</b> - The string you want to replace from
+<br><b>substring</b> - The 1st string you want to search for
+<br><b>replace</b> - the replacement for the 1st string
+<br><b>substringN</b> - The Nth string you want to search for
+<br><b>replaceN</b> - the replacement for the Nth string
+<br>
+<br>
+<b>Note:</b> Excluding the first parameter (input string), there must be an even number of substring/replace parameters
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $replacexcs(abc,ab,c,cc,d) vs $replace(abc,ab,c,cc,d)</pre>
+
+
+<H4>Compatibility</H4>
+Added: mIRC v6.15 (03 Jun 2004)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="replace.html">$replace</a><br>
+<a href="regsub.html">$regsub</a><br>
+<a href="regsubex.html">$regsubex</a><br>
+</body>
 </html>
-<head><title></title></head>
