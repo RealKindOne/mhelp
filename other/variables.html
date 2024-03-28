@@ -5,8 +5,6 @@
 <H1>mIRC Variables</H1>
 <br>
 <br>
-
-
 <b>mIRC variables</b> are items which can hold data temporarily, or permanently, for use at a later time.. You can create, edit, or delete them at any time. All mIRC variables must be prefixed with a % sigil (example %var or %cookies). Variables are untyped - therefore capable of storing letters, numbers, or strings at any given point.
 
 <H4>Variable Scope: Global vs. Local</H4>
@@ -17,7 +15,10 @@ There are two kinds of variables: local and global. <b>Scope</b> refers to the v
 
 Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
 
-<br><b>Note:</b> Local variables can be seen from the execution of /scon or /scid: //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
+<br><b>Note:</b> Local variables can be seen from the execution of /scon or /scid:
+<pre class ="code">
+//var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
+</pre>
 
 Syntax:
 
@@ -40,7 +41,7 @@ Below is a simple addition alias that uses two local variables:
 
 An example usage of the script above is: /add 1 3 which will output: 1 + 3 = 4. Once the add alias has finished executing, both "%number1" and "%number2" are destroyed. Remember, these local variables cannot be called upon outside of their code blocks.
 
-<span style="color: #9E1010;">'''Incorrect use''' of local variables:</span>
+<span style="color: #9E1010;"><b>Incorrect use</b> of local variables:</span>
 <pre class ="code">
 alias wrong {
   var %myvar = 3
@@ -50,7 +51,7 @@ alias wronger {
   echo -a %myvar
 }</pre>
 
-If you were to execute the above by typing ''/wrong'', you would get the following error: '''* /echo: insufficient parameters'''. This is because the local variable, in this case ''%myvar'', has been stored within the ''wrong'' alias code block, and is, therefore, unavailable to the ''/wronger'' alias that has been called.
+If you were to execute the above by typing <b>/wrong</b>, you would get the following error: <b>* /echo: insufficient parameters</b>. This is because the local variable, in this case <b>%myvar</b>, has been stored within the <b>wrong</b> alias code block, and is, therefore, unavailable to the <b>/wronger</b> alias that has been called.
 
 <H4>Global Variables</H4>
 
@@ -61,8 +62,8 @@ Syntax:
 <pre class ="code">;create variable
 set %var value</pre>
 
-<br><b>Note:</b>The /set command does not use the = operator.
-
+<b>Note:</b>The /set command does not use the = operator.
+<P>
 Because the /set command can only set a single variable at a time, you can use the /var command in conjunction with -g switch to set multiple global variables.
 
 <pre class ="code">;multiple variables
@@ -78,9 +79,9 @@ You can use set -u0 to create a variable that can be seen by any routine (global
 
 Although it's not required in /var since 6.21, the equal sign can be used to assign a value to a variable without actually using a command:
 <pre class ="code">%var = value</pre>
-If %var is local, this will change the local variable.
-If %var is global, it will naturally change the global variable.
-If %var doesn't exist, it will create a global variable.
+If %var is local, this will change the local variable.<br>
+If %var is global, it will naturally change the global variable.<br>
+If %var doesn't exist, it will create a global variable.<br>
 
 <H4>Unsetting Variables</H4>
 
@@ -88,15 +89,18 @@ If you have already set a variable you can unset it at any time during using the
 
 <H4>Syntax:</H4>
 
-<pre class ="code">;unset a single variable
+<pre class ="code">
+; unset a single variable
 unset %variable
 
-;unset multiple variables
-unset %var1 %var2 %var3</pre>
+; unset multiple variables
+unset %var1 %var2 %var3
+</pre>
 
 The /unset command supports <a href="..\other\wildcard.html">wildcard</a> characters for each of the variable, to be able to unset multiple variables. For example:
 
-<pre class ="code">alias unsetWildExample {
+<pre class ="code">
+alias unsetWildExample {
   set %exampleHello hello there
   set %exampleHey another var
   set %exampleVar yet another var
@@ -111,10 +115,9 @@ The /unset command supports <a href="..\other\wildcard.html">wildcard</a> charac
   unset %example*
 }</pre>
 
-
 You can also unset all of the variables using the <a href="..\commands\unsetall.html">/unsetall</a> command.
-
-<span style="color: #9E1010;"><b>Caution:</b> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
+<P>
+<span style="color: #9E1010;"><b>Caution:</b></span> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
 
 <H4>$null values</H4>
 
@@ -141,14 +144,14 @@ Upon executing ''/nullExample'', you will notice that mIRC will echo the followi
 <a name="math_operations"></a>
 <H4>Math Operations</H4>
 You can do one math operation with variable when setting a value.
-
-The operators supported are: '+' '-' '/' '*' '%' '^' where % is the modulus and ^ is power.
-<br>
+<P>
+The operators supported are: <b>+</b> <b>-</b> <b>/</b> <b>*</b> <b>%</b> <b>^</b> where <b>%</b> is the modulus and <b>^</b> is power.
+<P>
 You must use a space around all 3 parameters and you must provide correct values, numbers can be float.
-<br>
+<P>
 If you don't respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
-<br>
-It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is >= 2^31, the result is zero. If 1 input is valid and the other is < -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 <= n < 2^32, var can output negative numbers.
+<P>
+It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is &gt;= 2^31, the result is zero. If 1 input is valid and the other is &lt; -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 &lt;= n &lt; 2^32, var can output negative numbers.
 
 For Example:
 
@@ -165,7 +168,7 @@ For Example:
 
 <H4>Others Commands</H4>
 mIRC has two additional commands that can be used to easily increase and decrease the value of a numerical variable.
-
+<P>
 The <a href="..\commands\dec.html">/dec</a> command allows you to decrease the value of a variable by 1 or by a given value if specified:
 
 <pre class ="code">dec %var [value]</pre>

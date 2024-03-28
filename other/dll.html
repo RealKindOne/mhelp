@@ -224,15 +224,15 @@ extern "C" int __stdcall  UnloadDll(int mTimeout) {
 </pre>
 
 Use $dll(yourdll.dll,simple_example,) which will return "simple string".
-
+<P>
 Use $dll(yourdll.dll,average_example,) or '/dll yourdll.dll average_example', this will execute "/echo -a è" in mIRC 7.x, because the project is not unicode, the two bytes Ã¨ are sent as ascii, mIRC 7.x will correctly decode that as utf8. On mIRC 6.x (you would need to remove the mUnicode to mBytes variable in the LOADINFO structure), this would display the two bytes.
-
+<P>
 If you set the mUnicode variable to TRUE on mIRC 7.x in the LoadDll function and if you set your project to use unicode (in visual studio: project properties > configuration properties > general > character set), this would correctly show the two bytes as well.
-
+<P>
 Use $dll(yourdll.dll,more_example,) or '/dll yourdll.dll more_example' ;this will fill $1- from data with the value from parms and execute the final "//echo -a test".
-
+<P>
 Use $dll(yourdll.dll,from_event,$eventid) inside an event where $nick exists, this will use SendMessage() to evaluate $nick from the event context and fill data with that value, returned by $dll.
-
+<P>
 Use $dll(yourdll.dll,usingSM,) which will use SendMessage() to execute a command in mIRC, it will also evaluate a line of code and return the result in $dll().
 
 <H4>Example 2 : Using GNU GCC on Windows (C) </H4>

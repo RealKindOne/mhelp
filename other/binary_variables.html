@@ -9,62 +9,63 @@
 
 <H4>Overview</H4>
 mIRC's <b>binary &variables</b> are distinguished from its text %variables by beginning with the & ampersand symbol, while text variables begin with the % percent symbol. They differ from text variables in content, scope, duration, and length.
-
-<br>They are composed of byte values, which can be any of the values 0-255. Among other differences, they can contain the $chr(0) value, which text variables cannot.
-<br>Their scope is similar to that of local identifiers such as $nick and $rawmsg. They exist as long as scripting engine is running, then are deleted.
-<br>Binary variables are not saved to the variables file (default name is vars.ini) the way global %variables are saved. To preserve them, you must either write them to a disk file, save to a hashtable item, or use $encode to save them to a %variable or hashtable.
-<br>While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.
-<br>mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compatibility reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.
-
-Some uses for Binary Variables include:<br>
 <br>
-* holding content which can't be placed into text %variables<br>
-* holding content too long to be placed in text variables<br>
-* displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.<br>
+<li>They are composed of byte values, which can be any of the values 0-255. Among other differences, they can contain the $chr(0) value, which text variables cannot.</li>
+<li>Their scope is similar to that of local identifiers such as $nick and $rawmsg. They exist as long as scripting engine is running, then are deleted.</li>
+<li>Binary variables are not saved to the variables file (default name is vars.ini) the way global %variables are saved. To preserve them, you must either write them to a disk file, save to a hashtable item, or use $encode to save them to a %variable or hashtable.</li>
+<li>While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.</li>
+<li>mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compatibility reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.</li>
+<br>
+<br>
+Some uses for Binary Variables include:
+<br>
+<br>
+<li>Holding content which can't be placed into text %variables.</li>
+<li>Holding content too long to be placed in text variables.</li>
+<li>Displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.</li>
 
-<H4>/Commands and $Identifiers</H4>
+<H4>Commands and Identifiers</H4>
 
 There are a few commands and identifiers created specifically to manipulate binary variables:
-
-
+<br>
 <br><a href="..\commands\bset.html">/bset</a> - Create or modify binary variables.
 <br><a href="..\commands\bcopy.html">/bcopy</a> - Create or modify by copying byte values between/within binary variables.
 <br><a href="..\commands\breplace.html">/breplace</a> - simple search/replace of all occurrences of a byte value with another.
 <br><a href="..\commands\btrunc.html">/btrunc</a> - Truncate a disk file at a specific filesize regardless of content or line ending.
 <br><a href="..\commands\bunset.html">/bunset</a> - Unset a binary variable prior to end of the script/event.
-<br><a href="..\commands\bread.html">/bread</a> - Read file contents into a binary variable
-<br><a href="..\commands\bwrite.html">/bwrite</a> - Write binary variable to a disk file
+<br><a href="..\commands\bread.html">/bread</a> - Read file contents into a binary variable.
+<br><a href="..\commands\bwrite.html">/bwrite</a> - Write binary variable to a disk file.
 <br><a href="..\identifiers\bfind.html">$bfind</a> - Search binary variable for pattern of 1-or-more byte values.
-<br><a href="..\identifiers\bvar.html">$bvar</a> - Display contents of binary variables as text or a series of decimal numbers
+<br><a href="..\identifiers\bvar.html">$bvar</a> - Display contents of binary variables as text or a series of decimal numbers.
 <br>
 <br>
 In addition, other identifiers have been given functionality to accept binary variables as input or output:
 <br>
-<br><a href="..\commands\parseline.html">/parseline</a> - Can use a binary variable as input or output
+<br><a href="..\commands\parseline.html">/parseline</a> - Can use a binary variable as input or output.
 <br><a href="..\identifiers\cb.html">$cb</a> - can output a line or entire clipboard to a binary variable.
-<br><a href="..\identifiers\encode.html">$encode</a> - Can use a binary variable as input+output
-<br><a href="..\identifiers\decode.html">$decode</a> - Can use a binary variable as input+output
-<br><a href="..\identifiers\regsub.html">$regsub</a> - Can use a binary variable as output
-<br><a href="..\identifiers\regsubex.html">$regsubex</a> - Can use a binary variable as output
+<br><a href="..\identifiers\encode.html">$encode</a> - Can use a binary variable as input+output.
+<br><a href="..\identifiers\decode.html">$decode</a> - Can use a binary variable as input+output.
+<br><a href="..\identifiers\regsub.html">$regsub</a> - Can use a binary variable as output.
+<br><a href="..\identifiers\regsubex.html">$regsubex</a> - Can use a binary variable as output.
 <br><a href="..\identifiers\compress.html">$compress</a> - Can use a binary variable as input+output.
 <br><a href="..\identifiers\decompress.html">$decompress</a> - Can use a binary variable as input+output.
-<br><a href="..\commands\hadd.html">/hadd</a> - Can save a binary variable into a hash table item
-<br><a href="..\identifiers\hget.html">$hget</a> - Can use a binary variable as output
-<br><a href="..\commands\hsave.html">/hsave</a> - Can save a hash table to a binary file
-<br><a href="..\commands\hload.html">/hload</a> - Can load a binary file to a hash table
-<br><a href="..\identifiers\crc.html">$crc</a> -  Can use a binary variable as input
-<br><a href="..\identifiers\md5.html">$md5</a> -  Can use a binary variable as input
-<br><a href="..\identifiers\sha1.html">$sha1</a> - Can use a binary variable as input
-<br><a href="..\identifiers\sha256.html">$sha256</a> - Can use a binary variable as input
-<br><a href="..\identifiers\sha384.html">$sha384</a> - Can use a binary variable as input
-<br><a href="..\identifiers\sha512.html">$sha512</a> - Can use a binary variable as input
-<br><a href="..\identifiers\hmac.html">$hmac</a> - Can use a binary variable as input
+<br><a href="..\commands\hadd.html">/hadd</a> - Can save a binary variable into a hash table item.
+<br><a href="..\identifiers\hget.html">$hget</a> - Can use a binary variable as output.
+<br><a href="..\commands\hsave.html">/hsave</a> - Can save a hash table to a binary file.
+<br><a href="..\commands\hload.html">/hload</a> - Can load a binary file to a hash table.
+<br><a href="..\identifiers\crc.html">$crc</a> -  Can use a binary variable as input.
+<br><a href="..\identifiers\md5.html">$md5</a> -  Can use a binary variable as input.
+<br><a href="..\identifiers\sha1.html">$sha1</a> - Can use a binary variable as input.
+<br><a href="..\identifiers\sha256.html">$sha256</a> - Can use a binary variable as input.
+<br><a href="..\identifiers\sha384.html">$sha384</a> - Can use a binary variable as input.
+<br><a href="..\identifiers\sha512.html">$sha512</a> - Can use a binary variable as input.
+<br><a href="..\identifiers\hmac.html">$hmac</a> - Can use a binary variable as input.
 <br><a href="..\identifiers\com.html">$com</a> - Can use a binary variable as input or output.
-<br><a href="..\commands\sockudp.html">/sockudp</a> - Can write a binary variable to a socket
-<br><a href="..\commands\sockwrite.html">/sockwrite</a> - Can write a binary variable to a socket
-<br><a href="..\commands\sockread.html">/sockread</a> - Can read from a socket into a binary variable
-<br><a href="..\commands\fwrite.html">/fwrite</a> - Can write a binary variable to a disk file
-<br><a href="..\identifiers\fread.html">$fread</a> - Can read disk file contents into a binary variable
+<br><a href="..\commands\sockudp.html">/sockudp</a> - Can write a binary variable to a socket.
+<br><a href="..\commands\sockwrite.html">/sockwrite</a> - Can write a binary variable to a socket.
+<br><a href="..\commands\sockread.html">/sockread</a> - Can read from a socket into a binary variable.
+<br><a href="..\commands\fwrite.html">/fwrite</a> - Can write a binary variable to a disk file.
+<br><a href="..\identifiers\fread.html">$fread</a> - Can read disk file contents into a binary variable.
 
 <H4>Position and Length</H4>
 
@@ -156,10 +157,10 @@ Note: If your temporary variable is no longer needed and is lengthy, you may wis
 
 Because binary variables disappear as soon as your script execution ends, if you need to use your binary variable later, you will need to find a way to save it:
 
-* write to a disk file:
+Write to a disk file:
 <pre class ="code">//bwrite -c save.dat 0 1 &binvar</pre>
 
-* store in hash table:
+Store in hash table:
 <pre class ="code">/hadd -smb binvar_save binvar &binvar</pre>
 
 Note: hash tables aren't saved to disk, so you need to save that table to disk:
@@ -167,7 +168,7 @@ Note: hash tables aren't saved to disk, so you need to save that table to disk:
 ... and then reload the binary variable the next time you re-start mIRC:
 <pre class ="code">/hload -sb binvar_save savebins.dat</pre>
 
-* Use $encode to translate binary data to text, which can be saved to variables or written to disk.
+Use $encode to translate binary data to text, which can be saved to variables or written to disk.
 
 <pre class ="code">//noop $encode(&binvar,bm) | set %binvar_save $bvar(&binvar,1-).text</pre>
 Note: $encode translates 3 input bytes (binary or text) into 4 text characters, so you shouldn't try to use this method on binary variables longer than approximately 3000 bytes.

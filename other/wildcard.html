@@ -47,7 +47,7 @@ While there is a "?" wildcard for 1 character, and a "*" wildcard for zero-or-mo
 
 <pre class ="code">//var %a 00000123 | while (0* iswm %a) var %a $mid(%a,2) | echo -a result: %a</pre>
 
-and this will always ensure the string cannot begin with '0'. However, if the input is actually an integer and you do not want to reduce a string of all zeroes to the empty string, you can search for zero followed by 1 wildcard character followed by 0-or-more characters. This causes it to avoid removing a zero when that would be removing the only remaining character.
+And this will always ensure the string cannot begin with '0'. However, if the input is actually an integer and you do not want to reduce a string of all zeroes to the empty string, you can search for zero followed by 1 wildcard character followed by 0-or-more characters. This causes it to avoid removing a zero when that would be removing the only remaining character.
 
 <pre class ="code">//var %a 0000000 | while (0?* iswm %a) var %a $mid(%a,2) | echo -a result: %a</pre>
 

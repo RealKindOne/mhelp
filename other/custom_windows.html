@@ -13,9 +13,9 @@ A custom window is just another window, like a channel window or a server window
 <H4>Window Components</H4>
 A custom window has the ability to contain the following 3 components:
 
-
+<center>
 <img src="..\images\window_components.png">
-
+</center>
 
 <H4>Creating a window</H4>
 Before you can do anything with a window, you must actually create it. All windows must have a name, their name must also start with the '@' symbol. The name can be anything as long as it doesn't contain spaces. Use the <a href="..\commands\window.html">/window</a> command to create a window:
@@ -43,18 +43,41 @@ The code above will create a desktop window with an editbox and a side-listbox.
 <H4>Text Operations</H4>
 The following commands can be used to add, modify, delete, insert, or replace the lines in the chatbox or the side-listbox:
 
-<br><b>Add a line</b> - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/aline [-ni] [color] &lt;@name&gt; &lt;text&gt;</pre>
-<br><b>Delete a line</b> - This command is used to delete the Nth line from the window. The N2 line can be specified to give a range of line ex: 4-7 will delete line 4, 5, 6, and 7. <pre class ="code">/dline [color] &lt;@name&gt; &lt;N[-N2]&gt;</pre>
-<br><b>Insert a line</b> - This command allows you to add a line of text after the Nth line. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line. <pre class ="code">/iline [-ni] [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
-<br><b>Replace a line</b> - This command is used to replace the Nth line of a window with another line. The [color] is the color number for the line. <pre class ="code">/rline [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;</pre>
-<br><b>Change color of a line</b> - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default. <pre class ="code">/cline [-rm] [color] &lt;@name&gt; &lt;N&gt;</pre>
-<br><b>Select a line</b> - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line. <pre class ="code">/sline [color] &lt;@name&gt; &lt;N&gt;</pre>
+<br><b>Add a line</b> - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line.
+<pre class ="code">
+/aline [-ni] [color] &lt;@name&gt; &lt;text&gt;
+</pre>
+
+<br><b>Delete a line</b> - This command is used to delete the Nth line from the window. The N2 line can be specified to give a range of line ex: 4-7 will delete line 4, 5, 6, and 7.
+<pre class ="code">
+/dline [color] &lt;@name&gt; &lt;N[-N2]&gt;
+</pre>
+
+<br><b>Insert a line</b> - This command allows you to add a line of text after the Nth line. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line.
+<pre class ="code">
+/iline [-ni] [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;
+</pre>
+
+<br><b>Replace a line</b> - This command is used to replace the Nth line of a window with another line. The [color] is the color number for the line.
+<pre class ="code">
+/rline [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;
+</pre>
+
+<br><b>Change color of a line</b> - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default.
+<pre class ="code">
+/cline [-rm] [color] &lt;@name&gt; &lt;N&gt;
+</pre>
+
+<br><b>Select a line</b> - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line.
+<pre class ="code">
+/sline [color] &lt;@name&gt; &lt;N&gt;
+</pre>
 
 <H4>Customizing the window</H4>
 The titlebar command can be used to change the window's title.
 
 <pre class ="code">/titlebar @window &lt;text&gt;</pre>
-'''Please Note:''' this will not change the actual @window name, only its title. To change the actual window's name, use the rewin command:
+<b>Please Note:</b> this will not change the actual @window name, only its title. To change the actual window's name, use the rewin command:
 
 <pre class ="code">/renwin &lt;@oldname&gt; &lt;@newname&gt; [topic]</pre>
 
@@ -107,9 +130,9 @@ Sub menus and sub items are possible by prefixing the sub menu item with a perio
 }</pre>
 
 will generate the following menu:
-
+<center>
 <img src="..\images\custom_win_menu.png">
-
+</center>
 
 <H4>Getting Info</H4>
 There are a number of identifiers that can be used to retrieved information from a custom window.
@@ -140,13 +163,13 @@ You can retrieve a line of text from a custom window using the $line identifier:
 <pre class ="code">$line(@windowName, N, T)</pre>
 
 $lines returns the Nth line of text from a window. If N = 0, $lines returns the total number of lines in the window. If T = 1, the side-listbox will be used instead of the chatbox (default is 0).
-
+<P>
 You can also search the window for a line wild-matching a specific sequence.
 
 <pre class ="code">$fline(@windowName, wildtext, N, T)</pre>
 
 This will return the Nth line wild-matching a specific wildtext sequence. If T = 1, the side-listbox will be used instead of the chatbox (default is 0).
-
+<P>
 If a listbox is used, you can use the $sline identifier to retrieve the Nth selected text.
 
 <pre class ="code">$sline(@windowName, N)[.ln]</pre>
