@@ -16,11 +16,11 @@ mIRC's <b>binary &variables</b> are distinguished from its text %variables by be
 <br>While text variables are limited in length by the 4150 line length, binary variable length is limited by available memory.
 <br>mIRC does not interpret the content of your binary variable, while it does for simple %variable. By default a %variable cannot be set to the value "" (just two double quotes characters), this is because in core variable routines, it is interpreted as empty string, as though it supported quoted string. Note that since mIRC 7.52, /var and /set support a -p switch which preserves the data: "" are now allowed (except put directly in the variables section of the script editor for backward compatibility reason) but spaces are also completely preserved, without -p /var and /set will omit a single trailing space (but two or more are ok!). Of course $bvar(&binvar,,).text is decoding the content of your binary variable from utf8, which is reinterpreting the bytes, but that's good.
 
-Some uses for Binary Variables include:
-
-* holding content which can't be placed into text %variables
-* holding content too long to be placed in text variables
-* displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.
+Some uses for Binary Variables include:<br>
+<br>
+* holding content which can't be placed into text %variables<br>
+* holding content too long to be placed in text variables<br>
+* displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.<br>
 
 <H4>/Commands and $Identifiers</H4>
 
@@ -36,10 +36,10 @@ There are a few commands and identifiers created specifically to manipulate bina
 <br><a href="..\commands\bwrite.html">/bwrite</a> - Write binary variable to a disk file
 <br><a href="..\identifiers\bfind.html">$bfind</a> - Search binary variable for pattern of 1-or-more byte values.
 <br><a href="..\identifiers\bvar.html">$bvar</a> - Display contents of binary variables as text or a series of decimal numbers
-
+<br>
+<br>
 In addition, other identifiers have been given functionality to accept binary variables as input or output:
-
-
+<br>
 <br><a href="..\commands\parseline.html">/parseline</a> - Can use a binary variable as input or output
 <br><a href="..\identifiers\cb.html">$cb</a> - can output a line or entire clipboard to a binary variable.
 <br><a href="..\identifiers\encode.html">$encode</a> - Can use a binary variable as input+output

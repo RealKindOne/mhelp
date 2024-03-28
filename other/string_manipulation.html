@@ -5,7 +5,7 @@
 <H1>String manipulation</H1>
 <br>
 <br>
- String manipulation is the building block of many of today's utilities and algorithms. Everything from formatting and validation to analysis and manipulation requires heavy use of string manipulation. Fortunately for you, the language provides powerful string manipulation facilities.
+String manipulation is the building block of many of today's utilities and algorithms. Everything from formatting and validation to analysis and manipulation requires heavy use of string manipulation. Fortunately for you, the language provides powerful string manipulation facilities.
 
 <H4>Basic String Operations</H4>
 Since everything is a string in mSL, just assigning it to a variable is enough.
@@ -17,7 +17,7 @@ We often want to get the length of such string. The <a href="..\identifiers\len.
 <pre class ="code">//echo -a $len(apples and oranges)
 18</pre>
 
-It is often desired to join two strings together. Such operation is called a '''string concatenation'''. The <a href="..\identifiers\plus.html">$+</a> operator can be used to concatenate two string together. For example:
+It is often desired to join two strings together. Such operation is called a <b>string concatenation</b>. The <a href="..\identifiers\plus.html">$+</a> operator can be used to concatenate two string together. For example:
 
 <pre class ="code">//echo -a A $+ B
 AB</pre>
@@ -182,7 +182,7 @@ $replacex will provide the same in this case.
 <H4>Substring Removal</H4>
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
 
-<pre class ="code">$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, <substring3>, ...])</pre>
+<pre class ="code">$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, &lt;substring3@&gt;, ...])</pre>
 
 A small example is:
 
@@ -215,13 +215,14 @@ The $strip identifier can remove control codes from a string. The syntax for it 
 <pre class ="code">;Removes all control codes (bold/underline/italics/color/reverse)
 $strip(&lt;string&gt;)
 ;Removes any combination of control codes
-$strip(&lt;string&gt;, buricmo)</pre>
+$strip(&lt;string&gt;, buricmoe)</pre>
 <pre class ="code">
 * b = bold
 * u = underline
 * r = reverse
 * i = italics
 * c = color
+* e = strikethrough
 * m = use messages option settings
 </pre>
 <H4>Using Token Manipulation</H4>

@@ -48,7 +48,7 @@ Using the debug window we have open. Let’s execute a /whois command on someone
  <- :irc.server.name 318 bar foo :End of /WHOIS list.
  </pre>
 
-You may have noticed that following the server’s name there is a strange number: 311, 319, 312, 307... These numbers are known as '''raw numeric'''. Most, but not all, raw messages will have a number that we can use to uniquely identify the message. For example '''318''' will always mean "End of /WHOIS list." Raw '''numeric 319''' will always give us a list of channels the user is on. That number will prove to be invaluable in writing scripts that deal with raw message.
+You may have noticed that following the server’s name there is a strange number: 311, 319, 312, 307... These numbers are known as <b>raw numeric</b>. Most, but not all, raw messages will have a number that we can use to uniquely identify the message. For example <b>318</b> will always mean "End of /WHOIS list." Raw numeric <b>319</b> will always give us a list of channels the user is on. That number will prove to be invaluable in writing scripts that deal with raw message.
 
 <H4>Numeric Raw Event</H4>
 
@@ -60,7 +60,7 @@ The syntax for the raw event is:
 
 <br><b>Note:</b> The on raw event triggers every time a raw numeric and a pattern matched, regardless of who or what caused the event to happen.
 
-You can see how the numeric is a very important part of a raw event. The <a href="matchtext.html">matchtext</a> can be a <a href="wildcard.html">wildcard</a> pattern by which mIRC will try to match against.
+You can see how the numeric is a very important part of a raw event. The <a href="..\on_events\matchtext.html">matchtext</a> can be a <a href="wildcard.html">wildcard</a> pattern by which mIRC will try to match against.
 
 Recall that raw 319 is the list of channel the user is you whoised is on:
 
