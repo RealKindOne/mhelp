@@ -120,13 +120,17 @@ By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits 
 <H4>Bitwise</H4>
 
 In v7.72, your mileage may vary, but beginning v7.73, even if bigfloat mode is enabled and if the numeric result would be expected to be >= 2^32, the bitwise identifiers return the same values as the historical uint32 range, unless the additional 'bitlength' parameter B is ALSO used. This means a 2nd parameter for $not and a 3rd parm for $and $xor $or $biton $bitoff $isbit. The B parameter defaults as 32 when not used, but if it is used, it's expected to be a 2^n value >= 32. But when it is not such a number, $int(B) is rounded up to be the next higher 2^n value.
-
+<br>
+<br>
 This ensures that these identifiers return the doubles-mode result unless the script signals their intent to have biginteger results by using the B parameter while in .bf mode. The B parameter is then used as replacement for 32 in a 2^B clipping behavior for the max value.
-
+<br>
+<br>
 This mean you will get trash results unless B is/becomes no shorter than the bit-length of the biginteger result. For example, $bitoff($rand(0,$calc(2^512)),1,256) returns the expected even-numbered biginteger if the random value is < 2^256, but if it's >= 2^256, the result is first clipped to be 2^256-1 at which point the bitwise math is done, which in this case is clearing the lowest bit to make the result for those random numbers always be 2^256-1-1.
-
+<br>
+<br>
 For biginteger mode involving at least 1 negative input number, the B parm is used to limit the infinite bit length and/or to determine the 2^B value added to the negative number in order to 'cast' it as positive.
-
+<br>
+<br>
 For this example in v7.73...
 a.bf is a 512-bit number
 b.bf is the historical 32-bit result because the B parm isn't used

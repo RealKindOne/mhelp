@@ -64,15 +64,15 @@ This represent one regular expression (or one pattern) with 2 captured backrefer
 <H4>Sanitizing the input</H4>
 
 If you pass value dynamically in a regex pattern, you have to escape any characters in such value that could otherwise be interpreted by the PCRE regex engine.
-
+<br>
 Instead of escaping a bunch of characters with \, which is supported, PCRE allows for the \Q \E construct to not interpret anything between that construct:
-
+<br>
 Looking for a match on a nickname such as nick[name], you could use /\b $+ \Q $+ $nick $+ \E\b/
-
+<br>
 This is good but still has one flaw, if $nick contains \E, it will terminate the escaping sequence and subsequent character would be interpreted by PCRE.
-
+<br>
 To solve the issue, you have to "escape" all the \E inside the value you're using: /b\Q $+ $replacecs($nick,\E,\E\\E\Q) $+ \E\b/
-
+<br>
 There's no way to escape a character inside the escaping sequence \Q\E, you have to first terminate the sequence yourself with \E, then you have to match the actual \E from the input with \\E, and then start a new escape sequence with \Q.
 
 <H4>Regex Identifiers</H4>
@@ -190,7 +190,7 @@ Then each marker is replaced with their corresponding values, the subtext become
 <pre class ="code">$1 $2 $3 $4</pre>
 And now mIRC evaluates that for each match and use it as a replacement.
 
-<br><b>Note:</b> If the form '''\N''' is used in the subtext, where N is a positive number greater-than or equal to 1 (such as '''\1'''), and there is no such back-reference number in the pattern, mIRC will use the value of '''$regml(\n + N - 1)'''.
+<br><b>Note:</b> If the form <b>\N</b> is used in the subtext, where N is a positive number greater-than or equal to 1 (such as <b>\1</b>), and there is no such back-reference number in the pattern, mIRC will use the value of '''$regml(\n + N - 1)'''.
 
 An example of this is shown below:
 <pre class ="code">$regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)</pre>

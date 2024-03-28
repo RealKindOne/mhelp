@@ -136,7 +136,7 @@ script2.mrc
 The second event will trigger upon receiving any msg sent via query except <b>!test</b>, because the first event calls the haltdef command upon receiving <b>!test</b>.
 <a name="sigal"></a>
 <H4>$ prefix</H4>
-This event prefix means the matchtext of the event is a regular expression, the delimiter are required.
+This event prefix means the <a href="..\on_events\matchtext.html">matchtext</a> of the event is a regular expression, the delimiter are required.
 
 <pre class ="code">
 on $*:text:/^([!@.])test$/:#myChan:{

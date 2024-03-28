@@ -149,7 +149,7 @@ $hget(&lt;table_name&gt;, &lt;Nth&gt;).item
 $hget(&lt;table_name&gt;, &lt;Nth&gt;).data
 </pre>
 
-<br><b>Note:</b>Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
+<br><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
 
 An example of looping over every value in our Colors table will look like this:
 

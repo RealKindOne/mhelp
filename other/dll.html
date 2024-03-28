@@ -62,9 +62,9 @@ The interesting difference is that C linkage does not use "mangling" when export
 
 However, the __stdcall standard convention implies a mangling operation which extern "C" does not override.
 
-To solve this problem, most of the linker will allow you to provide a .def file, where you can define the real name of your exported functions
+To solve this problem, most of the linker will allow you to provide a .def file, where you can define the real name of your exported functions.
 
-Creating a file for that can be annoying, on Visual Studio you can use a #pragma directive to do that on the fly, the examples illustrate this
+Creating a file for that can be annoying, on Visual Studio you can use a #pragma directive to do that on the fly, the examples illustrate this.
 
 <br><b>Note:</b> If you use GCC Gnu to compile, it has something similar to __stdcall, __attribute__((stdcall)).
 

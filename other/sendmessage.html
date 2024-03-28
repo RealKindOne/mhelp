@@ -41,9 +41,12 @@ The following call to SendMessage() makes mIRC perform the commands that you spe
 
 <br><b>Note:</b> the 'command' is placed into the editbox and enter is pressed is the exact behavior, this can be used to send IRC messages by not prefixing the command with slashes, but you must prefix it with at least one slash then, if you want to execute a command.
 
- SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
+<pre class ="code">
+SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
+</pre>
 
-<br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
+<b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
+
 <br><b>WM_MCOMMAND</b> - Which should be defined as WM_USER + 200
 <br><b>cMethod</b> - How mIRC should process the message, where:
 <br><b>1</b> = As if typed in editbox (default).
@@ -52,7 +55,7 @@ The following call to SendMessage() makes mIRC perform the commands that you spe
 <br><b>8</b> = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this. This can be or'd with 1 or 2, and 4.
 
 <br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
-
+<br>
 This call returns 1 on success, 0 if it fails.
 
 <H4>Evaluating Identifiers and Variables</H4>
@@ -67,13 +70,13 @@ SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
 <br><b>8</b> = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this.
 
 <br><b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".
-
+<br>
 This call returns 1 on success, 0 if it fails.
 
 <H4>Remote Event Context</H4>
 
 If during a remote event, such as on TEXT, your script calls a DLL which then uses SendMessage() to execute a command or evaluate an identifier, you can tell SendMessage() to execute in the context of that remote event.
-
+<br>
 During a remote event, a <a href="..\identifiers\eventid.html">$eventid</a> identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
 <pre class ="code">
 SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
@@ -98,7 +101,8 @@ If cMethod is or'd with the value 16, this will make SendMessage() return more u
 <br><b>16</b> - Bad server.
 <br><b>32</b> - Bad script - means that the script does not exist
 <br><b>64</b> - Disabled (if disabled in lock dialog).
-
+<br>
+<br>
 1 alone means that a script error occurred, 16 and 32 can only happen if you use $eventid in SendMessage() in the context of a remote event but the script from which it was called no longer exist.
 
 <H4>Example</H4>

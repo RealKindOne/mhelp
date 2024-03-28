@@ -48,7 +48,7 @@ Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>
 <br>
 However, after an operation like $mid in this example, that marker cannot be found. Basically, it cannot be guaranteed that the correct value of the marker inside an identifier can be found later for replacement of that marker. <br>
 
-There is a workaround for the above issue, and that is by using a command which double evaluates, such as <a href="/commands/timer.html">/timer</a>, but <a href="/commands/scid.html">/scid</a> or <a href="/commands/scon.html">/scon</a> is typically used because they involve less resources:
+There is a workaround for the above issue, and that is by using a command which double evaluates, such as <a href="../commands/timer.html">/timer</a>, but <a href="../commands/scid.html">/scid</a> or <a href="../commands/scon.html">/scon</a> is typically used because they involve less resources:
 <pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
 <br>
 mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The <b>$*</b> mechanism is enabled on scon, and mIRC stores the command of the <b>$*</b> as <b>scon -r echo -a $!mid( `~$* ,2)</b>
@@ -76,10 +76,10 @@ If you are dealing with dynamic parameter and want to use $* again in the same s
 Added: mIRC v2.1a (28 Feb 1995)
 
 <H4>See also</H4>
-<a href=/other/while_loop.html>While loop</a>
+<a href=../other/while_loop.html>While loop</a>
     <br>
-<a href=/commands/goto.html>Goto loop</a>
+<a href=../commands/goto.html>Goto loop</a>
     <br>
-<a href=/identifiers/_1.html>$1-</a>
+<a href=_1.html>$1-</a>
 </body>
 </html>
