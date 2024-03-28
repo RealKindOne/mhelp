@@ -8,7 +8,7 @@
 Component Object Model (COM) is a specification for applications (like exe and dll files) to make their functionality available to any COM-compliant application. The applications interact with each other through a collection of functions called interfaces. The advantages of COM objects are that they are object-oriented, customizable, modular, upgradeable, and language-independent. Regardless of in which language they were programmed, any other language/script that supports the COM specification will be able to use it. mSL offers a variety of commands and identifiers to handle COM objects.
 
 <H4>Com objects</H4>
-A COM object is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or '''ProgID'''.
+A COM object is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or <b>ProgID</b>.
 
 Some examples of COM object with their ProgIDs:
 <br>
@@ -24,9 +24,9 @@ Note: A single computer might have thousands of COM objects available.
 <H4>Opening and closing a COM connection</H4>
 To open a COM connection to a specific object, we use the following syntax:
 
-<pre class ="code">/comopen &lt;hName&gt; &lt;progid&gt;></pre>
+<pre class ="code">/comopen &lt;hName&gt; &lt;progid&gt;</pre>
 
-The '''&lt;hName&gt;''' is the handle name of the COM connection to which we will need to refer to at a later time to call methods from this object. It is wise to name it something meaningful. The '''&lt;progid&gt;>''' is the programmatic identifier we discussed earlier.
+The <b>&lt;hName&gt;</b> is the handle name of the COM connection to which we will need to refer to at a later time to call methods from this object. It is wise to name it something meaningful. The '''&lt;progid&gt;''' is the programmatic identifier we discussed earlier.
 
 To close the COM connection, we need to use the handle name we used to create that connection.
 
@@ -34,7 +34,7 @@ To close the COM connection, we need to use the handle name we used to create th
 
 Before we can go on to use the COM object, we have to confirm a successful connection has been established. The <a href="..\identifiers\comerr.html">$comerr</a> will return 1 if the connection has failed, 0 otherwise.
 
-=== Connecting/Disconnecting Example ===
+<H4>Connecting/Disconnecting Example</H4>
 Below is a simple example of connecting to the windows script shell and disconnecting.
 
 <pre class ="code">alias example {
@@ -51,8 +51,8 @@ Below is a simple example of connecting to the windows script shell and disconne
 <H4>Object interaction</H4>
 Before we can talk about how to interact with the COM object we have connected to, we have to discuss a few other things first.
 
-=== Members ===
-Object's '''Members''' are all the methods and properties that are provided by the Object. Later on, we will be able invoke these members. For example, The WScript.Shell object has as an [http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx Exec method] that lets us run an application in a child command-shell. [http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx Here is a link] to a complete list of properties and methods that the WScript.Shell object has.
+<H4>Members</H4>
+Object's <b>Members</b> are all the methods and properties that are provided by the Object. Later on, we will be able invoke these members. For example, The WScript.Shell object has as an <a href ="http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx">Exec method</a> that lets us run an application in a child command-shell. <a href ="http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx">Here is a link</a> to a complete list of properties and methods that the WScript.Shell object has.
 
 <H4>Invoke method</H4>
 The invocation method is the way the invocation should be applied. Some members of the object require that they just be called, others might return a value. Sometimes we might need to set some kind of a property by either a value or by reference. Below is a list of possible methods:
@@ -219,23 +219,28 @@ To make a variable by reference, postfix the data type with an asterisk and a va
 To invoke a member of a COM object, we use the <a href="..\identifiers\com.html">$com</a> identifier using the following syntax:
 
 <pre class ="code">;member with no arguments
-$com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>)
+$com(&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;)
 ;member with one argument
-$com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>, &lt;type&gt;>, &lt;value&gt;>)
+$com(&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;, &lt;type&gt;, &lt;value&gt;)
 ;member with N amount of arguments
-$com(&lt;hName&gt;, &lt;member&gt;>, &lt;Invoke Method&gt;>, &lt;type1&gt;>, &lt;value1&gt;>, ..., &lt;typeN&gt;>, &lt;valueN&gt;>)</pre>
+$com(&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;, &lt;type1&gt;, &lt;value1&gt;, ..., &lt;typeN&gt;, &lt;valueN&gt;)</pre>
 
-=== Invoking example ===
-For example, if we go back to the WScript.Shell object. Let's say we wanted to open calc using the exec method we saw earlier. First, let's revisit the MSDN page of the [http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx Exec Method].
-
+<H4>Invoking example</H4>
+For example, if we go back to the WScript.Shell object. Let's say we wanted to open calc using the exec method we saw earlier. First, let's revisit the MSDN page of the <a href ="http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx">Exec Method</a>.
+<br>
+<br>
 We see the syntax is:
- object.Exec(strCommand)
+<pre class = "code">
+object.Exec(strCommand)
+</pre>
 
-where object is the WshShell object and strCommand is the string value indicating the command line used to run the script. From this information we know the following things:
-#This is a member call - the invoke method is 1
-#The Exec method accepts 1 argument
-#The argument is a string - data type is bstr
-
+<br>Where object is the WshShell object and strCommand is the string value indicating the command line used to run the script. From this information we know the following things:
+<br>
+<br>This is a member call - the invoke method is 1
+<br>The Exec method accepts 1 argument
+<br>The argument is a string - data type is bstr
+<br>
+<br>
 Using the information above we can write our <a href="..\identifiers\com.html">$com</a> identifier to invoke that method:
 
 <pre class ="code">;Exec is the Object's member we are invoking
@@ -263,7 +268,7 @@ $com(shellCOM, Exec, 1, bstr, calc)</pre>
 <H4>Value of A Property / Enumerated Collection</H4>
 Retrieving a value from an enumerated collection or a property (like a variable) can be done using the <a href="..\identifiers\comval.html">$comval</a> identifier following this syntax:
 
-<pre class ="code">$comval(&lt;hName&gt;, &lt;N&gt;>, &lt;member&gt;>)</pre>
+<pre class ="code">$comval(&lt;hName&gt;, &lt;N&gt;, &lt;member&gt;)</pre>
 If the member returns an enumeration of values, you can traverse through them. When n = 0, it will return the total number of values in the enumeration.
 
 <H4>Retrieving return values</H4>
@@ -289,16 +294,16 @@ var %result = $com(childObj, memberName, 1, ...)
 ;close the child object
 comclose childObj</pre>
 
-=== Dispatching example - CPU info ===
-One good example of using a dispatch is if you wanted to retrieve some information pertaining to your computer's processor. The processor information will be stored in an instance of the [http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx Win32_Processor class]. Here is the tricky part: the Win32_Processor is found deep inside the windows API:
+<H4>Dispatching example - CPU info</H4>
+One good example of using a dispatch is if you wanted to retrieve some information pertaining to your computer's processor. The processor information will be stored in an instance of the <a href ="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">Win32_Processor class</a>. Here is the tricky part: the Win32_Processor is found deep inside the windows API:
 
-*[http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx Win32_Processor Class]
-**Retrieved using the [http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx InstanceOf method]
-***[http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx SWbemServices Class]
-****Retrieved using the [http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx ConnectServer method]
-*****[http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx SWbemLocator Class]
-******Retrieved using the following ProgID: [http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx WbemScripting.SWbemLocator]
-
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">Win32_Processor Class</a>
+<ul><li>Retrieved using the <a href="http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx">InstanceOf method</a>
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx">SWbemServices Class</a>
+<ul><li>Retrieved using the <a href="http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx">ConnectServer method</a>
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx">SWbemLocator Class</a>
+<ul><li>Retrieved using the following ProgID: <a href="http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx">WbemScripting.SWbemLocator</a></li>
+</ul></li></ul></li></ul></li></ul></li></ul></li></ul>
 From the hierarchy tree above you can see we are going to have to dispatch twice to get to our final object we want.
 
 Let's start writing our code: opening a COM connection the SWbemLocator object:
@@ -351,8 +356,8 @@ At this point we have a COM connection called "SWbemServices" which is an object
 
 Since we are now at the Win32_Porocessor object, all we have to do is retrieve the values. Recall from above that we can do that using the <a href="..\identifiers\comval.html">$comval</a> identifier:
 
-<pre class ="code">$comval(Win32_Processor, 1, &lt;property&gt;>)</pre>
-Where &lt;property&gt;> can be any of the members of the Win32_Processor class that can be [http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx found here].
+<pre class ="code">$comval(Win32_Processor, 1, &lt;property&gt;)</pre>
+Where &lt;property&gt; can be any of the members of the Win32_Processor class that can be <a href ="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">found here</a>.
 
 Let's get the "name" property, which usually holds a string of interesting things.
 
@@ -387,8 +392,7 @@ The <a href="..\identifiers\com.html">$com</a> identifier has a few other useful
 <br>
 <br>
 <table>
-
-<tbody><tr>
+<tr>
 <th> Property </th>
 <th> Description
 </th></tr>
@@ -420,26 +424,30 @@ The <a href="..\identifiers\com.html">$com</a> identifier has a few other useful
 <H4>Limitations of COM</H4>
 Currently mIRC/mSL's COM implantation has a few limitations that other languages may not encounter.
 
-=== COM Passing ===
+<H4>COM Passing</H4>
 There is no way to pass the raw result or object from one COM instance to another. For results that mIRC can interpret, such as strings or integers, this isn't an issue(unless the result is excessively long) but for a returned object there is currently no way to pass it to another com.
 
-=== COM Events ===
+<H4>COM Events</H4>
 mIRC/mSL does not support events that a COM instance may issue. The implantation works on a ask-receive programa, where mIRC requests the COM instance for data or to do something, and the instance is to return an immediate result.
 
 <H4>Examples</H4>
 
-=== $file_get_contents(&lt;website&gt;>) ===
+<b>$file_get_contents(&lt;website&gt;)</b>
+<br>
+<br>
 ProgID: Msxml2.ServerXMLHTTP.3.0
-
-Object's Members: [http://msdn.microsoft.com/en-us/library/ms760305(v=VS.85).aspx XMLHTTPRequest Members]
-
+<br>
+<br>
+Object's Members: <a href ="http://msdn.microsoft.com/en-us/library/ms760305(v=VS.85).aspx">XMLHTTPRequest Members</a>
+<br>
+<br>
 Example:
 <pre class ="code">/*
 ############################################################
 #              Get source of a file/website                #
 #                                                          #
 # Syntax:                                                  #
-#    var %source = $file_get_contents(&lt;website&gt;>)    #
+#    var %source = $file_get_contents(&lt;website&gt;)     #
 # Example:                                                 #
 #    //echo -a $file_get_contents(http://www.example.com/) #
 ############################################################
@@ -470,11 +478,13 @@ Alias file_get_contents {
   }
 }</pre>
 
-=== Queue example ===
+<H4>Queue example</H4>
 ProID: System.Collections.Queue
-
-Object's Members: [http://msdn.microsoft.com/en-us/library/system.collections.queue.aspx Queue Class Members]
-
+<br>
+<br>
+Object's Members: <a href ="http://msdn.microsoft.com/en-us/library/system.collections.queue.aspx">Queue Class Members</a>
+<br>
+<br>
 Example:
 
 <pre class ="code">/*
@@ -484,11 +494,11 @@ Example:
 # Represents a first-in, first-out collection of elements               #
 #                                                                       #
 # Syntax:                                                               #
-#    /enqueue &lt;query_name&gt;> &lt;value&gt;>                        #
-#    /freeQueue &lt;query_name&gt;>                                     #
-#    var %value = $queue(&lt;query_name&gt;>).dequeue                   #
-#    var %value = $queue(&lt;query_name&gt;>).peek                      #
-#    var %count = $queue(&lt;query_name&gt;>).count                     #
+#    /enqueue &lt;query_name&gt; &lt;value&gt;                          #
+#    /freeQueue &lt;query_name&gt;                                      #
+#    var %value = $queue(&lt;query_name&gt;).dequeue                    #
+#    var %value = $queue(&lt;query_name&gt;).peek                       #
+#    var %count = $queue(&lt;query_name&gt;).count                      #
 #                                                                       #
 # Example:                                                              #
 #  /enqueue example a                                                   #
@@ -514,7 +524,7 @@ alias enqueue {
 }
 
 alias queue {
-  ;check if its an ident, com exists, and the proprty is either dequeue/peek
+  ;check if its an ident, com exists, and the property is either dequeue/peek
   if (($isid) && ($istok(dequeue peek count, $prop, 32)) && ($com($1))) {
     ;call the peek() or dequeue() method, get the return value
     noop $com($1, $prop, 2)
@@ -528,11 +538,13 @@ alias freeQueue {
   if ($com($1)) .comclose $1
 }</pre>
 
-=== Sendkeys example ===
+<H4>Sendkeys example</H4>
 ProID: WScript.Shell
-
-Object's Members: [http://msdn.microsoft.com/en-us/library/ahcz2kh6(v=VS.85).aspx WshShellObject Properties and Methods]
-
+<br>
+<br>
+Object's Members: <a href ="http://msdn.microsoft.com/en-us/library/ahcz2kh6(v=VS.85).aspx">WshShellObject Properties and Methods</a>
+<br>
+<br>
 Example:
 
 <pre class ="code">;sends "Hello there!" to the editbox and presses enter
@@ -543,19 +555,22 @@ alias sendkeys {
   .comclose x $com(x, sendkeys, 1, bstr, Hello there!{ENTER})
 }</pre>
 
-=== RAM information ===
+<H4>RAM information</H4>
 ProID: WbemScripting.SWbemLocator
-
-Object's Members: [http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx Win32_PhysicalMemory Class]
-
+<br>
+<br>
+Object's Members: <a href ="http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx">Win32_PhysicalMemory Class</a>
+<br>
+<br>
 Hierarchy Tree:
 
-*[http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx Win32_PhysicalMemory Class]
-**Retrieved using the [http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx InstanceOf method]
-***[http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx SWbemServices Class]
-****Retrieved using the [http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx ConnectServer method]
-*****[http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx SWbemLocator Class]
-******Retrieved using the its ProgID: [http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx WbemScripting.SWbemLocator]
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx">Win32_PhysicalMemory Class</a>
+<ul><li>Retrieved using the <a href="http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx">InstanceOf method</a>
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx">SWbemServices Class</a>
+<ul><li>Retrieved using the <a href="http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx">ConnectServer method</a>
+<ul><li><a href="http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx">SWbemLocator Class</a>
+<ul><li>Retrieved using the its ProgID: <a href="http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx">WbemScripting.SWbemLocator</a>
+</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>
 
 Example:
 <pre class ="code">/*
@@ -613,54 +628,67 @@ alias -l getType {
 
 <H4>Finding ProgIDs</H4>
 The only thing you might still be wondering about is: how do I find other ProgIDs? The answer is, you need to do a little research. They are all over the place. Below are two great tools you can use to find some of the ProgIDs that nest on your computer:
+<br>
+<br>
+<a href ="https://docs.microsoft.com/en-us/windows/desktop/com/ole-com-object-viewer">OLE-COM Object Viewer</a> - Microsoft tool for locating COM Objects<br>
+<a href ="http://www.nirsoft.net/utils/axhelper.html">ActiveXHelper</a> - A small utility that allows you to view info about ActiveX components<br>
 
-* [https://docs.microsoft.com/en-us/windows/desktop/com/ole-com-object-viewer OLE-COM Object Viewer] - Microsoft tool for locating COM Objects
-* [http://www.nirsoft.net/utils/axhelper.html ActiveXHelper] - A small utility that allows you to view info about ActiveX components
+<H4>Point of interest</H4>
+<a href ="http://msdn.microsoft.com/en-us/library/aa394084(VS.85).aspx">Win32 Classes</a> - Part of the Windows Management Instrumentation Classes (WMI Classes, Enable you access to monitor and manage system hardware and features.
 
-=== Point of interest ===
-[http://msdn.microsoft.com/en-us/library/aa394084(VS.85).aspx Win32 Classes] - Part of the Windows Management Instrumentation Classes (WMI Classes, Enable you access to monitor and manage system hardware and features.
-
-*Application Objects
-**[http://msdn.microsoft.com/en-us/library/kw65a0we(VS.80).aspx Word.Application]
-**[http://msdn.microsoft.com/en-us/library/wss56bz7(VS.80).aspx Excel.Application]
-**PowerPoint.Application
-**Access.Application
-**[http://msdn.microsoft.com/en-us/library/aa752084(VS.85).aspx InternetExplorer.Application]
-**FrontPage.Application*
-**[http://msdn.microsoft.com/en-us/library/aa210897(office.11).aspx Outlook.Application]
-**[http://portal.aauj.edu/portal_resources/downloads/multimedia/adobephotoshop7_scripting_guide.pdf Photoshop.Application]
-***[http://portal.aauj.edu/portal_resources/downloads/multimedia/adobephotoshop7_scripting_guide.pdf Photoshop.Application.7] (for Photoshop with Support plug-in installed)
-**ShockwaveFlash.ShockwaveFlash
-**iTunes.Application
-*Scripting Objects
-**[http://msdn.microsoft.com/en-us/library/aa227633(VS.60).aspx MSScriptControl.ScriptControl]
-**[http://msdn.microsoft.com/en-us/library/aew9yb99(VS.85).aspx WScript.Shell] - [http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/s6wt333f(VS.85).aspx WScript.Network] - [http://msdn.microsoft.com/en-us/library/907chf30(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/bb773984(VS.85).aspx Shell.UIHelper] - [http://msdn.microsoft.com/en-us/library/ff521724(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/yab2dx62(VS.85).aspx VBScript.Regexp] - [http://msdn.microsoft.com/en-us/library/kxt24tyh(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/x4k5wbx4(VS.85).aspx Scripting.Dictionary]
-**[http://msdn.microsoft.com/en-us/library/6kxy1a51(VS.85).aspx Scripting.FileSystemObject]
-*XML Document Objects
-**[http://msdn.microsoft.com/en-us/library/ms753804(VS.85).aspx MSXML.DOMDocument]
-***Msxml2.DOMDocument
-***Msxml2.DOMDocument.3.0
-***Msxml2.DOMDocument.4.0
-***Msxml2.DOMDocument.6.0
-***Microsoft.XMLDOM
-**[http://msdn.microsoft.com/en-us/library/ms759148(VS.85).aspx MSXML2.XMLHTTP]
-***MSXML2.XMLHTTP.3.0
-**[http://msdn.microsoft.com/en-us/library/ms535874(VS.85).aspx Microsoft.XMLHTTP]
-**[http://msdn.microsoft.com/en-us/library/ms753751(VS.85).aspx MSXML2.DSOControl]
-***MSXML2.DSOControl.3.0
-*ADO Database Objects
-**[http://msdn.microsoft.com/en-us/library/ms681519(VS.85).aspx ADODB.Connection] - [http://msdn.microsoft.com/en-us/library/ms681546(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/ms675032(VS.85).aspx ADODB.Stream] - [http://msdn.microsoft.com/en-us/library/ms677486(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/ms677502(VS.85).aspx ADODB.Command] - [http://msdn.microsoft.com/en-us/library/ms675022(VS.85).aspx Members]
-**[http://msdn.microsoft.com/en-us/library/ms681510(VS.85).aspx DODB.Recordset] - [http://msdn.microsoft.com/en-us/library/ms675841(VS.85).aspx Members]
+<br>
+<br>
+<b>Application Objects</b>
+<br>
+<br>
+<li><a href ="http://msdn.microsoft.com/en-us/library/kw65a0we(VS.80).aspx">Word.Application</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/wss56bz7(VS.80).aspx">Excel.Application</a></li>
+<li>PowerPoint.Application</li>
+<li>Access.Application</li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/aa752084(VS.85).aspx">InternetExplorer.Application</a></li>
+<li>FrontPage.Application (Discontinued product)</li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/aa210897(office.11).aspx">Outlook.Application</a></li>
+<li>ShockwaveFlash.ShockwaveFlash</li>
+<li>iTunes.Application</li>
+<br>
+<br>
+<b>Scripting Objects</b>
+<br>
+<br>
+<li><a href ="http://msdn.microsoft.com/en-us/library/aa227633(VS.60).aspx">MSScriptControl.ScriptControl</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/aew9yb99(VS.85).aspx">WScript.Shell</a> - <a href ="http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx">Members</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/s6wt333f(VS.85).aspx">WScript.Network</a> - <a href ="http://msdn.microsoft.com/en-us/library/907chf30(VS.85).aspx">Members</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/bb773984(VS.85).aspx">Shell.UIHelper</a> - <a href ="http://msdn.microsoft.com/en-us/library/ff521724(VS.85).aspx">Members</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/yab2dx62(VS.85).aspx">VBScript.Regexp</a> - <a href ="http://msdn.microsoft.com/en-us/library/kxt24tyh(VS.85).aspx">Members</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/x4k5wbx4(VS.85).aspx">Scripting.Dictionary</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/6kxy1a51(VS.85).aspx">Scripting.FileSystemObject</a></li>
+<br>
+<br>
+<b>XML Document Objects</b>
+<br>
+<br>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms753804(VS.85).aspx">MSXML.DOMDocument</a></li>
+<ul><li>Msxml2.DOMDocument</li>
+<li>Msxml2.DOMDocument.3.0</li>
+<li>Msxml2.DOMDocument.4.0</li>
+<li>Msxml2.DOMDocument.6.0</li>
+<li>Microsoft.XMLDOM</li></ul>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms759148(VS.85).aspx">MSXML2.XMLHTTP</a></li>
+<li><lu>MSXML2.XMLHTTP.3.0</lu></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms535874(VS.85).aspx">Microsoft.XMLHTTP</a></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms753751(VS.85).aspx">MSXML2.DSOControl</a></li>
+<ul><li>MSXML2.DSOControl.3.0</li></ul>
+<br>
+<br>
+<b>ADO Database Objects</b>
+<br>
+<br>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms681519(VS.85).aspx">ADODB.Connection</a> - <a href ="http://msdn.microsoft.com/en-us/library/ms681546(VS.85).aspx">Members</a><br></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms675032(VS.85).aspx">ADODB.Stream</a> - <a href ="http://msdn.microsoft.com/en-us/library/ms677486(VS.85).aspx">Members</a><br></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms677502(VS.85).aspx">ADODB.Command</a> - <a href ="http://msdn.microsoft.com/en-us/library/ms675022(VS.85).aspx">Members</a><br></li>
+<li><a href ="http://msdn.microsoft.com/en-us/library/ms681510(VS.85).aspx">DODB.Recordset</a> - <a href ="http://msdn.microsoft.com/en-us/library/ms675841(VS.85).aspx">Members</a><br></li>
+<br>
 
 This is by no means an exhaustive list but simply a compilation of the most common objects.
-<nowiki>*</nowiki> Discontinued Product
-
-
 </body>
 </html>
