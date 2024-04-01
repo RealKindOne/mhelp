@@ -36,7 +36,7 @@ Because of this, all commands tokenize their parameters by spaces, meaning that 
 mIRC scripting in general relies on the space character, it does not use quoted string.<br>
 However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
 And finally, some commands have limited quoted string support because they actually require two string.<br>
-Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter.
+Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter  
 
 <h4>Other statements</h4>
 If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b><br>
@@ -65,12 +65,12 @@ You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</
 
 Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliasse file loaded.<br><br>
 Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
-There are 5 different popups categories: status, channel, query, nicklist, and menubar. More about popups here<br><br>
+There are 5 differents popups categories: status, channel, query, nicklist, and menubar. More about popups here<br><br>
 Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them. more about access level here<br>
 
 In the script editor, every commands are executed as though 2 '/' where used from the editbox, the line is evaluated before being executed.
-
+  
 <h4>Aliases</h4>
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. <br>
 The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as custom commands.<br>
@@ -83,20 +83,20 @@ Here are some valid examples of aliases definition:<br>
 Single line alias in remote, single statement:
 <pre class ="code">alias test echo -a test</pre>
 Single line alias in alias, multiple statements:
-<pre class ="code">; Both of these are the same:
+<pre class ="code">Both of these are the same:
   test echo -a test | echo -a test1
   test { echo -a test | echo -a test1 }
 </pre>
 
-<h4>Events</h4>
+<h4>Events<h4>
 If your statements don't belong to an alias, the other thing they can used with are events. <br>
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in, but they take parameters.
 <pre class ="code">on &lt;access_level&gt;:&lt;event_name&gt;:&lt;parameters&gt;:</pre>
 Some events have more parameters than the other, they always are splitted with a ':' character.
 Example:
-  <pre class ="code">on *:text:*:#:echo text!</pre>
+  <pre class ="code">on *:text:*:#:echo text!</pre>  
   more about events here
-
+  
 <H4>/echo command</H4>
 <pre class ="code">//echo Hello World!</pre>
 When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<br>
@@ -362,7 +362,7 @@ Although we can't get this behavior from script in the script editor, using one 
 
 <h4>$identifier & %variables</h4>
 
-Your statement and their parameters if any may be composed of identifiers.
+Your statement, and their parameters, if any, may be composed of $identifiers.
 
 All identifiers starts with dollar symbol sigil.
 Generally speaking identifiers are performing and operation like commands, but they return a value, some identifiers are special constructs and don't return a value, they are used for various other operations.
@@ -374,14 +374,20 @@ If they take parameters, they use the ( and ) and a comma to separate arguments,
 If they take a property, they use a dot '.' at the end followed by a known property name:
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
 
-When you create an alias, you can call it as a command by calling it as a statement, but you can also make your alias return a value and call your alias as a custom identifier.
-
+When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier by prefixing it with the '$' symbol.
+  
 Commands separate their parameters/arguments by space, while identifiers use a comma.
 
 mIRC has a lot of built-in identifiers and commands. For example, if we want to print out our current nickname, we would use the following code:
 
 <pre class ="code">//echo -a $me</pre>
 
+$identifier are to be evaluated inside statement. Much like fom the editbox with a single slash, they are not evaluated and the plain text value is used instead AND they are always evaluated from the script editor.
+more about identifier here
+  
+There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set, which is the simplest way to store data. These are called "variables".
+more about %variables here
+  
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
