@@ -1094,6 +1094,10 @@
 		<param name="Local" value="identifiers\maddress.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$markasread">
+		<param name="Local" value="identifiers\markasread.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$mask">
 		<param name="Local" value="identifiers\mask.html">
 		</OBJECT>

@@ -9,26 +9,36 @@ The <b>/langdll</b> command is used to create a default language DLL that contai
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/langdll -m[d] [oldmirc.exe] [newmirc.exe]
+/langdll -me[d] [oldmirc.exe] [newmirc.exe]
 </pre>
 
 <H4>Switches</H4>
 <b>-m</b>
       - Create the DLL
+<br><b>-e</b>
+      - List supported language codes
 <br><b>-d</b>
-      - Compare two versions of mIRC.
+      - Compare two versions of mIRC
 
 
 <H4>Parameters</H4>
-<b>[oldmirc.exe]</b>
+<b>[code]</b>
+      - Used with -m switch. Can be "0x0409", "1033", or "en-US".
+<br><b>[oldmirc.exe]</b>
       - Old mIRC version to compare against.
 <br><b>[newmirc.exe]</b>
       - New mIRC version to compare against.
 
 <H4>Example</H4>
+Create en-US DLL:
 <pre class ="code">
-
+/langdll -m 1033
 </pre>
+Compare mIRC Versions:
+<pre class ="code">
+/langdll -d oldmirc.exe newmirc.exe
+</pre>
+
 
 <H4>Compatibility</H4>
 TODO
