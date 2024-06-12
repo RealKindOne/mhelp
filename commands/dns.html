@@ -9,7 +9,7 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/dns [-46ch] [nick|address]
+/dns [-46chmn] [name server] [nick|address]
 </pre>
 
 <H4>Switches</H4>
@@ -21,6 +21,11 @@ The <b>/dns</b> command resolves an address. If mIRC sees a "." in the name you 
       - clears all currently queued DNS requests, except for the one currently in progress
 <br><b>-h</b>
       - forces /dns to treat the parameter as a hostname
+<br><b>-m</b>
+      - request A, AAAA, NS, MX, SOA, SRV, TXT records if available
+<br><b>-n</b>
+      - forces /dns to use a specific [name server] IP address to resolve the address.
+
 
 <H4>Parameters</H4>
 <b>[nick|address]</b>
