@@ -35,12 +35,13 @@ After a command follows its parameters, spaces delimited, some commands take no 
 Because of this, all commands tokenize their parameters by spaces, meaning that double spaces are trimmed to a single space, while leading and trailing spaces are always stripped.<br>
 mIRC scripting in general relies on the space character, it does not use quoted string.<br>
 However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
-And finally, some commands have limited quoted string support because they actually require two string.<br>
-Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter  
+And finally, some commands have limited quoted string support because they actually require two string, both possibly containing spaces.<br>
+Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter or two.
 
 <h4>Other statements</h4>
 If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b><br>
-Such statement involve more syntactic elements and are used to control the logical flow of the code
+Such statement involve more syntactic elements and are used to control the logical flow of the code<br>
+They are also referred to as commands although they are parsed differently, (they don't tokenize parameters by space necessarily)
 
 <H4>What's with the slashes?</H4>
 If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
@@ -53,6 +54,8 @@ If you're not executing code from mIRC's editbox, your statements must be part o
 A routine can be:<br>
 -a function, which has a name, functions are called aliases, a function can be executed as a command (custom command) but also as an identifier, more about identifier later<br>
 -an event, mIRC is an event-driven language which are automatically triggered by certain event happening, more about events later.<br>
+
+Routines can also be referred to as scopes, more about scopes later
 
 <H4>Where does the code go?</H4>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.
@@ -76,35 +79,23 @@ Aliases are used to describe any piece of scripting code that can be reused. Ali
 The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as custom commands.<br>
 All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
 They have the following format:
-<pre class ="code">&lt;name&gt; &lt;statements&gt;
-</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated.
+<pre class ="code">alias &lt;name&gt; { &lt;statements&gt; }
+</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated as shown above.
 <br>
-Here are some valid examples of aliases definition:<br>
-Single line alias in remote, single statement:
-<pre class ="code">alias test echo -a test</pre>
-Single line alias in alias, multiple statements:
-<pre class ="code">Both of these are the same:
-  test echo -a test | echo -a test1
-  test { echo -a test | echo -a test1 }
-</pre>
+more about aliases here
 
 <h4>Events</h4>
 If your statements don't belong to an alias, the other thing they can used with are events. <br>
-Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in, but they take parameters.
-<pre class ="code">on &lt;access_level&gt;:&lt;event_name&gt;:&lt;parameters&gt;:</pre>
-Some events have more parameters than the other, they always are splitted with a ':' character.
-Example:
-  <pre class ="code">on *:text:*:#:echo text!</pre>  
-  more about events here
-  
+Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.
+more about events here
+
+<b>Note:</b> Event (except menu event) and aliases are parsed the same when it comes to statements, everything that's being said below is true for events and aliases.
 <H4>/echo command</H4>
 <pre class ="code">//echo Hello World!</pre>
 When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<br>
 <b>Note:</b> Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
 <pre>Hello World!</pre>
 <center><img src="..\images\hello_edit.png"></center>
-
-The command will be in your editbox history, and you can use the UP ARROW key 1 or more times to bring previous commands into the editbox. You can press the &lt;enter&gt; key immediately to repeat the message or /command, or you can edit the text before pressing &lt;enter&gt;.
 
 Recall we said earlier that multiple statements can be combined by using the pipe '|'? Let's print 3 lines to the screen using the echo command and some pipes. Type the following code into your editbox (''Remember to hit the Return or Enter keys from now on''):
 
@@ -154,85 +145,57 @@ That should print our text again:
 Is
 Fun!</pre>
 
-<H4>A block of code</H4>
-When we have a group of related statement, we call it a "block of code". Most scripts, however, are not as short as our example and putting it all on one long line, or ''piping'', is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC "this block of code belongs to this alias". We do that by enclosing the block of code in a pair of brackets:
+<h4>Conditional statement</h4>
+<a href="conditional_statements.html">conditional statements</a> allow you to create branches, where statements only get executed based on a condition.<br>
+This means that after a conditional statement, you'll have one or more statement associated to it.
+  more about if statement here
 
-<pre class ="code">alias name {
-  statement 1
-  statement 2
-  statement 3
-}</pre>
-
-''But we have just seen three statements with piping; we didn't need to use a pair of brackets there?''
-
-Well, in fact when we use newlines as a separator of statements, the syntax force us to use the pair of bracket, otherwise mIRC cannot reliably know where your alias definition finishes.
-
-You can use bracket with piping of course, though keep in mind it's cleaner to get statements on a new line.
-
-We don't need the brackets in the piping version because they are only there to help distinguish between two or more blocks of code:
-<pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>This can be seen as one block of code:
-<pre class ="code">alias fun { echo Scripting | echo Is | echo Fun! }</pre>All commands belong to the alias fun definition, they are all on the same 'root'
-
-Some statements, such as the <a href="conditional_statements.html">conditional statements</a>, allow you to create others blocks of code. Within those new blocks of code, you may use brackets. However, if the context allows it, you can get around using them, the example below illustrates this scenario:
+<h4>{ } and statements belonging together</h4>
+Aliases, events, and conditional statement all have a need to associate one or more statements to them, this is done by using { }
+We usually use newline for each new command and we usually don't mix piping with newline although it's valid:
+<pre class ="code">alias test echo -a test</pre> is equivalent to <pre class ="code">alias test { echo -a test }</pre> the same way <pre class ="code">alias test echo -a test | echo -a test1</pre> is equivalent to <pre class ="code">alias test { echo -a test | echo -a test1 }</pre> which is also equivalent to <pre class ="code">alias test {
+  echo -a test | echo -a test1
+}</pre> and to <pre class ="code">alias test { echo -a test |
+  echo -a test1 }</pre> and to <pre class ="code">alias test { echo -a test |
+  echo -a test1
+  }</pre>
+By default all the statements inside an alias belong to the alias which is why { } can be omitted, but they are required if you want to go multiline, which is recommended.
+ 
+With if statement the { goes after the condition. If only one statement is associated to the if statement then you may not use a { }
 <pre class ="code">alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!</pre>
-In the example above, the statement ''echo Scripting'' belongs to the ''if (1 == 1)'' statement. The same is true for ''echo Is'', which, however, will not be echoed because the condition is not true. ''echo ='' '''does not''' belong to the ''if (2 == 3)'' statement like ''echo Is'' does; the reason being that we did not use a pair of brackets for the ''if (2 == 3)'' statement. Overall, the above example will echo: <pre>Scripting = Fun!</pre>. This is equivalent to:
-
+In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) statement. The same is true for 'echo Is' belonging to 'if (2 == 3)', which, however, will not be echoed because the condition 2 == 3 is not true. 'echo =' does not belong to the 'if (2 == 3)' if statement like 'echo Is' does; the reason being that we did not use a pair of brackets for the 'if (2 == 3)' statement so only the next statement belongs to it.<br>
+Overall, the above example will echo: <pre>Scripting = Fun!</pre>. This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
+If multiple statements belong to the same if statement, { } cannot be ommited:
+alias fun { echo -a start | if (1 == 1) { echo -a 1 == | echo -a 1 } | echo -a end }
+  
+This should help you understand how { } brackets are used. Note that if statement are a bit special where not using { } can lead to problem if you're not using () around the conditional part, which is something mIRC support but not well when no () and no { } are used.
 
-This should help you understand how brackets are used. They are others situations with if statements where not using bracket will be a problem for example, remember the bracket helps mIRC identifying the block of code, but also the condition, when using a if/elseif/while statement, Here is a final example:
-
-<pre class ="code">alias fun {
- if (1 == 1) echo Scripting
- if (2 == 3) echo Is
- if (3 == 3) { echo More | echo Or | echo Less }
- echo Fun!
-}</pre>
-This time the statement's echoing of ''More'', ''Or'' and ''Less'' all belong to the same ''if (3 == 3)'' statement. If you were to change that condition to something such as ''if (3 == 4)'', none of the echo commands will show up because this if statement is false.
-<br>
-<br>
 A few notes about the language limitations:
 
 <br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same line as the alias keyword</span>
 <br><span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything.</span>
 <br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything else.</span>
-<br><span style="color: #DB0000;">The closing bracket <b>must</b> be the last part of the block of code.</span>
 <br>
-<br><b>Note:</b> Those limitations are only true for aliases, others context of the language can have some differences
-
 <H4><span style="color: #256B22;">Right Examples</span></H4>
-
 <pre>alias example { echo hello! }</pre>
-Note the spaces before and after both the opening and closing brackets. This is a good example of a proper code block.
-
 <pre class ="code">alias example {
   echo hello!
 }</pre>
-The initial opening bracket is on the same line as the alias name, and it has proper spacing before itself. The statement within the block is also perfectly executed, and the closing bracket is on its own line. This is another example of a proper
-code block.
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
-
 <pre>alias example{echo hello! }</pre>
 The opening bracket is touching the "example" and "echo".
-
 <pre>alias example { echo hello!}</pre>
 The closing bracket is touching the "hello!".
-
 <pre>alias example
 {
   echo hello!
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
-
+  
 <H4>Using a block of code</H4>
 Let's reuse the ''fun'' alias from before. However, this time we will put each statement on its own line:
-
-<pre class ="code">alias fun {
-  echo Scripting
-  echo Is
-  echo Fun!
-}</pre>
-Notice how this is a perfect example of a Good code block, much like the sample that we viewed above? If you are noticing the repetitiveness of the ''echo'' command, don't worry, in later examples we will show you tricks on how to get around repeating certain reused commands in your code.
 
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
@@ -357,7 +320,7 @@ alias second {
 Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
 
 Evaluation/interpretation is what happens to statements when you use two slash from the editbox or execute something from the script editor.
-So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting block of code.
+So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting group of statements belonging to the same alias/event/conditional statement.
 Although we can't get this behavior from script in the script editor, using one slash from editbox will result in the pipe character as well as { and } not being interpreted as a statement separator and start/end of block of statements.
 
 <h4>$identifier & %variables</h4>
@@ -365,7 +328,7 @@ Although we can't get this behavior from script in the script editor, using one 
 Your statement, and their parameters, if any, may be composed of $identifiers.
 
 All identifiers starts with dollar symbol sigil.
-Generally speaking identifiers are performing and operation like commands, but they return a value, some identifiers are special constructs and don't return a value, they are used for various other operations.
+Generally speaking identifiers are performing an operation like commands, but they return a value, some identifiers are special constructs and don't return a value, they are used for various other operations.
 Some identifiers can take parameters as well as properties.
 Without any parameter nor any properties, the basic syntax is:
 <pre class ="code">$name</pre> where name is referring to the name of an existing identifiers.
@@ -382,10 +345,10 @@ mIRC has a lot of built-in identifiers and commands. For example, if we want to 
 
 <pre class ="code">//echo -a $me</pre>
 
-$identifier are to be evaluated inside statement. Much like fom the editbox with a single slash, they are not evaluated and the plain text value is used instead AND they are always evaluated from the script editor.
+$identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.
 more about identifier here
   
-There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set, which is the simplest way to store data. These are called "variables".
+There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".
 more about %variables here
   
 <H4>$rand()</H4>
@@ -404,36 +367,9 @@ Here is what we got when we called out /random alias a few times:
 <center><img src="..\images\random_example.png"></center>
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
-<H4>Evaluating/Interpreting</H4>
-Remember what we said about the slashes in the editbox when executing commands? If you use two of them it will indicate to mIRC that it must evaluate the line. In the script editor, you don't need any slash as the lines are always executed as though two of them were used. The difference only applies when you execute commands from within an editbox inside mIRC.
-
-Interpreting, which is commonly referred to as 'evaluating', a line or an expression means the line/expression is processed according to the language's semantic. This is how mIRC can tell what is what and how to proceed. Evaluations also include looking for meaningful characters like '{' and '}' for blocks, '|' for piping, and so on. In order to get the value of an identifier, you would simply evaluate it like in the example below:
-
-<pre class ="code">//echo -a $me | echo -a $me</pre>
-The <b>//</b> indicates the the line should be evaluated. ''$me'' is replaced with the corresponding value twice because the spaced out pipe '|' is interpreted as the delimiter of commands.
-<pre class ="code">/echo -a $me | echo -a $me</pre>
-The <b>/</b> indicates that the line should not be evaluated. ''$me'' is returned literally, as plain text as we saw earlier, and therefore is not replaced. The pipe is also not interpreted.
-
-<a href="variables.html">Variables</a> are also special, in that they need to be evaluated the same way as identifiers. Evaluating variables is the only way to extract the value that they hold.
-
-There is 1 small area where a //command typed in an editbox is interpreted differently than when the same command is placed inside an alias within a remote script. mIRC assumes that a command typed into the editbox which begins with the name of a variable or identifier is an error, so it halts execution at that point, and won't execute any remaining commands separated by the pipe symbol.
-
-<pre class ="code">//var %temp echo | echo -a message 1 | %temp echo -a test $me | echo -a message 2</pre>
-
-If this line were in a remote script (where it doesn't matter whether or not the line begins with //), the %temp variable would be evaluated into its contents before executing that command, so it behaves as if the command begins with "echo echo" instead of "%temp echo", and it would display into the active window "echo -a test" followed by your current nick. However if you pasted the 4 commands into the editbox, it displays only "message 1", because it halts as soon as it encounters a command beginning with a $ or % symbol. You can force the editbox to evaluate a %variable or $identifier at the beginning of the command by wrapping it inside [ square braces ]. The square braces must not touch any other character except a SPACE, or else they will not be treated as the special symbol forcing evaluation in a situation where it would not normally evaluate.
-
-<pre class ="code">//var %temp echo | echo -a message 1 | [ %temp ] echo -a test $me | echo -a message 2</pre>
-
-Adding the [ square braces ] forces the editbox to evaluate %temp, and it will then behave the same way it behaves in the remote script. If the %temp contents were $null (empty), the command in the remote script is executed as if "%temp echo -a test $me" changes to "echo -a test $me", and the displayed message changes from "echo -a test YourNick" to "test YourNick".
-
-The same thing happens when the editbox command begins with a dollar sign:
-
-<pre class ="code">//echo -a message 1 | $lower(echo) -a test | message 2</pre>
-
-This line inside a remote script displays both "test" and "message 2", but in the editbox it halts after displaying "message 1". By using the [ square braces ] you can force it to evaluate the identifier, and uses the returned value of the identifier as part of the command:
-
-<pre class ="code">//echo -a message 1 | [ $lower(echo) ] -a test | message 2</pre>
-
+<h4>$+</h4>
+An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the contatenated value, $+(A,B,C) is ABC.
+  
 <H4>On your own:</H4>
 Below are a very few, basic commands that you can use to experiment with in a safe manner. Go ahead, try them out!
 
@@ -444,8 +380,6 @@ Just like you can add colors when you talk by typing CTRL+K on your keyboard, an
   echo -a �3This �4is �6a �10cool �15example�1.
 }</pre>
 
-You may have noticed that we added a strange new thing, <b>-a</b>. The -a is called a '''switch'''; switches slightly alter the way a command behaves. In the case of the ''/echo'' command, the -a switch specifies that we wanted the command to echo to the current active window. There is another switch, the '''-s switch''', which can be used to tell the echo command to print to the status window instead, regardless of which window you have open.
-
 Below is an example of how we use the '''-a''' switch:
 <center><img src="..\images\color_example.png"></center>
 
@@ -454,8 +388,6 @@ Will produce:
  <span style="color: #009300;">This</span> <span style="color: #FF0000;">is</span> <span style="color: #9C009C;">a</span> <span style="color: #009393;">cool</span> <span style="color: #D2D2D2;">example</span><span style="color: #009300;">.</span>
 
 <pre class ="code">//echo -a The number �042� is even.</pre>
-
-(This website does not correctly handle the color-code, so the above symbols containing the "?" should be edited in your editbox before pressing enter. Replace those symbols by the character returned from pressing Ctrl+K, holding down the CONTROL button while pressing the "K" button once. You can close the popup color box because the script already contains the color number.)
 
 Will produce the following result:
 
