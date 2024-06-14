@@ -30,10 +30,11 @@ statement 4</pre>
 
 <h4>Commands statements</h4>
 
-Most statements are called "commands". Commands are performing some operations, without returning data to you. For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
+Most statements are called "commands". Commands are performing some operations, without returning data to you.<br>
+For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
 After a command follows its parameters, spaces delimited, some commands take no parameter.<br>
 Because of this, all commands tokenize their parameters by spaces, meaning that double spaces are trimmed to a single space, while leading and trailing spaces are always stripped.<br>
-mIRC scripting in general relies on the space character, it does not use quoted string.<br>
+mIRC scripting in general relies on the space character, it does not use quoted strings.<br>
 However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
 And finally, some commands have limited quoted string support because they actually require two string, both possibly containing spaces.<br>
 Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter or two.
