@@ -101,6 +101,7 @@ Recall we said earlier that multiple statements can be combined by using the pip
 
 You should hopefully see the following results:<br><br>
 <img src="..\images\fun_edit.png"><br><br>
+Here the two slashes are required, otherwise the pipe character '|' won't be interpreted and the line 'Scripting | echo Is | echo Fun!' will be displayed.
 
 <H4>Let's make it into an alias, shall we?</H4>
 
@@ -108,12 +109,12 @@ Let's make the code we used above to print "Scripting Is Fun!", and call this ne
 
 <pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
 
-<h4>Remote tab vs Aliases tab</h4>Remote tab
+<h4>Remote tab vs Aliases tab</h4>
 <br>
 <img src="..\images\fun_alias_remote.png">
 <img src="..\images\fun_alias_alias.png">
 
-<br><b>Note:</b> When you want to execute an alias, you would refer to it as wanting to ''call the alias''.
+<br><br><b>Note:</b> When you want to execute an alias, you would refer to it as wanting to ''call the alias''.
 
 To call on our alias ''fun'', all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
 
@@ -124,11 +125,12 @@ That should print our text again:
 <pre>Scripting
 Is
 Fun!</pre>
+<br>
+<b>Note:</b>We usually use two slashes because it not only makes the pipe '|' bracket '{ }' etc working, but also $identifiers and %variables, which are almost always passed as a parameter to a command or an $identifier.
 
 <h4>Conditional statement</h4>
-<a href="conditional_statements.html">conditional statements</a> allow you to create branches, where statements only get executed based on a condition.<br>
+<a href="conditional_statements.html">Conditional statements</a> allow you to create branches, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you'll have one or more statement associated to it.
-  more about if statement here
 
 <h4>{ } and statements belonging together</h4>
 Aliases, events, and conditional statement all have a need to associate one or more statements to them, this is done by using { }<br>
