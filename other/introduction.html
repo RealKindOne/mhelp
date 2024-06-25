@@ -58,9 +58,8 @@ A routine can be:<br>
 -an event, mIRC is an event-driven language which are automatically triggered by certain event happening, more about events later.<br>
 
 <H4>Where does the code go?</H4>
-All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.
-
-Below is a screen shot of the mIRC Script Editor:
+All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
+Below is a screen shot of the mIRC Script Editor:<br>
 
 <center><img src="..\images\remote_menu.png"></center>
 
@@ -72,7 +71,7 @@ There are 5 differents popups categories: status, channel, query, nicklist, and 
 Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them. more about access level here<br>
 
-In the script editor, every commands are executed as though 2 '/' where used from the editbox, the line is evaluated before being executed.
+In the script editor, every commands are executed as though 2 slashes where used from the editbox, the line is evaluated before being executed, you cannot get statement from the script editor to be executed without evaluation happening (not without extra code anyway).
   
 <h4>Aliases</h4>
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. <br>
@@ -113,10 +112,7 @@ Fun!</pre>
 Let's make the code we used above to print "Scripting Is Fun!", all on separate lines, and call this new alias "fun":
 
 <pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
-Before we continue, let us note a few things regarding the above code:
 
-# The two // were removed; we only really need one or two forward-slashes when we want to execute code directly from the editbox. Using slashes in your script editor adds nothing but clutter.
-# The statements in the editor are always executed as though two forward slashes were used, you cannot force a statement not to be evaluated.
 <br>
 <H4>Remote tab</H4>
 <br>
