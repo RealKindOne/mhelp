@@ -162,17 +162,18 @@ A few notes about the language limitations:
 <br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything else.</span>
 <br>
 <H4><span style="color: #256B22;">Right Examples</span></H4>
-<pre>alias example { echo hello! }</pre>
-<pre class ="code">alias example {
+<pre class ="code">
+  alias example { echo hello! }
+  alias example {
   echo hello!
 }</pre>
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
-<pre>alias example{echo hello! }</pre>
+<pre class="code">alias example{echo hello! }</pre>
 The opening bracket is touching the "example" and "echo".
-<pre>alias example { echo hello!}</pre>
+<pre class="code">alias example { echo hello!}</pre>
 The closing bracket is touching the "hello!".
-<pre>alias example
+<pre class="code">alias example
 {
   echo hello!
 }</pre>
