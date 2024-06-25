@@ -179,9 +179,6 @@ The closing bracket is touching the "hello!".
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
   
-<H4>Using a block of code</H4>
-Let's reuse the ''fun'' alias from before. However, this time we will put each statement on its own line:
-
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
 
@@ -202,9 +199,9 @@ Here is another basic example of a single-line comment:
   echo Fun!
 }</pre>
 
-<center><img src="..\images\fun_comment.png"></center>
+<br><img src="..\images\fun_comment.png"><br>
 
-<br><b>Note:</b> the case-insensitive keyword REM can be used interchangeably with the semicolon, except the REM cannot be touched to its right by any text. This makes REM a reserved keyword, and you cannot create an alias named <b>rem</b> then access it as /rem or $rem.
+<br><b>Note:</b>The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
 
 <H4>Multi-line Comments</H4>
 The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> & <b>*/</b> characters. The syntax for a multi-line comment is:
@@ -241,41 +238,19 @@ In both of the above examples, the opening comment parameters are properly execu
 the lines are spaced out and the closing parameters are by themselves. These are both
 examples of proper multi-line comment blocks.
 
-<pre class ="code">/*
-testing
-out
-a multi-line
-comment
-{
-  then an
-  indented
-  section
-  {
-    and indented
-    even deeper
-  }
-}
-
-then back
-to not being
-indented
-*/</pre>
-
-
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
 <pre class ="code">/* testing
    test */</pre>
 The */ is not on a line of Its own.
+<br>
 
-
- /* comment */
+<pre class="code">/* comment */</pre>
 The */ is not on a line of Its own.
 
-<H4>Multiple aliases</H4>
+<H4>Multiple aliases/events</H4>
 
-You can have multiple aliases in one single file but you cannot define an alias inside another alias, each alias must go on what we call the 'root' level, or 'top' level.
-
-When you start with an empty script file, you're on the top level, meaning you can add an alias there. Inside that alias, you're not on the top level, you're inside the alias, which can be seen as the level depth '1'. So if you want to add more aliases, always do so on the top level:
+You can have multiple aliases/events in one single file but you cannot define an alias/events inside another alias/event.<br>
+When you start with an empty script file, you're on the top level, meaning you can add an alias there. Inside that alias, you're not on the top level, you're inside the alias, which can be seen as the level depth '1'. So if you want to add more aliases, always do so on the top level:<br>
 
 <H4><span style="color: #9E1010;">Wrong Example</span></H4>
 <pre class ="code">
