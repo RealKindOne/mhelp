@@ -145,11 +145,12 @@ We usually use newline for each new statement and we usually don't mix piping wi
 With if statement the { goes after the condition. If only one statement is associated to the if statement then you may not use a { }
 <pre class ="code">alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!</pre>
 In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) statement. The same is true for 'echo Is' belonging to 'if (2 == 3)', which, however, will not be echoed because the condition 2 == 3 is not true. 'echo =' does not belong to the 'if (2 == 3)' if statement like 'echo Is' does; the reason being that we did not use a pair of brackets for the 'if (2 == 3)' statement so only the next statement belongs to it.<br>
-Overall, the above example will echo: <pre>Scripting = Fun!</pre>. This is equivalent to:
+Overall, the above example will echo: <pre>Scripting = Fun!</pre>
+This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
 If multiple statements belong to the same if statement, { } cannot be ommited:
-alias fun { echo -a start | if (1 == 1) { echo -a 1 == | echo -a 1 } | echo -a end }
-  
+<pre></pre>alias fun { echo -a start | if (1 == 1) { echo -a 1 == | echo -a 1 } | echo -a end }</pre>
+<br>
 This should help you understand how { } brackets are used. Note that if statement are a bit special where not using { } can lead to problem if you're not using () around the conditional part, which is something mIRC support but not well when no () and no { } are used.
 
 <br><b>Note:</b> from the editbox, you can only pipe statements, you can't use newlines and after the first two slashes, we don't need to provide them for the rest of the line.
