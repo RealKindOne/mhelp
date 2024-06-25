@@ -149,11 +149,11 @@ Overall, the above example will echo: <pre>Scripting = Fun!</pre>
 This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
 If multiple statements belong to the same if statement, { } cannot be ommited:
-<pre>alias fun { echo -a start | if (1 == 1) { echo -a 1 == | echo -a 1 } | echo -a end }</pre>
+<pre class="code">alias fun { echo -a start | if (1 == 1) { echo -a 1 == | echo -a 1 } | echo -a end }</pre>
 <br>
 This should help you understand how { } brackets are used. Note that if statement are a bit special where not using { } can lead to problem if you're not using () around the conditional part, which is something mIRC support but not well when no () and no { } are used.
 
-<br><b>Note:</b> from the editbox, you can only pipe statements, you can't use newlines and after the first two slashes, we don't need to provide them for the rest of the line.
+<br><br><b>Note:</b> from the editbox, you can only pipe statements, you can't use newlines and after the first two slashes, we don't need to provide them for the rest of the line.
 
 A few notes about the language limitations:
 
