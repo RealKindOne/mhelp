@@ -59,9 +59,9 @@ A routine can be:<br>
 
 <H4>Where does the code go?</H4>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
-Below is a screen shot of the mIRC Script Editor:<br>
+Below is a screen shot of the mIRC Script Editor:<br><br>
 
-<img src="..\images\remote_menu.png"><br>
+<img src="..\images\remote_menu.png"><br><br>
 
 You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.
 
@@ -126,7 +126,7 @@ That should print our text again:
 Is
 Fun!</pre>
 <br>
-<b>Note:</b>We usually use two slashes because it not only makes the pipe '|' bracket '{ }' etc working, but also $identifiers and %variables, which are almost always passed as a parameter to a command or an $identifier.
+<b>Note: </b>We usually use two slashes because it not only makes the pipe '|' brackets '{ }' etc working, but also $identifiers and %variables, which are almost always passed as a parameter to a command or an $identifier.
 
 <h4>Conditional statement</h4>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches, where statements only get executed based on a condition.<br>
@@ -134,14 +134,15 @@ This means that after a conditional statement, you'll have one or more statement
 
 <h4>{ } and statements belonging together</h4>
 Aliases, events, and conditional statement all have a need to associate one or more statements to them, this is done by using { }<br>
-We usually use newline for each new command and we usually don't mix piping with newline although it's valid:
+By default all the statements inside an alias/event belong to the alias/event which is why { } can be omitted if you use the pipe to execute multiple statement for that routine, but { } are required if you want to go multiline, which is recommended.<br>
+We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
 <pre class ="code">alias test echo -a test</pre> is equivalent to <pre class ="code">alias test { echo -a test }</pre> the same way <pre class ="code">alias test echo -a test | echo -a test1</pre> is equivalent to <pre class ="code">alias test { echo -a test | echo -a test1 }</pre> which is also equivalent to <pre class ="code">alias test {
   echo -a test | echo -a test1
 }</pre> and to <pre class ="code">alias test { echo -a test |
   echo -a test1 }</pre> and to <pre class ="code">alias test { echo -a test |
   echo -a test1
   }</pre>
-By default all the statements inside an alias belong to the alias which is why { } can be omitted, but they are required if you want to go multiline, which is recommended.
+
  
 With if statement the { goes after the condition. If only one statement is associated to the if statement then you may not use a { }
 <pre class ="code">alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!</pre>
