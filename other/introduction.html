@@ -329,9 +329,6 @@ The results that mIRC generates for you will be different than the ones listed a
 <h4>$+</h4>
 An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the contatenated value, $+(A,B,C) is ABC.
   
-<H4>On your own:</H4>
-Below are a very few, basic commands that you can use to experiment with in a safe manner. Go ahead, try them out!
-
 <H4>Colors:</H4>
 Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
 
@@ -361,35 +358,6 @@ Will produce the following result:
  The number <span style="color: #FF0000;">2</span> is even.
 
 <br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
-
-<H4>Actions</H4>
-Actions are very similar to your normal channel messages, except that they are displayed in a slightly different manner.
-
-<pre class ="code">; This is good for the channel you are in right now:
-me &lt;message&gt;
-; This is good for any channel you specify (as long as you are in that channel)
-describe &lt;#channel&gt; &lt;message&gt;</pre>
-
-For example:
-
-<pre class ="code">alias feel {
-  me Feels Happy!
-  me Leaves
-}</pre>
-
-The code should produce something like this (''Your name will obviously be different''):
-
- <span style="color: #9C009C;">* @FooBar Feels Happy!
- * @FooBar Leaves</span>
-
-<center><img src="..\images\action_example.png"></center>
-
-If we wanted to specify a channel, we could have used:
-
-<pre class ="code">alias feel {
-  describe #MyChannel Feels Happy!
-  describe #MyChannel Leaves
-}</pre>
 
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
