@@ -275,7 +275,7 @@ alias second {
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
-<H4>evaluation/interpretation</H4>
+<H4>Evaluation/Interpretation</H4>
 
 Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
 
@@ -305,8 +305,7 @@ If we want to print out our current nickname, we would use the following code:
 <pre class ="code">//echo -a $me</pre>
 
 $identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.<br>
-more about identifier here
-  <br><br>
+ <br><br>
 There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".<br>
 more about %variables here
   
@@ -323,7 +322,7 @@ Given both low bound and high bound number values, $rand will return a random nu
 
 Here is what we got when we called out /random alias a few times:
 
-<center><img src="..\images\random_example.png"></center>
+<br>br><img src="..\images\random_example.png"><br><br>
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
 <h4>$+</h4>
@@ -336,8 +335,7 @@ Just like you can add colors when you talk by typing CTRL+K on your keyboard, an
   echo -a �3This �4is �6a �10cool �15example�1.
 }</pre>
 
-Below is an example of how we use the '''-a''' switch:
-<center><img src="..\images\color_example.png"></center>
+<img src="..\images\color_example.png"><br><br>
 
 Will produce:
 
