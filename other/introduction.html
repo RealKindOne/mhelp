@@ -166,7 +166,7 @@ A few notes about the language limitations:
   alias example { echo hello! }
   alias example {
   echo hello!
-}</pre>
+  }</pre>
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
 <pre class="code">alias example{echo hello! }</pre>
@@ -201,7 +201,7 @@ Here is another basic example of a single-line comment:
 
 <br><img src="..\images\fun_comment.png"><br>
 
-<br><b>Note:</b>The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
+<br><b>Note: </b>The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
 
 <H4>Multi-line Comments</H4>
 The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> & <b>*/</b> characters. The syntax for a multi-line comment is:
@@ -263,7 +263,7 @@ alias second {
 }
 </pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
 
-<br><b>Note:</b> these aliases are empty for the sake of the example.
+<br><br><b>Note:</b> these aliases are empty for the sake of the example.
 
 <H4><span style="color: #256B22;">Good Examples</span></H4>
 <pre class ="code">
@@ -299,16 +299,15 @@ If they take a property, they use a dot '.' at the end followed by a known prope
 
 When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier by prefixing it with the '$' symbol.
   
-Commands separate their parameters/arguments by space, while identifiers use a comma.
-
-mIRC has a lot of built-in identifiers and commands. For example, if we want to print out our current nickname, we would use the following code:
+Commands separate their parameters/arguments by space, while identifiers use a comma.<br>
+If we want to print out our current nickname, we would use the following code:
 
 <pre class ="code">//echo -a $me</pre>
 
-$identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.
+$identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.<br>
 more about identifier here
-  
-There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".
+  <br><br>
+There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".<br>
 more about %variables here
   
 <H4>$rand()</H4>
