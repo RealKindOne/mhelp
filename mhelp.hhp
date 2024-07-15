@@ -472,6 +472,7 @@ identifiers\highlight.html
 identifiers\hmac.html
 identifiers\hmatch.html
 identifiers\hnick.html
+identifiers\hnick_.html
 identifiers\host.html
 identifiers\hotline.html
 identifiers\hotlinepos.html
@@ -621,6 +622,7 @@ identifiers\onlineserver.html
 identifiers\onlinetotal.html
 identifiers\onpoly.html
 identifiers\opnick.html
+identifiers\opnick_.html
 identifiers\or.html
 identifiers\ord.html
 identifiers\os.html
@@ -775,6 +777,7 @@ identifiers\vcmdstat.html
 identifiers\vcmdver.html
 identifiers\version.html
 identifiers\vnick.html
+identifiers\vnick_.html
 identifiers\vol.html
 identifiers\wavedir.html
 identifiers\wid.html

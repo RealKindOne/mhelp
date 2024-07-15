@@ -1,0 +1,46 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$opnick()</title></head>
+<H1>$opnick()</H1>
+<br>
+<br>
+The <b>$opnick()</b> identifier returns the Nth oped nick in a channel.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="nick.html">$nick()</a>.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$opnick(#,N)
+</pre>
+<H4>Parameters</H4>
+None
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo total number of oped nicks in #foobar:
+<pre class ="code">//echo -a $opnick(#foobar,0)</pre>
+
+Echo 1st oped nick in #foobar:
+<pre class ="code">//echo -a $opnick(#foobar,1)</pre>
+
+
+<H4>Compatibility</H4>
+Added: mIRC v4.5 (30 Jun 1996)
+<br>
+<br>
+Depreciated: mIRC v5.6 (03 Jun 1999)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="..\events\on_op.html">On_OP</a><br>
+<a href="..\events\on_deop.html">On_DEOP</a><br>
+<a href="hnick.html">$hnick</a><br>
+<a href="vnick.html">$vnick</a><br>
+</body>
+</html>

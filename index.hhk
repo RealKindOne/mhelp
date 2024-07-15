@@ -750,6 +750,10 @@
 		<param name="Local" value="identifiers\hnick.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$hnick()">
+		<param name="Local" value="identifiers\hnick_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$host">
 		<param name="Local" value="identifiers\host.html">
 		</OBJECT>
@@ -1344,6 +1348,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$opnick">
 		<param name="Local" value="identifiers\opnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$opnick()">
+		<param name="Local" value="identifiers\opnick_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$or">
@@ -1956,6 +1964,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$vnick">
 		<param name="Local" value="identifiers\vnick.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$vnick()">
+		<param name="Local" value="identifiers\vnick_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$vol">
