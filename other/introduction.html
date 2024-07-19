@@ -65,14 +65,14 @@ Below is a screen shot of the mIRC Script Editor:<br><br>
 
 You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.
 
-Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliasse file loaded.<br><br>
+Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.<br><br>
 Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
-There are 5 differents popups categories: status, channel, query, nicklist, and menubar. <br><br>
+There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br><br>
 Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
 
 In the script editor, every commands are executed as though 2 slashes where used from the editbox, the line is evaluated before being executed, you cannot get statement from the script editor to be executed without evaluation happening (not without extra code anyway).
-  
+
 <h4>Aliases</h4>
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. <br>
 The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as custom commands.<br>
@@ -88,7 +88,7 @@ Events are basically predefined aliases which are called when something happen, 
 <br>
 
 <b>Note:</b> Event (except menu event) and aliases are parsed the same when it comes to statements, everything that's being said below is true for events and aliases.<br>
-  
+
 <H4>/echo command</H4>
 <pre class ="code">//echo Hello World!</pre>
 /echo is one of the most used command in general, it can display a line of text in a window. When you are finished typing this echo command, hit Enter on your keyboard. You should see the following result
@@ -178,7 +178,7 @@ The closing bracket is touching the "hello!".
   echo hello!
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
-  
+
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
 
@@ -298,7 +298,7 @@ If they take a property, they use a dot '.' at the end followed by a known prope
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
 
 When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier by prefixing it with the '$' symbol.
-  
+
 Commands separate their parameters/arguments by space, while identifiers use a comma.<br>
 If we want to print out our current nickname, we would use the following code:
 
@@ -307,7 +307,7 @@ If we want to print out our current nickname, we would use the following code:
 $identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.<br>
  <br><br>
 There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".<br>
-  
+
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
@@ -325,8 +325,8 @@ Here is what we got when we called out /random alias a few times:
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
 <h4>$+</h4>
-An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the contatenated value, $+(A,B,C) is ABC.
-  
+An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
+
 <H4>Colors:</H4>
 Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
 
