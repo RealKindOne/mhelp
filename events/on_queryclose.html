@@ -1,0 +1,40 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>On QueryClose</title></head>
+<H1>On QueryClose</H1>
+<br>
+<br>
+The <b>ON QUERYCLOSE</b> event triggers when a query window is closed.
+<br>
+<br>
+<b>Note:</b> This feature is depreciated and has been replaced with <a href="on_close.html">On_Close</a>.
+
+<H4>Synopsis</H4>
+<pre class = "code">ON &lt;level&gt;:QUERYCLOSE:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+
+<H4>Local Identifiers</H4>
+TODO
+
+<H4>Example</H4>
+<pre class ="code">
+ON *:QUERYCLOSE:notice $nick Hey, thank you so much for the chat!
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (11 Sep 1997)
+<br>
+<br>
+Depreciated: mIRC v5.3 (13 Dec 1997)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="on_queryopen.html">On_QueryOpen</a><br>
+</body>
+</html>

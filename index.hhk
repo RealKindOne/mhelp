@@ -3403,6 +3403,14 @@
 		<param name="Local" value="events\on_pong.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_queryclose">
+		<param name="Local" value="events\on_queryclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_queryopen">
+		<param name="Local" value="events\on_queryopen.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_quit">
 		<param name="Local" value="events\on_quit.html">
 		</OBJECT>

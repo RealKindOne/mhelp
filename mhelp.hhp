@@ -851,6 +851,8 @@ events\on_part.html
 events\on_ping.html
 events\on_playend.html
 events\on_pong.html
+events\on_queryclose.html
+events\on_queryopen.html
 events\on_quit.html
 events\on_rawmode.html
 events\on_sendfail.html
