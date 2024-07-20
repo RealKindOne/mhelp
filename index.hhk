@@ -254,6 +254,10 @@
 		<param name="Local" value="identifiers\chan.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$chan()">
+		<param name="Local" value="identifiers\chan_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$chanmodes">
 		<param name="Local" value="identifiers\chanmodes.html">
 		</OBJECT>
