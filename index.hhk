@@ -2006,6 +2006,10 @@
 		<param name="Local" value="identifiers\window.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$window()">
+		<param name="Local" value="identifiers\window_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$wrap">
 		<param name="Local" value="identifiers\wrap.html">
 		</OBJECT>
