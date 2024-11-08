@@ -163,10 +163,11 @@ Note that conditional statements are a bit special where not using { } can lead 
 
 A few notes about the language limitations:
 
-<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same first line of the alias/event definition</span>
+<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
 <br><span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
 <br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
 <br>
+One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
 <pre class ="code">
   alias example { echo hello! }
@@ -215,7 +216,7 @@ If we want to print out our current nickname, we would use the following code:
 %variables works exactly the same way as $identifier with no parameter (and no property) but they evaluate to a value that a script specifically set, which is the simplest way to store data. These are called "variables".<br>
 <br><br>
 Both can appear pretty much anywhere, inside other identifiers' parameter or parameter of a statement or event definition.<br>
-
+Finally, the two character '$' and '%' can be added to the list of character which are interpreted when you execute from the script editor or with two slashes from the editboxes, making it 5 special characters you need to be careful with: % $ | { }
 
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
