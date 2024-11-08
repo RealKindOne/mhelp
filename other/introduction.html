@@ -130,17 +130,16 @@ That should print our text again:<br><br>
 
 <img src="..\images\hello_edit.png"><br><br>
 
-<b>Note: </b>We usually use two slashes because it not only makes the pipe '|' working, but also $identifiers and %variables, which are almost always passed as a parameter to a command or an $identifier.
-
+<b>Note: </b>We usually use two slashes from the editboxes because it enables evaluation/interpretation, so far we have only seen how evaluation affects the pipe character.
   
 <h4>Conditional statement</h4>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
-This means that after a conditional statement, you'll have a group of statements, with one or more statements associated to condition.
+This means that after a conditional statement, you'll have a group of statements, with one or more statements associated to the condition.
 
 <h4>{ } and group of statements</h4>
 Aliases and events also have a need to associate one or more statements to them, associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
-Iif the context allow it, you can omit using the pair of spaced out { } bracket around the statements:<br>
--For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the helloworld alias). This is because the single line ensures that all statements belong to them alias/event.<br>
+If the context allow it, you can omit using the pair of spaced out { } bracket around the statements:<br>
+-For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the helloworld alias). This is because the single line ensures that all statements belong to the alias/event.<br>
 -For conditional statement, that's when only a single statement is associated to the condition.<br>
 However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which is result in cleaner code when grouping statements together.<br>
 We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
@@ -160,7 +159,7 @@ This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
 <br>
 This should help you understand how { } brackets are used.<br>
-Note that if statement are a bit special where not using { } can lead to problem if you're not using () around the conditional part, which is something mIRC support but not well when no () and no { } are used.<br><br>
+Note that conditional statements are a bit special where not using { } can lead to problem if you're not using () around the conditional part.<br><br>
 
 A few notes about the language limitations:
 
@@ -186,9 +185,56 @@ The closing bracket is touching the "hello!".
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword. 
   
+<H4>Evaluation/Interpretation</H4>
+
+Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
+
+Evaluation/interpretation is what happens to statements when you use two slash from the editbox or execute something from the script editor.
+So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting group of statements belonging to the same alias/event/conditional statement.
+Although we can't get this behavior from script in the script editor, using one slash from editbox will result in the pipe character as well as { and } being literal text.
+
+<h4>$identifier & %variables</h4>
+
+Your statement, and their parameters, if any, may be composed of $identifiers and %variables.
+
+All identifiers starts with dollar symbol sigil '$'.
+Generally speaking, identifiers are performing an operation like commands, but they return a value, some $identifiers are special constructs and don't return a value, they are used for various other operations.
+Some identifiers can take parameters as well as properties.
+Without any parameter nor any properties, the basic syntax is:
+<pre class ="code">$name</pre> where name is referring to the name of an existing identifiers.
+If they take parameters, they use the ( and ) and a comma to separate arguments, much like other programming language:
+<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
+If they take a property, you must use () even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a known property name:
+<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
+When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier.<br>
+
+If we want to print out our current nickname, we would use the following code:
+
+<pre class ="code">//echo -a $me</pre>
+
+%variables works exactly the same way as $identifier with no parameter (and no property) but they evaluate to a value that a script specifically set, which is the simplest way to store data. These are called "variables".<br>
+<br><br>
+Both can appear pretty much anywhere, inside other identifiers' parameter or parameter of a statement or event definition.<br>
 
 
+<H4>$rand()</H4>
+One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
+<pre class ="code">$rand(&lt;low&gt;, &lt;high&gt;)</pre>
+
+Given both low bound and high bound number values, $rand will return a random number in between, and including, the two numbers. For example:
+
+<pre class ="code">alias random {
+  echo The dice rolled on the floor .... $rand(1, 6)
+}</pre>
+
+Here is what we got when we called out /random alias a few times:
+
+<br><br><img src="..\images\random_example.png"><br><br>
+The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
+
+<h4>$+</h4>
+An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
@@ -286,57 +332,6 @@ alias second {
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
-<H4>Evaluation/Interpretation</H4>
-
-Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
-
-Evaluation/interpretation is what happens to statements when you use two slash from the editbox or execute something from the script editor.
-So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting group of statements belonging to the same alias/event/conditional statement.
-Although we can't get this behavior from script in the script editor, using one slash from editbox will result in the pipe character as well as { and } not being interpreted as a statement separator and start/end of block of statements.
-
-<h4>$identifier & %variables</h4>
-
-Your statement, and their parameters, if any, may be composed of $identifiers.
-
-All identifiers starts with dollar symbol sigil.
-Generally speaking identifiers are performing an operation like commands, but they return a value, some identifiers are special constructs and don't return a value, they are used for various other operations.
-Some identifiers can take parameters as well as properties.
-Without any parameter nor any properties, the basic syntax is:
-<pre class ="code">$name</pre> where name is referring to the name of an existing identifiers.
-If they take parameters, they use the ( and ) and a comma to separate arguments, much like other programming language:
-<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
-If they take a property, they use a dot '.' at the end followed by a known property name:
-<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
-
-When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier by prefixing it with the '$' symbol.
-
-Commands separate their parameters/arguments by space, while identifiers use a comma.<br>
-If we want to print out our current nickname, we would use the following code:
-
-<pre class ="code">//echo -a $me</pre>
-
-$identifier are to be evaluated inside statement but just like | and { }, from the editbox with a single slash, they are not evaluated and the plain text value is used instead.<br>
- <br><br>
-There's another special character that's used as a prefix for special evaluation/interpretation, the '%' character. It's the same as identifier but they evaluate to a value that a script specifically set (and don't take parameters or properties), which is the simplest way to store data. These are called "variables".<br>
-
-<H4>$rand()</H4>
-One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
-
-<pre class ="code">$rand(&lt;low&gt;, &lt;high&gt;)</pre>
-
-Given both low bound and high bound number values, $rand will return a random number in between, and including, the two numbers. For example:
-
-<pre class ="code">alias random {
-  echo The dice rolled on the floor .... $rand(1, 6)
-}</pre>
-
-Here is what we got when we called out /random alias a few times:
-
-<br><br><img src="..\images\random_example.png"><br><br>
-The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
-
-<h4>$+</h4>
-An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
 <H4>Colors:</H4>
 Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
