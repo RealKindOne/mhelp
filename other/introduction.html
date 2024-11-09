@@ -158,6 +158,13 @@ Overall, the above example will echo: <pre>Scripting = Fun!</pre>
 This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
 <br>
+and to<br>
+  <pre class ="code">alias fun { 
+    if (1 == 1) { echo Scripting }
+    if (2 == 3) { echo Is }
+    echo =
+    echo Fun! 
+    }</pre>
 This should help you understand how { } brackets are used.<br>
 Note that conditional statements are a bit special where not using { } can lead to problem if you're not using () around the conditional part.<br><br>
 
@@ -166,8 +173,8 @@ A few notes about the language limitations:
 <br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
 <br><span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
 <br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
-<br>
-One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character.
+<br><br>
+One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character on its left.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
 <pre class ="code">
   alias example { echo hello! }
