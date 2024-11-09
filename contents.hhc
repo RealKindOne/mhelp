@@ -30,6 +30,10 @@
 		<param name="Local" value="other\aliases.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Variables">
+		<param name="Local" value="other\variables.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sockets">
 		<param name="Local" value="sockets\sockets.html">
 		</OBJECT>
