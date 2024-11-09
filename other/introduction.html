@@ -82,11 +82,7 @@ The body of an alias contains a statement, or a list of statements, that execute
 All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
 They have the basic following format:
 <pre class ="code">alias &lt;name&gt; &lt;statements&gt;
-</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated as shown above.
-<br><br>
-Example in a remote file with the alias prefix:<br>
-<pre class ="code">alias helloworld echo -ag hello world</pre><br>
-In this example the name of the alias is "helloworld" which you can execute by typing /helloworld, it would execute the echo command/statement, the echo command is taking three parameters, "-ag", "hello", and "world", which will echo "hello world" in the active window.<br>
+</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.
 
 <h4>Events</h4>
 If your statements don't belong to an alias, the other thing they can used with are events. <br>
@@ -97,7 +93,7 @@ Events are basically predefined aliases which are called when something happen, 
 
 <H4>/echo command</H4>
 <pre class ="code">//echo Hello World!</pre>
-/echo is one of the most used command in general, it can display a line of text in a window. When you are finished typing this echo command, hit Enter on your keyboard. You should see the following result
+/echo is one of the most used command in general, it can display a line of text in a window. When you are finished typing the echo command above, in your editbox, hit Enter on your keyboard. You should see the following result
 <br><br>
 <img src="..\images\hello_edit.png"><br><br>
 
@@ -133,7 +129,7 @@ That should print our text again:<br><br>
 <b>Note: </b>We usually use two slashes from the editboxes because it enables evaluation/interpretation, so far we have only seen how evaluation affects the pipe character.
   
 <h4>Conditional statement</h4>
-<a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
+<a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition, those are /if, /elseif and /while.<br>
 This means that after a conditional statement, you'll have a group of statements, with one or more statements associated to the condition.
 
 <h4>{ } and group of statements</h4>
@@ -157,14 +153,13 @@ In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) 
 Overall, the above example will echo: <pre>Scripting = Fun!</pre>
 This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
-<br>
 and to<br>
   <pre class ="code">alias fun { 
     if (1 == 1) { echo Scripting }
     if (2 == 3) { echo Is }
     echo =
     echo Fun! 
-    }</pre>
+}</pre>
 This should help you understand how { } brackets are used.<br>
 Note that conditional statements are a bit special where not using { } can lead to problem if you're not using () around the conditional part.<br><br>
 
