@@ -858,8 +858,10 @@ events\on_quit.html
 events\on_rawmode.html
 events\on_sendfail.html
 events\on_serv.html
+events\on_servclose.html
 events\on_servermode.html
 events\on_serverop.html
+events\on_servopen.html
 events\on_signal.html
 events\on_snotice.html
 events\on_sockclose.html

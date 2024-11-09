@@ -3431,12 +3431,20 @@
 		<param name="Local" value="events\on_serv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_servclose">
+		<param name="Local" value="events\on_servclose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_servermode">
 		<param name="Local" value="events\on_servermode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_serverop">
 		<param name="Local" value="events\on_serverop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="on_servopen">
+		<param name="Local" value="events\on_servopen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="on_signal">

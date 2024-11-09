@@ -1,0 +1,37 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>On ServOpen</title></head>
+<H1>On ServOpen</H1>
+<br>
+<br>
+The <b>ON SERVOPEN</b> event triggers when a dcc fserve session starts.
+
+<H4>Synopsis</H4>
+<pre class = "code">ON &lt;level&gt;:SERVOPEN:&lt;commands&gt;</pre>
+
+<H4>Parameters</H4>
+<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
+
+<H4>Local Identifiers</H4>
+TODO
+
+<H4>Example</H4>
+<pre class ="code">
+ON *:SERVEOPEN:msg =$nick Hi.
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.52 (06 Jul 1996)
+<br>
+<br>
+Depreciated: mIRC v5.3 (13 Dec 1997)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="on_close.html">On_Close</a><br>
+</body>
+</html>
