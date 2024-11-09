@@ -63,34 +63,34 @@ in mSL, aliases can serve as both <a href="..\identifiers.html">identifiers</a> 
 <H4>Aliases Prefixes</H4>
 
 <H4>Command Prefixes</H4>
-
-===== . prefix (silencing) =====
-
+<br><br>
+<b>. prefix (silencing)</b><br>
+<br>
 You can prefix your command call by a dot '.' to prevent mIRC from displaying its typical message, such as <a href="..\commands\timer.html">.timer</a>.
 
 <br><b>Note:</b> Silencing a custom aliases command call makes all the custom aliases command call in that original be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
-
-===== ! prefix (built-in call) =====
-
+<br><br>
+<b>! prefix (built-in call)</b><br>
+<br>
 By default, a command call will call any custom alias you may have defined, you can force a call to a mIRC built-in command by using the '!' prefix, /!join makes sure it calls the mIRC built-in join command instead of the custom join alias you may have defined.
 
 <H4>Identifier Prefixes</H4>
-
-===== $$ special construct (required value) =====
-
+<br><br>
+<b>$$ special construct (required value)</b><br>
+<br>
 You can use <a href="..\identifiers\_sigil.html">$$</a> to halt a routine if the value returned by the identifier is $null, typically, this allows to quickly stops if a parameter is missing.
-
-===== / and . prefix (custom call) =====
-
+<br><br>
+<b>/ and . prefix (custom call)</b><br>
+<br>
 By default, an identifier call will call the built-in mIRC identifier, you can force a call to your own custom identifier by using the '/' or '.' prefix, $/me makes sure it calls your custom identifier. If you do not have the alias defined, mIRC consider it a call to an alias named with the '/' or the '.'
-
-===== ~ prefix (built-in call) =====
-
+<br><br>
+<b>~ prefix (built-in call)</b><br>
+<br>
 In essence, such a call to an identifier will only look at built-in identifiers, custom aliases won't be searched for.
 This will bypass the Identifier Warning message but it's a bit unclear why this is useful, it can allow you to check if an identifier exist in mIRC's own language and has a value but you cannot use it to check built-in which would return $null then, and you have to execute the function, checking for "$findfile" or "$zip" would be problematic.
-
-===== ! prefix (delay evaluation) =====
-
+<br><br>
+<b>! prefix (delay evaluation)</b><br>
+<br>
 You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me
 
 <H4>Restriction on alias name</H4>
