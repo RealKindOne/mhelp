@@ -1,0 +1,192 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>DDE TOPIC</title></head>
+<H1>DDE TOPIC</H1>
+<br>
+<br>
+mIRC supports the following DDE topics.
+<br>
+<br>
+Topic: COMMAND
+<br>
+Transaction Type: XTYP_POKE
+<br>
+Item: None
+<br>
+Data (Arguments): One line of text containing the command to be performed.
+<br>
+Returns:Nothing
+<br>
+Example: /dde mirc command "" /server irc.dal.net
+<br>
+Description: This tells mIRC to execute whatever command you give it.
+<br>
+<br>
+Topic: EVALUATE
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: The line of text containing variables or identifiers that you want evaluated
+<br>
+Data (Arguments): None
+<br>
+Returns:Evaluated line
+<br>
+<br>
+Topic: CONNECT
+<br>
+Transaction Type: XTYP_POKE
+<br>
+Item: None
+<br>
+Data (Arguments): one line of text in the form: address,port,channel,number
+<br>
+Returns:Nothing
+<br>
+Example: /dde mirc connect "" irc.undernet.org,6667,#mIRC,1
+<br>
+Description: This will tell mIRC to connect to the server irc.undernet.org, port 6667 and after it has connected it will automatically join channel #mIRC. If the number at the end is a 1 then the mIRC window will be activated, if it is a 0 it will not.
+
+
+<br>
+<br>
+Topic: CONNECTED
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+
+Data (Arguments): None
+<br>
+Returns:"connected" if you are connected to a server, "connecting" if you are in the process of connecting to a server, and "not connected" if you are not currently connected to a server.
+<br>
+Example: //echo mIRC is currently $dde(mirc, connected) to a server
+
+<br>
+<br>
+Topic: EXENAME
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: The full path and name of the mIRC EXE file
+<br>
+Example: //echo The mIRC exe path and name is $dde(mirc, exename)
+<br>
+Description: This might be useful for applications that need to know the path and name of the exe file.
+
+<br>
+<br>
+Topic: VERSION
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: mIRC version info.
+<br>
+Example: //echo The version number is $dde(mirc, version)
+
+<br>
+<br>
+Topic: INIFILE
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: The full path and name of the main INI file
+<br>
+Example: //echo The main ini file is $dde(mirc, inifile)
+<br>
+Description: This might be useful for applications that need to take a look at the INI file for various bits of information.
+
+<br>
+<br>
+Topic: NICKNAME
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: The nickname currently being used.
+<br>
+Example: //echo My mIRCbot is using the nickname $dde(mirc, nickname)
+
+<br>
+<br>
+Topic: SERVER
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: The server to which you were last or are currently connected. eg. "irc.undernet.org"
+<br>
+Example: //echo The current server is $dde(mirc, server)
+
+<br>
+<br>
+Topic: PORT
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: The port currently being used to connect to the irc server
+<br>
+Example: //echo My mIRCbot is using port $dde(mirc, port)
+
+<br>
+<br>
+Topic: CHANNELS
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: None
+<br>
+Data (Arguments): None
+<br>
+Returns: A single line of text listing the channels which you are currently on separated by spaces. eg. "#mirc #mircremote #irchelp"
+<br>
+Example: This should only be called by an application, not from within an mIRC alias.
+<br>
+Description: The line of text that this returns could be quite long, so an application should be prepared to handle this.
+
+<br>
+<br>
+Topic: USERS
+<br>
+Transaction Type: XTYP_REQUEST
+<br>
+Item: Channel name, in the form #channel
+<br>
+Data (Arguments): None
+<br>
+Returns: A single line of text listing the users on the specified channel separated by spaces.
+<br>
+Example: This should definitely only be called by an application, not from within an mIRC alias.
+<br>
+Description: You can only request the names of users on a channel which mIRC has joined. The line of text that this returns could be quite long, so an application should be prepared to handle this.
+
+
+
+
+
+
+</body>
+</html>
