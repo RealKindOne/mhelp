@@ -61,7 +61,7 @@ Any control can be used in the dialog with the "result" style, the value returne
 Custom dialogs are created by defining a dialog table, the content of that table represents the look of the dialog, the controls etc, a table is defined by using the &lt;dialog&gt; keyword:
 
 <pre class ="code">dialog -l &lt;name&gt; {
-    title        "text"
+    title        "title"
     icon         filename, index
     size         x y w h
     option       type                                   (pixels, dbu, map, notheme, disable)
@@ -83,18 +83,19 @@ Custom dialogs are created by defining a dialog table, the content of that table
     item         break, id [, menuid]
 }</pre>
 
-The -l switch makes the table local, only that script file can open it. &lt;name&gt; is the name of table which will be used to create an instance of that dialog
-
-* title - Optional, can be used to set the text displayed in the titlebar of the dialog
-* icon - Optional, can be used to set the icon of the dialog, the filename parameter is the filename to use for the icon, the index parameter can be used to specify the Nth icon from a file
-* size - Required, set the size of the dialog, you can use -1 for any of the x, y, w and h parameter to specify a default position, x and y sets as -1 should center the dialog in the window
-* option - Can be used to set different options for the dialog, type is a space separated list of options:
-** pixels - x y w h values are in pixels - this is the default option if you don't use the dbu or map options.
-** dbu - x y w h values are in dialog base units (DBUs) - this option attempts to make the dialog look the same on any size display - however anecdotal evidence suggests that there are issues with DBU when user has Windows 10 Settings / System / Display / Scaling set to > 100%.
-** map - x y w h values are in MAP units - this (undocumented) option will also try to ensure that the dialog looks the same under any size display even when Windows 10 Display Scaling is > 100%. MAP units are <b>not</b> the same as DBUs and you will have to recalculate x y w & h values if you switch from DBU to MAP. There are no MAP equivalents for $dbuw and $dbuh identifiers.
-** notheme - This option prevents mIRC from applying your current windows theme to the dialog - if you like your dialogs to have a retro Windows XP feel to them which is different to how the style used by the rest of mIRC, then this is the option for you.
-** disable - This option can use used to wait a bit before the controls in the dialog can be used, preventing accidents
-* Others elements are used to create controls, see the <a href="dialog_components.html">dialog components</a>.
+The <b>-l</b> switch makes the table local, only that script file can open it.<br>
+<b>&lt;name&gt;</b> is the name of table which will be used to create an instance of that dialog<br><br>
+Only the <b>size</b> parameter is required, everything else is optional.<br><br>
+<b>title</b> can be used to set the text displayed in the titlebar of the dialog<br>
+<b>icon</b> can be used to set the icon of the dialog, the filename parameter is the filename to use for the icon, the index parameter can be used to specify the Nth icon from a file<br>
+<b>size</b> sets the size of the dialog, you can use -1 for any of the x, y, w and h parameter to specify a default position, x and y sets as -1 should center the dialog in the window<br>
+<b>option</b> Can be used to set different options for the dialog, type is a space separated list of options:<br>
+   pixels - x y w h values are in pixels - this is the default option if you don't use the dbu or map options.
+   dbu - x y w h values are in dialog base units (DBUs) - this option attempts to make the dialog look the same on any size display - however anecdotal evidence suggests that there are issues with DBU when user has Windows 10 Settings / System / Display / Scaling set to > 100%.
+   map - x y w h values are in MAP units - this (undocumented) option will also try to ensure that the dialog looks the same under any size display even when Windows 10 Display Scaling is > 100%. MAP units are <b>not</b> the same as DBUs and you will have to recalculate x y w & h values if you switch from DBU to MAP. There are no MAP equivalents for $dbuw and $dbuh identifiers.
+   notheme - This option prevents mIRC from applying your current windows theme to the dialog - if you like your dialogs to have a retro Windows XP feel to them which is different to how the style used by the rest of mIRC, then this is the option for you.
+   disable - This option can use used to wait a bit before the controls in the dialog can be used, preventing accidents<br>
+Others elements are used to create controls, see the <a href="dialog_components.html">dialog components</a>.
 
 Remember that once the dialog is created, mIRC does not allow you to resize the controls in the dialog. You can use variable and identifiers inside the dialog table to create dialog control with dynamic size
 You can also use a variable name as a style for any control, the variable is set (global variable) with the value of that control when the dialog is closed:
