@@ -50,11 +50,9 @@ $dialog(name,table[,parent])
 <br>-2 - Main mIRC window
 <br>-3 - Current active window
 <br>-4 - Current active dialog if no dialog is open
-<br>The default is -3.
+<br>The default is -3. Any control can be used in the dialog with the "result" style, the value returned by $dialog is be the value of that control.
 
-Any control can be used in the dialog with the "result" style, the value returned by $dialog is be the value of that control.
-
-<br><b>Note:</b> Since modal dialog block the current script execution, you cannot call $dialog that way from remote script event.
+<br><b>Note:</b> Since modal dialog block the current script execution, you cannot call $dialog that way from remote script event, you can use a timer to solve the problem.
 
 <H4>Creating a dialog table</H4>
 
