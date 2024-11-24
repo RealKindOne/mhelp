@@ -81,5 +81,9 @@
 		<param name="Name" value="While Loops">
 		<param name="Local" value="other\while_loops.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Dialog">
+		<param name="Local" value="dialog\dialog.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>
