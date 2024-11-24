@@ -90,10 +90,12 @@ Only the <b>size</b> parameter is required, everything else is optional.<br><br>
 <b>icon</b> can be used to set the icon of the dialog, the filename parameter is the filename to use for the icon, the index parameter can be used to specify the Nth icon from a file<br>
 <b>size</b> sets the size of the dialog, you can use -1 for any of the x, y, w and h parameter to specify a default position, x and y sets as -1 should center the dialog in the window<br>
 <b>option</b> Can be used to set different options for the dialog, type is a space separated list of options:<br>
+ <pre>    
    <b>pixels</b> : x y w h values are in pixels,this is the default.<br>
    <b>dbu</b> : x y w h values are in dialog base units (DBUs), this option attempts to make the dialog look the same on any size display, works as long as you're not using DPI settings different from 100% (win10 Settings / System / Display / Scaling)<br>
    <b>map</b> : x y w h values are in MAP units, this option will also try to ensure that the dialog looks the same under any size display even with DPI settings. MAP units are <b>not</b> the same as DBUs and you will have to recalculate your x y w & h values, there are no MAP equivalents for $dbuw and $dbuh identifiers directly but you can use $dialog().mapw and $dialog().maph to get an equivalent of $dbuw and $dbuh once a dialog is created, which base its calculation on font size.<br>
    <b>notheme</b> : this option prevents mIRC from applying your current windows theme to the dialog - if you like your dialogs to have a retro Windows XP feel to them which is different to how the style used by the rest of mIRC, then this is the option for you.<br>
+     </pre>
    <b>disable</b> : this option can use used to wait a bit before the controls in the dialog can be used, preventing accidents/missclick<br>
 Others elements are used to create controls, see the <a href="dialog_components.html">dialog components</a>.
 
