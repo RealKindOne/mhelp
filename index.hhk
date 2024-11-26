@@ -806,6 +806,10 @@
 		<param name="Local" value="identifiers\ial.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ial()">
+		<param name="Local" value="identifiers\ial_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$ialchan">
 		<param name="Local" value="identifiers\ialchan.html">
 		</OBJECT>

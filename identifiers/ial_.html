@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$ial</title></head>
+<H1>$ial()</H1>
+<br>
+<br>
+The <b>$ial()</b> identifier returns the Nth address matching a mask in the IAL.
+
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$ial(nick/mask,N)[.property]
+</pre>
+<H4>Parameters</H4>
+<b>nick/mask</b> - a nickname or a mask
+<br><b>N</b> - Returns any match in the internal address list based on the Nth entry in the list. If N is 0, the total amount of addresses in the internal address list will be returned.
+
+
+<H4>Properties</H4>
+<b>.nick</b> - returns the nickname of the matched entry
+<br><b>.user</b> - returns the username (ident) of the matched entry
+<br><b>.host</b> - returns the host of the matched entry
+<br><b>.addr</b> - returns the address in the format "user@host" of the matched entry
+<br><b>.mark</b> - returns the mark for that entry, set with <a href="..\commands\ialmark.html">/ialmark</a>
+<br><b>.account</b> - returns the account name of the entry (need CAP support for extended-join and account-notify)
+<br><b>.away</b> - returns the away status for that entry
+<br><b>.gecos</b> - returns the fullname of that entry
+<br><b>.id</b> - returns an unique ID to uniquely reference that nickname over any connection
+
+<H4>Example</H4>
+<pre class ="code">//echo -a $ial(*,0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v4.7 (09 Dec 1996)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="ial.html">$ial</a><br>
+<a href="ialchan.html">$ialchan</a><br>
+</body>
+</html>
