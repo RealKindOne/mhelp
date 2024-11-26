@@ -315,6 +315,7 @@ identifiers\and.html
 identifiers\anick.html
 identifiers\ansi2mirc.html
 identifiers\aop.html
+identifiers\aop_.html
 identifiers\appactive.html
 identifiers\appstate.html
 identifiers\asc.html
@@ -323,7 +324,9 @@ identifiers\asin.html
 identifiers\atan.html
 identifiers\atan2.html
 identifiers\auto.html
+identifiers\auto_.html
 identifiers\avoice.html
+identifiers\avoice_.html
 identifiers\away.html
 identifiers\awaymsg.html
 identifiers\awaytime.html
@@ -490,6 +493,7 @@ identifiers\iel.html
 identifiers\ifmatch.html
 identifiers\ifmatch2.html
 identifiers\ignore.html
+identifiers\ignore_.html
 identifiers\iif.html
 identifiers\iil.html
 identifiers\inellipse.html
@@ -648,6 +652,7 @@ identifiers\powmod.html
 identifiers\prefix.html
 identifiers\prop.html
 identifiers\protect.html
+identifiers\protect_.html
 identifiers\puttok.html
 identifiers\qt.html
 identifiers\query.html

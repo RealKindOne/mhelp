@@ -5,34 +5,42 @@
 <H1>$ignore</H1>
 <br>
 <br>
-The <b>$ignore</b> identifier returns the Nth address in the ignore list.
+The <b>$ignore</b> identifier returns the status of ignore, $true for enabled, $false for disabled.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $ignore
-$ignore(N|address)[.property]
 </pre>
+
 <H4>Parameters</H4>
-<b>N</b> - The Nth address in the ignore list, if N = 0, returns the total number of ignored addresses.
-<br><b>address</b> - An address that is currently ignored, the first matching address is used.
-
-
-<br><b>Note:</b> without a parameter, $ignore returns $true if ignore is on $false otherwise
+None
 
 <H4>Properties</H4>
-<b>.type</b> - returns the ignore flag for the ignored address
-<br><b>.secs</b> - returns the number of seconds until ignore is removed if /ignore -uN were used.
-<br><b>.network</b> - returns the network associated with the ignored address
+None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $ignore(0)</pre>
+Echo to the active window whether or not ignore is enabled:
+<pre class ="code">//echo -a $ignore</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.1 (28 Aug 1997)
+Added: mIRC v5.6 (03 Jun 1999)
 
 <H4>Notes</H4>
 None
 <H4>See also</H4>
+<a href="aop.html">$aop</a><br>
+<a href="aop_.html">$aop()</a><br>
+<a href="avoice.html">$avoice</a><br>
+<a href="avoice_.html">$avoice()</a><br>
+<a href="ignore_.html">$ignore()</a><br>
+<a href="protect.html">$protect</a><br>
+<a href="protect_.html">$protect()</a><br>
+<a href="..\commands\aop.html">/aop</a><br>
+<a href="..\commands\avoice.html">/avoice</a><br>
 <a href="..\commands\ignore.html">/ignore</a><br>
+<a href="..\commands\protect.html">/protect</a><br>
+
+<a href="..\commands\pop.html">/pop</a><br>
+<a href="..\commands\pvoice.html">/pvoice</a><br>
 </body>
 </html>

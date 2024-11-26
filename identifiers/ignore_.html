@@ -1,0 +1,48 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$ignore()</title></head>
+<H1>$ignore()</H1>
+<br>
+<br>
+The <b>$ignore()</b> identifier allows you to get data from your <a href="..\commands\ignore.html">/ignore</a> (Ignore) list in mIRC.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$ignore(address|N)[.property]
+</pre>
+<H4>Parameters</H4>
+<b>address</b> - Returns any match based on the specified address from the ignore list.
+<br><b>N</b> - Returns any match in the auto-voice list based on the Nth entry in the list. If N is 0, the total amount of addresses in the ignore list will be returned.
+
+<H4>Properties</H4>
+<b>.type</b> - Returns the ignore flag for the ignored address.
+<br><b>.network</b> - Returns the network associated with the ignored address.
+<br><b>.secs</b> - Returns the number of seconds until ignore is removed if /ignore -uN were used.
+
+<H4>Example</H4>
+Echo to the active window the total number of addresses in the ignore list:
+<pre class ="code">//echo -a $ignore(0)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.1 (28 Aug 1997)
+
+<H4>Notes</H4>
+None
+<H4>See also</H4>
+<a href="aop.html">$aop</a><br>
+<a href="aop_.html">$aop()</a><br>
+<a href="avoice.html">$avoice</a><br>
+<a href="avoice_.html">$avoice()</a><br>
+<a href="ignore.html">$ignore</a><br>
+<a href="protect.html">$protect</a><br>
+<a href="protect_.html">$protect()</a><br>
+<a href="..\commands\aop.html">/aop</a><br>
+<a href="..\commands\avoice.html">/avoice</a><br>
+<a href="..\commands\ignore.html">/ignore</a><br>
+<a href="..\commands\protect.html">/protect</a><br>
+
+<a href="..\commands\pop.html">/pop</a><br>
+<a href="..\commands\pvoice.html">/pvoice</a><br>
+</body>
+</html>

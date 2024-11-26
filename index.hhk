@@ -122,6 +122,10 @@
 		<param name="Local" value="identifiers\aop.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$aop()">
+		<param name="Local" value="identifiers\aop_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$appactive">
 		<param name="Local" value="identifiers\appactive.html">
 		</OBJECT>
@@ -154,8 +158,16 @@
 		<param name="Local" value="identifiers\auto.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$auto()">
+		<param name="Local" value="identifiers\auto_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$avoice">
 		<param name="Local" value="identifiers\avoice.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$avoice()">
+		<param name="Local" value="identifiers\avoice_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$away">
@@ -822,6 +834,10 @@
 		<param name="Local" value="identifiers\ignore.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ignore()">
+		<param name="Local" value="identifiers\ignore_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$iif">
 		<param name="Local" value="identifiers\iif.html">
 		</OBJECT>
@@ -1452,6 +1468,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$protect">
 		<param name="Local" value="identifiers\protect.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$protect()">
+		<param name="Local" value="identifiers\protect_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$puttok">
