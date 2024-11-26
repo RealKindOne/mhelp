@@ -1902,6 +1902,10 @@
 		<param name="Local" value="identifiers\toolbar.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$toolbar()">
+		<param name="Local" value="identifiers\toolbar_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$topic">
 		<param name="Local" value="identifiers\topic.html">
 		</OBJECT>
