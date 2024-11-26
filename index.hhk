@@ -2985,9 +2985,10 @@
 		<param name="Name" value="/timer">
 		<param name="Local" value="commands\timer.html">
 		</OBJECT>
+	<!-- /timers alias's to /timer -->
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/timers">
-		<param name="Local" value="commands\timers.html">
+		<param name="Local" value="commands\timer.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/timestamp">
@@ -3088,6 +3089,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/vol">
 		<param name="Local" value="commands\vol.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/wavplay">
+		<param name="Local" value="commands\wavplay.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/wallchops">
