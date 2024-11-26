@@ -3205,6 +3205,26 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="isquiet">
 		<param name="Local" value="other\operations.html#channel_operations">
+		</OBJECT>	
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isaop">
+		<param name="Local" value="other\operations.html#list_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isavoice">
+		<param name="Local" value="other\operations.html#list_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isignore">
+		<param name="Local" value="other\operations.html#list_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isprotect">
+		<param name="Local" value="other\operations.html#list_operations">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="isnotify">
+		<param name="Local" value="other\operations.html#list_operations">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="index">
