@@ -1270,6 +1270,10 @@
 		<param name="Local" value="identifiers\nick.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$nick()">
+		<param name="Local" value="identifiers\nick_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$nickmode">
 		<param name="Local" value="identifiers\nickmode.html">
 		</OBJECT>
