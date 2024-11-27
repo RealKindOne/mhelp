@@ -7,8 +7,6 @@
 <br>
 The <b>$gettok</b> identifier returns the Nth $asc(C)-delimited token from a list.
 
-TODO - $gettokcs()
-
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -19,14 +17,14 @@ $gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 <br><b>N</b> - The token(s) to be returned. N can also be negative or a range<br />
 <br><b>C</b> - The <a href="asc.html">$asc</a> value which splits TEXT into tokens<br />
 <br>
-If N=0, returns total number of tokens, same as <a href="numtok.html">$numtok</a>(TEXT,C)}} <br />
+If N=0, returns total number of tokens, same as <a href="numtok.html">$numtok</a>(TEXT,C) <br />
 If N is greater than the total number of tokens, returns <a href="null.html">$null</a> <br />
 If N is negative, returns tokens relative to the last token. -1 is the last token, -2 is next-to-last token, etc.<br />
 N- returns all tokens beginning with the Nth token.
 N1-N2 returns all tokens in the range of those 2 numbers, including the between delimiters.<br />
 <b>Note:</b> You can reverse the order of the number: $gettok(a b c,3-2,32) is the same as $gettok(a b c,2-3,32)<br />
 <b>Note:</b> N2 can also be negative: $gettok(a b c d e f,-2-3,32) return the token from the 3rd token to the -2th but $gettok(a b c d e f,-2--3,32) return e f, from -3 to -2<br />
-<b>Note:</b> For readability you can also code this as '''$gettok(a-b-c-d-e,2,$asc(-))'''.
+<b>Note:</b> For readability you can also code this as $gettok(a-b-c-d-e,2,$asc(-)).
 
 <H4>Properties</H4>
 None
@@ -40,11 +38,14 @@ Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
 </pre>
 
 $chr(32) is the space character. Echo the current month to the active window:
+<pre class ="code">
 //echo -a The current month is $gettok($asctime,2,32)
+</pre>
 
-This returns ''Mon Tue'' because the space between %x %y becomes the 2nd delimiter:
+This returns "Mon Tue" because the space between %x %y becomes the 2nd delimiter:
+<pre class ="code">
 //var %x Sun Mon | var %y Tue Wed Thu Fri Sat | echo -a $gettok(%x %y,2-3,32)
-<br>
+</pre>
 $chr(58) is the colon, $chr(92) is the backslash:
 <pre class ="code">
 //echo -a This $gettok($mircexe,-1,92) is installed on the $gettok($mircexe,1,58) drive letter in a program folder named $gettok($mircexe,-2,92)
@@ -80,7 +81,7 @@ $gettok puts range numbers in the correct order before evaluating them.
 ; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
 </pre>
 
-<br><b>Note:</b>$gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
+<br><b>Note:</b> $gettok differs from CSV format in that it does not use double-quotes to allow a delimiter to be part of another token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s). Alternatively use a character other than a comma (like '|') as a delimiter instead.
 
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)
