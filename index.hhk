@@ -1654,6 +1654,10 @@
 		<param name="Local" value="identifiers\server.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$server()">
+		<param name="Local" value="identifiers\server_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$serverip">
 		<param name="Local" value="identifiers\serverip.html">
 		</OBJECT>

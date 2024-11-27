@@ -5,46 +5,20 @@
 <H1>$server</H1>
 <br>
 <br>
-The <b>$server</b> identifier can be used to return the current server name if you don't provide any parameter, or information about servers in your IRC server list if you provide one. You can use $server(-1) to get information about the current connection without relying on the server list
-
+The <b>$server</b> identifier can be used to return the current server name.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $server
-$server(N/address,[group])[.property]
 </pre>
 <H4>Parameters</H4>
-<b>N/address</b> - references the Nth server or use the name you provided, if N = 0, returns total number of server. If N = -1, it identifies the current connection
-<br><b>[group]</b> - If you specify a group name, returns only servers for that group
-
+None
 <H4>Properties</H4>
-<b>.desc</b> - returns the description of that server (returns Random server if N = -1 and you're not connecting using the server list)
-<br><b>.pass</b> - returns the server password
-<br><b>.port</b> - returns the port parameter (same as $port if you're not using the server list)
-<br><b>.group</b> - returns the group name (returns the $network value if N = -1 and you're not connecting using the server list)
-<br><b>.method</b> - returns the login method (used in conjunction with <a href="..\commands\server.html">/server -l</a>)
-<br><b>.methodpass</b> - returns the password associated with the login method
-<br><b>.keytype</b> - returns the type/mode of the SSL certificate, "global" or "local", depending on if you're using the global certificate or a specific certificate
-<br><b>.key</b> - returns the the private certificate filename for SSL
-<br><b>.itype</b> - returns the type/mode of the user information, "global" or "local", depending on if you're using the global user information (nick, email, ident etc) or specific information per server (via /server -i or by editing the server list)
-<br><b>.nick</b> - return the nickname associated with the connection (editing server list or /server -i), return $null if you connect without the server list and without /server -i
-<br><b>.anick</b> - return the alternative nickname associated with the connection (editing server list or /server -i), return $null if you connect without the server list and without /server -i
-<br><b>.email</b> - return the email address associated with the connection (editing server list or /server -i), return $null if you connect without the server list and without /server -i
-<br><b>.user</b> - return the username associated with the connection (editing server list or /server -i), return $null if you connect without the server list and without /server -i
-<br><b>.encoding</b> - return the encoding's ID associated with the connection (editing server list or /server -i), return 0 if you connect without the server list and without /server -encoding
-
+None
 <H4>Example</H4>
-Echo the active connection's server to the active window
+Echo the active connection's server to the active window:
 <pre class ="code">
 //echo -a $server
-</pre>
-Echo the number of Dalnet servers in the server list to the active window
-<pre class ="code">
-//echo -a $server(0,Dalnet)
-</pre>
-Echo the domain name of the first server in the Dalnet group in the server list to the active window
-<pre class ="code">
-//echo -a $server(1,Dalnet)
 </pre>
 <H4>Compatibility</H4>
 Added: mIRC v3.5 (07 Aug 1995)
@@ -53,5 +27,6 @@ Added: mIRC v3.5 (07 Aug 1995)
 None
 <H4>See also</H4>
 <a href="..\commands\server.html">/server</a><br>
+<a href="server_.html">$server()</a><br>
 </body>
 </html>
