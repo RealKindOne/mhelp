@@ -9,7 +9,7 @@ The <b>/drawsave</b> command saves the content of the specified picture @window 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/drawsave -abNqNv [x y w h] &lt;@win&gt; &lt;filename|&binvar&gt;
+/drawsave -abNqNvNdu @window [x y w h] &lt;filename|&binvar&gt;
 </pre>
 
 <H4>Switches</H4>
@@ -20,7 +20,11 @@ The <b>/drawsave</b> command saves the content of the specified picture @window 
 <br><b>-q</b>N
       - allows you to specify the quality of the jpeg file that is being saved, where N is between 1 and 100.
 <br><b>-v</b>
-      - means that you specified a binvary variable to save the content to, instead of saving to disk.
+      - switch allows you to save the bitmap to a &binvar, where N is optional and can be p = png, g = gif, j = jpg.
+<br><b>-d</b>
+      - dither (for use with -b)
+<br><b>-u</b>
+      - quantize (for use with -b)
 
 <H4>Parameters</H4>
 <b>&lt;@win&gt;</b>
