@@ -56,9 +56,9 @@ One exception is the /var command, which has special parsing rules.
 If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
 In order to execute any code (statements) from the mIRC editbox, you must prefix the code with at least one forward slash character '/'.<br>
 You may use two forward slash, the difference between using one or two forward slash is that with one, the rest of the line is not interpreted/evaluated, we will discuss this difference later.<br>
-You cannot execute multiline code from the editboxes, you can only pipe statements (the editboxes also have a security which prevents you from starting a statement with non literal code such as an identifier or a %variable, but can be workarounded with bracket evaluation)<br>
+You cannot execute multiline code from the editboxes, you can only pipe statements.<br>
 You must use two slashes (evaluation) to get the pipe character recognized as a separator of statements but you only need the two slashes on the first statements.<br>
-We usually refer to commands by prefixing them with a slash or two.
+We usually refer to statements' name by prefixing them with a slash or two.
 
 <h4>Routine</h4>
 If you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
@@ -93,8 +93,6 @@ They have the basic following format:
 If your statements don't belong to an alias, the other thing they can used with are events. <br>
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
 <br>
-
-<b>Note:</b> Event (except menu event) and aliases are parsed the same when it comes to statements, everything that's being said below is true for events and aliases.<br>
 
 <H4>/echo command</H4>
 <pre class ="code">//echo Hello World!</pre>
