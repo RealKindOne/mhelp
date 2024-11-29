@@ -6,7 +6,8 @@
 <br>
 <br>
 
-This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.
+This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
+To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.
 
 <H4>The very basics</H4>
 Let's take a few moments to help familiarize you with the following key components:
@@ -14,6 +15,8 @@ Let's take a few moments to help familiarize you with the following key componen
 <H4>Statements</H4>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
 Every statement is evaluated first, and then executed.
+Statement can be prefixed with some special characters to change some behaviors.
+Some statement
 
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
 
@@ -30,22 +33,24 @@ statement 4</pre>
 
 <h4>Commands statements</h4>
 
-Most statements are called "commands". Commands are performing some operations, without returning data to you.<br>
+Most statements are called "commands". Commands are performing some operations, like a function, without returning data to you. mIRC provides a lot of built-in commands.<br>
+When a command is executed, if it does not exist, it is sent to the IRC server if you're connected to a server, otherwise an error occurs and the script execution is stopped.<br>
+When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
 For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
-After a command follows its parameters, spaces delimited, some commands take no parameter.<br>
-Because of this, all commands tokenize their parameters by spaces, meaning that double spaces are trimmed to a single space, while leading and trailing spaces are always stripped.<br>
+After a command follows its parameters, if any, spaces delimited.<br>
+All commands splits their parameters by spaces.<br>
 mIRC scripting in general relies on the space character, it does not use quoted strings.<br>
 However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
-And finally, some commands have limited quoted string support because they actually require two string, both possibly containing spaces.<br>
+And finally, some commands have limited quoted string support because they actually require two distinct strings, both possibly containing spaces.<br>
 Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter or two.<br>
-Commands' name can be built dynamically by using <b>$identifiers</b> and can be overwritten with aliases, see below for both.
+Commands statement can be prefixed with a dot '.' to prevent the command from displaying a verbose message (silencing)
   
-
+  
 <h4>Other statements</h4>
 If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b> or <b>/return</b>, they cannot be overwritten and must appear literally in the code<br>
 Such statement can involve more syntactic elements and are used to control the logical flow of the code, branching etc<br>
 They are also referred to as commands although they are parsed differently.<br>
-One exception is the /var command, which has special parsing on comma.
+One exception is the /var command, which has special parsing rules.
 
 <H4>What's with the slashes?</H4>
 If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
@@ -82,7 +87,7 @@ The body of an alias contains a statement, or a list of statements, that execute
 All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
 They have the basic following format:
 <pre class ="code">alias &lt;name&gt; &lt;statements&gt;
-</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.
+</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.<br>
 
 <h4>Events</h4>
 If your statements don't belong to an alias, the other thing they can used with are events. <br>
@@ -135,9 +140,9 @@ This means that after a conditional statement, you'll have a group of statements
 <h4>{ } and group of statements</h4>
 Aliases and events also have a need to associate one or more statements to them, associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
 If the context allow it, you can omit using the pair of spaced out { } bracket around the statements:<br>
--For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the helloworld alias). This is because the single line ensures that all statements belong to the alias/event.<br>
+-For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.<br>
 -For conditional statement, that's when only a single statement is associated to the condition.<br>
-However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which is result in cleaner code when grouping statements together.<br>
+However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.<br>
 We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
 <pre class ="code">alias test echo -a test</pre> is equivalent to <pre class ="code">alias test { echo -a test }</pre> the same way <pre class ="code">alias test echo -a test | echo -a test1</pre> is equivalent to <pre class ="code">alias test { echo -a test | echo -a test1 }</pre> which is also equivalent to <pre class ="code">alias test {
   echo -a test | echo -a test1
@@ -200,11 +205,12 @@ Although we can't get this behavior from script in the script editor, using one 
 
 Your statement, and their parameters, if any, may be composed of $identifiers and %variables.
 
-All identifiers starts with dollar symbol sigil '$'.
+All identifiers starts with dollar symbol sigil '$'.<br>
 Generally speaking, identifiers are performing an operation like commands, but they return a value, some $identifiers are special constructs and don't return a value, they are used for various other operations.
-Some identifiers can take parameters as well as properties.
-Without any parameter nor any properties, the basic syntax is:
-<pre class ="code">$name</pre> where name is referring to the name of an existing identifiers.
+mIRC provides a lot of built-in identifiers. When you create aliases, you can call them as a command by starting a statement with the name of the alias, but you can also call your alias as an identifier.
+Identifiers can take parameters as well as one property.
+Without any parameter nor any property, the basic syntax is:
+<pre class ="code">$name</pre> where name is the name of the identifier.
 If they take parameters, they use the ( and ) and a comma to separate arguments, much like other programming language:
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
 If they take a property, you must use () even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a known property name:
@@ -215,11 +221,15 @@ If we want to print out our current nickname, we would use the following code:
 
 <pre class ="code">//echo -a $me</pre>
 
-%variables works exactly the same way as $identifier with no parameter (and no property) but they evaluate to a value that a script specifically set, which is the simplest way to store data. These are called "variables".<br>
+%variables works exactly the same way as $identifier with no parameter (and no property) but they evaluate to a value that a script specifically set, which is the simplest way to store data.<br>
 <br><br>
 Both can appear pretty much anywhere, inside other identifiers' parameter or parameter of a statement or event definition.<br>
 Finally, the two character '$' and '%' can be added to the list of character which are interpreted when you execute from the script editor or with two slashes from the editboxes, making it 5 special characters you need to be careful with: % $ | { }
 
+<h4>Aliases parameters and returning value in $identifier</h4>
+When creating aliases, you can access the parameters passed to the alias via the identifiers $1, $2, etc. $1 is the first parameter and so on. You can find more informations about that in the aliases page.
+If you plan on returning value from your alias and calling it as an identifier, you can return a value using the /return command.
+  
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
@@ -239,6 +249,66 @@ The results that mIRC generates for you will be different than the ones listed a
 <h4>$+</h4>
 An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
+<h4>Command vs identifier</h4>
+
+When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.<br>
+It first evaluate the statement, by resolving $identifier and %variable, from left to right (parameter of identifier are also resolved from left to right) and then split the resulting line on spaces.<br>
+The first word is then the name of the command to call and the rest are the parameter of the command.<br>
+What it means is that parameters passed to commands cannot contain spaces:<br
+<pre>//echo -ag A B</pre>
+if A were representing a string of the form "C D", then it would make B the third parameter of the command instead of the second parameter, and commands rely on parameters number being always the same:
+<pre>alias myfunction echo -ag reading line $2 from file $1 on folder C:\
+</pre>Suppose myfunction is an alias made to read a line number in a file on disk and you call the alias with <b>/myfunction test.txt 3</b> to read line 3 from C:\test.txt, this would work, $1 is test.txt and $2 is 3.<br>
+But when scripting, parameters of functions are most often than not dynamic parameters compared to static value:
+<pre>alias myfunction1 return $findfile(C:\,*,1)
+</pre>
+$findfile is a built-in identifier, here it returns the first file found on C:\<br>
+<b>//myfunction $myfunction1 3</b><br>
+If the first file found on disk does not contain space, it will work, but if it does, $1 inside the myfunction alias won't represent the complete filename with its spaces, it will only return the first word of it.<br>
+Which in turns makes $2 incorrect for the line number parameter 3, and you cannot tell which parameter is the line number as it will depend on how many spaces there's in the filename.
+This illustrates how literal spaces (between $myfunction1 and 3 in the command call) and spaces resulting from evaluation (of $myfunction1) are treated equally when it comes to splitting parameters.<br>
+In addition, trailing and leading spaces are trimmed and consecutive spaces are shortened to a single space when splitting parameter.<br><br>
+
+This design for command is based on the IRC command format originally, more or less, it's simple, and it will avoid formatting/syntax error when using IRC command or just sending automated messages.
+So, basically commands calls are great for functions which don't require parameter or when parameters are known not to be a string, or when the string itself is more or less limited by the context/purpose of that command.<br>
+Finally, it's also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can't contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
+
+Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
+So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
+For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
+<pre>alias difflength {
+if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
+  }
+</pre>
+You can't just use a command call like <b>/difflength string1 string2</b> as we just saw how this would fail if any of the string contain spaces, so instead you call it as an identifier $difflength(string1,string2)<br><br>
+As we saw, $identifier calls separate arguments with the comma character ',' instead of spaces.<br>
+Most built-in identifiers evaluate their parameter from left to right (property included), but some are not evaluating (usually the last) a parameter on purpose.<br>
+When you create an alias, if you call it as an identifier, all parameters are evaluated.<br>
+When we create such identifier to perform some operation but don't want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
+It is valid to not use the /noop command:
+<pre>alias difflength {
+if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
+  }
+  alias test {
+    $difflength($1,$2)
+  }
+</pre>with a call $test(string1,string2).<br>
+  Here $difflength() is evaluated as the only thing part of the statement and because $difflength does not return a value, the statement become empty and is ignored.<br>
+  But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.<br>
+
+  Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and won't be separating the argument!
+
+  <pre>alias giveme5 return 5
+    </pre>In here $giveme5 returns the value 5 so $identifier($giveme5,a,b) would be sending 3 parameters to the $identifier: 5 a and b. But if $giveme5 were to include a comma in its returned value:<br>
+  <pre>alias giveme5 return 5,6
+    </pre>Then $identifier($giveme5,a,b) would STILL be sending 3 parameters to the $identifier: 5,6 a and b. The comma coming from $giveme5 did not create a 4th parameters.<br><br>
+  
+  This is what makes identifier much more consistent when handling any kind of data and maintainable
+  
+
+  
+
+  
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
 
@@ -364,7 +434,7 @@ Will produce the following result:
  The number <span style="color: #FF0000;">2</span> is even.
 
 <br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
-
+ 
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
 
