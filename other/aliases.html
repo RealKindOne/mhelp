@@ -7,35 +7,12 @@
 <br>
 In many cases, it is easier to code a large program by working with a single, small, unit of logic at a time. Aliases, more commonly known in other languages as functions, are blocks of code which performs a specific task and can be relatively independent of the rest of the script. Most aliases are created to be used multiple times by different scripts. In addition to their normal usage, aliases can also be used to create custom <a href="aliases.html#shortcut">shortcuts and function key operations</a>.
 
-<H4>Syntax:</H4>
-Aliases have the following basic syntax:
-
-<pre class ="code">;single-line alias
-alias aliasName /commands
-
-;multi-line alias
-alias aliasName {
-  /commands
-}</pre>
-
-You can find the exact syntax to define an alias in the <a href="introduction.html">introduction page</a><br>
-A simple hello world alias would look like this:
-
-<pre class ="code">Alias hello {
-  echo -a Hello World!
-}</pre>
-
-The keyword "alias" is required to tell mIRC the following code is an alias. "hello" is the name of the alias. Everything inside the pairs of brackets ({ and }) will get executed when this alias is called. To call that alias, we would simple call the name of it:
-
-<pre class ="code">//hello</pre>
-
-This will print:
-
-<pre class ="code">Hello World!</pre>
-
 <H4>Alias arguments</H4>
 
-Data can be passed to aliases via the argument list. The argument list is always evaluated from left to right. The arguments are passed to the alias via the $N identifiers, where N is a numeric value from starting at one.
+Data can be passed to aliases via some arguments/parameters list, whether they are called as command or identifier.<br>
+You can find more informations about the difference between both as well as exact syntax for aliases on the <a href="introduction.html">introduction page</a><br><br>
+  
+Inside your alias, you can access the Nth parameter with $N, so $1 for the first parameter.<br>
 
 If we called an alias called "example" like this:
 
@@ -43,7 +20,7 @@ If we called an alias called "example" like this:
 ; or
 ... $example(A, B, C, D)</pre>
 
-Alias example will have $1 returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
+$1 in the alias would be returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
 
 The exact rules on how $N work is identical to the how they work with the <a href="token.html#tokenize">/tokenize command</a>. More information about $1- <a href="..\identifiers\1-.html">here</a>.
 
@@ -52,52 +29,43 @@ The exact rules on how $N work is identical to the how they work with the <a hre
 The aliases tab is designed specifically for aliases only. Note that because it can only be used for aliases, the "alias" prefix must be left out:
 
 <pre class ="code">aliasName {
-  ; commands
+  ; statements
 }</pre>
 
 <br><b>Note:</b>Aliases from the aliases tab can freely call aliases from the remote tab and vice versa.
 
-<H4>Commands vs. Identifiers</H4>
-
-in mSL, aliases can serve as both <a href="..\identifiers.html">identifiers</a> and <a href="..\commands.html">commands</a>. These two terms are used to describe the type of alias it is. In general, a command will usually not return anything but simply process some type of data. An identifier on the other hand will generally return some kind of a value.
-
-<H4>Aliases Prefixes</H4>
-
-<H4>Command Prefixes</H4>
-<br><br>
-<b>. prefix (silencing)</b><br>
-<br>
-You can prefix your command call by a dot '.' to prevent mIRC from displaying its typical message, such as <a href="..\commands\timer.html">.timer</a>.
-
-<br><b>Note:</b> Silencing a custom aliases command call makes all the custom aliases command call in that original be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
-<br><br>
-<b>! prefix (built-in call)</b><br>
-<br>
-By default, a command call will call any custom alias you may have defined, you can force a call to a mIRC built-in command by using the '!' prefix, /!join makes sure it calls the mIRC built-in join command instead of the custom join alias you may have defined.
-
-<H4>Identifier Prefixes</H4>
-<br><br>
+<H4>Command Call Prefixes</H4>
+If you do a command call to one of your alias, you can prefix it with a dot '.' just like built-in command (silencing). This fills the identifier $show which you can use to know if the call was silenced or not.<br>
+This can be used to create a debug mode in your script which would display a log message only if $show is set.<br>
+<b>Note:</b> $show is a global value accross all scripts, silencing a custom aliases command call makes all the command call in that alias be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
+ 
+If you create an alias with the same name of a built-in command and call your alias as a command, it means that any other script which is trying to use the built-in command now will be calling your alias instead.<br>
+To prevent this, you can prefix the command call with '!', which will force mIRC to use the built-in command instead of a potential alias for that name.
+  <br><br>
+<H4>Identifier Call Prefixes</H4>
 <b>$$ special construct (required value)</b><br>
 <br>
-You can use <a href="..\identifiers\_sigil.html">$$</a> to halt a routine if the value returned by the identifier is $null, typically, this allows to quickly stops if a parameter is missing.
+You can use <a href="..\identifiers\_sigil.html">$$</a> to stop a routine if the value returned by the identifier is empty ($null), typically, this allows to quickly stops if a parameter is missing.
 <br><br>
 <b>/ and . prefix (custom call)</b><br>
 <br>
-By default, an identifier call will call the built-in mIRC identifier, you can force a call to your own custom identifier by using the '/' or '.' prefix, $/me makes sure it calls your custom identifier. If you do not have the alias defined, mIRC consider it a call to an alias named with the '/' or the '.'
+By default, an identifier call to an alias of the same name as of a built-in identifier will result in the built-in identifier being called, you can force a call to your own custom identifier by using the '/' or '.' prefix, $/me makes sure it calls your custom identifier.<br>
+  <b>Note: </b>If you do not have the alias defined, mIRC consider it a call to an alias named with the '/' or the '.'
 <br><br>
 <b>~ prefix (built-in call)</b><br>
 <br>
-In essence, such a call to an identifier will only look at built-in identifiers, custom aliases won't be searched for.
-This will bypass the Identifier Warning message but it's a bit unclear why this is useful, it can allow you to check if an identifier exist in mIRC's own language and has a value but you cannot use it to check built-in which would return $null then, and you have to execute the function, checking for "$findfile" or "$zip" would be problematic.
+In essence, such a call to an identifier will only look at built-in identifiers, custom aliases won't be searched for. You can find more information about it <a href="..\identifiers\~.html">here</a>
 <br><br>
 <b>! prefix (delay evaluation)</b><br>
 <br>
-You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me
+You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me.<br>
+This is useful because some commands's parameters are themselves meant to be a command to execute, which create a double-evaluation, once when the original command is evaluated, and once the new one is.<br>
+By using $!identifier, you can make sure the identifier is evaluated for the new command only.<br>
 
 <H4>Restriction on alias name</H4>
 
-Given the alias prefixes above, you cannot start the name of an alias with a command prefix if you are going to call it as a command, same idea for identifier.
-
+Given the alias prefixes above, you cannot start the name of an alias with a command/identifier prefix if you are going to call it as such.<br>
+$+
 
 
 <H4>Commands</H4>
