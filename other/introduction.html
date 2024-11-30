@@ -7,17 +7,13 @@
 <br>
 
 This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
-To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.
-
-<H4>The very basics</H4>
-Let's take a few moments to help familiarize you with the following key components:
+To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.<br>
+When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
 
 <H4>Statements</H4>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
-Every statement is evaluated first, and then executed.
-Statement can be prefixed with some special characters to change some behaviors.
-Some statement
-
+The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
+All statements' name are composed of ascii letters only and are case insensitive.<br>
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
 
 For example, the following two are the same:
@@ -33,24 +29,22 @@ statement 4</pre>
 
 <h4>Commands statements</h4>
 
-Most statements are called "commands". Commands are performing some operations, like a function, without returning data to you. mIRC provides a lot of built-in commands.<br>
+Most statements are called "commands". Commands are performing some operations, like a function, without returning data to you. mIRC provides a lot of built-in commands to create scripts.<br>
+After a command's name follows the parameters for that command, if any, and they must be spaces separated.<br>
+A command statement is always "evaluating" the statement entirely once first before executing that command, more about that later.<br>
 When a command is executed, if it does not exist, it is sent to the IRC server if you're connected to a server, otherwise an error occurs and the script execution is stopped.<br>
-When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
 For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
-After a command follows its parameters, if any, spaces delimited.<br>
-All commands splits their parameters by spaces.<br>
-mIRC scripting in general relies on the space character, it does not use quoted strings.<br>
-However some commands have limited quoted string support, most of these commands support quoted string because their parameter is a filename or a window name, which can contain spaces.<br>
-And finally, some commands have limited quoted string support because they actually require two distinct strings, both possibly containing spaces.<br>
-Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\' or anything, and even for commands supporting quoted string, they don't support them anywhere but only for a given parameter or two.<br>
-Commands statement can be prefixed with a dot '.' to prevent the command from displaying a verbose message (silencing)
+mIRC scripting does not use quoted strings for parameters, some commands have limited quoted string support.<br>
+Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\'.<br>
+Some commands statement can be prefixed with a dot '.' to prevent the command from displaying a verbose message (silencing)
+All built-in commands can be overriden/overwritten to execute your own function for that command name instead of the built-in via aliases, see below.
   
   
 <h4>Other statements</h4>
-If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b> or <b>/return</b>, they cannot be overwritten and must appear literally in the code<br>
-Such statement can involve more syntactic elements and are used to control the logical flow of the code, branching etc<br>
+If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b> or <b>/while</b>, they cannot be overwritten and must appear literally in the code.<br>
+Such statement can involve more syntactic elements and are used to control the logical flow of the code, branching, loop etc.<br>
 They are also referred to as commands although they are parsed differently.<br>
-One exception is the /var command, which has special parsing rules.
+One exception is the /var statement, which has special parsing rules but is not a control flow.
 
 <H4>What's with the slashes?</H4>
 If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
