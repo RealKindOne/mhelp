@@ -20,7 +20,7 @@ The first word in a statement is always the name of the statement, what comes af
 All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.<br>
 We refer to statements by prefixing them with a slash character '/'.
   
-For example, the following two are the same:<br>
+For example, the following two are the same:<br><br>
 <b>Piping</b>
 <pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre>
 <b>Non-piping -- Multiline</b>
@@ -56,9 +56,9 @@ Below is a screen shot of the mIRC Script Editor:<br><br>
 <img src="..\images\remote_menu.png"><br><br>
 
 You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.<br>
-Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.<br><br>
+Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.<br>
 Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
-There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br><br>
+There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br>
 Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
 
@@ -66,7 +66,7 @@ Users is for managing access level, while Variables is for storing global variab
   
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body.<br>
 The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias.<br>
-When a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for the name of that statement and execute your alias if found, and only if it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error.<br><br>
+When a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for the name of that statement and execute your alias if found, and only if it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error.<br>
 However, you can override built-in commands by defining an alias with the same name as of that built-in and now it defaults to calling your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character.<br>
   
 They have the following format:
@@ -79,7 +79,7 @@ If you use a remote file, you must prefix it with the <b>alias</b> keyword, spac
 <br>
 <img src="..\images\fun_alias_remote.png">
 <img src="..\images\fun_alias_alias.png">
-
+<br>
 To call on our alias ''fun'', all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
 <pre class ="code">/fun</pre>
 That should print our text:<br><br>
