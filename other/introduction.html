@@ -8,20 +8,22 @@
 
 This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
 To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.<br>
-When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
+When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.<br>
+mIRC and therefore all scripts run in a single thread environement and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable, is shared among all scripts.<br>
+To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit and possibly prefixed with your own script title, names.
+mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
 <H4>Statements</H4>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
-The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
-All statements' name are composed of ascii letters only and are case insensitive.<br>
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
-
+The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
+All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.<br>
+We refer to statements by prefixing them with a slash character '/'.
+  
 For example, the following two are the same:
-<a name="pipes"></a>
-<H4>Piping</H4>
+<b>Piping</b>
 <pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre>
-
-<H4>Non-piping -- Multiline</H4>
+<b>Non-piping -- Multiline</b>
 <pre class ="code">statement 1
 statement 2
 statement 3
@@ -29,37 +31,24 @@ statement 4</pre>
 
 <h4>Commands statements</h4>
 
-Most statements are called "commands". Commands are performing some operations, like a function, without returning data to you. mIRC provides a lot of built-in commands to create scripts.<br>
+Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.<br>
 After a command's name follows the parameters for that command, if any, and they must be spaces separated.<br>
-A command statement is always "evaluating" the statement entirely once first before executing that command, more about that later.<br>
-When a command is executed, if it does not exist, it is sent to the IRC server if you're connected to a server, otherwise an error occurs and the script execution is stopped.<br>
 For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
-mIRC scripting does not use quoted strings for parameters, some commands have limited quoted string support.<br>
-Limited means that you cannot escape the quote character inside a quoted string, mIRC doesn't support escaping with backslash '\'.<br>
-Some commands statement can be prefixed with a dot '.' to prevent the command from displaying a verbose message (silencing)
-All built-in commands can be overriden/overwritten to execute your own function for that command name instead of the built-in via aliases, see below.
-  
+mIRC scripting does not use quoted strings, ever, for parameters. Some commands have limited support for quoted string, more about that later.<br>
+Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)<br>
   
 <h4>Other statements</h4>
-If a statement isn't a command as described above, it's a control flow statement such as <b>/if</b> or <b>/while</b>, they cannot be overwritten and must appear literally in the code.<br>
-Such statement can involve more syntactic elements and are used to control the logical flow of the code, branching, loop etc.<br>
-They are also referred to as commands although they are parsed differently.<br>
-One exception is the /var statement, which has special parsing rules but is not a control flow.
-
-<H4>What's with the slashes?</H4>
-If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code directly in mIRC's editboxes, where you type to chat on IRC.<br>
-In order to execute any code (statements) from the mIRC editbox, you must prefix the code with at least one forward slash character '/'.<br>
-You may use two forward slash, the difference between using one or two forward slash is that with one, the rest of the line is not interpreted/evaluated, we will discuss this difference later.<br>
-You cannot execute multiline code from the editboxes, you can only pipe statements.<br>
-You must use two slashes (evaluation) to get the pipe character recognized as a separator of statements but you only need the two slashes on the first statements.<br>
-We usually refer to statements' name by prefixing them with a slash or two.
+If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>else</b> and <b>/while</b>, they must appear literaly in the code to be recognized as such statement.<br>
+If such statement is not literal in the code, it will be executed as a command.<br>
+Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.<br>
+They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br>
+One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
+ 
 
 <h4>Routine</h4>
 If you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
-A routine can be:<br>
--a function, which has a name, functions are called aliases, they can be executed as a command by starting a statement with the name of the alias (custom command) but also as an identifier<br>
--an event, mIRC is an event-driven language, events are functions which are automatically called for you (callback) in some situations.<br>
-
+There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
+  
 <H4>Where does the code go?</H4>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
 Below is a screen shot of the mIRC Script Editor:<br><br>
@@ -73,38 +62,16 @@ There are 5 different popups categories: status, channel, query, nicklist, and m
 Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
 
-In the script editor, every commands are executed as though 2 slashes where used from the editbox, the line is evaluated before being executed, you cannot get statement from the script editor to be executed without evaluation happening (not without extra code anyway).
-
 <h4>Aliases</h4>
-Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. <br>
-The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as custom commands.<br>
-All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
-They have the basic following format:
-<pre class ="code">alias &lt;name&gt; &lt;statements&gt;
-</pre>If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.<br>
-
-<h4>Events</h4>
-If your statements don't belong to an alias, the other thing they can used with are events. <br>
-Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
-<br>
-
-<H4>/echo command</H4>
-<pre class ="code">//echo Hello World!</pre>
-/echo is one of the most used command in general, it can display a line of text in a window. When you are finished typing the echo command above, in your editbox, hit Enter on your keyboard. You should see the following result
-<br><br>
-<img src="..\images\hello_edit.png"><br><br>
-
-Recall we said earlier that multiple statements can be combined by using the pipe '|'? Let's print 3 lines to the screen using the echo command and some pipes. Type the following code into your editbox:
-
-<pre class ="code">//echo Scripting | echo Is | echo Fun!</pre>
-
-You should hopefully see the following results:<br><br>
-<img src="..\images\fun_edit.png"><br><br>
-Here the two slashes are required, otherwise the pipe character '|' won't be interpreted and the line 'Scripting | echo Is | echo Fun!' will be displayed.
-
-<H4>Let's make it into an alias, shall we?</H4>
-
-Let's make the code we used above to print "Scripting Is Fun!", and call this new alias "fun":
+  
+Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body.<br>
+The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias.<br>
+When a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for the name of that statement and execute your alias if found, and only if it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error.<br><br>
+However, you can override built-in commands by defining an alias with the same name as of that built-in and now it defaults to calling your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character.<br>
+  
+They have the following format:
+<pre class ="code">alias &lt;name&gt; &lt;statements&gt;</pre>
+If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.<br>
 
 <pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
 
@@ -113,21 +80,14 @@ Let's make the code we used above to print "Scripting Is Fun!", and call this ne
 <img src="..\images\fun_alias_remote.png">
 <img src="..\images\fun_alias_alias.png">
 
-<br><br><b>Note:</b> When you want to execute an alias, you would refer to it as wanting to ''call the alias''.
-
 To call on our alias ''fun'', all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
-
 <pre class ="code">/fun</pre>
-
-That should print our text again:<br><br>
-
+That should print our text:<br><br>
 <img src="..\images\hello_edit.png"><br><br>
-
-<b>Note: </b>We usually use two slashes from the editboxes because it enables evaluation/interpretation, so far we have only seen how evaluation affects the pipe character.
   
 <h4>Conditional statement</h4>
-<a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition, those are /if, /elseif and /while.<br>
-This means that after a conditional statement, you'll have a group of statements, with one or more statements associated to the condition.
+<a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
+This means that after a conditional statement, you have a group of one or more statements associated to the condition.
 
 <h4>{ } and group of statements</h4>
 Aliases and events also have a need to associate one or more statements to them, associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
@@ -139,7 +99,7 @@ We usually use newline for each new statement and we usually don't mix piping wi
 <pre class ="code">alias test echo -a test</pre> is equivalent to <pre class ="code">alias test { echo -a test }</pre> the same way <pre class ="code">alias test echo -a test | echo -a test1</pre> is equivalent to <pre class ="code">alias test { echo -a test | echo -a test1 }</pre> which is also equivalent to <pre class ="code">alias test {
   echo -a test | echo -a test1
 }</pre> and to <pre class ="code">alias test { echo -a test |
-  echo -a test1 }</pre> and to <pre class ="code">alias test { echo -a test |
+  echo -a test1 }</pre> and to <pre class ="code">alias test { echo -a test
   echo -a test1
   }</pre>
 
@@ -157,8 +117,7 @@ and to<br>
     echo =
     echo Fun! 
 }</pre>
-This should help you understand how { } brackets are used.<br>
-Note that conditional statements are a bit special where not using { } can lead to problem if you're not using () around the conditional part.<br><br>
+This should help you understand how { } brackets are used.<br><br>
 
 A few notes about the language limitations:
 
@@ -183,7 +142,11 @@ The closing bracket is touching the "hello!".
 {
   echo hello!
 }</pre>
-The opening bracket must be on the same line as the "alias" keyword. 
+The opening bracket must be on the same line as the "alias" keyword.
+  
+<h4>Events</h4>
+If your statements don't belong to an alias, the other thing they can used with are events.<br>
+Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
   
 <H4>Evaluation/Interpretation</H4>
 
@@ -299,7 +262,16 @@ if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
   
 
   
-
+<H4>What's with the slashes?</H4>
+If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That's because you can execute code (statements) directly in mIRC's editboxes, where you type to chat on IRC.<br>
+In order to execute any statements from the mIRC editbox, you must prefix the code with at least one forward slash character '/'.<br>
+You cannot execute multiline code from the editboxes, you can only pipe statements.<br><br>
+A single slash means that:<br>
+-the statement is called as a command, the statement is not evaluated as is the case when the code is executed from the script editor. $identifiers, %variables, the pipe '|' and '{' '}' characters will be plaintext and only a single statement will be executed then, this is meant for quick calling of an alias with static parameters if any.<<br>
+-if you try to use a single slash to execute a conditional statement, mIRC will attempt to execute it as an alias if you have one with that name (ridiculous idea). If you don't, it's sent directly to the IRC server if you are connected, or stops the script execution with an error otherwise.<br>
+-the /var statement will report an error instead.<br><br>
+  
+If you use two slashes, then the everything is as though you were executing statements from the script editor, with the only difference that for security reason, mIRC will prevent you from starting a statement with a %variable or an $identifier.<br>
   
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
