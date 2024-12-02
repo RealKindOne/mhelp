@@ -46,6 +46,7 @@ One exception is the /var statement, which does not split parameters on spaces e
  
 
 <h4>Routine</h4>
+Statements can be executed from the editbox (more about that later) by prefixing the statement with a slash '/'.<br>
 If you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
 There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
   
@@ -63,15 +64,16 @@ Remote are the type of file you can contain both events and aliases at the same 
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
 
 <h4>Aliases</h4>
-  
+
 Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body.<br>
 The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias.<br>
 When a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for the name of that statement and execute your alias if found, and only if it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error.<br>
 However, you can override built-in commands by defining an alias with the same name as of that built-in and now it defaults to calling your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character.<br>
   
 They have the following format:
-<pre class ="code">alias &lt;name&gt; &lt;statements&gt;</pre>
+<pre class ="code">alias [-l] &lt;name&gt; &lt;statements&gt;</pre>
 If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.<br>
+-l is an optional, spaces separated, parameter indicating that the alias can only be accessed from an alias inside this script file, the alias won't exist by default.
 
 <pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
 
@@ -85,11 +87,9 @@ To call on our alias ''fun'', all we have to do is use its name, preceded by a f
 That should print our text:<br><br>
 <img src="..\images\hello_edit.png"><br><br>
   
-<h4>Conditional statement</h4>
+<h4>{ } and group of statements</h4>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you have a group of one or more statements associated to the condition.
-
-<h4>{ } and group of statements</h4>
 Aliases and events also have a need to associate one or more statements to them, associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
 If the context allow it, you can omit using the pair of spaced out { } bracket around the statements:<br>
 -For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.<br>
@@ -145,24 +145,37 @@ The closing bracket is touching the "hello!".
 The opening bracket must be on the same line as the "alias" keyword.
   
 <h4>Events</h4>
-If your statements don't belong to an alias, the other thing they can used with are events.<br>
+If your statements aren't inside an alias, the other thing they can used with are events.<br>
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
+Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
+All events follow this format except two:<br>
+<pre class="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
+"on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
+After that you have the parameters of the events, you can get parameter to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
+Some events have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
+  
+Then you have the ctcp event, it has a similar format as the above and takes two parameters:<br>
+<pre class="code">ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;</pre>
+The last events type are menu events:<br>
+<pre class="code">menu &lt;window&gt; {
+&lt;statements&lg;
+}
+</pre><br>
+Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events<br>.
+Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.<br>
+Otherwise, each statement must go on their own line and are splitted in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.<br><br>
+
+For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
   
 <H4>Evaluation/Interpretation</H4>
 
-Before we wrap up this tutorial, we need to talk about one last concept: evaluation.
+<b></b>$identifier & %variables</b>
 
-Evaluation/interpretation is what happens to statements when you use two slash from the editbox or execute something from the script editor.
-So far we've seen how the pipe character is used as a delimiter of statements on single line, as well as the { } delimiting group of statements belonging to the same alias/event/conditional statement.
-Although we can't get this behavior from script in the script editor, using one slash from editbox will result in the pipe character as well as { and } being literal text.
-
-<h4>$identifier & %variables</h4>
-
-Your statement, and their parameters, if any, may be composed of $identifiers and %variables.
+Your statement, their parameters, parameters of events, parameters of identifiers themselves and even mIRC options may be composed of $identifier and %variables.<br>
 
 All identifiers starts with dollar symbol sigil '$'.<br>
-Generally speaking, identifiers are performing an operation like commands, but they return a value, some $identifiers are special constructs and don't return a value, they are used for various other operations.
-mIRC provides a lot of built-in identifiers. When you create aliases, you can call them as a command by starting a statement with the name of the alias, but you can also call your alias as an identifier.
+Generally speaking, identifiers are performing an operation, much like statement, but they return a value, this value can then be used.<br>
+mIRC provides a lot of built-in identifiers but when you create aliases, while you can call them as a command, you can also call them as an $identifier.
 Identifiers can take parameters as well as one property.
 Without any parameter nor any property, the basic syntax is:
 <pre class ="code">$name</pre> where name is the name of the identifier.
@@ -170,17 +183,19 @@ If they take parameters, they use the ( and ) and a comma to separate arguments,
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
 If they take a property, you must use () even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a known property name:
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre>
-When you create an alias, you can call it as a command by starting a statement with that alias name, but you can also make your alias return a value and call your alias as a custom identifier.<br>
 
-If we want to print out our current nickname, we would use the following code:
+If we want to print out our current nickname, we would use the following code ($me is a built-in identifier returning your nickname):
 
-<pre class ="code">//echo -a $me</pre>
+<pre class ="code">//echo -a $me</pre><br>
+If you create an alias of the same name as of an existing built-in identifier, unlike command, mIRC does not call your alias by default, you can prefix your $identifier call with a dot '.' or a slash '/' to force mIRC to call your alias: $/me (if you try that on a non built-in name, the / is included as the name of the identifier to call and it fail).<br>
+if you need to use an identifier as plain text you can prefix it with the '!' character: $!5 returns "$5".
 
-%variables works exactly the same way as $identifier with no parameter (and no property) but they evaluate to a value that a script specifically set, which is the simplest way to store data.<br>
-<br><br>
-Both can appear pretty much anywhere, inside other identifiers' parameter or parameter of a statement or event definition.<br>
-Finally, the two character '$' and '%' can be added to the list of character which are interpreted when you execute from the script editor or with two slashes from the editboxes, making it 5 special characters you need to be careful with: % $ | { }
+%variables works exactly the same way as $identifier with no parameter (and no property) but they return to a value that a script specifically set, which is the simplest way to store data.
 
+<h4>Alias name restriction</h4>
+Alias name can be pretty much anything, they can't contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:<br>
+-aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
+-digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you wouldn't be able to use $1.
 <h4>Aliases parameters and returning value in $identifier</h4>
 When creating aliases, you can access the parameters passed to the alias via the identifiers $1, $2, etc. $1 is the first parameter and so on. You can find more informations about that in the aliases page.
 If you plan on returning value from your alias and calling it as an identifier, you can return a value using the /return command.
@@ -268,11 +283,11 @@ In order to execute any statements from the mIRC editbox, you must prefix the co
 You cannot execute multiline code from the editboxes, you can only pipe statements.<br><br>
 A single slash means that:<br>
 -the statement is called as a command, the statement is not evaluated as is the case when the code is executed from the script editor. $identifiers, %variables, the pipe '|' and '{' '}' characters will be plaintext and only a single statement will be executed then, this is meant for quick calling of an alias with static parameters if any.<<br>
--if you try to use a single slash to execute a conditional statement, mIRC will attempt to execute it as an alias if you have one with that name (ridiculous idea). If you don't, it's sent directly to the IRC server if you are connected, or stops the script execution with an error otherwise.<br>
+-if you try to use a single slash to execute a conditional statement, mIRC will attempt to execute it as an alias if you have one with that name. If you don't, it's sent directly to the IRC server if you are connected, or stops the script execution with an error otherwise.<br>
 -the /var statement will report an error instead.<br><br>
   
 If you use two slashes, then the everything is as though you were executing statements from the script editor, with the only difference that for security reason, mIRC will prevent you from starting a statement with a %variable or an $identifier.<br>
-  
+If two slash are used with more than one statement, you only need them on the first statement.
 <H4>Comments</H4>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
 
