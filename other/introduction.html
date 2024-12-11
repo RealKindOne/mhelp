@@ -37,19 +37,19 @@ For example if you want to display a line inside a window in mIRC, you would use
 mIRC scripting does not use quoted strings, ever, for parameters. Some commands have limited support for quoted string, more about that later.<br>
 Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)<br>
   
-<h4>Other statements</h4>
+<h3>Other statements</h3>
 If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>else</b> and <b>/while</b>, they must appear literaly in the code to be recognized as such statement.<br>
 If such statement is not literal in the code, it will be executed as a command.<br>
 Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.<br>
 One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
 They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br> 
 
-<h4>Routine</h4>
+<h3>Routine</h3>
 Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
 There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
 In all cases, statements are executed in order one after the other.
   
-<H4>Where does the code go?</H4>
+<H3>Where does the code go?</H3>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
 Below is a screen shot of the mIRC Script Editor:<br><br>
 
@@ -60,9 +60,10 @@ Each type of script are stored into different files, an alias file can only have
 Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
 There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br>
 Remote are the type of file which can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
-Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
+Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br><br>
+In the script editor, prefixing your statement with a '/' is not required.
 
-<h4>Aliases</h4>
+<h3>Aliases</h3>
 
 Aliases have a name by which we can refer to them and are used to store a list of statement to execute, they usually are used to describe any piece of code that can be reused, but they are also used just as an entry point to start your script.<br>
 Once an alias is defined, you can execute it (we also refer to that as calling the alias) by using its name as the first word of a statement, as though it was a command statement.<br>
@@ -143,29 +144,7 @@ The closing bracket is touching the "hello!".
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
   
-<h4>Events</h4>
-If your statements aren't inside an alias, the other thing they can used with are events.<br>
-Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
-Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
-All events follow this format except two:<br>
-<pre class="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
-"on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
-After that you have the parameters of the events, you can get parameter to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
-Some events have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
-  
-Then you have the ctcp event, it has a similar format as the above and takes two parameters:<br>
-<pre class="code">ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;</pre>
-The last events type are menu events:<br>
-<pre class="code">menu &lt;window&gt; {
-&lt;statements&lg;
-}
-</pre><br>
-Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events<br>.
-Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.<br>
-Otherwise, each statement must go on their own line and are splitted in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.<br><br>
 
-For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
-  
 <H4>Evaluation/Interpretation</H4>
 
 <b></b>$identifier & %variables</b>
@@ -218,6 +197,30 @@ The results that mIRC generates for you will be different than the ones listed a
 <h4>$+</h4>
 An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
+<h4>Events</h4>
+If your statements aren't inside an alias, the other thing they can used with are events.<br>
+Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
+Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
+All events follow this format except two:<br>
+<pre class="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
+"on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
+After that you have the parameters of the events, you can get parameter to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
+Some events have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
+  
+Then you have the ctcp event, it has a similar format as the above and takes two parameters:<br>
+<pre class="code">ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;</pre>
+The last events type are menu events:<br>
+<pre class="code">menu &lt;window&gt; {
+&lt;statements&lg;
+}
+</pre><br>
+Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events<br>.
+Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.<br>
+Otherwise, each statement must go on their own line and are splitted in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.<br><br>
+
+For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
+  
+  
 <h4>Command vs identifier</h4>
 
 When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.<br>
