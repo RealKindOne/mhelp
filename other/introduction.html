@@ -18,7 +18,7 @@ Every script is composed of one or more statements. A statement describes someth
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
 The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
 All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.<br>
-We refer to statements by prefixing them with a slash character '/'.
+We refer to statements by prefixing them with a slash character '/'.<br>
   
 For example, the following two are the same:<br><br>
 <b>Piping</b>
@@ -29,7 +29,7 @@ statement 2
 statement 3
 statement 4</pre>
 
-<h4>Commands statements</h4>
+<h3>Commands statements</h3>
 
 Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.<br>
 After a command's name follows the parameters for that command, if any, and they must be spaces separated.<br>
@@ -41,14 +41,13 @@ Some built-in commands result in a verbose message displayed in a window, you ca
 If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>else</b> and <b>/while</b>, they must appear literaly in the code to be recognized as such statement.<br>
 If such statement is not literal in the code, it will be executed as a command.<br>
 Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.<br>
-They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br>
 One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
- 
+They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br> 
 
 <h4>Routine</h4>
-Statements can be executed from the editbox (more about that later) by prefixing the statement with a slash '/'.<br>
-If you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
+Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
 There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
+In all cases, statements are executed in order one after the other.
   
 <H4>Where does the code go?</H4>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
@@ -60,20 +59,20 @@ You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</
 Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.<br>
 Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
 There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br>
-Remote are the type of file you can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
+Remote are the type of file which can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
 
 <h4>Aliases</h4>
 
-Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body.<br>
-The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias.<br>
-When a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for the name of that statement and execute your alias if found, and only if it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error.<br>
-However, you can override built-in commands by defining an alias with the same name as of that built-in and now it defaults to calling your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character.<br>
+Aliases have a name by which we can refer to them and are used to store a list of statement to execute, they usually are used to describe any piece of code that can be reused, but they are also used just as an entry point to start your script.<br>
+Once an alias is defined, you can execute it (we also refer to that as calling the alias) by using its name as the first word of a statement, as though it was a command statement.<br>
+So, when a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.<br>
+You can override built-in commands by defining an alias with the same name as of that built-in command, and now executing that name defaults to executing your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character.<br>
   
 They have the following format:
 <pre class ="code">alias [-l] &lt;name&gt; &lt;statements&gt;</pre>
 If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above.<br>
--l is an optional, spaces separated, parameter indicating that the alias can only be accessed from an alias inside this script file, the alias won't exist by default.
+-l is an optional, spaces separated, parameter indicating that the alias can only be accessed from an alias inside this script file, the alias won't be available from the editbox or a different script file. We call it a local alias.<br>
 
 <pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
 
@@ -90,9 +89,9 @@ That should print our text:<br><br>
 <h4>{ } and group of statements</h4>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you have a group of one or more statements associated to the condition.
-Aliases and events also have a need to associate one or more statements to them, associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
-If the context allow it, you can omit using the pair of spaced out { } bracket around the statements:<br>
--For aliases and events, this is when you define them on a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.<br>
+Aliases and events are also entities which associate one or more statements to them; associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
+If the context allow it, you can omit using the pair of spaced out { } around the statements:<br>
+-For aliases and events, this is when you put all of the statements associated to the alias/event into a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.<br>
 -For conditional statement, that's when only a single statement is associated to the condition.<br>
 However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.<br>
 We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
