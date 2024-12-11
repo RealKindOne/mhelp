@@ -9,11 +9,11 @@
 This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
 To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.<br>
 When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.<br>
-mIRC and therefore all scripts run in a single thread environement and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable, is shared among all scripts.<br>
-To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit and possibly prefixed with your own script title, names.<br>
+mIRC and therefore all scripts run in a single thread environement and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.<br>
+To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It's also a good idea to use local aliases.<br>
 mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
-<H4>Statements</H4>
+<H3>Statements</H3>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
 If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
 The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
@@ -22,7 +22,7 @@ We refer to statements by prefixing them with a slash character '/'.
   
 For example, the following two are the same:<br><br>
 <b>Piping</b>
-<pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre>
+<pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre><br>
 <b>Non-piping -- Multiline</b>
 <pre class ="code">statement 1
 statement 2
