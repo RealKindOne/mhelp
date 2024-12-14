@@ -5,7 +5,7 @@
 <H1>$iel</H1>
 <br>
 <br>
-The <b>$iel</b> identifier returns the Nth address in the internal exception list
+The <b>$iel</b> identifier returns the Nth address in the internal exception list.
 
 
 <H4>Synopsis</H4>
@@ -13,19 +13,22 @@ The <b>$iel</b> identifier returns the Nth address in the internal exception lis
 $iel(#chan,N)[.property]
 </pre>
 <H4>Parameters</H4>
-<b>#chan</b> - the channel you want exceptions from
-<br><b>N</b> - the Nth exception address in the channel, use N = 0 for the total number of address
+<b>#chan</b> - The channel you want exceptions from.
+<br><b>N</b> - The Nth exception address in the channel, use N = 0 for the total number of address.
 
 <H4>Properties</H4>
-<b>.by</b> - returns the nickname who set the exception
-<br><b>.date</b> - returns the date when the exception was set
-<br><b>.ctime</b> - returns the date when the exception was set, in <a href="ctime.html">$ctime</a> format
+<b>.by</b> - Returns the nickname who set the exception.
+<br><b>.date</b> - Returns the date when the exception was set.
+<br><b>.ctime</b> - Returns the date when the exception was set, in <a href="ctime.html">$ctime</a> format.
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $iel(#,0)</pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v5.8 (05 Sep 2000)
+Added: mIRC v6.17 (17 Feb 2006)
+<br>
+<br>
+v6.17: Added .by, .ctime, and .date properties.
 
 <H4>Notes</H4>
 None

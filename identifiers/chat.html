@@ -16,13 +16,13 @@ $chat(N/nick[,N])[.property]
 
 
 <H4>Properties</H4>
-<b>.cid</b> - The connection id for the DCC Chat
-<br><b>.hwnd</b> - The window handle for the DCC Chat
-<br><b>.idle</b> - How long since the remote user sent data
-<br><b>.ip</b> - The IP Address for the remote user
-<br><b>.status</b> - The status of the DCC Chat; returns: "active", "inactive" or "waiting"
+<b>.cid</b> - The connection id for the DCC Chat.
+<br><b>.hwnd</b> - The window handle for the DCC Chat.
+<br><b>.idle</b> - How long since the remote user sent data.
+<br><b>.ip</b> - The IP Address for the remote user.
+<br><b>.status</b> - The status of the DCC Chat; returns: <b>active</b>, <b>inactive</b> or <b>waiting</b>.
 <br><b>.stamp</b> - Returns either <a href="true.html">$true</a>, or <a href="false.html">$false</a> depending on if time-stamping is enabled or disabled.
-<br><b>.wid</b> - The mIRC window id for the DCC Chat
+<br><b>.wid</b> - The mIRC window id for the DCC Chat.
 
 
 <H4>Example</H4>
@@ -34,6 +34,12 @@ Echo if time-stamping is currently enabled on the 1st DCC Chat:
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
+<br>
+<br>
+v4.7 : Added .cd, .ip, and .status ("active", "inactive", "waiting") properties.<br>
+v5.7 : Added .logfile, and .stamp properties.<br>
+v6.0 : Added .cid, .hwnd, and .wid properties.<br>
+v6.33: Added .idle properties.
 
 <H4>Notes</H4>
 None

@@ -55,9 +55,9 @@ Attributes:
 <br>
 
 <br><b>.sig</b> - Checks digital signature of an executable/DLL file. (Returns: ok, fail, none)
-<br><b>.ext</b> - returns the extention of the filename if a filename is used, $null otherwise
+<br><b>.ext</b> - returns the extension of the filename if a filename is used, $null otherwise
 <br><b>.path</b> - if a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
-<br><b>.name</b> - returns the name of the folder if a folder is used, or the name of the file without the extention if a filename is used
+<br><b>.name</b> - returns the name of the folder if a folder is used, or the name of the file without the extension if a filename is used
 <br><b>.version</b> - returns the file's ''file version'' if executable/DLL.
 <br><b>.product</b> - returns the file's ''product version'' if executable/DLL.
 <br><b>.flags</b> - returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
@@ -81,7 +81,13 @@ Some more information about mIRC's executable.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)
-
+<br>
+<br>
+v5.5 : .atime, .ctime, .mtime, and .size properties.<br>
+v6.1 : .attr, .longfn, and .shortfn properties.<br>
+v7.00: .sig property<br>
+v7.44: .flags, .product, and .version properties.<br>
+v7.52: .ext, .name, and .path properties.
 <H4>Notes</H4>
 None
 <H4>See also</H4>
