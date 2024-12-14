@@ -18,13 +18,13 @@ $mouse[.property]
 None
 
 <H4>Properties</H4>
-<b>.x</b> and <b>.y</b> - returns the position of the mouse relative to the active window
-<br><b>.mx</b> and <b>.my</b> - returns the position of the mouse relative to the main mIRC window
-<br><b>.dx</b> and <b>.dy</b> - returns the position of the mouse relative to the desktop window
-<br><b>.cx</b> and <b>.cy</b> - returns position relative to the primary monitor.
-<br><b>.win</b> - returns the name of the active window
-<br><b>.lb</b> - returns $true if a mouse event occurred over a listbox, $false otherwise.
-<br><b>.key</b> - returns a bitmask, you can use the bitwise & operator to check for button/shift/alt/control state:
+<b>.x</b> and <b>.y</b> - Returns the position of the mouse relative to the active window.
+<br><b>.mx</b> and <b>.my</b> - Returns the position of the mouse relative to the main mIRC window.
+<br><b>.dx</b> and <b>.dy</b> - Returns the position of the mouse relative to the desktop window.
+<br><b>.cx</b> and <b>.cy</b> - Returns position relative to the primary monitor.
+<br><b>.win</b> - Returns the name of the active window.
+<br><b>.lb</b> - Returns $true if a mouse event occurred over a listbox, $false otherwise.
+<br><b>.key</b> - Returns a bitmask, you can use the bitwise & operator to check for button/shift/alt/control state:
 
 <br>
 <br>if ($mouse.key & 1) echo left mouse button is pressed.
@@ -51,6 +51,12 @@ Pressing any of the Ctrl or Alt or Shift keys causes 2 of the above masks to be 
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)
+<br>
+<br>
+v5.3 : Added .key, .x, and .y properties.<br>
+v5.4 : Added .dx, .dy, .mx, .my, and .win properties.<br>
+v5.71: Added .lb property.<br>
+v7.07: Added .cx and .cy properties.
 
 <H4>Notes</H4>
 None

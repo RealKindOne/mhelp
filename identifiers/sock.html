@@ -17,30 +17,30 @@ $sock(name,N)[.property]
 <br><b>N</b> - The Nth matching socket, to be used with a <a href="..\other\wildcard.html">wildcard</a> expression, default to 1
 
 <H4>Properties</H4>
-<b>.name</b> - returns the name you give to a connection to identify it
-<br><b>.addr</b> - returns the original named address if one was used.
-<br><b>.sent</b> - returns the number of bytes sent over that connection so far
-<br><b>.rcvd</b> - returns the number of bytes received over that connection so far
-<br><b>.ip</b> - returns the IP Address the socket is connected to.
-<br><b>.port</b> - returns the Port the socket is connected to.
-<br><b>.sq</b> - returns the number of bytes queued in the send buffer
-<br><b>.rq</b> - returns the number of bytes queued in the receive buffer
-<br><b>.ls</b> - returns the number of seconds since the connection last sent data
-<br><b>.lr</b> - returns the number of seconds since the connection last received data
-<br><b>.mark</b> - returns the data marked from <a href="..\commands\sockmark.html">/sockmark</a> (data storage tied to the socket, 512 bytes max)
-<br><b>.type</b> - returns the socket type, TCP or UDP
-<br><b>.saddr</b> - returns the source address of the last received UDP packet
-<br><b>.sport</b> - return the source port of the last received UDP packet
-<br><b>.to</b> - returns the number of seconds the socket has been open
-<br><b>.wserr</b> - returns the last winsock error number that occurred on a socket
-<br><b>.wsmsg</b> - returns the last winsock error message corresponding to the .wserr error number above
-<br><b>.ssl</b> - returns $true for an SSL connection
-<br><b>.pause</b> - returns $true if a socket has been paused
-<br><b>.starttls</b> - returns $true for a STARTTLS connection
-<br><b>.bindip</b> - returns the ip address or adapter name used when binding IP
-<br><b>.bindport</b> - returns the port name used when binding IP
-<br><b>.status</b> - returns the status of the socket <b>listening</b>, <b>active</b>, <b>connecting</b>, or <b>inactive</b>
-<br><b>.upnp</b> - return $true or $false depending on if upnp was used on the socket
+<b>.name</b> - Returns the name you give to a connection to identify it.
+<br><b>.addr</b> - Returns the original named address if one was used.
+<br><b>.sent</b> - Returns the number of bytes sent over that connection so far.
+<br><b>.rcvd</b> - Returns the number of bytes received over that connection so far.
+<br><b>.ip</b> - Returns the IP Address the socket is connected to.
+<br><b>.port</b> - Returns the Port the socket is connected to.
+<br><b>.sq</b> - Returns the number of bytes queued in the send buffer.
+<br><b>.rq</b> - Returns the number of bytes queued in the receive buffer.
+<br><b>.ls</b> - Returns the number of seconds since the connection last sent data.
+<br><b>.lr</b> - Returns the number of seconds since the connection last received data.
+<br><b>.mark</b> - Returns the data marked from <a href="..\commands\sockmark.html">/sockmark</a> (data storage tied to the socket, 512 bytes max).
+<br><b>.type</b> - Returns the socket type, <b>tcp</b> or <udp>.
+<br><b>.saddr</b> - Returns the source address of the last received UDP packet.
+<br><b>.sport</b> - Return the source port of the last received UDP packet.
+<br><b>.to</b> - Returns the number of seconds the socket has been open.
+<br><b>.wserr</b> - Returns the last winsock error number that occurred on a socket.
+<br><b>.wsmsg</b> - Returns the last winsock error message corresponding to the .wserr error number above.
+<br><b>.ssl</b> - Returns $true for an SSL connection.
+<br><b>.pause</b> - Returns $true if a socket has been paused.
+<br><b>.starttls</b> - Returns $true for a STARTTLS connection.
+<br><b>.bindip</b> - Returns the ip address or adapter name used when binding IP.
+<br><b>.bindport</b> - Returns the port name used when binding IP.
+<br><b>.status</b> - Returns the status of the socket <b>listening</b>, <b>active</b>, <b>connecting</b>, or <b>inactive</b>.
+<br><b>.upnp</b> - Return $true or $false depending on if upnp was used on the socket.
 
 <H4>Example</H4>
 <pre class ="code">
@@ -49,6 +49,18 @@ $sock(name,N)[.property]
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)
+<br>
+<br>
+v5.3 : Added .ip, .lr, .ls, .mark, .name, .port, .rcvd, .rq, .sent, .sq, and .status properties.<br>
+v5.5 : Added .saddr, .sport, and .type properties.<br>
+v5.5 : Added "inactive" response for .status property.<br>
+v5.61: Added .to property.</br>
+v5.71: Added .wserr and .wsmsg properties.<br>
+v6.0 : Added .bindip and .bindport properties.<br>
+v6.17: Added .pause and .ssl properties.<br>
+v6.2 : Added .addr property.</br>
+v7.71: Added .upnp property.</br>
+v7.73: Added .starttls property.</br>
 
 <H4>Notes</H4>
 None
