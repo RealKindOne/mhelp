@@ -12,7 +12,7 @@ The <b>$fline</b> identifier returns the number of the Nth line matching the exp
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$fline(win,expr,N,T,S)
+$fline(win,expr,N,T,S)[.property]
 </pre>
 <H4>Parameters</H4>
 <b>win</b> - a channel/query/status or custom window
@@ -24,7 +24,7 @@ $fline(win,expr,N,T,S)
 Note: if you need S but not T, you must pass T as 0
 
 <H4>Properties</H4>
-<b>.text</b> - return the line matched rather than the line number
+<b>.text</b> - Return the line matched rather than the line number.
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $fline($chan(1),*mirc*)</pre>
@@ -35,6 +35,7 @@ Added: mIRC v5.4 (23 Jun 1998)
 <br>
 v6.2 : Added .text property.
 <H4>Notes</H4>
+None
 <H4>See also</H4>
 
 <a href="flinen.html">$flinen</a><br>
