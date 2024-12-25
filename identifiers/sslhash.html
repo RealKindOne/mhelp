@@ -16,8 +16,8 @@ $sslhash(&lt;md5|sha1|sha256|sha512&gt;,&lt;p|s&gt;)
 <b>&lt;method&gt;</b> - (md5, sha256, sha512, ecdsa)
 <br><b>&lt;type&gt;</b> - p = client certificate, s = server certificate
 <H4>Properties</H4>
-<b>.babble</b> - returns bubble babble string instead of hash digest
-<br><b>.colons</b> - returns hash digest with pairs of hex digits separated by colons
+<b>.babble</b> - Returns bubble babble string instead of hash digest
+<br><b>.colons</b> - Returns hash digest with pairs of hex digits separated by colons
 <H4>Example</H4>
 <pre class ="code">
 //echo -a The $server certificate shown in context menu of status window has sha1 fingerprint $sslhash(sha1,s).colons

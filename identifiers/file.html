@@ -23,13 +23,13 @@ $file="title" dir
 
 <H4>Properties</H4>
 When new $file(filename) is used, you can use the following properties:
-<br><b>.size</b> - returns the file's size in bytes. (default) (see: <a href="bytes.html">$bytes</a>)
-<br><b>.ctime</b> - returns the file's creation time. (see: <a href="asctime.html">$asctime</a>)
-<br><b>.mtime</b> - returns the file's modification time. (see: <a href="asctime.html">$asctime</a>)
-<br><b>.atime</b> - returns the file's last access time. (see: <a href="asctime.html">$asctime</a>)
-<br><b>.shortfn</b> - returns the file's short filename (if it has one).
-<br><b>.longfn</b> - returns the file's long filename.
-<br><b>.attr</b> - returns the file (or folder)'s attributes. the returned value is a concatenation of letters representing the attributes.
+<br><b>.size</b> - Returns the file's size in bytes. (default) (see: <a href="bytes.html">$bytes</a>)
+<br><b>.ctime</b> - Returns the file's creation time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.mtime</b> - Returns the file's modification time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.atime</b> - Returns the file's last access time. (see: <a href="asctime.html">$asctime</a>)
+<br><b>.shortfn</b> - Returns the file's short filename (if it has one).
+<br><b>.longfn</b> - Returns the file's long filename.
+<br><b>.attr</b> - Returns the file (or folder)'s attributes. the returned value is a concatenation of letters representing the attributes.
 
 <br>
 <br>
@@ -55,12 +55,12 @@ Attributes:
 <br>
 
 <br><b>.sig</b> - Checks digital signature of an executable/DLL file. (Returns: ok, fail, none)
-<br><b>.ext</b> - returns the extension of the filename if a filename is used, $null otherwise
+<br><b>.ext</b> - Returns the extension of the filename if a filename is used, $null otherwise
 <br><b>.path</b> - if a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
-<br><b>.name</b> - returns the name of the folder if a folder is used, or the name of the file without the extension if a filename is used
-<br><b>.version</b> - returns the file's ''file version'' if executable/DLL.
-<br><b>.product</b> - returns the file's ''product version'' if executable/DLL.
-<br><b>.flags</b> - returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
+<br><b>.name</b> - Returns the name of the folder if a folder is used, or the name of the file without the extension if a filename is used
+<br><b>.version</b> - Returns the file's ''file version'' if executable/DLL.
+<br><b>.product</b> - Returns the file's ''product version'' if executable/DLL.
+<br><b>.flags</b> - Returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
 <br><b>1</b>: DEBUG - The file contains debugging information or is compiled with debugging features enabled.
 <br><b>2</b>: PRERELEASE - The file is a development version, not a commercially released product.
 <br><b>4</b>: PATCHED - The file has been modified and is not identical to the original shipping file of the same version number.

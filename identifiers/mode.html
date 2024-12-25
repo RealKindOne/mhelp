@@ -15,16 +15,16 @@ $mode(N)[.property]
 <b>N</b> - The Nth nick affected, you can use N = 0 to get the total number of nick affected
 
 <H4>Properties</H4>
-<b>.owner</b> - returns the Nth nick which is given the owner status
-<br><b>.deowner</b> - returns the Nth nick which is demoted from the owner status
-<br><b>.op</b> - returns the Nth nick which is given the op status
-<br><b>.deop</b> - returns the Nth nick which is demoted from the op status
-<br><b>.help</b> - returns the Nth nick which is given the help status
-<br><b>.dehelp</b> - returns the Nth nick which is demoted from the help status
-<br><b>.voice</b> - returns the Nth nick which is given the voice status
-<br><b>.devoice</b> - returns the Nth nick which is demoted from the voice status
-<br><b>.ban</b> - returns the Nth nick which is banned
-<br><b>.unban</b> - returns the Nth nick which is unbanned
+<b>.owner</b> - Returns the Nth nick which is given the owner status
+<br><b>.deowner</b> - Returns the Nth nick which is demoted from the owner status
+<br><b>.op</b> - Returns the Nth nick which is given the op status
+<br><b>.deop</b> - Returns the Nth nick which is demoted from the op status
+<br><b>.help</b> - Returns the Nth nick which is given the help status
+<br><b>.dehelp</b> - Returns the Nth nick which is demoted from the help status
+<br><b>.voice</b> - Returns the Nth nick which is given the voice status
+<br><b>.devoice</b> - Returns the Nth nick which is demoted from the voice status
+<br><b>.ban</b> - Returns the Nth nick which is banned
+<br><b>.unban</b> - Returns the Nth nick which is unbanned
 
 <H4>Example</H4>
 Although on op only triggers for op status, if you type /mode #chan +ob nick test, $mode(0) is still 2 and you can access all the modes lists

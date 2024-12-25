@@ -16,10 +16,10 @@ $var(var,N)[.property]
 <br><b>N</b> - The Nth matching variable, if N is 0, returns the total number of matching variable.
 
 <H4>Properties</H4>
-<b>.value</b> - return the value of the variable
-<br><b>.local</b> - return $true if the variable is local, $false otherwise
-<br><b>.secs</b> - return the time left until the variable is automatically unset (-u switch of <a href="..\commands\set.html">/set</a>)
-<br><b>.unset</b> - return the original unset time N passed to /set -uN
+<b>.value</b> - Return the value of the variable
+<br><b>.local</b> - Return $true if the variable is local, $false otherwise
+<br><b>.secs</b> - Return the time left until the variable is automatically unset (-u switch of <a href="..\commands\set.html">/set</a>)
+<br><b>.unset</b> - Return the original unset time N passed to /set -uN
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $var(%myscript*,0)</pre>

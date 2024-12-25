@@ -21,8 +21,8 @@ $bvar(&binvar, [ N [ ,M] ] )[.property]
 <br><b>M</b> - Optional number of values to get from the binvar at position N, this is not a position in the binvar but an offset starting at N. If there are not M bytes beginning at the Nth position, returns all the remaining bytes beginning at the Nth position. if M is used, the form N1-N2 for N is ignored and only N1 is used as though $bvar(&,N,M) was used.
 
 <H4>Properties</H4>
-<b>.text</b> - returns a string from the bytes, bytes are decoded from utf8
-<br><b>.ansi</b> - returns a string from the bytes, bytes are not decoded from utf8
+<b>.text</b> - Returns a string from the bytes, bytes are decoded from utf8
+<br><b>.ansi</b> - Returns a string from the bytes, bytes are not decoded from utf8
 <br><b>.word</b> - Outputs decimal value of a 2-byte word, seeing bytes in little-endian byte order (low value first)
 <br><b>.nword</b> - Outputs decimal value of a 2-byte word, seeing bytes in big-endian byte order (high value first)
 <br><b>.long</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in little-endian byte order (low value first)

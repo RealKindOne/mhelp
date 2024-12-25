@@ -11,7 +11,7 @@ The <b>$tip</b> identifier allows you to create scripted tips that are independe
 <pre class ="code">
 $tip(&lt;name&gt;,&lt;title&gt;,&lt;text&gt;,delay,iconfn,iconpos,alias,wid)
 create a tip, returns Nth position of tip if successfully created, 0 if not
-$tip(N/name) - returns information about a tip
+$tip(N/name) - Returns information about a tip
 </pre>
 <H4>Parameters</H4>
 <b>name</b> - The name of your tip.
@@ -28,15 +28,15 @@ $tip(N/name) - returns information about a tip
 <H4>Properties</H4>
 When only one parameter is passed to $tip, you can use the following properties:
 <br>
-<br><b>.name</b> - returns the name of the tip (used with the N parameter typically)
-<br><b>.title</b> - return the title of the tip
-<br><b>.text</b> - return the text of the tip
-<br><b>.delay</b> - return the delay of the tip
-<br><b>.iconfn</b> - return the icon filename used if any
-<br><b>.iconpos</b> - return the position of the icon for a file containing multiple icons
-<br><b>.alias</b> - return the name of the alias called when double clicking the tip
-<br><b>.wid</b> - return the id the window to which the tip belongs
-<br><b>.cid</b> - return the id of the connection to which the tip belongs
+<br><b>.name</b> - Returns the name of the tip (used with the N parameter typically)
+<br><b>.title</b> - Return the title of the tip
+<br><b>.text</b> - Return the text of the tip
+<br><b>.delay</b> - Return the delay of the tip
+<br><b>.iconfn</b> - Return the icon filename used if any
+<br><b>.iconpos</b> - Return the position of the icon for a file containing multiple icons
+<br><b>.alias</b> - Return the name of the alias called when double clicking the tip
+<br><b>.wid</b> - Return the id the window to which the tip belongs
+<br><b>.cid</b> - Return the id of the connection to which the tip belongs
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $tip(test,test,test)</pre>

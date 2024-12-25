@@ -16,11 +16,11 @@ $fopen(N/name)[.property]
 <br><b>name</b> -The handle name to be used
 
 <H4>Properties</H4>
-<b>.fname</b> - returns the complete filename opened
-<br><b>.pos</b> - returns the position of the pointer in the file
-<br><b>.eof</b> - returns 1 if the end of the file was reached, 0 otherwise
-<br><b>.err</b> - returns 0 if an error occurred from the last file access
-<br><b>.bom</b> - returns the encoding of the file, <b>utf16le</b>, <b>utf16be</b>, <b>utf8</b>, or <b>ascii</b>
+<b>.fname</b> - Returns the complete filename opened
+<br><b>.pos</b> - Returns the position of the pointer in the file
+<br><b>.eof</b> - Returns 1 if the end of the file was reached, 0 otherwise
+<br><b>.err</b> - Returns 0 if an error occurred from the last file access
+<br><b>.bom</b> - Returns the encoding of the file, <b>utf16le</b>, <b>utf16be</b>, <b>utf8</b>, or <b>ascii</b>
 
 <H4>Example</H4>
 <pre class ="code">//fopen test $qt($mircini) | echo -a > $fread(test) $fopen(test).pos | fclose test
