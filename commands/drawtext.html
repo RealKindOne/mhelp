@@ -13,40 +13,24 @@ The <b>/drawtext</b> command draws text at the specified co-ordinates. If you us
 </pre>
 
 <H4>Switches</H4>
-<b>-p</b>
-      - processes and interprets control codes in the text
-<br><b>-b</b>
-      - indicates that you have specified the second color parameter as the background color for the text
-<br><b>-c</b>
-      - means that you have specified the [w h] values as the rectangle in which text should be printed. Text will be clipped if it extends beyond this rectangle
-<br><b>-h</b>
-      - highlights the windows icon if it is minimized
-<br><b>-n</b>
-      - prevents the display from being updated immediately
-<br><b>-r</b>
-      - indicates that the colors are in RGB format
-<br><b>-o</b>
-      - Attempt to draw the text in bold. A $chr(2) is inserted at the beginning of the string and is interpreted (but the others control codes won't be). If you use -p as well as -o, control code will be interpreted and having a $chr(2) in your text will break the bold.
-<br><b>-i</b>
-      - Same as -o but for italic with $chr(29)
-<br><b>-v</b>
-      - Draw text from a binvar
-<br><b>-d</b>
-      - disable tab support
+<b>-p</b> - Processes and interprets control codes in the text.
+<br><b>-b</b> - Indicates that you have specified the second color parameter as the background color for the text.
+<br><b>-c</b> - Means that you have specified the [w h] values as the rectangle in which text should be printed. Text will be clipped if it extends beyond this rectangle.
+<br><b>-h</b> - Highlights the windows icon if it is minimized.
+<br><b>-n</b> - Prevents the display from being updated immediately.
+<br><b>-r</b> - Indicates that the colors are in RGB format.
+<br><b>-o</b> - Attempt to draw the text in bold. A $chr(2) is inserted at the beginning of the string and is interpreted (but the others control codes won't be). If you use -p as well as -o, control code will be interpreted and having a $chr(2) in your text will break the bold.
+<br><b>-i</b> - Same as -o but for italic with $chr(29).
+<br><b>-v</b> - Draw text from a binvar.
+<br><b>-d</b> - Disable tab support.
 
 <H4>Parameters</H4>
-<b>&lt;@win&gt;</b>
-      - the window's name
-<br><b>&lt;color&gt;</b>
-      - the foreground color
-<br><b>[color]</b>
-      - the background color, if -b has been specified
-<br><b>[fontname fontsize]</b>
-      - the name of the font and the size of the font
-<br><b>&lt;x y [w h]&gt;</b>
-      - the coordinate of the text
-<br><b>&lt;text&gt;</b>
-      - the text to be drawn
+<b>&lt;@win&gt;</b> - The window's name.
+<br><b>&lt;color&gt;</b> - The foreground color.
+<br><b>[color]</b> - The background color, if -b has been specified.
+<br><b>[fontname fontsize]</b> - The name of the font and the size of the font.
+<br><b>&lt;x y [w h]&gt;</b> - The coordinate of the text.
+<br><b>&lt;text&gt;</b> - The text to be drawn.
 
 <H4>Example</H4>
 <pre class ="code">

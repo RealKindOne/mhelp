@@ -13,28 +13,24 @@ The <b>/auser</b> command Add or edit an entry in mIRC's User List (the User tab
 </pre>
 
 <H4>Switches</H4>
-<b>-a</b>
-      - If &lt;nick|address&gt; match an entry in the list, &lt;levels&gt; are added to that entry
+<b>-a</b> - If &lt;nick|address&gt; match an entry in the list, &lt;levels&gt; are added to that entry.
 
 <H4>Parameters</H4>
-<b>&lt;levels&gt;</b>
-      - Access level to be assigned to the nick/address.
-<br><b>&lt;nick|address&gt;</b>
-      - The exact nick or address to be used.
-<br><b>[info]</b>
-      - Can be used to add additional information about that entry.
+<b>&lt;levels&gt;</b> - Access level to be assigned to the nick/address.
+<br><b>&lt;nick|address&gt;</b> - The exact nick or address to be used.
+<br><b>[info]</b> - Can be used to add additional information about that entry.
 
 <H4>Example</H4>
 <pre class ="code">
-;Add an address; Info can be retrieved using $ulist(*!*@Example.com).info
-;5:*!*@Example.com Cool people
+; Add an address; Info can be retrieved using $ulist(*!*@Example.com).info
+; 5:*!*@Example.com Cool people
 /auser 5 *!*@Example.com Cool people
 
-;Add another level for the same address
-;10,=5:*!*@.com Cool people
+; Add another level for the same address
+; 10,=5:*!*@.com Cool people
 /auser -a 10 *!*@.com
 
-;Remove Address
+; Remove Address
 /ruser *!*@Example.com
 /*
 * The above example will output:

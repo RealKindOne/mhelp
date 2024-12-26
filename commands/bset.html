@@ -17,26 +17,17 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 </pre>
 
 <H4>Switches</H4>
-<b>-t</b>
-      - Indicates a string is to be written instead of 1 or more literal ASCII values
-<br><b>-a</b>
-      - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters > 255.
-<br><b>-c</b>
-      - Fills the binary variable with the string/ASCII values and truncates anything after it
-<br><b>-z</b>
-      - Creates new or truncates existing &binvar at zero length
+<b>-t</b> - Indicates a string is to be written instead of 1 or more literal ASCII values.
+<br><b>-a</b> - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters > 255.
+<br><b>-c</b> - Fills the binary variable with the string/ASCII values and truncates anything after it.
+<br><b>-z</b> - Creates new or truncates existing &binvar at zero length.
 
 <H4>Parameters</H4>
-<b>&lt;&bvar&gt;</b>
-      - The binary variable name to use/create
-<br><b>&lt;pos&gt;</b>
-      - The position to set the new ASCII values or the string, use -1 to append. The first byte of the string is pos 1. If &lt;pos&gt; is greater than the existing length of the binary variable, the string is zero-padded to fill undefined bytes between &lt;pos&gt; and the prior end of string.
-<br><b>&lt;asciivalue&gt;</b>
-      - ASCII 0-255 value to write. If values are in range 256 - 2^31-1, writes $and(value,255). If value >= 2^31, writes 255.
-<br><b>[asciivalue ... asciivalue]</b>
-      - Additional ASCII values to be written
-<br><b>&lt;string&gt;</b>
-      - The string to be written. The length of string or number of values is limited only by the 4150 character line length for the entire command including 'bset'
+<b>&lt;&bvar&gt;</b> - The binary variable name to use/create.
+<br><b>&lt;pos&gt;</b> - The position to set the new ASCII values or the string, use -1 to append. The first byte of the string is pos 1. If &lt;pos&gt; is greater than the existing length of the binary variable, the string is zero-padded to fill undefined bytes between &lt;pos&gt; and the prior end of string.
+<br><b>&lt;asciivalue&gt;</b> - ASCII 0-255 value to write. If values are in range 256 - 2^31-1, writes $and(value,255). If value >= 2^31, writes 255.
+<br><b>[asciivalue ... asciivalue]</b> - Additional ASCII values to be written.
+<br><b>&lt;string&gt;</b> - The string to be written. The length of string or number of values is limited only by the 4150 character line length for the entire command including 'bset'.
 
 <H4>Example</H4>
 <pre class ="code">

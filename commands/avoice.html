@@ -17,28 +17,18 @@ The <b>/avoice</b> command can be used to disable or enable this feature as well
 </pre>
 
 <H4>Switches</H4>
-<b>-r</b>
-      - Indicates address/nick to should be removed, you can pass a channel name to remove that channel only from the list of channel for that entry
-<br><b>-w</b>
-      - Auto-Voice apply to any network
-<br><b>-a</b>
-      - Add the entry (default)
-<br><b>-l</b>
-      - list all of the auto-voice entry
+<b>-r</b> - Indicates address/nick to should be removed, you can pass a channel name to remove that channel only from the list of channel for that entry.
+<br><b>-w</b> - Auto-Voice apply to any network.
+<br><b>-a</b> - Add the entry (default).
+<br><b>-l</b> - List all of the auto-voice entry.
 
 <H4>Parameters</H4>
-<b>on</b>
-      - Enable autovoice
-<br><b>off</b>
-      - Disable autovoice
-<br><b>&lt;nick/address&gt;</b>
-      - The nickname or address of the person to be added to the auto-voice list. Both nickname and addresses are acceptable. Addresses can be <a href="..\other\wildcard.html">wildcard</a> addresses.
-<br><b>[#channel`,#channel2,...]</b>
-      - Channels to apply the auto-voice to.
-<br><b>[type]</b>
-      - Address <a href="..\other\type.html">type</a> to be used.
-<br><b>[network]</b>
-      - Optional network name to apply the auto-voice to.
+<b>on</b> - Enable autovoice.
+<br><b>off</b> - Disable autovoice.
+<br><b>&lt;nick/address&gt;</b> - The nickname or address of the person to be added to the auto-voice list. Both nickname and addresses are acceptable. Addresses can be <a href="..\other\wildcard.html">wildcard</a> addresses.
+<br><b>[#channel`,#channel2,...]</b> - Channels to apply the auto-voice to.
+<br><b>[type]</b> - Address <a href="..\other\type.html">type</a> to be used.
+<br><b>[network]</b> - Optional network name to apply the auto-voice to.
 
 <H4>Example</H4>
 Display avoice status:
@@ -53,11 +43,12 @@ Disable avoice:
 <pre class ="code">
 /avoice off
 </pre>
+Add Madgoat to the auto-voice list. Address type 2, network Undernet:
 <pre class ="code">
-; Add Madgoat to the auto-voice list. Address type 2, network Undernet
 /avoice MadGoat 2 Undernet
-
-; Remove Madgoat from the auto-voice list
+</pre>
+Remove Madgoat from the auto-voice list:
+<pre class ="code">
 /avoice -r MadGoat 2 Undernet
 </pre>
 

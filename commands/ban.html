@@ -9,27 +9,23 @@ The <b>/ban</b> command is used to ban someone from a specific channel using the
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/ban [-ruN] [#channel] &lt;nickname|address&gt; [type]
-/ban -k[ruN] [#channel] &lt;nickname|address&gt; [type] [kick message]
+/ban [-kruNbeIq] [#channel] &lt;nickname|address&gt; [type] [kick message]
 </pre>
 
 <H4>Switches</H4>
-<b>-k</b>
-      - Bans and kicks the user
-<br><b>-r</b>
-      - Used to remove a banned address
-<br><b>-u</b>N
-      - Unsets the ban in N amount of seconds
+<b>-k</b> - Bans and kicks the user.
+<br><b>-r</b> - Used to remove a banned address.
+<br><b>-u</b>N - Unsets the ban in N amount of seconds.
+<br><b>-b</b> - Ban list.
+<br><b>-e</b> - Exempt list.
+<br><b>-I</b> - Invite (Invex).
+<br><b>-q</b> - Quiet.
 
 <H4>Parameters</H4>
-<b>[#channel]</b>
-      - A specific channel to apply the ban on.
-<br><b>&lt;nickname|address&gt;</b>
-      - The nick or address to use for the ban.
-<br><b>[type]</b>
-      - Address <a href="..\other\type.html">type</a> to be used.
-<br><b>[kick message]</b>
-      - The optional kick message.
+<b>[#channel]</b> - A specific channel to apply the ban on.
+<br><b>&lt;nickname|address&gt;</b> - The nick or address to use for the ban.
+<br><b>[type]</b> - Address <a href="..\other\type.html">type</a> to be used.
+<br><b>[kick message]</b> - The optional kick message.
 
 <H4>Example</H4>
 <pre class ="code">

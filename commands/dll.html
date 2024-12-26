@@ -15,20 +15,15 @@ The <b>/dll</b> command can be used to call an exported function from a DLL with
 </pre>
 
 <H4>Switches</H4>
-<b>-u</b>
-      - Unload the given loaded library.
-<br><b>-m</b>
-      - Call the procname in a new thread and call the alias &lt;callback&gt; when finished
+<b>-u</b> - Unload the given loaded library.
+<br><b>-m</b> - Call the procname in a new thread and call the alias &lt;callback&gt; when finished.
 
 <br><b>Note:</b> if you pass only a filename, (for example "test.dll", instead of /folder/test.dll or c:\fullpath\test.dll), /dll -u will begin with N=1 looking into the whole list of dlls for a match between $nopath($dll(Nth)) instead of looking into $mircdir only or looking in $mircdir first.
 
 <H4>Parameters</H4>
-<b>&lt;libName.dll&gt;</b>
-      - The name and path of the dynamic link library (DLL) file.
-<br><b>&lt;funcName&gt;</b>
-      - The name of the exported function to call
-<br><b>[data]</b>
-      - The data to pass to that function.
+<b>&lt;libName.dll&gt;</b> - The name and path of the dynamic link library (DLL) file.
+<br><b>&lt;funcName&gt;</b> - The name of the exported function to call.
+<br><b>[data]</b> - The data to pass to that function.
 
 <br><b>Note:</b> If the path or filename contains a space, &lt;libName.dll&gt; MUST be enclosed in double quotes.
 

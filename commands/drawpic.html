@@ -13,50 +13,30 @@ The <b>/drawpic command</b> draws a picture at the specified coordinates. The pi
 </pre>
 
 <H4>Switches</H4>
-<b>-t</b>
-      - indicates that you have specified the [color] RGB value as a transparent color in the specified bitmap
-<br><b>-s</b>
-      - indicates that you have specified the first [w h] parameters to squeeze/stretch the bitmap
-<br><b>-c</b>
-      - indicates that the bitmap should be cached. This greatly speeds up subsequent references to this bitmap. If you specify -c and the bitmap is already in the cache, it is loaded and used from the cache, otherwise it is reloaded from the file. You can clear the entire cache with /drawpic -c
-<br><b>-l</b>
-      - tiles the picture
-<br><b>-m</b>
-      - changes the stretch mode quality when the picture is resized
-<br><b>-o</b>
-      - indicates that you have specified the [N] value before the filename, representing the index of the icon in the file, or the Nth frame in a GIF file.
-<br><b>-f</b>
-      - used with -o, indicate that you want to use the Mth frame in the Nth icon, eg /drawpic -of [N] [M]
+<b>-t</b> - Indicates that you have specified the [color] RGB value as a transparent color in the specified bitmap.
+<br><b>-s</b> - Indicates that you have specified the first [w h] parameters to squeeze/stretch the bitmap.
+<br><b>-c</b> - Indicates that the bitmap should be cached. This greatly speeds up subsequent references to this bitmap. If you specify -c and the bitmap is already in the cache, it is loaded and used from the cache, otherwise it is reloaded from the file. You can clear the entire cache with /drawpic -c.
+<br><b>-l</b> - Tiles the picture.
+<br><b>-m</b> - Changes the stretch mode quality when the picture is resized.
+<br><b>-o</b> - Indicates that you have specified the [N] value before the filename, representing the index of the icon in the file, or the Nth frame in a GIF file.
+<br><b>-f</b> - Used with -o, indicate that you want to use the Mth frame in the Nth icon, eg /drawpic -of [N] [M].
 
-<br><b>Note:</b> The Nth icon and Mth frames indexes starts at 0, not 1
+<br><b>Note:</b> The Nth icon and Mth frames indexes starts at 0, not 1.
 
 
-<br><b>-g</b>N
-      - attempts to load the large icon in an icon file, if none exists, it loads the small icon. If N is specified, N = 0 loads the small icon, N = 1 loads the large icon, and N = 2 loads the actual icon
-<br><b>-i</b>
-      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
-<br><b>-h</b>
-      - highlights the windows icon if it is minimized
-<br><b>-n</b>
-      - prevents the display from being updated immediately
+<br><b>-g</b>N - attempts to load the large icon in an icon file, if none exists, it loads the small icon. If N is specified, N = 0 loads the small icon, N = 1 loads the large icon, and N = 2 loads the actual icon.
+<br><b>-i</b> - Draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b> - Highlights the windows icon if it is minimized.
+<br><b>-n</b> - Prevents the display from being updated immediately.
 
 <H4>Parameters</H4>
-<b>&lt;@win&gt;</b>
-      - the window's name
-<br><b>[color]</b>
-      - if -t is used, the RGB color used for transparency
-<br><b>&lt;x y [w h]&gt;</b>
-      - the x y coordinates where you want to draw, if -s is used, [w h] is the width/height that will be used to squeeze/stretch the bitmap
-<br><b>[x y w h]</b>
-      - the area in the picture to be drawn
-<br><b>[N]</b>
-      - if -o is used, the index number of the icon in the file
-<br><b>[M]</b>
-      - if -fo is used, the index number of the frame in the icon.
-
-
-<br><b>&lt;filename&gt;</b>
-      - the filename for the picture
+<b>&lt;@win&gt;</b> - The window's name.
+<br><b>[color]</b> - If -t is used, the RGB color used for transparency.
+<br><b>&lt;x y [w h]&gt;</b> - The x y coordinates where you want to draw, if -s is used, [w h] is the width/height that will be used to squeeze/stretch the bitmap.
+<br><b>[x y w h]</b> - The area in the picture to be drawn.
+<br><b>[N]</b> - If -o is used, the index number of the icon in the file.
+<br><b>[M]</b> - If -fo is used, the index number of the frame in the icon.
+<br><b>&lt;filename&gt;</b> - The filename for the picture.
 
 <H4>Example</H4>
 <pre class ="code">

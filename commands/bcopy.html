@@ -15,22 +15,15 @@ If the number of bytes to copy is -1, all bytes available will be copied over to
 </pre>
 
 <H4>Switches</H4>
-<b>-z</b>
-      - Bytes in the source which are copied are zero-filled with $chr(0) after the copy
-<br><b>-c</b>
-      - Truncates the destination variable to remove bytes following the bytes copied. Where both N and M are positive, the new destination length is &lt;des_pos&gt; + &lt;numBytes&gt; -1
+<b>-z</b> - Bytes in the source which are copied are zero-filled with $chr(0) after the copy.
+<br><b>-c</b> - Truncates the destination variable to remove bytes following the bytes copied. Where both N and M are positive, the new destination length is &lt;des_pos&gt; + &lt;numBytes&gt; -1.
 
 <H4>Parameters</H4>
-<b>&lt;dest_&binvar&gt;</b>
-      - The destination binary variable. Source and destination can be the same variable.
-<br><b>&lt;dest_pos&gt;</b>
-      - The position to which to copy the byte to (or -1 to append to destination).
-<br><b>&lt;src_&binvar&gt;</b>
-      - The source binary variable.
-<br><b>&lt;src_pos&gt;</b>
-      - The position from which to start copying bytes.
-<br><b>&lt;numBytes&gt;</b>
-      - Number of bytes to copy beginning at &lt;src_pos&gt; (or -1 for everything beginning at &lt;src_pos&gt;).
+<b>&lt;dest_&binvar&gt;</b> - The destination binary variable. Source and destination can be the same variable.
+<br><b>&lt;dest_pos&gt;</b> - The position to which to copy the byte to (or -1 to append to destination).
+<br><b>&lt;src_&binvar&gt;</b> - The source binary variable.
+<br><b>&lt;src_pos&gt;</b> - The position from which to start copying bytes.
+<br><b>&lt;numBytes&gt;</b> - Number of bytes to copy beginning at &lt;src_pos&gt; (or -1 for everything beginning at &lt;src_pos&gt;).
 
 <H4>Example</H4>
 <pre class ="code">

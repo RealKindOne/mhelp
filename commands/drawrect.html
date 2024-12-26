@@ -13,32 +13,20 @@ The <b>/drawrect</b> command can be used to draw a rectangle in a picture window
 </pre>
 
 <H4>Switches</H4>
-<b>-i</b>
-      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
-<br><b>-h</b>
-      - Highlights the windows icon if it is minimized.
-<br><b>-n</b>
-      - Prevents the display from being updated immediately.
-<br><b>-r</b>
-      - Indicates that the color is in RGB format.
-<br><b>-f</b>
-      - Draws a filled rectangle.
-<br><b>-e</b>
-      - Draws an ellipse instead of a rectangle.
-<br><b>-c</b>
-      - Draws a focus rectangle.
-<br><b>-d</b>
-      - Draws a rounded rectangle, using the format "/drawrect -d x y w h [w h]" where w and h are the width and height of the ellipse used to draw the corners.
+<b>-i</b> - Draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b> - Highlights the windows icon if it is minimized.
+<br><b>-n</b> - Prevents the display from being updated immediately.
+<br><b>-r</b> - Indicates that the color is in RGB format.
+<br><b>-f</b> - Draws a filled rectangle.
+<br><b>-e</b> - Draws an ellipse instead of a rectangle.
+<br><b>-c</b> - Draws a focus rectangle.
+<br><b>-d</b> - Draws a rounded rectangle, using the format "/drawrect -d x y w h [w h]" where w and h are the width and height of the ellipse used to draw the corners.
 
 <H4>Parameters</H4>
-<b>&lt;@win&gt;</b>
-      - Name of the Picture Window to draw to.
-<br><b>&lt;color&gt;</b>
-      - A mIRC colour value from 0 to 15, or if the -r switch is used, an RGB value.
-<br><b>&lt;size&gt;</b>
-      - Thickness of the border in pixels.
-<br><b>&lt;x y w h&gt;</b>
-      - Co-ordinates for a rectangle in pixels, x and y are the top left corner.
+<b>&lt;@win&gt;</b> - Name of the Picture Window to draw to.
+<br><b>&lt;color&gt;</b> - A mIRC colour value from 0 to 15, or if the -r switch is used, an RGB value.
+<br><b>&lt;size&gt;</b> - Thickness of the border in pixels.
+<br><b>&lt;x y w h&gt;</b> - Co-ordinates for a rectangle in pixels, x and y are the top left corner.
 
 <H4>Example</H4>
 Draws a rectangle that is blue (colour 2) with border thickness of 7, at co-ordinates 15,10 with a width of 200 and height of 150:

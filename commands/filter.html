@@ -24,69 +24,41 @@ You can restrict the source to a range of line numbers, and you can sort the out
 Source and destination switches are (in theory) only needed if either the source or destination is ambiguous, but it is recommended that you always explicitly define both source and destination. The first use of these indicates the source, the second indicates the destination. As long as you're using a @window as your input or output and the other part of the input/output pair is a filename that does not begin with "@" then the -fw switches are not needed. They are needed with -s and -d to indicate which are input/output. Can use the window-id as an alias for the @custom window name. @test can be replaced by $+(@,$window(@test).wid)
 
 
-<br><b>-w</b>
-      - source/destination is a custom-window
-<br><b>-f</b>
-      - source/destination is a file
-<br><b>-d</b>
-      - source/destination is the single message window
-<br><b>-s</b>
-      - source/destination is the status window
-<br><b>-k</b>
-      - destination is an &lt;alias&gt;. The alias will be called for each filtered line, with the form $&lt;alias&gt;($1) where $1 is the matched line
-<br><b>-i</b>
-      - source is a custom dialog control [dialog id]
-<br><b>-o</b>
-      - destination is a custom dialog control [dialog id]
+<br><b>-w</b> - Source/destination is a custom-window.
+<br><b>-f</b> - Source/destination is a file.
+<br><b>-d</b> - Source/destination is the single message window.
+<br><b>-s</b> - Source/destination is the status window.
+<br><b>-k</b> - Destination is an &lt;alias&gt;. The alias will be called for each filtered line, with the form $&lt;alias&gt;($1) where $1 is the matched line.
+<br><b>-i</b> - Source is a custom dialog control [dialog id].
+<br><b>-o</b> - Destination is a custom dialog control [dialog id].
 
 <br>
 <br>
 <b>Other switches</b>
 <br>
-<br><b>-r</b>
-      - specifies the range of lines n to n2 for filtering
-<br><b>-t</b>
-      - switch sorts the output based on [c s], column C using character S as the columns separator
-<br><b>-e</b>
-      - used with -t, specifies a descending sort
-<br><b>-u</b>
-      - used with -t, specifies a numeric sort
-<br><b>-a</b>
-      - sorts filtered lines by calling the optional [alias] parameter, the alias is passed two lines, $1 and $2, it must compare both and return -1, 0, or 1 to indicate relative sort order of these lines to each other
-<br><b>-g</b>
-      - indicates the <a href="..\events\matchtext.html">matchtext</a> is a regular expression
-<br><b>-x</b>
-      - excludes matching lines
-<br><b>-n</b>
-      - prefixes lines with a line number (the Nth match)
-<br><b>-p</b>
-      - when output destination is a custom window (but not a listbox), wraps the text output
-<br><b>-h</b>N
-      - indents wrapped text by N spaces (same as echo -i) when the -p switch is used
-<br><b>-b</b>
-      - strips BURK control codes when matching text
-<br><b>-z</b>
-      - retains line colors when filtering between custom windows
-<br><b>-c</b>
-      - switch clears the output window/file before writing to it
-<br><b>-l</b>
-      - filters from the side-listbox in the first window
-<br><b>-L</b>
-      - filters to the side-listbox in the second window
+<br><b>-r</b> - Specifies the range of lines n to n2 for filtering.
+<br><b>-t</b> - Switch sorts the output based on [c s], column C using character S as the columns separator.
+<br><b>-e</b> - Used with -t, specifies a descending sort.
+<br><b>-u</b> - Used with -t, specifies a numeric sort.
+<br><b>-a</b> - Sorts filtered lines by calling the optional [alias] parameter, the alias is passed two lines, $1 and $2, it must compare both and return -1, 0, or 1 to indicate relative sort order of these lines to each other.
+<br><b>-g</b> - Indicates the <a href="..\events\matchtext.html">matchtext</a> is a regular expression.
+<br><b>-x</b> - Excludes matching lines.
+<br><b>-n</b> - Prefixes lines with a line number (the Nth match).
+<br><b>-p</b> - When output destination is a custom window (but not a listbox), wraps the text output.
+<br><b>-h</b>N - indents wrapped text by N spaces (same as echo -i) when the -p switch is used.
+<br><b>-b</b> - Strips BURK control codes when matching text.
+<br><b>-z</b> - Retains line colors when filtering between custom windows.
+<br><b>-c</b> - Switch clears the output window/file before writing to it.
+<br><b>-l</b> - Filters from the side-listbox in the first window.
+<br><b>-L</b> - Filters to the side-listbox in the second window.
 
 <H4>Parameters</H4>
-<b>[n-n2]</b>
-      - if -r is used, indicates the range of lines to be scanned*
-<br><b>[c s]</b>
-      - if -t is used, indicates how to do the sort
-<br><b>&lt;in-window | in-file | in-dialog-id&gt;</b>
-      - unless you use -d or -s switches as source (which imply a window name), you must provide an input custom-window (-w), file (-f) or dialog control (-i)
-<br><b>&lt;out-window | out-file | out-dialog-id | out-alias&gt;</b>
-      - unless you use -d or -s switches as destination (which imply a window name), you must provide an output custom-window (-w), file (-f), dialog control (-o), or alias name (-k)
-<br><b>[sort-alias]</b>
-      - if -a is used, the sorting alias called
-<br><b>&lt;matchtext&gt;</b>
-      - the <a href="..\events\matchtext.html">expression</a> used for the search, if $null is used, it matches everything.
+<b>[n-n2]</b> - If -r is used, indicates the range of lines to be scanned*
+<br><b>[c s]</b> - If -t is used, indicates how to do the sort
+<br><b>&lt;in-window | in-file | in-dialog-id&gt;</b> - Unless you use -d or -s switches as source (which imply a window name), you must provide an input custom-window (-w), file (-f) or dialog control (-i)
+<br><b>&lt;out-window | out-file | out-dialog-id | out-alias&gt;</b> - Unless you use -d or -s switches as destination (which imply a window name), you must provide an output custom-window (-w), file (-f), dialog control (-o), or alias name (-k)
+<br><b>[sort-alias]</b> - If -a is used, the sorting alias called
+<br><b>&lt;matchtext&gt;</b> - The <a href="..\events\matchtext.html">expression</a> used for the search, if $null is used, it matches everything.
 
 <H4>Example</H4>
 <pre class ="code">

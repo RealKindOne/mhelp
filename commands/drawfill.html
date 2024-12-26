@@ -13,30 +13,19 @@ The <b>/drawfill</b> command fills an area with the specified color starting at 
 </pre>
 
 <H4>Switches</H4>
-<b>-s</b>
-      - indicates that the second color parameter is the color that should be filled (surface fill), if -s is not used specified, the second color is the border color at which filling should stop (border fill)
-<br><b>-i</b>
-      - draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
-<br><b>-h</b>
-      - highlights the windows icon if it is minimized
-<br><b>-n</b>
-      - prevents the display from being updated immediately
-<br><b>-r</b>
-      - indicates that the color is in RGB format
+<b>-s</b> - Indicates that the second color parameter is the color that should be filled (surface fill), if -s is not used specified, the second color is the border color at which filling should stop (border fill).
+<br><b>-i</b> - Draws in inverse color mode. You can find the final color based on the two color by using $xor($xor(currentcolor,16777215),drawncolor). Drawing the same color gives white and may be used to create transparency effect.
+<br><b>-h</b> - Highlights the windows icon if it is minimized.
+<br><b>-n</b> - Prevents the display from being updated immediately.
+<br><b>-r</b> - Indicates that the color is in RGB format.
 
 <H4>Parameters</H4>
-<b>&lt;@win&gt;</b>
-      - the window's name
-<br><b>&lt;color&gt;</b>
-      - the color used for the fill
-<br><b>&lt;color&gt;</b>
-      - the color used to know how to fill (if -s, it fills as long as the color of the pixels around is the same color as the one you provide here, otherwise, it fills as long as the color of pixel is not the color you provide here)
-<br><b>&lt;x y&gt;</b>
-      - the coordinate where to fill
-<br><b>[filename]</b>
-      - if specified, a bitmap .BMP file that is 8 by 8 pixels in size and is used as a fill pattern
-<br><b>[&lt;x y&gt;...]</b>
-      - more coordinates to apply the same fill on
+<b>&lt;@win&gt;</b> - The window's name.
+<br><b>&lt;color&gt;</b> - The color used for the fill.
+<br><b>&lt;color&gt;</b> - The color used to know how to fill (if -s, it fills as long as the color of the pixels around is the same color as the one you provide here, otherwise, it fills as long as the color of pixel is not the color you provide here).
+<br><b>&lt;x y&gt;</b> - The coordinate where to fill.
+<br><b>[filename]</b> - If specified, a bitmap .BMP file that is 8 by 8 pixels in size and is used as a fill pattern.
+<br><b>[&lt;x y&gt;...]</b> - More coordinates to apply the same fill on.
 
 <H4>Example</H4>
 <pre class ="code">

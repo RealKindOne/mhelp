@@ -13,62 +13,35 @@ The <b>/did</b> command allows you to modify the values of controls in a dialog.
 </pre>
 
 <H4>Switches</H4>
-<b>-f</b>
-      - set focus on &lt;id&gt;, use -fu to set a tab on focus
-<br><b>-t</b>
-      - set &lt;id&gt; as default button
-<br><b>-e</b>
-      - enable &lt;id&gt;
-<br><b>-b</b>
-      - disable &lt;id&gt;
-<br><b>-v</b>
-      - make &lt;id&gt; visible
-<br><b>-h</b>
-      - hide &lt;id&gt;
-<br><b>-n</b>
-      - enables editbox
-<br><b>-m</b>
-      - disables editbox
-<br><b>-c</b>
-      - check a checkbox/radio/list/combo/ line, can be used to set the selected text in an edibox/combo drop control
-<br><b>-u</b>
-      - uncheck a checkbox/radio/list/combo line, used with -c, can be used to mark a 3dstate checkbox as indeterminate, used with -f, sets the focus on a tab control
-<br><b>-k</b>
-      - used with -c and -u, keeps other selections in a listbox
-<br><b>-s</b>
-      - checks the checkbox of an item in a listbox control that uses checkboxes
-<br><b>-l</b>
-      - unchecks the checkbox of an item in a listbox control that uses checkboxes
-<br><b>-r</b>
-      - clears all text in &lt;id&gt;
-<br><b>-a</b>
-      - appends text to the end of a control or adds an item to a menu
-<br><b>-d</b>
-      - deletes the Nth line in a listbox/combo
-<br><b>-i</b>
-      - insert line in a listbox/combo or inserts an item to a menu
-<br><b>-o</b>
-      - overwrite the Nth line in a listbox/combo with text
-<br><b>-g</b>
-      - set a new icon/bmp to an icon control
-<br><b>-z</b>
-      - resets the width of horizontal scrollbar in listbox, or set the range of a scrollbar control
-<br><b>-j</b>
-      - resets the edited setting in an editbox
+<b>-f</b> - Set focus on &lt;id&gt;, use -fu to set a tab on focus.
+<br><b>-t</b> - Set &lt;id&gt; as default button.
+<br><b>-e</b> - Enable &lt;id&gt;.
+<br><b>-b</b> - Disable &lt;id&gt;.
+<br><b>-v</b> - Make &lt;id&gt; visible.
+<br><b>-h</b> - Hide &lt;id&gt;.
+<br><b>-n</b> - Enables editbox.
+<br><b>-m</b> - Disables editbox.
+<br><b>-c</b> - Check a checkbox/radio/list/combo/ line, can be used to set the selected text in an edibox/combo drop control.
+<br><b>-u</b> - Uncheck a checkbox/radio/list/combo line, used with -c, can be used to mark a 3dstate checkbox as indeterminate, used with -f, sets the focus on a tab control.
+<br><b>-k</b> - Used with -c and -u, keeps other selections in a listbox.
+<br><b>-s</b> - Checks the checkbox of an item in a listbox control that uses checkboxes.
+<br><b>-l</b> - Unchecks the checkbox of an item in a listbox control that uses checkboxes.
+<br><b>-r</b> - Clears all text in &lt;id&gt;.
+<br><b>-a</b> - Appends text to the end of a control or adds an item to a menu.
+<br><b>-d</b> - Deletes the Nth line in a listbox/combo.
+<br><b>-i</b> - Insert line in a listbox/combo or inserts an item to a menu.
+<br><b>-o</b> - Overwrite the Nth line in a listbox/combo with text.
+<br><b>-g</b> - Set a new icon/bmp to an icon control.
+<br><b>-z</b> - Resets the width of horizontal scrollbar in listbox, or set the range of a scrollbar control.
+<br><b>-j</b> - Resets the edited setting in an editbox.
 
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b>
-      - name of the dialog
-<br><b>&lt;id&gt;</b>
-      - id of the controls, you can use the form N-N1,N2-N3 to change multiple ids at once, 1-5,6,9 would change the following ids: 1,2,3,4,5,6,9
-<br><b>[n]</b>
-      - usually a line number, it can also be an id number with menus, use 0 if you want to access the editbox of a combo control.
-<br><b>[text]</b>
-      - the text parameter if applicable
-<br><b>[filename]</b>
-      - used with -g
-<br><b>[start [end]]</b>
-      - used with -z to set the range of a scrollbar, or with -c to set a selection
+<b>&lt;name&gt;</b> - Name of the dialog.
+<br><b>&lt;id&gt;</b> - Id of the controls, you can use the form N-N1,N2-N3 to change multiple ids at once, 1-5,6,9 would change the following ids: 1,2,3,4,5,6,9
+<br><b>[n]</b> - Usually a line number, it can also be an id number with menus, use 0 if you want to access the editbox of a combo control.
+<br><b>[text]</b> - The text parameter if applicable.
+<br><b>[filename]</b> - Used with -g.
+<br><b>[start [end]]</b> - Used with -z to set the range of a scrollbar, or with -c to set a selection.
 
 <H4>Example</H4>
 <pre class ="code">

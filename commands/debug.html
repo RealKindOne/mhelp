@@ -13,32 +13,20 @@ The <b>/debug</b> command outputs raw server messages to a file or a custom wind
 </pre>
 
 <H4>Switches</H4>
-<b>-c</b>
-      - Turns off debugging (close associated window as well)
-<br><b>-i</b>
-      - Call a specific $identifier and use the returned value as the debug lines
-<br><b>-n</b>
-      - Minimize the custom @window
-<br><b>-p</b>
-      - Wrap the debug lines if it is too long for the @window
-<br><b>-t</b>
-      - Adds timestamp to the debug lines
-<br><b>-r</b>N
-      - Uses the N color index as the line color for received debug lines.
-<br><b>-o</b>N
-      - Uses the N color index as the line color for outbound debug lines.
+<b>-c</b> - Turns off debugging (close associated window as well).
+<br><b>-i</b> - Call a specific $identifier and use the returned value as the debug lines.
+<br><b>-n</b> - Minimize the custom @window.
+<br><b>-p</b> - Wrap the debug lines if it is too long for the @window.
+<br><b>-t</b> - Adds timestamp to the debug lines.
+<br><b>-r</b>N - Uses the N color index as the line color for received debug lines.
+<br><b>-o</b>N - Uses the N color index as the line color for outbound debug lines.
 
 <H4>Parameters</H4>
-<b>[color]</b>
-      - Optional text color for the debug window (Partly overridden by -rN and/or -oN) Can be color index 0-99
-<br><b>on</b>
-      - Enable debugging
-<br><b>off</b>
-      - Disable debugging
-<br><b>[@window|filename]</b>
-      - outputs to a custom @window or a file
-<br><b>[identifier]</b>
-      - Calls an identifier before logging the debugged line (the returned value if used for the logging)
+<b>[color]</b> - Optional text color for the debug window (Partly overridden by -rN and/or -oN) Can be color index 0-98.
+<br><b>on</b> - Enable debugging.
+<br><b>off</b> - Disable debugging.
+<br><b>[@window|filename]</b> - Outputs to a custom @window or a file.
+<br><b>[identifier]</b> - Calls an identifier before logging the debugged line (the returned value if used for the logging).
 
 <H4>Example</H4>
 Display debug status:

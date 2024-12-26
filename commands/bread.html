@@ -15,20 +15,14 @@ The <b>/bread</b> command can be used to read a certain amount of bytes from a f
 </pre>
 
 <H4>Switches</H4>
-<b>-t</b>
-      - Reads data preceding the first encountered line ending or EOF, interpreting as UTF8 text
-<br><b>-a</b>
-      - Modifier for -t switch, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found
+<b>-t</b> - Reads data preceding the first encountered line ending or EOF, interpreting as UTF8 text.
+<br><b>-a</b> - Modifier for -t switch, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found.
 
 <H4>Parameters</H4>
-<b>&lt;filename&gt;</b>
-      - The file name to read from. Double quotes needed if string contains space
-<br><b>&lt;bytepos&gt;</b>
-      - The starting byte position, **remember, this starts at 0, not 1**.
-<br><b>&lt;numbytes&gt;</b>
-      - The length (bytes) to be read.
-<br><b>&lt;&bvar&gt;</b>
-      - The binary variable to store the data in. If &binvar already exists, contents are replaced.
+<b>&lt;filename&gt;</b> - The file name to read from. Double quotes needed if string contains space.
+<br><b>&lt;bytepos&gt;</b> - The starting byte position, **remember, this starts at 0, not 1**.
+<br><b>&lt;numbytes&gt;</b> - The length (bytes) to be read.
+<br><b>&lt;&bvar&gt;</b> - The binary variable to store the data in. If &binvar already exists, contents are replaced.
 
 <H4>Example</H4>
 <pre class ="code">
