@@ -29,50 +29,33 @@ More information <a href="..\other\injection.html">here</a>.
 
 <b>Creation Manipulators</b>
 <br>
-<br><b>-o</b>
-      - Creates a offline timer
-<br><b>-c</b>
-      - Creates a catch-up timer
-<br><b>-h</b>
-      - Creates a high-resolution timer (interval is in millisecond just like -m)
+<br><b>-o</b> - Creates a offline timer.
+<br><b>-c</b> - Creates a catch-up timer.
+<br><b>-h</b> - Creates a high-resolution timer (interval is in millisecond just like -m).
 <br>
 <br>
 <b>Attributes</b>
 <br>
-<br><b>-m</b>
-      - Treats the interval parameter as milliseconds instead of seconds
-<br><b>-d</b>
-      - Keeps the order of all -d timers
-<br><b>-i</b>
-      - Dynamically associates itself with the active connection
+<br><b>-m</b> - Treats the interval parameter as milliseconds instead of seconds.
+<br><b>-d</b> - Keeps the order of all -d timers.
+<br><b>-i</b> - Dynamically associates itself with the active connection.
 <br>
 <br>
 <b>Manipulator</b>
 <br>
-<br><b>-e</b>
-      - Executes the code associated with a timer (note: it decrease the number of repetition of the timer, probably resets the time counter as well)
-<br><b>-p</b>
-      - Pauses a timer, but the countdown is not paused, this switch should serve no real purpose because of the countdown weirdness, -P was added to pause correctly the countdown.
-<br><b>-P</b>
-      - Makes a real pause of the timer, countdown included.
-<br><b>-r</b>
-      - Resumes a timer paused with -p or -P
-<br><b>-z</b>
-      - Resets an online timer; N=2 resets total time, N=1, resets current time, and N=0 is the same as N=1 AND N=2
+<br><b>-e</b> - Executes the code associated with a timer (note: it decrease the number of repetition of the timer, probably resets the time counter as well).
+<br><b>-p</b> - Pauses a timer, but the countdown is not paused, this switch should serve no real purpose because of the countdown weirdness, -P was added to pause correctly the countdown.
+<br><b>-P</b> - Makes a real pause of the timer, countdown included.
+<br><b>-r</b> - Resumes a timer paused with -p or -P.
+<br><b>-z</b> - Resets an online timer; N=2 resets total time, N=1, resets current time, and N=0 is the same as N=1 AND N=2.
 
 <H4>Parameters</H4>
-<b>[off]</b>
-      - A literal 'off' keyword, used to turn off a timer.
-<br><b>[n|name]</b>
-      - The name or index of the timer
-<br><b>[time]</b>
-      - Time to activate the timer, for example '15:30' for 3:30PM
-<br><b>&lt;repetitions&gt;</b>
-      - The amount of times the timer should repeat itself. A repetition value of '0' will repeat forever.
-<br><b>&lt;interval&gt;</b>
-      - The delay between two consecutive timer executions
-<br><b>&lt;code&gt;</b>
-      - Code to be executed.
+<b>[off]</b> - A literal 'off' keyword, used to turn off a timer.
+<br><b>[n|name]</b> - The name or index of the timer.
+<br><b>[time]</b> - Time to activate the timer, for example '15:30' for 3:30PM.
+<br><b>&lt;repetitions&gt;</b> - The amount of times the timer should repeat itself. A repetition value of '0' will repeat forever.
+<br><b>&lt;interval&gt;</b> - The delay between two consecutive timer executions.
+<br><b>&lt;code&gt;</b> - Code to be executed.
 
 <H4>$ctimer & $ltimer</H4>
 

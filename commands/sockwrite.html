@@ -20,23 +20,16 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 </pre>
 
 <H4>Switches</H4>
-<b>-b</b>
-      - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise
-<br><b>-n</b>
-      - Appends a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf
-<br><b>-t</b>
-      - Forces mIRC to send anything beginning with a & as plain text
-<br><b>-a</b>
-      - Prevents characters in the range 0-255 from being UTF-8 encoded as long as the line only contains characters in the range 0-255
+<b>-b</b> - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise.
+<br><b>-n</b> - Appends a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf.
+<br><b>-t</b> - Forces mIRC to send anything beginning with a & as plain text.
+<br><b>-a</b> - Prevents characters in the range 0-255 from being UTF-8 encoded as long as the line only contains characters in the range 0-255.
 
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b>
-      - The socket name.
-<br><b>[numbytes]</b>
-      - If -b has been specified, indicates the number of bytes you want to send.
-<br><b>&lt;text|&lt;%var&gt;|&binvar&gt;</b>
-      - The message you want to send, can be a binary variable.
-
+<b>&lt;name&gt;</b> - The socket name.
+<br><b>[numbytes]</b> - If -b has been specified, indicates the number of bytes you want to send.
+<br><b>&lt;text|&lt;%var&gt;|&binvar&gt;</b> - The message you want to send, can be a binary variable.
+<br>
 <br><b>Note:</b> if /sockwrite fails, <a href="..\identifiers\sockerr.html">$sockerr</a> is set as well as <a href="..\identifiers\sock.html">$sock().wserr</a> and <a href="..\identifiers\sock.html">$sock().wsmsg</a> inside the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event.
 
 <H4>Example</H4>

@@ -13,26 +13,16 @@ The <b>/write</b> command can be used to manipulate a text file in various ways.
 </pre>
 
 <H4>Switches</H4>
-<b>-c</b>
-      - Clears the entire file before writing to it
-<br><b>-i</b>
-      - Inserts the text at a given line instead of replacing it
-<br><b>-d</b>
-      - Deletes the given line
-<br><b>-n</b>
-      - Prevent adding $crlf at the end of the text
-<br><b>-a</b>
-      - Appends the text to an existing line
-<br><b>-l</b>
-      - Line number for the line to write/modify/delete
-<br><b>-s</b>
-      - Operates on a line which start with &lt;words&gt;
-<br><b>-w</b>
-      - Operates on a line which match the  <a href="..\other\wildcard.html">wildcard</a> expression.
-<br><b>-r</b>
-      - same as -w - but uses a regular expression.
-<br><b>-m</b>N
-      - handle the $crlf addition before a line:
+<b>-c</b> - Clears the entire file before writing to it.
+<br><b>-i</b> - Inserts the text at a given line instead of replacing it.
+<br><b>-d</b> - Deletes the given line.
+<br><b>-n</b> - Prevent adding $crlf at the end of the text.
+<br><b>-a</b> - Appends the text to an existing line.
+<br><b>-l</b> - Line number for the line to write/modify/delete.
+<br><b>-s</b> - Operates on a line which start with &lt;words&gt;.
+<br><b>-w</b> - Operates on a line which match the  <a href="..\other\wildcard.html">wildcard</a> expression.
+<br><b>-r</b> - Same as -w - but uses a regular expression.
+<br><b>-m</b>N - handle the $crlf addition before a line:
 <pre class ="code">
 There is a difference in how /write behave vs /write -s or /write -w when it comes to adding a $crlf before your line, if mirc is going to add the line to end of the file and that the last line does not have a $crlf already.
 
@@ -42,18 +32,12 @@ There is a difference in how /write behave vs /write -s or /write -w when it com
 </pre>
 
 <H4>Parameters</H4>
-<b>&lt;filename&gt;</b>
-      - The file name to manipulate
-<br><b>[text]</b>
-      - The text to be written to the file
-<br><b>&lt;line&gt;</b>
-      - The line number to find
-<br><b>&lt;words&gt;</b>
-      - The word to scan.
-<br><b>&lt;wildcard&gt;</b>
-      - <a href="..\other\wildcard.html">wildcard</a> pattern to match
-<br><b>&lt;/regex/&gt;</b>
-      - RegEx pattern to match
+<b>&lt;filename&gt;</b> - The file name to manipulate.
+<br><b>[text]</b> - The text to be written to the file.
+<br><b>&lt;line&gt;</b> - The line number to find.
+<br><b>&lt;words&gt;</b> - The word to scan.
+<br><b>&lt;wildcard&gt;</b> - <a href="..\other\wildcard.html">wildcard</a> pattern to match.
+<br><b>&lt;/regex/&gt;</b> - RegEx pattern to match.
 
 <H4>Example</H4>
 <pre class ="code">

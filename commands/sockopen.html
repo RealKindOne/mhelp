@@ -13,36 +13,22 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
 </pre>
 
 <H4>Switches</H4>
-<b>-d</b>
-      - the specified IP address is the bind IP address
-<br><b>-e</b>
-      - creates an SSL connection, with this switch you can also use:
-<br><b>-s</b>
-      - skip invalid certificates
-<br><b>-w</b>
-      - display warning dialog
-<br><b>-a</b>
-      - accept invalid certificates
-<br><b>-p</b>
-      - prevent certificate caching
-<br><b>-t</b>
-      - initiates an SSL negotiation on a non-SSL connection (STARTTLS feature), this is not meant to be used when creating the socket but later after the connection has been established, trigger on sockopen a second time with $sock().starttls set to $true
-<br><b>-4</b>
-      - specify the IPv4 context when resolving address (enforce IPv4 when it is disabled entirely because your status window is in 'IPv6 mode'
-<br><b>-6</b>
-      - specify the IPv6 context when resolving address (enforce IPv6)
-<br><b>-n</b>
-      - disable Nagle algorithm on socket
+<b>-d</b> - The specified IP address is the bind IP address.
+<br><b>-e</b> - Creates an SSL connection, with this switch you can also use:
+<br><span style="margin-left: 20px;"></span><b>-s</b> - Skip invalid certificates.
+<br><span style="margin-left: 20px;"></span><b>-w</b> - Display warning dialog.
+<br><span style="margin-left: 20px;"></span><b>-a</b> - Accept invalid certificates.
+<br><span style="margin-left: 20px;"></span><b>-p</b> - Prevent certificate caching.
+<br><b>-t</b> - Initiates an SSL negotiation on a non-SSL connection (STARTTLS feature), this is not meant to be used when creating the socket but later after the connection has been established, trigger on sockopen a second time with $sock().starttls set to $true.
+<br><b>-4</b> - Specify the IPv4 context when resolving address (enforce IPv4 when it is disabled entirely because your status window is in 'IPv6 mode'.
+<br><b>-6</b> - Specify the IPv6 context when resolving address (enforce IPv6).
+<br><b>-n</b> - Disable Nagle algorithm on socket.
 
 <H4>Parameters</H4>
-<b>[bindip]</b>
-      - bind ip to be used
-<br><b>&lt;name&gt;</b>
-      - socket name (for future reference)
-<br><b>&lt;address&gt;</b>
-      - ip address or server name of the end point
-<br><b>&lt;port&gt;</b>
-      - port of the end point
+<b>[bindip]</b> - Bind IP to be used.
+<br><b>&lt;name&gt;</b> - Socket name (for future reference).
+<br><b>&lt;address&gt;</b> - IP address or server name of the end point.
+<br><b>&lt;port&gt;</b> - Port of the end point.
 
 <H4>Example</H4>
 <pre class ="code">

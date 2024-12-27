@@ -23,38 +23,23 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 </pre>
 
 <H4>Switches</H4>
-<b>-s</b>
-      - Display variable assignment value
-<br><b>-u</b>N
-      - Unsets the variable after N amount of seconds. A special case has been made for -u0 which will make the variable unset at the end of script processing, the same way binary variables do.
-<br><b>-z</b>
-      - Decreases the value of the variable by 1/second until zero is reached. At zero the variable will be unset.
-<br><b>-n</b>
-      - Treat the value as plain text, even if arithmetic operators are used.
-<br><b>-e</b>
-      - Unsets the variable when mIRC exits
-<br><b>-l</b>
-      - Creates a local variable instead
-<br><b>-k</b>
-      - Keeps the unset time (-u) from a previous command
-<br><b>-i</b>
-      - Only set the value to the variable if the variable does not already have a value, good for initialization
-<br><b>-g</b>
-      - Since you can have a global variable and a local variable of the same name, this makes sure the global variable is set
-<br><b>-p</b>
-      - Permits value to be 2 literal doublequotes and permits value to end with a single $chr(32) space. Also performs -n switch behavior
+<b>-s</b> - Display variable assignment value.
+<br><b>-u</b>N - Unsets the variable after N amount of seconds. A special case has been made for -u0 which will make the variable unset at the end of script processing, the same way binary variables do.
+<br><b>-z</b> - Decreases the value of the variable by 1/second until zero is reached. At zero the variable will be unset.
+<br><b>-n</b> - Treat the value as plain text, even if arithmetic operators are used.
+<br><b>-e</b> - Unsets the variable when mIRC exits.
+<br><b>-l</b> - Creates a local variable instead.
+<br><b>-k</b> - Keeps the unset time (-u) from a previous command.
+<br><b>-i</b> - Only set the value to the variable if the variable does not already have a value, good for initialization.
+<br><b>-g</b> - Since you can have a global variable and a local variable of the same name, this makes sure the global variable is set.
+<br><b>-p</b> - Permits value to be 2 literal doublequotes and permits value to end with a single $chr(32) space. Also performs -n switch behavior.
 
 <H4>Parameters</H4>
-<b>&lt;%var&gt;</b>
-      - The name of the variable
-<br><b>[value]</b>
-      - The value to assign to the variable
-<br><b>&lt;number&gt;</b>
-      - Any arbitrary numerical value, can be a floating point number
-<br><b>&lt;+ | - | * | / | % | ^&gt;</b>
-      - One of the six possible arithmetic operations
-<br><b>&lt;number&gt;</b>
-      - Any arbitrary numerical value, can be a floating point number
+<b>&lt;%var&gt;</b> - The name of the variable.
+<br><b>[value]</b> - The value to assign to the variable.
+<br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
+<br><b>&lt;+ | - | * | / | % | ^&gt;</b> - One of the six possible arithmetic operations.
+<br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
 
 <H4>Example</H4>
 <pre class ="code">

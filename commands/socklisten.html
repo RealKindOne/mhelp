@@ -13,20 +13,14 @@ The <b>/socklisten</b> command allows mIRC to listen for specific connections on
 </pre>
 
 <H4>Switches</H4>
-<b>-d</b>
-      - Indicates that an IP address has been specified as the bind address.
-<br><b>-p</b>
-      - Enables UPnP support for the listening socket, if that is available.
-<br><b>-u</b>
-      - Enables dual stack socket to support both IPv4 and IPv6 for the listening socket, if that is available, you must bind to an IPv6 ip address
-<br><b>-n</b>
-      - Disable nagle algorithm for the socket, the <a href="sockaccept.html">/sockaccept</a> socket will have nagle disabled. You can disable nagle per accepted socket by using /sockaccept's -n switch
+<b>-d</b> - Indicates that an IP address has been specified as the bind address.
+<br><b>-p</b> - Enables UPnP support for the listening socket, if that is available.
+<br><b>-u</b> - Enables dual stack socket to support both IPv4 and IPv6 for the listening socket, if that is available, you must bind to an IPv6 IP address.
+<br><b>-n</b> - Disable nagle algorithm for the socket, the <a href="sockaccept.html">/sockaccept</a> socket will have nagle disabled. You can disable nagle per accepted socket by using /sockaccept's -n switch.
 
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b>
-      - The name to give the new listening socket.
-<br><b>[port]</b>
-      - The port number to listen on for this socket. If not specified, mIRC attempts to use a random port specified in the DCC port range options.
+<b>&lt;name&gt;</b> - The name to give the new listening socket.
+<br><b>[port]</b> - The port number to listen on for this socket. If not specified, mIRC attempts to use a random port specified in the DCC port range options.
 
 <H4>Example</H4>
 Open a listening socket named "mySocket" and listen on port "31781":

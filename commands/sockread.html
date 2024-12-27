@@ -24,16 +24,12 @@ The real number of bytes read by /sockread can be retrieved using <a href="..\id
 </pre>
 
 <H4>Switches</H4>
-<b>-f</b>
-      - When reading a terminated line (/sockread &lt;%var&gt; or /sockread -n &var), forces mIRC to fill the variable with whatever text is in the receive buffer, even if it does not end in a terminated line.
-<br><b>-n</b>
-      - Reads a terminated line into a <a href="..\other\binary_variables.html">Binary Variables</a>. If the incoming line does not contain a terminated line, no byte will be read into the <a href="..\other\binary_variables.html">Binary Variables</a> , unless you specify the <b>-f</b> switch.
+<b>-f</b> - When reading a terminated line (/sockread &lt;%var&gt; or /sockread -n &var), forces mIRC to fill the variable with whatever text is in the receive buffer, even if it does not end in a terminated line.
+<br><b>-n</b> - Reads a terminated line into a <a href="..\other\binary_variables.html">Binary Variables</a>. If the incoming line does not contain a terminated line, no byte will be read into the <a href="..\other\binary_variables.html">Binary Variables</a> , unless you specify the <b>-f</b> switch.
 
 <H4>Parameters</H4>
-<b>[numbytes]</b>
-      - The number of bytes to read from the receive buffer.
-<br><b>[&lt;%var&gt;/&binvar]</b>
-      - The name of the variable to read the socket buffer into.
+<b>[numbytes]</b> - The number of bytes to read from the receive buffer.
+<br><b>[&lt;%var&gt;/&binvar]</b> - The name of the variable to read the socket buffer into.
 <br>
 
 <H4>Reading</H4>

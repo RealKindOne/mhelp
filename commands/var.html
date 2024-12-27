@@ -30,16 +30,11 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 </pre>
 
 <H4>Switches</H4>
-<b>-s</b>
-      - Display variable assignment value
-<br><b>-g</b>
-      - Creates a global variable instead
-<br><b>-n</b>
-      - Prevents math operation
-<br><b>-i</b>
-      - Creates the local variable only if that variable does not exist AS A LOCAL VARIABLE, even if $null
-<br><b>-p</b>
-      - Permits value to be 2 literal doublequotes and permits value to end with a single $chr(32) space. Also performs -n switch behavior
+<b>-s</b> - Display variable assignment value.
+<br><b>-g</b> - Creates a global variable instead.
+<br><b>-n</b> - Prevents math operation.
+<br><b>-i</b> - Creates the local variable only if that variable does not exist AS A LOCAL VARIABLE, even if $null.
+<br><b>-p</b> - Permits value to be 2 literal doublequotes and permits value to end with a single $chr(32) space. Also performs -n switch behavior.
 
 <br />
 
@@ -52,16 +47,11 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br><b>Note:</b> much of the usage of /var is similar to that of /set except that switches like -uN or -e or -z or -k have no meaning for local variables which cease to exist when the event or alias is finished.
 
 <H4>Parameters</H4>
-<b>&lt;%var&gt;</b>
-      - The name of the variable
-<br><b>[value]</b>
-      - The value to assign to the variable. If not present or is $null the local var is unset
-<br><b>&lt;number&gt;</b>
-      - Any arbitrary numerical value, can be a floating point number
-<br><b>&lt; + | - | * | / | % | ^ | & &gt;</b>
-      - One of the seven possible arithmetic operations
-<br><b>&lt;number&gt;</b>
-      - Any arbitrary numerical value, can be a floating point number
+<b>&lt;%var&gt;</b> - The name of the variable.
+<br><b>[value]</b> - The value to assign to the variable. If not present or is $null the local var is unset.
+<br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
+<br><b>&lt; + | - | * | / | % | ^ | & &gt;</b> - One of the seven possible arithmetic operations.
+<br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
 
 <br><b>Note:</b> if your [value] ends with a literal space separated comma, mIRC will see it as a new variable assignment even if no '%' is found, you need to use two commas to produce one in this case: //var %a test ,,
 

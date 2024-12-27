@@ -13,72 +13,42 @@ The <b>/toolbar</b> command allows you to modify the toolbar.
 </pre>
 
 <H4>Switches</H4>
-<b>-a</b>
-      - Adds a button
-<br><b>-i</b>
-      - Inserts a button a position [N]
-<br><b>-d</b>
-      - Deletes a button at position [N] or with name &lt;name&gt;
-<br><b>-m</b>
-      - Moves a button &lt;name/N&gt; to position [N]
-<br><b>-s</b>
-      - Adds a separator
-<br><b>-x</b>
-      - Specifies a wide button
-<br><b>-k</b>N
-      - Specifies a check button, check with N = 1, uncheck with N = 2
-<br><b>-n</b>N
-      - Specifies the Nth icon index in the picture file
-<br><b>-z</b>N
-      - Specifies the icon size, 1 = small, 2 = large, 3 = actual
-<br><b>-e</b>
-      - Enables the button at position [N] or with name &lt;name&gt;
-<br><b>-b</b>
-      - Disables the button at position [N] or with name &lt;name&gt;
-<br><b>-w</b>
-      - Shows the button at position [N] or with name &lt;name&gt;
-<br><b>-h</b>
-      - Hides the button at position [N] or with name &lt;name&gt;
-<br><b>-y</b>N
-      - Sets the transparency for button [N] or &lt;name&gt;, N range 0 to 255
-<br><b>-v</b>
-      - Allows support for alpha channel transparency with PNG files
-<br><b>-u</b>
-      - Updates the display immediately
-<br><b>-r</b>
-      - Reset buttons
-<br><b>-c</b>
-      - Clears all buttons
-<br><b>-f</b>&lt;sld&gt;
-      - &lt;s&gt;aves/&lt;l&gt;oads/&lt;d&gt;eletes settings in toolbar.ini, that file is automatically load on startup
-
+<b>-a</b> - Adds a button.
+<br><b>-i</b> - Inserts a button a position [N].
+<br><b>-d</b> - Deletes a button at position [N] or with name &lt;name&gt;.
+<br><b>-m</b> - Moves a button &lt;name/N&gt; to position [N].
+<br><b>-s</b> - Adds a separator.
+<br><b>-x</b> - Specifies a wide button.
+<br><b>-k</b>N - Specifies a check button, check with N = 1, uncheck with N = 2.
+<br><b>-n</b>N - Specifies the Nth icon index in the picture file.
+<br><b>-z</b>N - Specifies the icon size, 1 = small, 2 = large, 3 = actual.
+<br><b>-e</b> - Enables the button at position [N] or with name &lt;name&gt;.
+<br><b>-b</b> - Disables the button at position [N] or with name &lt;name&gt;.
+<br><b>-w</b> - Shows the button at position [N] or with name &lt;name&gt;.
+<br><b>-h</b> - Hides the button at position [N] or with name &lt;name&gt;.
+<br><b>-y</b>N - Sets the transparency for button [N] or &lt;name&gt;, N range 0 to 255.
+<br><b>-v</b> - Allows support for alpha channel transparency with PNG files.
+<br><b>-u</b> - Updates the display immediately.
+<br><b>-r</b> - Reset buttons.
+<br><b>-c</b> - Clears all buttons.
+<br><b>-f</b>[sld]- [<b>s</b>]aves, [<b>l</b>]oads, [<b>d</b>]eletes settings in toolbar.ini, that file is automatically load on startup.
+<br>
+<br>
 Use empty quotes with the following switches to clear their entry:
-
-
-<br><b>-t</b>
-      - Updates the tooltip text
-<br><b>-p</b>
-      - Updates the picture file
-<br><b>-o</b>
-      - Updates the popups definition
-<br><b>-l</b>
-      - Updates the [/alias] parameter
+<br>
+<br><b>-t</b> - Updates the tooltip text.
+<br><b>-p</b> - Updates the picture file.
+<br><b>-o</b> - Updates the popups definition.
+<br><b>-l</b> - Updates the [/alias] parameter.
 
 <H4>Parameters</H4>
-<b>[N]</b>
-      - Used with the switches -idmebwhy, the position of a button in the toolbar.
-<br><b>&lt;name/N&gt;</b>
-      - The name or the Nth button in the toolbar.
-<br><b>&lt;tooltip&gt;</b>
-      - The tooltip text for the button.
-<br><b>&lt;picfile|@&gt;</b>
-      - The picture filename to be used for the icon or a @picture window name, minimum size is 16x16, maximum is 256x256.
-<br><b>[w y w h]</b>
-      - The position in the bitmap and size of bitmap to use if you used a @picture window for the icon.
-<br><b>[/alias]</b>
-      - The command to be performed when the button is clicked, $!1 is the button name.
-<br><b>[popfile|@]</b>
-      - The popups filename or the menu for the @picture window name.
+<b>[N]</b> - Used with the switches -idmebwhy, the position of a button in the toolbar.
+<br><b>&lt;name/N&gt;</b> - The name or the Nth button in the toolbar.
+<br><b>&lt;tooltip&gt;</b> - The tooltip text for the button.
+<br><b>&lt;picfile|@&gt;</b> - The picture filename to be used for the icon or a @picture window name, minimum size is 16x16, maximum is 256x256.
+<br><b>[w y w h]</b> - The position in the bitmap and size of bitmap to use if you used a @picture window for the icon.
+<br><b>[/alias]</b> - The command to be performed when the button is clicked, $!1 is the button name.
+<br><b>[popfile|@]</b> - The popups filename or the menu for the @picture window name.
 
 <H4>Example</H4>
 <pre class ="code">

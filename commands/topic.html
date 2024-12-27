@@ -14,12 +14,10 @@ The <b>/topic</b> command enables changing, displaying, or removing the #channel
 </pre>
 
 <H4>Switches</H4>
-<b>-r</b>
-      - remove the topic instead
+<b>-r</b> - Remove the topic instead.
 
 <H4>Parameters</H4>
-<b>[topic string]</b>
-      - new content for #channel topic
+<b>[topic string]</b> - New content for #channel topic.
 
 <H4>Example</H4>
 Set a topic for the active channel:
@@ -39,12 +37,14 @@ Show current topic:
 Added: mIRC v3.9 (06 Jan 1996)
 
 <H4>Notes</H4>
-Network permissions can deny this command, such as needing to be @op when channel mode +t is set, or not being in channel
+Network permissions can deny this command, such as needing to be @op when channel mode +t is set, or not being in channel.
 <br>
-$chan(#channelname).topic continues to report the old string until server sends the RAW event indicating the new topic
+$chan(#channelname).topic continues to report the old string until server sends the RAW event indicating the new topic.
 <br>
-Prior to v7.68 topic could only be deleted like, before the -r switch: //topic $active $chr(58)
-
+Prior to v7.68 topic could only be deleted like, before the -r switch:
+<pre class = "code">
+//topic $active $chr(58)
+</pre>
 <H4>See also</H4>
 <a href="..\identifiers\chan.html">$chan</a><br>
 <a href="..\events\on_topic.html">On_Topic</a><br>
