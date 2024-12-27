@@ -5,7 +5,7 @@
 <H1>$remove</H1>
 <br>
 <br>
-The <b>$remove</b> removes all occurrences of the given substring(s) from a string and returns the remainder. <a href="removecs.html">$removecs</a> is the case sensitive version.
+The <b>$remove</b> identifier removes all occurrences of the given substring(s) from a string and returns the remainder. <a href="removecs.html">$removecs</a> is the case sensitive version.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -15,18 +15,18 @@ $remove(string,substring,substringN)
 <H4>Parameters</H4>
 <b>string</b> - The original string you want to remove from.
 <br><b>substring</b> - The substring you want to remove from the original string, you can.
-<br><b>substringN</b> - you can pass multiple substring to be removed from the original string.
+<br><b>substringN</b> - You can pass multiple substring to be removed from the original string.
 
 <H4>Example</H4>
 
-Show the download folder as a relative location only if it's a subfolder of $mircdir
+Show the download folder as a relative location only if it's a subfolder of $mircdir:
 <pre class ="code">//echo -a $remove($getdir,$mircdir)</pre>
 
 
 Remove the channel from a message
 <pre class ="code">//echo -a $remove($active,$chan)</pre>
 
-Show the download folder as a relative location only if it's a subfolder of $mircdir
+Show the download folder as a relative location only if it's a subfolder of $mircdir:
 <pre class ="code">//echo -a $remove($getdir,$mircdir)</pre>
 
 <pre class ="code">
@@ -49,6 +49,7 @@ Added: mIRC v4.52 (06 Jul 1996)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
+<a href="removecs.html">$removecs</a><br>
 <a href="replace.html">$replace</a><br>
 <a href="replacex.html">$replacex</a><br>
 <a href="deltok.html">$deltok</a><br>
