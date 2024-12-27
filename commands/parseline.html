@@ -20,30 +20,23 @@ The <b>/parseline</b> command can be used to inject lines as though mIRC was rec
 
 <H4>Switches</H4>
 
-Required
-
-
-<br><b>-i</b> or <b>-o</b>
-      - Specify an input or output message
-<br><b>-t</b> or <b>-b</b>
-      - Specify a text or binvar parameter
-
-Optional
-
-<br><b>-q</b>
-      - Can be used to add a new line to the end of the in/out queue, they are processed after the end of the script execution.
+Required:
+<br>
+<br><b>-i</b> or <b>-o</b> - Specify an input or output message.
+<br><b>-t</b> or <b>-b</b> - Specify an text or binvar parameter.
+<br>
+<br>
+Optional:
+<br>
+<br><b>-q</b> - Can be used to add a new line to the end of the in/out queue, they are processed after the end of the script execution.
 <br>
 <br>
 <b>Note:</b> Without -q, you're changing the current line from the <a href="..\events\on_parseline.html">On_ParseLine</a> event, you'll get an error otherwise.
 <br>
-<br><b>-a</b>
-      - modifier for -t and -b, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found
-<br><b>-p</b>
-      - Used with -q, indicate the line must trigger on parseline
-<br><b>-n</b>
-      - Add a <a href="..\identifiers\crlf.html">$crlf</a> to the end of the line if the line doesn't already end with a $crlf
-<br><b>-u</b>N
-      - Enable/Disable utf8 encoding/decoding of the line. Use N = 1 to enable, 0 to disable
+<br><b>-a</b> - Modifier for -t and -b, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found.
+<br><b>-p</b> - Used with -q, indicate the line must trigger on parseline.
+<br><b>-n</b> - Add a <a href="..\identifiers\crlf.html">$crlf</a> to the end of the line if the line doesn't already end with a $crlf.
+<br><b>-u</b>N - Enable/Disable utf8 encoding/decoding of the line. Use N = 1 to enable, 0 to disable.
 
 <br><br>
 <b>Note:</b> A script must check $parseutf to know whether mIRC will be UTF-8 encoding/decoding a line.
@@ -55,8 +48,7 @@ For outgoing lines, if $parseutf is $true, mIRC will UTF-8 encode the line befor
 For incoming lines, if $parseutf is $true, after the PARSELINE event, mIRC will UTF-8 decode the line before processing it. You can prevent this by using -u0.
 
 <H4>Parameters</H4>
-<b>[text|&binvar]</b>
-      - The text or binvar parameter depending on if you used the -t or -b switch
+<b>[text|&binvar]</b> - The text or binvar parameter depending on if you used the -t or -b switch.
 
 <H4>Example</H4>
 <pre class ="code">

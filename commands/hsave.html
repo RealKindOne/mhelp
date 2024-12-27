@@ -14,32 +14,22 @@ The <b>/hsave</b> command is used to save a hash table to a file. Overwrite exis
 </pre>
 
 <H4>Switches</H4>
-<b>-b</b>
-      - saves binary files. $cr and $lf are preserved when saving as binary files. Ignored if -i switch used.
-<br><b>-B</b>
-      - uses a larger index than -b to allow longer binary data to be saved. This is not compatible with files created by the -b switch.
-<br><b>-i</b>
-      - treats the file as an ini file. You can specify an optional [section] after the filename
-<br><b>-n</b>
-      - save files as data only. Each value is saved on a new line
-<br><b>-u</b>
-      - forces items in the /hadd -uN unset list to be included. They are excluded by default.
-<br><b>-s</b>
-      - display a message if successful: ** Saved hash table &lt;table&gt; to &lt;filename&gt;*
-<br><b>-a</b>
-      - appends to an existing file instead of overwriting it
+<b>-b</b> - Saves binary files. $cr and $lf are preserved when saving as binary files. Ignored if -i switch used.
+<br><b>-B</b> - Uses a larger index than -b to allow longer binary data to be saved. This is not compatible with files created by the -b switch.
+<br><b>-i</b> - Treats the file as an ini file. You can specify an optional [section] after the filename.
+<br><b>-n</b> - Save files as data only. Each value is saved on a new line.
+<br><b>-u</b> - Forces items in the /hadd -uN unset list to be included. They are excluded by default.
+<br><b>-s</b> - Display a message if successful: ** Saved hash table &lt;table&gt; to &lt;filename&gt;*.
+<br><b>-a</b> - Appends to an existing file instead of overwriting it.
 
 <br><b>Note:</b> versions.txt change log for v5.8 shows /hsave having a -o switch to overwrite the disk file. However this was long ago deprecated without versions.txt being updated. At least as far back as v6.35, /hsave overwrites the contents of the disk file without the need to use the -o switch. If you do use -o, it is silently ignored, as mIRC often does with invalid switches.
 
 <br><b>Note:</b> If table contains an item holding a binary variable longer than 65535 bytes, you should use -B instead of -b. While trying to write that item to disk, -b quits with error message "* /hsave: error saving hash table". The disk file then contains anywhere from zero to all other items which were in the hashtable, depending on the $hget(table,N).item order where the long binvar was encountered.
 
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b>
-      - the name of the hash table
-<br><b>&lt;filename&gt;</b>
-      - the name of the file the table is being saved to. Must be enclosed in double quotes if contains a space
-<br><b>[section]</b>
-      - if -i is used, you can optionally specify the section of the ini file. Default section is hashtable
+<b>&lt;name&gt;</b> - The name of the hash table.
+<br><b>&lt;filename&gt;</b> - The name of the file the table is being saved to. Must be enclosed in double quotes if contains a space.
+<br><b>[section]</b> - If -i is used, you can optionally specify the section of the ini file. Default section is hashtable.
 
 <H4>Example</H4>
 <pre class ="code">

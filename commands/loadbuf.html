@@ -13,42 +13,25 @@ The <b>/loadbuf</b> command loads the specified number of lines from the end of 
 </pre>
 
 <H4>Switches</H4>
-<b>-a</b>
-      - adds the lines into the active window
-<br><b>-p</b>
-      - forces lines of text to wrap when added to the window
-<br><b>-i</b>N
-      - makes sure that lines are indented if they wrap, if N is specified, indents by N characters
-<br><b>-r</b>
-      - clears the contents of the output window before adding lines to it
-<br><b>-s</b>
-      - adds the lines into the status window
-<br><b>-g</b>
-      - adds the lines into the finger window (feature removed)
-<br><b>-l</b>
-      - adds the lines into the side-listbox in a custom window
-<br><b>-e</b>
-      - evaluates variables and identifiers in the line being read
-<br><b>-h</b>
-      - hides a line if -e is specified and it doesn't evaluate anything in the line being read
-<br><b>-c</b>N
-      - specifies the default color for lines, N is an index color
-<br><b>-n</b>
-      - if logging is enabled for that window, logs the loaded lines
-<br><b>-m</b>
-      - used with -n, indicates that the text shouldn't be timestamped in the log file. (the buffer text is already timestamped or you might not want it to be timestamped)
-<br><b>-o</b>
-      - indicates that you have specified the [dialog id] parameters instead of a window name in order to load lines into a custom dialog control
-<br><b>-t</b>
-      - loads the lines under the [topic] section in a file
+<b>-a</b> - Adds the lines into the active window.
+<br><b>-p</b> - Forces lines of text to wrap when added to the window.
+<br><b>-i</b>N - makes sure that lines are indented if they wrap, if N is specified, indents by N characters.
+<br><b>-r</b> - Clears the contents of the output window before adding lines to it.
+<br><b>-s</b> - Adds the lines into the status window.
+<br><b>-g</b> - Adds the lines into the finger window (feature removed).
+<br><b>-l</b> - Adds the lines into the side-listbox in a custom window.
+<br><b>-e</b> - Evaluates variables and identifiers in the line being read.
+<br><b>-h</b> - Hides a line if -e is specified and it doesn't evaluate anything in the line being read.
+<br><b>-c</b>N - specifies the default color for lines, N is an index color.
+<br><b>-n</b> - If logging is enabled for that window, logs the loaded lines.
+<br><b>-m</b> - Used with -n, indicates that the text shouldn't be timestamped in the log file. (the buffer text is already timestamped or you might not want it to be timestamped).
+<br><b>-o</b> - Indicates that you have specified the [dialog id] parameters instead of a window name in order to load lines into a custom dialog control.
+<br><b>-t</b> - Loads the lines under the [topic] section in a file.
 
 <H4>Parameters</H4>
-<b>[lines]</b>
-      - If specified, the number of lines to add from the end the file, otherwise the whole content of the file is added.
-<br><b>&lt;window | dialog id&gt;</b>
-      - The window's name or the dialog's name and an id to adds the lines to.
-<br><b>&lt;filename&gt;</b>
-      - The filename you want to add lines from.
+<b>[lines]</b> - If specified, the number of lines to add from the end the file, otherwise the whole content of the file is added.
+<br><b>&lt;window | dialog id&gt;</b> - The window's name or the dialog's name and an id to adds the lines to.
+<br><b>&lt;filename&gt;</b> - The filename you want to add lines from.
 
 <H4>Example</H4>
 <pre class ="code">

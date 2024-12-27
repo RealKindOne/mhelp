@@ -14,30 +14,19 @@ The <b>/hadd</b> command inserts a new item/value pair in the hash table by the 
 </pre>
 
 <H4>Switches</H4>
-<b>-m</b>[N]
-      - Creates the hash table if it does not exist, you can optionally specify N for the number of buckets. If table already exists, this does not change the number of buckets.
-<br><b>-s</b>
-      - Displays the assignment information
-<br><b>-z</b>
-      - Decreases the value by 1.0 every second; unsets at zero
-<br><b>-u</b>N
-      - Removes the item/value after N seconds
-<br><b>-k</b>
-      - Keeps the remaining time left from the -uN and -z switches (undocumented in help file)
-<br><b>-b</b>
-      - Treats the value as a binary variable
-<br><b>-c</b>
-      - Truncates the &bvar at the first null value
+<b>-m</b>[N] - Creates the hash table if it does not exist, you can optionally specify N for the number of buckets. If table already exists, this does not change the number of buckets.
+<br><b>-s</b> - Displays the assignment information.
+<br><b>-z</b> - Decreases the value by 1.0 every second; unsets at zero.
+<br><b>-u</b>N - Removes the item/value after N seconds.
+<br><b>-k</b> - Keeps the remaining time left from the -uN and -z switches (undocumented in help file).
+<br><b>-b</b> - Treats the value as a binary variable.
+<br><b>-c</b> - Truncates the &bvar at the first null value.
 
 <H4>Parameters</H4>
-<b>&lt;table&gt;</b>
-      - The handle name of the table to operate on
-<br><b>&lt;item&gt;</b>
-      - The item key associated with the value
-<br><b>[value]</b>
-      - The optional value associated with the item key
-<br><b>&lt;&bvar&gt;</b>
-      - The binary variable value associated with the item key
+<b>&lt;table&gt;</b> - The handle name of the table to operate on.
+<br><b>&lt;item&gt;</b> - The item key associated with the value.
+<br><b>[value]</b> - The optional value associated with the item key.
+<br><b>&lt;&bvar&gt;</b> - The binary variable value associated with the item key.
 
 <H4>Example</H4>
 A basic usage for a hash table.

@@ -14,28 +14,19 @@ The <b>/hinc</b> command increases the value of a hashtable item by [num]. If th
 </pre>
 
 <H4>Switches</H4>
-<b>-m</b>[N]
-      - Creates the hash table if it does not exist, optionally setting the number of buckets to N. (Valid N 1-10000)
-<br><b>-s</b>
-      - Displays the assignment information
-<br><b>-b</b>
-      - uses the .text contents of a &binvar as the [num] parameter.
-<br><b>-z</b>
-      - After setting the data's value, decreases the value by 1 each second; unsets to prevent the data value being zero or negative
-<br><b>-u</b>N
-      - Removes the hashtable item/value after N seconds
+<b>-m</b>[N] - Creates the hash table if it does not exist, optionally setting the number of buckets to N. (Valid N 1-10000).
+<br><b>-s</b> - Displays the assignment information.
+<br><b>-b</b> - Uses the .text contents of a &binvar as the [num] parameter.
+<br><b>-z</b> - After setting the data's value, decreases the value by 1 each second; unsets to prevent the data value being zero or negative.
+<br><b>-u</b>N - Removes the hashtable item/value after N seconds.
 
 <br><b>Note:</b> If hashtable item has a non-zero $hget(table,item).unset property due to using -uN or -z switches when created or modified by /hinc /hdec or /hadd, then /hsave will not save that item to disk without the /hsave -u switch. /hinc preserves any existing unset delay when -z and -uN switches are not used.
 
 <H4>Parameters</H4>
-<b>&lt;table&gt;</b>
-      - The handle name of the table containing the 'item'
-<br><b>&lt;item&gt;</b>
-      - The item name associated with the data value
-<br><b>[num]</b>
-      - The optional value by which to increase the data value. If not present, increases by 1.0
-<br><b>&lt;&bvar&gt;</b>
-      - The binary variable containing the value by which to decrease the 'item'
+<b>&lt;table&gt;</b> - The handle name of the table containing the 'item'.
+<br><b>&lt;item&gt;</b> - The item name associated with the data value.
+<br><b>[num]</b> - The optional value by which to increase the data value. If not present, increases by 1.0.
+<br><b>&lt;&bvar&gt;</b> - The binary variable containing the value by which to decrease the 'item'.
 
 <H4>Example</H4>
 <pre class ="code">

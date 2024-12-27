@@ -20,10 +20,8 @@ Some Channel and Nick modes are standard across all servers, whilst some are uni
 None
 
 <H4>Parameters</H4>
-<b>&lt;channel|nickname&gt;</b>
-      - the nick/channel you want to change the mode
-<br><b>[[+|-]modechars [parameters]]</b>
-      - the syntax of a mode change.
+<b>&lt;channel|nickname&gt;</b> - The nick/channel you want to change the mode.
+<br><b>[[+|-]modechars [parameters]]</b> - The syntax of a mode change.
 <br>
 <br><b>Note:</b> modechars are almost always <b>case sensitive</b>. Be sure to use the correct upper or lower case.
 
@@ -38,79 +36,49 @@ The list of *Channel* modes below are those that are commonly available on most 
 <H4>Channel-wide Modes</H4>
 
 
-<br><b>A</b>
-      - For an invite only channel by default only Ops and Half-Ops can invite users to join. /mode $chan +A allows any channel member to invite others to join the channel.
-<br><b>C</b>
-      - Blocks users from sending CTCP requests to channel: /mode $chan +C
-<br><b>F</b>
-      - Restrict channel users from changing nicks (with /nick) more than X times in Y seconds: /mode $chan +F X:Y
-<br><b>Q</b>
-      - Only Chanserv (or equivalent) can kick users, not Ops: /mode $chan +Q
-<br><b>R</b>
-      - Only registered users can join the channel: /mode $chan +R
-<br><b>S</b>
-      - Strip Control codes for colors etc from channel messages: /mode $chan +S
-<br><b>c</b>
-      - Disallow messages containing control codes for colors: /mode $chan +c
-<br><b>d</b>
-      - Make users wait X seconds after joining before being able to speak in channel - can help prevent drive-by spam: /mode $chan +d X
-<br><b>i</b>
-      - Make the channel invite only - existing users will need to invite new users before they can join the channel: /mode $chan +i
-<br><b>j</b>
-      - Only allow X users to join the channel every Y seconds: /mode $chan +j X:Y
-<br><b>k</b>
-      - Give the channel a password or key - users will need to provide the key to join the channel: /mode $chan +k key
-<br><b>l</b>
-      - Set a limit to the number of users allowed in the channel - this is typically used to prevent DoS attacks by hundreds of users attempting to join a channel at once, and is reset by a bot as the number of valid users increases as they join or decreases as they part: /mode $chan +l n
-<br><b>m</b>
-      - Make the channel moderated - only users who have been 'voiced' with mode v are able to say anything in channel: /mode $chan +m
-<br><b>n</b>
-      - No external messages - only people who have joined the channel can send messages to it: /mode $chan +n
-<br><b>p</b>
-      - Make the channel private i.e. it will not appear in the server's channel list: /mode $chan +p
-<br><b>s</b>
-      - Make the channel secret i.e. it will not appear in the server's channel list or in /whois responses for users already in channel: /mode $chan +s
-<br><b>t</b>
-      - Only Ops and Half-Ops can change the topic: /mode $chan +t
-<br><b>z</b>
-      - Only users connected via SSL can join the channel: /mode $chan +z
+<br><b>A</b> - For an invite only channel by default only Ops and Half-Ops can invite users to join. /mode $chan +A allows any channel member to invite others to join the channel.
+<br><b>C</b> - Blocks users from sending CTCP requests to channel: /mode $chan +C
+<br><b>F</b> - Restrict channel users from changing nicks (with /nick) more than X times in Y seconds: /mode $chan +F X:Y
+<br><b>Q</b> - Only Chanserv (or equivalent) can kick users, not Ops: /mode $chan +Q
+<br><b>R</b> - Only registered users can join the channel: /mode $chan +R
+<br><b>S</b> - Strip Control codes for colors etc from channel messages: /mode $chan +S
+<br><b>c</b> - Disallow messages containing control codes for colors: /mode $chan +c
+<br><b>d</b> - Make users wait X seconds after joining before being able to speak in channel - can help prevent drive-by spam: /mode $chan +d X
+<br><b>i</b> - Make the channel invite only - existing users will need to invite new users before they can join the channel: /mode $chan +i
+<br><b>j</b> - Only allow X users to join the channel every Y seconds: /mode $chan +j X:Y
+<br><b>k</b> - Give the channel a password or key - users will need to provide the key to join the channel: /mode $chan +k key
+<br><b>l</b> - Set a limit to the number of users allowed in the channel - this is typically used to prevent DoS attacks by hundreds of users attempting to join a channel at once, and is reset by a bot as the number of valid users increases as they join or decreases as they part: /mode $chan +l n
+<br><b>m</b> - Make the channel moderated - only users who have been 'voiced' with mode v are able to say anything in channel: /mode $chan +m
+<br><b>n</b> - No external messages - only people who have joined the channel can send messages to it: /mode $chan +n
+<br><b>p</b> - Make the channel private i.e. it will not appear in the server's channel list: /mode $chan +p
+<br><b>s</b> - Make the channel secret i.e. it will not appear in the server's channel list or in /whois responses for users already in channel: /mode $chan +s
+<br><b>t</b> - Only Ops and Half-Ops can change the topic: /mode $chan +t
+<br><b>z</b> - Only users connected via SSL can join the channel: /mode $chan +z
 
 <H4>User specific channel modes</H4>
 
-<br><b>I</b>
-      - Allows users matching the mask to join the channel without needing an invite first: /mode $chan +I nick!host@address
-<br><b>b</b>
-      - Ban users matching the mask from the channel: /mode $chan +b nick!host@address
-<br><b>e</b>
-      - Allows users matching the mask to join the channel even if a ban mask would otherwise ban them: /mode $chan +e nick!host@address
-<br><b>h</b>
-      - Give a user Half-Op status in the channel - usually indicated with nick prefixed with a %: /mode $chan +h nick
-<br><b>o</b>
-      - Give a user Op status in the channel - usually indicated with nick prefixed with an @: /mode $chan +o nick
-<br><b>v</b>
-      - Give a user Voiced status in the channel - usually indicated with nick prefixed with a +: /mode $chan +v nick
+<br><b>I</b> - Allows users matching the mask to join the channel without needing an invite first: /mode $chan +I nick!host@address
+<br><b>b</b> - Ban users matching the mask from the channel: /mode $chan +b nick!host@address
+<br><b>e</b> - Allows users matching the mask to join the channel even if a ban mask would otherwise ban them: /mode $chan +e nick!host@address
+<br><b>h</b> - Give a user Half-Op status in the channel - usually indicated with nick prefixed with a %: /mode $chan +h nick
+<br><b>o</b> - Give a user Op status in the channel - usually indicated with nick prefixed with an @: /mode $chan +o nick
+<br><b>v</b> - Give a user Voiced status in the channel - usually indicated with nick prefixed with a +: /mode $chan +v nick
 
 <H4>User Modes</H4>
 
 The list of *User* modes below are those that are commonly available on most IRC networks. Some (or many) IRC networks have additional modes (see individual network help pages), and this list should **not** be considered definitive.
 
 
-<br><b>i</b>
-      - Mark yourself invisible from /who: /mode $me +i
+<br><b>i</b> - Mark yourself invisible from /who: /mode $me +i
 
 <br><b>Note:</b> This does NOT make you invisible inside a channel - nor does it stop someone doing a /whois for your nick if they know it. But it does stop your nick being listed using /who or /names commands.
 
 
-<br><b>r</b>
-      - Indicates that your nick is registered and identified with Chanserv or equivalent.
-<br><b>w</b>
-      - Allows you to receive walluser messages about the status of the network from IRCOPS: /mode $me +w
-<br><b>x</b>
-      - Replace the IP address in your IRC hostname with a hashed/encrypted version: /mode $me +x
-<br><b>B</b>
-      - Mark yourself as being a bot: /mode $me +B
-<br><b>R</b>
-      - Allows only other nicks who are registered and identified with Chanserv or equivalent to send you private messages: /mode $me +R
+<br><b>r</b> - Indicates that your nick is registered and identified with Chanserv or equivalent.
+<br><b>w</b> - Allows you to receive walluser messages about the status of the network from IRCOPS: /mode $me +w
+<br><b>x</b> - Replace the IP address in your IRC hostname with a hashed/encrypted version: /mode $me +x
+<br><b>B</b> - Mark yourself as being a bot: /mode $me +B
+<br><b>R</b> - Allows only other nicks who are registered and identified with Chanserv or equivalent to send you private messages: /mode $me +R
 
 <H4>Example</H4>
 <pre class ="code">

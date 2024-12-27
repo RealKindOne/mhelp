@@ -14,26 +14,17 @@ The <b>/hload</b> command loads a text file to an hash table. /hload does not cr
 </pre>
 
 <H4>Switches</H4>
-<b>-s</b>
-      - display a message if successful: "* Loaded hash table '&lt;name&gt;' from '&lt;filename&gt;'
-<br><b>-b</b>
-      - loads binary files,<a href="..\identifiers\cr.html">$cr</a> and <a href="..\identifiers\lf.html">$lf</a> and 0x00's etc are preserved when saving as binary files
-<br><b>-B</b>
-      - uses a larger index than -b to allow longer binary data to be saved. This is not compatible with files created by the -b switch.
-<br><b>-n</b>
-      - loads files as data only, each item is a sequential integer, starting at N = 1
-<br><b>-i</b>
-      - treats the file as an ini file format
-<br><b>-m</b>N
-      - create the hash table if it does not exist, you can optionally specify N for the number of buckets in the range 1-10000, default 100 if N not used.
+<b>-s</b> - Display a message if successful: "* Loaded hash table '&lt;name&gt;' from '&lt;filename&gt;'.
+<br><b>-b</b> - Loads binary files,<a href="..\identifiers\cr.html">$cr</a> and <a href="..\identifiers\lf.html">$lf</a> and 0x00's etc are preserved when saving as binary files.
+<br><b>-B</b> - Uses a larger index than -b to allow longer binary data to be saved. This is not compatible with files created by the -b switch.
+<br><b>-n</b> - Loads files as data only, each item is a sequential integer, starting at N = 1.
+<br><b>-i</b> - Treats the file as an ini file format.
+<br><b>-m</b>N - create the hash table if it does not exist, you can optionally specify N for the number of buckets in the range 1-10000, default 100 if N not used.
 
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b>
-      - the name of the hash table
-<br><b>&lt;filename&gt;</b>
-      - the file from which you want to load. Filename containing space much be enclosed in doublequotes.
-<br><b>[section]</b>
-      - if -i is used, you can specify a section to be loaded. Default section name when parameter not used: hashtable (Should not use the square braces around the Section name.)
+<b>&lt;name&gt;</b> - The name of the hash table.
+<br><b>&lt;filename&gt;</b> - The file from which you want to load. Filename containing space much be enclosed in doublequotes.
+<br><b>[section]</b> - If -i is used, you can specify a section to be loaded. Default section name when parameter not used: hashtable (Should not use the square braces around the Section name.)
 
 Notes
 -----

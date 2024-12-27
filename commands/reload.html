@@ -15,16 +15,12 @@ The <b>/reload</b> command reloads the specified alias/remote/popup file, you ca
 </pre>
 
 <H4>Switches</H4>
-<b>-a</b>
-      - Specify an alias file.
-<br><b>-p</b>S
-      - Specify a popup file, you must specify the S value which is 's' for a status window popup, 'c' for a channel popup, 'q' for query, 'n' for nicklist and 'm' for the menubar.
-<br><b>-r</b>TN
-      - Specify a remote/user/variable file, you must specify the T value which is 'u' for an user file, 's' for a remote (script) file and 'v' for variable, the N value is optional: if specified, reload the file into the Nth position in the script list.
+<b>-a</b> - Specify an alias file.
+<br><b>-p</b>S - Specify a popup file, you must specify the S value which is 's' for a status window popup, 'c' for a channel popup, 'q' for query, 'n' for nicklist and 'm' for the menubar.
+<br><b>-r</b>TN - Specify a remote/user/variable file, you must specify the T value which is 'u' for an user file, 's' for a remote (script) file and 'v' for variable, the N value is optional: if specified, reload the file into the Nth position in the script list.
 
 <H4>Parameters</H4>
-<b>&lt;filename&gt;</b>
-      - The filename to be reloaded.
+<b>&lt;filename&gt;</b> - The filename to be reloaded.
 
 <H4>Example</H4>Loads scriptfile.mrc without triggering ON START or ON LOAD events. If it's already loaded, this moves it to position 1 in the remote script list.
 <pre class ="code">
