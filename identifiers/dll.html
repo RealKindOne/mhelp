@@ -13,9 +13,9 @@ The <b>$dll</b> identifier call a function of a dll, and eventually returns a va
 $dll(name[.dll],procname,data)
 </pre>
 <H4>Parameters</H4>
-<b>name.dll</b> - the filename to the dll. If filetype not used, assumes filename.dll
-<br><b>procname</b> - procname, the name of the function in the dll
-<br><b>data</b> - a text string/parameter passed to the function, which .dll sees as 0x00-terminated, even if procname does not require a data string, you must still pass a null or dummy string. If data should contain a comma, best to place it in a %var or use $chr(44) instead of trying to pass as a literal string.
+<b>name.dll</b> - The filename to the dll. If filetype not used, assumes filename.dll.
+<br><b>procname</b> - procname, the name of the function in the dll.
+<br><b>data</b> - A text string/parameter passed to the function, which .dll sees as 0x00-terminated, even if procname does not require a data string, you must still pass a null or dummy string. If data should contain a comma, best to place it in a %var or use $chr(44) instead of trying to pass as a literal string.
 
 <H4>Properties</H4>
 None

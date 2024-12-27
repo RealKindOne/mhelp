@@ -174,19 +174,20 @@ You can pass a binary variable by prefixing the type of the variable with an '&'
 <br>
 To make a variable by reference, postfix the data type with an asterisk and a variable name, for example: int* pIntOfBeer.
 <br>
-<br><b>value1</b> - the value assigned to the variable type
+<br><b>value1</b> - The value assigned to the variable type.
 
 <H4>Properties</H4>
 When only one parameter is passed to $com (name/N), you can use the following properties:
-<br><b>.progid</b> - Returns the object name
-<br><b>.result</b> - Returns the value returned by the COM object member call, you can save this result to a binary variable with $com(name/N,&binvar).result
-<br><b>.error</b> - Returns the error value, if there were any error
-<br><b>.errortext</b> - Returns the error description associated with the <b>.error</b> value
+<br><b>.progid</b> - Returns the object name.
+<br><b>.result</b> - Returns the value returned by the COM object member call, you can save this result to a binary variable with $com(name/N,&binvar).result.
+<br><b>.error</b> - Returns the error value, if there were any error.
+<br><b>.errortext</b> - Returns the error description associated with the <b>.error</b> value.
 <br><b>.argerr</b> - Returns the Nth argument that caused the error, if the error were due to an invalid variable type.
-<br><b>.dispatch</b> - Returns the name of the dispatched pointer if it exist
-<br><b>.unknown</b> - Returns the name of the unknown pointer if it exist
-<br><b>.inuse</b> - Returns $true if the current com connection is in use
-
+<br><b>.dispatch</b> - Returns the name of the dispatched pointer if it exist.
+<br><b>.unknown</b> - Returns the name of the unknown pointer if it exist.
+<br><b>.inuse</b> - Returns $true if the current com connection is in use.
+<br>
+<br>
 In the case of retrieving an unknown pointer, mIRC will extend it to a dispatch pointer if it can, allowing you to call it directly via $com().
 
 <H4>Example</H4>

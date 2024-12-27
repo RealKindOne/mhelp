@@ -12,13 +12,13 @@ The <b>$hmac</b> identifier returns an HMAC (keyed-Hash Message Authentication C
 $hmac(text|&binvar|filename, key, hash, N)
 </pre>
 <H4>Parameters</H4>
-<b>text|&binvar|filename</b> - the input
-<br><b>key</b> - the key
-<br><b>N</b> - the type of input, use N = 0 if input is plain text, N = 1 for &binvar, and 2 for filename
-<br><b>hash</b> - optional, hashing algorithm, can be md5, sha1 (default), sha256, sha384, or sha512.
+<b>text|&binvar|filename</b> - The input.
+<br><b>key</b> - The key.
+<br><b>N</b> - The type of input, use N = 0 if input is plain text, N = 1 for &binvar, and 2 for filename.
+<br><b>hash</b> - Optional, hashing algorithm, can be md5, sha1 (default), sha256, sha384, or sha512.
 <br>
 Due to algorithm design:
-<br>output is a hash digest that's the same length as the digest for the hash parameter (default sha1)
+<br>Output is a hash digest that's the same length as the digest for the hash parameter (default sha1)
 <br>If key length is longer than hash block length (128 bytes for sha512/384 64 bytes for md5/sha1/sha256), key shortened to be the binary hash digest of the key.
 <br>HMAC is designed for non-binary keys. Shorter keys are padded with 0x00's to 'hash's block length', so keys differing by the number of trailing 0x00's are identical.
 <br>Because HMAC uses 2 nested hashes using 2 modified copies of the key, usage as an authentication hash is not vulnerable to the length extension attack against auth_hash=$sha512(secret $+ message), and using hash=md5 isn't as vulnerable to the other weaknesses in md5.

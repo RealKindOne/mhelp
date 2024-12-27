@@ -35,8 +35,8 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br><b>s</b> - indicates that window parameter has been specified (making optional 'title' be the 4th parameter)
 <br><b>a</b> - make $input dialog active if mIRC is not the active application
 <br><b>u</b> - use current active window as parent window, including custom dialog window. In the past, the 's' switch could not be used to pass a custom dialog window as the parent, this switch is then technically there for custom dialog support as parent.
-<br><b>window</b> - if option '''s''' is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
-<br><b>title</b> - the titlebar text.
+<br><b>window</b> - if option <b>s</b> is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
+<br><b>title</b> - The titlebar text.
 <br><b>text</b> - default text placed in the input editbox
 <br>
 
@@ -46,7 +46,7 @@ None
 
 The options, window, title, and text are optional parameters
 <br>
-By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. '''f''' switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. '''kN''' defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
+By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. <b>f</b> switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. <b>kN</b> defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
 <br>
 For the <b>options</b> parameter, you can also use a number as a combination of value added together, without the presence of any letter switches, which is how $input was originally working:
 

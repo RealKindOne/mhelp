@@ -18,8 +18,8 @@ $file="title" dir
 </pre>
 <H4>Parameters</H4>
 <b>filename</b> - The filename or directory to any local or networked resource, optionally including absolute or relative path (relative to <a href="mircdir.html">$mircdir</a>)
-<br><b>title</b> - the title of the dialog, the quote are optional if you don't use space, this parameter is optional: //echo -a $file c:\*.txt
-<br><b>dir</b> - the directory you want to display, you can put a file at the end which will be used to fill the 'filename' field in the dialog
+<br><b>title</b> - The title of the dialog, the quote are optional if you don't use space, this parameter is optional: //echo -a $file c:\*.txt
+<br><b>dir</b> - The directory you want to display, you can put a file at the end which will be used to fill the 'filename' field in the dialog
 
 <H4>Properties</H4>
 When new $file(filename) is used, you can use the following properties:
@@ -36,31 +36,31 @@ When new $file(filename) is used, you can use the following properties:
 Attributes:
 <br>
 
-<br><b>a</b> - archive flag. Is set during normal file-modifying or dir-creation as an indicator to backup programs the file has changed since the last backup, for use with incremental backups. All backups clear this flag for files they archive.
-<br><b>c</b> - if file/folder is compressed.
-<br><b>d</b> - if it is a directory.
-<br><b>e</b> - if the file/folder is encrypted
-<br><b>h</b> - if the file/folder is hidden.
-<br><b>n</b> - if the file/folder is normal, not indexed.
+<br><b>a</b> - Archive flag. Is set during normal file-modifying or dir-creation as an indicator to backup programs the file has changed since the last backup, for use with incremental backups. All backups clear this flag for files they archive.
+<br><b>c</b> - If file/folder is compressed.
+<br><b>d</b> - If it is a directory.
+<br><b>e</b> - If the file/folder is encrypted.
+<br><b>h</b> - If the file/folder is hidden.
+<br><b>n</b> - If the file/folder is normal, not indexed.
 <!--- https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-sparse --->
-<br><b>o</b> - the file data is physically moved to offline storage (Remote Storage).
-<br><b>p</b> - if the file is sparse.
-<br><b>r</b> - if the file/folder is in read only mode
-<br><b>s</b> - if the file/folder is a system file/folder
-<br><b>t</b> - a file or directory that has an associated reparse point, or a file that is a symbolic link.
-<br><b>x</b> - if you're archiving (a) but are not allowing the indexing of the file/folder's content
-<br><b>y</b> - if the file is temporary
+<br><b>o</b> - The file data is physically moved to offline storage (Remote Storage).
+<br><b>p</b> - If the file is sparse.
+<br><b>r</b> - If the file/folder is in read only mode.
+<br><b>s</b> - If the file/folder is a system file/folder.
+<br><b>t</b> - A file or directory that has an associated reparse point, or a file that is a symbolic link.
+<br><b>x</b> - If you're archiving (a) but are not allowing the indexing of the file/folder's content.
+<br><b>y</b> - If the file is temporary.
 
 <br>
 <br>
 
-<br><b>.sig</b> - Checks digital signature of an executable/DLL file. (Returns: ok, fail, none)
+<br><b>.sig</b> - Checks digital signature of an executable/DLL file. (Returns: <b>ok</b>, <b>fail</b>, or <b>none</b>)
 <br><b>.ext</b> - Returns the extension of the filename if a filename is used, $null otherwise
-<br><b>.path</b> - if a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
+<br><b>.path</b> - If a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
 <br><b>.name</b> - Returns the name of the folder if a folder is used, or the name of the file without the extension if a filename is used
-<br><b>.version</b> - Returns the file's ''file version'' if executable/DLL.
-<br><b>.product</b> - Returns the file's ''product version'' if executable/DLL.
-<br><b>.flags</b> - Returns the file's ''file flags'' if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
+<br><b>.version</b> - Returns the file's <b>file version</b> if executable/DLL.
+<br><b>.product</b> - Returns the file's <b>product version</b> if executable/DLL.
+<br><b>.flags</b> - Returns the file's <b>file flags</b> if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
 <br><b>1</b>: DEBUG - The file contains debugging information or is compiled with debugging features enabled.
 <br><b>2</b>: PRERELEASE - The file is a development version, not a commercially released product.
 <br><b>4</b>: PATCHED - The file has been modified and is not identical to the original shipping file of the same version number.

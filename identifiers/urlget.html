@@ -15,35 +15,35 @@ $urlget(N/ID,cr)
 $urlget(N/ID)[.prop]
 </pre>
 <H4>Parameters</H4>
-<b>url</b> - the url to access, must be prefixed with http:// or https:// (maximum url characters are <b>2000</b>)
+<b>url</b> - The url to access, must be prefixed with http:// or https:// (maximum url characters are <b>2000</b>)
 <br><b>hgpuadfbrtic</b> - switches to indicate how to proceed:
-<br><b>hgpuad</b> - <b>h</b> for HEAD, <b>g</b> for GET, <b>p</b> for POST, <b>u</b> for PUT, <b>a</b> for PATCH, <b>d</b> for DELETE
-<br><b>fb</b> - <b>f</b> to output the answer (without the responses headers) to a file, <b>b</b> to output to a binvar
-<br><b>r</b> - resumes the processing,
-<br><b>t</b> - uses .part file if necessary
-<br><b>i</b> - ignores SSL errors
-<br><b>c</b> - cancel the processing
-<br><b>k</b> - prevent redirection
-<br><b>target</b> - the output: the filename if you used <b>f</b>, or a &binvar for <b>b</b>
-<br><b>alias</b> - the name of the alias that is called at the end, this alias is called as a command with one parameter passed to it: the ID
-<br><b>headers</b> - optional, a &binvar containing the headers to be sent, separated by $crlf
-<br><b>body</b> - optional, a &binvar containing the data to be sent when you are POSTing
-<br><b>ID/N</b> - the Nth urlget or the urlget referenced by the ID
+<br><b>hgpuad</b> - <b>h</b> for HEAD, <b>g</b> for GET, <b>p</b> for POST, <b>u</b> for PUT, <b>a</b> for PATCH, <b>d</b> for DELETE.
+<br><b>fb</b> - <b>f</b> to output the answer (without the responses headers) to a file, <b>b</b> to output to a binvar.
+<br><b>r</b> - Resumes the processing.
+<br><b>t</b> - Uses .part file if necessary.
+<br><b>i</b> - Ignores SSL errors.
+<br><b>c</b> - Cancel the processing.
+<br><b>k</b> - prevent redirection.
+<br><b>target</b> - The output: the filename if you used <b>f</b>, or a &binvar for <b>b</b>.
+<br><b>alias</b> - The name of the alias that is called at the end, this alias is called as a command with one parameter passed to it: the ID.
+<br><b>headers</b> - Optional, a &binvar containing the headers to be sent, separated by $crlf.
+<br><b>body</b> - Optional, a &binvar containing the data to be sent when you are POSTing.
+<br><b>ID/N</b> - The Nth urlget or the urlget referenced by the ID.
 
 <H4>Properties</H4>
-<b>.url</b> - Returns the url used
-<br><b>.redirect</b> - Returns the value of the location header if available
-<br><b>.method</b> - Returns the method used (GET/POST)
-<br><b>.type</b> - Returns the type of output, (binvar/file)
-<br><b>.target</b> - Returns the value of target (name of the binvar or filename)
-<br><b>.alias</b> - Returns the name of the alias used
+<b>.url</b> - Returns the url used.
+<br><b>.redirect</b> - Returns the value of the location header if available.
+<br><b>.method</b> - Returns the method used (GET/POST).
+<br><b>.type</b> - Returns the type of output, (binvar/file).
+<br><b>.target</b> - Returns the value of target (name of the binvar or filename).
+<br><b>.alias</b> - Returns the name of the alias used.
 <br><b>.id</b> - Returns the ID.
-<br><b>.state</b> - Returns the state (ok, connect, download, fail)
-<br><b>.size</b> - Returns the value of the content-length header
-<br><b>.resume</b> - Returns 0 or 1 depending on if you are resumed/paused?
+<br><b>.state</b> - Returns the state <b>ok</b>, <b>connect</b>, <b>download</b>, or <b>fail</b>.
+<br><b>.size</b> - Returns the value of the content-length header.
+<br><b>.resume</b> - Returns <b>0</b> or <b>1</b> depending on if you are resumed/paused?
 <br><b>.rcvd</b> - Returns the number of bytes received after the header, could be different from .size after a failed download.
-<br><b>.time</b> - Returns the time taken to complete the processing, in millisecond
-<br><b>.reply</b> - Returns the response headers
+<br><b>.time</b> - Returns the time taken to complete the processing, in millisecond.
+<br><b>.reply</b> - Returns the response headers.
 
 <H4>Example</H4>
 Usage: /download https://www.mirc.com/versions.txt

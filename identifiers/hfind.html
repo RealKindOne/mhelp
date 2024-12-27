@@ -26,16 +26,16 @@ More information <a href="..\other\injection.html">here</a>.
 $hfind(name/N, text, N, M, @window | command)[.data]
 </pre>
 <H4>Parameters</H4>
-<b>name/N</b> - the Nth hash table or the name of it
-<br><b>text</b> - the expression to use to find a match
-<br><b>N</b> - The Nth match, use 0 to get the total number of match or to trigger the @window | command parameter for all matches
-<br><b>M</b> - optional, a letter indicating how to match, default to value normal text comparison (n) below:
-<br><b>n</b> - normal text comparison
-<br><b>w</b> - <a href="..\other\wildcard.html">wildcard</a> expression
-<br><b>W</b> - hash table item/data is <a href="..\other\wildcard.html">wildcard</a> expression, see example below
-<br><b>r</b> - regular expression
-<br><b>R</b> - hash table item/data is regular expression, see example below
-<br><b>command | @win</b> -- if you pass a @win name, the item name that matched is put in the window, otherwise mirc evaluate the command for each match, $1 can be used to access the item name
+<b>name/N</b> - The Nth hash table or the name of it.
+<br><b>text</b> - The expression to use to find a match.
+<br><b>N</b> - The Nth match, use 0 to get the total number of match or to trigger the @window | command parameter for all matches.
+<br><b>M</b> - Optional, a letter indicating how to match, default to value normal text comparison (n) below:
+<br><b>n</b> - Normal text comparison.
+<br><b>w</b> - <a href="..\other\wildcard.html">wildcard</a> expression.
+<br><b>W</b> - Hash table item/data is <a href="..\other\wildcard.html">wildcard</a> expression, see example below.
+<br><b>r</b> - Regular expression.
+<br><b>R</b> - Hash table item/data is regular expression, see example below.
+<br><b>command | @win</b> -- if you pass a @win name, the item name that matched is put in the window, otherwise mirc evaluate the command for each match, $1 can be used to access the item name.
 
 <H4>Properties</H4>
 <b>.data</b> - instead of looking for matches against item, matches against data, but the item name is still returned.

@@ -20,13 +20,13 @@ $bfind(&binvar, N , M , [name])[.property]
 <b>&binvar</b> - A binary variable name which begins with the & symbol.
 <br><b>N</b> - The position within the binary variable where it starts searching.
 <br><b>M</b> - Value being searched for, either ASCII decimals 0-255 or text.
-<br><b>name</b> -an optional name to go with .regex, to be able to reference captured group later on.
+<br><b>name</b> - An optional name to go with .regex, to be able to reference captured group later on.
 
 <H4>Properties</H4>
 <b>.text</b> - Treats a numeric N as text instead of bytes value, also decode bytes from utf8 before searching.
-<br><b>.textcs</b> - When M is recognized as text, search is performed as case-sensitive
-<br><b>.ansi</b> - the bytes of the binvar are not decoded from utf8 before searching.
-<br><b>.regex</b> - performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts, so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
+<br><b>.textcs</b> - When M is recognized as text, search is performed as case-sensitive.
+<br><b>.ansi</b> - The bytes of the binvar are not decoded from utf8 before searching.
+<br><b>.regex</b> - Performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts, so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
 
 <H4>Example</H4>
 <pre class ="code">//bset -t &var 1 test wavmIRC32WAV test | echo -a space beginning pos1: $bfind(&var,1,32) / space beginning pos11: $bfind(&var,11,32) / finds string '32' instead of chr(32) $bfind(&var,1,32).text / case-sensitive: $bfind(&var, 1, $asc(W) $asc(A) $asc(V) ) / case-insensitive: $bfind(&var,1,WAV).text / case-sensitive: $bfind(&var,1,WAV).textcs / not found: $bfind(&var,1,abc).text

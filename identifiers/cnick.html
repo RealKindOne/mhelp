@@ -12,23 +12,23 @@ The <b>$cnick</b> identifier returns the 'Nick or address' field from the Edit d
 $cnick(N/nick, M)[.property]
 </pre>
 <H4>Parameters</H4>
-<b>&lt;N/nick&gt;</b> - a number representing the Nth item in the Nick Color dialog or a nickname/address used as a match against the field 'Nick or address' in Nick Color Edit dialog
-<br><b>M</b> - if you use the .color property and no item is found via a nick/address match, the 'Normal Text' color is returned, if M is 1, the 'Listbox text' is color is returned
+<b>&lt;N/nick&gt;</b> - A number representing the Nth item in the Nick Color dialog or a nickname/address used as a match against the field 'Nick or address' in Nick Color Edit dialog.
+<br><b>M</b> - if you use the .color property and no item is found via a nick/address match, the 'Normal Text' color is returned, if M is 1, the 'Listbox text' is color is returned.
 
 <H4>Properties</H4>
-<b>.color </b>/<b> .colour</b> - Return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned
-<br><b>.modes</b> - Return the 'Channel modes' field
-<br><b>.levels</b> - Return the 'User levels' field
-<br><b>.method</b> - Return the 'Method' field
-<br><b>.anymode</b> - Return the state of the 'Any mode' checkbox
-<br><b>.nomode</b> - Return the state of the 'No mode' checkbox
-<br><b>.ignore</b> - Return the state of the 'Ignore' checkbox
-<br><b>.op</b> - Return the state of the 'Op' checkbox
-<br><b>.voice</b> - Return the state of the 'Voice' checkbox
-<br><b>.protect</b> - Return the state of the 'Protect' checkbox
-<br><b>.notify</b> - Return the state of the 'notify' checkbox
-<br><b>.idle</b> - Return the 'Idle time' field
-<br><b>.auto</b> - Return the state of the 'Auto color' option (where you can use '*' as a color to enable the option)
+<b>.color </b>/<b> .colour</b> - Return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned.
+<br><b>.modes</b> - Return the 'Channel modes' field.
+<br><b>.levels</b> - Return the 'User levels' field.
+<br><b>.method</b> - Return the 'Method' field.
+<br><b>.anymode</b> - Return the state of the 'Any mode' checkbox.
+<br><b>.nomode</b> - Return the state of the 'No mode' checkbox.
+<br><b>.ignore</b> - Return the state of the 'Ignore' checkbox.
+<br><b>.op</b> - Return the state of the 'Op' checkbox.
+<br><b>.voice</b> - Return the state of the 'Voice' checkbox.
+<br><b>.protect</b> - Return the state of the 'Protect' checkbox.
+<br><b>.notify</b> - Return the state of the 'notify' checkbox.
+<br><b>.idle</b> - Return the 'Idle time' field.
+<br><b>.auto</b> - Return the state of the 'Auto color' option (where you can use '*' as a color to enable the option).
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $cnick(1).color</pre>

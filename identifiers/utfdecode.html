@@ -12,8 +12,8 @@ The <b>$utfdecode</b> identifier returns text decoded to utf8.
 $utfdecode(text,gdi)
 </pre>
 <H4>Parameters</H4>
-<b>text</b> - The text you want to decode to utf8
-<br><b>gdi</b> - the gdi charset number representing a codepage, possible value are:
+<b>text</b> - The text you want to decode to utf8.
+<br><b>gdi</b> - The gdi charset number representing a codepage, possible value are:
 <br>
 <br><b>000</b> - ANSI_CHARSET
 <br><b>001</b> - DEFAULT_CHARSET
@@ -35,7 +35,8 @@ $utfdecode(text,gdi)
 <br><b>238</b> - EASTEUROPE_CHARSET
 <br><b>255</b> - OEM_CHARSET
 
-
+<br>
+<br>
 Note: GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using gdi = 1.
 
 

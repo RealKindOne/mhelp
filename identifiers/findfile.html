@@ -28,9 +28,9 @@ $findfile(dir, wildcard , N , [depth , [@window | command] ] )[.property]
 <b>DIR</b> - Name of the starting folder name.
 <br><b>wildcard</b> - Filename being searched for. A list of filenames or <a href="..\other\wildcard.html">wildcard</a> separated by a ';'.
 <br><b>N</b> - Nth sequential file being searched for. 0 is count of ALL files.
-<br><b>depth</b> - optional folder depth, counting DIR as the first level. 0 or 1 is DIR level only. If depth not used, there's no depth limit.
-<br><b>command</b> - optional 5th parameter. Can use $findfilen as the sequential number for that filename, or $1- for the space-delimited filename. If the first token in the command is an identifier, $1- will hold the previous values it had and you can pre-evaluate $1- with $!1- to access the filename.
-<br><b>@window</b> - optional 5th parameter. Must be window with side listbox created with -l switch. Each $1- from matching filenames is appended as a new line to the side listbox. Is equivalent to: /aline -la @window $1-
+<br><b>depth</b> - Optional folder depth, counting DIR as the first level. 0 or 1 is DIR level only. If depth not used, there's no depth limit.
+<br><b>command</b> - Optional 5th parameter. Can use $findfilen as the sequential number for that filename, or $1- for the space-delimited filename. If the first token in the command is an identifier, $1- will hold the previous values it had and you can pre-evaluate $1- with $!1- to access the filename.
+<br><b>@window</b> - Optional 5th parameter. Must be window with side listbox created with -l switch. Each $1- from matching filenames is appended as a new line to the side listbox. Is equivalent to: /aline -la @window $1-
 
 Note: DIR can be absolute \path or c:\path or relative to $mircdir. Does not need ending slash. Accepts forward/backward slashes interchangeably but always output backslash.
 
