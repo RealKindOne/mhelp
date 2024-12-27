@@ -12,9 +12,9 @@ The <b>$regsub</b> identifier performs a regular expression match and then subst
 $regsub([name],input,regex,subtext,%var|&binvar)
 </pre>
 <H4>Parameters</H4>
-<b>name</b> -The optional name of the regex, to be used later to retrieve captured group with <a href="regml.html">$regml</a> or <a href="regmlex.html">$regmlex</a>
-<br><b>input</b> - The input text
-<br><b>regex</b> - the regular expression for <a href="..\other\regex.html">pcre</a>
+<b>name</b> -The optional name of the regex, to be used later to retrieve captured group with <a href="regml.html">$regml</a> or <a href="regmlex.html">$regmlex</a>.
+<br><b>input</b> - The input text.
+<br><b>regex</b> - The regular expression for <a href="..\other\regex.html">pcre</a>.
 <br><b>subtext</b> - The text to use to replace the match, this parameter is evaluated once prior the regex call, you can use backreferences \1 \2 etc, but it doesn't support the markers of <a href="regsubex.html">$regsubex</a> such as \t \n \A etc. , you cannot use <a href="regml.html">$regml</a> or <a href="regmlex.html">$regmlex</a> inside the subtext parameter since it's evaluated prior the regex call.
 
 <H4>Properties</H4>
