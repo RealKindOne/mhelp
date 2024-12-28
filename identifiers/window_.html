@@ -35,15 +35,15 @@ $window(N/name)[.property]
 <br><b>.fontcs</b> - The character set of the current font.
 <br><b>.fullscreen</b> - Returns $true if the window is in fullscreen, otherwise returns $false.
 <br><b>.fulltitle</b> - Returns the full titlename of the window.
-<br><b>.logfile</b> - The path\filename of the window's logfile if one is open.
-<br><b>.stamp</b> - Timestamp setting, $true or $false.
+<br><b>.logfile</b> - Returns the full logfile name if a log is opened for the window, otherwise returns $null.
+<br><b>.stamp</b> - Returns either <a href="true.html">$true</a>, or <a href="false.html">$false</a> depending on if time-stamping is enabled or disabled.
 <br><b>.icon</b> - Returns on/off depending on whether icon is visible.
 <br><b>.ontop</b> - Returns ontop status for a window, $true or $false.
 <br><b>.type</b> - Returns window type: status,channel,custom,query,etc...
 <br><b>.anysc</b> - Returns $true or $false to indicate if the /window was created using the -i switch.
-<br><b>.wid</b> - Returns the window ID number.
-<br><b>.cid</b> - Returns the connection id number associated with that window. Changes based on active network if @window created using the -i switch.
-<br><b>.hwnd</b> - Returns the window handle number.
+<br><b>.wid</b> - Returns the window ID number for the window.
+<br><b>.cid</b> - Returns the connection ID number associated with the window. Changes based on active network if @window created using the -i switch.
+<br><b>.hwnd</b> - Returns the window handle for the window.
 <br><b>.sbtext</b> -  Returns the switchbar button text.
 <br><b>.sbcolor</b> - The name of the switchbar highlight color, <b>event</b>, <b>message</b>, <b>highlight</b>, or $null if not colored.
 <br><b>.sbstate</b> - Returns switchbar button state for a window, 0=hidden 1=not hidden.

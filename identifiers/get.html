@@ -24,11 +24,11 @@ When sender changes nick, the $get is still associated with the old nick unless 
 <br><b>Note:</b> $get(-1) can be used during the <a href="..\events\on_filercvd.html">ON FILERCVD</a> and <a href="..\events\on_getfail.html">ON GETFAIL</a> events, it refers to the 'get' which triggered that event.
 
 <H4>Properties</H4>
-<b>.cid</b> - The connection id
+<b>.cid</b> - Returns the connection ID for the DCC Get.
 <br><b>.cps</b> - The characters-per-second transfer rate, averages speed during recent time period until transfer finishes, when rate is averaged across entire connection time
 <br><b>.done</b> - Returns <a href="true.html">$true</a> if the transfer has completed, otherwise returns <a href="false.html">$false</a>.
 <br><b>.file</b> - The file name of the current transfer.
-<br><b>.hwnd</b> - The window handle.
+<br><b>.hwnd</b> - Returns the window handle for the DCC Get.
 <br><b>.idle</b> - The number of seconds that the file transfer has been idle.
 <br><b>.ip</b> - The IP Address for the remote user.
 <br><b>.path</b> - The path of the file name being transferred.
@@ -38,7 +38,7 @@ When sender changes nick, the $get is still associated with the old nick unless 
 <br><b>.secs</b> - The total number of seconds the transfer has been connected.
 <br><b>.size</b> - The file size in bytes for the transfer.
 <br><b>.status</b> - The status of the window; returns: <b>sent</b>, <b>active</b>, <b>failed</b>, <b>received</b> or <b>waiting</b>.
-<br><b>.wid</b> - The mIRC window ID for this window.
+<br><b>.wid</b> - Returns the window ID for the Get window.
 
 <H4>Example</H4>
 Echo the total percent completed of the 3rd transfer:

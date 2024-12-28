@@ -17,12 +17,13 @@ $query(N/nick)[.property]
 
 <H4>Properties</H4>
 <b>.addr</b> - Returns the user address, this value might not be correct, you have to get a message from the user to make sure the address is correct
-<br><b>.logfile</b> - Returns the file name associated with this query window for logging
-<br><b>.stamp</b> - Returns the timestamp setting for that query window
-<br><b>.wid</b> - Returns the window ID of that query window
-<br><b>.cid</b> - Returns the connection ID of that query window
-<br><b>.hwnd</b> - Returns the handle of that query window
-<br><b>.idle</b> - Returns the number of second since a message was sent or received for that query window
+<br><b>.logfile</b> - Returns the full logfile name if a log is opened for the window, otherwise returns $null.
+<br><b>.stamp</b> - Returns either <a href="true.html">$true</a>, or <a href="false.html">$false</a> depending on if time-stamping is enabled or disabled.
+<br><b>.wid</b> - Returns the window ID of that query window.
+<br><b>.cid</b> - Returns the connection ID for the query.
+<br><b>.hwnd</b> - Returns the window handle for the query window.
+<br><b>.idle</b> - Returns the number of seconds since the query window opened or the person said something, whichever happened last.
+
 
 <H4>Example</H4>
 Print the total number of open query windows for the network.
