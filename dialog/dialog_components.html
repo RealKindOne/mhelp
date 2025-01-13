@@ -561,8 +561,8 @@ The edit control can behave as a normal text box as well as a rich text control.
 <br><b>-n</b> - enables the editbox
 <br><b>-m</b> - disables editbox
 <br><b>-c</b> - sets the selected text in the editbox, /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt; [[n [n2]], set the selection on line &lt;line&gt;, where n and n2 represent the start/end position of the selection in the line
-<br><b>-d</b> - if you used the 'multi' style, deletes the Nth line in the editbox
-<br><b>-i</b> - inserts the text on the Nth line of the editbox (if you are not using the 'multi' style, it overwrites everything)
+<br><b>-d</b> - If you used the 'multi' style, deletes the Nth line in the editbox
+<br><b>-i</b> - Inserts the text on the Nth line of the editbox (if you are not using the 'multi' style, it overwrites everything)
 <br><b>-o</b> - overwrite the Nth line (if you are not using the 'multi' style, it overwrite everything) in the editbox
 <br><b>-j</b> - resets the edited setting of the editbox
 
@@ -1046,14 +1046,14 @@ The list control provides a way to display a list of items.
 <br><b>-v</b> - makes the list visible
 <br><b>-h</b> - hides the list
 <br><b>-c</b> - selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
-<br><b>-u</b> - unselects the Nth line in the list
+<br><b>-u</b> - Unselects the Nth line in the list
 * -k - keeps the selection of others lines when selecting/unselecting
 * -s - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as checked
 * -l - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as unchecked
 <br><b>-r</b> - clears the list
 <br><b>-a</b> - adds a line to the end of the list
 <br><b>-d</b> - deletes the Nth line in the list
-<br><b>-i</b> - inserts a line at Nth line position in the list
+<br><b>-i</b> - Inserts a line at Nth line position in the list
 <br><b>-o</b> - overwrites the Nth line with the next text in the list
 * -z - resets the width of the horizontal scrollbar in the list
 
@@ -1076,8 +1076,8 @@ Without any properties, returns the text of the Nth line in the list, same as th
 <br><b>.prev </b> - returns the id of the previous control in tab key order
 <br><b>.visible </b> - returns $true if the list is visible, otherwise $false
 <br><b>.enabled </b> - returns $true if the list is enabled, otherwise $false
-<br><b>.csel </b> - if the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
-<br><b>.cstate </b> - if the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
+<br><b>.csel </b> - If the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
+<br><b>.cstate </b> - If the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
 
 <H4>Events</H4>
 <br><b>mouse</b> - Triggers when a mouse moves the list control.
@@ -1151,7 +1151,7 @@ The combo control provides a way to choose an item from a selection of items in 
 <br><b>-r</b> - clears the combo, use N = 0 to clear the text of the editable editbox of the combo
 <br><b>-a</b> - adds a line to the end of the combo, use N = 0 to add to the editable editbox of the combo
 <br><b>-d</b> - deletes the Nth line in the combo
-<br><b>-i</b> - inserts a line at Nth line position in the combo
+<br><b>-i</b> - Inserts a line at Nth line position in the combo
 <br><b>-o</b> - overwrites the Nth line with the next text in the combo
 
 <br>

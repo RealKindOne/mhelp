@@ -5,7 +5,7 @@
 <H1>$abook</H1>
 <br>
 <br>
-The <b>$abook</b> identifier will return information about nicknames listed inside of the [[mIRC Address Book]]. TODO
+The <b>$abook</b> identifier will return information about nicknames listed inside of the Address Book.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -22,16 +22,16 @@ $abook(nick/N[,N])[.property]
 <br><b>.email</b> - Returns the email associated with the address book match.
 <br><b>.website</b> - Returns the website URL associated with the address book match.
 <br><b>.picture</b> - Returns the filename of the picture, if any, associated with the address book match.
-<br><b>.ipaddr</b> - Returns the ip address, if any, associated with the address book match.
-<br><b>.noteN</b> - Returns the information in the notes area for the address book match where N is the Nth line
+<br><b>.ipaddr</b> - Returns the IP address, if any, associated with the address book match.
+<br><b>.noteN</b> - Returns the information in the notes area for the address book match where N is the Nth line.
 
 <H4>Example</H4>
-Echo all address matches to the active window
+Echo all address matches to the active window:
 <pre class ="code">
 //echo -a $abook(*,0)
 </pre>
 
-Echo the filename for the picture of the first address book match to the active window
+Echo the filename for the picture of the first address book match to the active window:
 <pre class ="code">
 //echo -a $abook(*,1).picture
 </pre>
@@ -46,5 +46,6 @@ v5.6 : Added .email, .info, .ipaddr, nick, .note, picture, and .website properti
 None
 <H4>See also</H4>
 <a href="..\commands\abook.html">/abook</a><br>
+<a href="..\commands\uwho.html">/uwho</a><br>
 </body>
 </html>

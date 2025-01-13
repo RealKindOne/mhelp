@@ -35,7 +35,7 @@ See <a href="encode.html">$encode</a> for more info, as this identifier's purpos
 <br><b>e</b> - ECB encryption mode (either c or e)
 <br><b>l</b> - Literal key, a 56-byte key
 <br><b>s</b> - salt
-<br><b>i</b> - initialization vector (IV)
+<br><b>i</b> - Initialization vector (IV)
 <br><b>r</b> - random IV
 <br><b>z</b> - 0x00 zero padding
 <br><b>n</b> - ones and zeros padding
@@ -115,7 +115,7 @@ In the next example, the same $encode switches for encrypting using a literal IV
 result:
 48 1st 8 bytes of ciphertext: Salted__
 original::::: Garbled Decryption Of 3rd Block and later
-decrypted as: ?¦h�Û_Z.4Kò?Ñ�H)O?R´?R?i®´¹:Ôw
+decrypted as: ?¦h�Û_Z.4Kò?Ñ�H)O?R´?R?i®´¹:&#212;w
 </pre>
 Solution: If you use syntax which results in an encrypted file which doesn't have either of the 2 headers-with-labels, either the encryptor needs to reverse the mime layer to check if the ciphertext happens to begin with bytes which match either of the label strings then try encrypting again with a different IV, or else the decryptor must always remove the mime layer in order to insert a fake header if such a situation happens.
 <br>

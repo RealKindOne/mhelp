@@ -13,17 +13,20 @@ $islower(text)
 </pre>
 
 <H4>Parameters</H4>
-<b>text</b> - The input string to be checked
+<b>text</b> - The string to be checked.
 
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
-Return <b>$true</b>
+Return <b>$true</b> because all letters are lowercase:
 <pre class ="code">//echo -a $islower(abcdefg)</pre>
 
-Return <b>$false</b> because the letter G is uppercase.
+Return <b>$false</b> because the letter G is uppercase:
 <pre class ="code">//echo -a $islower(abcdefG)</pre>
+
+Return <b>$false</b> because the number 1 is included:
+<pre class ="code">//echo -a $islower(1abcdefg)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

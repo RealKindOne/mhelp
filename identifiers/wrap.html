@@ -62,8 +62,9 @@ You width is then 300 and you'd start displaying text at 50 + some margin:
   }
 }</pre>
 Now execute <b>/picwinchat</b> test this is a very long text ok some more word please ok this is enough to illustrate the example i think maybe not"
-
-Note: The widths used by the various switch settings are the same ones used by $width, where some characters in some fonts can have different widths depending on whether the font has the 'bold' or 'italic' setting enabled. This example shows the width of the Verdana 'M' differs depending on whether the font is bold or not, or whether the font is italic or not, or whether both bold+italic styles are used.
+<br>
+<br>
+<b>Note:</b> The widths used by the various switch settings are the same ones used by $width, where some characters in some fonts can have different widths depending on whether the font has the 'bold' or 'italic' setting enabled. This example shows the width of the Verdana 'M' differs depending on whether the font is bold or not, or whether the font is italic or not, or whether both bold+italic styles are used.
 
 <pre class ="code">
 //var %c $asc(M) , %font Verdana | echo -a b1 $width($chr(%c),%font,21,b1) vs b0 $width($chr(%c),%font,21,b0) vs p1 $width($chr(%c),%font,21,p1) vs i1 $width($chr(%c),%font,21,i1) vs i0 $width($chr(%c),%font,21,i0) vs b1i1 $width($chr(%c),%font,21,b1i1)

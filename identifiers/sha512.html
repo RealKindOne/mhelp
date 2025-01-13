@@ -12,9 +12,9 @@ The <b>$sha512</b> identifier calculates the sha512 hash of a text, <a href="..\
 $sha512(plaintext|&binaryvar|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<b>plaintext</b> - Used with N = 0, just the string you want the sha512 hash of
-<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha512 hash of the content of the binvar
-<br><b>filename</b> - A filename, used with N = 2, returns the sha512 hash of the content of the file
+<b>plaintext</b> - Used with N = 0, just the string you want the sha512 hash of.
+<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha512 hash of the content of the binvar.
+<br><b>filename</b> - A filename, used with N = 2, returns the sha512 hash of the content of the file.
 <br>
 <br><b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
 
@@ -49,7 +49,7 @@ Echo the SHA512 hash of the contents of the mIRC program you're running to the a
 Note that because the default is N=0, <b>$sha512($mircexe)</b> is the SHA512 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br />
 mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha512, if the text doesn't have code points above 255, you can avoid the utf8 encoding issue by using a binvar with the -a switch.
 <pre class ="code">
-//bset -ta &string 1 chloé | echo -a $sha1(&string,1)
+//bset -ta &string 1 chlo&#233; | echo -a $sha1(&string,1)
 </pre>
 
 <H4>Error Messages</H4>

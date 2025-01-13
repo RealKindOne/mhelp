@@ -8,7 +8,7 @@
 <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within <a href="1-.html">$1-</a> The way this works is much like a while loop. <br>
 It has been omitted from the help file since while loops were introduced, especially because the behavior of <b>$*</b> is quirky in some places.
 <br>
-It's extremely powerful because it is much faster than using a while loop on a list of tokens. 
+It's extremely powerful because it is much faster than using a while loop on a list of tokens.
 
 <h4>Synopsis</h4>
 $*
@@ -16,8 +16,8 @@ $*
 None
 <h4>Properties</h4>
 None
-    
-<h4>How it works</h4>    
+
+<h4>How it works</h4>
 Understanding how <b>$*</b> works is pretty simple, so consider the following:
 <pre class ="code">var %list a b c d,%a 1
 while ($gettok(%list,%a,32) != $null) {
@@ -37,7 +37,7 @@ mIRC takes the command <b>$*</b> appears in, and replaces all of the occurrences
 <pre class ="code">//tokenize 32 abcd | echo -a $left($*,1) $+ $chr(3) $+ $mid($*,2)</pre>
 
 So if <b>$1</b> is not $null, <b>$*</b> returns the value of the marker. If <b>$1</b> is $null, <b>$*</b> will make the command it appears in do nothing but the rest of the script is processed:
-<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>        
+<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>
 
 Further examining the code, it is easy to understand why the above returns such a value:
 <pre class ="code">//tokenize 32 abcd | echo -a $mid($*,2)</pre>
@@ -52,7 +52,7 @@ There is a workaround for the above issue, and that is by using a command which 
 <pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
 <br>
 mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The <b>$*</b> mechanism is enabled on scon, and mIRC stores the command of the <b>$*</b> as <b>scon -r echo -a $!mid( `~$* ,2)</b>
-    
+
 <br><br><b>Note:</b> This workaround will double evaluate the content of the token, replace "abcd" above with $!time and it will evaluate.<br>
 
 mIRC then evaluates the line for each token, which then becomes: <b>scon -r echo -a $mid( abcd ,2)</b> <br>

@@ -12,10 +12,10 @@ The <b>$crc</b> calculates the 32-bit checksum of a text, <a href="..\other\bina
 $crc(plaintext|&binaryvar|filename[,N])
 </pre>
 <H4>Parameters</H4>
-<b>plaintext</b> - Used with N = 0, just the string you want the CRC-32 checksum hash of
-<br><b>&binaryvar</b> - A binary variable, used with N = 1, return the CRC-32 checksum of the content of the binary variable
-<br><b>filename</b> - A filename, used with N = 2, return the CRC-32 checksum of the content of the file
-<br><b>N</b> Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
+<b>plaintext</b> - Used with N = 0, just the string you want the CRC-32 checksum hash of.
+<br><b>&binaryvar</b> - A binary variable, used with N = 1, return the CRC-32 checksum of the content of the binary variable.
+<br><b>filename</b> - A filename, used with N = 2, return the CRC-32 checksum of the content of the file.
+<br><b>N</b> Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename.<br />
 
 If the N parameter isn't used, the default 2 is used (which is different than $sha1 which has default of N=0.) Also different than $sha1, invalid N outside 0-2 range are treated as default 2 instead of creating an error.
 
@@ -43,24 +43,25 @@ None
 </pre>
 
 Returns 00000000 if filename does not exist:
-
+<pre class ="code">
 //echo -a $crc(no_such_file.txt,2)
+</pre>
 
 Suggested Uses:
-* Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)
-* Quick way to check if a file's contents have changed since stored CRC checksum was made.
-* Verify downloaded file hasn't been corrupted, matches the sender's original.
-<br />
-<b>Note:</b> that because the default is N=2, '''$crc(versions.txt)''' is the CRC-32 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br />
+<br>* Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)
+<br>* Quick way to check if a file's contents have changed since stored CRC checksum was made.
+<br>* Verify downloaded file hasn't been corrupted, matches the sender's original.
+<br>
+<br>
+<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-32 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br />
 mIRC v7.x Unicode-encodes plaintext before providing to $crc, so v7.x and v6.x return different answers for //echo -a $crc($chr(233),0)<br />
 
-If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $crc as a binary variable:<br />
+If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $crc as a binary variable:
+<pre class ="code">
+//var %name chlo&#233; | bset -ta &string1 1 %name | bset -t &string2 1 %name | echo -a $crc(&string1,1) / $crc(&string2,1) / $crc(%name,0)
+</pre>
 
-
-//var %name chloé | bset -ta &string1 1 %name | bset -t &string2 1 %name | echo -a $crc(&string1,1) / $crc(&string2,1) / $crc(%name,0)
-
-
-<br><b>Note:</b>CRC-32 is good for detecting transfer errors. Any 1 bit changed in a file is guaranteed to change the CRC-32 value, which is not necessarily true for $sha1 or other 1-way hashes. However, CRC-32 is not good for detecting malicious tampering with a file. There is a 4-byte binary string which can change a file from any CRC-32 value to any CRC-32 value, and these 4 bytes can be quickly calculated without brute force testing of the 2^32 possible strings.
+<br><b>Note:</b> CRC-32 is good for detecting transfer errors. Any 1 bit changed in a file is guaranteed to change the CRC-32 value, which is not necessarily true for $sha1 or other 1-way hashes. However, CRC-32 is not good for detecting malicious tampering with a file. There is a 4-byte binary string which can change a file from any CRC-32 value to any CRC-32 value, and these 4 bytes can be quickly calculated without brute force testing of the 2^32 possible strings.
 
 <H4>Error Messages</H4>
 None

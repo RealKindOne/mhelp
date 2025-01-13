@@ -16,7 +16,9 @@ The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an 
 
 <H4>Local Identifiers</H4>
 <a href="..\identifiers\network.html">$network</a> - The network you are connecting to.
+<br><a href="..\identifiers\nick.html">$nick</a> - The nick you are using.
 <br><a href="..\identifiers\server.html">$server</a> - The networks server address you are connecting to.
+
 
 
 <H4>Example</H4>
@@ -27,12 +29,26 @@ ON *:CONNECT:echo -a Server: $server -- Network: $network</pre>
 If a successful connection is made to an IRC server, the above code will display something similar to the below example:
 <pre class ="code">Server: chicago.il.us.undernet.org -- Network: UnderNet</pre>
 
+
+When a successful connection is made to a server, mIRC will now join the channel "#myChannel":
 <pre class ="code">; Join a single channel,
 ; #myChannel, upon successful connection
-
 ON *:CONNECT:join #myChannel</pre>
 
-When a successful connection is made to a server, mIRC will now join the channel "#myChannel".
+Apply usermode +g for all network:
+<pre class ="code">
+on *:CONNECT:mode $me +g
+</pre>
+
+Apply usermode +g on one network and usermode +R on another:
+<pre class ="code">
+on *:CONNECT:{
+  if ($network == example) { mode $me +g }
+  if ($network == foobar) { mode $me +R }
+}
+</pre>
+
+
 
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)

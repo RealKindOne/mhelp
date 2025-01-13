@@ -28,7 +28,7 @@ $sock(name,N)[.property]
 <br><b>.ls</b> - Returns the number of seconds since the connection last sent data.
 <br><b>.lr</b> - Returns the number of seconds since the connection last received data.
 <br><b>.mark</b> - Returns the data marked from <a href="..\commands\sockmark.html">/sockmark</a> (data storage tied to the socket, 512 bytes max).
-<br><b>.type</b> - Returns the socket type, <b>tcp</b> or <udp>.
+<br><b>.type</b> - Returns the socket type, <b>tcp</b> or <b>udp</b>.
 <br><b>.saddr</b> - Returns the source address of the last received UDP packet.
 <br><b>.sport</b> - Return the source port of the last received UDP packet.
 <br><b>.to</b> - Returns the number of seconds the socket has been open.
@@ -37,7 +37,7 @@ $sock(name,N)[.property]
 <br><b>.ssl</b> - Returns $true for an SSL connection.
 <br><b>.pause</b> - Returns $true if a socket has been paused.
 <br><b>.starttls</b> - Returns $true for a STARTTLS connection.
-<br><b>.bindip</b> - Returns the ip address or adapter name used when binding IP.
+<br><b>.bindip</b> - Returns the IP address or adapter name used when binding IP.
 <br><b>.bindport</b> - Returns the port name used when binding IP.
 <br><b>.status</b> - Returns the status of the socket <b>listening</b>, <b>active</b>, <b>connecting</b>, or <b>inactive</b>.
 <br><b>.upnp</b> - Return $true or $false depending on if upnp was used on the socket.

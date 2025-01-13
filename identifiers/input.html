@@ -24,7 +24,7 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br><b>n</b> - 'yes' 'no' 'cancel' buttons
 <br><b>y</b> - 'yes' 'no' buttons
 <br><b>r</b> - 'retry' 'cancel' buttons
-<br><b>m</b> - indicates that multiple text parameters have been specified. They will be displayed in a combo dropdown box. The first text item is the default item (a reference to an item in the list), the rest are the items in the list. Selected list item is returned from clicking the leftmost button. Dropdown list begins with the 2nd 'text' parameter, and item from list is displayed as default selection only if it has case-insensitive match with the 1st 'text' parameter.
+<br><b>m</b> - Indicates that multiple text parameters have been specified. They will be displayed in a combo dropdown box. The first text item is the default item (a reference to an item in the list), the rest are the items in the list. Selected list item is returned from clicking the leftmost button. Dropdown list begins with the 2nd 'text' parameter, and item from list is displayed as default selection only if it has case-insensitive match with the 1st 'text' parameter.
 <br><b>v</b> - Only works when you're not using any of 'pem' switches. makes $input returns $ok, $yes, $no, $cancel, $retry if you press such buttons. Also makes $input returns $timeout if the kN timeout switch is used
 <br><b>f</b> - This switch is the same as the 'v' switches except it works for when you're using any of the 'pem' switches. Exception: if you're using the kN switch with any of the 'pem' switch, then 'f' must be used in conjunction with 'v' to get $timeout
 <br><b>kN</b>  - an N seconds timeout value. On timing out, has default action of returning $false for 'onyr' switches (or no 'pem' switches used, default) or $null for 'pem' switches. Returns $timeout if 'v' switches is used without 'pem', requires both 'f' and 'v' switches if you're using 'pem' and you want $timeout.
@@ -32,10 +32,10 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br><b>b</b> - disables buttons for 1 second when dialog is displayed and clears keyboard buffer
 <br><b>tciqwh</b> - show the goldstar,recycle bin,info, question, warning, and halt icons respectively.
 <br><b>d</b> - play system sound associated with icon switch used: 'di' 'dt' = 'asterisk', 'dq' = 'question', 'dw' 'dc' = 'exclamation', 'dh' = 'critical stop'
-<br><b>s</b> - indicates that window parameter has been specified (making optional 'title' be the 4th parameter)
+<br><b>s</b> - Indicates that window parameter has been specified (making optional 'title' be the 4th parameter)
 <br><b>a</b> - make $input dialog active if mIRC is not the active application
-<br><b>u</b> - use current active window as parent window, including custom dialog window. In the past, the 's' switch could not be used to pass a custom dialog window as the parent, this switch is then technically there for custom dialog support as parent.
-<br><b>window</b> - if option <b>s</b> is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
+<br><b>u</b> - Use current active window as parent window, including custom dialog window. In the past, the 's' switch could not be used to pass a custom dialog window as the parent, this switch is then technically there for custom dialog support as parent.
+<br><b>window</b> - If option <b>s</b> is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
 <br><b>title</b> - The titlebar text.
 <br><b>text</b> - default text placed in the input editbox
 <br>

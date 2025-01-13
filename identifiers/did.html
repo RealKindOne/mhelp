@@ -17,28 +17,28 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 </pre>
 
 <H4>Properties</H4>
-<b>.text</b> - Returns line or Nth line
-<br><b>.len</b> - Returns length of line or length of Nth line
-<br><b>.lines</b> - Returns number of lines
-<br><b>.sel</b> - Returns line number of Nth selected line
-<br><b>.seltext</b> - Returns selected text in an editbox, or first selected item in a listbox
-<br><b>.selstart</b> - Returns selected start character in the editbox
-<br><b>.selend</b> - Returns selected end character in editbox line
+<b>.text</b> - Returns line or Nth line.
+<br><b>.len</b> - Returns length of line or length of Nth line.
+<br><b>.lines</b> - Returns number of lines.
+<br><b>.sel</b> - Returns line number of Nth selected line.
+<br><b>.seltext</b> - Returns selected text in an editbox, or first selected item in a listbox.
+<br><b>.selstart</b> - Returns selected start character in the editbox.
+<br><b>.selend</b> - Returns selected end character in editbox line.
 <br><b>.edited</b> - Returns $true if text in editbox was changed, and is not empty.
-<br><b>.state</b> - Returns state of checkboxes, radio buttons, 0 = off, 1 = on, 2 = indeterminate (for 3stage checkbox)
+<br><b>.state</b> - Returns state of checkboxes, radio buttons, 0 = off, 1 = on, 2 = indeterminate (for 3stage checkbox).
 <br><b>.next</b> - Returns id of next control in order of tab keypress.
 <br><b>.prev</b> - Returns id of previous control in order of tab keypress.
-<br><b>.visible</b> - Returns $true if control is visible, otherwise $false
-<br><b>.enabled</b> - Returns $true if control is enabled, otherwise $false
-<br><b>.isid</b> - Returns $true if id exists in the dialog, otherwise $false
-<br><b>.csel</b> - Returns line number of Nth checked box in a list checkbox control, if N = 0, returns number of checkmarked lines
-<br><b>.cstate</b> - Returns 0 = off, 1 = on for item in a list checkbox control
+<br><b>.visible</b> - Returns $true if control is visible, otherwise $false.
+<br><b>.enabled</b> - Returns $true if control is enabled, otherwise $false.
+<br><b>.isid</b> - Returns $true if id exists in the dialog, otherwise $false.
+<br><b>.csel</b> - Returns line number of Nth checked box in a list checkbox control, if N = 0, returns number of checkmarked lines.
+<br><b>.cstate</b> - Returns 0 = off, 1 = on for item in a list checkbox control.
 </pre>
 <H4>Parameters</H4>
-<b>&lt;name&gt;</b> - name of the dialog
-<br><b>&lt;id&gt;</b> - id of the controls
-<br><b>[N]</b> - usually a line number, it can also be an id number with menus, use 0 if you want to access the editbox of a combo control.
-<br><b>[.property]</b> - used to check features of the dialog id, such as button state, selected line in a combo control, or number of lines in an editbox.
+<b>&lt;name&gt;</b> - Name of the dialog.
+<br><b>&lt;id&gt;</b> - Id of the controls.
+<br><b>[N]</b> - Usually a line number, it can also be an id number with menus, use 0 if you want to access the editbox of a combo control.
+<br><b>[.property]</b> - Used to check features of the dialog id, such as button state, selected line in a combo control, or number of lines in an editbox.
 
 <H4>Example</H4>
 This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\commands\alias.html">/alias</a> called <b>/whatEvents</b> which will open up the local <a href="..\dialog\dialog.html">Dialogs</a> ''whatEvents'':

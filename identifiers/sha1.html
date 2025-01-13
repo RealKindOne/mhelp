@@ -12,9 +12,9 @@ The <b>$sha1</b> identifier calculates the sha1 hash of a text, <a href="..\othe
 $sha1(plaintext|&binaryvar|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<b>plaintext</b> - Used with N = 0, just the string you want the sha1 hash of
-<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha1 hash of the content of the binvar
-<br><b>filename</b> - A filename, used with N = 2, returns the sha1 hash of the content of the file
+<b>plaintext</b> - Used with N = 0, just the string you want the sha1 hash of.
+<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha1 hash of the content of the binvar.
+<br><b>filename</b> - A filename, used with N = 2, returns the sha1 hash of the content of the file.
 <br>
 <br><b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
 
@@ -55,7 +55,7 @@ mIRC v7.x Unicode-encodes plaintext before providing to $sha1, so v7.x and v6.x 
 
 If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $sha1 as a binary variable:<br />
 
-<pre class ="code">//bset -ta &string 1 chloé | echo -a $sha1(&string,1)</pre>
+<pre class ="code">//bset -ta &string 1 chlo&#233; | echo -a $sha1(&string,1)</pre>
 
 
 

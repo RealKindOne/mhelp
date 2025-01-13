@@ -22,7 +22,7 @@ $hotlink(item)
 <br><b>$hotlink(line).pos</b> - Returns the line's number in the window.
 <br><b>$hotlink(word).pos</b> - Returns the Nth token number of the word in the line (Nth word).
 <br><b>$hotlink(match).pos</b> - Returns the position/index of the matching word in the line (Nth character), starting with an index count of 0.
-<br><b>.type</b> - used only with "match" item, returns the type of match, can be "nick", "channel", "url" and "other".
+<br><b>.type</b> - Used only with "match" item, returns the type of match, can be "nick", "channel", "url" and "other".
 
 <H4>Example</H4>
 <pre class ="code">on *:hotlink:*:*:echo -a $hotlink(match)</pre>

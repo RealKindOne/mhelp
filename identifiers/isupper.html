@@ -9,20 +9,24 @@ The <b>$isupper</b> identifier returns $true if text is all upper case, otherwis
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$isupper(text)</pre>
+$isupper(text)
+</pre>
 
 <H4>Parameters</H4>
-<b>text</b> - The string to be checked
+<b>text</b> - The string to be checked.
 
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
-Return <b>$true</b>:
+Return <b>$true</b> because all letter are uppercase:
 <pre class ="code">//echo -a $isupper(ABCDEFG)</pre>
 
-Return <b>$false</b> because the letter g is lower vase:
+Return <b>$false</b> because the letter g is lowercase:
 <pre class ="code">//echo -a $isupper(ABCDEFg)</pre>
+
+Return <b>$false</b> because the number 1 is included:
+<pre class ="code">//echo -a $isupper(1ABCDEFG)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

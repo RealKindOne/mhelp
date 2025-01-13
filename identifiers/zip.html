@@ -15,36 +15,25 @@ $zip(file.zip,t[p,password])
 $zip(file.zip,e[po],&lt;extractdir&gt; [,password])
 </pre>
 <H4>Parameters</H4>
-<b>file.zip</b>
-    - the zip filename you want to create/test/list/extract from
-<br><b>p</b>
-    - specify that the [password] parameter has been provided and should be used for the zip file
-<br><b>o</b>
-    - overwrite the zip file when creating, overwrite the existing files and folder when extracting. It is also required if you extract into an empty existing folder (watch out)
-<br><b>c</b>
-    - create a zip file and add a file name &lt;filename&gt; or the folder &lt;folder&gt; and all its subfolders.
-<br><b>l</b>
-    - list the content of the zip file, returns the Nth file/folder or the total of elements in the zip
-<br><b>t</b>
-    - test the zip file
-<br><b>e</b>
-    - extract all the content of the zip to the &lt;extractdir&gt; folder
-
-<br><b>N</b>
-    - used with <b>l</b> only, lists the Nth file/folder, or the total number of items with N = 0
-<br><b>&lt;file/folder&gt;</b> - used with <b>c</b>, the file/folder to add to the created zip file
-<br><b>&lt;extractdir&gt;</b> - used with <b>e</b>, the folder to extract the zip's content to
+<b>file.zip</b> - The zip filename you want to create/test/list/extract from.
+<br><b>p</b> - Specify that the [password] parameter has been provided and should be used for the zip file.
+<br><b>o</b> - Overwrite the zip file when creating, overwrite the existing files and folder when extracting. It is also required if you extract into an empty existing folder (watch out).
+<br><b>c</b> - Create a zip file and add a file name &lt;filename&gt; or the folder &lt;folder&gt; and all its subfolders.
+<br><b>l</b> - List the content of the zip file, returns the Nth file/folder or the total of elements in the zip.
+<br><b>t</b> - Test the zip file.
+<br><b>e</b> - Extract all the content of the zip to the &lt;extractdir&gt; folder.
+<br><b>N</b> - Used with <b>l</b> only, lists the Nth file/folder, or the total number of items with N = 0.
+<br><b>&lt;file/folder&gt;</b> - Used with <b>c</b>, the file/folder to add to the created zip file.
+<br><b>&lt;extractdir&gt;</b> - Used with <b>e</b>, the folder to extract the zip's content to.
 <br><b>[password]</b> - password used to encrypt or decrypt each file added to zip. Can contain spaces. Valid only when using the <b>p</b> switch.
 
 <H4>Properties</H4>
-<b>.size</b>
-     - used with <b>l</b> only, makes $zip returns the size of the file (or 0 for a folder) instead of the filename
-<br><b>.mtime</b>
-     - used with <b>l</b> only, makes $zip returns the timestamp of the file instead of the filename, as an integer which can be changed to date format using $asctime
-<br><b>.crc</b>
-     - used with <b>l</b> only, makes $zip returns the crc32 of the file instead of the filename, as an integer instead of the hex format of $crc32()
-<br><b>.em</b>
-     - used with <b>l</b> only, makes $zip returns 128 or 256 indicating the type of AES encryption. For non-encrypted files returns 0
+<b>.size</b> - Used with <b>l</b> only, makes $zip returns the size of the file (or 0 for a folder) instead of the filename.
+<br><b>.mtime</b> - Used with <b>l</b> only, makes $zip returns the timestamp of the file instead of the filename, as an integer which can be changed to date format using $asctime.
+<br><b>.crc</b> - Used with <b>l</b> only, makes $zip returns the crc32 of the file instead of the filename, as an integer instead of the hex format of $crc32().
+<br><b>.em</b> - Used with <b>l</b> only, makes $zip returns 128 or 256 indicating the type of AES encryption. For non-encrypted files returns 0.
+TODO
+
 
 If <b>l</b> is not used, $zip returns 1 for success and 0 for failure.
 

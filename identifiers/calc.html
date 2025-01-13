@@ -44,10 +44,12 @@ When parenthesis are not used to override the order of evaluation, these are the
 <br><b>+</b> 4. Addition
 
 <br><b>-</b> 4. Subtraction
-
-
+<br>
+<br>
 Parenthesis used to demonstrate the order. Operations at the same level are executed left-to-right:
+<pre class = "code">
 //echo -a $calc( 99 - 77 * 2 // 4 ^ .5 ^ 3 + 11 % 3 * 2 + 1) is same as $calc( 99 - (((( 77 * 2) // ((4 ^ .5) ^3)))) + (( 11  % 3) * 2) + 1)
+</pre>
 This first performs exponentiation left-to-right, so 4^.5^3 is 4 raised to .5 and that result of '2' is then cubed.
 Then it splits the formula into separate groups delimited by either + add or - subtract.
 Then the level#3 operations within each group are performed left-to-right.
@@ -73,7 +75,7 @@ Create a simple alias to take in two parameters, then raise the first to the pow
   }
 }</pre>
 
-The above '''$power''' alias can now be used like so:
+The above <b>$power</b> alias can now be used like so:
 <pre class ="code">//echo -a $power(5,2)</pre>
 
 The result of the above command would be:
@@ -107,7 +109,8 @@ Any formula where any term reaches the undefined value returns zero for the enti
 
 <H4>Limits and Quirks</H4>
 Integers outside the range -2^53 through +2^53 lose precision. Some of those 53 bits are used by the fraction, so adding a fraction shrinks the range where $calc returns accurate results.
-
+<br>
+<br>
 Both return: 9007199254740992
 <pre class ="code">
 //echo -a $calc(9007199254740992 + 1) and $calc(9007199254740993)

@@ -80,7 +80,7 @@ To replace a token you can use $puttok and the $reptok. $puttok replaces by the 
 <pre class ="code">var %str = $puttok(&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 var %str = $reptok(&lt;list&gt;, &lt;token&gt;, &lt;NewToken&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)</pre>
 for example:
-<pre class ="code">; mask an ip address
+<pre class ="code">; mask an IP address
 alias maskIP return $puttok($1, xxx, 3-, 46)
 ; //echo -a $maskIP(192.168.1.1)
 ; 192.168.xxx.xxx</pre>

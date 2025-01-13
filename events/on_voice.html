@@ -13,14 +13,15 @@ The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevate
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
-<br><span style="margin-left: 20px;"><b>#</b> - Any channel window
-<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window
-<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel window.
+<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window.
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
 <H4>Local Identifiers</H4>
-<a href="..\identifiers\vnick.html">$vnick</a> - The nick being voiced.
+<a href="..\identifiers\chan.html">$chan</a> - The channel the nick is being voiced in.
+<br><a href="..\identifiers\vnick.html">$vnick</a> - The nick being voiced.
 <br><a href="..\identifiers\nick.html">$nick</a> - The person who voiced the nick.
 
 <H4>Example</H4>

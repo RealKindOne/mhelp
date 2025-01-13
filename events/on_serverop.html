@@ -15,14 +15,14 @@ The <b>ON SERVEROP</b> event triggers when a server ops a user on a channel.
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
-<br><span style="margin-left: 20px;"><b>#</b> - Any channel window
-<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window
-<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window
+<br><span style="margin-left: 20px;"><b>#</b> - Any channel window.
+<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window.
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
 <H4>Local Identifiers</H4>
-<a href="..\identifiers\opnick.html">$opnick</a> with the nickname of the user who was added to channel operator status.
-<br><a href="..\identifiers\nick.html">$nick</a> - identifier points to the server.
+<a href="..\identifiers\opnick.html">$opnick</a> - The nickname of the user who was added to channel operator status.
+<br><a href="..\identifiers\nick.html">$nick</a> - Identifier points to the server.
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to channel operator by the server:
