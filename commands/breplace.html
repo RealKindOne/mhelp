@@ -67,8 +67,8 @@ result:
 
 The first character of a string can substitute in place of a byte value, if it is non-numeric and is not UTF-8 encoded to more than 1 byte. In this example, the chr(233) is not replaced because there is no 1-byte character match. The next match fails because capital F is not a case-sensitive match for lower-case 'f'. The 'b' takes the place of byte value 98, and is replaced by $chr(33). The first character of 'abc' is found in the string, and is replaced by the 1st character of 'xyz'.
 <pre class ="code">
-//bset -t &v 1 abcdefé | breplace &v abc xyz b 33 F g $chr(233) $chr(234) | echo -a $bvar(&v,1-) / $bvar(&v,1-).text
-result: x!cdefé
+//bset -t &v 1 abcdef&#233; | breplace &v abc xyz b 33 F g $chr(233) $chr(234) | echo -a $bvar(&v,1-) / $bvar(&v,1-).text
+result: x!cdef&#233;
 </pre>
 
 The number of from/to byte pairs is an odd number greater than 2, so the last unpaired number is ignored without reporting an error, before the swaps are made in reverse-pair order:

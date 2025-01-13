@@ -36,12 +36,12 @@ The <b>/hsave</b> command is used to save a hash table to a file. Overwrite exis
 //hfree -w test | hadd -m test itemname 12345 | hadd test itemB 67890 | hsave -s test file name.dat
 * hash table is written to disk to filename "file" and name.dat is ignored. A filename containing a space must be enclosed in double quotes or use $qt(hash table file name)
 
-//hfree -w test | hadd -m test itemname é12345 | hadd test itemB 67890 | hsave -sb test test.dat | bread test.dat 0 $file(test.dat).size &binvar | echo -a $bvar(&binvar,1-)
+//hfree -w test | hadd -m test itemname &#233;12345 | hadd test itemB 67890 | hsave -sb test test.dat | bread test.dat 0 $file(test.dat).size &binvar | echo -a $bvar(&binvar,1-)
 Result: 8 0 105 116 101 109 110 97 109 101 7 0 195 169 49 50 51 52 53 5 0 105 116 101 109 66 5 0 54 55 56 57 48
 8 0 = Length of Item name
 105 116 101 109 110 97 109 101 = Item "itemname"
 7 0 = Length of item value
-195 169 49 50 51 52 53 = 7 byte UTF-8 encoding of é12345
+195 169 49 50 51 52 53 = 7 byte UTF-8 encoding of &#233;12345
 
 //hfree -w test | hadd -m test itemname 12345 | hadd test itemB 67890 | hsave -n test test.dat | hfree -w test2 | hload -m test2 test.dat | echo -a item 1 is $hget(test2,1).item containing $hget(test2,$hget(test2,1).item)
 Result: item 1 is 12345 containing 67890
@@ -79,7 +79,7 @@ Added: mIRC v5.8 (14 Dec 2000)
 <br>If saving using -b or -B or -i or -n switches to save the hash table to disk, you should generally use those same switches again with /hload if you plan to reload the hash table from disk back into memory.
 
 Disk structure of saved file:
-In all cases, item names and text data is UTF-8 encoded. Both as an item name or the text data, the string tést contains the 5 bytes seen from $utfencode(tést). If a table item contains a binary variable, saving it without using -b or -B saves the portion of the variable returned by $bvar(&variable,1-).text
+In all cases, item names and text data is UTF-8 encoded. Both as an item name or the text data, the string t&#233;st contains the 5 bytes seen from $utfencode(t&#233;st). If a table item contains a binary variable, saving it without using -b or -B saves the portion of the variable returned by $bvar(&variable,1-).text
 
 <br>Disk Structure: Default with no switch:
 <br>Each item saved as a pair of text lines, with the first line being the name of the item, and the next line being the value. (Or a blank line if the item has $null value). If saving 20 items to disk, the file has 40 lines, with the item names on the odd-numbered lines and their values being the even numbered lines which follow the line containing the name of the item.
@@ -91,7 +91,7 @@ In all cases, item names and text data is UTF-8 encoded. Both as an item name or
 Items saved to disk in binary format:
 <br>2 bytes containing the length of the following item name in bigendian format. These bytes are 0x08 0x00 for an 8-character item name
 <br>The text name of the item. If the first 2 bytes were 0x08 0x00, the following 8 bytes are the name of the item.
-<br>2 bytes containing the bigendian length of the following data. These bytes are 0x05 0x00 when there is a 5 byte value following these 2 bytes. The value is the number of bytes not the $len of the data. Text data value tést is UTF-8 encoded as 5 bytes and the binary format contains 0x05 0x00 even though the $len() is 4. For items containing no data, these bytes are 0x00 0x00 and and /hload -b expects these to be followed either by the length of the following itemname or end-of-file.
+<br>2 bytes containing the bigendian length of the following data. These bytes are 0x05 0x00 when there is a 5 byte value following these 2 bytes. The value is the number of bytes not the $len of the data. Text data value t&#233;st is UTF-8 encoded as 5 bytes and the binary format contains 0x05 0x00 even though the $len() is 4. For items containing no data, these bytes are 0x00 0x00 and and /hload -b expects these to be followed either by the length of the following itemname or end-of-file.
 <br>The bytes of the data value. There is no $crlf written to disk unless the value is a binary variable containing the $chr(13) $chr(10) bytes. Because this is binary format, there is no restriction on the contents of the item's data, so it can include 0x00's or non-UTF8 strings if created with /hadd -b, but all data created without the -b switch is UTF8 encoded.
 <br>Repeat the above until /hload encounters the end of file or /hsave writes the last record. There is no additional end-of-table data written to disk.
 
@@ -101,22 +101,22 @@ Any binary variable can be saved into a hashtable using 'hadd -b tablename itemn
 Same as -b binary format except length field uses 4 bytes instead of 2:
 <br>4 bytes containing the length of the following item name in bigendian format. These bytes are 0x08 0x00 0x00 0x00 for an 8-byte item name
 <br>The text name of the item. If the first 4 bytes were 0x08 0x00 0x00 0x00, the following 8 bytes are the name of the item.
-<br>4 bytes containing the bigendian length of the following data. These bytes are 0x40 0xe2 0x01 0x00 when there is a 123456-byte value following these 2 bytes. The value is the number of bytes not the $len of the data. Data value tést is UTF-8 encoded as 5 bytes even though the $len() is 4. The size of this value allows the following data to be larger than the 65535 limit for -b data. For items containing no data, these bytes are 0x00 0x00 0x00 0x00 and /hload -B expects these to be followed either by the length of the following itemname or end-of-file.
+<br>4 bytes containing the bigendian length of the following data. These bytes are 0x40 0xe2 0x01 0x00 when there is a 123456-byte value following these 2 bytes. The value is the number of bytes not the $len of the data. Data value t&#233;st is UTF-8 encoded as 5 bytes even though the $len() is 4. The size of this value allows the following data to be larger than the 65535 limit for -b data. For items containing no data, these bytes are 0x00 0x00 0x00 0x00 and /hload -B expects these to be followed either by the length of the following itemname or end-of-file.
 <br>The bytes of the data value. There is no $crlf written to disk unless the value is a binary variable containing the $chr(13) $chr(10) bytes. Because this is binary format, there is no restriction on the contents of the item's data, so it can include 0x00's or non-UTF8 strings if created with /hadd -b, but all data created without the -b switch is UTF8 encoded.
 <br>Repeat the above until /hload encounters the end of file or /hsave writes the last record. There is no additional end-of-table data written to disk.
 
 Example of -b vs -B formats. Periods are added for readability only, numbers are byte values 0-255.
 
 -b format
-item name test containing the string tést
+item name test containing the string t&#233;st
 4 0 . 116 101 115 116 . 5 0 . 116 195 169 115 116
-item name tést containing no data
+item name t&#233;st containing no data
 5 0 . 116 195 169 115 116 . 0 0
 
 -B format
-item name test containing the string tést
+item name test containing the string t&#233;st
 4 0 0 0 . 116 101 115 116 . 5 0 0 0 . 116 195 169 115 116
-item name tést containing no data
+item name t&#233;st containing no data
 5 0 0 0 . 116 195 169 115 116 . 0 0 0 0
 
 Note that itemnames are always written as UTF8 encoded because that's the way they were created. Item data is always UTF8 encoded, unless it was created with the -b switch, in case it contains the contents of the binvar used to create it. If a data item saved in -b format contains non-UTF8 encoded text, it loads into the item as the same binary data, but $hget(table,item) and $hget(table,item,&binvar) access the data differently.
