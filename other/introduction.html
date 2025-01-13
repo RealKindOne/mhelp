@@ -7,9 +7,9 @@
 <br>
 
 This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
-To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environement, the vocabulary of it such as a status window etc.<br>
+To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environment, the vocabulary of it such as a status window etc.<br>
 When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.<br>
-mIRC and therefore all scripts run in a single thread environement and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.<br>
+mIRC and therefore all scripts run in a single thread environment and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.<br>
 To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It's also a good idea to use local aliases.<br>
 mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
@@ -19,7 +19,7 @@ If separated by a pipe, the pipe itself must have a space in front and a space a
 The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
 All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.<br>
 We refer to statements by prefixing them with a slash character '/'.<br>
-  
+
 For example, the following two are the same:<br><br>
 <b>Piping</b>
 <pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre><br>
@@ -36,19 +36,19 @@ After a command's name follows the parameters for that command, if any, and they
 For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
 mIRC scripting does not use quoted strings, ever, for parameters. Some commands have limited support for quoted string, more about that later.<br>
 Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)<br>
-  
+
 <h3>Other statements</h3>
-If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>else</b> and <b>/while</b>, they must appear literaly in the code to be recognized as such statement.<br>
+If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.<br>
 If such statement is not literal in the code, it will be executed as a command.<br>
 Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.<br>
 One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
-They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br> 
+They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br>
 
 <h3>Routine</h3>
 Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
 There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
 In all cases, statements are executed in order one after the other.
-  
+
 <H3>Where does the code go?</H3>
 All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
 Below is a screen shot of the mIRC Script Editor:<br><br>
@@ -68,7 +68,7 @@ Aliases have a name by which we can refer to them and are used to store a list o
 Once an alias is defined, you can execute it (we also refer to that as calling the alias) by making using that name as the statement's name, as though it was a built-in command.<br>
 So, when a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.<br>
 You can override built-in commands by defining an alias with the same name as of that built-in command, and now executing that name defaults to executing your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character (/!echo).<br>
-  
+
 They have the following format:
 <pre class ="code">alias [-l] &lt;name&gt; &lt;statements&gt;</pre>
 If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above, and you can optionally make the alias "local" by using another space separated -l parameter, indicating that the alias can only be accessed from a routine inside this script file, the alias won't be available from the editbox or a different script file.<br>
@@ -85,7 +85,7 @@ To execute the alias from the editbox, you must prefix it with a '/' character (
 <pre class ="code">/fun</pre>
 That should print our text:<br><br>
 <img src="..\images\hello_edit.png"><br><br>
-  
+
 <h3>{ } and group of statements</h3>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you have a group of one or more statements associated to the condition.
@@ -110,11 +110,11 @@ Overall, the above example will echo: <pre>Scripting = Fun!</pre>
 This is equivalent to:
 <pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
 and to<br>
-  <pre class ="code">alias fun { 
+  <pre class ="code">alias fun {
     if (1 == 1) { echo Scripting }
     if (2 == 3) { echo Is }
     echo =
-    echo Fun! 
+    echo Fun!
 }</pre>
 This should help you understand how { } brackets are used.<br><br>
 
@@ -142,7 +142,7 @@ The closing bracket is touching the "hello!".
   echo hello!
 }</pre>
 The opening bracket must be on the same line as the "alias" keyword.
-  
+
 
 <H3>Evaluation/Interpretation</H3>
 
@@ -159,7 +159,7 @@ If they take parameters, they use the ( and ) and a comma to separate arguments,
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
 If they take a property, you must use the form with parameters (so with () parenthesis) even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a property name:
 <pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre><br>
-  
+
 If we want to print out our current nickname, we would use the following code ($me is a built-in identifier returning your nickname):
 
 <pre class ="code">//echo -a $me</pre><br>
@@ -187,7 +187,7 @@ If you execute statements from editboxes, in order for the $identifiers, %variab
 Alias name can be pretty much anything, they can't contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:<br>
 -aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
 -digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you wouldn't be able to use $1.
-  
+
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
@@ -217,7 +217,7 @@ All events follow this format except two:<br>
 After that you have the parameters of the events, you can get parameters to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
 Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
 
-  
+
 Then you have the ctcp event, it has a similar format as the above and takes two parameters:<br>
 <pre class="code">ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;</pre>
 The last events type are menu events:<br>
@@ -231,7 +231,7 @@ Otherwise, each statement must go on their own line and are splitted in two on t
 
 For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
 Most of these events trigger with the status window set as the active window.
-  
+
 <h4>Command vs identifier</h4>
 
 When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.<br>
@@ -285,9 +285,9 @@ if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
     </pre>In here $giveme5 returns the value 5 so $identifier($giveme5,a,b) would be sending 3 parameters to the $identifier: 5 a and b. But if $giveme5 were to include a comma in its returned value:<br>
   <pre>alias giveme5 return 5,6
     </pre>Then $identifier($giveme5,a,b) would STILL be sending 3 parameters to the $identifier: 5,6 a and b. The comma coming from $giveme5 did not create a 4th parameters.<br><br>
-  
+
   This is what makes identifier much more consistent when handling any kind of data and maintainable
-  
+
 
 <H3>Comments</H3>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
@@ -388,9 +388,13 @@ alias second {
 
 <H3>Colors:</H3>
 Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
-
+<br>
+<br>
+<b>Note:</b> The color character (ascii 3) is visually hidden this document. You will see the character when pasting the examples in mIRC or a text editor.
+<br>
+<br>
 <pre class ="code">alias example {
-  echo -a �3This �4is �6a �10cool �15example�1.
+  echo -a 3This 4is 6a 10cool 15example1.
 }</pre>
 
 <img src="..\images\color_example.png"><br><br>
@@ -399,22 +403,23 @@ Will produce:
 
  <span style="color: #009300;">This</span> <span style="color: #FF0000;">is</span> <span style="color: #9C009C;">a</span> <span style="color: #009393;">cool</span> <span style="color: #D2D2D2;">example</span><span style="color: #009300;">.</span>
 
-<pre class ="code">//echo -a The number �042� is even.</pre>
+<pre class ="code">//echo -a The number 042 is even.</pre>
 
 Will produce the following result:
-
+<pre class ="code">
  The number  is even.
-
+</pre>
 Notice that the number is not showing. That's because it was considered part of the color number '42'. Color index 42 is a shade of yellow, so if the 2nd color code had not been used to reset the colors, the remainder of the line would show in the index 42's shade of yellow instead of showing in red. Prefixing the color value with a zero will fix this issue:
 
-<pre class ="code">//echo -a The number �042� is even.</pre>
+<pre class ="code">//echo -a The number 042 is even.</pre>
 
 Will produce the following result:
-
+<pre class ="code">
  The number <span style="color: #FF0000;">2</span> is even.
+</pre>
 
 <br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
- 
+
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
 Next up are <a href="variables.html">variables</a>. You can also look at <a href="events.html">events</a>
