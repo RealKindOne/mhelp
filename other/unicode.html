@@ -10,7 +10,7 @@ This page does not attempt to describe what Unicode is but rather how mIRC handl
 
 <H4>mIRC and Unicode</H4>
 
-Before Unicode (mIRC 7.x), mIRC supported Windows' code pages, handling various character sets used in different parts of the world. Code pages encode characters in 8 bits (1 byte): 8 bits can be used to represent 256 values. Code pages all use the first 128 values for ASCII, and then each code page adds the required characters for the language e.g. é for French, although before unicode, for Japanese or Chinese language, they already needed more than 256 values and where already using special encoding, using more than one byte.
+Before Unicode (mIRC 7.x), mIRC supported Windows' code pages, handling various character sets used in different parts of the world. Code pages encode characters in 8 bits (1 byte): 8 bits can be used to represent 256 values. Code pages all use the first 128 values for ASCII, and then each code page adds the required characters for the language e.g. &#233; for French, although before unicode, for Japanese or Chinese language, they already needed more than 256 values and where already using special encoding, using more than one byte.
 <P>
 Unicode provides a single character encoding which supports all languages using 1,114,112 distinct characters. Since IRC users are from all over the world, often using their own language and character set, using a single common character set is a major advantage.
 <P>
@@ -24,7 +24,7 @@ Drawback: Characters over 65535 are encoded in utf16 as two 16 bits unit called 
 <pre class ="code">
 //var -s %a = $chr(55384), %b = $chr(56320) | echo -a %a $+ %b -- $len(%a $+ %b)
 
- 𦀀 -- 2
+ &#155648; -- 2
 </pre>
 What happens here is that mIRC pass the two surrogates to /echo, /echos call a Windows' function to display the text, and it is this Windows' function that will 'decode' the surrogates and display the character correctly. As you can see from the example above, although a single character is displayed, $len() is 2, showing that mirc sees two characters.
 
@@ -45,15 +45,15 @@ You can also express those characters with their UTF8 representation using <a hr
 ;you can use utf8 to form the character 65536 for example, which is four bytes in utf8 (f0 90 80 80):
 //var -s %a $utfdecode($chr($base(f0,16,10)) $+ $chr($base(90,16,10)) $+ $chr($base(80,16,10)) $+ $chr($base(80,16,10)))
 
-𐀀
+&#65536;
 </pre>
 
 $utfencode can be used to encode text to utf8:
 
 <pre class ="code">
-//var -s %a $utfencode(è)
+//var -s %a $utfencode(&#232;)
 
-Ã¨
+&#193;&#34;
 </pre>
 
 <H4>Code Pages</H4>
@@ -89,11 +89,11 @@ If you want to send the text in GREEK over IRC, mIRC will encode the bytes inter
 <P>
 It must be noted that some commands and identifiers will encode your text to utf8, changing the integrity of your input.
 Each character is represented as 16 bits internally, the array of character is not an array of byte, it's an array of 16 bit (two bytes).
-But let's take a look at "/msg #chan é".
-é is the code point 233, which fits in one byte, but mIRC will encode your byte 233 to utf8, giving the two bytes 165 169.
+But let's take a look at "/msg #chan &#233;".
+&#233; is the code point 233, which fits in one byte, but mIRC will encode your byte 233 to utf8, giving the two bytes 165 169.
 Now in this case there is little value not encoding in utf8, on IRC you usually don't really care about the integrity of your bytes.
 However there are others features where it's not so simple.
-$sha1(é) for example can be tricky, this is going to give the hash of the two bytes.
+$sha1(&#233;) for example can be tricky, this is going to give the hash of the two bytes.
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
 And this is happening pretty much everywhere.
 <br>
@@ -104,13 +104,13 @@ And this is happening pretty much everywhere.
 <H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.
 <P>
-For example "Ô" can be sent from another IRC client either as $chr(212) or decomposed into a capital O $chr(79) followed by a combining circumflex $chr(770).
+For example "&#212;" can be sent from another IRC client either as $chr(212) or decomposed into a capital O $chr(79) followed by a combining circumflex $chr(770).
 <P>
 Normalization is a means of ensuring that all such characters are encoded either as the single integrated character or using modifiers in order that strings which might have a mixture of these techniques can be compared.
 <P>
 mIRC does not support normalization of Unicode strings either explicitly OR implicitly when comparing strings.
 <P>
-Experimentation suggests that mIRC does not normally recognize combining characters and will not display the combining character at all, which can lead to communication confusion. So a "Ô" sent decomposed into capital O $chr(79) followed by a combining circumflex $chr(770) will be displayed as "O".
+Experimentation suggests that mIRC does not normally recognize combining characters and will not display the combining character at all, which can lead to communication confusion. So a "&#212;" sent decomposed into capital O $chr(79) followed by a combining circumflex $chr(770) will be displayed as "O".
 <P>
 To complicate things still further, some unicode characters look the same as or very similar to other completely different characters - and some of these characters are always considered unequal in strict Unicode whilst others can be converted during normalization. mIRC treats such characters as different under all circumstances.
 
@@ -125,23 +125,23 @@ For example if you set a highlight entry with unicode letter, it won't work for 
 ;o === O $false , o == O $true
 ;correct
 
-//echo ô === Ô $iif(ô === Ô,$true,$false) , ô == Ô $iif(ô == Ô,$true,$false)
-;ô === Ô $false , ô == Ô $false
+//echo &#244; === &#212; $iif(&#244; === &#212;,$true,$false) , &#244; == &#212; $iif(&#244; == &#212;,$true,$false)
+;&#244; === &#212; $false , &#244; == &#212; $false
 ;incorrect
 </pre>
 
 However, mIRC's <a href="..\identifiers\upper.html">$upper</a> and <a href="..\identifiers\lower.html">$lower</a> identifiers correctly convert upper and lower case unicode:
 <pre class ="code">
-//echo $ $+ lower(Ô) = $lower(Ô) , $ $+ upper(ô) = $upper(ô)
-;$lower(Ô) = ô , $upper(ô) = Ô
+//echo $ $+ lower(&#212;) = $lower(&#212;) , $ $+ upper(&#244;) = $upper(&#244;)
+;$lower(&#212;) = &#244; , $upper(&#244;) = &#212;
 </pre>
 
 So case insensitive comparisons can be made by explicitly converting both sides to upper or lower case e.g. "if ($upper(%a) === $upper(%b))":
 <pre class ="code">
-//echo ô === $ $+ lower(Ô) $iif(ô === $lower(Ô),$true,$false) , ô == $ $+ lower(Ô) $iif(ô == $lower(Ô),$true,$false)
-;ô === $lower(Ô) $true , ô == $lower(Ô) $true
-//echo Ô === $ $+ upper(ô) $iif(Ô === $upper(ô),$true,$false) , Ô == $ $+ upper(ô) $iif(Ô == $upper(ô),$true,$false)
-;Ô === $upper(ô) $true , Ô == $upper(ô) $true
+//echo &#244; === $ $+ lower(&#212;) $iif(&#244; === $lower(&#212;),$true,$false) , &#244; == $ $+ lower(&#212;) $iif(&#244; == $lower(&#212;),$true,$false)
+;&#244; === $lower(&#212;) $true , &#244; == $lower(&#212;) $true
+//echo &#212; === $ $+ upper(&#244;) $iif(&#212; === $upper(&#244;),$true,$false) , &#212; == $ $+ upper(&#244;) $iif(&#212; == $upper(&#244;),$true,$false)
+;&#212; === $upper(&#244;) $true , &#212; == $upper(&#244;) $true
 </pre>
 
 <H4>Special Unicode characters</H4>

@@ -19,7 +19,7 @@ $isutf(text)
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $isutf(é) $isutf($utfencode(é)) $isutf(plain)</pre>
+<pre class ="code">//echo -a $isutf(&#233;) $isutf($utfencode(&#233;)) $isutf(plain)</pre>
 
 Note how this indicates whether the text contains the UTF8 codepoints of a UTF8 sequence, not whether the input is a UTF8 string, which all %strings in a unicode-aware client should be, which is why the next command returns "0 2".
 

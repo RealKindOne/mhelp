@@ -37,13 +37,13 @@ $bvar(&binvar, [ N [ ,M] ] )[.property]
 
 <pre class ="code">
 //bset -ta &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,1-).text
-  99 104 108 111 233 32 47 32 99 104 108 111 195 168 // chloè / chloè
+  99 104 108 111 233 32 47 32 99 104 108 111 195 168 // chlo&#232; / chlo&#232;
 //bset -t  &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,1-).text
-  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // chloè / chloÃ¨
+  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // chlo&#232; / chlo&#193;&#168;
 //bset -t  &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(233) )  | echo -a $bvar(&var,1-) // $bvar(&var,3-11).text
-  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // loè / ch
+  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // lo&#232; / ch
 //bset -t  &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,3-11,5).text
-  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // loè
+  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // lo&#232;
 </pre>
 
 <pre class ="code">

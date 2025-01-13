@@ -161,7 +161,7 @@ extern "C" int __stdcall simple_example(HWND mWnd, HWND aWnd, CHAR *data, char *
 extern "C" int __stdcall average_example(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
         //we fill data with a command we want mirc to execute
-	strcpy(data,"/echo -a Ã¨");
+	strcpy(data,"/echo -a &#193;&#168;");
 	//we return 2 indicating mIRC should execute the command in 'data'.
 	return 2;
 }
@@ -225,7 +225,7 @@ extern "C" int __stdcall  UnloadDll(int mTimeout) {
 
 Use $dll(yourdll.dll,simple_example,) which will return "simple string".
 <P>
-Use $dll(yourdll.dll,average_example,) or '/dll yourdll.dll average_example', this will execute "/echo -a è" in mIRC 7.x, because the project is not unicode, the two bytes Ã¨ are sent as ascii, mIRC 7.x will correctly decode that as utf8. On mIRC 6.x (you would need to remove the mUnicode to mBytes variable in the LOADINFO structure), this would display the two bytes.
+Use $dll(yourdll.dll,average_example,) or '/dll yourdll.dll average_example', this will execute "/echo -a &#232;" in mIRC 7.x, because the project is not unicode, the two bytes &#193;&#168; are sent as ascii, mIRC 7.x will correctly decode that as utf8. On mIRC 6.x (you would need to remove the mUnicode to mBytes variable in the LOADINFO structure), this would display the two bytes.
 <P>
 If you set the mUnicode variable to TRUE on mIRC 7.x in the LoadDll function and if you set your project to use unicode (in visual studio: project properties > configuration properties > general > character set), this would correctly show the two bytes as well.
 <P>
