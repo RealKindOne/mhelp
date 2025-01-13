@@ -208,7 +208,7 @@ alias echo {
 }
 </pre>
 
-Because an alias is not re-entrant, using 'echo' inside an alias of the same name cannot be intercepted by that same alias, though it can be trapped by another alias named echo, unless this alias calls it like !echo. This does not completely trap all colors, because it does not remove the color from "/echo -c ctcp message".
+Because an alias is not re-entrant, using 'echo' inside an alias of the same name cannot be intercepted by that same alias, though it can be trapped by another alias named echo, unless this alias calls it like !echo. This does not completely trap all colors, because it does not remove the color from "/echo -c CTCP message".
 
 Especially if your alias is non-local, beware about trapping built-in commands without supporting ALL variations of syntax for them. For example, the /server command has different behaviors for different purposes. There are some sets of switches which join a server, and other syntax for modifying the servers.txt file.
 

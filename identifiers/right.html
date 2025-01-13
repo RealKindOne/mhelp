@@ -13,8 +13,7 @@ The <b>$right</b> identifier is a <a href="..\other\string_manipulation.html">St
 
 <H4>Parameters</H4>
 <b>&lt;string&gt;</b> - The string to manipulate.
-
-<br><b>&lt;length&gt;</b> - The length or number of characters to remove from the original string. &lt;length&gt; can be a positive or negative. It cannot be 0.
+<br><b>&lt;length&gt;</b> - The length or number of characters to remove from the original string. &lt;length&gt; can be a positive or negative. Using 0 returns $null (0 characters).
 <br>
 If the length provided is positive, $right will return the &lt;length&gt; characters from the right of the string.
 <H4>Properties</H4>
@@ -22,21 +21,24 @@ None
 
 <H4>Example</H4>
 Echo "defg":
-<pre class ="code">$right(abcdefg, 4)
+<pre class ="code">
+$right(abcdefg, 4)
 </pre>
-
 If the length provided is negative, $right will return the characters in the string minus &lt;length&gt; on the left.
 <br>
 Echo "cdefg":
-<pre class ="code">$right(abcdefg, -2)
+<pre class ="code">
+$right(abcdefg, -2)
 </pre>
 
 Echo "eseed":
-<pre class ="code">$right(appleseed, -4)
+<pre class ="code">
+$right(appleseed, -4)
 </pre>
 
 Echo "Name":
-<pre class ="code">$right([AB]BotName, 4)
+<pre class ="code">
+$right([AB]BotName, 4)
 </pre>
 
 <H4>Compatibility</H4>

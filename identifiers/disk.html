@@ -16,7 +16,7 @@ $disk(N/path)[.property]
 <br><b>path</b> - A drive name.
 <br>
 <br>
-Without a property, returns $true if drive exists, otherwise $false
+Without a property, returns $true if drive exists, otherwise $false.
 
 <H4>Properties</H4>
 <b>.type</b> - Returns the type of drive; values are <b>fixed</b>, <b>removable</b>, <b>cdrom</b>, <b>ramdisk</b>, <b>remote</b>, and <b>unknown</b>.
@@ -31,6 +31,8 @@ Echo total number of drives:
 <pre class ="code">//echo -a $disk(0)</pre>
 Echo type of drive for "C:\":
 <pre class ="code">//echo -a $disk(C:\).type</pre>
+Echo $true if C:\ drive exists, otherwise $false:
+<pre class ="code">//echo -a $disk(C:\)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)
