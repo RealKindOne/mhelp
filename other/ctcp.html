@@ -20,10 +20,10 @@ ctcp &lt;level&gt;:&lt;matchtext&gt;:&lt;*|#|?&gt;:&lt;commands&gt;
 <br><b>&lt;level&gt;</b> - The corresponding <a href="access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="..\events\matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;*&gt;&lt;?&gt;&lt;#&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
-<br><b>*</b> - Any query/channel window
-<br><b>?</b> - Any query windows
-<br><b>#</b> - Any channel window
-<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
+<br><b>*</b> - Any query/channel window.
+<br><b>?</b> - Any query windows.
+<br><b>#</b> - Any channel window.
+<br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
 <H4>Examples</H4>
 triggers when someone sends a private CTCP "test", which is a privmsg, and then use /ctcpreply, which sends a notice, this will trigger the <a href="..\events\on_ctcpreply.html">On_CTCPReply</a> event for that user.
@@ -44,7 +44,7 @@ However, mIRC doesn't allow the CTCP event to suppress the default version reply
 ctcp *:version:?:{ ctcpreply $nick mIRC 12.5!! | halt }
 </pre>
 
-Formerly, you could block the CTCP reply only by using /ignore -t to block *all* incoming ctcp. But with the ON PARSELINE event, you can replace the outbound message. Note that the reply used to be always using NOTICE, but in newer versions there can be some situations where your version reply is made as a CNOTICE, so you should detect both types now. You can modify any part between but not including the $regml(1) and the $+ $chr(1)
+Formerly, you could block the CTCP reply only by using /ignore -t to block *all* incoming CTCP. But with the ON PARSELINE event, you can replace the outbound message. Note that the reply used to be always using NOTICE, but in newer versions there can be some situations where your version reply is made as a CNOTICE, so you should detect both types now. You can modify any part between but not including the $regml(1) and the $+ $chr(1)
 
 <pre class ="code">
 On $*:PARSELINE:out:/^((NOTICE|CNOTICE \S+) \S+ :\x01VERSION) mIRC/:{ .parseline -otn $regml(1) Not mIRC $version $+ $iif($beta,. $+ $v1) $+ $chr(1) } ; modify of SReject 2017
