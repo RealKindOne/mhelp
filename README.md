@@ -12,19 +12,24 @@ https://web.archive.org/web/20160423015142/http://download.microsoft.com/downloa
 
 MD5: 53899BE5DA83419D772D5B97E653DA7C
 
-
 Install it.
-
 
 Open the "mhelp.hhp" file and click File -> Compile (or click the icon left of the sunglasses).
 
 You can click the sunglasses icon to view the "mhelp.chm" file.
 
+OR...
+
+Run ```"C:\Program Files (x86)\HTML Help Workshop\hhc.exe" C:\path\to\mhelp.hhp``` in the command prompt.
 
 ## Editing
 
-The program is a bit primitive, I use a external editor for editing all the files. (Close out of everything if you edit any of the "mhelp" files.)
+The HTML Help Workshop program is very primitive and buggy. You would be better off using a different text editor.
 
+
+## Downloading
+
+Check here for updates: https://github.com/RealKindOne/mhelp/tags
 
 
 ## NOTE:
