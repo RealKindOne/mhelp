@@ -21,24 +21,17 @@ A hash table name was formerly limited to 256 significant characters - any addit
 <br>
 * [#_of_buckets] = [#_of_keys_that_will_be_used] / 0.78
 Linked List
-
+<br>
 Because the hash table uses chaining to resolve collisions and due to the fact mIRC does not rehash or grows the array, using a hash table created with 1 bucket can be used to create a linked list. New items are added to the start of the chain (i.e. $hget(&lt;table_name&gt;, 1) will always be last item added). Additionally, changing the value or removing an item does not alter the overall order of the list.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/hmake [-smNhL] &lt;table_name&gt; [num_buckets]
+/hmake [-smN] &lt;table_name&gt; [num_buckets]
 </pre>
 
 <H4>Switches</H4>
 <b>-s</b> - Displays a successful creation, or reports the table already exists.
 <br><b>-m</b>N - Specify the number of bucket, same as the N parameter.
-<br><b>-h</b>L
-      - Specify the name of the algorithm to be used for the hash function for this table, the value of L is a letter, it can be:
-<br><span style="margin-left: 20px;"><b>r</b> - rot
-<br><span style="margin-left: 20px;"><b>f</b> - fnv1a
-<br><span style="margin-left: 20px;"><b>l</b> - lookup3
-<br><span style="margin-left: 20px;"><b>m</b> - murmur3
-<br><span style="margin-left: 20px;"><b>x</b> - xxhash
 
 <H4>Parameters</H4>
 <b>&lt;table_name&gt;</b> - The name of the table you wish to make.
@@ -133,28 +126,28 @@ vs
 //var %nick foobar | hadd -sm flood %nick $ticks | echo -a %nick is $hget(flood,%nick)
 </pre>
 To use hash tables instead of variables, there are a few extra differences to be aware of.
-* You can receive $null from a $hget(no-such-table,item) or $hget(existing-table,no-such-item) without an error
-* But you cannot create an item without first making sure that the table exists. If it's possible for the table to not exist, you can use /hadd's -m or -mN switch to create the table if needed.
-* You cannot use the /hmake command to create a table without making certain the table does not already exist.
+<br>* You can receive $null from a $hget(no-such-table,item) or $hget(existing-table,no-such-item) without an error
+<br>* But you cannot create an item without first making sure that the table exists. If it's possible for the table to not exist, you can use /hadd's -m or -mN switch to create the table if needed.
+<br>* You cannot use the /hmake command to create a table without making certain the table does not already exist.
 <pre class ="code">//if (!$hget(tablename)) hmake tablename</pre>
 * You cannot delete a tablename with /hfree unless you make certain the table already exists, or use the -w switch without a wildcard
 <pre class ="code">//if ($hget(tablename)) hfree tablename
 or
 /hfree -sw tablename</pre>
 * The equivalent to /unset is /hdel, which can accept wildcards
-* To retrieve data from a hashtable item:
+<br>* To retrieve data from a hashtable item:
 <pre class ="code">//echo -a %variablename is the same as $hget(tablename,itemname)</pre>
 * To check for the existence of a variable, scripts currently check if $var(%NonWildcardVariablName,1) is $null. To check if the item name exists, check if $hfind(tablename,itemname) is $null.
-* Note that $hfind is able to do things $var() cannot do, such as finding items based on the wildcard or regex pattern of the itemnames or the data inside them.
-* hashtables do not have the same global vs local scope as %variables do. While it's possible to use %var inside an alias to mask the value of a same-name global variable, you cannot do this with hashtables. While a local variable can be seen only inside the alias or :EVENT: where it was created, hashtables and their items are created only with global scope.
-* mIRC handles saving global %variables to disk for you, but it doesn't do that with hashtables. If you need to save updated hashtable data for the next mIRC restart, you must use /hsave to save it to disk, then must use /hload to retrieve it after restart.
-* As with %variables, hashtable items can be created with similar temporary status, but does not offer the same syntax, and not all features.
-* Temporary item existing for 5 seconds:
+<br>* Note that $hfind is able to do things $var() cannot do, such as finding items based on the wildcard or regex pattern of the itemnames or the data inside them.
+<br>* hashtables do not have the same global vs local scope as %variables do. While it's possible to use %var inside an alias to mask the value of a same-name global variable, you cannot do this with hashtables. While a local variable can be seen only inside the alias or :EVENT: where it was created, hashtables and their items are created only with global scope.
+<br>* mIRC handles saving global %variables to disk for you, but it doesn't do that with hashtables. If you need to save updated hashtable data for the next mIRC restart, you must use /hsave to save it to disk, then must use /hload to retrieve it after restart.
+<br>* As with %variables, hashtable items can be created with similar temporary status, but does not offer the same syntax, and not all features.
+<br>* Temporary item existing for 5 seconds:
 <pre class ="code">
 //hadd -mu5 test item | echo -a $hget(test,item).unset | timer 5 1 echo -a $!hget(test,item).unset
 </pre>
 * Note that items created or updated using the -uN property are by default not saved to disk without using /hsave's -u switch.
-* Using -k to ignore the N in -uN only if the .unset is already non-zero
+<br>* Using -k to ignore the N in -uN only if the .unset is already non-zero
 <pre class ="code">
 //hadd -mku5 test item | echo -a $hget(test,item).unset | timerx1 5 1 echo -a $!hget(test,item).unset | timerx2 1 2 hadd -ku10 test item
 </pre>

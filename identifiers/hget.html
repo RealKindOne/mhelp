@@ -5,7 +5,7 @@
 <H1>$hget</H1>
 <br>
 <br>
-The <b>$hget</b> identifier returns information about hash tables
+The <b>$hget</b> identifier returns information about hash tables.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -19,8 +19,6 @@ $hget(name/N, item, [&binvar]) - Returns the data associated with the item
 
 <H4>Properties</H4>
 <b>.unset</b> - When passing an item, you can use the .unset property to get the unset time of the item if any.
-<br><b>.state</b> - Return some internal information about the table. The format returned is 3 tokens space separated, the first word is the number of items in the table, the second is in the format &lt;nbr_used_buckets&gt;/&lt;totalnbr_buckets&gt;, while the third consists of four number separated by a slash as well, but it's unknown what they really mean.
-<br><b>.hash</b> - Return the name of the algorithm used by the hash table, which can be passed using the -h switch in <a href="..\commands\hmake.html">/hmake</a>
 <br><b>.data</b> - Returns the contents of the hash table item.
 
 <H4>Example</H4>
@@ -33,7 +31,6 @@ Added: mIRC v5.8 (05 Sep 2000)
 v5.8 : Added .item and .size properties.<br>
 v5.81: Added .data property.<br>
 v6.0 : Added .unset property.<br>
-v7.53: Added .hash and .state properties.
 
 <H4>See also</H4>
 <a href="..\commands\hmake.html">/hmake</a><br>

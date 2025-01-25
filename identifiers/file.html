@@ -59,8 +59,6 @@ Attributes:
 <br><b>.path</b> - If a folder is passed, returns the path containing that folder ($file(C:\windows\).path is C:\), if a filename is used, returns the path containing the filename.
 <br><b>.name</b> - Returns the name of the folder if a folder is used, or the name of the file without the extension if a filename is used
 <br><b>.version</b> - Returns the file's <b>file version</b> if executable/DLL.
-<br><b>.product</b> - Returns the file's <b>product version</b> if executable/DLL.
-<br><b>.flags</b> - Returns the file's <b>file flags</b> if executable/DLL, the value is a combination bitmask that specifies the compile time attributes of the file:
 <br><b>1</b>: DEBUG - The file contains debugging information or is compiled with debugging features enabled.
 <br><b>2</b>: PRERELEASE - The file is a development version, not a commercially released product.
 <br><b>4</b>: PATCHED - The file has been modified and is not identical to the original shipping file of the same version number.
@@ -86,7 +84,7 @@ Added: mIRC v5.71 (07 May 2000)
 v5.5 : .atime, .ctime, .mtime, and .size properties.<br>
 v6.1 : .attr, .longfn, and .shortfn properties.<br>
 v7.00: .sig property<br>
-v7.44: .flags, .product, and .version properties.<br>
+v7.44: .version property.<br>
 v7.52: .ext, .name, and .path properties.
 <H4>Notes</H4>
 None
