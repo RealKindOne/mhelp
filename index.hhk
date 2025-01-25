@@ -578,10 +578,6 @@
 		<param name="Local" value="identifiers\exiting.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$factorial">
-		<param name="Local" value="identifiers\factorial.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$false">
 		<param name="Local" value="identifiers\false.html">
 		</OBJECT>
@@ -692,10 +688,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$fullscreen">
 		<param name="Local" value="identifiers\fullscreen.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$fupdate">
-		<param name="Local" value="identifiers\fupdate.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$gcd">
@@ -1336,10 +1328,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$null">
 		<param name="Local" value="identifiers\null.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$numbits">
-		<param name="Local" value="identifiers\numbits.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$numeric">

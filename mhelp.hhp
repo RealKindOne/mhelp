@@ -429,12 +429,10 @@ identifiers\eventid.html
 identifiers\eventparms.html
 identifiers\exists.html
 identifiers\exiting.html
-identifiers\factorial.html
 identifiers\false.html
 identifiers\feof.html
 identifiers\ferr.html
 identifiers\fgetc.html
-identifiers\fibonacci.html
 identifiers\file.html
 identifiers\filename.html
 identifiers\filtered.html
@@ -458,7 +456,6 @@ identifiers\fulladdress.html
 identifiers\fulldate.html
 identifiers\fullname.html
 identifiers\fullscreen.html
-identifiers\fupdate.html
 identifiers\gcd.html
 identifiers\get.html
 identifiers\getdir.html
@@ -619,7 +616,6 @@ identifiers\not.html
 identifiers\notags.html
 identifiers\notify.html
 identifiers\null.html
-identifiers\numbits.html
 identifiers\numeric.html
 identifiers\numtok.html
 identifiers\nvnick.html
