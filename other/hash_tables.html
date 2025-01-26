@@ -300,43 +300,43 @@ Which will return "Mary". because Mary appeared before Gary in the iteration lis
 <H4>Technical Explanation</H4>
 mIRC's hash tables are implemented as follows.
 
-# When you create a hash table, it is created with a defined number of "slots" (or "buckets").
-# When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
-# When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
-# When you get an item by position using <a href="..\identifiers\hget.html">$hget</a>(table,position), or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
+<p>When you create a hash table, it is created with a defined number of "slots" (or "buckets").
+<p>When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
+<p>When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
+<p>When you get an item by position using <a href="..\identifiers\hget.html">$hget</a>(table,position), or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
 
-If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
+<p>If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
 
-* For a lookup of an existing item, on average mIRC will have to iterate over 50% of the bucket entries before locating the one you want
-* If you try to find a non-existent item, mIRC will need to iterate over the whole bucket list before determining that the item doesn't exist.
+<p>* For a lookup of an existing item, on average mIRC will have to iterate over 50% of the bucket entries before locating the one you want
+<p>* If you try to find a non-existent item, mIRC will need to iterate over the whole bucket list before determining that the item doesn't exist.
 
-As you might imagine, mIRC iterating over a large number of hash table entries to find the item needed is CPU intensive and mIRC might start to feel unresponsive.
+<p>As you might imagine, mIRC iterating over a large number of hash table entries to find the item needed is CPU intensive and mIRC might start to feel unresponsive.
 
-So for look-ups by item name, the best performance will be achieved when mIRC's hashing algorithm points to a bucket with a single table entry (or failing that - a small number of entries). Worst case scenario is if your hash table has only a single bucket, then all entries are stored in a single linked-list and every look-up needs to be iterated. On the other hand, if you have a large number of bucket (much greater than the number of items in the hash table), then the likelihood is that every item will be stored in its own bucket, so the hash function will take you to a bucket with a single entry, and no iteration will be needed to find the item. 101 buckets was recommended for 79 items because it's unlikely that picking 79 random numbers in the range 1-79 would have each number chosen only 1 time, but choosing 79 random numbers in the range 1-101 is much less likely that any number would be chosen more than 1 time.
+<p>So for look-ups by item name, the best performance will be achieved when mIRC's hashing algorithm points to a bucket with a single table entry (or failing that - a small number of entries). Worst case scenario is if your hash table has only a single bucket, then all entries are stored in a single linked-list and every look-up needs to be iterated. On the other hand, if you have a large number of bucket (much greater than the number of items in the hash table), then the likelihood is that every item will be stored in its own bucket, so the hash function will take you to a bucket with a single entry, and no iteration will be needed to find the item. 101 buckets was recommended for 79 items because it's unlikely that picking 79 random numbers in the range 1-79 would have each number chosen only 1 time, but choosing 79 random numbers in the range 1-101 is much less likely that any number would be chosen more than 1 time.
 
-All that said, even with a large number of buckets, you cannot guarantee that every item in the table will have a unique hash / bucket number. As an analogy, consider a class of 30 students. What is the probability that all students have birthdays on different days of the year? This is equivalent to asking whether a hash table with 365 buckets and 30 entries will have every entry using a different bucket. It turns out that in a class of 30 students there is significantly more than 50% probability that at least two students will share a birthday - indeed it only takes 23 students for the probability to be more than 50%. This seems weird - but for the mathematically inclined, the probability can be calculated by determining what the probability is that M students have all different birthdays:
-
-The first student can have any birthday.
-The second student can have 364 of 365 days and still be different.
-The third student can have 363 of 365 days and still be different.
+<p>All that said, even with a large number of buckets, you cannot guarantee that every item in the table will have a unique hash / bucket number. As an analogy, consider a class of 30 students. What is the probability that all students have birthdays on different days of the year? This is equivalent to asking whether a hash table with 365 buckets and 30 entries will have every entry using a different bucket. It turns out that in a class of 30 students there is significantly more than 50% probability that at least two students will share a birthday - indeed it only takes 23 students for the probability to be more than 50%. This seems weird - but for the mathematically inclined, the probability can be calculated by determining what the probability is that M students have all different birthdays:
+<br>
+<br>The first student can have any birthday.
+<br>The second student can have 364 of 365 days and still be different.
+<br>The third student can have 363 of 365 days and still be different.
 
 So the probability that M students all have different birthdays is therefore:
 
-<math>
+<pre class ="code">
 \frac{364}{365}*\frac{363}{365}*\frac{362}{365} ... \frac{\text{365-M+1}}{365}
 =
 \frac{(365-1)(365-2)...(365-M+1)}{365^{(M-1)}}
 =
 \frac{365!}{(365-M)! * 365^M}
-</math>
+</pre>
 
 Returning to hash tables and buckets, the equivalent formula for a table with M entries and N buckets is:
 
-<math>
+<pre class = "code">
 \frac{(N-1)(N-2)...(N-M+1)}{N^{(M-1)}}
 =
 \frac{N!}{(N-M)! * N^M}
-</math>
+</pre>
 
 Using the student birthday example for simplicity and relating it to hash tables and buckets, if we turn it on its head then we can say that if we have a hash table holding 23 entries, and we want to have a probability that each entry has its own bucket > 50%, then we need to have more than 365 buckets. '''I bet you weren't expecting that!!''' Fortunately the performance overhead of iterating over a relatively short linked-list is also small, and equally fortunately a bucket only uses 4-bytes (which is very small indeed compared to the size of a table entry, which consists of the item name and the data and the overhead of storing these and linking them into a list). Indeed mIRC's maximum bucket size is 10,007, requiring c. 40KB of memory - which in today's PCs with several GB of memory is relatively small.
 <P>
@@ -344,7 +344,7 @@ Using the student birthday example for simplicity and relating it to hash tables
 <P>
 <b>HOWEVER...</b>
 <P>
-Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using <a href="..\identifers\hget.html">$hget</a>(table,n)}}, or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
+Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using <a href="..\identifers\hget.html">$hget</a>(table,n), or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
 <P>
 <b>Summary:</b> If you are doing only lookup by position or are using $hfind, then you should use a bucket size of 1 to save memory and avoid the small overhead of iterating over empty buckets.
 <P>
