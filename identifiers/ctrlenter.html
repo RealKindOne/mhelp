@@ -21,6 +21,13 @@ None
 Echo to whether or not "CTRL+ENTER" was used in an input box:
 <pre class ="code">ON *:INPUT:*: { echo -a $ctrlenter }</pre>
 
+Make a script do nothing if CTRL+Enter is used.
+<pre class = "code">
+ON *:INPUT:*:{
+  if ($ctrlenter) { return }
+  ; Do other stuff here.
+}
+
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
 

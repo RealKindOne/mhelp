@@ -22,7 +22,6 @@ $abook(nick/N[,N])[.property]
 <br><b>.email</b> - Returns the email associated with the address book match.
 <br><b>.website</b> - Returns the website URL associated with the address book match.
 <br><b>.picture</b> - Returns the filename of the picture, if any, associated with the address book match.
-<br><b>.ipaddr</b> - Returns the IP address, if any, associated with the address book match.
 <br><b>.noteN</b> - Returns the information in the notes area for the address book match where N is the Nth line.
 
 <H4>Example</H4>
@@ -36,11 +35,16 @@ Echo the filename for the picture of the first address book match to the active 
 //echo -a $abook(*,1).picture
 </pre>
 
+Echo total number of addresses to the active window:
+<pre class ="code">
+//echo -ag $abook(0)
+</pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)
 <br>
 <br>
-v5.6 : Added .email, .info, .ipaddr, nick, .note, picture, and .website properties.
+v5.6 : Added .email, .info, nick, .note, picture, and .website properties.
 
 <H4>Notes</H4>
 None

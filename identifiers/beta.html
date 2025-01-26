@@ -27,12 +27,24 @@ When someone on forum is having trouble with their mIRC acting incorrectly, it's
 <pre class ="code">
 //echo -a $os $version $beta $md5($mircexe,2) $file($mircexe).sig $alias(0) $script(0) $dll(0) $com(0)
 </pre>
+Prevent a script from running on a beta version:
+<pre class ="code">
+on *:start:{
+  if ($beta) {
+    echo -as WARNING: Beta version of mIRC detected. Not running script.
+    return
+  }
+  ; Rest of script code here.
+}
+
+
 
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
 
 <H4>Notes</H4>
 Version before 7.43 would return "betaN" where "N" is a number. All version after only return a integer.
+<br>
 Version before 6.35 would return $false instead of $null if you were not running a beta.
 
 <H4>See also</H4>

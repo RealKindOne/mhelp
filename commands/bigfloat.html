@@ -68,7 +68,7 @@ Affects identifiers:
 
 * Numbers larger than 2^53 handled without loss of precision. Note that this includes internal subtotals as well as the returned value
 $calc $abs $int $ceil $floor $isnum
-$gcd $modinv $lcm $numbits $powmod
+$gcd $modinv $lcm $powmod
 $rand $min $max $sorttok
 $sqrt $cbrt $log $log2 $log10
 $and $xor $or $not
@@ -141,11 +141,6 @@ g.bf used B=512 to cast -3 by +2^512 to a positive before doing the math
 //var -s %a.bf $calc(2^256-1) , %a.bx %a.bf , %b.bf $xor(%a.bf,3) , %c.bf $xor(%a.bf,3,256) , %d.bf $xor(%a.bf,3,96) , %e.bf $xor(%a.bf,3,65) , %f.bx $xor(%a.bx,3,512) , %g.bf $xor(-3,3,512)
 </pre>
 
-Being in bigfloat mode also affects $numbits, which cannot return larger than 32 in non-bigfloat mode:
-<pre class ="code">
-//echo -a $numbits($calc(2^53)) shows 32 because $bigfloat is false but %null.bf $numbits($calc(2^53)) shows 54 because $bigfloat is true
-</pre>
-
 <H4>Compatibility</H4>
 
 Added: mIRC v7.72 (27 Nov 2022)
@@ -187,10 +182,7 @@ None
 <a href="..\identifiers\bitoff.html">$bitoff</a><br>
 <a href="..\identifiers\gcd.html">$gcd</a><br>
 <a href="..\identifiers\lcm.html">$lcm</a><br>
-<a href="..\identifiers\numbits.html">$numbits</a><br>
 <a href="..\identifiers\modinv.html">$modinv</a><br>
 <a href="..\identifiers\powmod.html">$powmod</a><br>
-<a href="..\identifiers\factorial.html">$factorial</a><br>
-<a href="..\identifiers\fibonacci.html">$fibonacci</a><br>
 </body>
 </html>
