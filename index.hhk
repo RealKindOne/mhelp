@@ -410,6 +410,10 @@
 		<param name="Local" value="identifiers\date.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$darkmode">
+		<param name="Local" value="identifiers\darkmode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$day">
 		<param name="Local" value="identifiers\day.html">
 		</OBJECT>
