@@ -3,6 +3,8 @@
 Unofficial help file for commands, identifiers, on events, and other things.
 
 
+NOTE: Multiple pages have formatting issues. They are slowly being worked on.
+
 
 ## Compiling
 
@@ -30,6 +32,9 @@ The HTML Help Workshop program is very primitive and buggy. You would be better 
 ## Downloading
 
 Check here for updates: https://github.com/RealKindOne/mhelp/tags
+
+If you do not want to run the help file you can download the source code and open the .html files.
+List of commands and identifiers can be found in ```commands.html``` and ```identifiers.html``` or you can search for the command/identifier filename.
 
 
 ## NOTE:
