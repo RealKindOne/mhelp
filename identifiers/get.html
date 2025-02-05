@@ -21,7 +21,7 @@ $get($nick) used without the 2nd N parameter returns $nick if there is at least 
 When N >=1, $get(N) or $get($nick,N) returns the $nick associated with that transfer.<br />
 When sender changes nick, the $get is still associated with the old nick unless you use: "<a href="..\commands\dcc.html">/dcc</a> nick -sgcf &lt;oldnick&gt; &lt;newnick&gt;"
 
-<br><b>Note:</b> $get(-1) can be used during the <a href="..\events\on_filercvd.html">ON FILERCVD</a> and <a href="..\events\on_getfail.html">ON GETFAIL</a> events, it refers to the 'get' which triggered that event.
+<br><b>Note:</b> $get(-1) can be used during the <a href="..\events\on_filercvd.html">on FILERCVD</a> and <a href="..\events\on_getfail.html">on GETFAIL</a> events, it refers to the 'get' which triggered that event.
 
 <H4>Properties</H4>
 <b>.cid</b> - Returns the connection ID for the DCC Get.

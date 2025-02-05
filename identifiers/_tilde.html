@@ -39,7 +39,7 @@ Because such identifier have a global scope, they have a value inside an alias i
 So consider for example a script that's going to be shared on different mIRC configuration/install/machine:
 
 <pre class ="code">
-on *:text:*:#:process_message $1-
+on *:TEXT:*:#:process_message $1-
 on *:input:#:processs_message $1-
 alias process_message {
 var %nick $iif($nick,$nick,$me)

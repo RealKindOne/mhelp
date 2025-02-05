@@ -24,7 +24,7 @@ None
 
 <H4>Example</H4>
 <pre class ="code">; Check in an on exit event if mIRC is exiting
-ON *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)</pre>
+on *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)</pre>
 
 The above example will return the proper condition for whether or not mIRC is exiting. An example output is below:
 mIRC is not exiting

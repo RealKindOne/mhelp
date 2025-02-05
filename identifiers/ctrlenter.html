@@ -19,11 +19,11 @@ None
 
 <H4>Example</H4>
 Echo to whether or not "CTRL+ENTER" was used in an input box:
-<pre class ="code">ON *:INPUT:*: { echo -a $ctrlenter }</pre>
+<pre class ="code">on *:INPUT:*: { echo -a $ctrlenter }</pre>
 
 Make a script do nothing if CTRL+Enter is used.
 <pre class = "code">
-ON *:INPUT:*:{
+on *:INPUT:*:{
   if ($ctrlenter) { return }
   ; Do other stuff here.
 }

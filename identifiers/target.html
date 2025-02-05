@@ -22,7 +22,7 @@ None
 ; to a custom @windowWatcher window. If that window doesn't exist,
 ; create it first.
 
-ON *:CLOSE:*: {
+on *:CLOSE:*: {
   $iif(!$window(@windowWatcher),window @windowWatcher)
   echo @windowWatcher Window Closed: $target $+ .
 }</pre>
@@ -31,7 +31,7 @@ ON *:CLOSE:*: {
 ; open a new @window with the user's nickname and log the
 ; chat from there on out. If the window closes, stop logging.
 
-ON *:OPEN:?:*: {
+on *:OPEN:?:*: {
 
   ; Add the user to level 3 for logging
   .auser 3 $address($nick,2)
@@ -46,7 +46,7 @@ ON *:OPEN:?:*: {
   ; If the user has sent data, log it to the custom window
   if ($1) { echo %w $1- }
 }
-ON 3:TEXT:*:?: {
+on 3:TEXT:*:?: {
 
   ; Set the window name to the dynamic $target identifier
   var %w = @ $+ $target
@@ -58,7 +58,7 @@ ON 3:TEXT:*:?: {
   ; Echo the contents of the message to the window.
   echo %w $1-
 }
-ON 3:CLOSE:?: {
+on 3:CLOSE:?: {
 
   ; When the query window is closed locally or remotely,
   ; remove the user from the user level 3 for logging,

@@ -62,7 +62,7 @@ dialog -l whatEvents {
   scroll "", 12, 72 72 58 8, range 0 100 horizontal bottom
   button "&Close", 13, 93 90 37 16, ok
 }
-ON *:DIALOG:whatEvents:*:*: {
+on *:DIALOG:whatEvents:*:*: {
   did -ra $dname 2 $devent
   did -ra $dname 4 $did
   did -ra $dname 6 $iif($did == 0,NA,$iif($did($did),$v1,$iif($did($did).sel,$v1,$iif($did($did) == 0,0,NA))

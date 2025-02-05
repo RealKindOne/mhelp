@@ -23,11 +23,11 @@ None
 
 <H4>Example</H4>
 The below example will trigger when the mouse double-clicks on the word ''hoverme'', and echo the hotlink word and the entire line to the active window:
-<pre class ="code">ON ^*:HOTLINK:*hoverme*:*:{
+<pre class ="code">on ^*:HOTLINK:*hoverme*:*:{
   if ($1 == hoverme) return
   halt
 }
-ON *:HOTLINK:*hoverme*:*:echo -a Hotlink: $1 - Hotlink line: $hotline</pre>
+on *:HOTLINK:*hoverme*:*:echo -a Hotlink: $1 - Hotlink line: $hotline</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

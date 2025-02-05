@@ -116,7 +116,7 @@ The equivalent base32 lengths for the hex lengths 128 and 256 are 103 and 205. H
 If you enabled 2FA at Undernet, below is an example of using $totp to provide the needed 6 digit code for it. If you already have Undernet TOTP set up with your phone, if the phone app does not have the ability to show your TOTP secret to you, you can go to the website and disable 2FA, then enable it again, and this time click on 'enter your secret key manually' which will show you a 32-digit base32 string that's split into 8 groups of 4. You can paste them into this example, along with replacing your actual Undernet accountname and password, and this will automatically login to X and add your address cloak. (Versions prior to v7.72 need to delete the spaces)
 
 <pre class ="code">
-ON *:CONNECT:{
+on *:CONNECT:{
   if ($network == Undernet) {
     .msg x@channels.undernet.org login YourAccountName YourPassword $totp(abcd efgh ijkl mnop qrst uvwx yz23 4567)
     .mode $me +x

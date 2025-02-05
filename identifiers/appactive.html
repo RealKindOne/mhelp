@@ -17,7 +17,7 @@ None
 <H4>Example</H4>
 Let's say you have a listening event, just to make mIRC beep if someone uses your name in a channel. We call these notifications, as well as highlights. Well, if mIRC is the currently active window, these sounds can be either annoying or meaningless. Therefore, we would set up the listener to check the <b>$appactive</b> identifier to make sure mIRC is not active before sending out the audible notification.
 
-<pre class ="code">ON *:TEXT:$($+(*,$me,*)):#: {
+<pre class ="code">on *:TEXT:$($+(*,$me,*)):#: {
   ; Make sure mIRC is not the active application
   if (!$appactive) {
 

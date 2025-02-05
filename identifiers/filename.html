@@ -19,10 +19,10 @@ None
 
 <H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available, after a "<a href="..\commands\dcc.html">/dcc</a> get" has successfully finished:
-<pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
+<pre class ="code">on *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 
 Echo the name of the file that finished playing to the active window:
-<pre class ="code">ON *:PLAYEND:echo -a * $filename has just finished playing.</pre>
+<pre class ="code">on *:PLAYEND:echo -a * $filename has just finished playing.</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
