@@ -5,12 +5,12 @@
 <H1>On Serverop</H1>
 <br>
 <br>
-The <b>ON SERVEROP</b> event triggers when a server ops a user on a channel.
+The <b>on SERVEROP</b> event triggers when a server ops a user on a channel.
 
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SERVEROP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SERVEROP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -26,7 +26,7 @@ The <b>ON SERVEROP</b> event triggers when a server ops a user on a channel.
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to channel operator by the server:
-<pre class ="code">ON *:SERVEROP:#:msg # Congratulations, $opnick $+ ! The server, $nick $+ , just made you an operator!</pre>
+<pre class ="code">on *:SERVEROP:#:msg # Congratulations, $opnick $+ ! The server, $nick $+ , just made you an operator!</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.3 (21 Jun 1995)

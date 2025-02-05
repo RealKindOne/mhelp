@@ -5,10 +5,10 @@
 <H1>On Rawmode</H1>
 <br>
 <br>
-The <b>ON RAWMODE</b> allows a script to intercept and interpret the modes of a channel directly, avoiding mIRC's messages and notifications altogether.
+The <b>on RAWMODE</b> allows a script to intercept and interpret the modes of a channel directly, avoiding mIRC's messages and notifications altogether.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:RAWMODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:RAWMODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -22,7 +22,7 @@ The <b>ON RAWMODE</b> allows a script to intercept and interpret the modes of a 
 
 <H4>Example</H4>
 Intercept all RAWMODE events, echo them to the target window in plain text, and halt mIRC's notifications:
-<pre class ="code">ON ^*:RAWMODE:*: {
+<pre class ="code">on ^*:RAWMODE:*: {
   echo $target * RAWMODE: $1-
   haltdef
 }</pre>

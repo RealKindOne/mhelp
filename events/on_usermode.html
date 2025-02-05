@@ -5,11 +5,11 @@
 <H1>On UserMode</H1>
 <br>
 <br>
-The <b>ON USERMODE</b> event triggers when the local mIRC client's usermodes have been changed on a connection.
+The <b>on USERMODE</b> event triggers when the local mIRC client's usermodes have been changed on a connection.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:USERMODE:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:USERMODE:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON USERMODE</b> event triggers when the local mIRC client's usermodes hav
 
 <H4>Example</H4>
 Halt the default mIRC response, and then echo the new details to the active window:
-<pre class ="code">ON ^*:USERMODE: {
+<pre class ="code">on ^*:USERMODE: {
   echo -a * You have set new usermodes: $1-
   haltdef
 }</pre>

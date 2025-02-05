@@ -5,19 +5,19 @@
 <H1>On Char</H1>
 <br>
 <br>
-The <b>ON CHAR</b> event is triggered when a character results from pressing one or more inside of a <a href="..\other\custom_windows.html">custom window</a>.
+The <b>on CHAR</b> event is triggered when a character results from pressing one or more inside of a <a href="..\other\custom_windows.html">custom window</a>.
 <br>
 <br>
 See the note about the <a href="on_keydown.html">On_KeyDown</a> event, pressing control + o should result in two keypress being reported from on keydown, and control + o generates the character with code point 15, on char will trigger for that character.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:char:&lt;@&gt;:&lt;codepoint,...,codepointN&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:CHAR:&lt;@&gt;:&lt;codepoint,...,codepointN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;@&gt;</b> - The <a href="..\other\custom_windows.html">custom window</a> where this event should listen. Can be <b>@</b> for all windows.
 <br><b>&lt;codepoint&gt;</b> - The specific characters' codepoints to listen for. Can specify multiple codepoints, such as:
-<pre class ="code">ON *:char:@myWindow:38,42,55,78:echo -a $keyval</pre>
+<pre class ="code">on *:CHAR:@myWindow:38,42,55,78:echo -a $keyval</pre>
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Local Identifiers</H4>
@@ -31,7 +31,7 @@ Create an alias that launches a custom, <a href="..\other\picture_windows.html">
 <pre class ="code">alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
-ON *:char:@myWindow:*: {
+on *:CHAR:@myWindow:*: {
   clear @myWindow
   drawtext @myWindow 1 3 3 Codepoint value: $iif($keyval,$v1,NA)
   drawtext @myWindow 1 3 25 Character: $iif($keychar,$v1,NA)
@@ -43,7 +43,7 @@ The following command can now be typed into any mIRC command prompt:
 
 Below is an image reflecting what this example will look like:
 TODO
-[[File:Keyup event.png|This screenshot shows an example of the ON KEYDOWN event custom example.]]
+[[File:Keyup event.png|This screenshot shows an example of the on KEYDOWN event custom example.]]
 
 
 <H4>Compatibility</H4>

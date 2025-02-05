@@ -5,13 +5,13 @@
 <H1>On Open</H1>
 <br>
 <br>
-The <b>ON OPEN</b> event triggers within mIRC when a specific window type is opened, either locally, through server interaction, or due to a scripted circumstance. This event can be used to trigger scripted situations for actions to perform when a certain window is opened.
+The <b>on OPEN</b> event triggers within mIRC when a specific window type is opened, either locally, through server interaction, or due to a scripted circumstance. This event can be used to trigger scripted situations for actions to perform when a certain window is opened.
 
-Much like the <a href="on_close.html">On_Close</a> event, the <b>ON OPEN</b> event triggers the <a href="..\identifiers\target.html">$target</a> identifier, and fills it with the window name related to the event. During the <b>ON OPEN</b> events, <a href="..\identifiers\target.html">$target</a> now refers to the window the event is dealing with.
+Much like the <a href="on_close.html">On_Close</a> event, the <b>on OPEN</b> event triggers the <a href="..\identifiers\target.html">$target</a> identifier, and fills it with the window name related to the event. During the <b>on OPEN</b> events, <a href="..\identifiers\target.html">$target</a> now refers to the window the event is dealing with.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:OPEN:&lt;?|@|=|!|*&gt;:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:OPEN:&lt;?|@|=|!|*&gt;:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -33,7 +33,7 @@ TODO
 ; the user has typed the !yourserver command, which will
 ; relay to the user the current server for the mIRC client
 
-ON *:OPEN:?:!yourserver:msg $nick Current IRC Server: $server $+ .</pre>
+on *:OPEN:?:!yourserver:msg $nick Current IRC Server: $server $+ .</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

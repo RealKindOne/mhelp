@@ -5,10 +5,10 @@
 <H1>On Deop</H1>
 <br>
 <br>
-The <b>ON DEOP</b> event triggers whenever a user on a channel has had their op privileges (mode -o) removed.
+The <b>on DEOP</b> event triggers whenever a user on a channel has had their op privileges (mode -o) removed.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DEOP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:DEOP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,7 +24,7 @@ The <b>ON DEOP</b> event triggers whenever a user on a channel has had their op 
 
 <H4>Example</H4>
 Let the channel know when a user's operator privilege has been removed:
-<pre class ="code">ON *:DEOP:#:msg # Oh no, $opnick has had their operator privilege removed :(</pre>
+<pre class ="code">on *:DEOP:#:msg # Oh no, $opnick has had their operator privilege removed :(</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.2 (02 May 1995)

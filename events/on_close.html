@@ -5,10 +5,10 @@
 <H1>On Close</H1>
 <br>
 <br>
-The <b>ON CLOSE</b> event triggers within mIRC when a specific window type is closed.
+The <b>on CLOSE</b> event triggers within mIRC when a specific window type is closed.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:CLOSE:&lt;?|#|@|=|!|*&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:CLOSE:&lt;?|#|@|=|!|*&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -31,18 +31,18 @@ The <b>ON CLOSE</b> event triggers within mIRC when a specific window type is cl
 <pre class ="code">; When Channel window are closed, print a message to
 ; the "Status Window".
 
-ON *:CLOSE:#: { echo -sg Closed $target window. }</pre>
+on *:CLOSE:#: { echo -sg Closed $target window. }</pre>
 
 <pre class ="code">; When DCC Chats are closed, send a notice to
 ; the person.
 
-ON *:CLOSE:=:notice $nick Hey, thank you so much for the chat!</pre>
+on *:CLOSE:=:notice $nick Hey, thank you so much for the chat!</pre>
 
 <pre class ="code">; When any window is closed, echo the window name
 ; to a custom @windowWatcher window. If that window doesn't exist,
 ; create it first.
 
-ON *:CLOSE:*: {
+on *:CLOSE:*: {
   $iif(!$window(@windowWatcher),window @windowWatcher)
   echo @windowWatcher Window Closed: $target $+ .
 }</pre>

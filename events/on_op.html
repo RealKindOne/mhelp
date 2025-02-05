@@ -5,13 +5,13 @@
 <H1>On Op</H1>
 <br>
 <br>
-The <b>ON OP</b> event triggers whenever a user on a channel has been elevated to a channel operator.
+The <b>on OP</b> event triggers whenever a user on a channel has been elevated to a channel operator.
 
 This event also fills the <a href="..\identifiers\opnick.html">$opnick</a> identifier with the nickname of the user who was added to Channel operator status. The <a href="..\identifiers\nick.html">$nick</a> identifier points to the user who added them.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -30,7 +30,7 @@ This event also fills the <a href="..\identifiers\opnick.html">$opnick</a> ident
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to a channel operator:
-<pre class ="code">ON *:OP:#:msg # Congratulations, $opnick $+ ! $nick has made you a channel operator!</pre>
+<pre class ="code">on *:OP:#:msg # Congratulations, $opnick $+ ! $nick has made you a channel operator!</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.2 (02 May 1995)

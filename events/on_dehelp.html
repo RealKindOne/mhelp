@@ -5,10 +5,10 @@
 <H1>On Dehelp</H1>
 <br>
 <br>
-The <b>ON DEHELP</b> event triggers whenever a user on a channel has had their helper/half-op status (mode -h) removed in a channel.
+The <b>on DEHELP</b> event triggers whenever a user on a channel has had their helper/half-op status (mode -h) removed in a channel.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DEHELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:DEHELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -25,7 +25,7 @@ The <b>ON DEHELP</b> event triggers whenever a user on a channel has had their h
 <H4>Example</H4>
 Acknowledge when any user has been dehelped on all channels
 <pre class ="code">
-ON *:DEHELP:#:msg # Sorry to see the helper privilege removed from $hnick $+ .
+on *:DEHELP:#:msg # Sorry to see the helper privilege removed from $hnick $+ .
 </pre>
 
 <H4>Compatibility</H4>

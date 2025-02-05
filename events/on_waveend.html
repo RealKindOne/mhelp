@@ -5,10 +5,10 @@
 <H1>On WaveEnd</H1>
 <br>
 <br>
-The <b>ON WAVEEND</b> event triggers whenever a wav file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
+The <b>on WAVEEND</b> event triggers whenever a wav file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
 <H4>Synopsis</H4>
-<pre class ="code">ON &lt;level&gt;:WAVEEND:&lt;commands&gt;</pre>
+<pre class ="code">on &lt;level&gt;:WAVEEND:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,7 +19,7 @@ The <b>ON WAVEEND</b> event triggers whenever a wav file has finished playing vi
 
 <H4>Example</H4>
 Echo to the active window when the sound file has ended, including its filename:
-<pre class ="code">ON *:WAVEEND:echo -a $nopath($filename) has ended</pre>
+<pre class ="code">on *:WAVEEND:echo -a $nopath($filename) has ended</pre>
 
 The example above will output results similar to the contents below:
 <pre class ="code">Chopin - Four Scherzos.wav has ended</pre>

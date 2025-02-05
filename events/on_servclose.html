@@ -5,10 +5,10 @@
 <H1>On ServClose</H1>
 <br>
 <br>
-The <b>ON SERVCLOSE</b> event triggers within mIRC when a DCC fserve session ends.
+The <b>on SERVCLOSE</b> event triggers within mIRC when a DCC fserve session ends.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SERVCLOSE:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SERVCLOSE:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,7 +19,7 @@ TODO
 
 <H4>Example</H4>
 <pre class ="code">
-ON *:SERVCLOSE:{ echo -sg Closed $target window. }
+on *:SERVCLOSE:{ echo -sg Closed $target window. }
 </pre>
 
 <H4>Compatibility</H4>

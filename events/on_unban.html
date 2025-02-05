@@ -5,10 +5,10 @@
 <H1>On Unban</H1>
 <br>
 <br>
-The <b>ON UNBAN</b> event is triggered much like the <a href="on_ban.html">On_Ban</a> event, however it triggers when a ban is removed from a channel's ban list.
+The <b>on UNBAN</b> event is triggered much like the <a href="on_ban.html">On_Ban</a> event, however it triggers when a ban is removed from a channel's ban list.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:UNBAN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:UNBAN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -25,7 +25,7 @@ The <b>ON UNBAN</b> event is triggered much like the <a href="on_ban.html">On_Ba
 ; Unban event that listens on all channels
 ; and responds by messaging the channel.
 
-ON *:UNBAN:#:msg # Hey, look, the address $banmask was just removed from the channel's ban list!
+on *:UNBAN:#:msg # Hey, look, the address $banmask was just removed from the channel's ban list!
 </pre>
 
 <H4>Compatibility</H4>

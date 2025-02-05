@@ -5,10 +5,10 @@
 <H1>On Ctcpreply</H1>
 <br>
 <br>
-The <b>ON CTCPREPLY</b> event triggers when a user responds to a standard <a href="..\commands\ctcp.html">/ctcp</a> command.
+The <b>on CTCPREPLY</b> event triggers when a user responds to a standard <a href="..\commands\ctcp.html">/ctcp</a> command.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:CTCPREPLY:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:CTCPREPLY:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ TODO
 
 <H4>Example</H4>
 Echo, to the active window, the reply a user gives to a CTCP version request.
-<pre class ="code">ON *:CTCPREPLY:VERSION*:echo -a $nick $+ 's IRC client is: $1-</pre>
+<pre class ="code">on *:CTCPREPLY:VERSION*:echo -a $nick $+ 's IRC client is: $1-</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)

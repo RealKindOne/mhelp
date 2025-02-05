@@ -5,7 +5,7 @@
 <H1>On Udpread</H1>
 <br>
 <br>
-The <b>ON UDPREAD</b> triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
+The <b>on UDPREAD</b> triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
 
 To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each <a href="..\commands\sockudp.html">/sockudp</a> command) by using the -k switch of /sockudp.
 <br>
@@ -22,7 +22,7 @@ You can find an example showing how to do that <a href="..\commands\sockread.htm
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:UDPREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:UDPREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;matchtext&gt;</b> - The name of the socket you want event to trigger on.

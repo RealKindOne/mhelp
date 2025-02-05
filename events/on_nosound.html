@@ -5,10 +5,10 @@
 <H1>On NoSound</H1>
 <br>
 <br>
-The <b>ON NOSOUND</b> event triggers when a remote user attempts to send a <a href="..\commands\sound.html">/sound</a> command and the file does not exist on the local mIRC system.
+The <b>on NOSOUND</b> event triggers when a remote user attempts to send a <a href="..\commands\sound.html">/sound</a> command and the file does not exist on the local mIRC system.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:NOSOUND:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:NOSOUND:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON NOSOUND</b> event triggers when a remote user attempts to send a <a hr
 
 <H4>Example</H4>
 Send a message to the user when sound file does not exist:
-<pre class ="code">ON *:NOSOUND:msg $nick Unfortunately, I do not have: $filename</pre>
+<pre class ="code">on *:NOSOUND:msg $nick Unfortunately, I do not have: $filename</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)

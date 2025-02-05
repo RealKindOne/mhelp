@@ -5,10 +5,10 @@
 <H1>On Playend</H1>
 <br>
 <br>
-The <b>ON PLAYEND</b> event triggers when mIRC has finished <a href="..\commands\play.html">/play'ing</a> a text file to a channel, or user.
+The <b>on PLAYEND</b> event triggers when mIRC has finished <a href="..\commands\play.html">/play'ing</a> a text file to a channel, or user.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:PLAYEND:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:PLAYEND:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,7 +19,7 @@ The <b>ON PLAYEND</b> event triggers when mIRC has finished <a href="..\commands
 
 <H4>Example</H4>
 Echo the name of the file that finished playing to the active window:
-<pre class ="code">ON *:PLAYEND:echo -a * $filename has just finished playing.</pre>
+<pre class ="code">on *:PLAYEND:echo -a * $filename has just finished playing.</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)

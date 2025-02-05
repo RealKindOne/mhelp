@@ -5,10 +5,10 @@
 <H1>On Topic</H1>
 <br>
 <br>
-The <b>ON TOPIC</b> event triggers in a channel when the topic is changed.
+The <b>on TOPIC</b> event triggers in a channel when the topic is changed.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,9 +24,9 @@ The <b>ON TOPIC</b> event triggers in a channel when the topic is changed.
 
 <H4>Example</H4>
 Send an action to a channel when the topic is changed:
-<pre class ="code">ON *:TOPIC:#:action $chan approves of this new topic!</pre>
+<pre class ="code">on *:TOPIC:#:action $chan approves of this new topic!</pre>
 
-<pre class ="code">ON *:TOPIC:#:action $chan approves of this new topic!
+<pre class ="code">on *:TOPIC:#:action $chan approves of this new topic!
 echo 4 $chan topic for # set by $nick to ' $+ $eventparms $+ '
 </pre>
 Note: # and $chan are interchangeable. $parms or $eventparms preserve leading/trailing/consecutive spaces. Otherwise can use $1-
@@ -37,6 +37,6 @@ Added: mIRC v5.7 (02 Feb 2000)
 <H4>See also</H4>
 <a href="..\other\local_identifiers.html">Local Identifiers</a><br>
 <a href="..\other\access_levels.html">Access Levels</a><br>
-<a href="..\events.html">On Events</a><br>
+<a href="..\events.html">on Events</a><br>
 </body>
 </html>

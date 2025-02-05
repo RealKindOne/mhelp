@@ -5,10 +5,10 @@
 <H1>On Error</H1>
 <br>
 <br>
-The <b>ON ERROR</b> event is triggered when an server sends an error message, most-likely a disconnect message.
+The <b>on ERROR</b> event is triggered when an server sends an error message, most-likely a disconnect message.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:ERROR:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:ERROR:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,10 +20,10 @@ The <b>ON ERROR</b> event is triggered when an server sends an error message, mo
 
 <H4>Example</H4>
 This example will trigger if the response "full" is in the server-returned error:
-<pre class ="code">ON *:ERROR:*full*:echo -s This server is most-likely full. Server sent error: $1-</pre>
+<pre class ="code">on *:ERROR:*full*:echo -s This server is most-likely full. Server sent error: $1-</pre>
 
 This example triggers if the word "ban" is within the server error:
-<pre class ="code">ON *:ERROR:*ban*:echo -s You're most-likely banned from this server. Server sent error: $-</pre>
+<pre class ="code">on *:ERROR:*ban*:echo -s You're most-likely banned from this server. Server sent error: $-</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)

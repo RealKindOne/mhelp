@@ -5,11 +5,11 @@
 <H1>On Input</H1>
 <br>
 <br>
-The <b>ON INPUT</b> event triggers when text is entered into an mIRC editbox, then followed by an enter-key press.
+The <b>on INPUT</b> event triggers when text is entered into an mIRC editbox, then followed by an enter-key press.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:INPUT:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:INPUT:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -28,7 +28,7 @@ The <b>ON INPUT</b> event triggers when text is entered into an mIRC editbox, th
 
 <H4>Example</H4>
 If ''^scripts'' is entered into an editbox, echo the total amount of loaded scripts to the active window:
-<pre class ="code">ON *:INPUT:*: {
+<pre class ="code">on *:INPUT:*: {
   if ($1 == ^scripts) {
     echo -a There are $script(0) script(s) loaded.
     haltdef

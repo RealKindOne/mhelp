@@ -5,13 +5,13 @@
 <H1>On QueryClose</H1>
 <br>
 <br>
-The <b>ON QUERYCLOSE</b> event triggers when a query window is closed.
+The <b>on QUERYCLOSE</b> event triggers when a query window is closed.
 <br>
 <br>
 <b>Note:</b> This feature is depreciated and has been replaced with <a href="on_close.html">On_Close</a>.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:QUERYCLOSE:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:QUERYCLOSE:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -23,7 +23,7 @@ The <b>ON QUERYCLOSE</b> event triggers when a query window is closed.
 
 <H4>Example</H4>
 <pre class ="code">
-ON *:QUERYCLOSE:notice $nick Hey, thank you so much for the chat!
+on *:QUERYCLOSE:notice $nick Hey, thank you so much for the chat!
 </pre>
 
 <H4>Compatibility</H4>

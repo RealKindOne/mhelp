@@ -5,11 +5,11 @@
 <H1>On Active</H1>
 <br>
 <br>
-The <b>ON ACTIVE</b> event monitors when a certain window, or window type, is activated or has had its active status changed.
+The <b>on ACTIVE</b> event monitors when a certain window, or window type, is activated or has had its active status changed.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:ACTIVE:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:ACTIVE:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -32,7 +32,7 @@ TODO
 <pre class ="code">
 ; Listen for any window becoming active,
 ; then display information about that window and the previous active window
-ON *:ACTIVE:*:echo -a * $active is now active, took over for $lactive
+on *:ACTIVE:*:echo -a * $active is now active, took over for $lactive
 </pre>
 
 <H4>Compatibility</H4>

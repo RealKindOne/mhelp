@@ -5,10 +5,10 @@
 <H1>On Mode</H1>
 <br>
 <br>
-The <b>ON MODE</b> event triggers when a user changes channel modes on a channel.
+The <b>on MODE</b> event triggers when a user changes channel modes on a channel.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:MODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:MODE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -26,7 +26,7 @@ The <b>ON MODE</b> event triggers when a user changes channel modes on a channel
 
 <H4>Example</H4>
 Notice the channel when a user changes channel modes, and the local mIRC client is a channel operator:
-<pre class ="code">ON @*:MODE:#:notice # $nick has modified the channel modes to: $1-</pre>
+<pre class ="code">on @*:MODE:#:notice # $nick has modified the channel modes to: $1-</pre>
 
 It is important to note that sending a channel notice to everyone at once is generally frowned upon unless one is an operator on the channel, or a bot has been instructed to do so.
 

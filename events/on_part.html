@@ -5,11 +5,11 @@
 <H1>On Part</H1>
 <br>
 <br>
-The <b>ON PART</b> event triggers when the mIRC client, or a remote user, parts/leaves a channel.
+The <b>on PART</b> event triggers when the mIRC client, or a remote user, parts/leaves a channel.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:PART:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:PART:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -25,12 +25,12 @@ TODO
 
 <H4>Example</H4>
 Once the local mIRC client has left a channel, echo to the channel window the total users inside of the channel:
-<pre class ="code">ON ME:*:PART:#:echo # You have left # $+ .</pre>
+<pre class ="code">on ME:*:PART:#:echo # You have left # $+ .</pre>
 
 The above example makes use of the <a href="on_me.html">On_Me</a> event, which triggers only when the local mIRC client triggers the event, not remote users.
 
 When a user leaves, send them a notice:
-<pre class ="code">ON *:PART:#:msg # So sorry to see you go, $nick $+ !</pre>
+<pre class ="code">on *:PART:#:msg # So sorry to see you go, $nick $+ !</pre>
 
 <H4>Compatibility</H4>
 TODO

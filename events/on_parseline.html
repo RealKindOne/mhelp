@@ -5,41 +5,45 @@
 <H1>On Parseline</H1>
 <br>
 <br>
-The <b>ON parseline</b> event triggers before incoming/outgoing IRC server lines are received/sent and allows a script to modify them.
+The <b>on PARSELINE</b> event triggers before incoming/outgoing IRC server lines are received/sent and allows a script to modify them.
 
-The incoming / outgoing lines are in IRC protocol which is very different to the terminology used in the mIRC front end. For example all messages to channels and individual users are sent / received using PRIVMSG. <a href="..\commands\ctcp.html">/ctcp</a> also uses PRIVMSG with a special encoding to indicate it is CTCP. <a href="..\commands\me.html">/me</a> action messages are a specific type of CTCP message etc. '''''Use of PARSELINE should therefore be considered advanced scripting and is not for the faint-of-heart.'''''
-
+The incoming / outgoing lines are in IRC protocol which is very different to the terminology used in the mIRC front end. For example all messages to channels and individual users are sent / received using PRIVMSG. <a href="..\commands\ctcp.html">/ctcp</a> also uses PRIVMSG with a special encoding to indicate it is CTCP. <a href="..\commands\me.html">/me</a> action messages are a specific type of CTCP message etc.
+<br>
+<br>
+<b>Note:</b> Use of PARSELINE should therefore be considered advanced scripting and is not for the faint-of-heart.
+<br>
+<br>
 Because PARSELINE will be called for every matching line, care should be taken to provide the best possible matchtext in order to minimizes the number of times it is called, and to keep the processing undertaken to a reasonable level.
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:parseline:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class ="code">on &lt;level&gt;:PARSELINE:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 
 <H4>Notes</H4>
-<b>Note 1:</b> For ''out'' lines, the text you are matching against has a $LF as the last character that you need to account for in your match text. e.g.
-<pre class ="code">on *:parseline:out:PRIVMSG *Hello:echo -a $parseline</pre>
+<b>Note 1:</b> For <b>out</b> lines, the text you are matching against has a $LF as the last character that you need to account for in your match text. e.g.
+<pre class ="code">on *:PARSELINE:out:PRIVMSG *Hello:echo -a $parseline</pre>
 will <b>not</b> be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
 <pre class ="code">
-on *:parseline:out:PRIVMSG *Hello?:echo -a $parseline
-on *:parseline:out:PRIVMSG *Hello*:echo -a $parseline</pre>
+on *:PARSELINE:out:PRIVMSG *Hello?:echo -a $parseline
+on *:PARSELINE:out:PRIVMSG *Hello*:echo -a $parseline</pre>
 
-<b>Note 2:</b> The ":" character is used quite frequently as a separator in IRC raw messages, but it is also used as a separator in mSL's ON statements. You can either use a placeholder for a single character (?) or multiple characters (*) or you can use a calculated match text or a regular expression for the ":" e.g.
+<b>Note 2:</b> The ":" character is used quite frequently as a separator in IRC raw messages, but it is also used as a separator in mSL's on statements. You can either use a placeholder for a single character (?) or multiple characters (*) or you can use a calculated match text or a regular expression for the ":" e.g.
 <pre class ="code">
-on *:parseline:out:PRIVMSG *Hello?:echo -a $parseline
-on *:parseline:out:PRIVMSG & ?Hello?:echo -a $parseline
-on *:parseline:out:$(PRIVMSG & :Hello?):echo -a $parseline
-on $*:parseline:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
+on *:PARSELINE:out:PRIVMSG *Hello?:echo -a $parseline
+on *:PARSELINE:out:PRIVMSG & ?Hello?:echo -a $parseline
+on *:PARSELINE:out:$(PRIVMSG & :Hello?):echo -a $parseline
+on $*:PARSELINE:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 </pre>
 
 
 
 <H4><a href="..\commands\parseline.html">/parseline</a></H4>
 
-Inside this event, you can ur
-<br><b>Note:</b>For ''out'' lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
+Inside this event, you can use:
+<br><b>Note:</b>For <b>out</b> lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
 <pre class ="code">var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)</pre>
 

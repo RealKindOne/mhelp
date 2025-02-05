@@ -5,10 +5,10 @@
 <H1>On Serv</H1>
 <br>
 <br>
-The <b>ON SERV</b> event, much like the <a href="on_chat.html">On_Chat</a> event, is triggered when a message is sent via an <a href="..\commands\fserve.html">/fserve</a> command window.
+The <b>on SERV</b> event, much like the <a href="on_chat.html">On_Chat</a> event, is triggered when a message is sent via an <a href="..\commands\fserve.html">/fserve</a> command window.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SERV:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SERV:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,14 +24,14 @@ The <b>ON SERV</b> event, much like the <a href="on_chat.html">On_Chat</a> event
 <pre class ="code">; This event waits for any user on a DCC Chat to use the
 ; command !time and then relays back to them the current time
 
-ON *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
+on *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
 
 In the above example, the <b>msg</b> is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the <a href="..\identifiers\_nick.html">=$nick</a> identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
 <br>
 <br>
 The next example will send the user the current folder they are in if they type <b>!folder</b>:
 <pre class ="code">; Listen for !folder on the SERV event
-ON *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
+on *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.8 (25 Nov 1995)

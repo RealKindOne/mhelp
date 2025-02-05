@@ -5,10 +5,10 @@
 <H1>On Connectfail</H1>
 <br>
 <br>
-The <b>ON CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC server. This event will also trigger during reconnect attempt disconnections.
+The <b>on CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC server. This event will also trigger during reconnect attempt disconnections.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:CONNECTFAIL:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:CONNECTFAIL:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON CONNECTFAIL</b> event triggers when mIRC fails to connect to an IRC se
 <H4>Example</H4>
 Stop mIRC from reconnecting after a connection failure:
 <pre class ="code">
-ON *:CONNECTFAIL:echo -s connection to $servertarget failed: $1- | disconnect</pre>
+on *:CONNECTFAIL:echo -s connection to $servertarget failed: $1- | disconnect</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.02 (06 Jun 2002)

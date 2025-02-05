@@ -5,10 +5,10 @@
 <H1>On Dccserver</H1>
 <br>
 <br>
-The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the <a href="..\commands\halt.html">/halt</a> command.
+The <b>on DCCSERVER</b> event triggers a connection attempt is made on mIRC's DCC Server. This event allows easy monitoring of connections and the ability to prevent someone from connecting to mIRC by invoking the <a href="..\commands\halt.html">/halt</a> command.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DCCSERVER:&lt;Chat|Send|Fserve&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:DCCSERVER:&lt;Chat|Send|Fserve&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,15 +24,15 @@ The <b>ON DCCSERVER</b> event triggers a connection attempt is made on mIRC's DC
 
 <H4>Example</H4>
 Echo to the active screen some information when a <a href="..\commands\halt.html">/halt</a> is being received:
-<pre class ="code">ON *:DCCSERVER:Send:echo User $nick ( $+ $address $+ ) is attempting to send: $filename</pre>
+<pre class ="code">on *:DCCSERVER:Send:echo User $nick ( $+ $address $+ ) is attempting to send: $filename</pre>
 
-The <b>ON DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a <a href="..\commands\dcc.html">/dcc</a> send if the file extension is ".exe":
-<pre class ="code">ON *:DCCSERVER:Send:if ($right($filename,4) == .exe) { echo -a User $nick just tried to send a file with an .exe extension. It has been declined. | halt }</pre>
+The <b>on DCCSERVER</b> event can also prevent certain events from happening, based on a certain criteria. For instance, the following event will decline a <a href="..\commands\dcc.html">/dcc</a> send if the file extension is ".exe":
+<pre class ="code">on *:DCCSERVER:Send:if ($right($filename,4) == .exe) { echo -a User $nick just tried to send a file with an .exe extension. It has been declined. | halt }</pre>
 
-The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other <b>ON DCCSERVER</b> events to prevent anything from happening.
+The use of the <a href="..\commands\halt.html">/halt</a> command in this instance prevents any further action, even from any confirmation windows from popping up. /halt can also be used on the other <b>on DCCSERVER</b> events to prevent anything from happening.
 
 Echo when a user attempts to initiate a <a href="..\commands\dcc.html">/dcc</a> chat:
-<pre class ="code">ON *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>
+<pre class ="code">on *:DCCSERVER:Chat:echo User $nick ( $+ $address $+ ) is attempting to initiate a DCC Chat.</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

@@ -5,11 +5,11 @@
 <H1>On Disconnect</H1>
 <br>
 <br>
-The <b>ON DISCONNECT</b> event triggers when mIRC has disconnected from an IRC server.
+The <b>on DISCONNECT</b> event triggers when mIRC has disconnected from an IRC server.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DISCONNECT:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:DISCONNECT:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -21,7 +21,7 @@ The <b>ON DISCONNECT</b> event triggers when mIRC has disconnected from an IRC s
 <H4>Example</H4>
 Echo network, and time when mIRC disconnected:
 <pre class ="code">
-ON *:DISCONNECT:echo -a Disconnected from $network on $asctime(dddd mmmm $+(ddoo,$chr(44), yyyy)) at $asctime(hh:mmtt) $+ . Server disconnect reason: $1-</pre>
+on *:DISCONNECT:echo -a Disconnected from $network on $asctime(dddd mmmm $+(ddoo,$chr(44), yyyy)) at $asctime(hh:mmtt) $+ . Server disconnect reason: $1-</pre>
 
 The following is an example of what will be displayed when mIRC has disconnected from a server:
 <pre class ="code">Disconnected from DALnet on Tuesday June 24th, 2014 at 02:06pm.</pre>

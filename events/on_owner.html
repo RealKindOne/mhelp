@@ -5,11 +5,11 @@
 <H1>On Owner</H1>
 <br>
 <br>
-The <b>ON OWNER</b> event triggers whenever a user on a channel has been elevated to the level of channel owner. You can use <a href="..\identifiers\opnick.html">$opnick</a> to get the nickname being given owner status.
+The <b>on OWNER</b> event triggers whenever a user on a channel has been elevated to the level of channel owner. You can use <a href="..\identifiers\opnick.html">$opnick</a> to get the nickname being given owner status.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:OWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:OWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -28,7 +28,7 @@ The <b>ON OWNER</b> event triggers whenever a user on a channel has been elevate
 
 <H4>Example</H4>
 Message the channel where the event occurs:
-<pre class ="code">ON *:OWNER:#:msg # $opnick $+ : Congratulations on becoming an owner of # $+ !</pre>
+<pre class ="code">on *:OWNER:#:msg # $opnick $+ : Congratulations on becoming an owner of # $+ !</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

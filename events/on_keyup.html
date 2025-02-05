@@ -5,11 +5,11 @@
 <H1>On Keyup</H1>
 <br>
 <br>
-The <b>ON KEYUP</b> event is triggered when a key has been pressed, but subsequently released, inside of a <a href="..\other\custom_windows.html">custom window</a>.
+The <b>on KEYUP</b> event is triggered when a key has been pressed, but subsequently released, inside of a <a href="..\other\custom_windows.html">custom window</a>.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -17,7 +17,7 @@ The <b>ON KEYUP</b> event is triggered when a key has been pressed, but subseque
 <br><b>&lt;@&gt;</b> - The <a href="..\other\custom_windows.html">custom window</a> where this event should listen. Can be '''@''' for all windows.
 
 <br><b>&lt;keycodes&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
-<pre class ="code">ON *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval</pre>
+<pre class ="code">on *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval</pre>
 
 
 <H4>Local Identifiers</H4>
@@ -30,7 +30,7 @@ Create an alias that launches a custom, <a href="..\other\picture_windows.html">
 <pre class ="code">alias keyUpTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 83
 }
-ON *:KEYUP:@myWindow:*: {
+on *:KEYUP:@myWindow:*: {
   clear @myWindow
   drawtext @myWindow 1 3 3 Keycode value: $iif($keyval,$v1,NA)
   drawtext @myWindow 1 3 25 character: $iif($keychar,$v1,NA)

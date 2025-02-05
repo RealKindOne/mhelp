@@ -5,10 +5,10 @@
 <H1>On FileSent</H1>
 <br>
 <br>
-The <b>ON FILESENT</b> event triggers whenever a file is sent successfully via <a href="..\commands\dcc.html">/dcc</a> send command.
+The <b>on FILESENT</b> event triggers whenever a file is sent successfully via <a href="..\commands\dcc.html">/dcc</a> send command.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:FILESENT:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:FILESENT:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON FILESENT</b> event triggers whenever a file is sent successfully via <
 
 <H4>Example</H4>
 Echo the name of the filename sent to the active window, along with the user's nickname and address if available:
-<pre class ="code">ON *:FILESENT:*:echo -a successfully sent $filename $iif($nick,to $nick - ,to) Address: $address</pre>
+<pre class ="code">on *:FILESENT:*:echo -a successfully sent $filename $iif($nick,to $nick - ,to) Address: $address</pre>
 
 
 <H4>Compatibility</H4>

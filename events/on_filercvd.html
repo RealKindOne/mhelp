@@ -5,11 +5,11 @@
 <H1>On Filercvd</H1>
 <br>
 <br>
-The <b>ON FILERCVD</b> event triggers whenever a file is received successfully via <a href="..\commands\dcc.html">/dcc</a> send command.
+The <b>on FILERCVD</b> event triggers whenever a file is received successfully via <a href="..\commands\dcc.html">/dcc</a> send command.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:FILERCVD:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:FILERCVD:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -22,10 +22,10 @@ The <b>ON FILERCVD</b> event triggers whenever a file is received successfully v
 
 <H4>Example</H4>
 Echo the name of the filename received to the active window:
-<pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename</pre>
+<pre class ="code">on *:FILERCVD:*:echo -a Received filename: $filename</pre>
 
 Echo the name of the filename, along with both the user's nickname and address if available:
-<pre class ="code">ON *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
+<pre class ="code">on *:FILERCVD:*:echo -a Received filename: $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)

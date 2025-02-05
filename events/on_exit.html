@@ -5,11 +5,11 @@
 <H1>On Exit</H1>
 <br>
 <br>
-The <b>ON EXIT</b> event triggers specifically when mIRC is exiting. This event can allow scripts to essentially clean themselves up, including removing unnecessary variables and other stored value types.
+The <b>on EXIT</b> event triggers specifically when mIRC is exiting. This event can allow scripts to essentially clean themselves up, including removing unnecessary variables and other stored value types.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:EXIT:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:EXIT:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON EXIT</b> event triggers specifically when mIRC is exiting. This event 
 
 <H4>Example</H4>
 This example will popup an <a href="..\identifiers\input.html">$input</a> window before you exit mIRC:
-<pre class ="code">ON *:EXIT:noop $input(Goodbye!,o,Bye Window)</pre>
+<pre class ="code">on *:EXIT:noop $input(Goodbye!,o,Bye Window)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.81 (09 Nov 2000)

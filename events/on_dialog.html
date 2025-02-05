@@ -5,11 +5,11 @@
 <H1>On Dialog</H1>
 <br>
 <br>
-The <b>ON DIALOG</b> event listens for events which take place inside of custom <a href="..\dialog\dialog.html">dialog</a> window.
+The <b>on DIALOG</b> event listens for events which take place inside of custom <a href="..\dialog\dialog.html">dialog</a> window.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}</pre>
+<pre class = "code">on &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -53,7 +53,7 @@ dialog -l mouseListener {
   text "0", 5, 103 48 25 8
   button "&Close", 6, 139 99 37 16, ok
 }
-ON *:DIALOG:mouseListener:mouse:*: {
+on *:DIALOG:mouseListener:mouse:*: {
   did -ra $dname 3 $mouse.x
   did -ra $dname 5 $mouse.y
 }</pre>
@@ -88,7 +88,7 @@ dialog -l whatEvents {
   scroll "", 12, 72 72 58 8, range 0 100 horizontal bottom
   button "&Close", 13, 93 90 37 16, ok
 }
-ON *:DIALOG:whatEvents:*:*: {
+on *:DIALOG:whatEvents:*:*: {
   did -ra $dname 2 $devent
   did -ra $dname 4 $did
   did -ra $dname 6 $iif($did == 0,NA,$iif($did($did),$v1,$iif($did($did).sel,$v1,$iif($did($did) == 0,0,NA))

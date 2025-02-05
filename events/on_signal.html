@@ -5,10 +5,10 @@
 <H1>On Signal</H1>
 <br>
 <br>
-The <b>ON SIGNAL</b> event triggers after a call to the <a href="..\commands\signal.html">/signal</a> command. This is a mechanism used to signal events in multiple script at the same time
+The <b>on SIGNAL</b> event triggers after a call to the <a href="..\commands\signal.html">/signal</a> command. This is a mechanism used to signal events in multiple script at the same time
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SIGNAL:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SIGNAL:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON SIGNAL</b> event triggers after a call to the <a href="..\commands\sig
 <br><a href="..\identifiers\1-.html">$1-</a> - to refer to the parameters passed to /signal
 
 <H4>Example</H4>
-<pre class ="code">ON *:signal:*:echo -s $signal -- $1-</pre>
+<pre class ="code">on *:signal:*:echo -s $signal -- $1-</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)

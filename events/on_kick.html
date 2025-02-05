@@ -5,13 +5,13 @@
 <H1>On Kick</H1>
 <br>
 <br>
-The <b>ON KICK</b> event is triggered when the local mIRC client, or remote users, are kicked from a channel.
+The <b>on KICK</b> event is triggered when the local mIRC client, or remote users, are kicked from a channel.
 
 This event fills the <a href="..\identifiers\chan.html">$chan</a>, <a href="..\identifiers\knick.html">$knick</a>, and <a href="..\identifiers\nick.html">$nick</a> identifiers.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -28,10 +28,10 @@ This event fills the <a href="..\identifiers\chan.html">$chan</a>, <a href="..\i
 
 <H4>Example</H4>
 If local mIRC client is kicked, automatically rejoin the channel:
-<pre class ="code">ON ME:*:KICK:#:join #</pre>
+<pre class ="code">on ME:*:KICK:#:join #</pre>
 
 Send a notice to a kicked user with information about the kick:
-<pre class ="code">ON *:KICK:#: {
+<pre class ="code">on *:KICK:#: {
   .notice $knick You were kicked from $chan by $nick for the following reason: $iif($1-,$1-,No reason given)
 }
 </pre>

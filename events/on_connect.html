@@ -5,10 +5,10 @@
 <H1>On Connect</H1>
 <br>
 <br>
-The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an IRC server and that IRC server has displayed its MOTD.
+The <b>on CONNECT</b> event triggers when mIRC has successfully connected to an IRC server and that IRC server has displayed its MOTD.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:CONNECT:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:CONNECT:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,7 +24,7 @@ The <b>ON CONNECT</b> event triggers when mIRC has successfully connected to an 
 <H4>Example</H4>
 Echo the server and network names to the active window:
 <pre class ="code">
-ON *:CONNECT:echo -a Server: $server -- Network: $network</pre>
+on *:CONNECT:echo -a Server: $server -- Network: $network</pre>
 
 If a successful connection is made to an IRC server, the above code will display something similar to the below example:
 <pre class ="code">Server: chicago.il.us.undernet.org -- Network: UnderNet</pre>
@@ -33,7 +33,7 @@ If a successful connection is made to an IRC server, the above code will display
 When a successful connection is made to a server, mIRC will now join the channel "#myChannel":
 <pre class ="code">; Join a single channel,
 ; #myChannel, upon successful connection
-ON *:CONNECT:join #myChannel</pre>
+on *:CONNECT:join #myChannel</pre>
 
 Apply usermode +g for all network:
 <pre class ="code">

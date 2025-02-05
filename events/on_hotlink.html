@@ -5,14 +5,14 @@
 <H1>On Hotlink</H1>
 <br>
 <br>
-The <b>ON HOTLINK</b> event triggers when you use your mouse over a specific word in a line of text in a window.
+The <b>on HOTLINK</b> event triggers when you use your mouse over a specific word in a line of text in a window.
 
-The <b>ON HOTLINK</b> event is very intensive, in that it monitors and tracks all mouse movements.
+The <b>on HOTLINK</b> event is very intensive, in that it monitors and tracks all mouse movements.
 Therefore any commands executed in the event must be as quick, efficient, and small as possible. If the commands take too long to proceed, mIRC will begin to lag a great deal.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:HOTLINK:&lt;matchtext&gt;:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:HOTLINK:&lt;matchtext&gt;:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
 
 You can use <a href="..\commands\return.html">/return</a> to enable hotlink over the current word and you can <a href="..\commands\halt.html">/halt</a> to disable hotlink and allows default processing.
 
@@ -39,7 +39,7 @@ TODO
 
 <H4>Example</H4>
 Monitor all windows for the a word matching '*hoverme*' and echo to the active window the word that was hovered:
-<pre class ="code">ON *:HOTLINK:*hoverme*:*:echo -a $1 was just hovered!</pre>
+<pre class ="code">on *:HOTLINK:*hoverme*:*:echo -a $1 was just hovered!</pre>
 
 <H4>Old on hotlink handling</H4>
 

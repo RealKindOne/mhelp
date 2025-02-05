@@ -5,10 +5,10 @@
 <H1>On Unload</H1>
 <br>
 <br>
-The <b>ON UNLOAD</b> event is ran whenever a script is unloaded from mIRC's remotes section. Only one of these events may exist per script file.
+The <b>on UNLOAD</b> event is ran whenever a script is unloaded from mIRC's remotes section. Only one of these events may exist per script file.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:UNLOAD:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:UNLOAD:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,9 +19,9 @@ The <b>ON UNLOAD</b> event is ran whenever a script is unloaded from mIRC's remo
 
 <H4>Example</H4>
 When the following script is unloaded, it will give the user an <a href="..\identifiers\input.html">$input</a> popup:
-<pre class ="code">ON *:UNLOAD:noop $input(So sorry to see you unload me!,oi,Script Unloaded!)</pre>
+<pre class ="code">on *:UNLOAD:noop $input(So sorry to see you unload me!,oi,Script Unloaded!)</pre>
 
-<br><b>Note:</b>The above example can be executed directly from an mIRC command-line, without the <b>ON UNLOAD</b> event, by typing:
+<br><b>Note:</b>The above example can be executed directly from an mIRC command-line, without the <b>on UNLOAD</b> event, by typing:
 <pre class ="code">//noop $input(So sorry to see you unload me!,oi,Script Unloaded!)</pre>
 
 The following is what the above will look like upon unloading the script:

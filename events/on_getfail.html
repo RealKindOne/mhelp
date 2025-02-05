@@ -5,10 +5,10 @@
 <H1>On GetFail</H1>
 <br>
 <br>
-The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via <a href="..\commands\dcc.html">/dcc</a> send and it fails.
+The <b>on GETFAIL</b> event triggers whenever a remote user sends a file via <a href="..\commands\dcc.html">/dcc</a> send and it fails.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:GETFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:GETFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -21,7 +21,7 @@ The <b>ON GETFAIL</b> event triggers whenever a remote user sends a file via <a 
 
 <H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:
-<pre class ="code">ON *:GETFAIL:*:echo -a Failed to receive $filename $iif($nick,from $nick - ,from) Address: $address</pre>
+<pre class ="code">on *:GETFAIL:*:echo -a Failed to receive $filename $iif($nick,from $nick - ,from) Address: $address</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)

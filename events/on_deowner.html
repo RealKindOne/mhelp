@@ -5,10 +5,10 @@
 <H1>On DeOwner</H1>
 <br>
 <br>
-The <b>ON DEOWNER</b> event triggers whenever a user on a channel has been released of their owner (mode -q) status.
+The <b>on DEOWNER</b> event triggers whenever a user on a channel has been released of their owner (mode -q) status.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:DEOWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:DEOWNER:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,7 +24,7 @@ The <b>ON DEOWNER</b> event triggers whenever a user on a channel has been relea
 
 <H4>Example</H4>
 Message the channel where the event occurs:
-<pre class ="code">ON *:DEOWNER:#:msg # $nick $+ : You're not an owner of # anymore? :-o</pre>
+<pre class ="code">on *:DEOWNER:#:msg # $nick $+ : You're not an owner of # anymore? :-o</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

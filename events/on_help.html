@@ -5,10 +5,10 @@
 <H1>On Help</H1>
 <br>
 <br>
-The <b>ON HELP</b> event triggers whenever a user on a channel has been elevated to helper/halfop (mode +h) status in a channel.
+The <b>on HELP</b> event triggers whenever a user on a channel has been elevated to helper/halfop (mode +h) status in a channel.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:HELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:HELP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,7 +24,7 @@ The <b>ON HELP</b> event triggers whenever a user on a channel has been elevated
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to helper:
-<pre class ="code">ON *:HELP:#:msg # Congratulations, $hnick $+ ! You are now a helper thanks to $nick $+ .</pre>
+<pre class ="code">on *:HELP:#:msg # Congratulations, $hnick $+ ! You are now a helper thanks to $nick $+ .</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)

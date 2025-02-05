@@ -5,12 +5,12 @@
 <H1>On Sendfail</H1>
 <br>
 <br>
-The <b>ON SENDFAIL</b> event triggers whenever mIRC fails to send a remote user DCC.
+The <b>on SENDFAIL</b> event triggers whenever mIRC fails to send a remote user DCC.
 
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SENDFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SENDFAIL:&lt;filename[,filename]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -24,7 +24,7 @@ The <b>ON SENDFAIL</b> event triggers whenever mIRC fails to send a remote user 
 
 <H4>Example</H4>
 Echo the name of the filename, along with both the user's nickname and address if available:
-<pre class ="code">ON *:SENFAIL:*:echo -a Failed to send $filename $iif($nick,to $nick - ,to) Address: $address</pre>
+<pre class ="code">on *:SENFAIL:*:echo -a Failed to send $filename $iif($nick,to $nick - ,to) Address: $address</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)

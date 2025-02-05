@@ -5,10 +5,10 @@
 <H1>On Sockopen</H1>
 <br>
 <br>
-The <b>ON SOCKOPEN</b> event triggers when a TCP socket connection initiated with <a href="..\commands\sockopen.html">/sockopen</a> is either successful or failed. This event also trigger after an SSL negotiation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negotiation was successful.
+The <b>on SOCKOPEN</b> event triggers when a TCP socket connection initiated with <a href="..\commands\sockopen.html">/sockopen</a> is either successful or failed. This event also trigger after an SSL negotiation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negotiation was successful.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SOCKOPEN:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SOCKOPEN:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.

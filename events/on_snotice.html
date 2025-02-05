@@ -5,11 +5,11 @@
 <H1>On Snotice</H1>
 <br>
 <br>
-The <b>ON SNOTICE</b> event triggers when mIRC receives a server notice.
+The <b>on SNOTICE</b> event triggers when mIRC receives a server notice.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:SNOTICE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:SNOTICE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -22,7 +22,7 @@ The <b>ON SNOTICE</b> event triggers when mIRC receives a server notice.
 <H4>Example</H4>
 Halt the default server notice and echo it to the active window in plain text:
 <pre class ="code">
-ON ^*:SNOTICE:*: {
+on ^*:SNOTICE:*: {
   echo -a * Server notice: $1-
   haltdef
 }

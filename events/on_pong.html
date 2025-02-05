@@ -5,11 +5,11 @@
 <H1>On Pong</H1>
 <br>
 <br>
-The <b>ON PONG</b> event is triggered when the server replies with a PONG after the local mIRC client sent a PING response.
+The <b>on PONG</b> event is triggered when the server replies with a PONG after the local mIRC client sent a PING response.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:PONG:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:PONG:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,19 +20,19 @@ None
 
 <H4>Example</H4>
 Halt mIRC's default display, and echo the pong message to the active window:
-<pre class ="code">ON *:PONG: {
+<pre class ="code">on *:PONG: {
   echo -a Server PONG: $1-
   haltdef
 }</pre>
 
 <pre class ="code">
-You can Trigger the ON PONG event with:
+You can Trigger the on PONG event with:
 //raw ping $ctime X
 
 If X is $null or $server, the displayed reply will be:
 * PONG from YourServerName: sent_ctime_value
 </pre>
-When the ON PONG event sees the reply, it can use $calc($ctime - $2) to find the number of seconds between PINGing the server and receiving the reply. If X is a valid Server Name different than the $server you are connected to, the reply substitutes your nick in place of the ctime value. A replacement of mIRC's display is:
+When the on PONG event sees the reply, it can use $calc($ctime - $2) to find the number of seconds between PINGing the server and receiving the reply. If X is a valid Server Name different than the $server you are connected to, the reply substitutes your nick in place of the ctime value. A replacement of mIRC's display is:
 <pre class ="code">
 on ^*:PONG:{ echo -ctgs info * PONG from $1 $+ : $2 | haltdef }
 </pre>

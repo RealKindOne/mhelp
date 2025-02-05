@@ -5,10 +5,10 @@
 <H1>On Voice</H1>
 <br>
 <br>
-The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevated to voice.
+The <b>on VOICE</b> event triggers whenever a user on a channel has been elevated to voice.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:VOICE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -26,7 +26,7 @@ The <b>ON VOICE</b> event triggers whenever a user on a channel has been elevate
 
 <H4>Example</H4>
 Acknowledge when a user has had their user level elevated to voice:
-<pre class ="code">ON *:VOICE:#:msg # $vnick now has a voice, thanks to $nick $+ .</pre>
+<pre class ="code">on *:VOICE:#:msg # $vnick now has a voice, thanks to $nick $+ .</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.72 (09 Jan 1997)

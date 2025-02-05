@@ -5,13 +5,13 @@
 <H1>On Join</H1>
 <br>
 <br>
-The <b>ON JOIN</b> event triggers when the mIRC client, or a remote user, joins a channel.
+The <b>on JOIN</b> event triggers when the mIRC client, or a remote user, joins a channel.
 
-<br><b>Note:</b> When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you won't be opped inside the on join event, and should use ON OP event instead.
+<br><b>Note:</b> When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you won't be opped inside the on join event, and should use on OP event instead.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:JOIN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:JOIN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -32,13 +32,13 @@ The <b>ON JOIN</b> event triggers when the mIRC client, or a remote user, joins 
 <H4>Example</H4>
 
 The following example makes use of the <a href="on_me.html">On_Me</a> event, which triggers only when the local mIRC client triggers the event, not remote users.
-<pre class ="code">ON ME:*:JOIN:#testing: { msg $chan Hello $chan - Today is $day and time is $time }</pre>
+<pre class ="code">on ME:*:JOIN:#testing: { msg $chan Hello $chan - Today is $day and time is $time }</pre>
 
 The following example works for everyone else who joins but except your self.
-<pre class ="code">ON !*:JOIN:#mychan: { msg $chan Hey $nick $+ ! Welcome in our channel. }</pre>
+<pre class ="code">on !*:JOIN:#mychan: { msg $chan Hey $nick $+ ! Welcome in our channel. }</pre>
 
 Who ever joins, send them a greeting:
-<pre class ="code">ON *:JOIN:#:msg # Welcome to # $+ , $nick $+ !</pre>
+<pre class ="code">on *:JOIN:#:msg # Welcome to # $+ , $nick $+ !</pre>
 
 Override the join event to print a custom text and then tell mIRC to ignore it's own text.
 <pre class ="code">

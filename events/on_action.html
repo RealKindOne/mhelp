@@ -5,11 +5,11 @@
 <H1>On Action</H1>
 <br>
 <br>
-The <b>ON ACTION</b> event triggers on an action (<a href="..\commands\me.html">/me</a> or <a href="..\commands\describe.html">/describe</a>) events inside of a channel, or a query window.
+The <b>on ACTION</b> event triggers on an action (<a href="..\commands\me.html">/me</a> or <a href="..\commands\describe.html">/describe</a>) events inside of a channel or query window.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:ACTION:&lt;matchtext&gt;:&lt;*&gt;&lt;?&gt;&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:ACTION:&lt;matchtext&gt;:&lt;*&gt;&lt;?&gt;&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -27,19 +27,16 @@ The <b>ON ACTION</b> event triggers on an action (<a href="..\commands\me.html">
 The on action event support the common IRC related local identifiers.
 
 <H4>Example</H4>
-Listens for if anyone uses the word "slap" anywhere in an action inside of any channel
+Listens for if anyone uses the word "slap" anywhere in an action inside of any channel:
 <pre class ="code">
-ON *:ACTION:* slap *:#:msg # $nick $+ ! Why would you slap anyone?!?!?
+on *:ACTION:* slap *:#:msg # $nick $+ ! Why would you slap anyone?!?!?
 </pre>
 
 The above code listens for the action event, looks for if the user used the word "slap" in any channel, and then responds accordingly.
 <br>
-<br>
-<b>Note:</b> The <a href="..\other\wildcard.html">wildcard</a> search, with a space between them and the word, means this event will not trigger if any other characters are touching the word "slap". This includes words such as: "slap", "slapper", "myslap", etc.
-
 Listen for any action inside of a private message and responds:
 <pre class ="code">
-ON *:ACTION:*:?:msg $nick Well, I have no idea why I'm responding to this automatically, $nick $+ . You said: $1-
+on *:ACTION:*:?:msg $nick Well, I have no idea why I'm responding to this automatically, $nick $+ . You said: $1-
 </pre>
 
 This code will listen for any action event in a private message, and respond with a silly message.

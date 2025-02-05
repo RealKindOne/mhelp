@@ -5,11 +5,11 @@
 <H1>On Invite</H1>
 <br>
 <br>
-The <b>ON INVITE</b> event triggers when a user sends the mIRC client and invite to a specific channel.
+The <b>on INVITE</b> event triggers when a user sends the mIRC client and invite to a specific channel.
 
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:INVITE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:INVITE:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -28,10 +28,10 @@ The <b>ON INVITE</b> event triggers when a user sends the mIRC client and invite
 
 <H4>Example</H4>
 Echo to the active window the user and channel of the invite details:
-<pre class ="code">ON *:INVITE:#:echo -a $nick has extended an invite to $chan</pre>
+<pre class ="code">on *:INVITE:#:echo -a $nick has extended an invite to $chan</pre>
 
 Automatically join the channel from the invite:
-<pre class ="code">ON *:INVITE:#:join $chan</pre>
+<pre class ="code">on *:INVITE:#:join $chan</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)

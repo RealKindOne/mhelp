@@ -5,10 +5,10 @@
 <H1>On Unotify</H1>
 <br>
 <br>
-The <b>ON UNOTIFY</b> event triggers when a user in the <a href="..\commands\notify.html">/notify</a> list disconnects from the same server.
+The <b>on UNOTIFY</b> event triggers when a user in the <a href="..\commands\notify.html">/notify</a> list disconnects from the same server.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:UNOTIFY:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:UNOTIFY:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -20,7 +20,7 @@ The <b>ON UNOTIFY</b> event triggers when a user in the <a href="..\commands\not
 
 <H4>Example</H4>
 Halt mIRC's default notice and echo the event to the active window:
-<pre class ="code">ON ^*:UNOTIFY: {
+<pre class ="code">on ^*:UNOTIFY: {
   echo -a * $nick just left $network
   haltdef
 }</pre>

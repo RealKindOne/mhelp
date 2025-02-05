@@ -5,10 +5,10 @@
 <H1>On Mp3End</H1>
 <br>
 <br>
-The <b>ON MP3END</b> event triggers whenever an MP3 file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
+The <b>on MP3END</b> event triggers whenever an MP3 file has finished playing via the <a href="..\commands\splay.html">/splay</a> command.
 
 <H4>Synopsis</H4>
-<pre class = "code">ON &lt;level&gt;:MP3END:&lt;commands&gt;</pre>
+<pre class = "code">on &lt;level&gt;:MP3END:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
@@ -19,7 +19,7 @@ The <b>ON MP3END</b> event triggers whenever an MP3 file has finished playing vi
 
 <H4>Example</H4>
 Echo to the active window when the sound file has ended, including its filename:
-<pre class ="code">ON *:MP3END:echo -a $nopath($filename) has ended</pre>
+<pre class ="code">on *:MP3END:echo -a $nopath($filename) has ended</pre>
 
 The example above will output results similar to the contents below:
 <pre class ="code">Chopin - Four Scherzos.mp3 has ended</pre>
