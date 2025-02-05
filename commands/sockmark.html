@@ -32,7 +32,7 @@ The example below is a demonstration of how you would use it. It does not actual
 
 <pre class ="code">
 ; Non-functioning example, shows practical usage only
-on $*:text:/^!foo (\S+)$/Si:#:{
+on $*:TEXT:/^!foo (\S+)$/Si:#:{
   ; if ( .. validate input .. ) {
   sockopen sock1 www.example.com 80
   sockmark sock1 $regml(1)

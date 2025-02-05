@@ -42,7 +42,7 @@ alias gettime {
   sockudp -k gettime 129.6.15.28 37 &null
 }
 
-ON *:UDPREAD:gettime: {
+on *:UDPREAD:gettime: {
   ; Read the reply.
   sockread -f &time
 

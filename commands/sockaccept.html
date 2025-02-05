@@ -21,7 +21,7 @@ The <b>/sockaccept</b> command allows mIRC the ability to accept incoming connec
 <H4>Example</H4>
 <pre class ="code">
 ; Listen for connections on the socket named mySock
-ON *:SOCKLISTEN:mySock: {
+on *:SOCKLISTEN:mySock: {
   ; Accept incoming connection on this socket and name them
   ; with a combination of the socket's name and the current $ctime
   sockaccept $+($sockname,$ctime)

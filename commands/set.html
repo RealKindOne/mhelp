@@ -81,7 +81,7 @@ alias bb {
 </pre>
 A simple !seen script that uses /set special evaluation routine to create dynamic variables:
 <pre class ="code">
-on *:text:!seen &:#mIRC:{
+on *:TEXT:!seen &:#mIRC:{
   ; check if the variable is set
   if ($var(seen. $+ $2)) {
     ; notice the user the value of '%seen.&lt;nick&gt;'
@@ -89,7 +89,7 @@ on *:text:!seen &:#mIRC:{
   }
   else notice $nick I have not seen $2 anywhere.
 }
-on *:text:*:#:{
+on *:TEXT:*:#:{
   ; set the value to '%seen.&lt;nick&gt;'
   set %seen. $+ $nick Talking in $chan &lt; $+ $nick $+ &gt; $1-
 }

@@ -197,7 +197,7 @@ Here is an example which will read and echo to the status window what is sent by
 <br><b>Note3:</b> Using SSL, the on sockread event might not be triggered though it should, you must read the rest in the on sockclose event (has been fixed since mIRC 7.36).
 
 <pre class ="code">
-ON *:SOCKREAD:mySocket:{
+on *:SOCKREAD:mySocket:{
   var %a
   if ($sockerr > 0) { return }
   sockread %a

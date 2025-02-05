@@ -26,7 +26,7 @@ Let's check out an example of a signal command below:
 </pre>
 Once you've executed this command, it will send a <b>signal</b> named <b>mysignal</b> to all scripts in your mIRC remotes. Any script files that have signal event listening for that signal will trigger, and perform whatever tasks they have been set to perform.
 <pre class ="code">
-ON *:SIGNAL:mysignal:echo -s rcvd: $signal : $1-
+on *:SIGNAL:mysignal:echo -s rcvd: $signal : $1-
 </pre>
 
 
@@ -59,7 +59,7 @@ First, what should we name our signal? How about *delayAutoJoin*? That works, an
 
 Let's go to our auto identifier and setup our script:
 <pre class ="code">
-ON *:NOTICE:*This nickname is registered*:?:{
+on *:NOTICE:*This nickname is registered*:?:{
   ; Check to make sure NickServ issued this notice,
   ; and then identify our nickname with our password
   ; (Note: mypassword is an example password; you would insert
@@ -73,14 +73,14 @@ Alright, so what have we done? This event listens for NickServ to send you a not
 
 Next, let's check for when NickServ acknowledges that we've properly been identified by letting us know our vHost is now applied:
 <pre class ="code">
-ON *:NOTICE:*Your vhost*activated*:?: {
+on *:NOTICE:*Your vhost*activated*:?: {
   ; Send the delayAutoJoin signal to all listening scripts
   signal delayAutoJoin
 }
 </pre>
 This event waits for the NickServ notice letting us know our vHost has been activated, and then sends a signal with the name *delayAutoJoin* to all currently loaded scripts. The auto identifier portion of our example is finished. Now we will move on to the auto join, where we will create our signal listener, and perform the auto join function. Remember, this portion of code belongs in the auto join, not the auto identifier:
 <pre class ="code">
-ON *:SIGNAL:delayAutoJoin: {
+on *:SIGNAL:delayAutoJoin: {
   join #mychannel
 }
 </pre>

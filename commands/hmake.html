@@ -178,7 +178,7 @@ If needing items to always be in a predictable sequence, you can't count on usin
 <pre class ="code">
 //hdel -s test2 item7 | hadd -s test2 item7 | var %i 1 | while ($hget(test2,%i).item) { echo -a the $ord(%i) item is $hget(test2,%i).item | inc %i }
 </pre>
-* To retain the original sequence where the original order of creation is preserved except in cases where items are deleted then added, giving them a newer creation order, you cannot simply /hsave the table ON EXIT then /hload ON START. During ON START you would either need to /hload + /hsave + /hfree + /hload which does extra disk writing:
+* To retain the original sequence where the original order of creation is preserved except in cases where items are deleted then added, giving them a newer creation order, you cannot simply /hsave the table on EXIT then /hload on START. During on START you would either need to /hload + /hsave + /hfree + /hload which does extra disk writing:
 <pre class ="code">
 //hfree -w test2 | hload -sm1 test2 test.dat | hsave test2 test2.dat | hfree -w test2 | hload -sm1 test2 test2.dat | var %i 1 | while ($hget(test2,%i).item) { echo -a the $ord(%i) item is $hget(test2,%i).item | inc %i }
 </pre>
