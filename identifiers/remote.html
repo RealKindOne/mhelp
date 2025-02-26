@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,7 +6,7 @@
 <H1>$remote</H1>
 <br>
 <br>
-The <b>$remote</b> identifier returns a bitwise integer indicating if ctcps/events/raws are enabled.
+The <b>$remote</b> identifier returns a bitwise integer indicating if CTCPs/Events/Raw are enabled.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -13,18 +14,25 @@ $remote
 </pre>
 
 The value are OR'ed together 1 | 2 | 4
-<br>
-<br>
+<p>
 0 is returned when remote are off, 7 when everything is enabled, see the example to check one of them manually.
+
 <H4>Parameters</H4>
 None
+
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">
-if ($remote & 1) echo -a ctcps are enabled
-if ($remote & 2) echo -a events are enabled
-if ($remote & 4) echo -a raws are enabled
+if ($remote & 0) echo -a CTCPs, Events, and Raw are disabled.
+if ($remote & 1) echo -a Only CTCPs is enabled.
+if ($remote & 2) echo -a Only Events is enabled.
+if ($remote & 3) echo -a Raw is disabled, CTCPs and Events are enabled.
+if ($remote & 4) echo -a Only Raw is enabled.
+if ($remote & 5) echo -a Events are disabled, CTCPs and Raw are enabled.
+if ($remote & 6) echo -a CTCPs are disabled, Events and Raw are enabled.
+if ($remote & 7) echo -a CTCPs, Events, and Raw are enabled.
 </pre>
 
 <H4>Compatibility</H4>
@@ -32,6 +40,7 @@ Added: mIRC v5.8 (05 Sep 2000)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\commands\remote.html">/remote</a><br>
 </body>

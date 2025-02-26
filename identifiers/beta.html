@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -11,6 +12,7 @@ The <b>$beta</b> identifier returns the beta portion of the version number if yo
 <pre class ="code">
 $beta
 </pre>
+
 <H4>Parameters</H4>
 None
 
@@ -23,7 +25,7 @@ None
 //echo -a version is $version $+ $iif($beta,. $+ $beta)
 </pre>
 
-When someone on forum is having trouble with their mIRC acting incorrectly, it's often part of the info string they're requested to paste in reply.
+When someone on forum is having trouble with their mIRC acting incorrectly, it's often part of the info string they're requested to paste in reply:
 <pre class ="code">
 //echo -a $os $version $beta $md5($mircexe,2) $file($mircexe).sig $alias(0) $script(0) $dll(0) $com(0)
 </pre>
@@ -36,7 +38,7 @@ on *:start:{
   }
   ; Rest of script code here.
 }
-
+</pre>
 
 
 <H4>Compatibility</H4>
@@ -44,7 +46,7 @@ Added: mIRC v5.7 (02 Feb 2000)
 
 <H4>Notes</H4>
 Version before 7.43 would return "betaN" where "N" is a number. All version after only return a integer.
-<br>
+<p>
 Version before 6.35 would return $false instead of $null if you were not running a beta.
 
 <H4>See also</H4>

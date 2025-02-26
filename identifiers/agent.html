@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -12,6 +13,7 @@ The <b>$agent</b> identifier returns the filename of the Nth available agent ins
 $agent(N).property
 $agent(name,[N2]).property
 </pre>
+
 <H4>Parameters</H4>
 <b>N</b> - The Nth agent available on your system
 <br><b>name</b> - The name used in /gload to load the agent
@@ -19,26 +21,26 @@ $agent(name,[N2]).property
 
 <H4>Properties</H4>
 <b>.char</b> - Returns the character name of the Nth agent instead of the filename.
-
-When '''name''' is passed as the first parameter, the following properties are available:
-
+<p>
+When <b>name</b> is passed as the first parameter, the following properties are available:
+<p>
 <br><b>.name</b> - Returns the name you gave to this agent
 <br><b>.fname</b> - Returns the filename you gave to this agent, or the filename to the default agent
 <br><b>.visible</b> - Returns <a href="true.html">$true</a> if the agent is visible, <a href="false.html">$false</a> otherwise
-<br><b>.x</b> - Returns the x coordinate of the position of the agent (left)
-<br><b>.y</b> - Returns the y coordinate of the position of the agent (top)
-<br><b>.w</b> - Returns the current width of the agent
-<br><b>.h</b> - Returns the current height of the agent
-<br><b>.ow</b> - Returns the original width of the agent
-<br><b>.oh</b> - Returns the original height of the agent
-<br><b>.speed</b> - Returns the speaking speed of the agent
-<br><b>.pitch</b> - Returns the speaking pitch of the agent
-<br><b>.idle</b> - Returns <a href="true.html">$true</a> if the idle behavior is on, <a href="false.html">$false</a> otherwise
-<br><b>.effects</b> - Returns <a href="true.html">$true</a> if the effects are on, <a href="false.html">$false</a> otherwise
-<br><b>.active</b> - Returns <a href="true.html">$true</a> if the agent is active, <a href="false.html">$false</a> otherwise
-<br><b>.langid</b> - Returns the language ID of the system
-<br><b>.balloon</b> - Returns the balloon settings, can be <b>on</b>, <b>off</b>, <b>size</b>, <b>pace</b>, <b>hide</b>
-<br><b>.hide</b> - Returns the auto hide setting
+<br><b>.x</b> - Returns the x coordinate of the position of the agent (left).
+<br><b>.y</b> - Returns the y coordinate of the position of the agent (top).
+<br><b>.w</b> - Returns the current width of the agent.
+<br><b>.h</b> - Returns the current height of the agent.
+<br><b>.ow</b> - Returns the original width of the agent.
+<br><b>.oh</b> - Returns the original height of the agent.
+<br><b>.speed</b> - Returns the speaking speed of the agent.
+<br><b>.pitch</b> - Returns the speaking pitch of the agent.
+<br><b>.idle</b> - Returns <a href="true.html">$true</a> if the idle behavior is on, <a href="false.html">$false</a> otherwise.
+<br><b>.effects</b> - Returns <a href="true.html">$true</a> if the effects are on, <a href="false.html">$false</a> otherwise.
+<br><b>.active</b> - Returns <a href="true.html">$true</a> if the agent is active, <a href="false.html">$false</a> otherwise.
+<br><b>.langid</b> - Returns the language ID of the system.
+<br><b>.balloon</b> - Returns the balloon settings, can be <b>on</b>, <b>off</b>, <b>size</b>, <b>pace</b>, <b>hide</b>.
+<br><b>.hide</b> - Returns the auto hide setting.
 <br><b>.anim</b> - Returns the names of the animations available for this agent, you can use <b>N2</b> to get the N2th animation.
 <br><b>.line</b> - Returns the list of lines currently queued for talking for this agent, you can use <b>N2</b> to get the N2th line.
 
@@ -55,6 +57,7 @@ v5.71: Added .hide property.
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="agentname.html">$agentname</a><br>
 <a href="agentver.html">$agentver</a><br>

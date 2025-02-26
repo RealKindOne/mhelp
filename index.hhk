@@ -598,10 +598,6 @@
 		<param name="Local" value="identifiers\fgetc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$fibonacci">
-		<param name="Local" value="identifiers\fibonacci.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$file">
 		<param name="Local" value="identifiers\file.html">
 		</OBJECT>
@@ -3160,35 +3156,35 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="<">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="<=">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value=">">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="=>">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="//">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="\\">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="&">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="!=">
-		<param name="Local" value="other\operations.html">
+		<param name="Local" value="other\operations.html#math_compare">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="!==">

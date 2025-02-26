@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -24,10 +25,12 @@ Echo to whether or not "CTRL+ENTER" was used in an input box:
 Make a script do nothing if CTRL+Enter is used.
 <pre class = "code">
 on *:INPUT:*:{
+  ; Do nothing if CTRL+ENTER is pressed.
   if ($ctrlenter) { return }
-  ; Do other stuff here.
+  ; Do stuff if CTRL+ENTER is not pressed.
+  echo -a CTRL+ENTER not pressed.
 }
-
+</pre>
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)
 

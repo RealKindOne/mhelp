@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,16 +6,16 @@
 <H1>$iql</H1>
 <br>
 <br>
-The <b>$iql</b> identifier returns the Nth address in the internal quiet list.
-
+The <b>$iql</b> identifier returns the Nth address in the internal quiet list. You must perform "/mode #channel q" to fill the internal quiet list.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $iql(#chan,N)[.property]
 </pre>
+
 <H4>Parameters</H4>
-<b>#chan</b> - The channel you want quiet from.
-<br><b>N</b> - The Nth quieted address in the channel, use N = 0 for the total number of address.
+<b>#chan</b> - The channel you want the quiet from.
+<br><b>N</b> - The Nth quieted address in the channel, use N = 0 for the total number of addresses.
 
 <H4>Properties</H4>
 <b>.by</b> - Returns the nickname who set the quiet.
@@ -22,7 +23,8 @@ $iql(#chan,N)[.property]
 <br><b>.ctime</b> - Returns the date when the quiet was set, in <a href="ctime.html">$ctime</a> format.
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $iql(#,0)</pre>
+Echo total numbers of quiets for #mirc:
+<pre class ="code">//echo -a $ibl(#mirc,0)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.48 (15 Apr 2017)
@@ -31,7 +33,8 @@ Added: mIRC v7.48 (15 Apr 2017)
 v7.48: Added .by, .ctime, and .date properties.
 
 <H4>Notes</H4>
-None
+Some networks might not have a quiet list.
+
 <H4>See also</H4>
 <a href="ialchan.html">$ialchan</a><br>
 <a href="ial.html">$ial</a><br>

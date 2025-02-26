@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,16 +6,16 @@
 <H1>$iil</H1>
 <br>
 <br>
-The <b>$iil</b> identifier returns the Nth address in the internal invite list.
-
+The <b>$iil</b> identifier returns the Nth address in the internal invite list. You must perform "/mode #channel I" to fill the internal invite list.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $iil(#chan,N)[.property]
 </pre>
+
 <H4>Parameters</H4>
-<b>#chan</b> - The channel you want invite from.
-<br><b>N</b> - The Nth invite address in the channel, use N = 0 for the total number of address.
+<b>#chan</b> - The channel you want the invite from.
+<br><b>N</b> - The Nth invite address in the channel, use N = 0 for the total number of addresses.
 
 <H4>Properties</H4>
 <b>.by</b> - Returns the nickname who set the invite.
@@ -22,7 +23,8 @@ $iil(#chan,N)[.property]
 <br><b>.ctime</b> - Returns the date when the invite was set, in <a href="ctime.html">$ctime</a> format.
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $iil(#,0)</pre>
+Echo total numbers of invites for #mirc:
+<pre class ="code">//echo -a $iil(#mirc,0)</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.17 (17 Feb 2006)
@@ -32,6 +34,7 @@ v6.17: Added .by, .ctime, and .date properties.
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="ialchan.html">$ialchan</a><br>
 <a href="ial.html">$ial</a><br>

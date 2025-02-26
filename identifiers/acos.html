@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -11,37 +12,47 @@ The <b>$acos</b> identifier returns the arccosine of N (an angle).
 <pre class ="code">
 $acos(N)[.deg]
 </pre>
+
 <H4>Parameters</H4>
 <b>N</b> The cosine in radians for which you want the arc cosine (-1 to 1 value only).
 
 <H4>Properties</H4>
-<b>.deg</b> if you use .deg, $acos return an angle in degree, not in radian.
+<b>.deg</b> - If you use .deg, $acos return an angle in degree, not in radian.
 
 <H4>Example</H4>
 
-Returns $null because cosine can only be in range of -1.0 through +1.0 in radian
+Returns $null because cosine can only be in range of -1.0 through +1.0 in radian:
 <pre class ="code">
 //echo -a $acos(5)
 </pre>
-
 
 Returns: In right triangle where opposite side is 4 and hypotenuse is 5, angle is 36.869898 degrees
 <pre class ="code">//echo -a In right triangle where opposite side is 4 and hypotenuse is 5, angle is $acos( $calc(4/5) ).deg degrees
 </pre>
 
+Returns: 60 degrees / cosine 0.5 / acos 60
 <pre class ="code">
 //var %i 60 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
+</pre>
+
+Returns: 44.999982 instead of 45 because the $cos fraction is limited to 6 places though note that as of 7.76, bigfloat also doesn't return 45, just more decimal 44.999999999999999999999999999988
+<pre class ="code">
 //var %i 45 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
-; returns 44.999982 instead of 45 because the $cos fraction is limited to 6 places, though note that as of 7.76, bigfloat also doesn't return 45, just more decimal 44.999999999999999999999999999988
+</pre>
+
+Returns angle in the range of 0-180 degrees (0-pi radians):
+<pre class = "code">
 //var %i 270 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
-; returns angle in the range of 0-180 degrees (0-pi radians)
 </pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)
 
+<!-- TODO: When was .deg added? -->
+
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="cos.html">$cos</a><br>
 <a href="cosh.html">$cosh</a><br>

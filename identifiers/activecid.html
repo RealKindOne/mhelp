@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -7,12 +8,11 @@
 <br>
 The <b>$activecid</b> identifier returns the connection ID related to the active window. This means that if the window was created on connection 39, the <b>$activecid</b> for that window would be "39".
 
-Note: Connection ID and the Nth connections are different value, your first status window can have ID 39 instead of ID 1.
-
 <H4>Synopsis</H4>
 <pre class ="code">
 $activecid
 </pre>
+
 <H4>Parameters</H4>
 None
 
@@ -27,7 +27,8 @@ Echo to the currently active window the connection ID it is related to
 Added: mIRC v6.0 (03 Feb 2002)
 
 <H4>Notes</H4>
-None
+Connection ID and the Nth connections are different value, your first status window can have ID 39 instead of ID 1.
+
 <H4>See also</H4>
 <a href="cid.html">$cid</a><br>
 <a href="lactivecid.html">$lactivecid</a><br>

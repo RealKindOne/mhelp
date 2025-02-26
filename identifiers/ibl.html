@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,16 +6,16 @@
 <H1>$ibl</H1>
 <br>
 <br>
-The <b>$ibl</b> identifier returns the Nth address in the internal ban list.
-
+The <b>$ibl</b> identifier returns the Nth address in the internal ban list. You must perform "/mode #channel b" to fill the internal ban list.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $ibl(#chan,N)[.property]
 </pre>
+
 <H4>Parameters</H4>
-<b>#chan</b> - The channel you want ban from.
-<br><b>N</b> - The Nth banned address in the channel, use N = 0 for the total number of address.
+<b>#chan</b> - The channel you want the ban from.
+<br><b>N</b> - The Nth banned address in the channel, use N = 0 for the total number of addresses.
 
 <H4>Properties</H4>
 <b>.by</b> - Returns the nickname who set the ban.
@@ -30,8 +31,10 @@ Added: mIRC v5.8 (05 Sep 2000)
 <br>
 <br>
 v5.8 : Added .by, .ctime, and .date property.
+
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="ialchan.html">$ialchan</a><br>
 <a href="ial.html">$ial</a><br>
