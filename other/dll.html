@@ -104,8 +104,8 @@ typedef struct {
 <br><b>mHwnd</b> - Contains the window handle to the main mIRC window.
 <br><b>mKeep</b> - Is set to TRUE by default, indicating that mIRC will keep the DLL loaded after the call. You can set mKeep to FALSE to make mIRC unload the DLL after the call
 <br><b>mUnicode</b> - If set to true, indicates that the dll is using unicode as opposed to ansi (default). This means the data passed from/to the dll is in UTF16 (see above with TCHAR type instead of CHAR). If set to false, mIRC will convert utf16 to utf8 to comply with the CHAR type prototype of the function
-<br><b>mBeta</b> - contains the mIRC $beta version number, for public betas.
-<br><b>mBytes</b> - as of v7.64 contains the max safe byte length that can be placed into the 'data' and 'parms' buffers. This is always the double of the line length limit even when converting to utf8 with non unicode dll.
+<br><b>mBeta</b> - Contains the mIRC $beta version number, for public betas.
+<br><b>mBytes</b> - As of v7.64 contains the max safe byte length that can be placed into the 'data' and 'parms' buffers. This is always the double of the line length limit even when converting to utf8 with non unicode dll.
 
 <H4>Unloading the Dll</H4>
 

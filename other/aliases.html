@@ -9,11 +9,12 @@ In many cases, it is easier to code a large program by working with a single, sm
 
 <H4>Alias arguments</H4>
 
-Data can be passed to aliases via some arguments/parameters list, whether they are called as command or identifier.<br>
-You can find more informations about the difference between both as well as exact syntax for aliases on the <a href="introduction.html">introduction page</a><br><br>
-  
-Inside your alias, you can access the Nth parameter with $N, so $1 for the first parameter.<br>
-
+Data can be passed to aliases via some arguments/parameters list, whether they are called as command or identifier.
+<p>
+You can find more information about the difference between both as well as exact syntax for aliases on the <a href="introduction.html">introduction page</a>.
+<p>
+Inside your alias, you can access the Nth parameter with $N, so $1 for the first parameter.
+<p>
 If we called an alias called "example" like this:
 
 <pre class ="code">/example A B C D
@@ -21,7 +22,7 @@ If we called an alias called "example" like this:
 ... $example(A, B, C, D)</pre>
 
 $1 in the alias would be returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
-
+<p>
 The exact rules on how $N work is identical to the how they work with the <a href="token.html#tokenize">/tokenize command</a>. More information about $1- <a href="..\identifiers\1-.html">here</a>.
 
 <H4>Aliases Tab</H4>
@@ -35,13 +36,17 @@ The aliases tab is designed specifically for aliases only. Note that because it 
 <br><b>Note:</b>Aliases from the aliases tab can freely call aliases from the remote tab and vice versa.
 
 <H4>Command Call Prefixes</H4>
-If you do a command call to one of your alias, you can prefix it with a dot '.' just like built-in command (silencing). This fills the identifier $show which you can use to know if the call was silenced or not.<br>
-This can be used to create a debug mode in your script which would display a log message only if $show is set.<br>
-<b>Note:</b> $show is a global value accross all scripts, silencing a custom aliases command call makes all the command call in that alias be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
- 
-If you create an alias with the same name of a built-in command and call your alias as a command, it means that any other script which is trying to use the built-in command now will be calling your alias instead.<br>
+If you do a command call to one of your alias, you can prefix it with a dot '.' just like built-in command (silencing). This fills the identifier $show which you can use to know if the call was silenced or not.
+<p>
+This can be used to create a debug mode in your script which would display a log message only if $show is set.
+<p>
+<b>Note:</b> $show is a global value across all scripts, silencing a custom aliases command call makes all the command call in that alias be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
+
+<p>
+If you create an alias with the same name of a built-in command and call your alias as a command, it means that any other script which is trying to use the built-in command now will be calling your alias instead.
+<p>
 To prevent this, you can prefix the command call with '!', which will force mIRC to use the built-in command instead of a potential alias for that name.
-  <br><br>
+
 <H4>Identifier Call Prefixes</H4>
 <b>$$ special construct (required value)</b><br>
 <br>
@@ -58,9 +63,11 @@ In essence, such a call to an identifier will only look at built-in identifiers,
 <br><br>
 <b>! prefix (delay evaluation)</b><br>
 <br>
-You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me.<br>
-This is useful because some commands's parameters are themselves meant to be a command to execute, which create a double-evaluation, once when the original command is evaluated, and once the new one is.<br>
-By using $!identifier, you can make sure the identifier is evaluated for the new command only.<br>
+You can use $!identifier to return the plain text identifier instead of it getting evaluated, the rest of the line is evaluated normally, $!+( $me ) does not delay the evaluation of $me.
+<p>
+This is useful because some commands's parameters are themselves meant to be a command to execute, which create a double-evaluation, once when the original command is evaluated, and once the new one is.
+<p>
+By using $!identifier, you can make sure the identifier is evaluated for the new command only.
 
 <H4>Restriction on alias name</H4>
 
@@ -132,10 +139,9 @@ output: ..a..a..
 
 <H4>Identifiers Properties</H4>
 
-Properties are a unique feature to identifiers with arguments. They allow you to pass one more additional remark to the alias. That remark can be retrieved from within the alias using the '''$prop''' identifier. Properties are usually a way to manipulate the arguments we pass to the alias.
-
-Consider this basic alias that returns some quantity of degrees in radians.
-
+Properties are a unique feature to identifiers with arguments. They allow you to pass one more additional remark to the alias. That remark can be retrieved from within the alias using the <b>$prop</b> identifier. Properties are usually a way to manipulate the arguments we pass to the alias.
+<p>
+Consider this basic alias that returns some quantity of degrees in radians:
 <pre class ="code">; converts degrees to radians
 alias convert {
   return $calc($1 * $pi / 180)
@@ -169,8 +175,8 @@ For example:
 
 <H4>Aliases as Both an identifier and command</H4>
 
-Although most aliases do only serve as identifiers or commands, it is possible to act as both. 
-
+Although most aliases do only serve as identifiers or commands, it is possible to act as both.
+<p>
 Consider the following alias, logfind. Logfind finds the first matching line from the log for the active window. If it's called as an identifier, we will return the matching line. If it's called as a command, we will print it instead:
 
 <pre class ="code">; Finds the first matching line from the log for the active window
@@ -209,12 +215,12 @@ alias echo {
 </pre>
 
 Because an alias is not re-entrant, using 'echo' inside an alias of the same name cannot be intercepted by that same alias, though it can be trapped by another alias named echo, unless this alias calls it like !echo. This does not completely trap all colors, because it does not remove the color from "/echo -c CTCP message".
-
+<p>
 Especially if your alias is non-local, beware about trapping built-in commands without supporting ALL variations of syntax for them. For example, the /server command has different behaviors for different purposes. There are some sets of switches which join a server, and other syntax for modifying the servers.txt file.
-
+<p>
 Incorrect trapping of built-in commands is one source of bugs that can be easy to overlook, so you may need to use $isalias(built_in_command) to see if any of your scripts has trapped it, and even that doesn't see local aliases unless $isalias is used from within that same script.
-
-Something else which might need to be preserved is the state of $v1 and $v2. Consider the following while the above 'alias echo' is trapping the :
+<p>
+Something else which might need to be preserved is the state of $v1 and $v2. Consider the following while the above 'alias echo' is trapping the:
 
 <pre class ="code">
 //if (var1 != var2) echo -a $ $+ v1 is $v1 and $ $+ v2 is $v2 | echo test | !echo and now $ $+ v1 is $v1 and $ $+ v2 is $v2
@@ -241,9 +247,9 @@ This saves the $v1 and $v2 as they exist when entering the alias. Then before ex
 <H4>Aliases for other users</H4>
 
 A consideration in creating aliases which might be executed by other users is to take into account that other users will not use the same colors that you do. There are large user bases who use each of black or white backgrounds, and there are lots of colors which contrast well against one yet have poor contrast against the other. In the default 'mIRC Classic" color set, 8 "Yellow" and 11 "LightCyan" do poorly against a White background, but do well against Black. On the other hand, 2 "NavyBlue" does well against White but poorly against Black. And of course, the White and Black text colors obviously don't contrast well against the same color background.
-
+<p>
 One choice for your script is to override the background while setting text color, but even that doesn't guarantee the user has set that pair of index colors to be a good contrast against each other. To guarantee the actual color hues display as you intend, you can use color index 16-98 as long as the script will be used on v7.52 or higher, because on older versions interpret those color indexes as black. Only a few color hues of the default 0-15 "mIRC Classic" colors are duplicated exactly within the 16-98 range, so others might need to choose the closest approximation.
-
+<p>
 Another choice is to use echo's -c switch to set the color which that user has assigned in their Alt+K dialog. For example, if your alias wishes to mimic a blue error message similar to those from built-in mIRC commands:
 
 <pre class ="code">/echo -ac info this displays in the same color as mIRC error messages</pre>
@@ -325,13 +331,13 @@ If some code local to that script file calls example, the local alias will execu
 
 The order used by mIRC to locate your alias is as follow:
 
-* files are read from top to bottom and only the first found alias in file will be used
-* if the call is made from a script and there is an alias for that name in the script file, that alias is used (regardless if the alias is local or not)
-* if none of the above is true, then the order in which you loaded the script is used. mIRC looks for the first non local alias in the order 1-or-more aliases files in the Alt+D tab of the script editor, followed by the scripts of the Alt+R tab in the order they're loaded. If you have the same alias name defined twice in the same file, the 2nd one cannot be executed. 
-* If none is found, then mIRC check if this is a built-in command name
-* If still no match and if it was a command call, then it sends the command to the server , which sends back RAW numeric 421 if it's an invalid server command
-
-<br><b>Note:</b> The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
+<br>* files are read from top to bottom and only the first found alias in file will be used
+<br>* if the call is made from a script and there is an alias for that name in the script file, that alias is used (regardless if the alias is local or not)
+<br>* if none of the above is true, then the order in which you loaded the script is used. mIRC looks for the first non local alias in the order 1-or-more aliases files in the Alt+D tab of the script editor, followed by the scripts of the Alt+R tab in the order they're loaded. If you have the same alias name defined twice in the same file, the 2nd one cannot be executed.
+<br>* If none is found, then mIRC check if this is a built-in command name
+<br>* If still no match and if it was a command call, then it sends the command to the server , which sends back RAW numeric 421 if it's an invalid server command
+<p>
+<b>Note:</b> The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
 
 <H4>See also</H4>
 

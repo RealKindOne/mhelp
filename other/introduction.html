@@ -6,19 +6,29 @@
 <br>
 <br>
 
-This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.<br>
-To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environment, the vocabulary of it such as a status window etc.<br>
-When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.<br>
-mIRC and therefore all scripts run in a single thread environment and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.<br>
-To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It's also a good idea to use local aliases.<br>
+This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language.
+<p>
+To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environment, the vocabulary of it such as a status window etc.
+<p>
+When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
+<p>
+mIRC and therefore all scripts run in a single thread environment and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.
+<p>
+To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It's also a good idea to use local aliases.
+<p>
 mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
 <H3>Statements</H3>
-Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.<br>
-If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.<br>
-The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.<br>
-All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.<br>
-We refer to statements by prefixing them with a slash character '/'.<br>
+Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.
+<p>
+If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.
+<p>
+The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.
+<p>
+All statements' name are composed of ascii letters only and are case insensitive. mIRC scripting as a whole is case insensitive.
+<p>
+We refer to statements by prefixing them with a slash character '/'.
+<p>
 
 For example, the following two are the same:<br><br>
 <b>Piping</b>
@@ -30,44 +40,65 @@ statement 3
 statement 4</pre>
 
 <h3>Commands statements</h3>
-
-Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.<br>
-After a command's name follows the parameters for that command, if any, and they must be spaces separated.<br>
-For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.<br>
-mIRC scripting does not use quoted strings, ever, for parameters. Some commands have limited support for quoted string, more about that later.<br>
-Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)<br>
+Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.
+<p>
+After a command's name follows the parameters for that command, if any, and they must be spaces separated.
+<p>
+For example if you want to display a line inside a window in mIRC, you would use the <b>/echo</b> command.
+<p>
+mIRC scripting does not use quoted strings, ever, for parameters. Some commands have limited support for quoted string, more about that later.
+<p>
+Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)
+<p>
 
 <h3>Other statements</h3>
-If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.<br>
-If such statement is not literal in the code, it will be executed as a command.<br>
-Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.<br>
+If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
+<p>
+If such statement is not literal in the code, it will be executed as a command.
+<p>
+Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.
+<p>
 One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
-They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.<br>
+<p>
+They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.
+<p>
 
 <h3>Routine</h3>
-Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.<br>
-There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).<br>
+Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.
+<p>
+There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).
+<p>
 In all cases, statements are executed in order one after the other.
 
 <H3>Where does the code go?</H3>
-All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.<br>
+All of your routine should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -> Script editor.
+<p>
 Below is a screen shot of the mIRC Script Editor:<br><br>
 
 <img src="..\images\remote_menu.png"><br><br>
 
-You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.<br>
-Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.<br>
-Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.<br>
-There are 5 different popups categories: status, channel, query, nicklist, and menubar. <br>
-Remote are the type of file which can contain both events and aliases at the same time. You can have multiple remotes file loaded.<br>
-Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.<br>
+You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.
+<p>
+Each type of script are stored into different files, an alias file can only have aliases in it, you can have multiple aliases file loaded.
+<p>
+Popups are a special type of script file which describes a popup menu, popups are the contextual menu which appears when you right click some areas like the nicklist.
+<p>
+There are 5 different popups categories: status, channel, query, nicklist, and menubar.
+<p>
+Remote are the type of file which can contain both events and aliases at the same time. You can have multiple remotes file loaded.
+<p>
+Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.
 
 <h3>Aliases</h3>
 
-Aliases have a name by which we can refer to them and are used to store a list of statement to execute, they usually are used to describe any piece of code that can be reused, but they are also used just as an entry point to start your script.<br>
-Once an alias is defined, you can execute it (we also refer to that as calling the alias) by making using that name as the statement's name, as though it was a built-in command.<br>
-So, when a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.<br>
-You can override built-in commands by defining an alias with the same name as of that built-in command, and now executing that name defaults to executing your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character (/!echo).<br>
+Aliases have a name by which we can refer to them and are used to store a list of statement to execute, they usually are used to describe any piece of code that can be reused, but they are also used just as an entry point to start your script.
+<p>
+Once an alias is defined, you can execute it (we also refer to that as calling the alias) by making using that name as the statement's name, as though it was a built-in command.
+<p>
+So, when a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.
+<p>
+You can override built-in commands by defining an alias with the same name as of that built-in command, and now executing that name defaults to executing your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character (/!echo).
+<p>
 
 They have the following format:
 <pre class ="code">alias [-l] &lt;name&gt; &lt;statements&gt;</pre>
@@ -80,7 +111,8 @@ If you use a remote file, you must prefix it with the <b>alias</b> keyword, spac
 <img src="..\images\fun_alias_remote.png">
 <img src="..\images\fun_alias_alias.png">
 <br>
-To call on our alias ''fun'', all we have to do is use its name as a command, either from a routine in the script editor, or from any mIRC's editboxes.<br>
+To call on our alias ''fun'', all we have to do is use its name as a command, either from a routine in the script editor, or from any mIRC's editboxes.
+<p>
 To execute the alias from the editbox, you must prefix it with a '/' character (or two), but slashes are not required in the script editor.
 <pre class ="code">/fun</pre>
 That should print our text:<br><br>
@@ -89,20 +121,42 @@ That should print our text:<br><br>
 <h3>{ } and group of statements</h3>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you have a group of one or more statements associated to the condition.
-Aliases and events are also entities which associate one or more statements to them; associating a group of statement is done by using a pair of spaced out { } around the statements.<br>
-If the context allow it, you can omit using the pair of spaced out { } around the statements:<br>
--For aliases and events, this is when you put all of the statements associated to the alias/event into a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.<br>
--For conditional statement, that's when only a single statement is associated to the condition.<br>
-However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.<br>
+<p>
+Aliases and events are also entities which associate one or more statements to them; associating a group of statement is done by using a pair of spaced out { } around the statements.
+<p>
+If the context allow it, you can omit using the pair of spaced out { } around the statements:
+<p>
+-For aliases and events, this is when you put all of the statements associated to the alias/event into a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.
+<p>
+-For conditional statement, that's when only a single statement is associated to the condition.
+<p>
+However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.
+<p>
 We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
-<pre class ="code">alias test echo -a test</pre> is equivalent to <pre class ="code">alias test { echo -a test }</pre> the same way <pre class ="code">alias test echo -a test | echo -a test1</pre> is equivalent to <pre class ="code">alias test { echo -a test | echo -a test1 }</pre> which is also equivalent to <pre class ="code">alias test {
-  echo -a test | echo -a test1
-}</pre> and to <pre class ="code">alias test { echo -a test |
-  echo -a test1 }</pre> and to <pre class ="code">alias test { echo -a test
-  echo -a test1
-  }</pre>
 
-<br><br>
+<pre class ="code">alias test echo -a test</pre>
+is equivalent to
+<pre class ="code">alias test { echo -a test }</pre>
+the same way
+<pre class ="code">alias test echo -a test | echo -a test1</pre>
+is equivalent to
+<pre class ="code">alias test { echo -a test | echo -a test1 }</pre>
+which is also equivalent to
+<pre class ="code">
+alias test {
+  echo -a test | echo -a test1
+}
+</pre>
+ and to
+<pre class ="code">
+alias test { echo -a test |
+  echo -a test1 }
+</pre>
+  and to
+<pre class ="code">
+alias test { echo -a test
+  echo -a test1
+}</pre>
 With conditional statement, the { goes after the condition:
 <pre class ="code">alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!</pre>
 In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) statement. The same is true for 'echo Is' belonging to 'if (2 == 3)', which, however, will not be echoed because the condition 2 == 3 is not true.<br>
@@ -172,9 +226,9 @@ You can use the /return command to return data from your aliases for when you ar
 To handle the parameters passed to your alias, regardless if you called it as a command or an identifier, you can use the identifier $N where N is the Nth parameter, with $0 being the total number of parameters. Now you can use $fun to call your alias as an identifier:
 <pre class ="code">//echo -a $fun(a,b,c,d,e)</pre> will display "having fun? a -- d e c 5 b".<br><br>
 Parameters of $identifiers are evaluated as well, from left to right, in order, and you can nest $identifiers with their parameters:<br>
-<pre class ="code">//echo -a $+(my nickname,$chr(61),$me)</pre> would display "my nickname=yournickhere".<br><br>
+<pre class ="code">//echo -a $+(my nickname,$chr(61),$me)</pre> would display "my nickname=yournickhere".<br>
 Some built-in $identifier are a bit special and will, on purpose, not evaluate some of their parameter (typically the last one), they will evaluate it later as the identifier is executing.<br>
-When you call an alias as an identifier, you cannot get this non evaluation of some of your parameter, they are always evaluated.<br><br>
+When you call an alias as an identifier, you cannot get this non evaluation of some of your parameter, they are always evaluated.<br>
 If you create an alias of the same name as of an existing built-in identifier, unlike command, mIRC does not call your alias by default, you can prefix your $identifier call with a dot '.' or a slash '/' to force mIRC to call your alias: $/me (if you try that on a non built-in name, the / is included as the name of the identifier to call and it fails).<br>
 If you need to use an identifier as plain text you can prefix it with the '!' character: $!5 returns "$5".<br>
 
@@ -184,8 +238,10 @@ If you need to use an identifier as plain text you can prefix it with the '!' ch
 If you execute statements from editboxes, in order for the $identifiers, %variables, pipe '|' statements separator and { } grouping to work properly, you must prefix the first statement with two slashes. A single slash will make mIRC execute the first statement only without evaluating anything, everything on the line after the first word is plaintext.
 
 <h4>Alias name restriction</h4>
-Alias name can be pretty much anything, they can't contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:<br>
+Alias name can be pretty much anything, they can't contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:
+<p>
 -aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
+<p>
 -digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you wouldn't be able to use $1.
 
 <H4>$rand()</H4>
@@ -224,20 +280,25 @@ The last events type are menu events:<br>
 <pre class="code">menu &lt;window&gt; {
 &lt;statements&lg;
 }
-</pre><br>
-Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events<br>.
-Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.<br>
-Otherwise, each statement must go on their own line and are splitted in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.<br><br>
-
+</pre>
+Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events.
+<p>
+Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.
+<p>
+Otherwise, each statement must go on their own line and are split in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.
+<p>
 For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
 Most of these events trigger with the status window set as the active window.
 
 <h4>Command vs identifier</h4>
 
-When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.<br>
-It first evaluate the statement, by resolving $identifier and %variable, from left to right (parameter of identifier are also resolved from left to right) and then split the resulting line on spaces.<br>
-The first word is then the name of the command to call and the rest are the parameter of the command.<br>
-What it means is that parameters passed to commands cannot contain spaces:<br
+When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.
+<p>
+It first evaluate the statement, by resolving $identifier and %variable, from left to right (parameter of identifier are also resolved from left to right) and then split the resulting line on spaces.
+<p>
+The first word is then the name of the command to call and the rest are the parameter of the command.
+<p>
+What it means is that parameters passed to commands cannot contain spaces:
 <pre>//echo -ag A B</pre>
 if A were representing a string of the form "C D", then it would make B the third parameter of the command instead of the second parameter, and commands rely on parameters number being always the same:
 <pre>alias myfunction echo -ag reading line $2 from file $1 on folder C:\
@@ -276,18 +337,18 @@ if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
     $difflength($1,$2)
   }
 </pre>with a call $test(string1,string2).<br>
-  Here $difflength() is evaluated as the only thing part of the statement and because $difflength does not return a value, the statement become empty and is ignored.<br>
-  But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.<br>
+Here $difflength() is evaluated as the only thing part of the statement and because $difflength does not return a value, the statement become empty and is ignored.
+<p>
+But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.
+<p>
+Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and won't be separating the argument!
 
-  Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and won't be separating the argument!
-
-  <pre>alias giveme5 return 5
-    </pre>In here $giveme5 returns the value 5 so $identifier($giveme5,a,b) would be sending 3 parameters to the $identifier: 5 a and b. But if $giveme5 were to include a comma in its returned value:<br>
-  <pre>alias giveme5 return 5,6
-    </pre>Then $identifier($giveme5,a,b) would STILL be sending 3 parameters to the $identifier: 5,6 a and b. The comma coming from $giveme5 did not create a 4th parameters.<br><br>
-
-  This is what makes identifier much more consistent when handling any kind of data and maintainable
-
+<pre>alias giveme5 return 5</pre>
+In here $giveme5 returns the value 5 so $identifier($giveme5,a,b) would be sending 3 parameters to the $identifier: 5 a and b. But if $giveme5 were to include a comma in its returned value:
+<pre>alias giveme5 return 5,6</pre>
+Then $identifier($giveme5,a,b) would STILL be sending 3 parameters to the $identifier: 5,6 a and b. The comma coming from $giveme5 did not create a 4th parameters.
+<p>
+This is what makes identifier much more consistent when handling any kind of data and maintainable.
 
 <H3>Comments</H3>
 Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what's going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
@@ -359,7 +420,8 @@ The */ is not on a line of Its own.
 
 <H4>Multiple aliases/events</H4>
 
-You can have multiple aliases/events in one single file but you cannot define an alias/events inside another alias/event.<br>
+You can have multiple aliases/events in one single file but you cannot define an alias/events inside another alias/event.
+<p>
 When you start with an empty script file, you're on the top level, meaning you can add an alias there. Inside that alias, you're not on the top level, you're inside the alias, which can be seen as the level depth '1'. So if you want to add more aliases, always do so on the top level:<br>
 
 <H4><span style="color: #9E1010;">Wrong Example</span></H4>

@@ -177,7 +177,7 @@ The code above generates the following output:
 Nope 2 != 5</pre>
 
 A common usage for an inline if is to decide where to send a reply of a command. For example on some networks ! means a channel message while . means a notice.
-<pre class = "code">on $*:text:/^([!.])example$/Si:#:{
+<pre class = "code">on $*:TEXT:/^([!.])example$/Si:#:{
   var %send = $iif($regml(1) == ., notice $nick, msg $chan)
   %send This is an example
   %send This is another line!

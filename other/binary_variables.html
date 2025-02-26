@@ -100,7 +100,7 @@ Create or append entire contents of &binvar to &var2
 Read entire contents of versions.txt into &versions
 //bread versions.txt 0 $file(versions.txt).size &versions  | echo -a &bvar(&binvar,0)
 Set &binvar to contents of channel message
-ON *:Text:*:#: { noop $regsubex(,$parms,,,&binvar) }
+on *:Text:*:#: { noop $regsubex(,$parms,,,&binvar) }
 Set &binvar to contents of clipboard
 //clipboard $+(abc,$crlf,def) | noop $cb(-1,,&binvar) | echo -a $bvar(&binvar,1-)
 Read from socket to &binvar

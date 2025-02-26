@@ -6,8 +6,8 @@
 <br>
 <br>
 Regular expressions, from here on referred to as regex, can be used to perform complicated pattern matching operations. Users should already be familiar with, and comfortable using, Regular expressions at this point. The regular expressions|Regular Expressions]] page contains more detailed information for users who are new to regex but a reminder of the syntax will be provided at the end.
-
-<br><b>Note:</b> a back reference is the same as a capturing group.
+<p>
+<b>Note:</b> a back reference is the same as a capturing group.
 
 <H4>General Information</H4>
 mIRC uses the 8bits version of PCRE 8.x library to implement regex with the following options enabled:
@@ -64,15 +64,15 @@ This represent one regular expression (or one pattern) with 2 captured backrefer
 <H4>Sanitizing the input</H4>
 
 If you pass value dynamically in a regex pattern, you have to escape any characters in such value that could otherwise be interpreted by the PCRE regex engine.
-<br>
+<p>
 Instead of escaping a bunch of characters with \, which is supported, PCRE allows for the \Q \E construct to not interpret anything between that construct:
-<br>
+<p>
 Looking for a match on a nickname such as nick[name], you could use /\b $+ \Q $+ $nick $+ \E\b/
-<br>
+<p>
 This is good but still has one flaw, if $nick contains \E, it will terminate the escaping sequence and subsequent character would be interpreted by PCRE.
-<br>
+<p>
 To solve the issue, you have to "escape" all the \E inside the value you're using: /b\Q $+ $replacecs($nick,\E,\E\\E\Q) $+ \E\b/
-<br>
+<p>
 There's no way to escape a character inside the escaping sequence \Q\E, you have to first terminate the sequence yourself with \E, then you have to match the actual \E from the input with \\E, and then start a new escape sequence with \Q.
 
 <H4>Regex Identifiers</H4>
@@ -82,25 +82,24 @@ The four main identifiers, <a href="..\identifiers\regex.html">$regex</a>, <a hr
 <pre class ="code">$regex([name],&lt;input&gt;,&lt;regex&gt;)</pre>
 
 The sample above performs a regular expression match and returns the number of matches found.
-<br>
-<br>
+<p>
 If the /g modifier is used, that number can be greater than 1.
 You may see a negative value being returned if an error occurred, the list below is not exhaustive, but the error omitted are the one that can only happen because of a bug in mIRC in the way it uses pcre, which should never happen in practice.
 
-<br><b>-5</b> - rare, the compiled pattern has an error in it, could be due to a bug in pcre or because the pattern has been overwritten
-<br><b>-6</b> - memory could not be allocated
-<br><b>-7</b> - memory could not be allocated (specific to retrieving capturing groups)
+<br><b>-5</b> - Rare, the compiled pattern has an error in it, could be due to a bug in pcre or because the pattern has been overwritten
+<br><b>-6</b> - Memory could not be allocated
+<br><b>-7</b> - Memory could not be allocated (specific to retrieving capturing groups)
 <br><b>-8</b> - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)
-<br><b>-14</b> - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
+<br><b>-14</b> - MIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
 <br><b>-21</b> - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 <br><b>-26</b> - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
 <H4>$regml</H4>
 <pre class ="code">$regml([name],N)</pre>
 <b>$regml</b> can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if ''0'' is specified as the Nth reference, then the total number of backreferences is returned.
-
+<p>
 $regml also has a <b>.pos</b> property, which returns the position within the input where the capture occurred.
-
+<p>
 Below is an example of a regular expression, using <b>name</b> as the optional <b>[Name]</b> property, and then using $regml to reference the match(es):
 <pre class ="code">//noop $regex(name, test, /([es])/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2)</pre> would display "2 : e -- s"
 
@@ -124,10 +123,10 @@ Performs a regular expression match, like $regex, and then performs a substituti
 <H4>$regsubex</H4>
 <pre class ="code">$regsubex([name],&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;)</pre>
 $regsubex is a more modern version of $regsub, in that it performs the match, then the substitution, and finally returns the result of the substitution.
-
+<p>
 This time, &lt;subtext&gt; is evaluated during substitution so you can use %variables and $identifiers there, they will be evaluated.
-
-<br><b>Note:</b> You can now use $regsubex the same way as $regsub to get it to return the number of match and filling a %variable with the result, the name is required, both also supports output to a binvar: $regsubex(name,&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;,%var|&binvar)
+<p>
+<b>Note:</b> You can now use $regsubex the same way as $regsub to get it to return the number of match and filling a %variable with the result, the name is required, both also supports output to a binvar: $regsubex(name,&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;,%var|&binvar)
 
 <H4>Markers, $1- and Nested $regsubex calls</H4>
 
@@ -179,9 +178,9 @@ The way mIRC evaluates those markers is special, it is important at this point t
 <br>
 <br>
 mIRC internally uses <a href="..\identifiers\1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the <b>subtext</b> parameter (it is restored after).
-<br>
+<p>
 The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
-<br>
+<p>
 Let's have a look at an example, consider the following subtext:
 <pre class ="code">\t \t \1 \n</pre>
 mIRC assigns the value of \t to ''$1'' & ''$2'', \1 is assigned to ''$3'' and finally, \n is assigned to ''$4''.
@@ -196,8 +195,8 @@ An example of this is shown below:
 <pre class ="code">$regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)</pre>
 Here we have a break-down of the results of this regex:
 <br>The <b>\6</b> doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
-<br>When <b>a</b> is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''
-<br>When <b>b</b> is matched, <b>\n</b> is <b>2</b>, <b>$1</b> is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is <b>g</b>
+<br>When '<b>a</b>' is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''
+<br>When '<b>b</b>' is matched, <b>\n</b> is <b>2</b>, <b>$1</b> is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is <b>g</b>
 <br>And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, '''$null''' is used.
 
 <H4>Nested calls</H4>
@@ -211,14 +210,13 @@ When mIRC replaces the markers, it will do so on the whole subtext parameter, co
 In the above example, the outer <b>$regsubex</b> will make the regex match, then it will loop on the result and replace <b>\t</b> accordingly everywhere in the subtext. Notice the subtext of the outer <b>$regsubex</b> is:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper(\t))</pre>
 All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
-
+<p>
 The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer <b>$regsubex</b> context.
-
+<p>
 A simple $+ cannot be used:
 <pre class ="code">$regsubex(\t,/(.)/g,$upper( \ $+ t ))</pre>
 Having this as the subtext of the $regsubex would end up calling <b>$upper(\t)</b> with plain text <b>\t</b>, because the <b>$+</b> is going to be evaluated after the inner $regsubex made his own regex match & loop over its results, which is after both $regsubex looked for markers. Something need to be done before the markers of the inner $regsubex are replaced but after the outer $regsubex made his match: when the outer $regsubex is ready to loop over its result.
-<br>
-<br>
+<p>
 The solution is to use the <b>[[ \ $+ t ]]</b> construct:
 <pre class ="code">$regsubex(name,abcdefcdab,/(cd)/g,$regsubex(\t,/(.)/g,$upper( [[ \ $+ t ]] )))</pre>
 
@@ -285,15 +283,15 @@ These, and many more, are various places where regular expression can be used.
 <H4>Syntax</H4>
 
 This part is meant to document all the different features of PCRE that work with mIRC, and to explain a bit of regular expression works.
-<br>
+<p>
 A regular expression is a pattern that is matched against a subject string from left to right. Most characters stand for themselves in a pattern, and match the corresponding characters in the subject.
-<br>
+<p>
 As a trivial example, the pattern "The quick brown fox" matches a portion of a subject string that is identical to itself.
-<br>
+<p>
 The power of regular expressions comes from the ability to include alternatives and repetitions in the pattern.
-<br>
+<p>
 These are encoded in the pattern by the use of metacharacters, which do not stand for themselves but instead are interpreted in some special way.
-<br>
+<p>
 There are two different sets of metacharacters: those that are recognized anywhere in the pattern except within square brackets, and those that are recognized within square brackets.
 
 <H4>Outside square brackets</H4>
@@ -316,7 +314,7 @@ $   assert end of string (or line, in multiline mode)
 <H4>Inside a character class</H4>
 
 Part  of  a  pattern  that is in square brackets is called a "character class".
-
+<p>
 In a character class the only metacharacters are:
 <pre class ="code">
 \   general escape character
@@ -328,9 +326,9 @@ In a character class the only metacharacters are:
 <H4>The Backslash \</H4>
 
 The backslash character has several uses. Firstly, if it is followed by a character that is not a number or a letter, it takes away any special meaning that character may have.
-
+<p>
 This use of backslash as an escape character applies both inside and outside character classes.
-
+<p>
 Another usage of the backslash is to represent non printable character, they can all be used inside a character class:
 <pre class ="code">
 \a         Bel character, ascii 07
@@ -347,12 +345,12 @@ Another usage of the backslash is to represent non printable character, they can
 \x{hhh..} character with hex code hhh..
 </pre>
 For greater clarity and unambiguity, it is best to avoid following \ by a digit greater than zero. Instead, use \o{} or \x{} to specify character numbers, and \g{} to specify back references. The  following  paragraphs describe the old, ambiguous syntax.
-<br>
+<p>
 The handling of a backslash followed by a digit other than 0 is complicated, and Perl has changed in recent releases, causing PCRE also to change.
-<br>
+<p>
 Outside a character class, PCRE reads the digit and any following digits as a decimal number.
 If the number is less than 8, or if there  have been at least that many previous capturing left parentheses in the expression, the entire sequence is taken as a back reference.
-<br>
+<p>
 Inside a character class, or if the decimal number following \ is greater than 7 and there have not been that many capturing subpatterns, PCRE handles \8 and \9 as the literal characters "8" and "9", and otherwise re-reads up to three octal digits following the backslash, using them to generate a data character. Any subsequent digits  stand for themselves.
 
 For example:
@@ -368,20 +366,20 @@ For example:
 \81    is either a back reference, or the two characters "8" and "1"
 </pre>
 Note that octal values of 100 or greater that are specified using this syntax must not be introduced by a leading zero, because no more than three octal digits are ever read.
-<br>
-By  default, after \x that is not followed by {, from zero to two hexadecimal digits are read (letters can be in upper or lower  case).
+<p>
+By  default, after \x that is not followed by {, from zero to two hexadecimal digits are read (letters can be in upper or lower  case).<p>
 Any number of hexadecimal digits may appear between \x{ and }. If a character other than a hexadecimal digit appears between \x{  and  }, or if there is no terminating }, an error occurs.
-<br>
+<p>
 Characters that are specified using octal or hexadecimal numbers are limited to certain values, less than 0x10ffff and a valid codepoint.
-
+<p>
 Invalid Unicode codepoints are the range  0xd800  to  0xdfff  (the  so called "surrogate" codepoints), and 0xffef.
-<br>
+<p>
 All the sequences that define a single character value can be used both inside and outside character classes. In addition, inside a character class, \b is interpreted as the backspace character (ascii 08).
-<br>
+<p>
 \N matches a non newline character, (same as the dot '.' without single line mode (/s modifier), it is not allowed inside a character class.
-<br>
+<p>
 \g+N or \g-N is a relative back reference, it matches the value of the capturing group that can be found by counting as many opening parentheses of named or numbered capturing groups as specified by the number from right to left starting at the backreference. (a)(b)(c)(d)\g<-3> matches abcdb.
-<br>
+<p>
 Another use of backslash is for specifying generic character types:
 <pre class = "code">
 \d any decimal digit

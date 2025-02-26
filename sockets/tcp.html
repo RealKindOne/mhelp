@@ -6,10 +6,9 @@
 <br>
 <br>
 mIRC has built-in support for TCP Sockets. This tutorial is the TCP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one.
-
-
+<p>
 Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
-
+<p>
 Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to (http://www.youtube.com) YouTube and get the title of the page and the view count.
 
 <H4>Creating a Connection</H4>
@@ -77,11 +76,10 @@ $sock(&lt;handle&gt;).mark</pre>
 
 <H4>Transmitting a Request After a Successful Connection</H4>
 When a successful connection to the remote end-point has been established, the <a href="..\events\on_SockOpen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
-
-<br><b>Note:</b>If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
-
+<p>
+<b>Note:</b> If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
+<p>
 The typical syntax for the on sockopen event is:
-
 <pre class ="code">on *:sockopen:&lt;handle&gt;: {
   ;Your requests goes here
 }</pre>
@@ -131,7 +129,7 @@ Understanding this concept is important to understanding how to send data correc
 <H4>/sockwrite's limit</H4>
 
 Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
-<br>
+<p>
 In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="..\events\on_sockwrite.html">here</a>.
 
 
@@ -149,7 +147,7 @@ Remember that the page we want to socket to is http://www.zigwap.com/mirc/socket
   sockwrite -n example1
 }</pre>
 
-<br><b>Note:</b>In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
+<br><b>Note:</b> In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
 
 <b>Example 2 (YouTube, Continue)</b>
 <br>
@@ -183,12 +181,9 @@ alias urlDecode return $utfdecode($regsubex($replace($1, +, $chr(32)), /%([A-F\d
 </pre>
 
 Consider the following example:
-
 <pre class ="code">//echo -a $urlEncode(Hello & Goodbye?)
 //echo -a $urlDecode(Hello%20%26%20Goodbye%3F)</pre>
-
 Will print:
-
 <pre class ="code">Hello%20%26%20Goodbye%3F
 Hello & Goodbye?</pre>
 
@@ -221,8 +216,8 @@ GET /folder/file.html HTTP/1.1
 </pre>
 
 This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
-
-<br><b>Note:</b>For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
+<p>
+<b>Note:</b> For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
 <br>
 Next is the Host header:
 <pre class ="code">
@@ -238,19 +233,19 @@ Once the server receives your request, it will send the response back to you. Th
 }</pre>
 
 The on sockread will most likely be the hardest and longest part of your code. When the on sockread event triggers, you have to read the data and decide what to do with it. If your script just needs some information from that page you will have to find and parse the appropriate line.
-
+<p>
 When it comes to HTTP, the data you will receive from the server will contain a header followed by a blank line which will be followed by the content of the page. The content of the page will look identical to that text you find when you right click on a web page and click on view source code.
-
+<p>
 Reading data that has been sent from the server is done with the <a href="..\commands\sockread.html">/sockread</a> command. That command is powerful because it allows you to read the data in a lot of ways, with HTTP, you'll likely want to get the data line by line.
-
+<p>
 To read a single line from the socket, we use the /sockread command that way:
 
 <pre class ="code">sockread &lt;%var&gt;</pre>
 
 That sockread command actually reads up to a $crlf. This is important to know because many web pages don't end with a $crlf which means the last line won't be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
-
-<br><b>Note:</b>If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
-
+<p>
+<b>Note:</b>If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
+<p>
 When working with binary data or if the line is too long to be read into an ordinary variable, you can read the data into a binary variable using the following syntax:
 
 <pre class ="code">sockread [numbytes] &lt;&binvar&gt;</pre>
@@ -279,15 +274,16 @@ Consider this simple example:
 <pre class ="code">//echo -a $noHTML(&lt;strong&gt; Example&lt;/strong&gt; - &lt;p&gt;This is an &lt;em&gt;example&lt;/em&gt;&lt;/p&gt;)</pre>
 
 Will print the following result:
-
+<pre class="code">
  Example - This is an example
-
+</pre>
 Keep this alias safe. Trust me, this tiny alias will become one of your most precious possessions.
 
 <H4>Error Handling</H4>
 Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
+<p>
 Remember, inside the on sockopen event, $sockerr allows you to know if the connection was successful or not.
-
+<p>
 A basic example would look like this:
 
 <pre class ="code">on *:sockread:example: {
@@ -305,8 +301,7 @@ Checking for an error gives you the opportunity to handle it in a sane way. Most
 <H4>Reading Data Example</H4>
 
 <b>Example 1 (Continue)</b>
-<br>
-<br>
+<p>
 When I printed out the entire source the server sent us. The first part is the header, follows by a blank space, and follows by the actual page data. It should look something like this:
 
 <pre class ="code">

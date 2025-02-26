@@ -53,7 +53,7 @@ When the timer fires, its command (a new command) is executed and therefore all 
 
 But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
-<pre class ="code">on *:text:!reminder & *:#:{
+<pre class ="code">on *:TEXT:!reminder & *:#:{
  if ($2 !isnum) {
     notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
@@ -88,7 +88,7 @@ Clearly, you can see how the timer command can be extremely dangerous. The unfor
 
 The spacing is very important. Our new !reminder script now looks like this:
 
-<pre class ="code">on *:text:!reminder & *:#:{
+<pre class ="code">on *:TEXT:!reminder & *:#:{
   if ($2 !isnum) {
     notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
@@ -156,7 +156,7 @@ Both of these commands were created to evaluate/execute code on a given connecti
 
 Though, unlike <a href="..\commands\timer.html">/timer</a>, the <a href="..\commands\scid.html">/scid</a> and <a href="..\commands\scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
 
-<pre class ="code">on *:text:!global *:#:{
+<pre class ="code">on *:TEXT:!global *:#:{
   scon -at1 amsg [AMSG] $1-
 }</pre>
 
@@ -164,13 +164,13 @@ The script is designed to do a global amsg (i.e. perform an <a href="..\commands
 
 * $safe solution:
 
-<pre class ="code">on *:text:!global *:#:{
+<pre class ="code">on *:TEXT:!global *:#:{
   scon -at1 amsg [AMSG] $safe($1-)
 }</pre>
 
 * Local variable solution:
 
-<pre class ="code">on *:text:!global *:#:{
+<pre class ="code">on *:TEXT:!global *:#:{
   var %a $1-
   scon -at1 amsg [AMSG] % $+ a
 }</pre>
@@ -187,7 +187,7 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="..\commands\flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
 
-<pre class ="code">on *:text:!testflash:#:/flash $ $+ me</pre>
+<pre class ="code">on *:TEXT:!testflash:#:/flash $ $+ me</pre>
 
 So $ $+ me evaluates to "<a href="..\identifiers\me.html">$me</a>" by <a href="..\commands\flash.html">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
 
@@ -202,7 +202,7 @@ If you have visited #mSL on swiftirc, and you had some code that used <a href=".
 
 So what are some of its consequences? Consider the following greet script:
 
-<pre class ="code">on *:text:!setgreet*:#:{
+<pre class ="code">on *:TEXT:!setgreet*:#:{
   if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
@@ -239,7 +239,7 @@ $readini(..., n, ...)</pre>
 
 Our new code would look like this:
 
-<pre class ="code">on *:text:!setgreet*:#:{
+<pre class ="code">on *:TEXT:!setgreet*:#:{
   if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
@@ -284,7 +284,7 @@ on *:connect:{
     msg x@channels.undernet.org login Wiz126 %password
   }
 }
-on *:text:!calc *:#:{
+on *:TEXT:!calc *:#:{
   msg $nick [Calc] $2- = $calc($2-)
 }</pre>
 
@@ -304,7 +304,7 @@ It's important to note that EVEN if %password was set to "1234rosebud". The $cal
 A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and %variables:
 
 <pre class ="code">
-on *:text:!calc *:#:{
+on *:TEXT:!calc *:#:{
   if (!$regex($2-,/\$\S+|%\S+/)) {
     msg $nick [Calc] $2- = $calc($2-)
   }
@@ -421,7 +421,7 @@ When the server  receives this message from mIRC, it uses the $crlf to split thi
 
 This method can only tell the server to execute commands recognized by the server. It does not know any mIRC-only /commands or $identifiers, and the 2nd command is executed even if the 1st command is invalid, such as #channel not existing. This means echoing such a string is no danger, because /echo will not send any string to a server, and it will not execute them either.
 
-This exploit cannot be achieved by responding to an ON TEXT command, because the server cannot display a message to a channel which contains an embedded $cr and/or $lf.
+This exploit cannot be achieved by responding to an on TEXT command, because the server cannot display a message to a channel which contains an embedded $cr and/or $lf.
 
 However, this exploit can take advantage of scripts which send text to channels which can contain them. Examples could include the above examples of an evaluated command inside a $decode string, or can be accomplished by a script which messages the title/description or other content from a webpage that the attacker controls. Another method can be 'now playing' scripts which message text to channel describing information about the mp3 song that is either beginning or ending. While it's common for fields like $sound(filename.mp3).comment to contain $cr's, they generally are not displayed in channel messages. However, it's also possible for Album or Title to also contain them.
 

@@ -35,31 +35,31 @@ Now the bitmap has the desired size.
 <H4>Drawing</H4>
 
 There are 11 commands to draw to a picture window, all of them support the -n switch, which prevents mIRC from painting the change you just made to that window, this allows you to make smooth draws: if you make several draws at the same time or periodically without using the -n switch, you'll see a flicker between the draw, using -n on all your draws and then allowing mIRC to paint the changes 'merged' once will get rid of these flickers, it is not faster to draw with -n and vice versa.
-<br>
+<p>
 Once you have made all your draws and are ready to paint the changes, any call to one of these /draw commands without the -n switch will do it (makes sense when we know not using the -n switch always paint the changes, causing flickers). You naturally want to use the simple /drawdot @mywin for that.
 
-<br><b>Note:</b> this section won't give full details about the commands, click on a command to see more information about that command.
-<br>
+<p><b>Note:</b> this section won't give full details about the commands, click on a command to see more information about that command.
+<p>
 <a href="..\commands\drawdot.html">/drawdot</a> can be used to draw dots at specific coordinates with a specific size and color.
-<br>
+<p>
 <a href="..\commands\drawline.html">/drawline</a> can be used to draw lines at specific coordinates with a specific size and color, if more than four points are given, the next line is drawn from the end of the last line to that point, chaining lines.
-<br>
+<p>
 <a href="..\commands\drawrect.html">/drawrect</a> can be used to draw rectangles or ellipses at specific coordinates with a specific size and color, you can specify more than one set of coordinate and size parameters and they are drawn separately.
-<br>
+<p>
 <a href="..\commands\drawfill.html">/drawfill</a> can be used to fill an area with the specified color starting at a specific coordinate, you can either use this to keep filling as long as the color is the one you specified (surface fill) or to keep filling as long as the color is not the one you specified (border fill).
-<br>
+<p>
 <a href="..\commands\drawtext.html">/drawtext</a> can be used to draw text at the specified coordinate, using the specified font name and font size, it supports basic formatting via switches.
-<br>
+<p>
 <a href="..\commands\drawsave.html">/drawsave</a> which actually can't be used to draw to a bitmap, is used to save an area to a .bmp or .jpg file.
-<br>
+<p>
 <a href="..\commands\drawscroll.html">/drawscroll</a> can be used to scroll an area inside rectangles by specific distances, you can specify more than one set of scrolling area and distances.
-<br>
+<p>
 <a href="..\commands\drawcopy.html">/drawcopy</a> can be used to copy an area to a specific coordinate from a window to another (can be the same window).
-<br>
+<p>
 <a href="..\commands\drawpic.html">/drawpic</a> can be used to load and draw a picture file at a specific coordinates, the file can be an icon from an ico/exe/dll file.
-<br>
+<p>
 <a href="..\commands\drawrot.html">/drawrot</a> can be used to rotate an area by a specific angle.
-<br>
+<p>
 <a href="..\commands\drawreplace.html">/drawreplace</a> can be used to replace a color with another in a specific area
 
 <H4>/draw* example</H4>
@@ -101,14 +101,14 @@ Result in:
 
 Mouse events can be defined in a <a href="custom_windows.html#custom_windows_menu">script menu definition</a>, a picture window support the following mouse events:
 
-<br><b>mouse</b> - mouse moved at a new coordinate, you can check $mouse.x and $mouse.y to get the new coordinate of the mouse.
-<br><b>sclick</b> - clicked at $mouse.x $mouse.y
-<br><b>dclick</b> - double clicked at $mouse.x $mouse.y
-<br><b>uclick</b> - mouse released at $mouse.x $mouse.y
-<br><b>rclick</b> - right clicked at $mouse.x $mouse.y
-<br><b>lbclick</b> - selected a line in the listbox, you can check $1 to get the line number of the selected line.
-<br><b>leave</b> - mouse left the window, you can check <a href="..\identifiers\leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
-<br><b>drop</b> - mouse drag and dropped at $mouse.x $mouse.y.
+<br><b>mouse</b> - Mouse moved at a new coordinate, you can check $mouse.x and $mouse.y to get the new coordinate of the mouse.
+<br><b>sclick</b> - Clicked at $mouse.x $mouse.y
+<br><b>dclick</b> - Double clicked at $mouse.x $mouse.y
+<br><b>uclick</b> - Mouse released at $mouse.x $mouse.y
+<br><b>rclick</b> - Right clicked at $mouse.x $mouse.y
+<br><b>lbclick</b> - Selected a line in the listbox, you can check $1 to get the line number of the selected line.
+<br><b>leave</b> - Mouse left the window, you can check <a href="..\identifiers\leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
+<br><b>drop</b> - Mouse drag and dropped at $mouse.x $mouse.y.
 
 <H4>Keyboard Events</H4>
 
@@ -136,11 +136,11 @@ if ($mouse.key & 16) is true if the right mouse button is pressed.
 </pre>
 Others useful properties:
 
-<br><b>.win</b> - returns the name of the active window.
-<br><b>.x & .y</b> - returns the coordinate of the mouse on the x/y axis, relative to the active window.
-<br><b>.mx & .my</b> - returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
-<br><b>.dx & .dy</b> - returns the coordinate of the mouse on the x/y axis, relative to the desktop.
-<br><b>.lb</b> - returns $true if a mouse event occurred over a listbox, $false if it did not.
+<br><b>.win</b> - Returns the name of the active window.
+<br><b>.x & .y</b> - Returns the coordinate of the mouse on the x/y axis, relative to the active window.
+<br><b>.mx & .my</b> - Returns the coordinate of the mouse on the x/y axis, relative to the main mIRC window.
+<br><b>.dx & .dy</b> - Returns the coordinate of the mouse on the x/y axis, relative to the desktop.
+<br><b>.lb</b> - Returns $true if a mouse event occurred over a listbox, $false if it did not.
 
 <H4>The <a href="..\identifiers\click.html">$click</a> identifier</H4>
 
@@ -231,7 +231,7 @@ Synopsis:
 $window, $window(&lt;@&lt;name|wid&gt;|N&gt;,N)
 </pre>
 <b>$window</b> itself returns the name of the window which was just left in the <b>leave</b> mouse event in a menu definition.
-
+<p>
 When used with arguments, if you use a name, it can be a <a href="..\other\wildcard.html">wildcard</a> and can be used with the N parameter to represent the Nth window matching.
 As far as picture window are concerned, $window() has only one couple of properties you can use, <b>.bw</b> & <b>.bh</b> will return the width & height of the bitmap.
 

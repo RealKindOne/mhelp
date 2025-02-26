@@ -28,10 +28,10 @@ After you opened a file with /fopen, you have a pointer of the content of the fi
 
 <a href="..\commands\fseek.html">/fseek</a> sets the read/write pointer to the specified &lt;position&gt; in the file, unless you use a switch:
 
-<br><b>-l</b> - sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line
-<br><b>-n</b> - sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter
-<br><b>-w</b> - sets the pointer to the beginning of the line matching the <a href="wildcard.html">wildcard</a> expression, use &lt;position&gt; to specify the <a href="wildcard.html">wildcard</a> expression
-<br><b>-r</b> - sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression
+<br><b>-l</b> - Sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line
+<br><b>-n</b> - Sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter
+<br><b>-w</b> - Sets the pointer to the beginning of the line matching the <a href="wildcard.html">wildcard</a> expression, use &lt;position&gt; to specify the <a href="wildcard.html">wildcard</a> expression
+<br><b>-r</b> - Sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression
 
 If /fseek fails, it sets the pointer to the end of the file, you must check $fopen().eof or $feof to know if /fseek failed.
 
@@ -57,10 +57,10 @@ If /fseek fails, it sets the pointer to the end of the file, you must check $fop
 <br>
 <br>
 <b>Properties:</b>
-<br><b>.fname</b> - returns the complete filename opened for that handle
-<br><b>.pos</b> - returns the current position of the read/write pointer
-<br><b>.eof</b> - returns $true if the end of the file has been reached
-<br><b>.err</b> - returns $true if an error occurred on the file
+<br><b>.fname</b> - Returns the complete filename opened for that handle
+<br><b>.pos</b> - Returns the current position of the read/write pointer
+<br><b>.eof</b> - Returns $true if the end of the file has been reached
+<br><b>.err</b> - Returns $true if an error occurred on the file
 
 In a script, <a href="..\identifiers\ferr.html">$ferr</a> = $fopen(handle).err and <a href="..\identifiers\feof.html">$feof</a> = $fopen(handle).eof, always returns the state of last involved handle in a file handing command.
 
@@ -88,7 +88,7 @@ A simple "/write filename.txt line" involves the following file handling operati
 <br><b>/fopen</b> - opens the file
 <br><b>/fseek</b> - goes to the end of the file
 <br><b>/fwrite</b> - writes to the file
-<br><b>/fclose</b> - closes the file
+<br><b>/fclose</b> - Closes the file
 
 So, executing /write twice involves 8 file handling operations; the more you have to write, the more operations you create. If you do /write three times, the 12 operations can be reduced to 5:
 

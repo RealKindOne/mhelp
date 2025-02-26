@@ -36,13 +36,13 @@ The example above will return the day of the week given its Nth position, for ex
 
 As we said before, a delimiter is a single character used to specify the boundary between two separate tokens in a list. For all the built-in token manipulation commands and identifiers, the delimiter is the <strong>code point</strong> value of the character. For more information, check out Unicode.
 
-It is important to note that you cannot represent a $null or empty token. Additionally, multiple consecutive delimiters are treated as a single delimiter. Leading and trailing delimiters are ignored.
+<p>It is important to note that you cannot represent a $null or empty token. Additionally, multiple consecutive delimiters are treated as a single delimiter. Leading and trailing delimiters are ignored.
 
 <H4>$N Identifiers</H4>
 
-You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the <a href="anick.html">/anick</a>. The number of tokens in $N is stored in $0.
+<p>You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the <a href="anick.html">/anick</a>. The number of tokens in $N is stored in $0.
 
-It is important to note that you can also populate the $N identifiers via the <a href="tokenize.html">/tokenize</a> command.
+<p>It is important to note that you can also populate the $N identifiers via the <a href="tokenize.html">/tokenize</a> command.
 
 <H4>Adding/Inserting/Replace tokens to a list</H4>
 

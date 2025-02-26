@@ -63,7 +63,7 @@ The * prefix is the most commonly used prefix, and allows any user to activate t
 
 For example:
 <pre class ="code">
-on *:text:!time:#:{
+on *:TEXT:!time:#:{
   notice $nick the time for me is $time
 }
 </pre>
@@ -73,7 +73,7 @@ Numeric prefixes allow any user with an access level >= the prefix to activate t
 
 For example:
 <pre class ="code">
-on +5:text:.h:#myChan:{
+on +5:TEXT:.h:#myChan:{
   mode $chan +h $nick
 }
 </pre>
@@ -93,7 +93,7 @@ By default, the numeric prefix means that level and any level higher can trigger
 
 For example:
 <pre class ="code">
-on +5:text:.h:#myChan:{
+on +5:TEXT:.h:#myChan:{
   mode $chan +h $nick
 }
 </pre>
@@ -116,7 +116,7 @@ The @ symbol can be used as a prefix to indicate that the event can only be acti
 
 For example:
 <pre class ="code">
-on @10:text:.op:#myChan:{
+on @10:TEXT:.op:#myChan:{
   mode $chan +o-v $nick $nick
 }
 </pre>
@@ -139,7 +139,7 @@ The second event will trigger upon receiving any msg sent via query except <b>!t
 This event prefix means the <a href="..\events\matchtext.html">matchtext</a> of the event is a regular expression, the delimiter are required.
 
 <pre class ="code">
-on $*:text:/^([!@.])test$/:#myChan:{
+on $*:TEXT:/^([!@.])test$/:#myChan:{
   msg $chan $nick triggered test with $regml(1)
 }
 </pre>
@@ -156,7 +156,7 @@ Sometimes it's beneficial to give an access group a name instead of a numeric va
 With that you can use the named group level in events, for example:
 
 <pre class ="code">
-on BotAdmin:text:!example:#:{
+on BotAdmin:TEXT:!example:#:{
   msg $chan Hello Bot Admin!
 }
 </pre>

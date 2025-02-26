@@ -189,7 +189,7 @@ The <a href="..\commands\inc.html">/inc</a> command allows you to increase the v
 
 For Example:
 
-<pre class ="code">on *:action:$(slaps $me $+ *):#mSL:{
+<pre class ="code">on *:ACTION:$(slaps $me $+ *):#mSL:{
   ;increase the variable by 1
   inc %slaps
   msg $chan I have seen %slaps slaps!
@@ -214,7 +214,7 @@ Although you can omit the static part out, its strongly discouraged because vari
 
 Let's take a look at an example:
 
-<pre class ="code">on *:text:!setColor *:#:{
+<pre class ="code">on *:TEXT:!setColor *:#:{
   ;save their favorite color
   set %color. $+ $nick $2
   notice $nick Your favorite color $qt($2) was saved!
@@ -256,7 +256,7 @@ Retrieving a value from a dynamic variable is a little bit more complicated. The
 
 This is the <a href="eval_brackets.html">evaluation_brackets</a> method. They allow us to force mIRC to evaluate part of a statement before anything else. Take a look at the rest of the myColor script:
 
-<pre class ="code">on *:text:!favColor *:#:{
+<pre class ="code">on *:TEXT:!favColor *:#:{
   var %color = %color. [ $+ [ $2 ] ]
   if (%color != $null) {
     notice $nick $2's favorite color is %color $+ .
