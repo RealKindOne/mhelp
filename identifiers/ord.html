@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -23,17 +24,18 @@ None
 <br>If number ends with 2        the suffix is nd
 <br>If number ends with 3        the suffix is rd
 <br>All other numbers end with th, including zero.
-
+<p>
 This code shows that following these 5 rules produces the same output as letting mIRC calculate the Ordinal. It repeatedly hashes a string consisting of the previous hash combined with the $ord of the next number, and both methods produce the identical hash:
 
 <pre class ="code">
 //var %a , %a2 , %i 0 | while (%i isnum 0-999) { if ($istok(11 12 13,$right(%i,2),32)) var %ord th | elseif ($findtok(1 2 3,$right(%i,1),1,32)) var %ord $gettok(st nd rd,$v1,32) | else var %ord th | var %a $sha1(%a %i $+ %ord) , %a2 $sha1(%a2 $ord(%i)) | inc %i } | echo -a %a , %a2
 </pre>
 
-For fractions, the $ord uses the last 1 or 2 digits of the fraction.
+For fractions, the $ord uses the last 1 or 2 digits of the fraction:
 <pre class ="code">
 //echo -a $ord(2.1) and $ord($pi)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)
 

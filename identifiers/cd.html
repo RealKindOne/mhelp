@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -10,6 +11,7 @@
 <pre class ="code">
 $cd
 </pre>
+
 <H4>Parameters</H4>
 None
 
@@ -18,14 +20,17 @@ None
 
 <H4>Example</H4>
 This example will send the user the current folder they are in if they type "!folder"
-<pre class ="code">; Listen for !folder on the SERV event
-on *:SERV:!folder:msg =$nick Current Folder: $cd</pre>
+<pre class ="code">
+; Listen for !folder on the SERV event
+on *:SERV:!folder:msg =$nick Current Folder: $cd
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.0 (20 Mar 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\events\on_serv.html">On_Serv</a><br>
 <a href="..\commands\fserve.html">/fserve</a><br>

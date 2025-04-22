@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,7 +6,7 @@
 <H1>$bindip</H1>
 <br>
 <br>
-The <b>$bindip</b> identifier is used to get information regarding an available etwork adapter.
+The <b>$bindip</b> identifier is used to get information regarding an available network adapter.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -22,11 +23,13 @@ $bindip(N|ipaddress)[.property]
 <br><b>.loopback</b> - Returns <a href="true.html">$true</a> if the IP/device has a loopback, otherwise <a href="false.html">$false</a>.
 
 <H4>Example</H4>
-Echo to the active window the total number of network adapters
+Echo to the active window the total number of network adapters:
 <pre class ="code">//echo -a $bindip(0)</pre>
-Echo to the active window the name of a local network adapter
+
+Echo to the active window the name of a local network adapter:
 <pre class ="code">//echo -a $bindip(192.168.1.1).name</pre>
-Test ipv6 connectivity
+
+Test ipv6 connectivity:
 <pre class ="code">//if ($bindip(::)) { sockopen ipv6.hostonly.org }</pre>
 
 <H4>Compatibility</H4>
@@ -37,6 +40,7 @@ v7.0 : Added .ip, .loopback, and .name property.
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="ip.html">$ip</a><br>
 <a href="iptype.html">$iptype</a><br>
