@@ -4,7 +4,8 @@
 <head><title>$colour</title></head>
 <H1>$colour</H1>
 <br>
-<br>The <b>$colour</b> identifier allows mIRC to return the proper color code associated with the specified target. (same as $color)
+<br>
+The <b>$colour</b> identifier allows mIRC to return the color index number associated with the specified target/event, or return the RGB color for a color index number.
 <br>
 <br>                      <!-- Replaced by $color in 5.91 mirc.hlp file -->
 <b>Note:</b> This feature is depreciated and has been replaced with en-US spelling <a href="color.html">$color</a>.
@@ -15,12 +16,13 @@
 <pre class ="code">
 $colour(name/N)[.property]
 </pre>
+
 <H4>Parameters</H4>
-<b>name</b> - Returns the color code for the specified name/action/event. Partial matches work as well: $colour(action)
-<br><b>N</b> - Specifies that the color code to be looked up is the RGB value for a specific color box target from the CTRL+K list.
+<b>name</b> - Returns the color index number for the specified name/action/event. Partial matches work as well: <b>$color(action)</b>
+<br><b>N</b> - Returns the 24-bit integer RGB color value for index N where N is 0-99, of which 0-98 are displayed in the <b>CTRL+K</b> list and the <b>ALT+K</b> window.
 
 <H4>Properties</H4>
-<b>dd</b> - Allows the color codes to be returned in double-digit format, eg: 02 instead of 2. Does not work on RGB-returned values.
+<b>.dd</b> When used with name, allows the color index numbers 0-9 to be returned in double-digit format, eg: 02 instead of 2. Does not work on RGB-returned values.
 
 
 <H4>Example</H4>

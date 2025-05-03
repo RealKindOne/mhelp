@@ -111,14 +111,14 @@ Impossible: specifying the [email] without specifying [nick] and [anick] first:
 <pre class ="code">
 /server irc.someirc.com -i * * emailtouse
 </pre>
-Additional servers.ini sections
-<br>
+Additional servers.ini sections:
+<p>
 The serverlist in the Alt+E window is contained in the [servers] section of servers.ini, but there can be additional [sections] which can affect how some /server commands behave. For example, you can sort the serverlist by either using the '/server -s' command, or can use the 'sort' choice in the serverlist's hamburger icon. While these sort your serverlist alphabetically by GROUP name, you can override this by adding or removing GROUP names to/from the 'Networks' [section]. If there are GROUP names listed in that section, serverlist items for those groups are sorted to the top of the serverlist in the order they appear in 'Networks', after which the remaining serverlist items are sorted alphabetically by their GROUP name.
-<br>
+<p>
 Each time you make an SSL connection via the serverlist or the /server or /sockopen commands, an entry is either inserted-at or moved-to the top of the 'sslcache' section which indicates the server's ssl fingerprint, hostname, IP address, and whether you have enabled the override to auto-accept that certificate being 'invalid'. This can cause your servers.ini to become quite large, especially if you use a network having local servers whose DNS ip-address changes frequently. If the [sslcache] section has grown quite large, it should be safe to prune most if not all of the lowest entries if their last parameter is '0' indicating that you are not enabling that as an invalid cert.
-<br>
+<p>
 There is also a 'recent' section containing info from the 20 serverlist items most recently used to make a successful connection.
-<br>
+<p>
 There is a 'success' section of servers.ini which appears to behave as an undocumented override for the 'options/connect/options/move to top on connect' setting when the /server command chooses which which of several items in the serverlist that "/server GROUPNAME" will connect to. For example, if you have network groupname FOOBAR where you have recently been given IRCOP Admin privileges at a local foo.foobar.org server, and you want to give preference to that specific local server while still being able to connect to the irc.foobar.org round-robin address if you can't connect to foo.foobar.org, you might think that you could create a 2nd serverlist entry for foo.foobar.org, then connect to it so it's at the top of your serverlist, then uncheck the 'move to top on connect' setting. However, instead of '/server FOOBAR' connecting first to the topmost item in the serverlist having that GROUPNAME, it instead gives preference to whichever servertarget in the FOOBAR 'group' has the highest connections count in the 'success' [section] regardless whether it's the 1st or 99th server target in that GROUP. However, if you edit servers.ini and find the [success] section where foo.foobar.org is listed, you can edit the integer connections count for foo.foobar.org to a larger number and/or edit irc.foobar.org down to 1 or 0, and the /server GROUPNAME command will then give preference to the servertarget having the highest success count. If your script needs to connect to the topmost servername in GROUPNAME, instead of merely using the GROUPNAME parameter, you must instead use $server(1,GROUPNAME) as the server address.
 
 

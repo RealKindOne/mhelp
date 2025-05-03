@@ -25,13 +25,13 @@ $isnumber(text,[sd],[I,J])
 None
 
 <H4>Example</H4>
+This is return $true because it is all digits:
 <pre class ="code">//echo -a $isnumber(564)</pre>
 
-will return $true
 
+This will return $false because not all of the characters are digits:
 <pre class ="code">//echo -a $isnumber(abcdefG)</pre>
 
-will return $false because not all the characters are digits
 
 <pre class ="code">
 //var %a -123 | echo -a $isnumber(%a) vs $isnumber(%a,s)

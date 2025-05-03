@@ -6,14 +6,16 @@
 <br>
 <br>
 The <b>$codepage</b> identifier allows you to list all the available codepages and/or get information about a given codepage.
-
+<p>
 While mIRC went away from codepage support for unicode, it was merely to go away from all the troubles mIRC had trying to resolve multiple encoding at the same time.
+<p>
 Unicode is just another encoding and with mIRC being clean for unicode meant adding codepage back was much easier, mIRC support codepage back and the codepage ID can be used directly with /server to specify an encoding for that connection (-encoding directive)
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $codepage(N/ID)[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>N/ID</b> - The Nth codepage to be returned, or 0 for the total number of codepage in the list, you can also pass an ID.
 

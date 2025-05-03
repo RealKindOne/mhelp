@@ -18,8 +18,8 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <b>prompt</b> - Parameter must not be blank. Text displayed inside the input dialog window. The input dialog is extended vertically as needed to display the prompt message if it is very long. You can also make text in the prompt message appear on different lines by using <a href="crlf.html">$crlf</a><br> to separate lines. The input window widens as needed by 1-3 buttons, the edit or combo dropdown, icon, or titlebar text
 <br><b>options</b> - Options can be a combination of the following:
 
-<br><b>e</b> - show input editbox. Content of input editbox returned by clicking leftmost button. Defaults to returning empty string if &lt;esc&gt; out of dialog or pressing 'No' 'Cancel'. Can get $no/$cancel/$timeout by using the forcing 'f switch ('v' switch also required to get $timeout)
-<br><b>p</b> - show input password editbox. Same return strings as 'e'
+<br><b>e</b> - Show input editbox. Content of input editbox returned by clicking leftmost button. Defaults to returning empty string if &lt;esc&gt; out of dialog or pressing 'No' 'Cancel'. Can get $no/$cancel/$timeout by using the forcing 'f switch ('v' switch also required to get $timeout)
+<br><b>p</b> - Show input password editbox. Same return strings as 'e'
 <br><b>o</b> - 'ok' button
 <br><b>n</b> - 'yes' 'no' 'cancel' buttons
 <br><b>y</b> - 'yes' 'no' buttons
@@ -28,16 +28,16 @@ The <b>$input</b> identifier is used to request immediate user-input.
 <br><b>v</b> - Only works when you're not using any of 'pem' switches. makes $input returns $ok, $yes, $no, $cancel, $retry if you press such buttons. Also makes $input returns $timeout if the kN timeout switch is used
 <br><b>f</b> - This switch is the same as the 'v' switches except it works for when you're using any of the 'pem' switches. Exception: if you're using the kN switch with any of the 'pem' switch, then 'f' must be used in conjunction with 'v' to get $timeout
 <br><b>kN</b>  - an N seconds timeout value. On timing out, has default action of returning $false for 'onyr' switches (or no 'pem' switches used, default) or $null for 'pem' switches. Returns $timeout if 'v' switches is used without 'pem', requires both 'f' and 'v' switches if you're using 'pem' and you want $timeout.
-<br><b>g</b> - right-align buttons
-<br><b>b</b> - disables buttons for 1 second when dialog is displayed and clears keyboard buffer
-<br><b>tciqwh</b> - show the goldstar,recycle bin,info, question, warning, and halt icons respectively.
+<br><b>g</b> - Right-align buttons
+<br><b>b</b> - Disables buttons for 1 second when dialog is displayed and clears keyboard buffer
+<br><b>tciqwh</b> - Show the goldstar,recycle bin,info, question, warning, and halt icons respectively.
 <br><b>d</b> - play system sound associated with icon switch used: 'di' 'dt' = 'asterisk', 'dq' = 'question', 'dw' 'dc' = 'exclamation', 'dh' = 'critical stop'
 <br><b>s</b> - Indicates that window parameter has been specified (making optional 'title' be the 4th parameter)
-<br><b>a</b> - make $input dialog active if mIRC is not the active application
+<br><b>a</b> - Make $input dialog active if mIRC is not the active application
 <br><b>u</b> - Use current active window as parent window, including custom dialog window. In the past, the 's' switch could not be used to pass a custom dialog window as the parent, this switch is then technically there for custom dialog support as parent.
-<br><b>window</b> - If option <b>s</b> is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
+<br><b>window</b> - If option '<b>s</b>' is specified, the name of the window to be used as parent window, can be any string that $window(string) will return correctly, so no custom dialog.
 <br><b>title</b> - The titlebar text.
-<br><b>text</b> - default text placed in the input editbox
+<br><b>text</b> - Default text placed in the input editbox
 <br>
 
 <H4>Properties</H4>
@@ -46,7 +46,7 @@ None
 
 The options, window, title, and text are optional parameters
 <br>
-By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. <b>f</b> switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. <b>kN</b> defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
+By default, 'onyr' switches  return $true from 'Ok' 'Yes' 'Retry' buttons and returns $false from 'No' 'Cancel' buttons. 'pem' switches defaults buttons returning the contents of editbox/combobox except 'No' 'Cancel' buttons returning $null. '<b>f</b>' switch extends 'No' 'Cancel' buttons in 'pem' to have same behavior as in 'onyr' with 'v' switch. <b>kN</b> defaults to returning $false if dialog not exited within N seconds. 'v' changes $true $false from button clicks to instead return '$yes' '$no' '$ok' '$retry' '$cancel', except for $false strings caused by kN change to $timeout.
 <br>
 For the <b>options</b> parameter, you can also use a number as a combination of value added together, without the presence of any letter switches, which is how $input was originally working:
 

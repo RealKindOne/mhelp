@@ -6,22 +6,21 @@
 <br>
 <br>
 The <b>$cos</b> identifier returns the cosine of an angle of N radians.
+<p>
+You can use the letter 'e' as scientific notation for *10^N, $cos(5e6) = $cos($calc(5*10^6))
 
 <H4>Synopsis</H4>
 <pre class ="code">$cos(&lt;N&gt;)[.deg]</pre>
 
 <H4>Parameters</H4>
 <b>N</b> - This is the angle in radians for which you wish to retrieve the cosine.
-<br>
-<br>
-You can use the letter 'e' as scientific notation for *10^N, $cos(5e6) = $cos($calc(5*10^6))
 
 <H4>Properties</H4>
 <b>.deg</b> - Means <b>N</b> is in degrees instead of radians.
 
 <H4>Example</H4>
 
-Cosine is the ratio of the Adjacent Side / Hypotenuse of a right triangle, so in a right triangle from the position of an angle of 30 degrees, the length of the Adjacent side is .866025 as long as the hypotenuse. As with <a href="calc.html">$calc</a>, the returned fraction is limited to 6 decimal places.
+Cosine is the ratio of the Adjacent Side / Hypotenuse of a right triangle, so in a right triangle from the position of an angle of 30 degrees, the length of the Adjacent side is .866025 as long as the hypotenuse. As with <a href="calc.html">$calc</a>, the returned fraction is limited to 6 decimal places:
 
 <pre class ="code">//echo -a There are 2x pi radians in a circle, so a radian is $calc(360 / (2*$pi) ) degrees
 //var %i 30 | echo -a $cos(%i).deg is the same as $cos( $calc(%i * $left($pi,8) / 180) )
@@ -36,6 +35,7 @@ Added: mIRC v5.3 (13 Dec 1997)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="acos.html">$acos</a><br>
 <a href="cosh.html">$cosh</a><br>

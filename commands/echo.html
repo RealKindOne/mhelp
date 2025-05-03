@@ -15,34 +15,29 @@ The <b>/echo</b> command prints text to the specified window. This command does 
 
 <H4>Switches</H4>
 
-Target window switches
-<br>
-
-<br><b>-s</b> - Prints to the status window.
+Target window switches:
+<p>
+<b>-s</b> - Prints to the status window.
 <br><b>-a</b> - Prints to the active window.
 <br><b>-d</b> - Prints to the single message window.
-<br>
-<br>
+<p>
 Settings Related:
-<br>
-
-<br><b>-r</b> - Applies the strip settings to the text (as defined in mIRC Options / IRC / Messages).
+<p>
+<b>-r</b> - Applies the strip settings to the text (as defined in mIRC Options / IRC / Messages).
 <br><b>-l</b> - Applies the highlight settings to the text (as defined in mIRC Address Book / Highlight).
 <br><b>-b</b> - Applies the windows beep settings (to beep if mIRC is not the active application) as defined in mIRC Options / Sounds and any individual window override.
 <br><b>-f</b> - Applies the flash settings to the window (to flash the mIRC System Tray icon) as defined in mIRC Options / IRC / Options and any individual window override.
-<br>
-<br>
-Other switches
-<br>
-
-<br><b>-c</b> - Indicates that the &lt;color-name&gt; parameter is provided as the 1st parameter following the switch(es).
+<p>
+Other switches:
+<p>
+<b>-c</b> - Indicates that the &lt;color-name&gt; parameter is provided as the 1st parameter following the switch(es).
 <br><b>-e</b> - Encloses the text with a pair of lines containing the line separator. Note: does not add a leading line if it already consists entirely of the line separator.
 <br><b>-g</b> - Prevents the text from being logged if the window has logging on.
 <br><b>-h</b> - Applies a hard-wrap on the text so that the wrap point does not change when the window is resized. Text is not wrapped if it is echoed to a custom listbox window.
 <br><b>-i</b>[N] - Indents wrapped lines by [N] characters. The default mIRC indent is 2 spaces if N not used. Note: When using a proportional font, the indented width is a constant width regardless of the width of the characters echoed.
 <br><b>-t</b> - Adds a timestamp to the text if the timestamp is enabled for that window. Without this, the line will not be timestamped even if the window has timestamping set. Note: -t shows timestamp in Custom Windows even though they do not have a timestamp setting, but only if timestamping has been enabled in mirc-options/irc/messages/"timestamp events".
 <br><b>-q</b> - Honors the $show flag. (Displays nothing if the alias was called with the . prefix)
-<br><b>-n</b> - Prevents switchbar button/treebar color change
+<br><b>-n</b> - Prevents switchbar button/treebar color change.
 <br><b>-m</b> - Treats the line as an user message, colors the window button in the switchbar/treebar with the "Message" color defined in the option alt+o>Display.
 
 <H4>Parameters</H4>

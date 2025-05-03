@@ -13,25 +13,26 @@ $notify
 $notify(N/nick)[.property]
 </pre>
 <H4>Parameters</H4>
-<b>nick</b> - The nickname you want to get information about
-<br><b>N</b> - The Nth nick in the notify list you want to get information about, if N = 0, returns the total number of nicknames in the notify list
+<b>nick</b> - The nickname you want to get information about.
+<br><b>N</b> - The Nth nick in the notify list you want to get information about, if N = 0, returns the total number of nicknames in the notify list.
 
 <H4>Properties</H4>
-<b>.ison</b> - Returns $true if the user is on IRC, $false otherwise
-<br><b>.note</b> - Returns the note associated for that nickname in the notify list
-<br><b>.sound</b> - Returns the online sound setting for that nickname
-<br><b>.sound2</b> - Returns the offline sound setting for that nickname
-<br><b>.whois</b> - Returns $true if the option 'whois' is set for this nickname
-<br><b>.addr</b> - Returns the server address entry for this nickname if you used a server format
-<br><b>.network</b> - Returns the network entry for this nickname (if you used something that isn't a server format, basically)
-<br><b>.account</b> - Returns the user account name
-<br><b>.away</b> - Returns $true if the users is /away, $false otherwise
-<br><b>.awaymsg</b> - Returns the /away message
-<br><b>.gecos</b> - Returns the gecos/real name
-
-Without a property, $notify(nick) returns the Nth position and $notify(N) returns the nickname
+<b>.ison</b> - Returns $true if the user is on IRC, $false otherwise.
+<br><b>.note</b> - Returns the note associated for that nickname in the notify list.
+<br><b>.sound</b> - Returns the online sound setting for that nickname.
+<br><b>.sound2</b> - Returns the offline sound setting for that nickname.
+<br><b>.whois</b> - Returns $true if the option 'whois' is set for this nickname.
+<br><b>.addr</b> - Returns the server address entry for this nickname if you used a server format.
+<br><b>.network</b> - Returns the network entry for this nickname (if you used something that isn't a server format, basically).
+<br><b>.account</b> - Returns the user account name.
+<br><b>.away</b> - Returns $true if the users is /away, $false otherwise.
+<br><b>.awaymsg</b> - Returns the /away message.
+<br><b>.gecos</b> - Returns the gecos/real name.
+<p>
+Without a property, $notify(nick) returns the Nth position and $notify(N) returns the nickname.
 
 <H4>Example</H4>
+Echo the total number of nicks in the notify list:
 <pre class ="code">//echo -a $notify(0)</pre>
 
 <H4>Compatibility</H4>

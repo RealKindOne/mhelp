@@ -23,7 +23,10 @@ None
 Below is a simple example of checking for at least five arguments before proceeding:
 <pre class ="code">
 alias example {
-  if ($0 < 5) { echo -atc info * /example: You must provide at least 5 arguments! | halt }
+  if ($0 < 5) {
+    echo -atc info * /example: You must provide at least 5 arguments!
+    halt
+  }
   ; do something useful here
   echo -a works!
 }

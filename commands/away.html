@@ -20,9 +20,9 @@ None
 
 <H4>Example</H4>
 <pre class ="code">
-;Set an away message
+; Set an away message
 /away Work, will be back at 10PM
-;Unset your away status
+; Unset your away status
 /away
 /*
 The above example will output:
@@ -32,6 +32,8 @@ You have been marked as being away
 You are no longer marked as being away
 -
 */
+</pre>
+<pre class ="code">
 ; The /away command is usually combined with the $away,
 ; $awaymsg, and $awaytime idnetifers:
 ; /setAway Work, will be back at 10PM
@@ -58,7 +60,8 @@ alias remAway {
 Added: mIRC v2.1a (28 Feb 1995)
 
 <H4>Notes</H4>
-The /away status will be disabled if "Cancel away on activity" is enabled (ALT+O -> IRC -> Options -> Other:)
+The /away status will be disabled if "Cancel away on activity" is enabled.
+<br>The setting can be found by: ALT+O -> IRC -> Options -> Other:
 <H4>See also</H4>
 <a href="..\identifiers\away.html">$away</a><br>
 <a href="..\identifiers\awaymsg.html">$awaymsg</a><br>

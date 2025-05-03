@@ -5,7 +5,7 @@
 <H1>$banlist</H1>
 <br>
 <br>
-The <b>$banlist</b> identifier returns the Nth address in the internal ban list.
+The <b>$banlist</b> identifier returns the Nth address in the internal ban list. You must perform "/mode #channel b" to fill the internal ban list.
 <br>
 <br>
 <b>Note:</b> This feature is depreciated and has been replaced with <a href="ibl.html">$ibl</a>.
@@ -25,6 +25,7 @@ $banlist(#chan,N)[.property]
 <br><b>.ctime</b> - Returns the date when the ban was set, in <a href="ctime.html">$ctime</a> format.
 
 <H4>Example</H4>
+Echo total number of bans in a channel:
 <pre class ="code">//echo -a $banlist(#,0)</pre>
 
 <H4>Compatibility</H4>

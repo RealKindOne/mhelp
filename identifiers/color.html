@@ -4,7 +4,8 @@
 <head><title>$color</title></head>
 <H1>$color</H1>
 <br>
-<br>The <b>$color</b> identifier allows mIRC to return the color index number associated with the specified target/event, or return the RGB color for a color index number. $colour is an identical functioning identifier for those who find comfort using a 'u' to spell color.
+<br>
+The <b>$color</b> identifier allows mIRC to return the color index number associated with the specified target/event, or return the RGB color for a color index number.
 
 
 <H4>Synopsis</H4>
@@ -13,8 +14,8 @@ $color(name/N)[.dd]
 </pre>
 
 <H4>Parameters</H4>
-<b>name</b> identifier returns the color index number for the specified name/action/event. Partial matches work as well: '''$color(action)'''
-<br><b>N</b> identifier returns the 24-bit integer RGB color value for index N where N is 0-99, of which 0-98 are displayed in the <b>CTRL+K</b> list and the <b>ALT+K</b> window.
+<b>name</b> - Returns the color index number for the specified name/action/event. Partial matches work as well: <b>$color(action)</b>
+<br><b>N</b> - Returns the 24-bit integer RGB color value for index N where N is 0-99, of which 0-98 are displayed in the <b>CTRL+K</b> list and the <b>ALT+K</b> window.
 
 <H4>Properties</H4>
 <b>.dd</b> When used with name, allows the color index numbers 0-9 to be returned in double-digit format, eg: 02 instead of 2. Does not work on RGB-returned values.
@@ -27,20 +28,28 @@ Most of the names are shown in the Alt+K dialog, and some of them use spaces due
 //echo -a $color(treebar)
 //echo -a $color(editbox)
 </pre>
+
 The only names requiring 'text' are those where the absence of 'text' would be the same name as any of the above four:
 <pre class ="code">
 //echo -a $color(listbox text)
 //echo -a $color(treebar text)
 //echo -a $color(editbox text)
 </pre>
-These names do not require quotes when used as the $color parameter, but do require quotes when used with echo's -c switch:
 
-<pre class ="code">/echo -ac "listbox text" test</pre>
+These names do not require quotes when used as the $color parameter, but do require quotes when used with echo's -c switch:
+<pre class ="code">
+/echo -ac "listbox text" test
+</pre>
+
 <H4>Example</H4>
 Echo the color index number for action events:
-<pre class ="code">//echo -a $color(action)</pre>
+<pre class ="code">
+//echo -a $color(action)
+</pre>
+
 If Index 0-9 are used for that event, displays a single number unless the .dd property is used:
-<pre class ="code">//echo -a $color(action).dd
+<pre class ="code">
+//echo -a $color(action).dd
 </pre>
 
 Echo the RGB code for index 4:
@@ -50,6 +59,7 @@ Echo the RGB code for index 4:
 //echo $color(ctcp) $chan this color changes when ctcp event color changes. it does not put color code into logfile
 //echo $chan $chr(3) $+ $color(ctcp) this color does not change when ctcp event color changes. it does put color code into logfile
 </pre>
+
 Using .dd prevents numeric first character of string being considered part of the color code, in the event the event's color index is 0-9.
 <pre class ="code">
 //var %string 123 | echo -a $chr(3) $+ $color(ctcp).dd $+ %string
@@ -58,6 +68,7 @@ vs
 </pre>
 
 mIRC blocks the effect of $color if it matches the color used by the background for that text, except when used in the format ^Kn,n which sets the background along with the foreground. In attempting to avoid matching the background color, echo first tries $color(normal) to find a different color index then $color(gray). Invalid 'name' strings return 0.
+
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
 <br>
@@ -66,6 +77,7 @@ v6.0 : Added .dd property.
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\commands\color.html">/color</a><br>
 <a href="colour.html">$colour</a><br>

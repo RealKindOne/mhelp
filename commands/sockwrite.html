@@ -6,13 +6,14 @@
 <br>
 <br>
 The <b>/sockwrite</b> command allows you to send data to a TCP socket connection previously opened with <a href="sockopen.html">/sockopen</a> (See <a href="..\sockets\sockets.html">/TCP Sockets</a>.
+<p>
 You can specify a <a href="..\other\wildcard.html">wildcard</a> for the name to send the data to all matching sockets.
-
+<p>
 When the data has been sent, the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event triggers.
-
+<p>
 mIRC will queue your request up to 16384 bytes, you must check how many bytes is the send buffer with <a href="..\identifiers\sock.html">$sock().sq</a> before trying to queue on a socket
-
-<br><b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
+<p>
+<b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
 
 <H4>Synopsis</H4>
 <pre class ="code">

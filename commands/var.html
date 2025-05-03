@@ -6,14 +6,14 @@
 <br>
 <br>
 The <b>/var</b> command can be used to replace the value of existing variables or create a new variables and assign them values. By default /var creates local variable, this can be changed via the -g switch ( <a href="set.html">/set</a> command can be used to set global variables by default).
-<br>
+<p>
 The Local Variables created by /var exist only within the :event: or ALIAS where they were created. If your event or alias calls another alias, that alias cannot see the local values unless passed to them in another way, such as a parameter used when calling the alias.
-<br>
+<p>
 The var command can perform one math operation via one of the arithmetic operators: addition (+), subtraction (-), multiplication (*), division (/), modulo (%), bitwise-and (&), and exponent (^). They *must* be space delimited with both operands being a number. If any of the operands are not a number or if a space is missing, it will be treated as plain text.
+<p>
+<b>Note:</b> Unlike the <a href="set.html">/set</a> command, var can assign a value to multiple variables at once.
 
-<br><b>Note:</b> Unlike the <a href="set.html">/set</a> command, var can assign a value to multiple variables at once.
-
-**Set Evaluation Routine:**
+<H4>Set Evaluation Routine</H4>
 Internally, the var command simply breaks down the line (by commas) and passes the arguments to /set. The set command has its own evaluation routine which lets you dynamically concatenate additional values onto the variable name before the assignment takes place.
 <pre class ="code">
 //var -s % $+ $ctime ABC
@@ -39,12 +39,12 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br />
 
 <br><b>Note:</b> If you are placing an event's $1- into a variable, you should use -p to prevent 1 + 1 being evaluated to 2, or "" not being set
-
-<br><b>Note:</b> The = in "var %a = value" is optional and is not placed into the value.
-
-<br><b>Note:</b> See the <a href="set.html">/set</a> page for more info about setting dynamic variable names using identifiers like $nick or $network
-
-<br><b>Note:</b> much of the usage of /var is similar to that of /set except that switches like -uN or -e or -z or -k have no meaning for local variables which cease to exist when the event or alias is finished.
+<p>
+<b>Note:</b> The = in "var %a = value" is optional and is not placed into the value.
+<p>
+<b>Note:</b> See the <a href="set.html">/set</a> page for more info about setting dynamic variable names using identifiers like $nick or $network
+<p>
+<b>Note:</b> much of the usage of /var is similar to that of /set except that switches like -uN or -e or -z or -k have no meaning for local variables which cease to exist when the event or alias is finished.
 
 <H4>Parameters</H4>
 <b>&lt;%var&gt;</b> - The name of the variable.
@@ -52,8 +52,8 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
 <br><b>&lt; + | - | * | / | % | ^ | & &gt;</b> - One of the seven possible arithmetic operations.
 <br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
-
-<br><b>Note:</b> if your [value] ends with a literal space separated comma, mIRC will see it as a new variable assignment even if no '%' is found, you need to use two commas to produce one in this case: //var %a test ,,
+<p>
+<b>Note:</b> if your [value] ends with a literal space separated comma, mIRC will see it as a new variable assignment even if no '%' is found, you need to use two commas to produce one in this case: //var %a test ,,
 
 <H4>Example</H4>
 <pre class ="code">
@@ -113,9 +113,9 @@ Value2: Local2
 Value3:
 Value4:
 </pre>
-<pre class ="code">
 By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set)
 The -p changes /var and /set to allow these values:
+<pre class ="code">
 //var -p %a "" | var -p %b test $+ $chr(32)  | echo -a %a vs $len(%b)
 returns: "" vs 5
 //var    %a "" | var    %b test $+ $chr(32)  | echo -a %a vs $len(%b)
@@ -124,8 +124,8 @@ returns: vs 4
 //var -p %a 1 + 1 | echo -a %a
 returns: 1 + 1
 </pre>
-<pre class ="code">
 The = is no longer required, and is a difference in behavior between /set and /var, though it makes it easier to make a local var beginning with the = symbol:
+<pre class ="code">
 //set %a = testa | set %b = = testb | echo -a 1. %a vs %b
 //var %a = testa | var %b = = testb | echo -a 2. %a vs %b
 Return:
@@ -133,8 +133,9 @@ Return:
 2. testa vs = testb
 </pre>
 By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set)
-<pre class ="code">
+<p>
 The -p changes /var and /set to allow these values:
+<pre class ="code">
 //var -p %a "" | var -p %b test $+ $chr(32)  | echo -a 1. %a vs $len(%b)
 //var    %a "" | var    %b test $+ $chr(32)  | echo -a 2. %a vs $len(%b)
 Return:

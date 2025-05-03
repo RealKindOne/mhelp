@@ -6,7 +6,7 @@
 <br>
 <br>
 Auto-OP is a feature that can be used to manage access for a channel. Whenever a user whose address matches an address in the auto-op list joins the channel, mIRC will automatically OP them.
-<br>
+<p>
 The <b>/AOP</b> command can also be used to disable or enable this feature as well as add and remove users from and to the list.
 
 <H4>Synopsis</H4>
@@ -22,23 +22,23 @@ The <b>/AOP</b> command can also be used to disable or enable this feature as we
 <br><b>-l</b> - List all of the auto-op entry.
 
 <H4>Parameters</H4>
-<b>on</b> - Enable auto-op
-<br><b>off</b> - Disable auto-op
+<b>on</b> - Enable auto-op.
+<br><b>off</b> - Disable auto-op.
 <br><b>&lt;nick/address&gt;</b> - The nickname or address of the person to be added to the auto-op list. Both nickname and addresses are acceptable. Addresses can be <a href="..\other\wildcard.html">wildcard</a> addresses.
 <br><b>[#channel`,#channel2,...]</b> - Channels to apply the auto-op to.
 <br><b>[type]</b> - Address <a href="..\other\type.html">type</a> to be used.
 <br><b>[network]</b> - Optional network name to apply the auto-op to.
 
 <H4>Example</H4>
-Display aop status:
+Display auto-op status:
 <pre class ="code">
 /aop
 </pre>
-Enable aop:
+Enable auto-op:
 <pre class ="code">
 /aop on
 </pre>
-Disable aop:
+Disable auto-op:
 <pre class ="code">
 /aop off
 </pre>

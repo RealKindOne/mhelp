@@ -6,7 +6,7 @@
 <br>
 <br>
 The <b>$comcall</b> identifier calls a member of an open COM connection with the specified method and parameter, it is multithreaded and won't halt the script, an alias is called once the call returns.
-
+<p>
 If $comcall() fails when calling an object and $com() does not, this means that the object is not compatible with the threading model of mIRC, so $com() must be used. You can check the $comerr value in the alias to determine if a $comcall() failed or not.
 
 <H4>Synopsis</H4>
@@ -15,9 +15,9 @@ $comcall(name,alias,member,method,type1,value1,...,typeN,valueN)
 </pre>
 
 <H4>Parameters</H4>
-<b>name</b> -The name of the connection or the Nth connection
-<br><b>alias</b> - The name of an alias that will be called once the call returns
-<br><b>member</b> - The name of the function of the object
+<b>name</b> -The name of the connection or the Nth connection.
+<br><b>alias</b> - The name of an alias that will be called once the call returns.
+<br><b>member</b> - The name of the function of the object.
 <br><b>method</b> - A combination of the following value added together:
 <br>
 <br>
@@ -171,11 +171,11 @@ $comcall(name,alias,member,method,type1,value1,...,typeN,valueN)
 </td></tr></table>
 <br>
 <br>
-
+<p>
 You can pass a binary variable by prefixing the type of the variable with an '&' sign eg. $com(name,member,method,&bstr &binvar)
-
+<p>
 To make a variable by reference, postfix the data type with an asterisk and a variable name, for example: int* pIntOfBeer.
-
+<p>
 <br><b>value1</b> - The value assigned to the variable type.
 
 <H4>Properties</H4>

@@ -34,12 +34,12 @@ See <a href="encode.html">$encode</a> for more info, as this identifier's purpos
 <br><b>c</b> - CBC encryption mode (either c or e)
 <br><b>e</b> - ECB encryption mode (either c or e)
 <br><b>l</b> - Literal key, a 56-byte key
-<br><b>s</b> - salt
+<br><b>s</b> - Salt
 <br><b>i</b> - Initialization vector (IV)
-<br><b>r</b> - random IV
+<br><b>r</b> - Random IV
 <br><b>z</b> - 0x00 zero padding
-<br><b>n</b> - ones and zeros padding
-<br><b>p</b> - spaces padding
+<br><b>n</b> - Ones and zeros padding
+<br><b>p</b> - Apaces padding
 
 <H4>Example</H4>
 Echo to the active screen the following decoded text, using the Mime type:
@@ -49,15 +49,15 @@ Echo to the active screen the following decoded text, using the Mime type:
 <H4>Decoding Quirks</H4>
 Because base64/mime decodes from 4 text to 3 bytes, and base32 decodes from 8 text to 5 bytes, there can be strings where adding an additional digit to the encoding string does not result in longer output, due to each base64 digit representing 6 bits and base32 digits representing 5.
 
-As with most decoders, even though encoders fill unused bit positions with '0' bits, $decode ignores if they are not 0's. For example, every encoded string created by $encode which uses '=' has at least 1 unused encoding bit that wasn't needed to encode the input byte string, which is why the mime encodings ending with '==' only ever have the final mime character being any of 'AQgw'.
+<p>As with most decoders, even though encoders fill unused bit positions with '0' bits, $decode ignores if they are not 0's. For example, every encoded string created by $encode which uses '=' has at least 1 unused encoding bit that wasn't needed to encode the input byte string, which is why the mime encodings ending with '==' only ever have the final mime character being any of 'AQgw'.
 
-So, if creating a string containing random base64 or base32 characters, if the length is such that $encode would have added '=' padding, there will be multiple characters in the final position who are treated as if the same when the string is decoded.
+<p>So, if creating a string containing random base64 or base32 characters, if the length is such that $encode would have added '=' padding, there will be multiple characters in the final position who are treated as if the same when the string is decoded.
 <pre class ="code">
 //echo -a $decode(YmJiYmE,m) $decode(YmJiYmF,m) $decode(YmJiYmG,m) $decode(YmJiYmH,m) $decode(YmJiYmI,m) -> bbbba bbbba bbbba bbbba bbbbb
 </pre>
 Though decode does not currently require the presence of the '=' padding so it could correctly decode the string, some past versions might, and it won't harm anything to append a '=' to the encoded string to be certain.
 
-Base32's decoder is designed to support Google Authenticator format, which means that it ignores spaces padding, but also ignores hyphens, and accepts the 018 digits as if they were mistakes intending to be the base32 symbols O L B:
+<p>Base32's decoder is designed to support Google Authenticator format, which means that it ignores spaces padding, but also ignores hyphens, and accepts the 018 digits as if they were mistakes intending to be the base32 symbols O L B:
 
 <pre class ="code">
 //echo -a $decode(obqwg2ln,a) same as $decode(= - = 0=8=q=w=G=2=1=n = - =,a)
@@ -78,7 +78,7 @@ Decode returns null output caused by decoding 0 or 1 encoding symbols, so one of
 <H4>Decryption Quirks</H4>
 Even though /help indicates the decryption syntax for $decode is the same as the encryption syntax for $encode, $decode is designed to intentionally ignore several switches, or to ignore their content.
 <br>
-For example, $encode always pads 1-8 bytes to make the message have a padded length that's a multiple of 8, and defaults to applying PKCS#7 padding to messages, unless using any of 3 padding switches to override (n = 0x80 and 0x00's, z = 0x00's p = spaces). However, $decode ignores your usage of padding switches, and instead attempts to match the end of the decrypted string against all 4 types of padding. This next example shows the result of using 'z' padding for certain message lengths where the final text character is a codepoint 128-or-greater that's a multiple of 64, whose UTF8 encoding ends with byte value 128. In these cases, $decode matches the final byte of the message as if it is part of 'n' padding, resulting in the final character of the text displayed as garbled.
+<p>For example, $encode always pads 1-8 bytes to make the message have a padded length that's a multiple of 8, and defaults to applying PKCS#7 padding to messages, unless using any of 3 padding switches to override (n = 0x80 and 0x00's, z = 0x00's p = spaces). However, $decode ignores your usage of padding switches, and instead attempts to match the end of the decrypted string against all 4 types of padding. This next example shows the result of using 'z' padding for certain message lengths where the final text character is a codepoint 128-or-greater that's a multiple of 64, whose UTF8 encoding ends with byte value 128. In these cases, $decode matches the final byte of the message as if it is part of 'n' padding, resulting in the final character of the text displayed as garbled.
 <pre class ="code">
 message ending with trailing spaces has them stripped if changing 'men' to 'mep':
 //var -s %a $encode(123 $+ $str($chr(32),4),me,key) , %b $qt($decode(%a,mez,key))
@@ -87,7 +87,7 @@ final byte of message is lost:
 //bset -t &v 8 0 | while ($bvar(&v,0) == 8) { bset -tc &v 1 $str(`,$rand(1,7)) $+ $chr($calc(64*$rand(2,40))) } | echo -a original: = $bvar(&v,1-) $bvar(&v,1-).text | noop $encode(&v,bmez,key) $decode(&v,bmez,key) | echo 4 -a decrypted = $bvar(&v,1-) $bvar(&v,1-).text
 </pre>
 Solution: You should avoid using 'p' padding which can strip trailing spaces from the message, and same for using 'z' padding for binary strings which could end with 0x00, or with text strings which could end with byte value 128.
-<br>
+<p>
 Encrypting by default creates a random salt, then precedes the encrypted string with a 16-byte header as the "Salted__" label followed by the 8 bytes of the random salt being used. If using the 's' switch, that allows specifying a user-defined salt instead of letting one be randomly generated. When $decode sees the 1st 8 bytes of the ciphertext matching the 'Salted__' string, it ignores the 's' parameter you used, and instead uses the 8 bytes found in the ciphertext block following the 'Salted__'. However, $decode even does that when you used the 'l' switch to use a literal key instead of creating a hashed key based on the key parameter, and it ignores the 'i' switch instructing $decode to use a literal IV and to not generate a salted-key by combining the key parameter with what it 'thinks' is a salt. And that's the only reason the following can successfully decrypt the encrypted message:
 <pre class ="code">
 //var -s %encrypt $encode(message,mcs,key,salt1234) , %decrypt $decode(%encrypt,mcli,key,foobar)

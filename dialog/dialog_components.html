@@ -145,13 +145,13 @@ The button control is a user interface control that responds to click events.
 
 <b>/did</b>
 <br>
-<br><b>-f</b> - sets focus on the button
-<br><b>-t</b> - sets the button as the default button
-<br><b>-e</b> - enables the button
-<br><b>-b</b> - disables the button
-<br><b>-v</b> - makes the button visible
-<br><b>-h</b> - hides the button
-<br><b>-r</b> - clears the button's text (caption)
+<br><b>-f</b> - Sets focus on the button
+<br><b>-t</b> - Sets the button as the default button
+<br><b>-e</b> - Enables the button
+<br><b>-b</b> - Disables the button
+<br><b>-v</b> - Makes the button visible
+<br><b>-h</b> - Hides the button
+<br><b>-r</b> - Clears the button's text (caption)
 <br><b>-a</b> - Adds to the button's text (caption)
 
 <br>
@@ -164,12 +164,12 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 Without any property, return the text (caption) of the button, same as the .text  property
 
 Properties:
-<br><b>.text</b> - returns the text of the button (caption)
-<br><b>.len</b> - returns the length of the button's text (caption)
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
+<br><b>.text</b> - Returns the text of the button (caption)
+<br><b>.len</b> - Returns the length of the button's text (caption)
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the button is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>sclick</b> Triggers upon single click
@@ -223,15 +223,15 @@ The checkbox control is a user interface element that permits the user to select
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the checkbox
-<br><b>-t</b> - sets the checkbox as the default control
-<br><b>-e</b> - enables the checkbox
-<br><b>-b</b> - disables the checkbox
-<br><b>-v</b> - makes the checkbox visible
-<br><b>-h</b> - hides the checkbox
-<br><b>-c</b> - mark the checkbox as checked
-<br><b>-u</b> - mark the checkbox as unchecked, if you use -cu, it marks a 3dstate checkbox as indeterminate.
-<br><b>-r</b> - clear the text of the checkbox (caption)
+<br><b>-f</b> - Sets focus on the checkbox
+<br><b>-t</b> - Sets the checkbox as the default control
+<br><b>-e</b> - Enables the checkbox
+<br><b>-b</b> - Disables the checkbox
+<br><b>-v</b> - Makes the checkbox visible
+<br><b>-h</b> - Hides the checkbox
+<br><b>-c</b> - Mark the checkbox as checked
+<br><b>-u</b> - Mark the checkbox as unchecked, if you use -cu, it marks a 3dstate checkbox as indeterminate.
+<br><b>-r</b> - Clear the text of the checkbox (caption)
 <br><b>-a</b> - adds text to the text of the checkbox (caption)
 
 <br>
@@ -247,13 +247,13 @@ Without any property, returns the text (caption) of the checkbox, same as the .t
 
 Properties:
 
-<br><b>.text</b> - returns the text (caption) of the checkbox line or Nth line
-<br><b>.len</b> - returns the length of the text of the checkbox (caption)
-<br><b>.state</b> - returns the state of the checkboxes, 0 = unchecked, 1 = checked, 2 = indeterminate (for 3stage checkboxes)
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the checkbox is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the checkbox is enabled, otherwise $false
+<br><b>.text</b> - Returns the text (caption) of the checkbox line or Nth line
+<br><b>.len</b> - Returns the length of the text of the checkbox (caption)
+<br><b>.state</b> - Returns the state of the checkboxes, 0 = unchecked, 1 = checked, 2 = indeterminate (for 3stage checkboxes)
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the checkbox is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the checkbox is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>sclick</b> Triggers upon single click
@@ -316,12 +316,12 @@ A text is simply a GUI label component with text designed for displaying informa
 
 <b>/did</b>
 <br>
-<br><b>-f</b> - sets focus on the text control
-<br><b>-e</b> - enable the text control
-<br><b>-b</b> - disable the text control
-<br><b>-v</b> - make the text control visible
-<br><b>-h</b> - hide the text control
-<br><b>-r</b> - clears the text of the text control
+<br><b>-f</b> - Sets focus on the text control
+<br><b>-e</b> - Enable the text control
+<br><b>-b</b> - Disable the text control
+<br><b>-v</b> - Make the text control visible
+<br><b>-h</b> - Hide the text control
+<br><b>-r</b> - Clears the text of the text control
 <br><b>-a</b> - adds text to the text control
 
 <br>
@@ -335,12 +335,12 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 Without any property, return the text (caption) of the text control, same as the .text property
 
 Properties:
-<br><b>.text</b> - returns the text of the text control (caption)
-<br><b>.len</b> - returns the length of the text of the text control (caption)
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the text control is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the text control is enabled, otherwise $false
+<br><b>.text</b> - Returns the text of the text control (caption)
+<br><b>.len</b> - Returns the length of the text of the text control (caption)
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the text control is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the text control is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>sclick</b> Triggers upon single click
@@ -392,12 +392,12 @@ If you want to e.g. enable / disable them together, you need to do that programm
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - set focus on the box
-<br><b>-e</b> - enable the box
-<br><b>-b</b> - disable the box
-<br><b>-v</b> - make the box visible
-<br><b>-h</b> - hide the box
-<br><b>-r</b> - clear the box's text (caption)
+<br><b>-f</b> - Set focus on the box
+<br><b>-e</b> - Enable the box
+<br><b>-b</b> - Disable the box
+<br><b>-v</b> - Make the box visible
+<br><b>-h</b> - Hide the box
+<br><b>-r</b> - Clear the box's text (caption)
 <br><b>-a</b> - Adds to the box's text (caption)
 
 <br>
@@ -411,12 +411,12 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 Without any property, return the text (caption) of the box, same as the .text  property
 
 Properties:
-<br><b>.text</b> - returns the text of the box (caption)
-<br><b>.len</b> - returns the length of the box's text (caption)
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the box is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the box is enabled, otherwise $false
+<br><b>.text</b> - Returns the text of the box (caption)
+<br><b>.len</b> - Returns the length of the box's text (caption)
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the box is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the box is enabled, otherwise $false
 
 <H4>Events</H4>This control has no events.
 
@@ -470,12 +470,12 @@ icon &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;filename
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the icon
-<br><b>-e</b> - enables the button
-<br><b>-b</b> - disables the button
-<br><b>-v</b> - makes the button visible
-<br><b>-h</b> - hides the button
-<br><b>-g</b> - sets a new icon/bmp to an icon control, /did -g &lt;name&gt; &lt;id&gt; [n] &lt;filename&gt; where [n] is the optional index for the icon in the file
+<br><b>-f</b> - Sets focus on the icon
+<br><b>-e</b> - Enables the button
+<br><b>-b</b> - Disables the button
+<br><b>-v</b> - Makes the button visible
+<br><b>-h</b> - Hides the button
+<br><b>-g</b> - Sets a new icon/bmp to an icon control, /did -g &lt;name&gt; &lt;id&gt; [n] &lt;filename&gt; where [n] is the optional index for the icon in the file
 
 <br>
 <br>
@@ -487,10 +487,10 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 
 Properties:
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the icon is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the icon is enabled, otherwise $false
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the icon is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the icon is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>mouse</b> Triggers when a mouse moves over the image.
@@ -551,20 +551,20 @@ The edit control can behave as a normal text box as well as a rich text control.
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - set focus on the editbox
-<br><b>-e</b> - enable the editbox
-<br><b>-b</b> - disable the editbox
-<br><b>-v</b> - make the editbox visible
-<br><b>-h</b> - hide the editbox
-<br><b>-r</b> - clear the edit's text
+<br><b>-f</b> - Set focus on the editbox
+<br><b>-e</b> - Enable the editbox
+<br><b>-b</b> - Disable the editbox
+<br><b>-v</b> - Make the editbox visible
+<br><b>-h</b> - Hide the editbox
+<br><b>-r</b> - Clear the edit's text
 <br><b>-a</b> - Adds to the editbox's text. You can use $crlf if the editbox has 'multi' style to add a newline.
-<br><b>-n</b> - enables the editbox
-<br><b>-m</b> - disables editbox
-<br><b>-c</b> - sets the selected text in the editbox, /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt; [[n [n2]], set the selection on line &lt;line&gt;, where n and n2 represent the start/end position of the selection in the line
+<br><b>-n</b> - Enables the editbox
+<br><b>-m</b> - Disables editbox
+<br><b>-c</b> - Sets the selected text in the editbox, /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt; [[n [n2]], set the selection on line &lt;line&gt;, where n and n2 represent the start/end position of the selection in the line
 <br><b>-d</b> - If you used the 'multi' style, deletes the Nth line in the editbox
 <br><b>-i</b> - Inserts the text on the Nth line of the editbox (if you are not using the 'multi' style, it overwrites everything)
 <br><b>-o</b> - overwrite the Nth line (if you are not using the 'multi' style, it overwrite everything) in the editbox
-<br><b>-j</b> - resets the edited setting of the editbox
+<br><b>-j</b> - Resets the edited setting of the editbox
 
 <br>
 <br>
@@ -577,18 +577,18 @@ $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 Without any property, return the text (caption) of the editbox, same as the .text  property
 
 Properties:
-<br><b>.text</b> - returns the text of the editbox or the Nth line if the 'multi' style has been used (caption)
-<br><b>.len</b> - returns the length of the editbox's text (caption)
-<br><b>.lines</b> - returns the number of lines in the editbox
+<br><b>.text</b> - Returns the text of the editbox or the Nth line if the 'multi' style has been used (caption)
+<br><b>.len</b> - Returns the length of the editbox's text (caption)
+<br><b>.lines</b> - Returns the number of lines in the editbox
 <br><b>.sel</b> - If N is non-zero, returns the line number of the starting position of selection
-<br><b>.seltext</b> - returns the selected text in the editbox
-<br><b>.selstart</b> - returns the position of the start of the selection in the editbox
-<br><b>.selend</b> - returns the position of the end of the selection in the editbox
-<br><b>.edited</b> - returns $true if the content of the editbox was changed
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
+<br><b>.seltext</b> - Returns the selected text in the editbox
+<br><b>.selstart</b> - Returns the position of the start of the selection in the editbox
+<br><b>.selend</b> - Returns the position of the end of the selection in the editbox
+<br><b>.edited</b> - Returns $true if the content of the editbox was changed
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the button is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>mouse</b> Triggers when a mouse moves over the text.
@@ -639,11 +639,11 @@ A scrollbar is a simple dialog component that can be used to scroll something. A
 
 <b>/did</b>
 <br>
-<br><b>-f</b> - sets focus on the scrollbar
-<br><b>-e</b> - enables the scrollbar
-<br><b>-b</b> - disables the scrollbar
-<br><b>-v</b> - makes the scrollbar visible
-<br><b>-h</b> - hides the scrollbar
+<br><b>-f</b> - Sets focus on the scrollbar
+<br><b>-e</b> - Enables the scrollbar
+<br><b>-b</b> - Disables the scrollbar
+<br><b>-v</b> - Makes the scrollbar visible
+<br><b>-h</b> - Hides the scrollbar
 <br><b>-z</b> - Sets the range of the scrollbar, /did -z &lt;name&gt; &lt;id&gt; [n [n2]]
 
 <br>
@@ -656,12 +656,12 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 
 Properties:
-<br><b>.sel</b> - returns the value of the current position of the scrollbar
-<br><b>.lines</b> - returns the current maximum value used for the range
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
+<br><b>.sel</b> - Returns the value of the current position of the scrollbar
+<br><b>.lines</b> - Returns the current maximum value used for the range
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the button is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>scroll</b> Triggers upon a scrollbar value change only.
@@ -695,7 +695,7 @@ on *:dialog:example:scroll:2:{
 <H2>Link</H2>
 A link control, just like a label, is a static control with the additional behavior that, when you put your mouse over the control, the cursor because a little hand, indicating you can interact with that link, usually to open an URL.
 
-To make the link actually open the web page, you need to code an ON DIALOG SCLICK event.
+To make the link actually open the web page, you need to code an on DIALOG SCLICK event.
 
 <H4>Synopsis</H4>
 <pre class ="code">link "text", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
@@ -712,11 +712,11 @@ To make the link actually open the web page, you need to code an ON DIALOG SCLIC
 
 <b>/did</b>
 <br>
-<br><b>-f</b> - sets focus on the link control
-<br><b>-e</b> - enables the link
-<br><b>-b</b> - disables the link
-<br><b>-v</b> - makes the link visible
-<br><b>-h</b> - hides the link
+<br><b>-f</b> - Sets focus on the link control
+<br><b>-e</b> - Enables the link
+<br><b>-b</b> - Disables the link
+<br><b>-v</b> - Makes the link visible
+<br><b>-h</b> - Hides the link
 <br><b>-a</b> - Adds text to the link's text (caption)
 <br><b>-r</b> - Deletes the text (caption) of the link
 
@@ -731,11 +731,11 @@ $did(&lt;name&gt;,&lt;id&gt;)[.property]
 Without any property, return the text (caption) of the link, same as the .text  property
 
 Properties:
-<br><b>.text</b> - returns the text (caption) of the link control
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the button is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the button is enabled, otherwise $false
+<br><b>.text</b> - Returns the text (caption) of the link control
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the button is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the button is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>sclick</b> Triggers upon single click
@@ -784,10 +784,10 @@ This element has no available styles.
 
 <b>/did</b>
 <br>
-<br><b>-e</b> - enables the menu/item
-<br><b>-b</b> - disables the menu/item
-<br><b>-v</b> - makes the menu/item visible
-<br><b>-h</b> - hides the menu/item
+<br><b>-e</b> - Enables the menu/item
+<br><b>-b</b> - Disables the menu/item
+<br><b>-v</b> - Makes the menu/item visible
+<br><b>-h</b> - Hides the menu/item
 <br><b>-a</b> - Adds an item to a menu, /did -a &lt;name&gt; &lt;menuid&gt; &lt;newid&gt; &lt;text&gt;
 <br><b>-i</b> - Inserts an item to a menu before the item identified by the specified &lt;id&gt;, /did -i &lt;name&gt; &lt;id&gt; &lt;newid&gt; &lt;text&gt;
 <br><b>-d</b> - Deletes the item from the menu, /did -d &lt;name&gt; &lt;id&gt;
@@ -859,15 +859,15 @@ Radio buttons are a group of controls that can be configured to only allow the u
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the radio
-<br><b>-t</b> - sets the radio as the default control
-<br><b>-e</b> - enables the radio
-<br><b>-b</b> - disables the radio
-<br><b>-v</b> - makes the radio visible
-<br><b>-h</b> - hides the radio
-<br><b>-c</b> - mark the radio as checked
-<br><b>-u</b> - mark the checkboradio as unchecked
-<br><b>-r</b> - clear the text of the radio (caption)
+<br><b>-f</b> - Sets focus on the radio
+<br><b>-t</b> - Sets the radio as the default control
+<br><b>-e</b> - Enables the radio
+<br><b>-b</b> - Disables the radio
+<br><b>-v</b> - Makes the radio visible
+<br><b>-h</b> - Hides the radio
+<br><b>-c</b> - Mark the radio as checked
+<br><b>-u</b> - Mark the checkboradio as unchecked
+<br><b>-r</b> - Clear the text of the radio (caption)
 <br><b>-a</b> - adds text to the text of the radio (caption)
 
 <br>
@@ -882,13 +882,13 @@ Without any property, returns the text (caption) of the radio, same as the .text
 
 Properties:
 
-<br><b>.text</b> - returns the text (caption) of the radio line or Nth line
-<br><b>.len</b> - returns the length of the text of the radio (caption)
+<br><b>.text</b> - Returns the text (caption) of the radio line or Nth line
+<br><b>.len</b> - Returns the length of the text of the radio (caption)
 * .state - returns the state of the radio, 0 = unchecked, 1 = checked
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the radio is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the radio is enabled, otherwise $false
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the radio is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the radio is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>sclick</b> Triggers upon single click
@@ -954,12 +954,12 @@ To add a control to a tab item, specify the "tab &lt;id&gt;" style for the contr
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the tab
-<br><b>-e</b> - enables the tab
-<br><b>-b</b> - disables the tab
-<br><b>-v</b> - makes the tab visible
-<br><b>-h</b> - hides the tab
-<br><b>-r</b> - clears the text of the tab item (caption)
+<br><b>-f</b> - Sets focus on the tab
+<br><b>-e</b> - Enables the tab
+<br><b>-b</b> - Disables the tab
+<br><b>-v</b> - Makes the tab visible
+<br><b>-h</b> - Hides the tab
+<br><b>-r</b> - Clears the text of the tab item (caption)
 <br><b>-a</b> - adds to the text of the tab item (caption)
 
 <br>
@@ -974,12 +974,12 @@ Without any property, returns the text (caption) of the radio, same as the .text
 
 Properties:
 
-<br><b>.text</b> - returns the text (caption) of the tab item
-<br><b>.len</b> - returns the length of the text of the tab item (caption)
-<br><b>.next</b> - returns the id of the next control in order of tab keypress
-<br><b>.prev</b> - returns the id of the previous control in order of tab keypress
-<br><b>.visible</b> - returns $true if the tab is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the tab is enabled, otherwise $false
+<br><b>.text</b> - Returns the text (caption) of the tab item
+<br><b>.len</b> - Returns the length of the text of the tab item (caption)
+<br><b>.next</b> - Returns the id of the next control in order of tab keypress
+<br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
+<br><b>.visible</b> - Returns $true if the tab is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the tab is enabled, otherwise $false
 
 <H4>$dialog</H4>
 
@@ -1040,19 +1040,19 @@ The list control provides a way to display a list of items.
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the list
-<br><b>-e</b> - enables the list
-<br><b>-b</b> - disables the list
-<br><b>-v</b> - makes the list visible
-<br><b>-h</b> - hides the list
-<br><b>-c</b> - selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
+<br><b>-f</b> - Sets focus on the list
+<br><b>-e</b> - Enables the list
+<br><b>-b</b> - Disables the list
+<br><b>-v</b> - Makes the list visible
+<br><b>-h</b> - Hides the list
+<br><b>-c</b> - Selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
 <br><b>-u</b> - Unselects the Nth line in the list
 * -k - keeps the selection of others lines when selecting/unselecting
 * -s - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as checked
 * -l - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as unchecked
-<br><b>-r</b> - clears the list
+<br><b>-r</b> - Clears the list
 <br><b>-a</b> - adds a line to the end of the list
-<br><b>-d</b> - deletes the Nth line in the list
+<br><b>-d</b> - Deletes the Nth line in the list
 <br><b>-i</b> - Inserts a line at Nth line position in the list
 <br><b>-o</b> - overwrites the Nth line with the next text in the list
 * -z - resets the width of the horizontal scrollbar in the list
@@ -1067,15 +1067,15 @@ $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 
-<br><b>.text </b> - returns the Nth line in the list
-<br><b>.len </b> - returns the length of the Nth line in the list
-<br><b>.lines </b> - returns the number of lines in the list
-<br><b>.sel </b> - returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
-<br><b>.seltext </b> - returns the first selected line in the list
-<br><b>.next </b> - returns the id of the next control in tab key order
-<br><b>.prev </b> - returns the id of the previous control in tab key order
-<br><b>.visible </b> - returns $true if the list is visible, otherwise $false
-<br><b>.enabled </b> - returns $true if the list is enabled, otherwise $false
+<br><b>.text </b> - Returns the Nth line in the list
+<br><b>.len </b> - Returns the length of the Nth line in the list
+<br><b>.lines </b> - Returns the number of lines in the list
+<br><b>.sel </b> - Returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
+<br><b>.seltext </b> - Returns the first selected line in the list
+<br><b>.next </b> - Returns the id of the next control in tab key order
+<br><b>.prev </b> - Returns the id of the previous control in tab key order
+<br><b>.visible </b> - Returns $true if the list is visible, otherwise $false
+<br><b>.enabled </b> - Returns $true if the list is enabled, otherwise $false
 <br><b>.csel </b> - If the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
 <br><b>.cstate </b> - If the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
 
@@ -1142,15 +1142,15 @@ The combo control provides a way to choose an item from a selection of items in 
 <b>/did</b>
 <br>
 
-<br><b>-f</b> - sets focus on the combo
-<br><b>-e</b> - enables the combo
-<br><b>-b</b> - disables the combo
-<br><b>-v</b> - makes the combo visible
-<br><b>-h</b> - hides the combo
-<br><b>-c</b> - selects the Nth line in the combo: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
-<br><b>-r</b> - clears the combo, use N = 0 to clear the text of the editable editbox of the combo
+<br><b>-f</b> - Sets focus on the combo
+<br><b>-e</b> - Enables the combo
+<br><b>-b</b> - Disables the combo
+<br><b>-v</b> - Makes the combo visible
+<br><b>-h</b> - Hides the combo
+<br><b>-c</b> - Selects the Nth line in the combo: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
+<br><b>-r</b> - Clears the combo, use N = 0 to clear the text of the editable editbox of the combo
 <br><b>-a</b> - adds a line to the end of the combo, use N = 0 to add to the editable editbox of the combo
-<br><b>-d</b> - deletes the Nth line in the combo
+<br><b>-d</b> - Deletes the Nth line in the combo
 <br><b>-i</b> - Inserts a line at Nth line position in the combo
 <br><b>-o</b> - overwrites the Nth line with the next text in the combo
 
@@ -1165,15 +1165,15 @@ $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 
-<br><b>.text</b> - returns the Nth line in the combo, use N = 0 to access the text of the editable editbox of the combo
-<br><b>.len</b> - returns the length of the Nth line in the combo
-<br><b>.lines</b> - returns the number of lines in the combo
-<br><b>.sel</b> - returns the line number selected line in the combo
-<br><b>.seltext</b> - returns the first selected line in the combo
-<br><b>.next</b> - returns the id of the next control in tab key order
-<br><b>.prev</b> - returns the id of the previous control in tab key order
-<br><b>.visible</b> - returns $true if the list is visible, otherwise $false
-<br><b>.enabled</b> - returns $true if the list is enabled, otherwise $false
+<br><b>.text</b> - Returns the Nth line in the combo, use N = 0 to access the text of the editable editbox of the combo
+<br><b>.len</b> - Returns the length of the Nth line in the combo
+<br><b>.lines</b> - Returns the number of lines in the combo
+<br><b>.sel</b> - Returns the line number selected line in the combo
+<br><b>.seltext</b> - Returns the first selected line in the combo
+<br><b>.next</b> - Returns the id of the next control in tab key order
+<br><b>.prev</b> - Returns the id of the previous control in tab key order
+<br><b>.visible</b> - Returns $true if the list is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the list is enabled, otherwise $false
 
 <H4>Events</H4>
 <br><b>mouse</b> Triggers when a mouse moves the combo control.

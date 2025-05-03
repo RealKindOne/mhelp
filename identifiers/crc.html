@@ -15,8 +15,8 @@ $crc(plaintext|&binaryvar|filename[,N])
 <b>plaintext</b> - Used with N = 0, just the string you want the CRC-32 checksum hash of.
 <br><b>&binaryvar</b> - A binary variable, used with N = 1, return the CRC-32 checksum of the content of the binary variable.
 <br><b>filename</b> - A filename, used with N = 2, return the CRC-32 checksum of the content of the file.
-<br><b>N</b> Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename.<br />
-
+<br><b>N</b> Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename.
+<p>
 If the N parameter isn't used, the default 2 is used (which is different than $sha1 which has default of N=0.) Also different than $sha1, invalid N outside 0-2 range are treated as default 2 instead of creating an error.
 
 <H4>Properties</H4>
@@ -65,12 +65,11 @@ If the text doesn't have Unicode code points above 255, to avoid having Unicode 
 
 <H4>Error Messages</H4>
 None
-
+<p>
 $crc differs from $sha1 in that it returns no error messages.
-
+<p>
 For non-existent filenames, it returns 00000000 instead of halting script with an error.
-For calculating hash of $null string it returns nothing instead of the checksum of the null-string
-When given invalid N outside the 0-2 range, it uses default 2 instead of halting script with an error.
+For calculating hash of $null string it returns nothing instead of the checksum of the null-string. When given invalid N outside the 0-2 range, it uses default 2 instead of halting script with an error.
 
 <H4>Compatibility</H4>
 For $crc(filename):<br>

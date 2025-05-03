@@ -30,7 +30,7 @@ The advantage of using SASL, instead of sending the password as a /notice to Nic
 
 There's 2 different kinds of SASL: PLAIN and External (CertFP.)
 
-If you're worried about your password being intercepted by your ISP or someone else between you and the IRC server, that's not what this is for, and you can solve that problem by using the IRC network's SSL port, commonly at ports like +6697 +7000 +7001 +7070. For all practical purposes, it's the same as sending your password to NickServ. It is still sent from mIRC without being encrypted other than the SSL connection you're using, with the only difference being that it's sent to the server immediately after the ON CONNECT event, instead of being messaged to NickServ. Later I'll show how you can see the unencrypted password being sent in a @debug window.
+If you're worried about your password being intercepted by your ISP or someone else between you and the IRC server, that's not what this is for, and you can solve that problem by using the IRC network's SSL port, commonly at ports like +6697 +7000 +7001 +7070. For all practical purposes, it's the same as sending your password to NickServ. It is still sent from mIRC without being encrypted other than the SSL connection you're using, with the only difference being that it's sent to the server immediately after the on CONNECT event, instead of being messaged to NickServ. Later I'll show how you can see the unencrypted password being sent in a @debug window.
 
 If you're intimidated by the complexity of certificates, don't worry since mIRC makes it pretty simple to set up your certificate. Or, you can choose to create your own certificate yourself if you've installed OpenSSL.
 
