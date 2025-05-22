@@ -5,33 +5,35 @@
 <H1>mIRC Variables</H1>
 <br>
 <br>
-<b>mIRC variables</b> are items which can hold data temporarily, or permanently, for use at a later time.. You can create, edit, or delete them at any time. All mIRC variables must be prefixed with a % sigil (example %var or %cookies). Variables are untyped - therefore capable of storing letters, numbers, or strings at any given point.
+<b>mIRC variables</b> are items which can hold data temporarily, or permanently, for use at a later time. You can create, edit, or delete them at any time. All mIRC variables must be prefixed with a % sigil (example %var or %cookies). Variables are untyped - therefore capable of storing letters, numbers, or strings at any given point.
 
 <H4>Variable Scope: Global vs. Local</H4>
 
-There are two kinds of variables: local and global. <b>Scope</b> refers to the visibility of variables in your code. In other word, where these variables can be ''seen'' from.
+There are two kinds of variables: local and global. <b>Scope</b> refers to the visibility of variables in your code. In other word, where these variables can be seen from.
 
 <H4>Local Variables</H4>
 
-Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine  Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
-
-<br><b>Note:</b> Local variables can be seen from the execution of /scon or /scid:
+Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine. Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
+<p>
+<b>Note:</b> Local variables can be seen from the execution of /scon or /scid:
 <pre class ="code">
 //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
 </pre>
 
 Syntax:
 
-<pre class ="code">;single variable
+<pre class ="code">
+; single variable
 var %temp = value
 
-;multiple variables
-var %a = value, %b = second value, %c = and so on and so forth</pre>
+; multiple variables
+var %a = value, %b = second value, %c = and so on and so forth
+</pre>
 
-<br><b>Note:</b> Since mIRC 6.21, you can avoid using the = sign when using the /var command.
-
+<b>Note:</b> Since mIRC 6.21, you can avoid using the = sign when using the /var command.
+<p>
 Local variables are good for temporary things like string manipulations and math expressions. Most of your code will use local variables.
-
+<p>
 Below is a simple addition alias that uses two local variables:
 
 <pre class ="code">alias add {
@@ -51,7 +53,10 @@ alias wronger {
   echo -a %myvar
 }</pre>
 
-If you were to execute the above by typing <b>/wrong</b>, you would get the following error: <b>* /echo: insufficient parameters</b>. This is because the local variable, in this case <b>%myvar</b>, has been stored within the <b>wrong</b> alias code block, and is, therefore, unavailable to the <b>/wronger</b> alias that has been called.
+If you were to execute the above by typing <b>/wrong</b>, you would get the following error: <pre class ="code">
+* /echo: insufficient parameters
+</pre>
+This is because the local variable, in this case <b>%myvar</b>, has been stored within the <b>wrong</b> alias code block, and is, therefore, unavailable to the <b>/wronger</b> alias that has been called.
 
 <H4>Global Variables</H4>
 
@@ -62,8 +67,8 @@ Syntax:
 <pre class ="code">;create variable
 set %var value</pre>
 
-<b>Note:</b>The /set command does not use the = operator.
-<P>
+<b>Note:</b> The /set command does not use the = operator.
+<p>
 Because the /set command can only set a single variable at a time, you can use the /var command in conjunction with -g switch to set multiple global variables.
 
 <pre class ="code">;multiple variables
@@ -302,16 +307,13 @@ The above code will echo the following:
 
 What this does is create a bunch of static variables, each with ascending-ordered numerical digits. You will notice we used the evaluation brackets around the variable counter, ''%x''. This allows mIRC to evaluate the variable, and attach it to the static portion of ''%array.''. Basically, during run-time, whatever the ''%x'' variable's value is will be automatically appended to ''%array.''.
 
-
-
 <br><b>Note:</b> If you have multiple dynamic variable to add together, you need to add another pair of $+ [ ... ] for each element or use [ [ $var(%var,1) ] ] :
-
+<pre class ="code">
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 ] ] ]
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 $+ [ %dynamic3 ] ] ] ]
   [ [ $var(static. $+ %dynamic1 $+ %dynamic2,1) ] ]
   etc..
-
-
+</pre>
 
 2. Using $eval
 
@@ -332,16 +334,15 @@ This method is easier to read/handle than the bracket, you can simply get the pl
 <H4>Special behaviors & quirks</H4>
 
 Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC doesn't evaluate it.
-<br>
+<p>
 Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose doesn't evaluate the variable name.
 
 <H4>Quirks in /var</H4>
 
 If most commands cannot preserve spaces, /var can preserve spaces in all situations except if you provide a single trailing space:
 <pre class ="code">//var -s %a $+($chr(32),a,$chr(32),$chr(32),b,$chr(32),$chr(32)),%b $+($chr(32),a,$chr(32),$chr(32),b,$chr(32)) | echo -a $len(%a) $len(%b)</pre>which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it's a single trailing space), you can use the new -p switch to fix this.
-
+<p>
 /var is calling /set for every assignment, but every assignment in /var must start with a %
-
 <pre class = "code">
 //var -s %a,$+(%,b) 1
 </pre>
@@ -358,7 +359,7 @@ Here the first assignment is ignored and %a is set to 2 properly, it it still po
 
 And just like /set, /var will combine $+ with the variable name://var -s %a $+ b value
 Does set %ab, evaluation brackets are not required to properly set the variable %ab
-
+<p>
 /var is also strict on switches, you cannot pass switches dynamically:
 
 <pre class = "code">
@@ -369,7 +370,7 @@ or
 //var %var s | var -g $+ %var %setting 1 | echo -ag > %var -- %setting
 </pre>
 
-is not doing the trick
+is not doing the trick.
 
 <H4>Quirks in /set /inc and /dec</H4>
 
@@ -392,7 +393,7 @@ works correctly, however /set also allow dynamic switches, this leads to a new q
 /unset suffers from an evaluation problem, a common problem is using the same logic as /set, for example:
 <pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b</pre>
 You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it won't, mIRC won't evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
-
+<p>
 To workaround this problem, you must use evaluation brackets to force the evaluation:
 <pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ [ %b ]</pre>
 

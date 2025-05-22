@@ -32,14 +32,14 @@ Alias example {
 }
 </pre>
 
-* NOTE: This is *NOT* a replacement for $ticks, and should not be used interchangeably with $ticks. While it returns a value very close to that of $ticks, it is calculated in a different manner, and the result slowly diverge further away from $ticks as the computer uptime increases. While ($ticks /1000) is very close to $ctime, that's not the case for ($ticksqpc /1000).
-
+<b>Note:</b> This is not a replacement for $ticks, and should not be used interchangeably with $ticks. While it returns a value very close to that of $ticks, it is calculated in a different manner, and the result slowly diverge further away from $ticks as the computer uptime increases. While ($ticks /1000) is very close to $ctime, that's not the case for ($ticksqpc /1000).
+<p>
 The source for the returned time value is QueryPerformanceCounter. QPC originally was similar to a counter for the number of cpu cycles since bootup. The rate at which it increased per second was QPF - QueryPerformanceFrequency - approximately 1/1000th of the gigahertz rating for the cpu. However, beginning with Win10 1809, QPF was changed to be 10 million regardless of the cpu's speed.
-
+<p>
 In order to have $ticksqpc return a milliseconds value instead of something that changes in the millions per second, it would need to obtain the QPF value and use that as a divisor. At least on Win 7 - where the $ticksqpc value would be something like (1000 * QPC/QPF) or (QPC / (QPF/1000)) - the value for $ticks and $ticksqpc are fairly well synchronized near bootup time, but as uptime increases the results drift further apart.
-
+<p>
 However, the $ticksqpc value is perfectly fine for benchmarking scripts with the expectation of getting a time value that's more accurate than being a multiple of 16 milliseconds. In the short term, the result of $calc($ticks - $ticksqpc) appears to fluctuate wildly, but that's because $ticksqpc is returning a more accurate passage of time, while the $ticks value is returning a value which may or may not have advanced by 16ms.
-
+<p>
 For fine-tuning benchmarks which have very short intervals, you should make the script wait until the time value has incremented before using that as the start-time. This first example counts how many times the while() loops within a millisecond. However, it will return results which fluctuate wildly because your command could have begun near the beginning or ending of that millisecond interval.
 
 <pre class ="code">
