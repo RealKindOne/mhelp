@@ -9,15 +9,15 @@ The <b>$sha512</b> identifier calculates the sha512 hash of a text, <a href="..\
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$sha512(plaintext|&binaryvar|filename,[N])
+$sha512(text|&binary|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<b>plaintext</b> - Used with N = 0, just the string you want the sha512 hash of.
-<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha512 hash of the content of the binvar.
+<b>text</b> - Used with N = 0, just the string you want the sha512 hash of.
+<br><b>&binary</b> - A binary variable, used with N = 1, returns the sha512 hash of the content of the binvar.
 <br><b>filename</b> - A filename, used with N = 2, returns the sha512 hash of the content of the file.
-<br>
-<br><b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
-
+<p>
+<b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename
+<p>
 If the N parameter isn't used, the default 0 is used (which is different than $crc which has default of N=2.)
 
 <H4>Properties</H4>

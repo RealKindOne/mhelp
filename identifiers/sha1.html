@@ -9,15 +9,15 @@ The <b>$sha1</b> identifier calculates the sha1 hash of a text, <a href="..\othe
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$sha1(plaintext|&binaryvar|filename,[N])
+$sha1(text|&binary|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<b>plaintext</b> - Used with N = 0, just the string you want the sha1 hash of.
-<br><b>&binaryvar</b> - A binary variable, used with N = 1, returns the sha1 hash of the content of the binvar.
+<b>text</b> - Used with N = 0, just the string you want the sha1 hash of.
+<br><b>&binary</b> - A binary variable, used with N = 1, returns the sha1 hash of the content of the binvar.
 <br><b>filename</b> - A filename, used with N = 2, returns the sha1 hash of the content of the file.
-<br>
-<br><b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename<br />
-
+<p>
+<b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename
+<p>
 If the N parameter isn't used, the default 0 is used (which is different than $crc which has default of N=2.)
 
 <H4>Properties</H4>
@@ -57,8 +57,6 @@ If the text doesn't have Unicode code points above 255, to avoid having Unicode 
 
 <pre class ="code">//bset -ta &string 1 chlo&#233; | echo -a $sha1(&string,1)</pre>
 
-
-
 <H4>Warning</H4>
 From v7.54 back through at least v6.35, and probably as far back as v6.3 when it was added, $sha1 can corrupt the contents of the &binvar it is hashing. If the length is 128+, and the file is split into 64-byte chunks, the 1st chunk is never affected, but each of the other 64-byte chunks that are not consisting entirely of 0x00 bytes is corrupted. This can be seen in the above example hashing the first 1000 bytes of mirc.exe, where v7.54 and earlier versions produce different hashes when repeating the exact same command against the same &binvar. In those same versions, this also affects using the same &binvar as the data hashed by $hmac when it uses sha1 has the hash. It returns the correct hash of the input &binvar in spite of destroying it.
 <pre class = "code">
@@ -85,14 +83,14 @@ Added: mIRC v6.3 (16 Aug 2007)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
-
-<a href="sha256.html">$sha256</a><br>
-<a href="sha384.html">$sha384</a><br>
-<a href="sha512.html">$sha512</a><br>
-<a href="md5.html">$md5</a><br>
 <a href="crc.html">$crc</a><br>
 <a href="hmac.html">$hmac</a><br>
 <a href="hotp.html">$hotp</a><br>
+<a href="md5.html">$md5</a><br>
+<a href="sha1.html">$sha1</a><br>
+<a href="sha256.html">$sha256</a><br>
+<a href="sha384.html">$sha384</a><br>
+<a href="sha512.html">$sha512</a><br>
 <a href="totp.html">$totp</a><br>
 </body>
 </html>

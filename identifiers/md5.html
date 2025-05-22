@@ -5,17 +5,17 @@
 <H1>$md5</H1>
 <br>
 <br>
-The <b>$md5</b> identifier returns the md5 hash value for the specified data.
+The <b>$md5</b>identifier calculates the MD5 hash of a text, <a href="..\other\binary_variables.html">binary_variables</a>, or file.
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$md5(text|&binvar|filename,N)
+$md5(text|&binary|filename,[N])
 </pre>
 <H4>Parameters</H4>
-<b>text</b> - plain text, to be used with N = 0 (default).
-<br><b>&binvar</b> - The content of the binary variable is used to calculate the hash, to be used with N = 1.
-<br><b>filename</b> - The content of the filename is used to calculate the hash,  to be used with N = 2.
-
+<b>text</b> - Used with N = 0, just the string you want the md5 hash of.
+<br><b>&binary</b> - A binary variable, used with N = 1, returns the md5 hash of the content of the binvar.
+<br><b>filename</b> - A filename, used with N = 2, returns the md5 hash of the content of the file.
 <H4>Properties</H4>
 None
 
@@ -28,9 +28,14 @@ Added: mIRC v6.03 (16 Aug 2002)
 <H4>Notes</H4>
 None
 <H4>See also</H4>
+<a href="crc.html">$crc</a><br>
+<a href="hmac.html">$hmac</a><br>
+<a href="hotp.html">$hotp</a><br>
+<a href="md5.html">$md5</a><br>
 <a href="sha1.html">$sha1</a><br>
 <a href="sha256.html">$sha256</a><br>
 <a href="sha384.html">$sha384</a><br>
 <a href="sha512.html">$sha512</a><br>
+<a href="totp.html">$totp</a><br>
 </body>
 </html>
