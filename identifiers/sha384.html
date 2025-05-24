@@ -11,6 +11,7 @@ The <b>$sha384</b> identifier calculates the sha384 hash of a text, <a href="..\
 <pre class ="code">
 $sha384(text|&binary|filename,[N])
 </pre>
+
 <H4>Parameters</H4>
 <b>text</b> - Used with N = 0, just the string you want the sha384 hash of.
 <br><b>&binary</b> - A binary variable, used with N = 1, returns the sha384 hash of the content of the binvar.
@@ -24,6 +25,7 @@ If the N parameter isn't used, the default 0 is used (which is different than $c
 <b>Note</b>: sha384 is a 'one way' cryptographic hash that's part of the SHA2 family, which also contains the sha224 sha256 and sha512 hashes, of which mIRC has not added sha224. sha384 is identical to the sha512 hash except for having a different initial 512-bit 'magic' constant, and that the hash digest displays only 6 of the 64-bit hashing variables instead of displaying all 8. This makes it no faster or slower than sha512, and no less or more secure than using the first 96 digits of the sha512 hash. Due to the 64 hex digits which aren't displayed, sha384 has 128 bits of strength against the 'length extension' attack, which is an attack against incorrect authentication using $sha384(&lt;secret&gt; &lt;public string&gt;) instead of using $hmac(public string, secret, sha512).
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 Echo the SHA384 hash of plain text string ''abc'' to the active window:
 <pre class ="code">//echo -a $sha384(abc)</pre>

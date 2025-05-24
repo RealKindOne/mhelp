@@ -12,6 +12,7 @@ The <b>$isutf</b> identifier returns the status of the text where 0 = not utf8 (
 <pre class ="code">
 $isutf(text)
 </pre>
+
 <H4>Parameters</H4>
 <b>text</b> - The text you want the status of
 
@@ -38,11 +39,13 @@ alias isbinvarutf {
   else { if ($sha256($1,1) == $sha256(&tempvar2,1)) return 2 | else return 0 }
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v6.17 (17 Feb 2006)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="utfencode.html">$utfencode</a><br>
 <a href="utfdecode.html">$utfdecode</a><br>

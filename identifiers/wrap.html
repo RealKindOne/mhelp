@@ -4,7 +4,8 @@
 <head><title>$wrap</title></head>
 <H1>$wrap</H1>
 <br>
-<br>The <b>$wrap</b> identifier returns the Nth line in text wrapped to the specified width in the specified font.
+<br>
+The <b>$wrap</b> identifier returns the Nth line in text wrapped to the specified width in the specified font.
 <p>
 This function is typically useful for picture window if you have to display text inside a specific rectangle and you have to wrap text.
 <p>
@@ -14,6 +15,7 @@ Note that the pN option is enabled by default and that control codes are preserv
 <pre class ="code">
 $wrap(text,font,size,width [,b[N]i[N]p[N]t[N]w[N] ],N)
 </pre>
+
 <H4>Parameters</H4>
 <b>text</b> - The text you want to know wrapping information about.
 <br><b>font</b> - The name of the font.
@@ -76,11 +78,13 @@ When changing %c to be the number 2 instead of $asc(M), the result for p1 change
 <pre class ="code">
 * result: b1 11 vs b0 10 vs p1 0 vs i1 10 vs i0 10 vs b1i1 11
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="width.html">$width</a><br>
 <a href="height.html">$height</a><br>

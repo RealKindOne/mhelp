@@ -11,6 +11,7 @@ The <b>$hotlink</b> identifier returns information about what triggered the <a h
 <pre class ="code">
 $hotlink(item)
 </pre>
+
 <H4>Parameters</H4>
 <b>word</b> - Returns the full word which matched the expression and triggered the event, same as $1, except that $hotlink(word) does not strip the word from control code.
 <br><b>match</b> - Returns the part of the word that was used for a comparison to gives the type of match. For example if you hover an operator on a channel with the word "&lt;@nick&gt;", $hotlink(match) is "nick" where $hotlink(word) is "&lt;@nick&gt;".

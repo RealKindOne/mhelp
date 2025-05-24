@@ -13,6 +13,7 @@ The <b>$gmt</b> identifier return the current GMT time value in <a href="ctime.h
 $gmt
 $gmt(date[,format])
 </pre>
+
 <H4>Parameters</H4>
 <b>no parameters</b> - Identifier returns ctime adjusted by the $timezone value
 <br><b>date</b> - Optional ctime number, overrides the default ctime. Returns the GMT time string in $asctime format. Ignores any fractions.
@@ -40,11 +41,13 @@ None
 //echo -a $gmt($calc(0+86400*365.25*(9999-1970)+86400*304.75-1))) is Fri Dec 31 23:59:59 9999
 valid range is -11644473599 through +253402300799
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="asctime.html">$asctime</a><br>
 <a href="date.html">$date</a><br>

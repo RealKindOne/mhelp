@@ -12,6 +12,7 @@ The <b>$server()</b> identifier returns information about servers in your IRC se
 <pre class ="code">
 $server(N/address,[group])[.property]
 </pre>
+
 <H4>Parameters</H4>
 <b>N/address</b> - References the Nth server or use the name you provided, if N = 0, returns total number of server. If N = -1, it identifies the current connection
 <br><b>[group]</b> - If you specify a group name, returns only servers for that group
@@ -45,6 +46,7 @@ Echo the domain name of the first server in the Dalnet group in the server list 
 <pre class ="code">
 //echo -a $server(1,Dalnet)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.7 (09 Dec 1996)
 <br>
@@ -56,6 +58,7 @@ Added: mIRC v4.7 (09 Dec 1996)
 7.69 : Added .anick, .email, .encoding, .itype, .key, .keytype, .nick, and .user properties.<br>
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="..\commands\server.html">/server</a><br>
 <a href="server.html">$server</a><br>

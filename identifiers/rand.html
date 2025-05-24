@@ -13,6 +13,7 @@ The <b>$rand</b> identifier returns a random integer from the specified range. I
 $rand(number1,number2)
 $rand(char1,char2)
 </pre>
+
 <H4>Parameters</H4>
 <b>number1,number2</b> - Starting/ending range of integers.
 <br><b>char1,char2</b> - Starting/ending characters in range of characters. Valid range $chr(1) through $chr(65535).
@@ -100,11 +101,13 @@ alias -l get_53bit_rand_num {
   return $calc($r(0,255) + $r(0,2047) * 256 + $r(0,2047) * 524288 + $r(0,2047) * 1073741824 + $r(0,4095) * 2199023255552)
 } ; 53bit value from joining bit sizes 12:11:11:11:8
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="r.html">$r</a><br>
 <a href="rands.html">$rands</a><br>

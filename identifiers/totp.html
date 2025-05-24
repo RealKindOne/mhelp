@@ -32,6 +32,7 @@ You can prevent your text passphrase from being interpreted as base-insensitive 
 <pre class ="code">
 $totp(key[, time[, hash[, digits[, timestep]]]])
 </pre>
+
 <H4>Parameters</H4>
 <b>key</b> - The key is optional and can be hex or base32 format where the key parameter, excluding spaces, is either a hex string of 40, 64, 128 or 256 digits - or is a base32 string of either 16, 26 or 32 length; otherwise the key parameter is plain UTF8 text. (base32 cannot have '=' padding).
 <br><b>time</b> - Optional integer [0,2^64-1], default to $ctime.
@@ -123,11 +124,13 @@ on *:CONNECT:{
   }
 }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 <a href="hotp.html">$hotp</a><br>

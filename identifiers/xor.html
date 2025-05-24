@@ -11,6 +11,7 @@ The <b>$xor</b> identifier returns the binary XOR of 2 numbers.
 <pre class ="code">
 $xor(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
+
 <H4>Parameters</H4>
 <b>N1,N2</b> = the numbers, in base10/decimal
 
@@ -19,6 +20,7 @@ $xor(&lt;N1&gt;,&lt;N2&gt;)
 
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 XOR is "Exclusive OR" comparison of a pair of bits. For each bit position it returns 0 if BOTH or NEITHER bits are 1, and returns 1 if exactly 1 of the pair is a 1-bit. In effect, every 1-bit in the 2nd number toggles the 0/1 state of the corresponding bit of the 1st number<br />
 
@@ -81,11 +83,13 @@ Result is 1, because both fractions are ignored.
 //echo -a $xor(-9999999999,0)
 ; Invalid negative number replaced with -4294967295, which is replaced with +1. Result is 1.
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="and.html">$and</a><br>
 <a href="or.html">$or</a><br>

@@ -15,10 +15,13 @@ The $ticksqpc allows scripts to detect the passage of milliseconds of time more 
 <pre class ="code">
 $ticksqpc
 </pre>
+
 <H4>Parameters</H4>
 None
+
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 When benchmarking this script using $ticks, it returns either 0 or 16 for 'time1' due to the long interval of the system timer's resolution. For 'time2' which uses $ticksqpc, the answer is somewhere between the 0 and 16 extremes, and repeating this alias has a result which won't vary as much as $ticks does.
 
@@ -57,6 +60,7 @@ Added: mIRC v7.64 (11 Dec 2020)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="ticks.html">$ticks</a><br>
 <a href="ctime.html">$ctime</a><br>

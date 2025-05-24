@@ -12,6 +12,7 @@ The <b>$hotp</b> identifier returns an HOTP (HMAC-based One-Time Password) based
 <pre class ="code">
 $hotp( [key] , count [, hash [, digits ]])
 </pre>
+
 <H4>Parameters</H4>
 <b>key</b> - The can be in a base16 format of either 40, 64 or 128 chars; or in a base32 format (not containing the '=' character) of any length that's a multiple of 8 greater than length 8; or plain text. The "Google Authenticator format" is implemented by allowing the base32 and base16 lengths to be upper/lower case-insensitive and optionally contain spaces, where the string length is evaluated before removing spaces, instead of the correct method where the string length is verified after spaces are removed. Also incorrect is allowing the spaces to be present when not following exactly 4 encoding characters. If the 40/64/128 lengths of base16 contain an odd number of non-space hex digits, the decoding method is undiscovered. For even-number count of hex digits, the hex is decoded to binary, with 0x00 bytes discarded. The remaining bytes are individually UTF-8 encoded. The correct method should have been to use these 3 lengths are the hex encoding of binary strings of length 20/32/64 bytes.
 <br><b>count</b> - Required. The 'counter' should never be used more than once with the same key, as it always returns the same number for the same number value. This is a 64-bit number with valid range 0 through 2^64-1. Non-numeric are removed from the end, and "+" removed from the beginning.
@@ -22,6 +23,7 @@ $hotp( [key] , count [, hash [, digits ]])
 
 <H4>Properties</H4>
 None
+
 <H4>Details</H4>
 
 The /help describes 4 formats for the key. Here is the sequence of parsing:.<br />
@@ -137,6 +139,7 @@ Added: mIRC v7.42 (17 Jul 2015)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="totp.html">$totp</a><br>
 <a href="hmac.html">$hmac</a><br>

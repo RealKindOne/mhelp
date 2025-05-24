@@ -23,21 +23,25 @@ $powmod(B,E,M)
 # Bit length of E
 # Number of '1' bits returned from $base(E,10,2)
 </pre>
+
 <H4>Parameters</H4>
 <b>B</b> - Integer Base of the exponentiation
 <br><b>E</b> - Integer Exponent
 <br><b>M</b> - Integer Modulus over which the exponentiation is found
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">
 //var -s %x $rand(3,2026) , %A $powmod(2,%x,2027) , %y $rand(3,2026) , %B $powmod(2,%y,2027) | echo -a $powmod(%A,%y,2027) = $powmod(%B,%x,2027)
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v7.72 (27 Nov 2022)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="modinv.html">$modinv</a><br>
 <a href="gcd.html">$gcd</a><br>

@@ -11,10 +11,12 @@ The <b>$upper</b> identifier returns text in upper case.
 <pre class ="code">
 $upper(text)
 </pre>
+
 <H4>Parameters</H4>
 <b>text</b> - The text you want in uppercase.
 <H4>Properties</H4>
 None
+
 <H4>Example</H4>
 <pre class ="code">//echo -a $upper(ab)</pre>
 
@@ -45,11 +47,13 @@ result: &#233; vs &#233;
 alias upper26 { returnex $regsubex($1,/([a-z])/g,$chr($calc($asc(\t) -32))) }
 alias lower26 { returnex $regsubex($1,/([A-Z])/g,$chr($calc($asc(\t) +32))) }
 </pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 
 <a href="lower.html">$lower</a><br>

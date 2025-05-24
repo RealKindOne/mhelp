@@ -11,6 +11,7 @@ The <b>$sha256</b> identifier calculates the sha256 hash of a text, <a href="..\
 <pre class ="code">
 $sha256(text|&binary|filename,[N])
 </pre>
+
 <H4>Parameters</H4>
 <b>text</b> - Used with N = 0, just the string you want the sha256 hash of.
 <br><b>&binary</b> - A binary variable, used with N = 1, returns the sha256 hash of the content of the binvar.
@@ -47,6 +48,7 @@ mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha256, if 
 <pre class ="code">
 //bset -ta &string 1 chlo&#233; | echo -a $sha1(&string,1)
 </pre>
+
 <H4>Error Messages</H4>
 Note that $sha256 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha256 is lowercase while $crc returns uppercase hex.
 
@@ -63,6 +65,7 @@ Added: mIRC v7.42 (17 Jul 2015)
 
 <H4>Notes</H4>
 None
+
 <H4>See also</H4>
 <a href="crc.html">$crc</a><br>
 <a href="md5.html">$md5</a><br>
