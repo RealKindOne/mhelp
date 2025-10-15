@@ -75,7 +75,7 @@ The socket mark is restricted to the same line limit as the rest of mIRC (just u
 $sock(&lt;handle&gt;).mark</pre>
 
 <H4>Transmitting a Request After a Successful Connection</H4>
-When a successful connection to the remote end-point has been established, the <a href="..\events\on_SockOpen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
+When a successful connection to the remote end-point has been established, the <a href="..\events\on_sockopen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 <p>
 <b>Note:</b> If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
 <p>

@@ -23,7 +23,7 @@ The search is for entire token, not partials, and the search is NOT case-sensiti
 None
 
 <H4>Example</H4>
-If this alias is executed in the <a href="..\events\on_Connect.html">on_Connect</a> and <a href="..\events\on_Disconnect.html">on_Disconnect</a> events, this triggers on BOTH events because <a href="..\other\operations.html#string_compare">isin</a> matches on CONNECT being a substring of DISCONNECT. Better is.
+If this alias is executed in the <a href="..\events\on_connect.html">on_Connect</a> and <a href="..\events\on_disconnect.html">on_Disconnect</a> events, this triggers on BOTH events because <a href="..\other\operations.html#string_compare">isin</a> matches on CONNECT being a substring of DISCONNECT. Better is.
 <pre class ="code">
 //if ($event isin DISCONNECT JOIN) goto LABEL
 </pre>
