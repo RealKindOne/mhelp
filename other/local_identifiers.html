@@ -15,8 +15,8 @@ Below is a list of all the local identifiers for all events.
 <a href="..\identifiers\event.html">$event</a> - Returns the name of the event.<br>
 <a href="..\identifiers\halted.html">$halted</a> - Returns $true if the default actions for this event has been halted.<br>
 <a href="..\identifiers\eventid.html">$eventid</a> - Returns an ID so that dll can evaluate local identifiers during events.<br>
-<a href="..\identifiers\eventparms.html">$eventparms</a> - If the event has a <a href="..\on_events\matchtext.html">matchtext</a>, returns the value of the matchtext with spaces preserved.<br>
-<a href="..\identifiers\matchkey.html">$matchkey</a> - If the event has a <a href="..\on_events\matchtext.html">matchtext</a>, returns the value of the matchtext, with spaces lost.
+<a href="..\identifiers\eventparms.html">$eventparms</a> - If the event has a <a href="..\events\matchtext.html">matchtext</a>, returns the value of the matchtext with spaces preserved.<br>
+<a href="..\identifiers\matchkey.html">$matchkey</a> - If the event has a <a href="..\events\matchtext.html">matchtext</a>, returns the value of the matchtext, with spaces lost.
 
 <H4>IRC related events which involve an user</H4>
 <a href="..\identifiers\address.html">$address</a> - Returns the address of the user triggering the event in the format user@host.<br>
@@ -95,8 +95,8 @@ Here is a list for non IRC events:
 <br>
 <br>
 <a href="..\identifiers\filename.html">$filename</a> - Used inside <a href="..\events\on_filesent.html">On_FileSent</a>, <a href="..\events\on_getfail.html">On_GetFail</a>, <a href="..\events\on_midiend.html">On_MidiEnd</a>, <a href="..\events\on_waveend.html">On_WaveEnd</a>, <a href="..\events\on_songend.html">On_SongEnd</a>, <a href="..\events\on_nosound.html">On_NoSound</a>, <a href="..\events\on_playend.html">On_PlayEnd</a>, <a href="..\events\on_mp3end.html">On_MP3End</a>, returns the filename that was involved<br>
-<a href="..\identifiers\hostline.html">$hostline</a> - Used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns the full line containing the word which made the event triggers.<br>
-<a href="..\identifiers\hostlink.html">$hostlink</a> - Used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns information about the context in which the on hotlink event triggered<br>
+<a href="..\identifiers\hotline.html">$hotline</a> - Used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns the full line containing the word which made the event triggers.<br>
+<a href="..\identifiers\hotlink.html">$hotlink</a> - Used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns information about the context in which the on hotlink event triggered<br>
 <a href="..\identifiers\hotlinepos.html">$hotlinepos</a> - Used inside <a href="..\events\on_hotlink.html">On_HotLink</a>, returns line number and word position of the matched word<br>
 <a href="..\identifiers\parseline.html">$parseline</a> - Used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the line being parsed<br>
 <a href="..\identifiers\parsetype.html">$parsetype</a> - Used inside <a href="..\events\on_parseline.html">On_ParseLine</a>, returns the type of message, in/out<br>
@@ -115,7 +115,7 @@ Here is a list for non IRC events:
 <a href="..\identifiers\menu.html">$menu</a> - Used inside menu { } event, returns the name of the menu<br>
 <a href="..\identifiers\menutype.html">$menutype</a> - Used inside menu { } event, returns the type of the menu<br>
 <a href="..\identifiers\menucontext.html">$menucontext</a> - Used inside menu { } event, returns the context in which the popup was created<br>
-<a href="..\identifiers\sockbar.html">$sockbar</a> - Used inside socket events where /sockread is allowed, returns the number of bytes read<br>
+<a href="..\identifiers\sockbr.html">$sockbr</a> - Used inside socket events where /sockread is allowed, returns the number of bytes read<br>
 <a href="..\identifiers\sockname.html">$sockname</a> - Used inside socket events, returns the name of the socket<br>
 <a href="..\identifiers\signal.html">$signal</a> - Used inside <a href="..\events\on_signal.html">On_Signal</a> event, returns the name of the signal.<br>
 <a href="..\identifiers\iaddress.html">$iaddress</a> - Used inside <a href="..\events\on_dns.html">On_Dns</a>, returns the IP address, if available<br>
