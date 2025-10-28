@@ -10,11 +10,11 @@ The <b>/server</b> command can be used to initiate a new server connection. Usin
 <H4>Synopsis</H4>
 Editing:
 <pre class ="code">
-/server -sar [server] [-p port] [-g group] [-w password] [-d description]] [-l [method [password]]] [-key [filename.pem]] [-keytype &lt;global|local&gt;] [-i nick anick email name] [-itype local|global] [-encoding [CodePageNumber]]
+/server -sar [address] [-d description] [-p port] [-g group] [-w password] [-l method password] [-keytype global/local] [-key filename] [-itype global/local] [-i nick anick email name]
 </pre>
 Connecting:
 <pre class ="code">
-/server [-46demnpfocztu] &lt;server/groupname/N&gt; [ -p port] [-l method [password]] [-key file] [-i nick anick email name] [-jn #channel pass]
+/server [-46demntpfoczu] &lt;server/groupname/N&gt; [port] [password] [-l method password] [-lname name] [-lerror [0|1]] [-keytype global/local] [-key filename] [-itype global/local] [-i nick anick email name] [-encoding N] [-jn #channel pass]
 </pre>
 
 <H4>Switches</H4>
@@ -34,6 +34,8 @@ If any of the -sar switches are used, the listed -switchnames are valid. Also se
 <br><b>-i</b> - Defines the nick/altnick/email/name fields filled into the 'logon' tab of that item in the serverlist. a 'name' string containing a space must be enclosed in doublequotes.
 <br><b>-itype</b> - Defines the local/global source for the info fields used at that server.
 <br><b>-encoding</b> - Allows overriding the default behavior of interpreting server messages as UTF8 encoding, and instead using a codepage number.
+<br><b>-lname</b> - Specify username
+<br><b>-lerror</b> - Specify sasl error options
 <br>
 <br>
 Otherwise:
