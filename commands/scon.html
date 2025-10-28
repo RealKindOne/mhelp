@@ -31,7 +31,7 @@ More information <a href="..\other\injection.html">here</a>.
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/scon -rat&lt;type&gt;s [Nth] [command]
+/scon -rsat&lt;type&gt; [Nth] [command]
 </pre>
 
 <H4>Switches</H4>
@@ -66,6 +66,7 @@ alias gamsg {
     halt
   }
   ; all active connections
+  ; if you don't use $unsafe, $1- is evaluated twice, watch out!
   scon -at1 amsg $unsafe($1-)
 }
 </pre>
@@ -85,6 +86,7 @@ alias listChans {
     }
 
     ; print channels
+    ; again, safer to use $unsafe
     scon -r echo -s $unsafe(Network: $network Channels: %chans)
 
     ; next connection
