@@ -134,6 +134,10 @@
 		<param name="Local" value="identifiers\appstate.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$argon2">
+		<param name="Local" value="identifiers\argon2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$asc">
 		<param name="Local" value="identifiers\asc.html">
 		</OBJECT>
@@ -1410,6 +1414,10 @@
 		<param name="Local" value="identifiers\passivedcc.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$pbkdf2">
+		<param name="Local" value="identifiers\pbkdf2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$pi">
 		<param name="Local" value="identifiers\pi.html">
 		</OBJECT>
@@ -2332,6 +2340,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/drawcopy">
 		<param name="Local" value="commands\drawcopy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/drawdll">
+		<param name="Local" value="commands\drawdll.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/drawdot">

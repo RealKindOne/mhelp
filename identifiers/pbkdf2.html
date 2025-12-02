@@ -1,0 +1,65 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$pbkdf2</title></head>
+<H1>$pbkdf2</H1>
+<br>
+<br>
+The <b>$pbkdf2</b> identifier calculates the PBKDF2 (Password-Based Key Derivation Function 2) for password hashing. PBKDF2 applies a pseudorandom function to the input password along with a salt and repeats the process many times.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$pbkdf2(text|&binary, salt|&binary, hash, length, iterations, [opts])
+</pre>
+
+<H4>Parameters</H4>
+<b>text|&binary</b> - The password input as text string or binary variable<br>
+<b>salt|&binary</b> - The salt value as text string or binary variable<br>
+<b>hash</b> - <b>md5</b>, <b>sha1</b>, <b>sha256</b>, <b>sha384</b>, <b>sha512</b>
+<b>length</b> - Desired output key length in bytes<br>
+<b>iterations</b> - Number of iterations (higher is more secure but slower)<br>
+<b>opts</b> - Optional: <b>b</b> to indicate both password and salt are binary variables
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo the PBKDF2-SHA256 hash of a password with salt:
+<pre class ="code">//echo -a $pbkdf2(myPassword, mySalt, sha256, 32, 100000)</pre>
+
+Using binary variables for password and salt:
+<pre class ="code">//bset -ta &pass 1 myPassword | bset -ta &salt 1 mySalt | echo -a $pbkdf2(&pass, &salt, sha256, 32, 100000, b)</pre>
+
+Generate a 64-byte key with SHA512:
+<pre class ="code">//echo -a $pbkdf2(SecretPassword, RandomSalt123, sha512, 64, 50000)</pre>
+
+<H4>Recommended Parameters</H4>
+For modern applications:<br>
+- <b>Hash</b>: SHA256 or SHA512 (avoid SHA1 for new systems)<br>
+- <b>Iterations</b>: 100,000+ (adjust based on performance requirements)<br>
+- <b>Salt length</b>: 16-32 bytes<br>
+- <b>Key length</b>: 32 bytes (256 bits) for AES-256, 64 bytes (512 bits) for higher security
+
+<H4>Comparison with Argon2</H4>
+PBKDF2 is an older standard that is:<br>
+- Less resistant to GPU/ASIC attacks than Argon2<br>
+- Simpler and more widely supported<br>
+- Suitable for systems where memory-hard properties are not required<br>
+- Still considered secure when using sufficient iteration counts
+
+<H4>Compatibility</H4>
+Added: mIRC v7.83 (12 Nov 2025)
+
+<H4>Notes</H4>
+- Use a cryptographically random salt of sufficient length<br>
+- Choose iteration counts that provide adequate security for your threat model<br>
+- For new systems, consider using $argon2 instead for better GPU resistance<br>
+- Always store the salt and iteration count along with the derived key
+
+<H4>See also</H4>
+<a href="argon2.html">$argon2</a><br>
+<a href="sha256.html">$sha256</a><br>
+<a href="hmac.html">$hmac</a><br>
+<a href="pbkdf2.html">$pbkdf2</a><br>
+</body>
+</html>

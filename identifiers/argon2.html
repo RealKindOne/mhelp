@@ -1,0 +1,43 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$argon2</title></head>
+<H1>$argon2</H1>
+<br>
+<br>
+The <b>$argon2</b> identifier calculates the Argon2 key derivation function for password hashing. Argon2 is a modern, memory-hard KDF designed to resist GPU and ASIC attacks.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$argon2(text|&binary, salt|&binary, hash, length, iterations, parallelism, memcost, [opts])
+</pre>
+
+<H4>Parameters</H4>
+<b>text|&binary</b> - The password input as text string or binary variable<br>
+<b>salt|&binary</b> - The salt value as text string or binary variable<br>
+<b>hash</b> - Argon2 variant: <b>2i</b> (data-independent), <b>2d</b> (data-dependent), or <b>2id</b> (hybrid)<br>
+<b>length</b> - Desired output key length in bytes <b>1 - 2048</b><br>
+<b>iterations</b> - Time cost (number of iterations) <b>1 - 9</b><br>
+<b>parallelism</b> - Degree of parallelism (number of threads) <b>1 - 9</b><br>
+<b>memcost</b> - Memory cost in KiB (kilobytes) <b>0 - 512</b> <br>
+<b>opts</b> - Optional: <b>b</b> to indicate both password and salt are binary variables
+
+<H4>Properties</H4>
+None
+
+<H4>Example</H4>
+Echo the Argon2id hash of a password with salt:
+<pre class ="code">//echo -a $argon2(myPassword, mySalt, 2id, 32, 3, 4, 512)</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.83 (12 Nov 2025)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="pbkdf2.html">$pbkdf2</a><br>
+<a href="sha256.html">$sha256</a><br>
+<a href="hmac.html">$hmac</a><br>
+</body>
+</html>

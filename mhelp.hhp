@@ -93,6 +93,7 @@ commands\dns.html
 commands\donotdisturb.html
 commands\dqwindow.html
 commands\drawcopy.html
+commands\drawdll.html
 commands\drawdot.html
 commands\drawfill.html
 commands\drawline.html
@@ -318,6 +319,7 @@ identifiers\aop.html
 identifiers\aop_.html
 identifiers\appactive.html
 identifiers\appstate.html
+identifiers\argon2.html
 identifiers\asc.html
 identifiers\asctime.html
 identifiers\asin.html
@@ -637,6 +639,7 @@ identifiers\parseline.html
 identifiers\parsetype.html
 identifiers\parseutf.html
 identifiers\passivedcc.html
+identifiers\pbkdf2.html
 identifiers\pi.html
 identifiers\pic.html
 identifiers\play.html

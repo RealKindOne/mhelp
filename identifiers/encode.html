@@ -1,3 +1,4 @@
+<!-- TODO --- Fix formatting ... This is a mess -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -25,9 +26,16 @@ $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 <br><b>a</b> - Target should be encoded using Base32
 <br><b>v</b> - Target should be encoded using Z85
 <br><b>N</b> - Integer Reference index for the Nth chunk (can't use without at least 1 switch)
+<br><b>y</b> - Punycode-encodes text with the ADA IDNA library using IDNA2008 and UTS46
+
+<br>
+<br>
+<b>Notes:</b>
+<br>
 
 <br><b>b</b> recognizes target is a binary variable instead of text beginning with '&'.
 <br><b>b</b> returns encoded output back to the same binary variable, then the $encode identifier 'returns' N where N is the new length of the &binary variable. Most common usage would be to $encode as an argument to noop or conditional checking if non-zero to detect failure.
+<p>
 * When target is text or %variable, content is UTF-8 encoded before encoding. To avoid this, you must load text into a binary variable using 'bset -ta' then use $encode's '<b>b</b>' switch to allow using that binary variable as the target. (Assuming string does not contain codepoints 256+)
 <br><b>m</b> mime/base64 and '<b>u</b>' UUencode encode 3 bytes into 4 printable characters, with u also prepending a length byte before each chunk of up to 60 encoded characters.
 <br><b>a</b> Base32 encodes 5 bytes into 8 printable characters.
@@ -88,9 +96,10 @@ Padding of 8-byte blocks with 1-8 bytes of padding ensures encryption sees binar
 <br><b>n</b> Bit Padding = Appends $chr(128) character followed by 0-7 0x00's
 <br><b>p</b> Appends 1-8 $chr(32) spaces
 <br><b>z</b> Appends 1-8 0x00 nulls
-* Due to the broken by-design behavior of $decode, the 'z' padding switch should NOT be used, even for text messages which cannot contain the 0x00's appended by 'z' padding. Instead of removing the indicated type of padding, $decode ignores any padding switches used, and instead searches for all 4 supported types of padding. The attempt to match 'z' padding has a false match with 'n' padding if the plaintext ends with the 0x80 byte and the length of the plaintext is not already a length that's a multiple of 8, as happens for '''ALL''' unicode codepoints 128+ which are a multiple of 64. You cannot reliably detect use of bad keys by checking the length of the decrypted string, because decrypting with the wrong password has a 4/256 chance of false matching padding due to matching at minimum final byte values being any of the 4: 0x00 0x20 0x01 0x80. Example of the final character of the text message being destroyed by using 'z' padding:
+* Due to the broken by-design behavior of $decode, the 'z' padding switch should NOT be used, even for text messages which cannot contain the 0x00's appended by 'z' padding. Instead of removing the indicated type of padding, $decode ignores any padding switches used, and instead searches for all 4 supported types of padding. The attempt to match 'z' padding has a false match with 'n' padding if the plaintext ends with the 0x80 byte and the length of the plaintext is not already a length that's a multiple of 8, as happens for <b>ALL</b> unicode codepoints 128+ which are a multiple of 64. You cannot reliably detect use of bad keys by checking the length of the decrypted string, because decrypting with the wrong password has a 4/256 chance of false matching padding due to matching at minimum final byte values being any of the 4: 0x00 0x20 0x01 0x80. Example of the final character of the text message being destroyed by using 'z' padding:
+<pre class ="code">
 //bset -t &v 8 0 | while (8 // $bvar(&v,0)) { bset -tc &v 1 $str(.,$r(1,7)) $+ $chr($calc(64*$rand(3,800))) } | echo -a original: = $bvar(&v,1-) displays as: $bvar(&v,1-).text | noop $encode(&v,bmcz,key) $decode(&v,bmcz,key) | echo 4 -a decrypted = $bvar(&v,1-) displays.... as: $bvar(&v,1-).text
-
+</pre>
 <b>p</b> padding is OK to use with text messages where removing 1-7 extra trailing spaces is harmless. But due to the broken $decode handling of padding, you should avoid using 'z' padding, and is best to use only the 'n' switch or PKCS#7 from no-padding-switch used.
 
 If possible, use mIRC version v7.58+ which fixes most of the security/design issues with $encode. Starting with v7.56:<br/>
@@ -226,8 +235,8 @@ returnex $regsubex(foo,%a,/(\d+)\s*/g,$chr(\t))
 }
 (1st variant uses $rands, 2nd uses $rand, 3rd allows salt to contain 0x00 if not preceding byte values 1-255)
 </pre>
-
-* Note: Because '<b>r</b>' switch is CBC mode without authentication, the decrypted message is vulnerable to trace-less bit-flipping of the 1st 8 bytes of the message into anything the attacker wishes by simply manipulating the IV and knowing the exact contents of the 1st 8 bytes of the plaintext message. The attacker does not need to know the key, nor even need to see how the message has been encrypted. This is <b>not</b> a Blowfish weakness, as the same thing would happen with AES where the larger blocksize would expose 16 bytes instead of 8. As an example, use any message where the 1st 8 bytes are all alpha characters and which do NOT contain a space character. Then encrypt with any lower-case text salt, and decrypt with the upper-case equivalent. This results in the decrypted message having the upper/lower case of each text character flipped, but the remainder of the message is NOT affected:
+<p>
+<b>Note:</b> Because '<b>r</b>' switch is CBC mode without authentication, the decrypted message is vulnerable to trace-less bit-flipping of the 1st 8 bytes of the message into anything the attacker wishes by simply manipulating the IV and knowing the exact contents of the 1st 8 bytes of the plaintext message. The attacker does not need to know the key, nor even need to see how the message has been encrypted. This is <b>not</b> a Blowfish weakness, as the same thing would happen with AES where the larger blocksize would expose 16 bytes instead of 8. As an example, use any message where the 1st 8 bytes are all alpha characters and which do NOT contain a space character. Then encrypt with any lower-case text salt, and decrypt with the upper-case equivalent. This results in the decrypted message having the upper/lower case of each text character flipped, but the remainder of the message is NOT affected:
 <pre class ="code">
 //var -s %iv $regsubex($str(x,8),/x/g,$rand(a,z)) , %msg $encode(BitFlipping Example,mci,key,$upper(%iv)) | echo -a $decode(%msg,mci,key,$lower(%iv))
 result: bITfLIPPing Example
@@ -261,15 +270,16 @@ Your script must check to verify that %key is not null, or possibly halt the scr
 2. Silently ignores invalid salt and IV parameters longer than 8, producing identical outputs, such as when using $ctime as the IV during a 100-seconds interval:
 /timer 110 1 echo -sg $ctime : $encode(message,mcs,$null,$ctime)
 (Only difference between '<b>i</b>' and <b>ir</b> is that <b>ir</b> stuffs the IV parm into the header as if it's random. The extra 16 byte header lengthens the encrypted string. Your script must verify that $len(%saltparameter) is not greater than 8.
+
 3. Padding is broken because $decode does not let you recover the original message by specifying the 1 of 4 types of padding to remove. Also, other than scripting to check the length a decrypted &binvar, $decode does not warn you that the message did not contain valid padding, and even then it does not warn you if the wrong kind of padding was matched. For every message encoded using 'z' padding that's not a multiple of 8 bytes and which ends with a codepoint that's a multiple of 64 greater than 64 ends with the byte value 128: $decode makes a false match with 'n' padding, causing the final byte of the last character's encoding to be stripped, resulting in the final character of the text being displayed incorrectly. Your script should encode use the 'n' switch or using none of the n|p|z switches. By not warning whether the padding was wrong/missing, this makes it hard to detect whether the string has been maliciously truncated intransit.
 <pre class ="code">
 //bset -t &v 8 0 | while ($bvar(&v,0) == 8) { bset -tc &v 1 $str(.,$rand(1,7)) $+ $chr($calc(64*$rand(3,1023))) } | echo -a original: = $bvar(&v,1-) $bvar(&v,1-).text | noop $encode(&v,bmcz,key) $decode(&v,bmcz,key) | echo 4 -a decrypted = $bvar(&v,1-) $bvar(&v,1-).text
 </pre>
-
-* NOTE: Your key should be long enough to make it difficult for someone to brute-force guess it. You can't count on the guesser using a mIRC script which contains overhead which slows down the guessing. Beginning v7.56, you can use a longer key parameter up to 612 bytes, and 7.72 increases to 2148 bytes, and that string will be hashed to generate the key, instead of the hashing looking at only the 1st 56 bytes of the key parameter. When using '<b>r</b>' without 'l', the key parameter is hashed in a way which does not generate more than 2^128 possible keys. The hash is derived using the $md5 function, so $encode(string,mcir,%key,iv) generates identical encryption passwords from all %key which have matching MD5 hash.
-
+<p>
+<b>NOTE</b> Your key should be long enough to make it difficult for someone to brute-force guess it. You can't count on the guesser using a mIRC script which contains overhead which slows down the guessing. Beginning v7.56, you can use a longer key parameter up to 612 bytes, and 7.72 increases to 2148 bytes, and that string will be hashed to generate the key, instead of the hashing looking at only the 1st 56 bytes of the key parameter. When using '<b>r</b>' without 'l', the key parameter is hashed in a way which does not generate more than 2^128 possible keys. The hash is derived using the $md5 function, so $encode(string,mcir,%key,iv) generates identical encryption passwords from all %key which have matching MD5 hash.
+<p>
 When using a salted key (<b>c</b> without '<b>r</b>' or '<b>i</b>' switches) the hash method has some 448-bit keys which can never be generated from every salt string, but all possible long key parameter strings against a fixed salt can generate well over 2^400 different encryption keys.<br/>
-
+<p>
 While the encryption does not include authentication, that issue can be largely mitigated. Authentication would involve a lengthening of the ciphertext which can make it less likely that the encoded encrypted string can fit within the limited length of an IRC message. However, when using a salt, both the per-message key and per-message IV are a hash result that's shielded from trivial tampering. To defend against the ciphertext being chopped short, if the ciphertext is in a &binvar, you can determine the decrypted padded-message-length inside the ciphertext based on the length of the mime string, so if the decoded string length indicates that no padding was removed, that indicates that the ciphertext was not created by $encode. There is still a small chance that padding can be removed from a truncated message without containing spurious characters, but you can also do something like ending your plaintext always with a string that you never put into the message, like XYZ, and then can check that your decrypted message ends with your magic label.
 
 <H4>Compatibility</H4>

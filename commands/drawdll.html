@@ -1,0 +1,59 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>/drawdll</title></head>
+<H1>/drawdll</H1>
+<br>
+<br>
+The <b>/drawdll</b> command that allows a script to pass the active memory HDC and HBITMAP handle for a @window to a custom DLL, which can then draw directly to it.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+/drawdll -n &lt;@window&gt; &lt;dllname&gt; &lt;procname&gt; [data]
+</pre>
+
+<H4>Switches</H4>
+<b>-n</b> - TODO
+
+<H4>Parameters</H4>
+TODO
+
+<H4>Example</H4>
+Draws a small black dot in the top left of the window:
+<pre class ="code">
+alias test {
+  window -p @test 100 100 200 200
+  drawdll @test M:\mIRC\DLL\dll.dll draw
+}
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v7.83 (12 Nov 2025)
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="..\identifiers\window.html">$window</a><br>
+<a href="..\identifiers\window_.html">$window()</a><br>
+<a href="..\identifiers\click.html">$click</a><br>
+<a href="..\identifiers\mouse.html">$mouse</a><br>
+<a href="..\identifiers\inellipse.html">$inellipse</a><br>
+<a href="..\identifiers\inrect.html">$inrect</a><br>
+<a href="..\identifiers\inroundrect.html">$inroundrect</a><br>
+<a href="..\identifiers\inpoly.html">$inpoly</a><br>
+<a href="..\identifiers\onpoly.html">$onpoly</a><br>
+<a href="..\identifiers\rgb.html">$rgb</a><br>
+<a href="..\identifiers\getdot.html">$getdot</a><br>
+<a href="..\identifiers\height.html">$height</a><br>
+<a href="drawcopy.html">/drawcopy</a><br>
+<a href="drawfill.html">/drawfill</a><br>
+<a href="drawline.html">/drawline</a><br>
+<a href="drawpic.html">/drawpic</a><br>
+<a href="drawrect.html">/drawrect</a><br>
+<a href="drawreplace.html">/drawreplace</a><br>
+<a href="drawsave.html">/drawsave</a><br>
+<a href="drawscroll.html">/drawscroll</a><br>
+<a href="drawtext.html">/drawtext</a><br>
+</body>
+</html>
