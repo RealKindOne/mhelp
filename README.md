@@ -1,10 +1,14 @@
 # mhelp
 
-Unofficial help file for commands, identifiers, on events, and other things.
+This unofficial help file is intended to document all parts of mIRC Scripting in a more detailed manner than the official help file.
 
+This file only includes current or previously documented features. It must exist in the versions.txt OR a current/previous version of mirc.chm or mirc.hlp. If a feature is depreciated or removed it will be noted.
 
-NOTE: Multiple pages have formatting issues. They are slowly being worked on.
+Undocumented commands, identifiers, switches, properties, onEVENT, and others things will NOT be included as they can possibly be removed at anytime.
 
+<b>NOTE:</b> THIS HELP FILE IS NOT COMPLETE AND HAS BROKEN OR MISSING PARTS DUE TO THE IMPORTING.
+
+<b>NOTE:</b> Check here for newer versions: https://github.com/RealKindOne/mhelp/tags
 
 ## Compiling
 
