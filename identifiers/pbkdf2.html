@@ -16,8 +16,9 @@ $pbkdf2(text|&binary, salt|&binary, hash, length, iterations, [opts])
 <b>text|&binary</b> - The password input as text string or binary variable<br>
 <b>salt|&binary</b> - The salt value as text string or binary variable<br>
 <b>hash</b> - <b>md5</b>, <b>sha1</b>, <b>sha256</b>, <b>sha384</b>, <b>sha512</b>
-<b>length</b> - Desired output key length in bytes<br>
-<b>iterations</b> - Number of iterations (higher is more secure but slower)<br>
+<b>length</b> - Desired output key length in bytes <b>1 - 2048</b><br>
+<!-- 10,000,000  iterations verified; --->
+<b>iterations</b> - Number of iterations (higher is more secure but slower) <b>1000 - 10000000</b><br>
 <b>opts</b> - Optional: <b>b</b> to indicate both password and salt are binary variables
 
 <H4>Properties</H4>
