@@ -25,7 +25,6 @@ $bfind(&binvar, N , M , [name])[.property]
 <H4>Properties</H4>
 <b>.text</b> - Treats a numeric N as text instead of bytes value, also decode bytes from utf8 before searching.
 <br><b>.textcs</b> - When M is recognized as text, search is performed as case-sensitive.
-<br><b>.ansi</b> - The bytes of the binvar are not decoded from utf8 before searching.
 <br><b>.regex</b> - Performs a regex search, you can use the optional 4th name parameter to reference captured group later on. The N parameter is the Nth position in the binvar at which the input string for the regex engine starts, so that $bfind(&var,3,/^pattern/).regex are possible where ^ matches because the input string starts at byte 3 in the binvar.
 
 <H4>Example</H4>
@@ -48,7 +47,6 @@ Added: mIRC v5.7 (02 Feb 2000)
 <br>
 <br>
 v5.7 : Added .text property.<br>
-v7.42: Added .ansi property.<br>
 v7.58: Added .textcs property.<br>
 v7.62: Added .regex property.
 
