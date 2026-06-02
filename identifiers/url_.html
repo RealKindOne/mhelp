@@ -1,23 +1,24 @@
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
-<head><title>$url</title></head>
-<H1>$url</H1>
+<head><title>$url()</title></head>
+<H1>$url()</H1>
 <br>
 <br>
-The <b>$url</b> identifier returns the current url in your main browser.
+The <b>$url()</b> identifier returns information about URL in the URL list window.
 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$url
+$url(&lt;N&gt;)[.properties]
 </pre>
 
 <H4>Parameters</H4>
-None
+<b>N</b> - The Nth URL in the list or return the total number of URL if N = 0.
 
 <H4>Properties</H4>
-None
+<b>.desc</b> - Returns the description of the URL
+<br><b>.group</b> - Returns the group of the URL
 
 <H4>Example</H4>
 <pre class ="code">//echo -a $url</pre>
@@ -30,6 +31,7 @@ None
 
 <H4>See also</H4>
 <a href="..\commands\url.html">/url</a><br>
-<a href="url_.html">$url()</a><br>
+<a href="url.html">$url</a><br>
+
 </body>
 </html>

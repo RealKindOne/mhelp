@@ -1950,6 +1950,10 @@
 		<param name="Local" value="identifiers\url.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$url()">
+		<param name="Local" value="identifiers\url_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$urlget">
 		<param name="Local" value="identifiers\urlget.html">
 		</OBJECT>
