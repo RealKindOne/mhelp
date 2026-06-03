@@ -34,22 +34,22 @@ both return ALL characters beginning at position 2. Omitting N avoids the need t
 //echo -a $mid(abcdefghij,2,9999)
 </pre>
 
-returns 2 characters beginning at position 6th from the end. Is equivalent to:
+Returns 2 characters beginning at position 6th from the end. Is equivalent to:
 <pre class ="code">
 //echo -a $mid(abcdefghij,-6,2)
 //echo -a $left($right(abcdefghij,6) ,2)
 </pre>
 
-returns ALL characters beginning at position 6th from the end.
+Returns ALL characters beginning at position 6th from the end.
 <pre class ="code">
 //echo -a $mid(abcdefghij,-6)
 </pre>
-returns ALL characters beginning at position 3 EXCEPT for the last 2 characters.
+Returns ALL characters beginning at position 3 EXCEPT for the last 2 characters.
 <pre class ="code">
 //echo -a $mid(abcdefghij,3,-2)
 </pre>
 
-returns the length of the string beginning at position 3.
+Returns the length of the string beginning at position 3.
 <pre class ="code">
 //echo -a $mid(abcdefghij,3,0)
 </pre>
