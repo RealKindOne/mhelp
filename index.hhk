@@ -78,6 +78,10 @@
 		<param name="Local" value="identifiers\address.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$address()">
+		<param name="Local" value="identifiers\address_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$addtok">
 		<param name="Local" value="identifiers\addtok.html">
 		</OBJECT>
