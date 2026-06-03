@@ -17,7 +17,7 @@ $cnick(N/nick, M)[.property]
 <br><b>M</b> - If you use the .color property and no item is found via a nick/address match, the 'Normal Text' color is returned, if M is 1, the 'Listbox text' is color is returned.
 
 <H4>Properties</H4>
-<b>.color </b>/<b> .colour</b> - Return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned.
+<b>.color</b> - Return the color for that entry. if no item is found via a nick/address match, the 'Normal Text' color is returned, if the M parameter is 1, the 'Listbox text' is color is returned.
 <br><b>.modes</b> - Return the 'Channel modes' field.
 <br><b>.levels</b> - Return the 'User levels' field.
 <br><b>.method</b> - Return the 'Method' field.
@@ -32,7 +32,15 @@ $cnick(N/nick, M)[.property]
 <br><b>.auto</b> - Return the state of the 'Auto color' option (where you can use '*' as a color to enable the option) $true for enabled or $false for disabled.
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $cnick(1).color</pre>
+Echo the total number of nicks in the Nick Color dialog:
+<pre class ="code">
+//echo -a $cnick(0)
+</pre>
+
+Echo the color for the first entry in the Nick Color dialog:
+<pre class ="code">
+//echo -a $cnick(1).color
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
