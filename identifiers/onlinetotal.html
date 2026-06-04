@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,7 +6,8 @@
 <H1>$onlinetotal</H1>
 <br>
 <br>
-The <b>$onlinetotal</b> identifier returns the total online time.
+The <b>$onlinetotal</b> identifier returns the total number of seconds in the Timer dialog (ALT + I).
+
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -19,13 +21,27 @@ None
 None
 
 <H4>Example</H4>
+Echo the total number of seconds mIRC has been connected:
 <pre class ="code">//echo -a $onlinetotal</pre>
+
+Message a channel when someone types "!uptime":
+<pre class ="code">
+on *:text:!uptime:#example:{
+  msg $chan My grand total connection time has been $onlinetotal seconds.
+  msg $chan My current connection time has been $onlineserver seconds.
+  ; /!\ Always use 'n' for $readini()  /!\ 
+  msg $chan The total was reset at: $readini($mircini,n,text,lastreset)
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.35 (04 Aug 2014)
 
 <H4>Notes</H4>
-None
+This is global, it only requires one active connection to increase the total.
+<br>
+<br>
+The $online identifier does the same thing as this identifier.
 
 <H4>See also</H4>
 <a href="online.html">$online</a><br>
