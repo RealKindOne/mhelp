@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,7 +6,7 @@
 <H1>$portfree</H1>
 <br>
 <br>
-The <b>$portfree</b> identifier returns $true if the specified port is free, $false otherwise
+The <b>$portfree</b> identifier returns $true if the specified port is free, $false otherwise.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -21,7 +22,14 @@ None
 
 <H4>Example</H4>
 Check if port 6667 is free:
-<pre class ="code">//echo -a $portfree(6667)</pre>
+<pre class ="code">
+//echo -a $portfree(6667)
+</pre>
+
+Check if port 6667 on 127.0.0.1 is free:
+<pre class ="code">
+//echo -a $portfree(6667,127.0.0.1)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

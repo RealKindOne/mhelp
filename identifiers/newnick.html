@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -16,13 +17,15 @@ $newnick
 None
 
 <H4>Example</H4>
-Echo to the channel when the local nickname is changed, and halt mIRC's default message:
-<pre class ="code">on ME:^*:NICK: {
+Echo to the channel when the your nickname is changed, and halt mIRC's default message:
+<pre class ="code">
+on ME:^*:NICK: {
   echo $chan You are now ==> $newnick
 
   ; Halt the default mIRC message
   haltdef
-}</pre>
+}
+</pre>
 
 The example above should have an output resembling the following:
 <pre class ="code">
@@ -38,6 +41,7 @@ None
 <H4>See also</H4>
 <a href="..\events\on_join.html">On_Join</a><br>
 <a href="..\events\on_mode.html">On_Mode</a><br>
+<a href="..\events\on_nick.html">On_Nick</a><br>
 <a href="..\events\on_part.html">On_Part</a><br>
 </body>
 </html>
