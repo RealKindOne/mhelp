@@ -1,0 +1,57 @@
+<html>
+<body>
+<LINK REL="stylesheet" type="text/css" HREF="../default.css">
+<head><title>$highlight()</title></head>
+<H1>$highlight()</H1>
+<br>
+<br>
+The <b>$highlight()</b> identifier returns information about the highlight entries.
+
+<H4>Synopsis</H4>
+<pre class ="code">
+$highlight(N/text)[.property]
+</pre>
+
+<H4>Parameters</H4>
+<b>N</b> - If N is passed, return the Nth line in the highlight mIRC dialog's list
+<br><b>text</b> - If non-number parameter is passed, return the value of the corresponding entry in mIRC's highlight dialog list in option for that string.
+
+<H4>Properties</H4>
+<b>.text</b> - Returns the matching text of the entry
+<br><b>.color</b> - Returns the color of the line being highlighted
+<br><b>.sound</b> - Returns the sound associated with the highlight if any ("beep" or a filename)
+<br><b>.flash</b> - Returns 0 if flash is not set, otherwise it returns the corresponding number of repeat time
+<br><b>.message</b> - Returns $true/$false depending on if the highlight is set for messages
+<br><b>.nicks</b> - Returns $true/$false depending on if the highlight is set for nicks
+<br><b>.regex</b> - Returns $true/$false depending on if the text should be compared using a regular expression
+<br><b>.cs</b> - Returns $true/$false depending on if the text should be compared using case sensitivity
+<br><b>.chans</b> - Returns the list of channels and nicknames required to trigger an highlight for that entry, if any.
+
+<H4>Example</H4>
+Echo the total number of highlight entries:
+<pre class="code">
+//echo -a $highlight(0)
+</pre>
+
+Echo the first entry:
+<pre class="code">
+// echo -a $highlight(1)
+</pre>
+
+<H4>Compatibility</H4>
+Added: mIRC v5.61 (23 Sep 1999)
+<br>
+<br>
+v5.61: Added .colour, .flash, .message, .nicks, .sound, and .text properties.<br>
+v5.9 : Added .color property.<br>
+v6.14: Added .cs property.<br>
+v6.3 : Added .regex and .tip properties.<br>
+v7.62: Added .chans property.
+
+<H4>Notes</H4>
+None
+
+<H4>See also</H4>
+<a href="highlight.html">$highlight</a><br>
+</body>
+</html>

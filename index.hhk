@@ -754,6 +754,10 @@
 		<param name="Local" value="identifiers\highlight.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$highlight()">
+		<param name="Local" value="identifiers\highlight_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$hmac">
 		<param name="Local" value="identifiers\hmac.html">
 		</OBJECT>
