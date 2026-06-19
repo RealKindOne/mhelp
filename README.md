@@ -8,6 +8,8 @@ Undocumented commands, identifiers, switches, properties, onEVENT, and others th
 
 <b>NOTE:</b> THIS HELP FILE IS NOT COMPLETE AND HAS BROKEN OR MISSING PARTS DUE TO THE IMPORTING.
 
+<b>NOTE:</b>If you see something different between theses files and the official mirc.chm, you should treat the mirc.chm as the correct version. Please report any differences here on GitHub or on IRC.
+
 <b>NOTE:</b> Check here for newer versions: https://github.com/RealKindOne/mhelp/tags
 
 ## Compiling
@@ -33,12 +35,36 @@ Run ```"C:\Program Files (x86)\HTML Help Workshop\hhc.exe" C:\path\to\mhelp.hhp`
 The HTML Help Workshop program is very primitive and buggy. You would be better off using a different text editor.
 
 
+## Adding new commands, identifiers or other stuff
+
+You need to add the file into: index.hhk, mhelp.hhp.
+
+Command: commands.html
+
+Identifiers: identifiers.html
+
+Events: events.html
+
+Some identifiers like $highlight can be used with and without parentheses. They get separate pages. The one with the parentheses gets a trailing '_'.
+
+$highlight   = highlight.html
+$highlight() = highlight_.html
+
 ## Downloading
 
 Check here for updates: https://github.com/RealKindOne/mhelp/tags
 
 If you do not want to run the help file you can download the source code and open the .html files.
 List of commands and identifiers can be found in ```commands.html``` and ```identifiers.html``` or you can search for the command/identifier filename.
+
+
+## Contact
+
+irc.libera.chat ##mirc 
+
+irc.swiftirc.net #msl / #mircscripting
+
+irc.efnet.net #mirc
 
 
 ## NOTE:
