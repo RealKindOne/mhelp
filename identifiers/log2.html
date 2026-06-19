@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -5,7 +6,7 @@
 <H1>$log2</H1>
 <br>
 <br>
-The <b>$log2</b> identifier returns the common logarithm (base 2) of a number.
+The <b>$log2</b> identifier returns the common (base 2) logarithm of a number. You are limited to 6 numbers after the decimal by default. You can use /bigfloat to get 30 numbers after the decimal.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -13,21 +14,29 @@ $log2(N)
 </pre>
 
 <H4>Parameters</H4>
-<b>N</b> - Number for which to return its common logarithm.
+<b>N</b> - The number you want the common (base 2) logarithm of.
+
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
+Returns: 2.807355
 <pre class ="code">
-//echo -a except for precision rounding 2^ $log2(7) is 7
-//echo -a $log2(7) is $log(7) / $log(2)
+//echo -a $log2(7)
+</pre>
+
+Use bigfloat:
+<br>
+Returns: 2.807354922057604067832435557955
+<pre class ="code">
+//bigfloat on | echo -a $log2(7)
 </pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.72 (27 Nov 2022)
 
 <H4>Notes</H4>
-None
+There may be a rounding error due to mIRC preserving fractional digits. - See <a href="log.html">$log</a> for more examples.
 
 <H4>See also</H4>
 <a href="log.html">$log</a><br>
