@@ -1,3 +1,4 @@
+<!-- DONE -->
 <html>
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
@@ -10,46 +11,17 @@ The <b>$cb</b> identifier allows mIRC to return the contents of the Windows Clip
 <H4>Synopsis</H4>
 <pre class ="code">
 $cb
-$cb(N,[u],[%var|&binvar])[.property]
 </pre>
 
 <H4>Parameters</H4>
-<b>N</b> - The Nth <a href="crlf.html">$crlf</a> or <a href="crlf.html">$lf</a> delimited line in the clipboard, you can use -1 to get the full clipboard with newline included.
-<br><b>u</b> - Return the text encoded to utf8
-<br><b>%var|&binvar</b> - You can pass a variable or a binary variable to be filled instead of being returned by $cb, using a binvar allow you to handle more than the current line length limit.
+None
 
 <H4>Properties</H4>
-<b>.len</b> - Returns the length of the Nth line
-<br><b>.utflen</b> - only for $cb, not $cb(), returns the len of the text encoded to utf8, same as .len with the 'u' parameter
-<br><b>.utf</b> - This property appears in the source code but does not work, it looks like the source code is not checking the proper variable handling the prop name. It would naturally return the text encoded to utf8
-
+None
 
 <H4>Example</H4>
 Echo clipboard contents to the active window:
 <pre class ="code">//echo -a $cb</pre>
-
-Echo the total number of clipboard entries to the active window:
-<pre class ="code">//echo -a $cb(0)</pre>
-
-Create a custom alias that will open a custom window "@myWindow", and then echo all clipboard line contents to it:
-<pre class ="code">; Use: /cblist
-alias cblist {
-
-  ; Open the window, and clear it just in case it was already opened
-  window @myWindow
-  clear @myWindow
-
-  ; Set the %i, our counting variable, to the start value of 1, and
-  ; set the %x variable to the amount of lines in the clipboard
-  var %i = 1, %x = $cb(0)
-
-  ; Loop until %x has gone through all clipboard contents
-  while (%i &lt;= %x) {
-    echo @myWindow $cb(%i)
-    inc %i
-  }
-  echo @myWindow Clipboard contents finished!
-}</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.5 (07 Aug 1995)
@@ -58,6 +30,7 @@ Added: mIRC v3.5 (07 Aug 1995)
 None
 
 <H4>See also</H4>
+<a href="cb_.html">$cb()</a><br>
 
 
 </body>

@@ -11,23 +11,28 @@ The <b>$date</b> identifier can be used to return the current date in day/month/
 
 <H4>Synopsis</H4>
 <pre class ="code">
-$date
+$date(time[,format])
 </pre>
 
 <H4>Parameters</H4>
-None
+<b>time</b> Optional ctime number. Default when not used is the current ctime
+<br><b>format</b> Optional format letters same as <a href="asctime.html">$asctime</a>
+
+<br>
+<br>
+<b>Note:</b> This identifier has identical syntax as $asctime. The only difference is the default displayed time when no format string is used.
 
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
-Echo today's full date to the active window in dd/mm/yyyy format:
+Echo only the year-month for the specified ctime number:
 <pre class ="code">
-//echo -a $date
+//echo -a $date(1234567890,yyyy-mm)
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v3.5 (07 Aug 1995)
+Added: mIRC v5.5 (08 Jan 1999)
 
 <H4>Notes</H4>
 None
@@ -36,7 +41,7 @@ None
 <a href="adate.html">$adate</a><br>
 <a href="asctime.html">$asctime</a><br>
 <a href="ctime.html">$ctime</a><br>
-<a href="date_.html">$date()</a><br>
+<a href="date.html">$date</a><br>
 <a href="day.html">$day</a><br>
 <a href="daylight.html">$daylight</a><br>
 <a href="duration.html">$duration</a><br>

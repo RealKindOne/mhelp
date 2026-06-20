@@ -258,6 +258,10 @@
 		<param name="Local" value="identifiers\cb.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$cb()">
+		<param name="Local" value="identifiers\cb_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$cbrt">
 		<param name="Local" value="identifiers\cbrt.html">
 		</OBJECT>
@@ -406,6 +410,10 @@
 		<param name="Local" value="identifiers\ctime.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ctime()">
+		<param name="Local" value="identifiers\ctime_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$ctimer">
 		<param name="Local" value="identifiers\ctimer.html">
 		</OBJECT>
@@ -416,6 +424,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$date">
 		<param name="Local" value="identifiers\date.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$date()">
+		<param name="Local" value="identifiers\date_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$darkmode">
@@ -440,6 +452,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$dccignore">
 		<param name="Local" value="identifiers\dccignore.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$dccignore()">
+		<param name="Local" value="identifiers\dccignore_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$dccport">

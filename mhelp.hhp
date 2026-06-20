@@ -350,6 +350,7 @@ identifiers\calc.html
 identifiers\caller.html
 identifiers\cancel.html
 identifiers\cb.html
+identifiers\cb_.html
 identifiers\cbrt.html
 identifiers\cd.html
 identifiers\ceil.html
@@ -387,15 +388,18 @@ identifiers\crc64.html
 identifiers\creq.html
 identifiers\crlf.html
 identifiers\ctime.html
+identifiers\ctime_.html
 identifiers\ctimer.html
 identifiers\ctrlenter.html
 identifiers\darkmode.html
 identifiers\date.html
+identifiers\date_.html
 identifiers\day.html
 identifiers\daylight.html
 identifiers\dbuh.html
 identifiers\dbuw.html
 identifiers\dccignore.html
+identifiers\dccignore_.html
 identifiers\dccport.html
 identifiers\dde.html
 identifiers\ddename.html
