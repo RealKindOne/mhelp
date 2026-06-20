@@ -15,16 +15,43 @@ $isalias(name,[N])[.property]
 
 <H4>Parameters</H4>
 <b>name</b> -The name of the alias.
-<br><b>N</b> - Returns the Nth line of a multiline alias, to be used with the .alias property.
+<br><b>N</b> - Returns the Nth line of a multi-line alias, to be used with the .alias property.
 
 <H4>Properties</H4>
 <b>.fname</b> - Returns the filename in which the alias exists.
 <br><b>.ftype</b> - Returns the type of alias, if it's stored in a <b>remote</b> file or in an <b>alias</b> file.
-<br><b>.alias</b> - Returns the alias definition, you can access a multiline alias with the N parameter.
+<br><b>.alias</b> - Returns the alias definition, you can access a multi-line alias with the N parameter.
 
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $isalias(join)</pre>
+Echo $true if the alias exists in a remote script or alias file
+<pre class ="code">
+//echo -a $isalias(join)
+</pre>
+
+Print multi-line alias:
+<pre class ="code">
+; Print the contents of the alias.
+; This does not include 'alias name' or the alias 'name'.
+; Syntax: /print_alias example
+alias print_alias {
+  if ($1 == $null) {
+    echo -a print_alias: You must include the alias name.
+    return
+  }
+  if ($isalias($1,0) == $false) {
+    echo - print_alias: The alias $1 does not exist.
+    return
+  }
+  var %x $isalias($1,0).alias
+  var %y 1
+  while (%y &lt;= %x) {
+    echo -ag $isalias($1,%y).alias
+    inc %y
+  }
+}
+</pre>
+
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)
