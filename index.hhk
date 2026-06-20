@@ -2278,6 +2278,10 @@
 		<param name="Local" value="commands\copy.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/copyini">
+		<param name="Local" value="commands\copyini.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/creq">
 		<param name="Local" value="commands\creq.html">
 		</OBJECT>
