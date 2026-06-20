@@ -16,6 +16,7 @@ The <b>/drawpic command</b> draws a picture at the specified coordinates. The pi
 <b>-t</b> - Indicates that you have specified the [color] RGB value as a transparent color in the specified bitmap.
 <br><b>-s</b> - Indicates that you have specified the first [w h] parameters to squeeze/stretch the bitmap.
 <br><b>-c</b> - Indicates that the bitmap should be cached. This greatly speeds up subsequent references to this bitmap. If you specify -c and the bitmap is already in the cache, it is loaded and used from the cache, otherwise it is reloaded from the file. You can clear the entire cache with /drawpic -c.
+<br><b>-p</b> - When caching with -c, pre-cache all frames (mainly for GIF display)
 <br><b>-l</b> - Tiles the picture.
 <br><b>-m</b> - Changes the stretch mode quality when the picture is resized.
 <br><b>-o</b> - Indicates that you have specified the [N] value before the filename, representing the index of the icon in the file, or the Nth frame in a GIF file.
