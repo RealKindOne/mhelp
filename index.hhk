@@ -738,6 +738,10 @@
 		<param name="Local" value="identifiers\gmt.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$gmt()">
+		<param name="Local" value="identifiers\gmt_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$group">
 		<param name="Local" value="identifiers\group.html">
 		</OBJECT>
@@ -1142,6 +1146,10 @@
 		<param name="Local" value="identifiers\maddress.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$maddress()">
+		<param name="Local" value="identifiers\maddress_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$markasread">
 		<param name="Local" value="identifiers\markasread.html">
 		</OBJECT>
@@ -1352,6 +1360,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$notify">
 		<param name="Local" value="identifiers\notify.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$notify()">
+		<param name="Local" value="identifiers\notify_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$null">
@@ -1652,6 +1664,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$script">
 		<param name="Local" value="identifiers\script.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$script()">
+		<param name="Local" value="identifiers\script_.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$scriptdir">

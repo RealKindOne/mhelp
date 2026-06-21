@@ -14,22 +14,19 @@ The <b>$maddress</b> identifier return the address that was matched for the even
 <H4>Synopsis</H4>
 <pre class ="code">
 $maddress
-$maddress(&lt;address&gt;,[L,&lt;N&gt;]).[property]
 </pre>
 
 <H4>Parameters</H4>
-<b>&lt;address&gt;</b> - The address used to match, you can specify * for all address, non complete address are completed with wildcards.
-<br><b>L</b> - If you specify L, only matching addresses that contain the specified level L are returned. Optional, but if you provide L, you must provide N below.
-<br><b>N</b> - Returns the Nth match, optional.
+None
 
 <H4>Properties</H4>
-<b>.info</b> - Returns information about that user in the user list.
+None
 
 <H4>Example</H4>
 To get the address from the event:
-<pre class ="code">on *:TEXT:*:#:echo -a $maddress</pre>
-
-And for the user list: //echo -a $maddress(*,1)
+<pre class ="code">
+on *:TEXT:*:#:echo -a $maddress
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)

@@ -5,51 +5,33 @@
 <H1>$notify</H1>
 <br>
 <br>
-The <b>$notify</b> identifier returns information about nick in your notify list
+The <b>$notify</b> identifier returns $true if Notify is enabled, otherwise $false
 
 <H4>Synopsis</H4>
 <pre class ="code">
 $notify
-$notify(N/nick)[.property]
 </pre>
 
 <H4>Parameters</H4>
-<b>nick</b> - The nickname you want to get information about.
-<br><b>N</b> - The Nth nick in the notify list you want to get information about, if N = 0, returns the total number of nicknames in the notify list.
+None
 
 <H4>Properties</H4>
-<b>.ison</b> - Returns $true if the user is on IRC, $false otherwise.
-<br><b>.note</b> - Returns the note associated for that nickname in the notify list.
-<br><b>.sound</b> - Returns the online sound setting for that nickname.
-<br><b>.sound2</b> - Returns the offline sound setting for that nickname.
-<br><b>.whois</b> - Returns $true if the option 'whois' is set for this nickname.
-<br><b>.addr</b> - Returns the server address entry for this nickname if you used a server format.
-<br><b>.network</b> - Returns the network entry for this nickname (if you used something that isn't a server format, basically).
-<br><b>.account</b> - Returns the user account name.
-<br><b>.away</b> - Returns $true if the users is /away, $false otherwise.
-<br><b>.awaymsg</b> - Returns the /away message.
-<br><b>.gecos</b> - Returns the gecos/real name.
-<p>
-Without a property, $notify(nick) returns the Nth position and $notify(N) returns the nickname.
+None
 
 <H4>Example</H4>
-Echo the total number of nicks in the notify list:
-<pre class ="code">//echo -a $notify(0)</pre>
+Echo $true if notify is enabled:
+<pre class ="code">
+//echo -a $notify
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)
-<br>
-<br>
-v5.3 : Added .note, .sound, and .whois properties.<br>
-v5.41: Added .ison property.<br>
-v5.8 : Added .addr property.<br>
-v6.3 : Added .network property.<br>
-v7.55: Added .sound2 property.<br>
-v7.74: Added .account, .away, .awaymsg, and .gecos properties.
+
 <H4>Notes</H4>
 None
 
 <H4>See also</H4>
 <a href="..\commands\notify.html">/notify</a><br>
+<a href="notify_.html">$notify()</a><br>
 </body>
 </html>
