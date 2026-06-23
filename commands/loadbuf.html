@@ -9,7 +9,7 @@ The <b>/loadbuf</b> command loads the specified number of lines from the end of 
 
 <H4>Synopsis</H4>
 <pre class ="code">
-/loadbuf [lines] [-apiNrsglecNnomt&lt;topic&gt;] &lt;window | dialog id&gt; &lt;filename&gt;
+/loadbuf [lines] [-apiNrsglecNnomt&lt;section&gt;] &lt;window | dialog id&gt; &lt;filename&gt;
 </pre>
 
 <H4>Switches</H4>
@@ -26,7 +26,7 @@ The <b>/loadbuf</b> command loads the specified number of lines from the end of 
 <br><b>-n</b> - If logging is enabled for that window, logs the loaded lines.
 <br><b>-m</b> - Used with -n, indicates that the text shouldn't be timestamped in the log file. (the buffer text is already timestamped or you might not want it to be timestamped).
 <br><b>-o</b> - Indicates that you have specified the [dialog id] parameters instead of a window name in order to load lines into a custom dialog control.
-<br><b>-t</b> - Loads the lines under the [topic] section in a file.
+<br><b>-t</b> - Loads the lines under the [section] in a file.
 
 <H4>Parameters</H4>
 <b>[lines]</b> - If specified, the number of lines to add from the end the file, otherwise the whole content of the file is added.
