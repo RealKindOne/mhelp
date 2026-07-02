@@ -1,8 +1,9 @@
 *.rst
 *.chm
 *.chw
-*.sh
-identifiers/sed*
-commands/sed*
-events/sed*
-other/sed*
+
+mdbook/book/*
+mdbook/src/commands/*.md
+mdbook/src/identifiers/*.md
+mdbook/src/events/*.md
+mdbook/src/other/*.md

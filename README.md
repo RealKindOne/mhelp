@@ -8,11 +8,11 @@ Undocumented commands, identifiers, switches, properties, onEVENT, and others th
 
 <b>NOTE:</b> THIS HELP FILE IS NOT COMPLETE AND HAS BROKEN OR MISSING PARTS DUE TO THE IMPORTING.
 
-<b>NOTE:</b>If you see something different between theses files and the official mirc.chm, you should treat the mirc.chm as the correct version. Please report any differences here on GitHub or on IRC.
+<b>NOTE:</b> If you see something different between theses files and the official mirc.chm, you should treat the mirc.chm as the correct version. Please report any differences here on GitHub or on IRC.
 
 <b>NOTE:</b> Check here for newer versions: https://github.com/RealKindOne/mhelp/tags
 
-## Compiling
+## Compiling (chm)
 
 You will need to download the .chm help file compiler:
 
@@ -29,6 +29,13 @@ You can click the sunglasses icon to view the "mhelp.chm" file.
 OR...
 
 Run ```"C:\Program Files (x86)\HTML Help Workshop\hhc.exe" C:\path\to\mhelp.hhp``` in the command prompt.
+
+
+## Compiling (mdBook)
+
+mdBOOK - https://rust-lang.github.io/mdBook/ Is used to compile a browser version.
+
+This is a WORK IN PROGRESS
 
 ## Editing
 
