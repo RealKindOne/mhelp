@@ -28,16 +28,18 @@ The <b>/ban</b> command is used to ban someone from a specific channel using the
 <br><b>[kick message]</b> - The optional kick message.
 
 <H4>Example</H4>
+Ban Foo's address (type 2) in the active channel window
 <pre class ="code">
-; Ban Foo's address (type 2) in the active channel window
 /ban Foo 2
-
-; Ban/Kick Mike202 from the active channel with a kick message of "Owned!"
-; Unset ban after 60 seconds
+</pre>
+Ban/Kick Mike202 from the active channel with a kick message of "Owned!"
+Unset ban after 60 seconds
+<pre class ="code">
 /ban -ku60 Mike202 Owned!
-
-; Ban/kick Dave3 from #FooBar with a kick message of "Cya!"
-; ban type 2
+</pre>
+Ban/kick Dave3 from #FooBar with a kick message of "Cya!"
+Ban type 2
+<pre class ="code">
 /ban -k #FooBar Dave3 2 Cya!
 </pre>
 

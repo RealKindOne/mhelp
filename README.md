@@ -41,6 +41,18 @@ This is a WORK IN PROGRESS
 
 The HTML Help Workshop program is very primitive and buggy. You would be better off using a different text editor.
 
+Examples CANNOT have blanks lines. You must use '&nbsp;'. 
+
+```
+alias test { 
+  ; The empty line below causes issues with mdBook formatting.
+  ; You MUST use the html '&nbsp;' or the program thinks the closing
+  ; pre/code is AFTER the 'See Also'
+
+  echo foobar
+}
+```
+
 
 ## Adding new commands, identifiers or other stuff
 

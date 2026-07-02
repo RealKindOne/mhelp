@@ -4,7 +4,7 @@ cp ../identifiers/*.html src/identifiers/
 cp ../commands/*.html src/commands/
 cp ../events/*.html src/events/
 cp ../other/*.html src/other/
-
+cp ../images/* src/images/
 cd src/commands
 
 for file in *.html; do   mv "$file" "${file%.html}.md"; done
