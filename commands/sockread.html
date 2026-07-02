@@ -178,7 +178,7 @@ on *:sockclose:name:{
    var %a
    sockread -f %a
    if ($sockbr == 0) return
-   echo -a > %a
+   echo -a &gt; %a
  }
 }
 </pre>
@@ -199,11 +199,11 @@ Here is an example which will read and echo to the status window what is sent by
 <pre class ="code">
 on *:SOCKREAD:mySocket:{
   var %a
-  if ($sockerr > 0) { return }
+  if ($sockerr &gt; 0) { return }
   sockread %a
   if (!$sockbr) return
   while ($sockbr) {
-    echo -a > %a
+    echo -a &gt; %a
     sockread %a
   }
 }
@@ -224,7 +224,7 @@ on *:SOCKREAD:socket: {
   if (!$sockerr) {
     if ($sock($sockname).mark) {
       ;if we have a chunk to read
-      if (%bytestoread > 0) {
+      if (%bytestoread &gt; 0) {
         ; We try to read that much
         sockread %bytestoread &a
         bwrite source.txt -1 -1 &a

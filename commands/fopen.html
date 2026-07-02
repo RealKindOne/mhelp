@@ -59,11 +59,11 @@ alias perm_example {
   }
   ;print all the permutations to the file
   var %x = 97
-  while (%x < 123) {
+  while (%x &lt; 123) {
     var %y = 97
-    while (%y < 123) {
+    while (%y &lt; 123) {
       var %z = 97
-      while (%z < 123) {
+      while (%z &lt; 123) {
         .fwrite -n h $+($chr(%x), $chr(%y), $chr(%z))
         inc %z
       }

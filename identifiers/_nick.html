@@ -32,7 +32,7 @@ on *:CHAT:!myaddress *: {
   ; Verify that %num is a number, greater than or equal to 0,
   ; and less than 10 (0-9) since those are the only available
   ; options for $address(Nick,<N>).
-  if ((%num isnum) && (%num >= 0) && (%num < 10)) {
+  if ((%num isnum) && (%num >= 0) && (%num &lt; 10)) {
 
     ; Using the =$nick identifier, a message is sent to the
     ; user, with their address mask utilizing the number mask

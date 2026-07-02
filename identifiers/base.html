@@ -73,7 +73,7 @@ The exception to the above is skipping the 0x prefix for hexadecimal notation. C
 Prior to v7.53, if using base 34 or 35 where X is a valid character, you must prepend the from-value with 00 to prevent 0x from being stripped:<br>
 Returns: 15 vs 1170
 <pre class ="code">
-//if ($version < 7.53) { var %value 0xF | echo -a $base(%value,35,10) vs $base(00 $+ %value,35,10) }
+//if ($version &lt; 7.53) { var %value 0xF | echo -a $base(%value,35,10) vs $base(00 $+ %value,35,10) }
 </pre>
 
 

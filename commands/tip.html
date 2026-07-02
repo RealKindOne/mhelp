@@ -34,7 +34,7 @@ alias update_counter {
   if ($tip(counter)) {
     var %seconds = $tip(counter).delay
     ; update the text
-    tip -t counter %seconds $+(second, $iif(%seconds > 1, s),!)
+    tip -t counter %seconds $+(second, $iif(%seconds &gt; 1, s),!)
     .timer -m 1 500 update_counter
   }
 }

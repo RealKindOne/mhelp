@@ -77,7 +77,7 @@ Random IV/Salt created in the absence of Parameter#4 can contain 0x00 bytes in a
 <p><b>ir</b> changes header to: 'RandomIV' $+ Parameter-#4 (Chopped to 8 bytes or padded with 0x00's to length 8)
 <p><b>i</b>  without '<b>r</b>' means Parameter-#4 user defined IV is required, but is kept a secret without adding the 16-byte header to the encrypted string which reveals the IV.
 <p>
-Note that older mIRC versions had different handling of various parameters which differ from the current improved handling. For example some older versions allowed Salt/IV parameter containing codepoints > 255 then interpreted as $chr(63). Non-literal key strings are currently limited to 100+$maxlenm, but there were 3 other length limits in the past. Some past versions truncated the randomly generated salt if it contained any 0x00 bytes, but did not do the same for random IV's
+Note that older mIRC versions had different handling of various parameters which differ from the current improved handling. For example some older versions allowed Salt/IV parameter containing codepoints &gt; 255 then interpreted as $chr(63). Non-literal key strings are currently limited to 100+$maxlenm, but there were 3 other length limits in the past. Some past versions truncated the randomly generated salt if it contained any 0x00 bytes, but did not do the same for random IV's
 <p>
 Note: '<b>i</b>' is the <b>only option</b> that does not "blow your cover", as any of the other (s|r|ir|&lt;none&gt;) options above will positively identify that the message is Blowfish encrypted by placing a plain-text header ("Salted__" or "RandomIV") at the beginning of the encoded digest, along with the Salt/IV that was used.  Using '<b>i</b>' will be the most popular choice for this reason.  You must provide a #4 parameter, but you can leave it empty for all 0x00's IV, or use a predictable changing IV like the current time, an incriminating nonce, or use it as a second 8-character secret password.<br />
 <p>
@@ -150,7 +150,7 @@ the same encryption key. Message is encrypted using a random salt, but the
 then added to message before decryption. Add 'g' switch to echoes to avoid
 them being logged.
 */
-on *:TEXT:=*:##maroon,#channelname: { if (($2 != $null) || ($len($1) < 25)) return | fake_secret_chat $1 }
+on *:TEXT:=*:##maroon,#channelname: { if (($2 != $null) || ($len($1) &lt; 25)) return | fake_secret_chat $1 }
 on &*:INPUT:##maroon,#channelname:{ if ((/* iswm $1) || ($ctrlenter) || ($inpaste)) return | fake_secret_chat $1- }
 on *:CONNECT:{ if (!$hget(secret_chat)) hload secret_chat secret_chat.txt }
 on *:EXIT:{    if ( $hget(secret_chat)) hsave secret_chat secret_chat.txt }
@@ -230,7 +230,7 @@ alias randsalt returnex $regsubex($str(x,8),/x/g,$chr($rands(1,255)))
 alias randsalt returnex $regsubex($str(x,8),/x/g,$chr($rand( 1,255)))
 alias randsalt {
 :retry | var %a $regsubex(foo,$str(x,8),/x/g,$rands(0,255) $chr(32)) , %i 1 , %j 2
-while (%i isnum 1-7) { if (($gettok(%a,%i,32) == 0) && ($gettok(%a,%j,32) > 0)) goto retry | inc %i | inc %j }
+while (%i isnum 1-7) { if (($gettok(%a,%i,32) == 0) && ($gettok(%a,%j,32) &gt; 0)) goto retry | inc %i | inc %j }
 returnex $regsubex(foo,%a,/(\d+)\s*/g,$chr(\t))
 }
 (1st variant uses $rands, 2nd uses $rand, 3rd allows salt to contain 0x00 if not preceding byte values 1-255)

@@ -5,7 +5,7 @@
 <H1>/channel</H1>
 <br>
 <br>
-The <b>/channel</b> command opens up the channel central dialog window. Specifying a channel will open the channel central for that specific channel. You must be in a channel to be able to open its channel central.
+The <b>/channel</b> command opens up the channel central dialog window. You can include the channel name for a different channel if you do not want to look at the current channel.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -16,12 +16,17 @@ The <b>/channel</b> command opens up the channel central dialog window. Specifyi
 None
 
 <H4>Parameters</H4>
-<b>[#channel]</b> - Channel name.
+<b>[#channel]</b> - Can be used to open the dialog window for a different channel or a channel or window for that network.
 
 <H4>Example</H4>
-Open the channel central for #mircscripting:
+Open the channel center dialog window for the current channel:
 <pre class ="code">
-/channel #mircscripting
+/channel
+</pre>
+
+Open the channel center dialog for a channel you are currently not active:
+<pre class ="code">
+/channel #mirc
 </pre>
 
 <H4>Compatibility</H4>

@@ -39,7 +39,7 @@ alias countdown {
   echo -a $hget(count,down) $+ !
   :repeat
   ; checks if the value of down returns true
-  if ($hget(count,down) > 1) {
+  if ($hget(count,down) &gt; 1) {
     ; decreases down by 1
     hdec count down
     ; echos the current count

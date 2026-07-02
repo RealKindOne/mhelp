@@ -111,7 +111,7 @@ Alias Example2 {
 
   ; Populate the side listbox with 5 items.
   var %a = 1
-  while (%a < 5) {
+  while (%a &lt; 5) {
     ;Add an item
     aline -l $v1 @Example Item $v1
     inc %a
@@ -119,7 +119,7 @@ Alias Example2 {
 
   ; Add 5 lines to the window buffer
   var %a = 1
-  while (%a < 5) {
+  while (%a &lt; 5) {
     ;Add a line of text
     aline $v1 @Example This is line $v1 $+ .
     inc %a

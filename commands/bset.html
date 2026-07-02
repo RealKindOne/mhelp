@@ -18,7 +18,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 
 <H4>Switches</H4>
 <b>-t</b> - Indicates a string is to be written instead of 1 or more literal ASCII values.
-<br><b>-a</b> - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters > 255.
+<br><b>-a</b> - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters &gt; 255.
 <br><b>-c</b> - Fills the binary variable with the string/ASCII values and truncates anything after it.
 <br><b>-z</b> - Creates new or truncates existing &binvar at zero length.
 
@@ -116,7 +116,7 @@ Binary variables are not limited to 4150 length. To fill a 7mb binary variable w
 alias fill_with_ones {
   if ($1 !isnum 1-) return | bset &var 1 1
   while ($1 &gt; $bvar(&var,0)) {
-    bset &var -1 $str(0 $chr(32),$iif($calc($1 - $bvar(&var,0)) > 999,$v2,$v1))
+    bset &var -1 $str(0 $chr(32),$iif($calc($1 - $bvar(&var,0)) &gt; 999,$v2,$v1))
     echo -a current length: $bvar(&var,0)
   }
   echo -a variable length is $bvar(&var,0)

@@ -68,7 +68,7 @@ alias countup {
   echo -a $hget(count,up) $+ !
   :repeat
   ;checks if the value of down returns true
-  if ($hget(count,up) < 9) {
+  if ($hget(count,up) &lt; 9) {
     ;increases down by 1
     hinc count up
     ;echos the current count

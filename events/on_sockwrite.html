@@ -66,14 +66,14 @@ var %f content.txt
 .fopen handle $qt(%f)
 ; We check for the return value of $fread because if you get 0, the file is empty and
 ; there is nothing to send
-if ($fread(handle,16384,&tosend) > 0) sockwrite socket &tosend
+if ($fread(handle,16384,&tosend) &gt; 0) sockwrite socket &tosend
 
 ;and then :
 
 on *:sockwrite:socket:{
   ;if we sent all of the previous content
   if ($sock(socket).sq == 0) {
-    if ($fread(handle,16384,&tosend) > 0) sockwrite socket &tosend
+    if ($fread(handle,16384,&tosend) &gt; 0) sockwrite socket &tosend
     else ;we're done sending the content
   }
 }

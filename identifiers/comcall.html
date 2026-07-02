@@ -185,7 +185,7 @@ None
 <pre class ="code">
 alias runVbs {
   var %s = $mircdir $+ foo.vbs
-  write -c foo.vbs  Dim c $lf c = 0 $lf Do While c < 10000000 $lf c = c + 1 $lf Loop
+  write -c foo.vbs  Dim c $lf c = 0 $lf Do While c &lt; 10000000 $lf c = c + 1 $lf Loop
   .comopen x WScript.Shell
 
   ;mode 1 = comcall

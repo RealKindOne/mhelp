@@ -94,7 +94,7 @@ $totp(%key,$ctime,$iif(%key == $null,foobar,sha1))
 This next example should be read before using MD5 as the hashname. Because of the HOTP/TOTP design, using MD5 results in the effect that 1/16th of the time the return value will always be 1 of 8 specific digit values, rather than the expected where using digits 3-9 has close to 1 per 10^digits chance for each number, and using digits=10 having each number returned 1 per 2^31 chance. The alias below calculates 1 million random TOTP codes using sha1 as the hashname, to see how many times any of these 8 10-digit numbers is returned. As expected, the number of matches is most likely zero, with a 1 per 2147 chance of there being 1 match. However changing the hashname to md5 results in the number of matches being approximately 1/16th of the number of tests, or 62500.
 
 <pre class ="code">
-//echo -a WARNING: SLOW | var %list 0251658240 0520093696 0788529152 1056964608 1325400064 1593835520 1862270976 2130706432 , %i 0 , %c 0 | while (%i < 1000000) { if ($istok(%list,$hotp($rand(1,999999999999),$rand(1,999999999999),sha1,10),32)) inc %c | inc %i } | echo -a %c matches out of %i results
+//echo -a WARNING: SLOW | var %list 0251658240 0520093696 0788529152 1056964608 1325400064 1593835520 1862270976 2130706432 , %i 0 , %c 0 | while (%i &lt; 1000000) { if ($istok(%list,$hotp($rand(1,999999999999),$rand(1,999999999999),sha1,10),32)) inc %c | inc %i } | echo -a %c matches out of %i results
 </pre>
 The above problem cannot be solved by rejecting these 8 results and requiring different ones, because there are other groups of digits which also have the same bias preference, though to a lesser degree. For example, a different 1/16th of the time the result can only be from a different group of 2048 numbers.
 
@@ -111,7 +111,7 @@ Demonstrates that keys longer than the 64 or 128 bytes are replaced by the short
 The equivalent base32 lengths for the hex lengths 128 and 256 are 103 and 205. However the only 3 base32 lengths are 16,26,32. If you have a base32 key any length up through 103, you can translate it to a hex key of 128 digits and it will return the correct result:
 
 <pre class ="code">
-//var -s %base32 $regsubex($str(x,99),/x/g,$rand(a,z)) | bset -t &v 1 %base32 | noop $decode(&v,ba) | var -s %hexkey $regsubex($bvar(&v,1-),/([0-9]+)/g,$base(\t,10,16,2)) | while ($numtok(%hexkey,32) < 64) var %hexkey %hexkey 00 | var -s %hexkey2 $remove(%hexkey,$chr(32)) | echo -a spaces optional in hex key: $totp(%hexkey) same as $totp(%hexkey2)
+//var -s %base32 $regsubex($str(x,99),/x/g,$rand(a,z)) | bset -t &v 1 %base32 | noop $decode(&v,ba) | var -s %hexkey $regsubex($bvar(&v,1-),/([0-9]+)/g,$base(\t,10,16,2)) | while ($numtok(%hexkey,32) &lt; 64) var %hexkey %hexkey 00 | var -s %hexkey2 $remove(%hexkey,$chr(32)) | echo -a spaces optional in hex key: $totp(%hexkey) same as $totp(%hexkey2)
 </pre>
 
 If you enabled 2FA at Undernet, below is an example of using $totp to provide the needed 6 digit code for it. If you already have Undernet TOTP set up with your phone, if the phone app does not have the ability to show your TOTP secret to you, you can go to the website and disable 2FA, then enable it again, and this time click on 'enter your secret key manually' which will show you a 32-digit base32 string that's split into 8 groups of 4. You can paste them into this example, along with replacing your actual Undernet accountname and password, and this will automatically login to X and add your address cloak. (Versions prior to v7.72 need to delete the spaces)

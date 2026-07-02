@@ -72,20 +72,20 @@ Another example
 <pre class ="code">
 ; Type /urlget.test
 ;
-; > POST / HTTP/1.1
-; > Accept: */*
-; > Test: Header
-; > Accept-Encoding: gzip, deflate
-; > User-Agent: mIRC
-; > Host: localhost
-; > Content-Length: 19
-; > Connection: Keep-Alive
-; > Cache-Control: no-cache
-; > foo1=bar1&foo2=bar2
-; < HTTP/1.1 200 OK
-; < Connection: close
-; < Content-Length: 5
-; < hello
+; &gt; POST / HTTP/1.1
+; &gt; Accept: */*
+; &gt; Test: Header
+; &gt; Accept-Encoding: gzip, deflate
+; &gt; User-Agent: mIRC
+; &gt; Host: localhost
+; &gt; Content-Length: 19
+; &gt; Connection: Keep-Alive
+; &gt; Cache-Control: no-cache
+; &gt; foo1=bar1&foo2=bar2
+; &lt; HTTP/1.1 200 OK
+; &lt; Connection: close
+; &lt; Content-Length: 5
+; &lt; hello
 ; url      http://localhost/
 ; redirect http://localhost/
 ; method   post
@@ -151,7 +151,7 @@ on *:sockread:urlget.client.*:{
   if (!$sock($sockname).mark) {
     sockread %header
     while (%header != $null) {
-      echo 3 -ag > %header
+      echo 3 -ag &gt; %header
       if ($regex(%header,Content-Length: (\d+))) {
         hadd -m $sockname content-length $regml(1)
       }
@@ -165,7 +165,7 @@ on *:sockread:urlget.client.*:{
 
     while ($sockbr) {
       hinc $sockname content-read $sockbr
-      echo 6 -agi2 > $bvar(&read,1-3000).text
+      echo 6 -agi2 &gt; $bvar(&read,1-3000).text
 
       sockread &read
     }

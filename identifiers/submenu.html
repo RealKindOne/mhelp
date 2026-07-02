@@ -31,7 +31,7 @@ menu status {
   .$submenu($animal($1))
 }
 alias animal {
-  echo -s > $1
+  echo -s &gt; $1
   if ($1 == begin) return -
   if ($1 == 1) return Cow:echo Cow
   if ($1 == 2) return Llama:echo Llama

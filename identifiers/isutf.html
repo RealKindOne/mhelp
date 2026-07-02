@@ -35,7 +35,7 @@ alias isbinvarutf {
   if ($bvar($1,0) == 0) return 0 | var %len1 $v1
   noop $regsubex(foo,$bvar($1,1-).text,,,&tempvar2)
   var %len2 $bvar(&tempvar2,0) | if (%len1 != %len2) return 0
-  if ($calc(%len1 + %len2) < 2000) { if ($bvar($1,1-) == $bvar(&tempvar2,1-)) return 2 | else return 0 }
+  if ($calc(%len1 + %len2) &lt; 2000) { if ($bvar($1,1-) == $bvar(&tempvar2,1-)) return 2 | else return 0 }
   else { if ($sha256($1,1) == $sha256(&tempvar2,1)) return 2 | else return 0 }
 }
 </pre>

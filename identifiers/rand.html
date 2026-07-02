@@ -90,10 +90,10 @@ The %throwaway_above calculation discards the highest values which caused modulo
 alias randpatch {
   if (($1 !isnum) || ($2 !isnum)) goto error | var %lo $int($1) , %hi $int($2)
   var %diff %hi - %lo , %out_range %diff + 1 , %max.val $calc(2^53-1)
-  if ((%hi > %max.val) || (%diff > %max.val) || (%lo &lt; $calc(-(2^53)))) goto error
+  if ((%hi &gt; %max.val) || (%diff &gt; %max.val) || (%lo &lt; $calc(-(2^53)))) goto error
   var %throwaway_above $calc(%max.val - (((%max.val % %out_range) + 1) % %out_range) )
   var %int53 $get_53bit_rand_num
-  while (%int53 > %throwaway_above) { var %int53 $get_53bit_rand_num }
+  while (%int53 &gt; %throwaway_above) { var %int53 $get_53bit_rand_num }
   return $calc(%lo + (%int53 % %out_range))
   :error | echo -sc info2 *$randpatch(Num1,Num2) MinN1:-2^53 MaxN2/range.max:+2^53-1 | halt
 }

@@ -130,7 +130,7 @@ In v7.72, your mileage may vary, but beginning v7.73, even if bigfloat mode is e
 This ensures that these identifiers return the doubles-mode result unless the script signals their intent to have biginteger results by using the B parameter while in .bf mode. The B parameter is then used as replacement for 32 in a 2^B clipping behavior for the max value.
 <br>
 <br>
-This mean you will get trash results unless B is/becomes no shorter than the bit-length of the biginteger result. For example, $bitoff($rand(0,$calc(2^512)),1,256) returns the expected even-numbered biginteger if the random value is < 2^256, but if it's >= 2^256, the result is first clipped to be 2^256-1 at which point the bitwise math is done, which in this case is clearing the lowest bit to make the result for those random numbers always be 2^256-1-1.
+This mean you will get trash results unless B is/becomes no shorter than the bit-length of the biginteger result. For example, $bitoff($rand(0,$calc(2^512)),1,256) returns the expected even-numbered biginteger if the random value is &lt; 2^256, but if it's >= 2^256, the result is first clipped to be 2^256-1 at which point the bitwise math is done, which in this case is clearing the lowest bit to make the result for those random numbers always be 2^256-1-1.
 <br>
 <br>
 For biginteger mode involving at least 1 negative input number, the B parm is used to limit the infinite bit length and/or to determine the 2^B value added to the negative number in order to 'cast' it as positive.
