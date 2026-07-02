@@ -282,7 +282,7 @@
     - [$1-](identifiers/1-.md)
     - [$&](identifiers/_ampersand.md)
     - [$!](identifiers/_exclamation.md)
-    - [=$nick](identifers/_nick.md)
+    - [=$nick](identifiers/_nick.md)
     - [$+](identifiers/_plus.md)
     - [$++](identifiers/_plusplus.md)
     - [$?](identifiers/_question.md)
