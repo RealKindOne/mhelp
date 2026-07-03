@@ -55,7 +55,7 @@ alias compress-then-send {
 
 <br><b>Note:</b> Before making a script which automatically compresses all files before sending them and decompressing them when they finish, you should take several issues into account.
 <br>You shouldn't automatically decompress or compress files without making certain that the same file isn't also being transferred to/from someone else.
-<br>Besides <a href="..\events\on_filesent.html">On_FileSent</a>, Transfers can also terminate with <a href="..\events\on_sendfail.html">On_SendFail</a>, clicking to close the send window, using the <a href="..\commands\close.html">/close</a> command with the -s switch, mIRC crashing, etc.
+<br>Besides <a href="../events/on_filesent.html">On_FileSent</a>, Transfers can also terminate with <a href="../events/on_sendfail.html">On_SendFail</a>, clicking to close the send window, using the <a href="../commands/close.html">/close</a> command with the -s switch, mIRC crashing, etc.
 <br>To make certain all files get safely decompressed, the script should probably work from a file listing that doesn't remove lines until the file has been determined to be decompressed.
 <br>Now that $compress supports gzip compression, a script must first determine which method was used to compress the file in order to successfully decompress the file.
 

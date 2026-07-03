@@ -9,11 +9,11 @@ The <b>$iif</b> identifier returns a conditional value depending on whether a co
 
 <br>
 <br>
-<center><img src="..\images\warning.png">
+<center><img src="../images/warning.png">
 <b>WARNING:</b> This identifier can be dangerous.
-<img src="..\images\warning.png"></center>
+<img src="../images/warning.png"></center>
 <center>
-More information <a href="..\other\injection.html">here</a>.
+More information <a href="../other/injection.html">here</a>.
 </center>
 <br>
 <br>
@@ -71,7 +71,7 @@ $iif conditionals can be nested:
 //echo -a Classes on the $iif($asctime($ctime,ddd) isin SatSun,Sat-Sun, $iif(T* iswm $asctime($ctime,ddd),Tue-Thur,Mon-Wed-Fri)) Schedule meet today
 </pre>
 
-<b>Note:</b> see the <a href="..\other\injection.html">injection</a> page for explanation/examples of how malformed $iif syntax can trick users into executing code from the editbox. This next example causes you to perform the /QUIT command if you remove the 'echo -a' from it:
+<b>Note:</b> see the <a href="../other/injection.html">injection</a> page for explanation/examples of how malformed $iif syntax can trick users into executing code from the editbox. This next example causes you to perform the /QUIT command if you remove the 'echo -a' from it:
 
 <pre class ="code">
 //echo -a $iif(($regsubex(dim[int:x];for[x=0:20:3]x*TAN-1&lt;&lt;DEG[]&lt;&lt;SQ[],/[^A1NT]/g,)) echo -a $base($v1, 34, 35) I accidentally math, I math right! )
@@ -94,9 +94,9 @@ None
 
 <H4>See also</H4>
 
-<a href="..\commands\if.html">/if</a><br>
+<a href="../commands/if.html">/if</a><br>
 <a href="true.html">$true</a><br>
 <a href="false.html">$false</a><br>
-<a href="..\other\injection.html">injection</a><br>
+<a href="../other/injection.html">injection</a><br>
 </body>
 </html>

@@ -9,11 +9,11 @@ The <b>$read</b> identifier returns a line from a disk file.
 
 <br>
 <br>
-<center><img src="..\images\warning.png">
+<center><img src="../images/warning.png">
 <b>WARNING:</b> This identifier can be dangerous. Please use the "n" switch.
-<img src="..\images\warning.png"></center>
+<img src="../images/warning.png"></center>
 <center>
-More information <a href="..\other\injection.html">here</a>.
+More information <a href="../other/injection.html">here</a>.
 </center>
 <br>
 <br>
@@ -27,14 +27,14 @@ $read [switches] [line#] filename
 
 <H4>Parameters</H4>
 <b>filename</b> The file from which text is returned
-<br><b>matchtext</b> Used with switches s w r (more information on matchtext <a href="..\events\matchtext.html">here</a>)
+<br><b>matchtext</b> Used with switches s w r (more information on matchtext <a href="../events/matchtext.html">here</a>)
 <br><b>N</b> Line number to read, except when using s, w, or r switches where it's the first line of the file portion to search.
 
 <H4>Switches</H4>
 <br><b>n</b> - Do not evaluate $identifiers contained in the returned line.
 <br><b>t</b> - Do not treat a numeric line#1 as if it's the total number of lines in the text file.
 <br><b>s</b> - Search for line beginning with &lt;matchtext&gt; and returns the remainder of the line beyond the spaces following &lt;matchtext&gt;
-<br><b>w</b> - Scan for line matching &lt;matchtext&gt; which can be a <a href="..\other\wildcard.html">wildcard</a>. If not a wildcard the line must be exact match. Returns the entire contents of the matching line
+<br><b>w</b> - Scan for line matching &lt;matchtext&gt; which can be a <a href="../other/wildcard.html">wildcard</a>. If not a wildcard the line must be exact match. Returns the entire contents of the matching line
 <br><b>r</b> - Indicates that &lt;matchtext&gt; is a regex pattern.
 <br><b>p</b> - When evaluating text in the absence of the 'n' switch, treats the pipe symbol as a command separator allowing the remainder of the line to be executed as a /command.
 
@@ -196,7 +196,7 @@ All searches are case-insensitive.
 <br>Undocumented legacy syntax can be used  where parameters follow the identifier without being enclosed within quotes.
 
 <H4>See also</H4>
-<a href="..\commands\bread.html">/bread</a><br>
+<a href="../commands/bread.html">/bread</a><br>
 <a href="fread.html">$fread</a><br>
 <a href="readini.html">$readini</a><br>
 </body>

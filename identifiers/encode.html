@@ -6,20 +6,20 @@
 <H1>$encode</H1>
 <br>
 <br>
-The <b>$encode</b> identifier allows you to encode literal text, or text in <a href="..\other\variables.html">%vars</a> or <a href="..\other\binary_variables.html">binary variables</a>. The $encode identifier uses either Uuencode or MIME or Base32 or Z85 to encode. Additionally, $encode is capable of utilizing Blowfish to encrypt the target before encoding using u/m/a/v encoding.
+The <b>$encode</b> identifier allows you to encode literal text, or text in <a href="../other/variables.html">%vars</a> or <a href="../other/binary_variables.html">binary variables</a>. The $encode identifier uses either Uuencode or MIME or Base32 or Z85 to encode. Additionally, $encode is capable of utilizing Blowfish to encrypt the target before encoding using u/m/a/v encoding.
 
 <H4>Synopsis</H4>
 <pre class ="code">
 ; encoding only
 $encode(text/%var/&binvar [, btumavxy] [, N] )
-
+&nbsp;
 ; encryption
 $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 </pre>
 
 <H4>Parameters</H4>
 <b>text/%var/&binvar</b> - The target to be encoded
-<br><b>b</b> - Target is a <a href="..\other\binary_variables.html">binary variables</a>
+<br><b>b</b> - Target is a <a href="../other/binary_variables.html">binary variables</a>
 <br><b>t</b> - Target is text (this is default target type)
 <br><b>u</b> - Target should be encoded using Uuencode (this is default encode type when 'tuma' not used)
 <br><b>m</b> - Target should be encoded using Mime (base64) (favored; has shortest output)
@@ -63,7 +63,7 @@ Random IV/Salt created in the absence of Parameter#4 can contain 0x00 bytes in a
 <br>
 <br>
 <b>Notes:</b>
-<p>Using the '<b>v</b>' Z85 encoding added in v7.73 has the advantage that it encodes the Blowfish binary into shorter strings than mime, due to encoding 4 binary as 5 text instead of encoding 3 binary as 4 text. For example, a ciphertext of 336 bytes which encodes as length 448 using '<b>m</b>' mime would encode as length 420 using '<b>v</b>' Z85, and would have a better chance of fitting within the fixed limit of an IRC message. However, because the Z85 alphabet contains characters such as $ % # etc, you must be careful to avoid using it in contexts where it could be double-evaluated in places such as a timer command string other other places described in <a href="..\other\injection.html">injection</a>
+<p>Using the '<b>v</b>' Z85 encoding added in v7.73 has the advantage that it encodes the Blowfish binary into shorter strings than mime, due to encoding 4 binary as 5 text instead of encoding 3 binary as 4 text. For example, a ciphertext of 336 bytes which encodes as length 448 using '<b>m</b>' mime would encode as length 420 using '<b>v</b>' Z85, and would have a better chance of fitting within the fixed limit of an IRC message. However, because the Z85 alphabet contains characters such as $ % # etc, you must be careful to avoid using it in contexts where it could be double-evaluated in places such as a timer command string other other places described in <a href="../other/injection.html">injection</a>
 <p><b>N</b> chunk parameter uses the same rules as non-encryption. It's an optional extra parameter past those required by the presence of other switches ('ec' require Parm3 &lt;key&gt;, 'c(s|i)' also require Parm4 &lt;salt|iv&gt;)
 <p><b>e</b> ECB mode is invalid syntax with switches 's|i|r'. In ECB mode, same key always encrypts identical groups of 8 plaintext bytes into the same 8 ciphertext bytes. Key is always literal UTF-8 'key' parameter of 0-72 bytes, except 'l' switch limits literal ECB key to 56.
 <p><b>c</b> default random salt allows same key to create different session-key:IV each time salt differs. If 8-byte random salt is randomly distributed across all 2^64 values, would require more than 2^32 messages before 50% probability of any 2 matching 'salt' values.

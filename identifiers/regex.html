@@ -5,7 +5,7 @@
 <H1>$regex</H1>
 <br>
 <br>
-The <b>$regex</b> identifier returns the number of string which matched the regular expression, more information about regex in mIRC <a href="..\other\regex.html">regex</a>.
+The <b>$regex</b> identifier returns the number of string which matched the regular expression, more information about regex in mIRC <a href="../other/regex.html">regex</a>.
 
 
 <H4>Synopsis</H4>
@@ -16,7 +16,7 @@ $regex([name],input,regex)
 <H4>Parameters</H4>
 <b>name</b> -The optional name of the regex, to be used later to retrieve captured group with <a href="regml.html">$regml</a> or <a href="regmlex.html">$regmlex</a>.
 <br><b>input</b> - The input text.
-<br><b>regex</b> - The regular expression for <a href="..\other\regex.html">regex</a>.
+<br><b>regex</b> - The regular expression for <a href="../other/regex.html">regex</a>.
 
 <H4>Properties</H4>
 None
@@ -33,7 +33,7 @@ to
 if ($regex(string,pattern) != 0)
 </pre>
 
-In addition to the normal regex escape sequences mentioned <a href="..\other\regex.html">regex</a> you need to make sure that your regex pattern does not contain characters which confuse the mIRC scripting engine, such as the above example returning -14 due to having an unmatched bracket. You may still use these, but must place them in a %variable then use that variable as the regex pattern. The mIRC scripting engine seeks to prioritize seeing characters in way they would evaluate these characters in the non-regex context before accepting them in your regex pattern. This includes unpaired parenthesis and brackets, literal commas, pipe symbols percents and dollars which could be evaluated with special meaning by the scripting engine due to their placement next to spaces and commas, etc.<br>
+In addition to the normal regex escape sequences mentioned <a href="../other/regex.html">regex</a> you need to make sure that your regex pattern does not contain characters which confuse the mIRC scripting engine, such as the above example returning -14 due to having an unmatched bracket. You may still use these, but must place them in a %variable then use that variable as the regex pattern. The mIRC scripting engine seeks to prioritize seeing characters in way they would evaluate these characters in the non-regex context before accepting them in your regex pattern. This includes unpaired parenthesis and brackets, literal commas, pipe symbols percents and dollars which could be evaluated with special meaning by the scripting engine due to their placement next to spaces and commas, etc.<br>
 
 For example, if you need to validate that a string is a valid mime string, you cannot simply check if the string contains characters of the mime alphabet, because you need to make sure there is a minimum of 2-or-more mime characters. The regex construct to ensure something appears 2-or-more times is {2,} but this literal comma confuses the scripting engine into thinking you're trying to use an extra parameter. While you can replace the comma with " $+ $chr(44) $+ " that can make the pattern harder to understand later, so you can instead simply the normal scripting syntax which accomplishes the task of putting your pattern into a variable:
 <pre class ="code">
@@ -64,7 +64,7 @@ Spaces are treated differently inside regex patterns than outside them. In norma
 //echo -a $regex(foo,abbadabba,/ (?:a|b)/g)  captures: $regml(foo,0)
 //echo -a $regex(foo,abbadabba,/ (?:a|b)/gx) captures: $regml(foo,0)
 </pre>
-See the <a href="..\other\regex.html">regex</a> page for more details on using regex in general. Note how $regml and $regmlex differ in how they handle capture groups in coordination with the /F modifier.
+See the <a href="../other/regex.html">regex</a> page for more details on using regex in general. Note how $regml and $regmlex differ in how they handle capture groups in coordination with the /F modifier.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)

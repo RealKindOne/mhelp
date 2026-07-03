@@ -5,7 +5,7 @@
 <H1>$hotlink</H1>
 <br>
 <br>
-The <b>$hotlink</b> identifier returns information about what triggered the <a href="..\events\on_hotlink.html">On_HotLink</a> event.
+The <b>$hotlink</b> identifier returns information about what triggered the <a href="../events/on_hotlink.html">On_HotLink</a> event.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -15,8 +15,8 @@ $hotlink(item)
 <H4>Parameters</H4>
 <b>word</b> - Returns the full word which matched the expression and triggered the event, same as $1, except that $hotlink(word) does not strip the word from control code.
 <br><b>match</b> - Returns the part of the word that was used for a comparison to gives the type of match. For example if you hover an operator on a channel with the word "&lt;@nick&gt;", $hotlink(match) is "nick" where $hotlink(word) is "&lt;@nick&gt;".
-<br><b>event</b> - Returns the mouse event which triggered the <a href="..\events\on_hotlink.html">On_HotLink</a> event, can be <b>mouse</b>, <b>sclick</b>, <b>uclick</b>, <b>dclick</b>, or <b>rclick</b>.
-<br><b>line</b> - Returns the full line which triggered the <a href="..\events\on_hotlink.html">On_HotLink</a> event.
+<br><b>event</b> - Returns the mouse event which triggered the <a href="../events/on_hotlink.html">On_HotLink</a> event, can be <b>mouse</b>, <b>sclick</b>, <b>uclick</b>, <b>dclick</b>, or <b>rclick</b>.
+<br><b>line</b> - Returns the full line which triggered the <a href="../events/on_hotlink.html">On_HotLink</a> event.
 
 <H4>Properties</H4>
 <b>.pos</b> - The .pos property can only be used with <b>line</b>, <b>word</b> and <b>match</b> items:
@@ -37,7 +37,7 @@ v7.23: Added .pos and .type properties.
 None
 
 <H4>See also</H4>
-<a href="..\commands\hotlink.html">/hotlink</a><br>
-<a href="..\events\on_hotlink.html">On_HotLink</a><br>
+<a href="../commands/hotlink.html">/hotlink</a><br>
+<a href="../events/on_hotlink.html">On_HotLink</a><br>
 </body>
 </html>
