@@ -53,7 +53,7 @@ You can change the 1223 to '127' to see a shorter list, making it easier to see 
 //var %a $regsubex(foo,$str(x,127),/x/g,$chr($calc(128- \n)) $+ $chr(32)) , %b $sorttok(%a,32) | echo -a original: $strip(%a) | echo -a sort: $strip(%b) ==> $chr(15) $chr(22) $regsubex(foo,%b,/([^ ])/gu, $asc(\t) ) checksum: $crc(%b,0)
 </pre>
 
-<pre class="code">
+<pre class ="code">
 alias NumericMax { return $gettok($sorttok($1- , 32 , rn),1,32) }
 alias NumericMin { return $gettok($sorttok($1- , 32 ,  n),1,32) }
 </pre>

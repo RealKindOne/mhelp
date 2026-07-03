@@ -99,7 +99,6 @@ on ^*:JOIN:#:{
   echo $color(join) -tn # * $nick $+($chr(40),$gettok($fulladdress,2-,33),$chr(41)) has joined # $comchan($nick,0)
   haltdef
 }
-
 </pre>
 <pre class ="code">
 /echo -m @window test
@@ -117,7 +116,7 @@ Where the duplicate space is not displayed.
 <pre class ="code">
 //var %a abc $+ $chr(32) $+ $chr(32) $+ def | echo -a $len(%a) %a
 </pre>
-
+<pre class ="code">
 //var %a abc $chr(9) def | echo -a $len(%a) %a
 ; returns: 9 abc def
 ; ... where there are 2 spaces appearing next to each other because they were not consecutive prior to the non-printable tab being hidden.

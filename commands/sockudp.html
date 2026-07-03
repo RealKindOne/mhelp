@@ -37,26 +37,26 @@ The <b>/sockudp</b> command allows you to send data to a specific address at a s
 alias gettime {
   ; Set a NULL byte binary variable.
   bset &null 1 0
-
+&nbsp;
   ; Open a UDP connection to Time-a.nist.gov = 129.6.15.28
   sockudp -k gettime 129.6.15.28 37 &null
 }
-
+&nbsp;
 on *:UDPREAD:gettime: {
   ; Read the reply.
   sockread -f &time
-
+&nbsp;
   var %time $bvar(&time,1,$bvar(&time,0))
-
+&nbsp;
   ; Convert to binary, remove spaces.
   var %bin $regsubex(%time, /(\d+)\s?/g, $base(\1, 10, 2, 8))
-
+&nbsp;
   ; Get the current unix time in decimal system.
   var %time = $base(%bin, 2, 10)
-
+&nbsp;
   ; Print the time.
   echo -ag Current Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
-
+&nbsp;&nbsp;
   ; Close the socket
   sockclose $sockname
 }

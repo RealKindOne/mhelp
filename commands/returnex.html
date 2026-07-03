@@ -25,7 +25,7 @@ None
 alias space_example {
   ; Prints 9: &lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;
   echo -a $len($preserve_space)
-
+  &nbsp;
   ; Prints 5: A&lt;space&gt;B&lt;space&gt;C
   echo -a $len($strip_space)
 }
@@ -40,6 +40,7 @@ alias strip_space return $get_abc
 </pre>
 Just an example string "&lt;space&gt;A&lt;space&gt;&lt;space&gt;B&lt;space&gt;&lt;space&gt;C&lt;space&gt;"
 
+<pre class ="code">
 alias get_abc returnex $+($chr(32), A, $chr(32), $chr(32), B, $chr(32), $chr(32), C, $chr(32))
 </pre>
 

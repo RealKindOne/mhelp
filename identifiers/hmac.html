@@ -30,14 +30,17 @@ None
 <H4>Example</H4>
 <pre class ="code">
 //echo -a $hmac(message 1,key,sha1,0)
+</pre>
 When given "message 1" and the $hmac output, it should require knowledge of 'key' to avoid brute-force testing for 'key' that would generate the correct hash output for $hmac(message 2,key,sha1,0) and preventing an outsider from counterfeiting a message.
 
 When receiving a file as an email attachment, and the email message contains the HMAC hash, the receiver can verify the file has not been tampered with by an outsider who does not know 'shared secret' and cannot create the correct HMAC using the shared secret against a forged message: $hmac(filename,shared secret,sha256,2)
 
 Generate HMAC hash of binary string:
+<pre class ="code">
 //bset -t &v 1 abc | echo -a $hmac(abc,key,sha1,0) same as $hmac(&v,key,sha1,1)
-
+</pre>
 Keyless hmac of each file in the $mircdir folder:
+<pre class ="code">
 //noop $findfile($mircdir,*,0,1,if ($file($1-).size isnum) echo -a $hmac($1-,,sha256,2) size $v1 $1-)
 </pre>
 

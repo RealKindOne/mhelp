@@ -198,11 +198,11 @@ alias example {
 </pre>
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
-<pre class="code">alias example{echo hello! }</pre>
+<pre class ="code">alias example{echo hello! }</pre>
 The opening bracket is touching "example" and "echo".
-<pre class="code">alias example { echo hello!}</pre>
+<pre class ="code">alias example { echo hello!}</pre>
 The closing bracket is touching the "hello!".
-<pre class="code">alias example
+<pre class ="code">alias example
 {
   echo hello!
 }</pre>
@@ -281,19 +281,19 @@ If your statements aren't inside an alias, the other thing they can used with ar
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
 Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
 All events follow this format except two:<br>
-<pre class="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
+<pre class ="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
 "on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
 After that you have the parameters of the events, you can get parameters to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
 Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
 
 
 Then you have the CTCP event, it has a similar format as the above and takes two parameters:<br>
-<pre class="code">
+<pre class ="code">
 ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;
 </pre>
 
 The last events type are menu events:
-<pre class="code">
+<pre class ="code">
 menu &lt;window&gt; {
   &lt;statements&gt;
 }
@@ -338,7 +338,7 @@ Maintaining an alias being used as a command by eventually adding new parameters
 So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
 For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
 <pre>alias difflength {
-if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
+if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
 </pre>
 You can't just use a command call like <b>/difflength string1 string2</b> as we just saw how this would fail if any of the string contain spaces, so instead you call it as an identifier $difflength(string1,string2)<br><br>
@@ -348,7 +348,7 @@ When you create an alias, if you call it as an identifier, all parameters are ev
 When we create such identifier to perform some operation but don't want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
 It is valid to not use the /noop command:
 <pre>alias difflength {
-if ($abs($calc($len($1) - $len($2))) > 5) echo -ag difference is bigger than 5.
+if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
   alias test {
     $difflength($1,$2)
@@ -438,7 +438,7 @@ examples of proper multi-line comment blocks.
 The */ is not on a line of Its own.
 <br>
 
-<pre class="code">/* comment */</pre>
+<pre class ="code">/* comment */</pre>
 The */ is not on a line of Its own.
 
 <H4>Multiple aliases/events</H4>

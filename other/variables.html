@@ -25,7 +25,6 @@ Syntax:
 <pre class ="code">
 ; single variable
 var %temp = value
-
 ; multiple variables
 var %a = value, %b = second value, %c = and so on and so forth
 </pre>
@@ -72,7 +71,8 @@ set %var value</pre>
 Because the /set command can only set a single variable at a time, you can use the /var command in conjunction with -g switch to set multiple global variables.
 
 <pre class ="code">;multiple variables
-var -g %var = foo, %var2 = bar, %var3 = foobar</pre>
+var -g %var = foo, %var2 = bar, %var3 = foobar
+</pre>
 
 <b>Practical use:</b> a global variable is good for storing variables that you will need to use in the future from another script or at different time. (Login System, Away System, Sockets, Etc...)
 
@@ -97,7 +97,7 @@ If you have already set a variable you can unset it at any time during using the
 <pre class ="code">
 ; unset a single variable
 unset %variable
-
+&nbsp;
 ; unset multiple variables
 unset %var1 %var2 %var3
 </pre>
@@ -109,13 +109,13 @@ alias unsetWildExample {
   set %exampleHello hello there
   set %exampleHey another var
   set %exampleVar yet another var
-
+  &nbsp;
   /*
    Illustrating that each variable can be a wildcard
    unset -s %exampleH* %exampleVar
-
+   &nbsp;
   */
-
+&nbsp;
   ;unset all of them
   unset %example*
 }</pre>

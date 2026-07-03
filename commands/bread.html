@@ -40,13 +40,13 @@ alias copy Example {
 ; Line ending is defined as data preceding
 //bset &v 1 233 | bwrite -c test.dat 0 &v | bread test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
 ; result: 233 because no switch used
-
+&nbsp;
 //bset &v 1 233 | bwrite -c test.dat 0 &v | bread -t test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
 ; result: 195 169 because -t used without -a interprets as UTF8 encoding of codepoint 233
-
+&nbsp;
 //bset &v 1 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
 ; result: 233 because -ta used AND data read doesn't contain codepoint 256+
-
+&nbsp;
 //bset &v 1 226 156 148 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
 ; result: 226 156 148 195 169 because data read contains codepoint 10004
 ; * If bread's offset changed from 0 to 3, result is 233 because the read portion of the line doesn't contain the codepoint above 255

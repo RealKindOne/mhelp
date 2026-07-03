@@ -33,7 +33,7 @@ The <b>/bwrite</b> command can be used to write a specified amount of bytes from
 /bwrite file.txt 0 hello there!
 ; Replace "there!" with "world!"
 /bwrite file.txt 6 world!
-
+&nbsp;
 //var %b a $chr(32) b | var %a % $+ b | bwrite -c test 0 -1 %a | loadbuf -a test
 displays "a b" because the first token in %a is a variable (%b). Adding the -t switch would have instead written the literal string "%b".
 </pre>

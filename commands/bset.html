@@ -34,7 +34,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 Alias Example {
   ; Create a binary variable set it to "This is fun!"
   bset -t &Example 1 This is fun!
-
+&nbsp;
   ; Print out the content of the variable
   echo -a $bvar(&Example, 1-).text
 }
@@ -65,25 +65,25 @@ Alias Example {
   bset &var 5 100
   ; same as
   ; bset &var 5 $asc(d)
-
+&nbsp;
   ; will print: 0 0 0 0 100
   echo -a $bvar(&var, 1-)
-
+&nbsp;
   ; zero-pad bytes 6-8
   bset &var 9 33
   ; will print: 0 0 0 0 100 0 0 0 33
   echo -a $bvar(&var, 1-)
-
+&nbsp;
   ; re-writing the 6th byte in order to chop the 7th and later bytes
   bset -c &var 6 $bvar(&var,6)
   ; will print: 0 0 0 0 100 0
   echo -a $bvar(&var, 1-)
-
+&nbsp;
   ; append the 4 bytes of the "test" string to the end of existing bytes
   bset -t &var -1 test
   ; will print: 0 0 0 0 100 0 116 101 115 116
   echo -a $bvar(&var, 1-)
-
+&nbsp;
   ; replace the 2nd th  h 4th bytes with "abc"
     bset &var 2 97 98 99
   ; will print: 0 97 98 99 100 0 116 101 115 116 / abcd
@@ -112,7 +112,7 @@ Binary variables are not limited to 4150 length. To fill a 7mb binary variable w
 
 <pre class ="code">
 /fill_with_ones 7654321
-
+&nbsp;
 alias fill_with_ones {
   if ($1 !isnum 1-) return | bset &var 1 1
   while ($1 &gt; $bvar(&var,0)) {
@@ -128,7 +128,7 @@ Prior to 7.69, zero length &binvar had to be created with kludge workarounds lik
 <pre class ="code">
 //noop $regsubex(foo,$null,,,&var)
 //bset -t &var 1 A | noop $decode(&var,bm)
-
+&nbsp;
 ; create zero length &binvar:
 //bset -z &var | echo -a $bvar(&var) : $bvar(&var,0)
 </pre>
@@ -171,8 +171,6 @@ alias fake-bset-ta {
 }
 </pre>
 <br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you don't lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it's possible for a string to consist entirely of such codepoints, you couldn't safely add more than around 330 characters at a time.
-
-</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)

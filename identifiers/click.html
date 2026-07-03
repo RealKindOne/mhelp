@@ -30,12 +30,12 @@ The example below will create a custom alias, <b>/clickWatch</b>, that, when exe
 <pre class ="code">; Create the custom alias to launch the example
 ;
 ; Synopsis: /clickWatch
-
+&nbsp;
 alias clickWatch {
-
+&nbsp;
   ; Custom picture window, which is centered
   window -dpC @clicker 0 0 250 125
-
+&nbsp;
   ; Custom 'update' alias keeps code from repeating
   ; During initial launch the values should be empty
   update 15 Total Clicks: empty
@@ -45,15 +45,15 @@ alias clickWatch {
 ; Monitor the sclicks in our custom '@clicker' window
 menu @clicker {
   sclick: {
-
+&nbsp;
     ; Clear the window for the new value updates
     clear @clicker
-
+&nbsp;
     ; Set the %current and %prev variables to the current
     ; x/y click location, and to the previous x/y click
     ; locations, respectively
     var %current = $click(@clicker,0), %prev = $calc(%current - 1)
-
+&nbsp;
     ; Utilizing the custom 'update' alias, update the data
     update 15 Total Clicks: $click(@clicker,0)
     update 35 Current Position: $click(@clicker,%current)

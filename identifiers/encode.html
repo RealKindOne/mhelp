@@ -134,7 +134,6 @@ The 'N' parameter is ignored by $decode, but is used to encode individual chunks
 <pre class ="code">
 $encode encrypts the string then applies u/m/a coding to change binary encrypted data to text.
 Decoding with matching u/m/a without using e|c displays the header and cipher binary hidden beneath (some strings can be truncated when 0x00 are encountered in decoded mime string):
-
 //var %a $encode(text,csm,key,ParmSalt) | echo -a %a -> $decode(%a,m)
 </pre>
 
@@ -195,7 +194,7 @@ generated randomly, the only way to identify which of the 2 aliases
 was used to encrypt the message is whether the mimed string's length
 is 8N or 8N+1.
 */
-
+&nbsp;
 alias fake_secret_chat2 { if (!$chan) return
   ; //hadd -m secret_chat $network $+ ##maroon Change this Shared Secret
   noop $regex(foo,$chan($chan).topic,salt:(\S+) ) | var %chan.salt $regml(foo,1)

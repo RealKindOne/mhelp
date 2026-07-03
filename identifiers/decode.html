@@ -57,7 +57,7 @@ Because base64/mime decodes from 4 text to 3 bytes, and base32 decodes from 8 te
 
 <p>So, if creating a string containing random base64 or base32 characters, if the length is such that $encode would have added '=' padding, there will be multiple characters in the final position who are treated as if the same when the string is decoded.
 <pre class ="code">
-//echo -a $decode(YmJiYmE,m) $decode(YmJiYmF,m) $decode(YmJiYmG,m) $decode(YmJiYmH,m) $decode(YmJiYmI,m) -> bbbba bbbba bbbba bbbba bbbbb
+//echo -a $decode(YmJiYmE,m) $decode(YmJiYmF,m) $decode(YmJiYmG,m) $decode(YmJiYmH,m) $decode(YmJiYmI,m) -&gt; bbbba bbbba bbbba bbbba bbbbb
 </pre>
 Though decode does not currently require the presence of the '=' padding so it could correctly decode the string, some past versions might, and it won't harm anything to append a '=' to the encoded string to be certain.
 
@@ -72,7 +72,7 @@ However, they treat invalid input differently, with base64 ignoring input past t
 <pre class ="code">
 //echo -a $decode(abc@def,a)
 * Invalid parameters: $decode
-//echo -a $decode(YWJj@YWJj,m) same as $decode(YWJj,m) -> abc same as abc
+//echo -a $decode(YWJj@YWJj,m) same as $decode(YWJj,m) -&gt; abc same as abc
 </pre>
 Decode returns null output caused by decoding 0 or 1 encoding symbols, so one of the workarounds for scripts needing a zero length &binvar while supporting versions prior to the $regsubex 5th parm or /bset -z is to decode such a string held in a &binvar:
 <pre class ="code">
@@ -86,7 +86,7 @@ Even though /help indicates the decryption syntax for $decode is the same as the
 <pre class ="code">
 message ending with trailing spaces has them stripped if changing 'men' to 'mep':
 //var -s %a $encode(123 $+ $str($chr(32),4),me,key) , %b $qt($decode(%a,mez,key))
-
+&nbsp;
 final byte of message is lost:
 //bset -t &v 8 0 | while ($bvar(&v,0) == 8) { bset -tc &v 1 $str(`,$rand(1,7)) $+ $chr($calc(64*$rand(2,40))) } | echo -a original: = $bvar(&v,1-) $bvar(&v,1-).text | noop $encode(&v,bmez,key) $decode(&v,bmez,key) | echo 4 -a decrypted = $bvar(&v,1-) $bvar(&v,1-).text
 </pre>
@@ -115,7 +115,7 @@ decrypted as: ButThisIs
 In the next example, the same $encode switches for encrypting using a literal IV and literal key results in ciphertext whose 1st 8 bytes matches the 'Salted__' label. This makes $decode ignore the 'li' switches being used, and ignores the content of the IV parameter. Instead, it combines the key parameter with bytes 9-16 of the ciphertext as if that's a salt, causing $decode to generate the completely wrong salted key used for decryption, resulting in completely garbled output.
 <pre class ="code">
 //var -sp %switches mcli , %key key encrypts 1st block of ciphertext as 'Salted__', %salt 128 173 196 14 99 213 69 247 , %salt $regsubex(%salt,/(\d+) ?/g,$chr(\t)) , %original Garbled Decryption Of 3rd Block and later , %enc $encode(%original,%switches,%key,%salt) | bset -t &v 1 %enc | echo -a $decode(&v,bm) 1st 8 bytes of ciphertext: $bvar(&v,1-8).text | echo 3 -a original::::: %original | echo 4 -a decrypted as: $decode(%enc,%switches,%key,salt)
-
+&nbsp;
 result:
 48 1st 8 bytes of ciphertext: Salted__
 original::::: Garbled Decryption Of 3rd Block and later
