@@ -80,7 +80,7 @@ Demonstrating bias in v7.54: Paste the command below into any editbox, and the d
 //var -s %pockets 256 , %array $str(0 $chr(32),%pockets) , %i 25600 , %max 99999999999999 , %div %max / %pockets | while (%i) { var %t $calc(1+ ($rand(0,%max) / %div)) , %a $gettok(%array,%t,32) + 1 , %array $puttok(%array,%a,%t,32) | dec %i } | echo -a %array = $calc($replace(%array,$chr(32),+))
 </pre>
 
-In v7.55+ the above alias can increase %max to $calc(2^53-1) without obvious bias.<br />
+In v7.55+ the above alias can increase %max to $calc(2^53-1) without obvious bias.<br>
 
 If worried that your large range has some 'impossible' outputs, you can use the slower randpatch alias to create output which combines the output from 5 smaller ranges. You can test randpatch by substituting it in place of $rand in the above command.
 

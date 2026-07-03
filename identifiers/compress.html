@@ -26,9 +26,9 @@ None
 There are patterns that often appear near the beginning, but from observations, it appears you should not assume beyond:
 <br>
 <br>
-m1 raw: No guaranteed signature because the data is 'raw'. (m1l0 is the same as the input data)<br />
-m2 Zlib: The 1st byte is $chr(120) (hex 78) small-x.<br />
-m3 gzip: The 1st 4 bytes in hex are: 1F 8B 08 00<br />
+m1 raw: No guaranteed signature because the data is 'raw'. (m1l0 is the same as the input data)<br>
+m2 Zlib: The 1st byte is $chr(120) (hex 78) small-x.<br>
+m3 gzip: The 1st 4 bytes in hex are: 1F 8B 08 00<br>
 <br>
 
 Reminder that decompress works without being informed of the lN compression level. Files compressed with non-default m1 or m3 will fail without being informed of the compression method used to compress that file.

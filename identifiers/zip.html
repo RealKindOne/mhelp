@@ -49,35 +49,35 @@ These examples assume TESTDIR contains filenames test1.txt and test2.txt and a s
 <pre class ="code">//echo -a $zip(test,cp,testdir\test1.txt,foo bar)</pre>
 returns 1=success:
 Creates zip filename "test" without the .zip extension. If you want the filename as test.zip, you must use 'test.zip' instead of 'test'.
-The zip contains the filename as test1.txt without the folder name. File is encrypted using the 7-character passphrase "foo bar" including the space.<br />
+The zip contains the filename as test1.txt without the folder name. File is encrypted using the 7-character passphrase "foo bar" including the space.<br>
 
-Error "* File exists: $zip" -> trying to create a .zip using a string which already exists as filename/folder name<br />
+Error "* File exists: $zip" -> trying to create a .zip using a string which already exists as filename/folder name<br>
 Error "* Invalid parameters: $zip" file/folder being added does not exist.
 
 <pre class ="code">//echo -a $zip(test,cpo,testdir\test1.txt,foo bar)</pre>
 Same except creates zip named 'test' by overwriting it if it already exists.
 
 <pre class ="code">//echo -a $zip(test.zip,tp,foo bar)</pre>
-Tests contents of test.zip zipfile<br />
-Error "* Invalid parameters: $zip" if test.zip filename does not exist<br />
-Returns 1=success: contents of test.zip either use this password or are not encrypted<br />
+Tests contents of test.zip zipfile<br>
+Error "* Invalid parameters: $zip" if test.zip filename does not exist<br>
+Returns 1=success: contents of test.zip either use this password or are not encrypted<br>
 Returns 0=fail: At least 1 file in test.zip not able to be decrypted, or test.zip is not a valid zip file.
 
 <pre class ="code">//echo -a $zip(test3.zip,cp,TESTDIR,foo bar)</pre>
 adds to test3.zip the contents of TESTDIR and all contents of any of its subfolders. In this example, the .zip contains 5 items:
 <p>
-DIR entry for TESTDIR<br />
-filename TESTDIR\test1.txt<br />
-filename TESTDIR\test2.txt<br />
-DIR entry for TESTDIR\Backup<br />
-filename TESTDIR\Backup\test3.bak<br />
+DIR entry for TESTDIR<br>
+filename TESTDIR\test1.txt<br>
+filename TESTDIR\test2.txt<br>
+DIR entry for TESTDIR\Backup<br>
+filename TESTDIR\Backup\test3.bak<br>
 <p>
 <b>Note:</b> If TESTDIR uses a different case than the existing folder, the files are added using the spelling as used in the $zip parameter. Folder names for any empty subfolders beneath TESTDIR are also added.
 
 <pre class ="code">//echo -a $zip(test.zip3,ep,F:\ExtractDir,foo bar)</pre>
-extract contents of test.zip to F:\ExtractDir. If no path were listed, subfolder below $mircdir.<br />
-Error "* Invalid parameters: $zip" if ExtractDir folder name already exists, even if empty<br />
-If this is the test3.zip created above, it extracts test1.txt and test2.txt into F:\ExtractDir\TESTDIR folder and extracts test3.bak into F:\ExtractDir\TESTDIR\Backup folder.<br />
+extract contents of test.zip to F:\ExtractDir. If no path were listed, subfolder below $mircdir.<br>
+Error "* Invalid parameters: $zip" if ExtractDir folder name already exists, even if empty<br>
+If this is the test3.zip created above, it extracts test1.txt and test2.txt into F:\ExtractDir\TESTDIR folder and extracts test3.bak into F:\ExtractDir\TESTDIR\Backup folder.<br>
 
 Note: After extraction, you can also use
 <pre class ="code">//echo -a $findfile(F:\ExtractDir\,*,0,echo -a $1-)</pre>

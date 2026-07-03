@@ -16,10 +16,10 @@ The basic syntax of a while loop is:
 
 Here is how the while loop works:
 
-#The conditional statement is checked. $v1 and $v2 are generated according to the condition being evaluated.<br />If the statement is true, continue on to step 2.<br />If the statement is false go to step 4.
+#The conditional statement is checked. $v1 and $v2 are generated according to the condition being evaluated.<br>If the statement is true, continue on to step 2.<br>If the statement is false go to step 4.
 #The code inside the while loop (inside the brackets) is executed.
 #The entire process starts all over again. Going back to step 1.
-#If the statement was false.<br />No code inside the while loop is executed and the script skips right down to any code below it.
+#If the statement was false.<br>No code inside the while loop is executed and the script skips right down to any code below it.
 
 === true conditions ===
 So we said the while loop will continue to iterate as long as the condition is true. But what exactly does that mean? In mSL, a condition is true if the outcome of the condition is NOT 0, <a href="../identifiers/null.html">$null</a>, or <a href="../identifiers/false.html">$false</a>. For example let %x be 5, if the condition is while <a href="../identifiers/calc.html">$calc</a>(%x - 5)) {, since 5-5 is 0, the while loop's condition is false, thus it will not execute any code inside it.
@@ -57,7 +57,7 @@ We can rewrite that alias:
 Using the while loop, we can repeat the echo statement as many times as we want. Let's take a look at what's going on:
 
 #We create a local variable called "%line" and assign it the number 1
-#The while loop checks our conditional statement.<br />As long as "%line" is less than or equal to 10, we can enter the while loop.
+#The while loop checks our conditional statement.<br>As long as "%line" is less than or equal to 10, we can enter the while loop.
 #The first statement inside the while loop will cause mIRC to print to the active window "Line number: " follows by the value of "%line".
 #The second statement inside the while loop will cause the "%line" variable to increase by 1 (if no number is specified the default is one).
 #Go back to step 2.

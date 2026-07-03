@@ -31,13 +31,13 @@ $address(&lt;nick&gt;,&lt;type&gt;)
 <br>8: nick!*user@host
 <br>9: nick!*@host
 <br>
-Type 10-19 are same as types 0-9 except asterisks in host are expanded to the text they replaced, then all numbers are replaced by question marks.<br />
+Type 10-19 are same as types 0-9 except asterisks in host are expanded to the text they replaced, then all numbers are replaced by question marks.<br>
 
 Masks are case-insensitive and assigned by the internet provider, but IRC servers often provide user mode +x to help disguise them.
 
 <br><b>Note:</b> Using the NICK portion of an address mask can cause a false negative when it keeps from matching someone if they're using one of their other nicks, and can cause a false positive if the server doesn't prevent people from using that nick without identifying to Nickserv.
 
-"user" is easily changeable by someone editing their mIRC settings then reconnecting to the server. Be careful about using Type-4 mask to defend against that, because the @*.host <a href="../other/wildcard.html">wildcard</a> can match other users who also use the same internet provider. Disguised IP masks created by usermode +x are in the format of hexnumber#1.hexnumber#2.hexnumber#3.IP. For IPv4 addresses, the default method for creating the shadow mask is built on IP address style N1.N2.N3.N4, and hexnumber#3 is the same for all IP addresses N1.N2.*.*, hexnumber#2 is the same for all N1.N2.N3.* addresses, and generates the same disguised IP address each time the same IP address is scrambled.<br />
+"user" is easily changeable by someone editing their mIRC settings then reconnecting to the server. Be careful about using Type-4 mask to defend against that, because the @*.host <a href="../other/wildcard.html">wildcard</a> can match other users who also use the same internet provider. Disguised IP masks created by usermode +x are in the format of hexnumber#1.hexnumber#2.hexnumber#3.IP. For IPv4 addresses, the default method for creating the shadow mask is built on IP address style N1.N2.N3.N4, and hexnumber#3 is the same for all IP addresses N1.N2.*.*, hexnumber#2 is the same for all N1.N2.N3.* addresses, and generates the same disguised IP address each time the same IP address is scrambled.<br>
 
 <H4>Properties</H4>
 

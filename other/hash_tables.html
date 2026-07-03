@@ -379,22 +379,23 @@ But when the items are /hload'ed from disk into an empty table, they are loaded 
 <P>
 If you need to create a table which has $hget(table,N).item listing items in the creation order, you must:
 <P>
-1. Create the table using buckets=1 and create all the item names.<br />
-2. hsave     table_name diskfilename<br />
-3. hfree -w  table_name<br />
-4. hload -m1 table_name diskfilename<br />
+1. Create the table using buckets=1 and create all the item names.<br>
+2. hsave     table_name diskfilename<br>
+3. hfree -w  table_name<br>
+4. hload -m1 table_name diskfilename<br>
 <P>
 Step 3 is important, because if you /hload items into an existing table containing an item of the same name being hload'ed, it takes the existing position within the bucket instead of being added to the front as a fresh item. Without Step 3, the iteration order after Steps 1 and 4 would always be identical.
 <P>
 If table contains items #1-#20 in order of creation, but then items #21-#25 are added to the table, there are multiple steps required to put the table entirely into reverse creation order so they can be hsave'ed to disk in a way that lets them be hload'ed from disk into creation order:
 <P>
-1. hmake -m1 temptable<br />
-2. search from 1 through the last item $hget(temptable,0).item, until finding item#1.<br />
-3. Then save that location to be used later<br />
-4. From that position through end-of-file, clone the items and their data from maintable to temptable.<br />
-5. In descending N order toward N=1, clone the items preceding the above #3 location from maintable to temptable.<br />
-6. hsave temptable to disk<br />
-<P>
+1. hmake -m1 temptable<br>
+2. search from 1 through the last item $hget(temptable,0).item, until finding item#1.<br>
+3. Then save that location to be used later<br>
+4. From that position through end-of-file, clone the items and their data from maintable to temptable.<br>
+5. In descending N order toward N=1, clone the items preceding the above #3 location from maintable to temptable.<br>
+6. hsave temptable to disk<br>
+<br>
+<br>
 From this lengthy process, you can see how hashtables are ill-suited for preserving the creation order, especially when new items are added. If you need to preserve creation order in buckets=1, you might be forced to use slower methods such as holding data in a hidden @window or keeping an index to the data in the hidden @window, which is used to locate the longer data kept in the hashtable.
 <br>
 <br>

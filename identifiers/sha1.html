@@ -56,11 +56,11 @@ Suggested Uses:<br>
 * Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)<br>
 * Quick way to check if a file's contents have changed since stored sha1 hash was made.<br>
 * Verify downloaded file hasn't been corrupted, matches the hash obtained from the sender.<br>
-<br />
-Note that because the default is N=0, <b>$sha1($mircexe)</b> is the sha1 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br />
-mIRC v7.x Unicode-encodes plaintext before providing to $sha1, so v7.x and v6.x return different answers for //echo -a $sha1($chr(233))<br />
+<br>
+Note that because the default is N=0, <b>$sha1($mircexe)</b> is the sha1 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br>
+mIRC v7.x Unicode-encodes plaintext before providing to $sha1, so v7.x and v6.x return different answers for //echo -a $sha1($chr(233))<br>
 
-If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $sha1 as a binary variable:<br />
+If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $sha1 as a binary variable:<br>
 
 <pre class = "code">//bset -ta &string 1 chlo&#233; | echo -a $sha1(&string,1)</pre>
 

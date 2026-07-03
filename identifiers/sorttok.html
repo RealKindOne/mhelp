@@ -58,7 +58,7 @@ alias NumericMax { return $gettok($sorttok($1- , 32 , rn),1,32) }
 alias NumericMin { return $gettok($sorttok($1- , 32 ,  n),1,32) }
 </pre>
 
-Note: the above NumericMax assumes the input contains ONLY numbers, because in a numeric sort, non-numeric is treated as if zero, and is sorted between the positives vs the negative numbers.<br />
+Note: the above NumericMax assumes the input contains ONLY numbers, because in a numeric sort, non-numeric is treated as if zero, and is sorted between the positives vs the negative numbers.<br>
 <pre class ="code">
 //echo -a min: $NumericMin(1 2 11) max: $NumericMax(1 2 11)
 </pre>

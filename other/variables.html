@@ -208,7 +208,8 @@ In many occasions you may need to save individualized data (data for a particula
 
 The basic syntax to set a dynamic variable is:
 
-<pre class ="code">set %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
+<pre class ="code">
+set %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
 ; or (use var -g to make them global variables)
 var %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
 </pre>
@@ -219,8 +220,9 @@ Although you can omit the static part out, its strongly discouraged because vari
 
 Let's take a look at an example:
 
-<pre class ="code">on *:TEXT:!setColor *:#:{
-  ;save their favorite color
+<pre class ="code">
+on *:TEXT:!setColor *:#:{
+  ; Save their favorite color
   set %color. $+ $nick $2
   notice $nick Your favorite color $qt($2) was saved!
 }</pre>
@@ -231,8 +233,9 @@ Let's take a closer look at the variable assignment statement:
 
 The static part is ''color.'', which is never going to change, and the dynamic part is ''$nick''. Let's assume someone by the name John types ''!setColor blue''; this is what happens:
 
-# mIRC evaluates the identifier $nick to "John" and $2 to blue<br /><pre class ="code">set %color. $+ John blue</pre>
-# mIRC will then append "John" to "%color." Before executing the /set command, thus the final variable looks like this:<br /><pre class ="code">%color.John blue</pre>
+<br>1. mIRC evaluates the identifier $nick to "John" and $2 to blue<br><pre class ="code">set %color. $+ John blue</pre>
+<br>
+<br>2. mIRC will then append "John" to "%color." Before executing the /set command, thus the final variable looks like this:<br><pre class ="code">%color.John blue</pre>
 
 <H4>Retrieving Values</H4>
 
@@ -279,8 +282,8 @@ In the example above, we retrieved the color from the dynamic variable and set i
 
 When you first glance at this statement, it might look a bit confusing, but in fact it is pretty straightforward. Let us continue with John's example and assume someone else typed ''!favColor John'':
 
-#The first thing mIRC will evaluate is the innermost evaluation brackets <b>[ ]</b>, in this case its ''$2'', which will evaluate to ''John''.<br /><pre class ="code">%color. [ $+ John ]</pre>
-#mIRC will then evaluate the outer evaluation bracket "$+ John".<br />%color.John
+#The first thing mIRC will evaluate is the innermost evaluation brackets <b>[ ]</b>, in this case its ''$2'', which will evaluate to ''John''.<br><pre class ="code">%color. [ $+ John ]</pre>
+#mIRC will then evaluate the outer evaluation bracket "$+ John".<br>%color.John
 
 Here is another example:
 

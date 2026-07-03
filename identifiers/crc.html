@@ -54,8 +54,8 @@ Suggested Uses:
 <br>* Verify downloaded file hasn't been corrupted, matches the sender's original.
 <br>
 <br>
-<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-32 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br />
-mIRC v7.x Unicode-encodes plaintext before providing to $crc, so v7.x and v6.x return different answers for //echo -a $crc($chr(233),0)<br />
+<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-32 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br>
+mIRC v7.x Unicode-encodes plaintext before providing to $crc, so v7.x and v6.x return different answers for //echo -a $crc($chr(233),0)<br>
 
 If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $crc as a binary variable:
 <pre class ="code">

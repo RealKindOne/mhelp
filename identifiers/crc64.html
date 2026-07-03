@@ -56,8 +56,8 @@ Suggested Uses:
 <br>Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)
 <br>Quick way to check if a file's contents have changed since stored CRC checksum was made.
 <br>Verify downloaded file hasn't been corrupted, matches the sender's original.
-<br />
-<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-64 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br />
+<br>
+<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-64 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br>
 />
 
 <br><b>Note:</b>CRC-32 and CRC-64 are good for detecting transfer errors. Any 1 bit changed in a file is 100% guaranteed to change the CRC-32 and CRC-64 values, which is not necessarily true for $sha1 or other 1-way hashes. There is a known pair of short strings differing by 2 bits whose $md5 hashes hashes are identical, which could not happen with CRC. However, CRC-32/64 are not good for detecting malicious tampering with a file. There is an 8-byte binary string which can change a file from any CRC-64 value to any other CRC-64 value, and these 8 bytes can be quickly calculated without brute force testing of the 2^64 possible strings.

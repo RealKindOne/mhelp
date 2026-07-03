@@ -47,7 +47,7 @@ Echo the sha384 hash of the contents of the mIRC program you're running to the a
 <pre class = "code">
 //echo -a $sha384($mircexe,2)
 </pre>
-Note that because the default is N=0, <b>$sha384($mircexe)</b> is the sha384 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br />
+Note that because the default is N=0, <b>$sha384($mircexe)</b> is the sha384 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br>
 mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha384, if the text doesn't have code points above 255, you can avoid the utf8 encoding issue by using a binvar with the -a switch.
 <pre class = "code">
 //bset -ta &string 1 chlo&#233; | echo -a $sha384(&string,1)
