@@ -218,7 +218,7 @@ alias fake_secret_chat2 { if (!$chan) return
     var -p %iv $regsubex(foo,$bvar(&secret_chat_digest,1-8),/(\d+)\s?/g,$chr(\t))
     noop $encode(&secret_chat_digest,bm)
     var %session_key $bvar(&secret_chat_digest,12,56).text , %text $decode($mid($1,14),mcli,%session_key,%iv)
-    echo -tc normal # Decoded $+(<,$nick,>,:) %text
+    echo -tc normal # Decoded $+(&lt;,$nick,&gt;,:) %text
   }
 }
 </pre>

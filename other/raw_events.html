@@ -38,14 +38,14 @@ We suggest you create a window with an editbox so that you can execute commands 
 Using the debug window we have open. Let’s execute a /whois command on someone in our channel. You might see something similar to this:
 
 <pre class ="code">
--> :irc.server.name WHOIS foo
- <- :irc.server.name 311 bar foo ~Ident name-B21D62.lolhat.com :Foo Jenkins
- <- :irc.server.name 319 bar foo :+#foobar @#kekelar %#scripting
- <- :irc.server.name 312 bar foo irc.server.name :Server Description
- <- :irc.server.name 307 bar foo :has identified for this nick
- <- :irc.server.name 335 bar foo :is a Bot on name
- <- :irc.server.name 671 bar foo :is using a Secure Connection
- <- :irc.server.name 318 bar foo :End of /WHOIS list.
+ -&gt; :irc.server.name WHOIS foo
+ &lt;- :irc.server.name 311 bar foo ~Ident name-B21D62.lolhat.com :Foo Jenkins
+ &lt;- :irc.server.name 319 bar foo :+#foobar @#kekelar %#scripting
+ &lt;- :irc.server.name 312 bar foo irc.server.name :Server Description
+ &lt;- :irc.server.name 307 bar foo :has identified for this nick
+ &lt;- :irc.server.name 335 bar foo :is a Bot on name
+ &lt;- :irc.server.name 671 bar foo :is using a Secure Connection
+ &lt;- :irc.server.name 318 bar foo :End of /WHOIS list.
  </pre>
 
 You may have noticed that following the server’s name there is a strange number: 311, 319, 312, 307... These numbers are known as <b>raw numeric</b>. Most, but not all, raw messages will have a number that we can use to uniquely identify the message. For example <b>318</b> will always mean "End of /WHOIS list." Raw numeric <b>319</b> will always give us a list of channels the user is on. That number will prove to be invaluable in writing scripts that deal with raw message.

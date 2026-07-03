@@ -32,12 +32,16 @@ We refer to statements by prefixing them with a slash character '/'.
 
 For example, the following two are the same:<br><br>
 <b>Piping</b>
-<pre class ="code">statement 1 | statement 2 | statement 3 | statement 4</pre><br>
+<pre class ="code">
+statement 1 | statement 2 | statement 3 | statement 4
+</pre>
+<br>
 <b>Non-piping -- Multiline</b>
 <pre class ="code">statement 1
 statement 2
 statement 3
-statement 4</pre>
+statement 4
+</pre>
 
 <h3>Commands statements</h3>
 Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.
@@ -75,7 +79,7 @@ All of your routine should go in the Script Editor. To open the script editor pr
 <p>
 Below is a screen shot of the mIRC Script Editor:<br><br>
 
-<img src="..\images\remote_menu.png"><br><br>
+<img src="../images/remote_menu.png"><br><br>
 
 You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>.
 <p>
@@ -101,22 +105,28 @@ You can override built-in commands by defining an alias with the same name as of
 <p>
 
 They have the following format:
-<pre class ="code">alias [-l] &lt;name&gt; &lt;statements&gt;</pre>
+<pre class ="code">
+alias [-l] &lt;name&gt; &lt;statements&gt;
+</pre>
 If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above, and you can optionally make the alias "local" by using another space separated -l parameter, indicating that the alias can only be accessed from a routine inside this script file, the alias won't be available from the editbox or a different script file.<br>
 
-<pre class ="code">alias fun echo Scripting | echo Is | echo Fun!</pre>
+<pre class ="code">
+alias fun echo Scripting | echo Is | echo Fun!
+</pre>
 
 <h3>Remote tab vs Aliases tab</h3>
 <br>
-<img src="..\images\fun_alias_remote.png">
-<img src="..\images\fun_alias_alias.png">
+<img src="../images/fun_alias_remote.png">
+<img src="../images/fun_alias_alias.png">
 <br>
 To call on our alias ''fun'', all we have to do is use its name as a command, either from a routine in the script editor, or from any mIRC's editboxes.
 <p>
 To execute the alias from the editbox, you must prefix it with a '/' character (or two), but slashes are not required in the script editor.
-<pre class ="code">/fun</pre>
+<pre class ="code">
+/fun
+</pre>
 That should print our text:<br><br>
-<img src="..\images\hello_edit.png"><br><br>
+<img src="../images/hello_edit.png"><br><br>
 
 <h3>{ } and group of statements</h3>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
@@ -181,10 +191,11 @@ A few notes about the language limitations:
 One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character on its left.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
 <pre class ="code">
-  alias example { echo hello! }
-  alias example {
+alias example { echo hello! }
+alias example {
   echo hello!
-  }</pre>
+}
+</pre>
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
 <pre class="code">alias example{echo hello! }</pre>
@@ -200,7 +211,7 @@ The opening bracket must be on the same line as the "alias" keyword.
 
 <H3>Evaluation/Interpretation</H3>
 
-<b></b>$identifier & %variables</b>
+<b>$identifier & %variables</b>
 
 Your statement, their parameters, parameters of events, parameters of identifiers themselves and even mIRC options may be composed of $identifier and %variables.<br>
 
@@ -245,19 +256,21 @@ Alias name can be pretty much anything, they can't contain spaces obviously but 
 -digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you wouldn't be able to use $1.
 
 <H4>$rand()</H4>
-One of the most common operations we use is to generate random numbers. This is where the <a href="..\identifiers\rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
+One of the most common operations we use is to generate random numbers. This is where the <a href="../identifiers/rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
 <pre class ="code">$rand(&lt;low&gt;, &lt;high&gt;)</pre>
 
 Given both low bound and high bound number values, $rand will return a random number in between, and including, the two numbers. For example:
 
-<pre class ="code">alias random {
+<pre class ="code">
+alias random {
   echo The dice rolled on the floor .... $rand(1, 6)
-}</pre>
+}
+</pre>
 
 Here is what we got when we called out /random alias a few times:
 
-<br><br><img src="..\images\random_example.png"><br><br>
+<br><br><img src="../images/random_example.png"><br><br>
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
 <h3>$+</h3>
@@ -275,10 +288,14 @@ Some of these events format have more parameters than the others, parameters are
 
 
 Then you have the CTCP event, it has a similar format as the above and takes two parameters:<br>
-<pre class="code">ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;</pre>
-The last events type are menu events:<br>
-<pre class="code">menu &lt;window&gt; {
-&lt;statements&lg;
+<pre class="code">
+ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;
+</pre>
+
+The last events type are menu events:
+<pre class="code">
+menu &lt;window&gt; {
+  &lt;statements&gt;
 }
 </pre>
 Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events.
@@ -361,7 +378,8 @@ The most basic comment is the single-line comment, which has the following synta
 Note on how the comment begins with a semicolon and ends at the end of the line; anything on this line is now ignored.
 
 Here is another basic example of a single-line comment:
-<pre class ="code">alias fun {
+<pre class ="code">
+alias fun {
   ; print "Scripting"
   echo Scripting
   ; print "Is"
@@ -370,7 +388,7 @@ Here is another basic example of a single-line comment:
   echo Fun!
 }</pre>
 
-<br><img src="..\images\fun_comment.png"><br>
+<br><img src="../images/fun_comment.png"><br>
 
 <br><b>Note: </b>The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
 
@@ -382,7 +400,8 @@ if (/* iswm $1) /
 /* This is
   a multi-line
   comment!
-*/</pre>
+*/
+</pre>
 Your text must go between the /* and the */ in order for it to be treated as a comment.<br>
 
 A few notes about the language limitations:
@@ -393,18 +412,22 @@ A few notes about the language limitations:
 <br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn't indented if there's a closing brace on that line.
 
 <H4><span style="color: #256B22;">Right Examples</span></H4>
-<pre class ="code">/* testing
+<pre class ="code">
+/* testing
    out
    a multi-line
    comment
-*/</pre>
+*/
+</pre>
 or
-<pre class ="code">/*
+<pre class ="code">
+/*
    testing
    out
    a multi-line
    comment
-*/</pre>
+*/
+</pre>
 In both of the above examples, the opening comment parameters are properly executed,
 the lines are spaced out and the closing parameters are by themselves. These are both
 examples of proper multi-line comment blocks.
@@ -427,11 +450,11 @@ When you start with an empty script file, you're on the top level, meaning you c
 <H4><span style="color: #9E1010;">Wrong Example</span></H4>
 <pre class ="code">
 alias first {
-
+&nbsp;
 alias second {
-
+&nbsp;
 }
-
+&nbsp;
 }
 </pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
 
@@ -440,10 +463,10 @@ alias second {
 <H4><span style="color: #256B22;">Good Examples</span></H4>
 <pre class ="code">
 alias first {
-
+&nbsp;
 }
 alias second {
-
+&nbsp;
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
@@ -459,7 +482,7 @@ Just like you can add colors when you talk by typing CTRL+K on your keyboard, an
   echo -a 3This 4is 6a 10cool 15example1.
 }</pre>
 
-<img src="..\images\color_example.png"><br><br>
+<img src="../images/color_example.png"><br><br>
 
 Will produce:
 
@@ -484,7 +507,7 @@ Will produce the following result:
 
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
-Next up are <a href="variables.html">variables</a>. You can also look at <a href="..\events.html">events</a>.
+Next up are <a href="variables.html">variables</a>. You can also look at <a href="../events.html">events</a>.
 
 </body>
 </html>

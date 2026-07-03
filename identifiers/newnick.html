@@ -20,8 +20,7 @@ None
 Echo to the channel when the your nickname is changed, and halt mIRC's default message:
 <pre class ="code">
 on ME:^*:NICK: {
-  echo $chan You are now ==> $newnick
-
+  echo $chan You are now ==&gt; $newnick
   ; Halt the default mIRC message
   haltdef
 }
@@ -29,7 +28,7 @@ on ME:^*:NICK: {
 
 The example above should have an output resembling the following:
 <pre class ="code">
-You are now ==> whoMe
+You are now ==&gt; whoMe
 </pre>
 
 <H4>Compatibility</H4>

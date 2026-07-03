@@ -33,7 +33,7 @@ A typical conditional statement consists of two operands and an operator. An ope
 2 > 3
 </pre>
 
-In the example above, ">" is the symbol for the greater than operator. The example above has 2 operands: 2 and 3. In the case of the example above, the answer is false, 2 is not greater than 3.
+In the example above, "&gt;" is the symbol for the greater than operator. The example above has 2 operands: 2 and 3. In the case of the example above, the answer is false, 2 is not greater than 3.
 
 <H4>Operators</H4>
 Main page: <a href="operations.html">operators</a><br>
@@ -52,7 +52,7 @@ Take a look at the following example. In this alias we take a percentage in deci
 
 <pre class = "code">Alias percent {
   ;is the percent negative?
-  if ($1 < 0) {
+  if ($1 &lt; 0) {
     return ( $+ $calc($1 * 100) $+ % $+ )
   }
   return $calc($1 * -100) $+ %
@@ -85,7 +85,7 @@ In the example below, we assign the appropriate time of day to the "%time" varia
 
 <pre class = "code">
 Alias greet {
-  if ($time(H) > 10) {
+  if ($time(H) &gt; 10) {
     var %time = day
   }
   else {
@@ -114,14 +114,14 @@ How would that look in a real scenario? Remember our time of day script? What if
 
 <pre class = "code">Alias greet {
   var %hours = $time(H)
-  if (%hours < 10) {
+  if (%hours &lt; 10) {
     var %time = morning
   }
   elseif (%hours == 12) {
     ;it's 12 o'clock
     var %time = noon
   }
-  elseif (%hours > 20) {
+  elseif (%hours &gt; 20) {
     ;it's passed 8:00PM
     var %time = night
   }
@@ -141,7 +141,7 @@ mIRC provides two identifiers to retrieve the first or second parameter of the c
 For example:
 
 <pre class = "code">Alias ifExample {
-  if (4 < 5) {
+  if (4 &lt; 5) {
     echo -a yes, $v1 is less than $v2
   }
 }</pre>

@@ -7,3 +7,4 @@ mdbook/src/commands/*.md
 mdbook/src/identifiers/*.md
 mdbook/src/events/*.md
 mdbook/src/other/*.md
+mdbook/src/images/*

@@ -19,56 +19,49 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">; When any window is closed, echo the window name
+<pre class ="code">
+; When any window is closed, echo the window name
 ; to a custom @windowWatcher window. If that window doesn't exist,
 ; create it first.
-
 on *:CLOSE:*: {
   $iif(!$window(@windowWatcher),window @windowWatcher)
   echo @windowWatcher Window Closed: $target $+ .
-}</pre>
+}
+</pre>
 
-<pre class ="code">; When a message is received in a query,
+<pre class ="code">
+; When a message is received in a query,
 ; open a new @window with the user's nickname and log the
 ; chat from there on out. If the window closes, stop logging.
-
 on *:OPEN:?:*: {
-
   ; Add the user to level 3 for logging
   .auser 3 $address($nick,2)
-
   ; Set the window name to the dynamic $target identifier
   %w = @ $+ $target
-
   ; If the custom logging window is not open, create and
   ; minimize it.
   if (!$window(%w)) { window -n %w }
-
   ; If the user has sent data, log it to the custom window
   if ($1) { echo %w $1- }
 }
 on 3:TEXT:*:?: {
-
   ; Set the window name to the dynamic $target identifier
   var %w = @ $+ $target
-
   ; If the custom logging window is not open, create and
   ; minimize it.
   if (!$window(%w)) { window -n %w }
-
   ; Echo the contents of the message to the window.
   echo %w $1-
 }
 on 3:CLOSE:?: {
-
   ; When the query window is closed locally or remotely,
   ; remove the user from the user level 3 for logging,
   .ruser 3 $address($target,2)
-
   ; Input a request if the log window should be kept open
   ; or closed.
   window $iif($input(Do you want to keep the log window open?,yi,Keep Log Window?),-a,-c) @ $+ $target
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

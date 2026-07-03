@@ -24,8 +24,10 @@ None
 <H4>Example</H4>
 XOR is "Exclusive OR" comparison of a pair of bits. For each bit position it returns 0 if BOTH or NEITHER bits are 1, and returns 1 if exactly 1 of the pair is a 1-bit. In effect, every 1-bit in the 2nd number toggles the 0/1 state of the corresponding bit of the 1st number<br />
 
-<pre class ="code">//echo -a $xor(21,9)
-; returns 28</pre>
+Returns 28:
+<pre class ="code">
+//echo -a $xor(21,9)
+</pre>
 
 Here's how the answer was calculated:
 <br>
@@ -77,9 +79,9 @@ Goes to label only if exactly 1 of the 2 variables is 1
 Result is 1, because both fractions are ignored.
 <pre class ="code">
 //echo -a $xor($pi,2.777777)
-</pre>
+&nbsp;
 //echo -a $xor(1,2) = 3 and $xor(-1,-2) is same as $xor(4294967295,4294967294)
-
+&nbsp;
 //echo -a $xor(-9999999999,0)
 ; Invalid negative number replaced with -4294967295, which is replaced with +1. Result is 1.
 </pre>

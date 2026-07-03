@@ -28,11 +28,9 @@ None
 ; time how long it takes to execute an empty loop 10,000 times.
 Alias example {
   var %ticks = $ticks, %x = 10000
-
   while (%x) {
     dec %x
   }
-
   echo -a 10,000 empty iterations took: $calc($ticks - %ticks) ms.
 }
 </pre>

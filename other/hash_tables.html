@@ -423,11 +423,11 @@ alias fnv1a-32-mod-alt {
 ; If not for the 2^52 limit, the MUL could have been $calc((%hash * 16777619) % 4294967296)
 ; because the bits of the product above 2^32 aren't needed. $fnv1a-32-mod-alt(string,[h]) h=hash as hex
 ; is identical to original FNV1a except adding the following operations after the string is hashed, and in handling of codepoints 256+.
-;  hash += hash << 13; (same as hash * 8193)
-;  hash ^= hash >> 7;
-;  hash += hash << 3; (same as hash * 9)
-;  hash ^= hash >> 17;
-;  hash += hash << 5; (same as hash * 33)
+;  hash += hash &lt;&lt;13; (same as hash * 8193)
+;  hash ^= hash &gt;&gt;7;
+;  hash += hash &lt;&lt;3; (same as hash * 9)
+;  hash ^= hash &gt;&gt;17;
+;  hash += hash &lt;&lt;5; (same as hash * 33)
 alias assigned_to_bucket { return $calc(1+($fnv1a-32-mod-alt($upper($1)) % $$2)) }
 
 //echo -a When buckets=101, item named foobar is assigned to bucket $assigned_to_bucket(foobar,101)

@@ -104,7 +104,7 @@ mIRC support the following types of statements:
 The <a href="..\commands\break.html">break statement</a><br>
 The <a href="..\commands\continue.html">continue statement</a><br>
 The <a href="..\commands\return.html">return statement</a><br>
-The <a href="goto_statements.html">goto statement</a></br>
+The <a href="goto_statements.html">goto statement</a><br>
 <br>
 <br>
 <b>Note:</b> In this tutorial, we will not cover the <a href="..\commands\return.html">/return</a> or the <a href="..\commands\goto.html">/goto</a> commands.
@@ -166,9 +166,10 @@ The continue statement has the form
 
 <pre class ="code">continue</pre>
 Take a look at this example:
-  <pre class ="code">alias listEven {
+  <pre class ="code">
+alias listEven {
   var %x = 1
-  while (%x < 20) {
+  while (%x &lt; 20) {
     inc %x
     if (%x & 1) continue
     echo -a %x

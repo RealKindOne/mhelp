@@ -187,7 +187,7 @@ or /hload the table into a dummy table, from which you re-add them from 'dummy' 
 //hfree -w dummy | hfree -w test2 | hload -sm1 dummy test.dat | hmake -s test2 1 | var %i 1 | while ($hget(dummy,%i).item) { hadd -s test2 $v1 $hget(test2,$v1) | inc %i } | var %i 1 | hadd test2 newestitem | while ($hget(test2,%i).item) { echo -a the $ord(%i) item is $hget(test2,%i).item | inc %i }
 </pre>
 Note: If your table is in binary format, you need to preserve binary data by replacing
-<pre class ="code>
+<pre class ="code">
 hadd -s test2 $v1 $hget(test2,$v1)
 </pre>
 with

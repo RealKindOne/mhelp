@@ -32,16 +32,12 @@ alias hdel_example {
   hadd example access a
   hadd example accident a
   hadd example because b
-
   ; number of items
   echo -a $hget(example, 0).item
-
   ; remove everything by one
   hdel -w example a*
-
   ; number of items
   echo -a $hget(example, 0).item
-
   ; free table
   hfree example
 }

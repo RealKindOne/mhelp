@@ -35,11 +35,9 @@ alias playwav {
   ; entire selection is surrounded by quotes. This is
   ; for older Windows' backward-compatibility.
   var %file = $qt($sfile(sounds\*.wav,Choose Wav,OK))
-
   ; Check to make sure the %file variable contains a
   ; real file.
   if ($isfile(%file)) {
-
     ; Now we simply play the wav file using /wavplay
     wavplay %file
   }

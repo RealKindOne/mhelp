@@ -52,7 +52,7 @@ This means that tokenizing by other than space 32 can result in tokens having le
 //tokenize 46 1 .2 .3 | echo -a $len($2) / $asc($mid($2,2)) | echo -a $!2 value is $2 which is $iif($2 isnum,numeric, non-numeric)
 returns: $2 value is 2 which is non-numeric
 </pre>
-<<b>Note:</b> because this is a /command not an $identifier, leading trailing or consecutive spaces are removed from &lt;text&gt; before (but not after) the tokenizing. But if tokenizing by 32, the leading and trailing spaces are also removed from the created $1 ... $N'th tokens.
+<b>Note:</b> because this is a /command not an $identifier, leading trailing or consecutive spaces are removed from &lt;text&gt; before (but not after) the tokenizing. But if tokenizing by 32, the leading and trailing spaces are also removed from the created $1 ... $N'th tokens.
 <br>
 <br>
 Using /tokenize destroys the existing $1- tokens, so if you still need those, you should save them to a variable or use tokenize within another alias. If you use tokenize within an alias called from another alias, using tokenize does not affect the $1- values seen by the original alias.

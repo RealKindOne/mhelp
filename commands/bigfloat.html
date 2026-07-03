@@ -88,7 +88,7 @@ $base may be the only function which autodetects whether the input is larger tha
 
 The scope of bigfloat mode is that the called alias inherits the mode setting from the parent, but the parent is not affected by any changed setting in the child alias. And, enabling /bigfloat on is only in effect for the duration of that alias until using /bigfloat off, so it's not a global setting that can be applied to all scripts without placing /BIGFLOAT on at the beginning of each child alias and in each on EVENT handler. For example, the next alias is called from the editbox...
 <pre class ="code">
-alias bftestsub { var %mode $bigfloat | bigfloat $1 | return $qt(%mode -> $bigfloat) }
+alias bftestsub { var %mode $bigfloat | bigfloat $1 | return $qt(%mode -&gt; $bigfloat) }
 </pre>
 <pre class ="code">
 //bigfloat off | bftestsub on | echo -a $bigfloat

@@ -19,7 +19,7 @@ $msfile(N)	After dialog closes, for N>=1 returns the Nth selected filename. For 
 <br><b>title</b> - Optional string placed in the titlebar of the select dialog
 <br><b>OpenButtonText</b> - Optional string to replace 'Open' on that button of the select dialog. You cannot set this parameter without first defining the the title parameter to a non-null string.
 
-<br><b>N</b> - When N>=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
+<br><b>N</b> - When N&gt;=1, returns the Nth selected filename N=0 is the count of returned filenames. Returned filenames always include full path too.
 <br>
 <br>
 <b>Note:</b> The returned count of filenames is limited to the number of filenames returned, which can be less than the number of files actually selected. The number of returned filenames varies, and seems to be limited to not allowing the sum of $msfile(0) plus the length of $nopath(filename) strings to be more than somewhere around 1000-1024 bytes. Longer filenames causes fewer filenames to be returned.
@@ -35,7 +35,7 @@ None
 <b>Note:</b> $sfstate and $msfile(N) are shared by $sfile and $sdir and $msfile(dir). These values are accessible by any script or from the editbox until the next time any of these 3 commands are used, when these identifiers are replaced by the new results. (Using $msfile(N) does not reset $sfstate) (Using $sdir or $sfile always causes $msfile(N>=1) to be $null. $sfile causes $msfile(0) to be either 0 or 1 depending on whether it selected a file, $sdir always sets $msfile(0) to 0 and blacks $msfile(1).)
 
 <H4>Example</H4>
-<pre class ="code">//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i &lt; $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) <- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }</pre>
+<pre class ="code">//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i &lt; $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) &lt;- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }</pre>
 <br>
 <br>
 The 2nd parameter puts your optional string in the titlebar. The 3rd optional parameter alters the label on the 'Open' button.
@@ -50,7 +50,8 @@ If you press ESCAPE or click cancel, $msfile(dir) returns 0 because zero files w
 You can select multiple files and/or folders by pressing the Control key while clicking on filenames in the dialog. If the 1st (or only) item selected is a folder, clicking 'open' (or double-clicking on the folder) navigates into that folder.
 <br>
 <br>
-Otherwise, folders are ignored in the returned count and list of filenames returned in $msfile(N>=1). You can also select a range of filenames by single-clicking on a file, then hold down the shift-key while clicking on a different filename. All files in that range will be selected. If the Control key is pressed while you click on the 1st file in that range, you can select that range without losing the earlier selection(s).
+Otherwise, folders are ignored in the returned count and list of filenames returned in $msfile(N>=1). You can also select a range of filenames by single-clicking on a file, then hold down the shift-key while clicking on a different filename. All files in that range will be selected. If the W
+Control key is pressed while you click on the 1st file in that range, you can select that range without losing the earlier selection(s).
 <br>
 <br>
 If you double-click on a file, the dialog behaves as if you selected that file and then pressed the OPEN button, returning that filename as $msfile(1). If you double-click on a file while pressing the Control key and while other files are already selected, any prior selections are not cleared, returning values as if you clicked OPEN while those multiple files are selected.

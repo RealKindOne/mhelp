@@ -30,7 +30,7 @@ The <b>/bread</b> command can be used to read a certain amount of bytes from a f
 alias copy Example {
   ; Read the whole file into a binary variable
   bread $qt($1) 0 $file($1).size &tempFile
-
+  &nbsp;
   ; Write the bytes form the binary variable to a file
   bwrite $qt($2) 0 -1 &tempFile
 }

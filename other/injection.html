@@ -222,7 +222,7 @@ Let's see what happens:
 -Bot- [Greet] Greet Saved.
 /hop
 * Rejoined channel #foobar
-<Bot> [foobar] Two things are certain in life, death and taxes. - Benjamin Franklin
+&lt;Bot&gt; [foobar] Two things are certain in life, death and taxes. - Benjamin Franklin
 &lt;Mike&gt; !setgreet Hello $findfile(C:\, *, 1, quit hacked!)
 -Bot- [Greet] Greet Saved.
 /hop
@@ -259,7 +259,7 @@ The value returned by the alias called by $submenu is evaluated a second time, a
   .$submenu($testsm($1))
 }
 alias testsm {
-if ($1 == 1) return item : echo -ag > $!!me
+if ($1 == 1) return item : echo -ag &gt; $!!me
 }</pre>
 
 <a name="calc"></a>
