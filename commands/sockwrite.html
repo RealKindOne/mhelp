@@ -5,13 +5,13 @@
 <H1>/sockwrite</H1>
 <br>
 <br>
-The <b>/sockwrite</b> command allows you to send data to a TCP socket connection previously opened with <a href="sockopen.html">/sockopen</a> (See <a href="..\sockets\sockets.html">/TCP Sockets</a>.
+The <b>/sockwrite</b> command allows you to send data to a TCP socket connection previously opened with <a href="sockopen.html">/sockopen</a> (See <a href="../sockets/sockets.html">/TCP Sockets</a>.
 <p>
-You can specify a <a href="..\other\wildcard.html">wildcard</a> for the name to send the data to all matching sockets.
+You can specify a <a href="../other/wildcard.html">wildcard</a> for the name to send the data to all matching sockets.
 <p>
-When the data has been sent, the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event triggers.
+When the data has been sent, the <a href="../events/on_sockwrite.html">On_SockWrite</a>  event triggers.
 <p>
-mIRC will queue your request up to 16384 bytes, you must check how many bytes is the send buffer with <a href="..\identifiers\sock.html">$sock().sq</a> before trying to queue on a socket
+mIRC will queue your request up to 16384 bytes, you must check how many bytes is the send buffer with <a href="../identifiers/sock.html">$sock().sq</a> before trying to queue on a socket
 <p>
 <b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
 
@@ -22,7 +22,7 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 
 <H4>Switches</H4>
 <b>-b</b> - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise.
-<br><b>-n</b> - Appends a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf.
+<br><b>-n</b> - Appends a <a href="../identifiers/crlf.html">$crlf</a> to the line being sent if it's not a &binvar and does not already end with a $crlf.
 <br><b>-t</b> - Forces mIRC to send anything beginning with a & as plain text.
 <br><b>-a</b> - Prevents characters in the range 0-255 from being UTF-8 encoded as long as the line only contains characters in the range 0-255.
 
@@ -31,11 +31,11 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 <br><b>[numbytes]</b> - If -b has been specified, indicates the number of bytes you want to send.
 <br><b>&lt;text|&lt;%var&gt;|&binvar&gt;</b> - The message you want to send, can be a binary variable.
 <br>
-<br><b>Note:</b> if /sockwrite fails, <a href="..\identifiers\sockerr.html">$sockerr</a> is set as well as <a href="..\identifiers\sock.html">$sock().wserr</a> and <a href="..\identifiers\sock.html">$sock().wsmsg</a> inside the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event.
+<br><b>Note:</b> if /sockwrite fails, <a href="../identifiers/sockerr.html">$sockerr</a> is set as well as <a href="../identifiers/sock.html">$sock().wserr</a> and <a href="../identifiers/sock.html">$sock().wsmsg</a> inside the <a href="../events/on_sockwrite.html">On_SockWrite</a>  event.
 
 <H4>Example</H4>
 <pre class ="code">
-See the page for the <a href="..\events\on_sockwrite.html">On_SockWrite</a>  event for more information and examples about /sockwrite
+See the page for the <a href="../events/on_sockwrite.html">On_SockWrite</a>  event for more information and examples about /sockwrite
 </pre>
 
 <H4>Compatibility</H4>
@@ -48,9 +48,9 @@ None
 <a href="sockopen.html">/sockopen</a><br>
 <a href="sockread.html">/sockread</a><br>
 <a href="sockmark.html">/sockmark</a><br>
-<a href="..\events\on_sockwrite.html">On_SockWrite</a><br>
-<a href="..\events\on_sockread.html">On_SockRead</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
-<a href="..\identifiers\sock.html">$sock</a><br>
+<a href="../events/on_sockwrite.html">On_SockWrite</a><br>
+<a href="../events/on_sockread.html">On_SockRead</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
+<a href="../identifiers/sock.html">$sock</a><br>
 </body>
 </html>

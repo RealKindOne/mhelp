@@ -5,9 +5,9 @@
 <H1>/sockudp</H1>
 <br>
 <br>
-The <b>/sockudp</b> command allows you to send data to a specific address at a specific port destination (See <a href="..\sockets\udp.html">UDP Sockets</a>).
+The <b>/sockudp</b> command allows you to send data to a specific address at a specific port destination (See <a href="../sockets/udp.html">UDP Sockets</a>).
 
-<br><b>Note:</b> if /sockudp fails, it sets <a href="..\identifiers\sock.html">$sock</a> to the error value, and trigger on sockwrite with <a href="..\identifiers\sockerr.html">$sockerr</a> set etc.
+<br><b>Note:</b> if /sockudp fails, it sets <a href="../identifiers/sock.html">$sock</a> to the error value, and trigger on sockwrite with <a href="../identifiers/sockerr.html">$sockerr</a> set etc.
 
 <H4>Synopsis</H4>
 <pre class ="code">
@@ -16,7 +16,7 @@ The <b>/sockudp</b> command allows you to send data to a specific address at a s
 
 <H4>Switches</H4>
 <b>-b</b> - Indicates that you are specifying the numbytes value which is the number of bytes you want send, the full line is sent otherwise.
-<br><b>-n</b> - Appends a <a href="..\identifiers\crlf.html">$crlf</a> to the line being sent if it's not a &binvar or if does not already end with a $crlf.
+<br><b>-n</b> - Appends a <a href="../identifiers/crlf.html">$crlf</a> to the line being sent if it's not a &binvar or if does not already end with a $crlf.
 <br><b>-t</b> - Forces mIRC to send anything beginning with a & as plain text.
 <br><b>-k</b> - Keeps the socket opened.
 <br><b>-d</b> - Means you have specified the IP address as the bind address.
@@ -69,8 +69,8 @@ Added: mIRC v5.5 (19 Feb 1999)
 None
 
 <H4>See also</H4>
-<a href="..\events\on_udpread.html">On_UDPRead</a><br>
-<a href="..\events\on_sockwrite.html">On_SockWrite</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="../events/on_udpread.html">On_UDPRead</a><br>
+<a href="../events/on_sockwrite.html">On_SockWrite</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <H1>/parseline</H1>
 <br>
 <br>
-The <b>/parseline</b> command can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the <a href="..\events\on_parseline.html">On_ParseLine</a> event.
+The <b>/parseline</b> command can be used to inject lines as though mIRC was receiving or sending them from/to IRC servers. It can also be used to modify the line being received/sent from the <a href="../events/on_parseline.html">On_ParseLine</a> event.
 <br>
 <br>
 <!-- Copy/pasted the mirc.chm warning -->
@@ -31,11 +31,11 @@ Optional:
 <br><b>-q</b> - Can be used to add a new line to the end of the in/out queue, they are processed after the end of the script execution.
 <br>
 <br>
-<b>Note:</b> Without -q, you're changing the current line from the <a href="..\events\on_parseline.html">On_ParseLine</a> event, you'll get an error otherwise.
+<b>Note:</b> Without -q, you're changing the current line from the <a href="../events/on_parseline.html">On_ParseLine</a> event, you'll get an error otherwise.
 <br>
 <br><b>-a</b> - Modifier for -t and -b, codepoints 128-255 are not encoded to UTF8 if no codepoint above 255 is found.
 <br><b>-p</b> - Used with -q, indicate the line must trigger on parseline.
-<br><b>-n</b> - Add a <a href="..\identifiers\crlf.html">$crlf</a> to the end of the line if the line doesn't already end with a $crlf.
+<br><b>-n</b> - Add a <a href="../identifiers/crlf.html">$crlf</a> to the end of the line if the line doesn't already end with a $crlf.
 <br><b>-u</b>N - Enable/Disable utf8 encoding/decoding of the line. Use N = 1 to enable, 0 to disable.
 
 <br><br>
@@ -67,7 +67,7 @@ Added: mIRC v7.42 (17 Jul 2015)
 None
 
 <H4>See also</H4>
-<a href="..\events\on_parseline.html">On_ParseLine</a><br>
-<a href="..\identifiers\parseutf.html">$parseutf</a><br>
+<a href="../events/on_parseline.html">On_ParseLine</a><br>
+<a href="../identifiers/parseutf.html">$parseutf</a><br>
 </body>
 </html>

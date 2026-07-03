@@ -5,9 +5,9 @@
 <H1>/filter</H1>
 <br>
 <br>
-The <b>/filter</b> command is perhaps the most powerful and least understood script command in mIRC. It scans lines of text in a custom-window or file or dialog control, and any lines that match the <a href="..\events\matchtext.html">matchtext</a> are written out to another custom-window or file or dialog control (or indeed by using an alias to any other desired destination such as a socket).
+The <b>/filter</b> command is perhaps the most powerful and least understood script command in mIRC. It scans lines of text in a custom-window or file or dialog control, and any lines that match the <a href="../events/matchtext.html">matchtext</a> are written out to another custom-window or file or dialog control (or indeed by using an alias to any other desired destination such as a socket).
 <br>
-You can restrict the source to a range of line numbers, and you can sort the output by columns (tokens) or using an alias. It will also work correctly when the source and destination windows are the same, allowing you easily and efficiently to sort the contents of a window. The order of the switch values is important as they define the source and destination of lines; see the examples for more information. You can filter out blank lines by using the -x switch and specifying <a href="..\identifiers\crlf.html">$crlf</a> for the matchtext. /filter also fills the <a href="..\identifiers\filtered.html">$filtered</a>  identifier with the number of matches found.
+You can restrict the source to a range of line numbers, and you can sort the output by columns (tokens) or using an alias. It will also work correctly when the source and destination windows are the same, allowing you easily and efficiently to sort the contents of a window. The order of the switch values is important as they define the source and destination of lines; see the examples for more information. You can filter out blank lines by using the -x switch and specifying <a href="../identifiers/crlf.html">$crlf</a> for the matchtext. /filter also fills the <a href="../identifiers/filtered.html">$filtered</a>  identifier with the number of matches found.
 
 <br><b>Note:</b> If your script takes several seconds to execute because e.g. of nested loops, then if you can find a way to use /filter instead of the script loops, you can often achieve big performance improvements.
 
@@ -41,7 +41,7 @@ Source and destination switches are (in theory) only needed if either the source
 <br><b>-e</b> - Used with -t, specifies a descending sort.
 <br><b>-u</b> - Used with -t, specifies a numeric sort.
 <br><b>-a</b> - Sorts filtered lines by calling the optional [alias] parameter, the alias is passed two lines, $1 and $2, it must compare both and return -1, 0, or 1 to indicate relative sort order of these lines to each other.
-<br><b>-g</b> - Indicates the <a href="..\events\matchtext.html">matchtext</a> is a regular expression.
+<br><b>-g</b> - Indicates the <a href="../events/matchtext.html">matchtext</a> is a regular expression.
 <br><b>-x</b> - Excludes matching lines.
 <br><b>-n</b> - Prefixes lines with a line number (the Nth match).
 <br><b>-p</b> - When output destination is a custom window (but not a listbox), wraps the text output.
@@ -58,46 +58,56 @@ Source and destination switches are (in theory) only needed if either the source
 <br><b>&lt;in-window | in-file | in-dialog-id&gt;</b> - Unless you use -d or -s switches as source (which imply a window name), you must provide an input custom-window (-w), file (-f) or dialog control (-i)
 <br><b>&lt;out-window | out-file | out-dialog-id | out-alias&gt;</b> - Unless you use -d or -s switches as destination (which imply a window name), you must provide an output custom-window (-w), file (-f), dialog control (-o), or alias name (-k)
 <br><b>[sort-alias]</b> - If -a is used, the sorting alias called
-<br><b>&lt;matchtext&gt;</b> - The <a href="..\events\matchtext.html">expression</a> used for the search, if $null is used, it matches everything.
+<br><b>&lt;matchtext&gt;</b> - The <a href="../events/matchtext.html">expression</a> used for the search, if $null is used, it matches everything.
 
 <H4>Example</H4>
 <pre class ="code">
 ; Filter from the file "c:\my file.txt" to the custom window @mywin
 /filter -fw "c:\my file.txt" @mywin *findthis*
-
+</pre>
+<pre class ="code">
 ; Filter from the custom window @mywin to the file "c:\my file.txt"
 filter -wf @mywin "c:\my file.txt" *findthat*
-
+</pre>
+<pre class ="code">
 ; Filter from the status window to the single message window
 /filter -sd *findthis*
-
+</pre>
+<pre class ="code">
 ; Filter from the single message window to the status window
 /filter -ds *findthat*
-
+</pre>
+<pre class ="code">
 ; Filter from the filename @this_is_a_file to the dialog 'dialog', id '1'
 /filter -fo @this_is_a_file dialog 1 *findthis*
-
+</pre>
+<pre class ="code">
 ; Filter from a file and call an alias for each line
 /filter -fk file myalias *findthat*
-
+</pre>
+<pre class ="code">
 ;Fetch list of mIRC release dates from versions.txt to status window:
 /filter -fsg versions.txt \d+/\d+/\d+ - mIRC*
 ; same except looks only at lines 1-through-1000 and prefixes returned text with the line number:
 /filter -fsgrn 1-1000 versions.txt \d+/\d+/\d+ - mIRC*
-
+</pre>
+<pre class ="code">
 ; Filter from a wordlist file to status window for words which can be spelled in an 8-digit CRC, using regex
 ; includes substitutions like 7 in place of "t", 0 in place of "0", 8 in place of "ate", etc
 alias word2hex echo -s $replace($1-,four,4,for,4,ate,8,ten,10,t,7,s,5,to,2,l,1,o,0)
 /filter -fkcg words_alpha.txt word2hex /^([A-F]|o|l|to|for|four|s|g|t|ate|ten){1,8}$/i
-
+</pre>
+<pre class ="code">
 ;sort by file(same file) - Input file's Column 1 delimited by Space Character $chr(32)
 /filter -ffcut 1 32 file.txt file.txt
-
+</pre>
+<pre class ="code">
 ; can use filter to obtain line count without creating output window/file
 //filter -fk versions.txt nosuchalias *mirc* | echo -a $filtered lines contain the string mIRC
 ; NUL is the windows device for the 'bit bucket, and creates no such file - not to be confused with the $null identifier
 //filter -ff versions.txt nul *mirc* | echo -a $filtered lines contain the string mIRC
-
+</pre>
+<pre class ="code">
 ; If /window -jN not used or created with -j0, size limit of @test is current value of Mirc-Options/Other/WindowBuffer
 //filter -fwc versions.txt @test * | var %missing $calc( $filtered - $line(@test,0)) | if (%missing) echo -a warning %missing of $filtered filtered lines not in @test because /window not used with large enough -jN value
 </pre>
@@ -109,9 +119,9 @@ Added: mIRC v5.3 (04 Jan 1998)
 None
 
 <H4>See also</H4>
-<a href="..\identifiers\filtered.html">$filtered</a><br>
-<a href="..\identifiers\read.html">$read</a><br>
-<a href="..\identifiers\fline.html">$fline</a><br>
+<a href="../identifiers/filtered.html">$filtered</a><br>
+<a href="../identifiers/read.html">$read</a><br>
+<a href="../identifiers/fline.html">$fline</a><br>
 <a href="loadbuf.html">/loadbuf</a><br>
 <a href="savebuf.html">/savebuf</a><br>
 </body>
