@@ -5,20 +5,21 @@
 <H1>On Udpread</H1>
 <br>
 <br>
-The <b>on UDPREAD</b> triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
+The <b>on UDPREAD</b> triggers when there is info waiting to be read on the specified UDP socket connection. You can read this info using the <a href="../commands/sockread.html">/sockread</a> command.
 
-To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each <a href="..\commands\sockudp.html">/sockudp</a> command) by using the -k switch of /sockudp.
+To be able to use this event, you need to get the udp socket to stay opened (by default it is closed after each <a href="../commands/sockudp.html">/sockudp</a> command) by using the -k switch of /sockudp.
 <br>
 <br><b>Note:</b> If this event triggers but no /sockread is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
-mIRC in general only understand $crlf terminated line. With socket, mIRC will stop at <a href="..\identifiers\lf.html">$lf</a> terminated line and any <a href="..\identifiers\cr.html">$cr</a> before a $lf is removed.
+mIRC in general only understand $crlf terminated line. With socket, mIRC will stop at <a href="../identifiers/lf.html">$lf</a> terminated line and any <a href="../identifiers/cr.html">$cr</a> before a $lf is removed.
 <br>
-<br><b>Note:</b> A single /sockread may not be enough to read the entire buffer. You should keep reading until <a href="..\identifiers\sockbr.html">$sockbr</a> is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on udpread event is re-triggered if:
-
-# you were reading into a &binvar.
-# you were reading into a %var and there is still a terminated line in the buffer waiting to be read.
+<br><b>Note:</b> A single /sockread may not be enough to read the entire buffer. You should keep reading until <a href="../identifiers/sockbr.html">$sockbr</a> is set to zero. This is far faster than letting mIRC re-trigger the event. If your script does not read the whole buffer, the on udpread event is re-triggered if:
 <br>
-You can find an example showing how to do that <a href="..\commands\sockread.html#example">here</a>.
+<br>
+1. You were reading into a &binvar.<br>
+2. You were reading into a %var and there is still a terminated line in the buffer waiting to be read.
+<br>
+You can find an example showing how to do that <a href="../commands/sockread.html#example">here</a>.
 
 
 <H4>Synopsis</H4>
@@ -55,13 +56,13 @@ None
 
 <H4>See also</H4>
 
-<a href="..\commands\sockwrite.html">/sockwrite</a><br>
-<a href="..\commands\sockclose.html">/sockclose</a><br>
-<a href="..\commands\sockread.html">/sockread</a><br>
-<a href="..\commands\sockaccept.html">/sockaccept</a><br>
-<a href="..\commands\sockpause.html">/sockpause</a><br>
-<a href="..\identifiers\sock.html">$sock</a><br>
-<a href="..\identifiers\sockbr.html">$sockbr</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="../commands/sockwrite.html">/sockwrite</a><br>
+<a href="../commands/sockclose.html">/sockclose</a><br>
+<a href="../commands/sockread.html">/sockread</a><br>
+<a href="../commands/sockaccept.html">/sockaccept</a><br>
+<a href="../commands/sockpause.html">/sockpause</a><br>
+<a href="../identifiers/sock.html">$sock</a><br>
+<a href="../identifiers/sockbr.html">$sockbr</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
 </body>
 </html>

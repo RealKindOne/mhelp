@@ -5,7 +5,7 @@
 <H1>Match Text</H1>
 <br>
 <br>
-A <b>&lt;matchtext&gt;</b> is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the <a href="..\commands\filter.html">/filter</a> command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
+A <b>&lt;matchtext&gt;</b> is a text pattern that mIRC will use to compare with something. Inside the on text event, the matchtext parameter is every user message. In general, there is only one matchtext parameter per event, you can also find matchtext parameter in others area of the mIRC scripting language, like in the <a href="../commands/filter.html">/filter</a> command for example. An event only triggers if its matchtext parameter matches the appropriate data (user message, notice and server message etc..)
 The <b>ON text</b> event is a mIRC event that triggers when a remote user (I.E. not the local user) receives a channel or a query message.
 
 
@@ -32,7 +32,7 @@ For Example:
 <br><b>!test &</b> - The matchtext will match any text that start with the word test !test and is only followed by a second word.
 
 <H4>The basic text pattern</H4>
-The most basic on text event is the normal <a href="..\other\wildcard.html">wildcard</a><br> pattern:
+The most basic on text event is the normal <a href="../other/wildcard.html">wildcard</a><br> pattern:
 
 <pre class ="code">on *:text:!help:#:{
   notice $nick For Help just state your question and pastebin any relevant code.
@@ -46,7 +46,7 @@ Sometimes we want to get the user's input. We can use the & to match a single wo
 }</pre>
 
 <H4>RegEx text pattern</H4>
-The matchtext parameter can also be a Regular Expression Pattern by using the <a href="..\other\access_levels.html#sigal">$ event prefix</a>.
+The matchtext parameter can also be a Regular Expression Pattern by using the <a href="../other/access_levels.html#sigal">$ event prefix</a>.
 
 Example:
 

@@ -11,13 +11,13 @@ The <b>on WALLOPS</b> event triggers when an IRC Operator issues a network-wide 
 <pre class ="code">on &lt;level&gt;:WALLOPS:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<br><b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<br><b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Local Identifiers</H4>
-<a href="..\identifiers\1-.html">$1-</a> - The wallop text.
-<br><a href="..\identifiers\nick.html">$nick</a> - The nick of the sender.
+<a href="../identifiers/1-.html">$1-</a> - The wallop text.
+<br><a href="../identifiers/nick.html">$nick</a> - The nick of the sender.
 
 <H4>Example</H4>
 Echo to the active window the current date/time, the IRC operator's name who sent the WALLOP, the WALLOP message, and prevent the default response:

@@ -12,20 +12,20 @@ The <b>on SOCKWRITE</b> event triggers when data has been sent on a socket, even
 <pre class = "code">on &lt;level&gt;:SOCKWRITE:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Writing more</H4>
 
-It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="..\identifiers\sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
+It is possible that the data hasn't been sent successfully, especially with UDP, you should be checking for error with <a href="../identifiers/sockerr.html">$sockerr</a> before trying to do anything, here is a list of the possible value for $sockerr in the on SOCKWRITE event:
 <br>
 <br><b>0</b> - The data has been written successfully.
 <br><b>3</b> - Error occurred while trying to send the data, $sock($sockname).wsmsg will contain a more specific error message.
 
 <H4>Example</H4>
 
-<br><b>Note:</b> Those example are not checking for <a href="..\identifiers\sockerr.html">$sockerr</a> to focus on their real purpose
+<br><b>Note:</b> Those example are not checking for <a href="../identifiers/sockerr.html">$sockerr</a> to focus on their real purpose
 
 What if you are making a server and you want to close the socket of a client, but you want to warn that client that you are going to close the socket?
 
@@ -58,7 +58,7 @@ The length of the data to be sent would be unknown, to make the script very well
 <br>
 We are naturally not using a single line otherwise our limit would be of the line length limit of mIRC (4150 bytes).
 <br>
-The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use <a href="..\other\file_handling.html">file handling</a>. After <a href="..\commands\fopen.html">/fopen</a>'ing the file, use <a href="..\identifiers\fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
+The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use <a href="../other/file_handling.html">file handling</a>. After <a href="../commands/fopen.html">/fopen</a>'ing the file, use <a href="../identifiers/fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
 
 <pre class ="code">
 ;When you are about to send
@@ -92,14 +92,14 @@ None
 <a href="on_sockread.html">On_SockRead</a><br>
 <a href="on_socklisten.html">On_SockListen</a><br>
 <a href="on_sockclose.html">On_SockClose</a><br>
-<a href="..\commands\sockwrite.html">/sockwrite</a><br>
-<a href="..\commands\sockclose.html">/sockclose</a><br>
-<a href="..\commands\sockread.html">/sockread</a><br>
-<a href="..\commands\sockaccept.html">/sockaccept</a><br>
-<a href="..\commands\sockpause.html">/sockpause</a><br>
-<a href="..\identifiers\sock.html">$sock</a><br>
-<a href="..\identifiers\sockbr.html">$sockbr</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
-<a href="..\identifiers\sockname.html">$sockname</a><br>
+<a href="../commands/sockwrite.html">/sockwrite</a><br>
+<a href="../commands/sockclose.html">/sockclose</a><br>
+<a href="../commands/sockread.html">/sockread</a><br>
+<a href="../commands/sockaccept.html">/sockaccept</a><br>
+<a href="../commands/sockpause.html">/sockpause</a><br>
+<a href="../identifiers/sock.html">$sock</a><br>
+<a href="../identifiers/sockbr.html">$sockbr</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
+<a href="../identifiers/sockname.html">$sockname</a><br>
 </body>
 </html>

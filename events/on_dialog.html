@@ -5,22 +5,22 @@
 <H1>On Dialog</H1>
 <br>
 <br>
-The <b>on DIALOG</b> event listens for events which take place inside of custom <a href="..\dialog\dialog.html">dialog</a> window.
+The <b>on DIALOG</b> event listens for events which take place inside of custom <a href="../dialog/dialog.html">dialog</a> window.
 
 
 <H4>Synopsis</H4>
 <pre class = "code">on &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}</pre>
 
 <H4>Parameters</H4>
-<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
-<br><b> &lt;name&gt;</b> - The dialog name that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
-<br><b> &lt;event&gt;</b> - The dialog event that this event triggers for, <a href="..\other\wildcard.html">wildcard</a> accepted.
-<br><b> &lt;id&gt;</b> - The id name of the dialog item to listen for, <a href="..\other\wildcard.html">wildcard</a> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
+<b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
+<br><b> &lt;name&gt;</b> - The dialog name that this event triggers for, <a href="../other/wildcard.html">wildcard</a> accepted.
+<br><b> &lt;event&gt;</b> - The dialog event that this event triggers for, <a href="../other/wildcard.html">wildcard</a> accepted.
+<br><b> &lt;id&gt;</b> - The id name of the dialog item to listen for, <a href="../other/wildcard.html">wildcard</a> accepted. Multiple IDs can be specified in the form: 1,2,3,4-8,9
 
 <H4>Local Identifiers</H4>
-<a href="..\identifiers\dname.html">$dname</a> - Returns the name of the dialog.
-<br><a href="..\identifiers\devent.html">$devent</a> - Returns the name of the event.
-<br><a href="..\identifiers\did.html">$did</a> - Returns the ID of the control.
+<a href="../identifiers/dname.html">$dname</a> - Returns the name of the dialog.
+<br><a href="../identifiers/devent.html">$devent</a> - Returns the name of the event.
+<br><a href="../identifiers/did.html">$did</a> - Returns the ID of the control.
 
 <H4>Events</H4>
 <b>active</b> - Triggers when the dialog is made active.
@@ -58,7 +58,7 @@ on *:DIALOG:mouseListener:mouse:*: {
   did -ra $dname 5 $mouse.y
 }</pre>
 
-In the example above, we have created an <a href="..\other\aliases.html">alias</a>, <b>/mouseListener</b>, to handle a local <a href="..\dialog\dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
+In the example above, we have created an <a href="../other/aliases.html">alias</a>, <b>/mouseListener</b>, to handle a local <a href="../dialog/dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
 
 This example can be triggered by typing the following command:
 <pre class ="code">/mouseListener</pre>
@@ -67,7 +67,7 @@ Once the demo has begun, the mouse event will now listen. When the mouse begins 
 
 Clicking the ''Close'' button will close the dialog and halt event listening.
 
-Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="..\other\aliases.html">alias</a> called <b>/whatEvents</b> which will open up the local <a href="..\dialog\dialog.html">$didreg</a> <b>whatEvents</b>:
+Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="../other/aliases.html">alias</a> called <b>/whatEvents</b> which will open up the local <a href="../dialog/dialog.html">$didreg</a> <b>whatEvents</b>:
 <pre class ="code">
 alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
@@ -108,14 +108,14 @@ None
 
 <H4>See also</H4>
 
-<a href="..\identifiers\dname.html">$dname</a><br>
-<a href="..\identifiers\devent.html">$devent</a><br>
-<a href="..\identifiers\did.html">$did</a><br>
-<a href="..\identifiers\didwm.html">$didwm</a><br>
-<a href="..\identifiers\didreg.html">$didreg</a><br>
-<a href="..\identifiers\didtok.html">$didtok</a><br>
-<a href="..\commands\dialog.html">/dialog</a><br>
-<a href="..\commands\did.html">/did</a><br>
-<a href="..\commands\didtok.html">/didtok</a><br>
+<a href="../identifiers/dname.html">$dname</a><br>
+<a href="../identifiers/devent.html">$devent</a><br>
+<a href="../identifiers/did.html">$did</a><br>
+<a href="../identifiers/didwm.html">$didwm</a><br>
+<a href="../identifiers/didreg.html">$didreg</a><br>
+<a href="../identifiers/didtok.html">$didtok</a><br>
+<a href="../commands/dialog.html">/dialog</a><br>
+<a href="../commands/did.html">/did</a><br>
+<a href="../commands/didtok.html">/didtok</a><br>
 </body>
 </html>

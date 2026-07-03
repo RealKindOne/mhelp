@@ -5,29 +5,29 @@
 <H1>On Sockread</H1>
 <br>
 <br>
-The <b>on SOCKREAD</b> triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the <a href="..\commands\sockread.html">/sockread</a> command.
+The <b>on SOCKREAD</b> triggers when there is info waiting to be read on the specified TCP socket connection. You can read this info using the <a href="../commands/sockread.html">/sockread</a> command.
 
-<br><b>Note:</b> If this event triggers but no <a href="..\commands\sockread.html">/sockread</a> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
+<br><b>Note:</b> If this event triggers but no <a href="../commands/sockread.html">/sockread</a> is performed to attempt to read the buffer, it is assumed that no script exists that is handling this buffer, so it is cleared and the info it contained is lost.
 
 
 <H4>Synopsis</H4>
 <pre class = "code">on &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Connection State</H4>
 
-It's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
+It's important to check the value of <a href="../identifiers/sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
 <br>
 <br><b>0</b> - Data received correctly.
 <br><b>3</b> - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.
 
 <H4>Example</H4>
 
-You can find more information and examples in the <a href="..\commands\sockread.html">/sockread</a> command page.
+You can find more information and examples in the <a href="../commands/sockread.html">/sockread</a> command page.
 
 Here is a basic outline:
 <pre class ="code">
@@ -68,15 +68,15 @@ None
 <a href="on_sockwrite.html">On_SockWrite</a><br>
 <a href="on_socklisten.html">On_SockListen</a><br>
 <a href="on_sockclose.html">On_SockClose</a><br>
-<a href="..\commands\sockopen.html">/sockopen</a><br>
-<a href="..\commands\sockwrite.html">/sockwrite</a><br>
-<a href="..\commands\sockread.html">/sockread</a><br>
-<a href="..\commands\sockclose.html">/sockclose</a><br>
-<a href="..\commands\sockaccept.html">/sockaccept</a><br>
-<a href="..\commands\sockpause.html">/sockpause</a><br>
-<a href="..\identifiers\sockname.html">$sockname</a><br>
-<a href="..\identifiers\sock.html">$sock</a><br>
-<a href="..\identifiers\sockbr.html">$sockbr</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="../commands/sockopen.html">/sockopen</a><br>
+<a href="../commands/sockwrite.html">/sockwrite</a><br>
+<a href="../commands/sockread.html">/sockread</a><br>
+<a href="../commands/sockclose.html">/sockclose</a><br>
+<a href="../commands/sockaccept.html">/sockaccept</a><br>
+<a href="../commands/sockpause.html">/sockpause</a><br>
+<a href="../identifiers/sockname.html">$sockname</a><br>
+<a href="../identifiers/sock.html">$sock</a><br>
+<a href="../identifiers/sockbr.html">$sockbr</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
 </body>
 </html>

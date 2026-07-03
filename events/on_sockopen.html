@@ -5,19 +5,19 @@
 <H1>On Sockopen</H1>
 <br>
 <br>
-The <b>on SOCKOPEN</b> event triggers when a TCP socket connection initiated with <a href="..\commands\sockopen.html">/sockopen</a> is either successful or failed. This event also trigger after an SSL negotiation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negotiation was successful.
+The <b>on SOCKOPEN</b> event triggers when a TCP socket connection initiated with <a href="../commands/sockopen.html">/sockopen</a> is either successful or failed. This event also trigger after an SSL negotiation (STARTTLS feature) is finished, you can check $sock().starttls which will be set to $true if the negotiation was successful.
 
 <H4>Synopsis</H4>
 <pre class = "code">on &lt;level&gt;:SOCKOPEN:&lt;matchtext&gt;:&lt;commands&gt;</pre>
 
 <H4>Parameters</H4>
-<b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
+<b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
 <H4>Connection State</H4>
 
-Because the sockopen event triggers for failed connections as well as successful connections, it's important to check the value of <a href="..\identifiers\sockerr.html">$sockerr</a> before continuing with any commands. Here is a list of the possible values returned by $sockerr in the on SOCKOPEN event:
+Because the sockopen event triggers for failed connections as well as successful connections, it's important to check the value of <a href="../identifiers/sockerr.html">$sockerr</a> before continuing with any commands. Here is a list of the possible values returned by $sockerr in the on SOCKOPEN event:
 <br>
 <br><b>0</b> - Success.
 <br><b>3</b> - Failure establishing socket connection: $sock($sockname).wsmsg will contain a more specific error message.
@@ -61,15 +61,15 @@ None
 <a href="on_sockwrite.html">On_SockWrite</a><br>
 <a href="on_socklisten.html">On_SockListen</a><br>
 <a href="on_sockclose.html">On_SockClose</a><br>
-<a href="..\commands\sockopen.html">/sockopen</a><br>
-<a href="..\commands\sockwrite.html">/sockwrite</a><br>
-<a href="..\commands\sockread.html">/sockread</a><br>
-<a href="..\commands\sockclose.html">/sockclose</a><br>
-<a href="..\commands\sockaccept.html">/sockaccept</a><br>
-<a href="..\commands\sockpause.html">/sockpause</a><br>
-<a href="..\identifiers\sockname.html">$sockname</a><br>
-<a href="..\identifiers\sock.html">$sock</a><br>
-<a href="..\identifiers\sockbr.html">$sockbr</a><br>
-<a href="..\identifiers\sockerr.html">$sockerr</a><br>
+<a href="../commands/sockopen.html">/sockopen</a><br>
+<a href="../commands/sockwrite.html">/sockwrite</a><br>
+<a href="../commands/sockread.html">/sockread</a><br>
+<a href="../commands/sockclose.html">/sockclose</a><br>
+<a href="../commands/sockaccept.html">/sockaccept</a><br>
+<a href="../commands/sockpause.html">/sockpause</a><br>
+<a href="../identifiers/sockname.html">$sockname</a><br>
+<a href="../identifiers/sock.html">$sock</a><br>
+<a href="../identifiers/sockbr.html">$sockbr</a><br>
+<a href="../identifiers/sockerr.html">$sockerr</a><br>
 </body>
 </html>
