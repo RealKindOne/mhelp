@@ -5,17 +5,17 @@
 <H1>Playing Music</H1>
 <br>
 <br>
-Playing music in mIRC is really a very simple process, easily accomplished through the use of the <a href="..\commands\splay.html">/splay</a> command. mIRC can also be enhanced by other sounds, not just songs, as well. Depending on how you want your own, custom mIRC experience to be, whether you are a newbie or an advanced scripter, sounds are often added to events in mIRC by some scripters. Creating games in mIRC is an advanced type of script where sounds can greatly enhance a user's experience.
+Playing music in mIRC is really a very simple process, easily accomplished through the use of the <a href="../commands/splay.html">/splay</a> command. mIRC can also be enhanced by other sounds, not just songs, as well. Depending on how you want your own, custom mIRC experience to be, whether you are a newbie or an advanced scripter, sounds are often added to events in mIRC by some scripters. Creating games in mIRC is an advanced type of script where sounds can greatly enhance a user's experience.
 
 <H4>Enabling mIRC Sounds</H4>
 In order for you to be able to play music or any other type of sound in mIRC, you must first enable sounds. Sounds can be enabled simply by going to the options dialog (Alt+O), then clicking on the 'Sounds' option in the left-hand side list, and then placing a check mark into the ''Enable Sounds''. Below is a screenshot of the options window with the ''Enable Sounds'' option ticked.
 <br>
 
-<br><b>Note:</b>Alternatively, you may use the <a href="..\commands\ebeeps.html">/ebeeps</a> command to enable sounds in mIRC: <b>/ebeeps on</b>
+<br><b>Note:</b>Alternatively, you may use the <a href="../commands/ebeeps.html">/ebeeps</a> command to enable sounds in mIRC: <b>/ebeeps on</b>
 <br>
 <br>
 <center>
-<img src="..\images\enable_sound.png">
+<img src="../images/enable_sound.png">
 </center>
 <br>
 <br>
@@ -24,7 +24,7 @@ mIRC supports the following media formats: <b>.wma,.mp3,.wav,.mid,.ogg</b>
 
 <br><b>Note:</b>The <b>.mp3,.wma & .ogg</b> formats are all considered the same format when using the <b>/splay</b> command.
 
-Multiple file formats can be played at the same time. However, you <b>cannot</b> play multiple files, of the same format, at the same time. For instance, you can play a <b>.wav</b> file at the same time as an <b>.mp3</b> file, but you cannot play a <b>.wav</b> file and another <b>.wav</b> file at the same time. The second <b>.wav</b> file will take precedence if you're not queuing the file: the first <b>.wav</b> file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <b>.mp3,.wma & .ogg</b>; they are all treated the same with the <a href="..\commands\splay.html">/splay</a> command, so only one of those types may play at a time.
+Multiple file formats can be played at the same time. However, you <b>cannot</b> play multiple files, of the same format, at the same time. For instance, you can play a <b>.wav</b> file at the same time as an <b>.mp3</b> file, but you cannot play a <b>.wav</b> file and another <b>.wav</b> file at the same time. The second <b>.wav</b> file will take precedence if you're not queuing the file: the first <b>.wav</b> file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <b>.mp3,.wma & .ogg</b>; they are all treated the same with the <a href="../commands/splay.html">/splay</a> command, so only one of those types may play at a time.
 
 <H4>Synopsis</H4>
 <pre class ="code">/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]</pre>
@@ -79,7 +79,7 @@ The <b>on MP3END, on WAVEEND & on MIDIEND</b> events will trigger for the <b>.mp
 on &lt;level&gt;:mp3end|midiend|waveend|songend:&lt;commands&gt;
 </pre>
 
-The local identifier, <a href="..\identifiers\filename.html">$filename</a>, will return the complete file name that has finished playing.
+The local identifier, <a href="../identifiers/filename.html">$filename</a>, will return the complete file name that has finished playing.
 
 <H4>Any useful $identifier I can use?</H4>
 

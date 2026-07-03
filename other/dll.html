@@ -24,7 +24,7 @@ mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) de
 <b>&lt;filename&gt;</b> - The filename for the dll you wish to use.
 <br><b>&lt;procname&gt;</b> - The case-sensitive name of the function/procedure you wish to call.
 <br><b>[data]</b> - The optional parameters for the function/procedure, used by the procname as input and as return =2 command or =3 return string.
-<br><b>&lt;alias&gt;</b> - If you use <a href="..\identifiers\dllcall.html">$dllcall</a>, it calls the function asynchronously, meaning that the code won't stop processing until the dll function finishes, $dllcall won't return a value. Instead, mIRC calls the specified &lt;alias&gt; when the function finishes.
+<br><b>&lt;alias&gt;</b> - If you use <a href="../identifiers/dllcall.html">$dllcall</a>, it calls the function asynchronously, meaning that the code won't stop processing until the dll function finishes, $dllcall won't return a value. Instead, mIRC calls the specified &lt;alias&gt; when the function finishes.
 
 <H4>Creating a Dll</H4>
 
@@ -40,7 +40,7 @@ With mIRC being unicode, the new prototype is:
 
 <br><b>mWnd</b> - The handle of the main mIRC window.
 <br><b>aWnd</b> - The handle of the window in which the command is being issued, this might not be the currently active window if the command is being called by a remote script.
-<br><b>data</b> - This is a buffer you can write to if you want mIRC to perform a command or to return a value from a <a href="..\identifiers\dll.html">$dll</a> call (remember that <a href="..\identifiers\dllcall.html">$dllcall</a> do not return a value by design even if you fill this buffer)
+<br><b>data</b> - This is a buffer you can write to if you want mIRC to perform a command or to return a value from a <a href="../identifiers/dll.html">$dll</a> call (remember that <a href="../identifiers/dllcall.html">$dllcall</a> do not return a value by design even if you fill this buffer)
 <br><b>parms</b> - For a better handling of command execution, this is a buffer which can be filled if you are filling the 'data' buffer with a command. mIRC will fill the variable $1- with this value, which you can include in the command in 'data'. The examples shows how to use it.
 <br><b>show</b> - This Bool value is FALSE if a dot '.' has been used to make the command (/.dll) quiet.
 <br><b>nopause</b> - This Bool value is TRUE if mIRC is in a critical routine, meaning that you must not stop the processing in mIRC (long while loop for example).

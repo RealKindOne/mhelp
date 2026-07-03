@@ -168,25 +168,32 @@ alias test { echo -a test
   echo -a test1
 }</pre>
 With conditional statement, the { goes after the condition:
-<pre class ="code">alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!</pre>
+<pre class ="code">
+alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!
+</pre>
 In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) statement. The same is true for 'echo Is' belonging to 'if (2 == 3)', which, however, will not be echoed because the condition 2 == 3 is not true.<br>
-Overall, the above example will echo: <pre>Scripting = Fun!</pre>
+Overall, the above example will echo: 
+<pre class ="code">Scripting = Fun!</pre>
 This is equivalent to:
-<pre class ="code">alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }</pre>
+<pre class ="code">
+alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }
+</pre>
 and to<br>
-  <pre class ="code">alias fun {
-    if (1 == 1) { echo Scripting }
-    if (2 == 3) { echo Is }
-    echo =
+<pre class ="code">
+alias fun {
+  if (1 == 1) { echo Scripting }
+  if (2 == 3) { echo Is }
+  echo =
     echo Fun!
-}</pre>
+}
+</pre>
 This should help you understand how { } brackets are used.<br><br>
 
 A few notes about the language limitations:
 
-<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
-<br><span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
-<br><span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything (space on its left, and space or newline on the right).</span>
+<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b></span> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
+<br><span style="color: #DB0000;">The opening bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
+<br><span style="color: #DB0000;">The closing bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
 <br><br>
 One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character on its left.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
@@ -337,7 +344,8 @@ Finally, it's also great if only one of the parameter can be a string and this i
 Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
 So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
 For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
-<pre>alias difflength {
+<pre class ="code">
+alias difflength {
 if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
 </pre>
@@ -347,22 +355,28 @@ Most built-in identifiers evaluate their parameter from left to right (property 
 When you create an alias, if you call it as an identifier, all parameters are evaluated.<br>
 When we create such identifier to perform some operation but don't want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
 It is valid to not use the /noop command:
-<pre>alias difflength {
+<pre class ="code">
+alias difflength {
 if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
   alias test {
     $difflength($1,$2)
   }
-</pre>with a call $test(string1,string2).<br>
+</pre>
+with a call $test(string1,string2).<br>
 Here $difflength() is evaluated as the only thing part of the statement and because $difflength does not return a value, the statement become empty and is ignored.
 <p>
 But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.
 <p>
 Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and won't be separating the argument!
 
-<pre>alias giveme5 return 5</pre>
+<pre class = "code">
+alias giveme5 return 5
+</pre>
 In here $giveme5 returns the value 5 so $identifier($giveme5,a,b) would be sending 3 parameters to the $identifier: 5 a and b. But if $giveme5 were to include a comma in its returned value:
-<pre>alias giveme5 return 5,6</pre>
+<pre class = "code">
+alias giveme5 return 5,6
+</pre>
 Then $identifier($giveme5,a,b) would STILL be sending 3 parameters to the $identifier: 5,6 a and b. The comma coming from $giveme5 did not create a 4th parameters.
 <p>
 This is what makes identifier much more consistent when handling any kind of data and maintainable.
@@ -373,7 +387,9 @@ Comments are normal, readable text that can be placed inside of your script, and
 <H4>Single-line Comments</H4>
 The most basic comment is the single-line comment, which has the following syntax:
 
-<pre class ="code">; This is single-line comment.</pre>
+<pre class ="code">
+; This is single-line comment.
+</pre>
 
 Note on how the comment begins with a semicolon and ends at the end of the line; anything on this line is now ignored.
 
@@ -386,7 +402,8 @@ alias fun {
   echo Is
   ; print "Fun"
   echo Fun!
-}</pre>
+}
+</pre>
 
 <br><img src="../images/fun_comment.png"><br>
 

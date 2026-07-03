@@ -18,7 +18,7 @@ Consider the following code:
 
 <pre class = "code">//echo -a Hello World, it's $me $+ !</pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\eval1.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval1.png"></div>
 
 Typical code is evaluated from left to right, one word at a time.
 
@@ -52,7 +52,7 @@ In this example we surrounded $x(2) with a pair of bracket. The code produced th
 </pre>
 From the output you can see that $x(2) was evaluated first (as shown in the graph below). Once the content of the evaluation bracket was evaluated, the parser went on to evaluating the rest of the line like it would normally from left to right.
 
-<div style="display: block; text-align: center;"><img src="..\images\eval2.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval2.png"></div>
 
 <br><b>Note:</b>Changing the order of evaluation does not change the position of the evaluated value in the actual line.
 
@@ -63,7 +63,7 @@ alias eval_example {
   echo -a $x(1) [ $x(2) ] $x(3) [ $x(4) ]
 }</pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\eval3.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval3.png"></div>
 
 The code above produced the following results:
 <pre class ="code">
@@ -93,7 +93,7 @@ C
 B
 A
 </pre>
-<div style="display: block; text-align: center;"><img src="..\images\eval4.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval4.png"></div>
 
 The graph above demonstrates how once the parser enters the outer pair of brackets, the entire process starts all over and the first thing that gets evaluated are the inner brackets.
 
@@ -183,7 +183,7 @@ Hi!
 
 <b>Note:</b> The graph below was made as though [ [ [ [ [ $!!exe ] ] ] ] ] with fives 5 '!' on $exe instead of two, but for technical reason 3 or more '!' can't be rendered for now.
 
-<div style="display: block; text-align: center;"><img src="..\images\eval6.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval6.png"></div>
 
 
 Here is a more interesting example of multiple evaluations:
@@ -198,7 +198,7 @@ The above code will print:
 <pre class ="code">
  Surprise!
 </pre>
-<div style="display: block; text-align: center;"><img src="..\images\eval7.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval7.png"></div>
 
 <H4>Solving the space issue using $+()</H4>
 By now we already know that the following code will only evaluated once since it violates the first rule: spaces in the code segment.
@@ -251,7 +251,7 @@ Let's wrap this section with a strange line of code:
 
 <pre class = "code">//var %x = % $+ y, %y%x = Works! | echo -a [ %x $+ %x ]</pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\eval8.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval8.png"></div>
 
 <H4>A [ $+ B ] Format</H4>
 With the A [ $+ B ] Format, we have:
@@ -281,7 +281,7 @@ The code above prints:
 Example!
 </pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\eval10.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval10.png"></div>
 
 Note that other, unrelated, tokens are still evaluated as we expect:
 
@@ -297,11 +297,11 @@ The A [ $+ B ] format is not very helpful alone since B is never evaluated. We c
 
 <pre class = "code">A [ $+ [ B ] ] &lt;=&gt; $($(A, 0) $+ $(B, 1), 2)</pre>
 
-The most common application of this is '''dynamic variables'''. Consider the following segment:
+The most common application of this is <b>dynamic variables</b>. Consider the following segment:
 
 <pre class = "code">//var %foo.6 = Works! | echo -a %foo. [ $+ [ $calc(2*3) ] ]</pre>
 
-<div style="display: block; text-align: center;"><img src="..\images\eval9.png"></div>
+<div style="display: block; text-align: center;"><img src="../images/eval9.png"></div>
 
 The most common form is %var. [ $+ [ $nick ] ] which allow you to retrieve a value from a variable specifically created for $nick.
 
@@ -434,12 +434,12 @@ Which evaluates the last two $me correctly.
 <H4>Commands with Special Behavior</H4>
 Not all commands are equal. Below is a list of some regular commands that have special evaluation routines that allow us to get the job that would otherwise require evaluation brackets:
 <br>
-<a href="..\commands\var.html">/var</a><br>
-<a href="..\commands\set.html">/set</a><br>
-<a href="..\commands\inc.html">/inc</a><br>
-<a href="..\commands\dec.html">/dec</a><br>
-<a href="..\commands\unset.html">/unset</a><br>
-<a href="..\commands\sockwrite.html">/sockwrite</a><br>
+<a href="../commands/var.html">/var</a><br>
+<a href="../commands/set.html">/set</a><br>
+<a href="../commands/inc.html">/inc</a><br>
+<a href="../commands/dec.html">/dec</a><br>
+<a href="../commands/unset.html">/unset</a><br>
+<a href="../commands/sockwrite.html">/sockwrite</a><br>
 
 <pre class = "code">alias example {
   var %x $+ $calc(4 * 4) $+ y 200
@@ -454,7 +454,7 @@ The code above will print:
  :201
  :
 </pre>
-Note that unlike the reset of the commands, <a href="..\commands\unset.html">/unset</a> cannot set variables in the format of %var <a href="..\identifiers\_plus.html">$+</a> %var.
+Note that unlike the reset of the commands, <a href="../commands/unset.html">/unset</a> cannot set variables in the format of %var <a href="../identifiers/_plus.html">$+</a> %var.
 <br>
 Evaluation brackets are needed to fix this. see <a href="variables.html#quirks">quirks</a>
 

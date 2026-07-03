@@ -18,7 +18,7 @@ ctcp &lt;level&gt;:&lt;matchtext&gt;:&lt;*|#|?&gt;:&lt;commands&gt;
 </pre>
 
 <br><b>&lt;level&gt;</b> - The corresponding <a href="access_levels.html">access levels</a> for the event to trigger.
-<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="..\events\matchtext.html">matchtext</a> for the event to trigger.
+<br><b>&lt;matchtext&gt;</b> - The corresponding <a href="../events/matchtext.html">matchtext</a> for the event to trigger.
 <br><b>&lt;*&gt;&lt;?&gt;&lt;#&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
 <br><b>*</b> - Any query/channel window.
 <br><b>?</b> - Any query windows.
@@ -26,7 +26,7 @@ ctcp &lt;level&gt;:&lt;matchtext&gt;:&lt;*|#|?&gt;:&lt;commands&gt;
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers.
 
 <H4>Examples</H4>
-Triggers when someone sends a private CTCP "test", which is a privmsg, and then use /ctcpreply, which sends a notice, this will trigger the <a href="..\events\on_ctcpreply.html">On_CTCPReply</a> event for that user.
+Triggers when someone sends a private CTCP "test", which is a privmsg, and then use /ctcpreply, which sends a notice, this will trigger the <a href="../events/on_ctcpreply.html">On_CTCPReply</a> event for that user.
 
 <pre class ="code">
 ctcp *:test:?:ctcpreply $nick success
@@ -57,7 +57,7 @@ Added: mIRC v3.5 (07 Aug 1995)
 None
 
 <H4>See also</H4>
-<a href="..\events\on_parseline.html">On_ParseLine</a><br>
-<a href="..\events.html">List of On Events</a><br>
+<a href="../events/on_parseline.html">On_ParseLine</a><br>
+<a href="../events.html">List of On Events</a><br>
 </body>
 </html>

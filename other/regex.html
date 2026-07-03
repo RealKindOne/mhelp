@@ -76,7 +76,7 @@ To solve the issue, you have to "escape" all the \E inside the value you're usin
 There's no way to escape a character inside the escaping sequence \Q\E, you have to first terminate the sequence yourself with \E, then you have to match the actual \E from the input with \\E, and then start a new escape sequence with \Q.
 
 <H4>Regex Identifiers</H4>
-The four main identifiers, <a href="..\identifiers\regex.html">$regex</a>, <a href="..\identifiers\regsub.html">$regsub</a>, <a href="..\identifiers\regml.html">$regml</a>, <a href="..\identifiers\regsubex.html">$regsubex</a>, can take an optional ''Name'' as a parameter. This name can be used to get the backreference captured by the regex match. If a name is not specified, mIRC uses a default one.
+The four main identifiers, <a href="../identifiers/regex.html">$regex</a>, <a href="../identifiers/regsub.html">$regsub</a>, <a href="../identifiers/regml.html">$regml</a>, <a href="../identifiers/regsubex.html">$regsubex</a>, can take an optional ''Name'' as a parameter. This name can be used to get the backreference captured by the regex match. If a name is not specified, mIRC uses a default one.
 
 <H4>$regex</H4>
 <pre class ="code">$regex([name],&lt;input&gt;,&lt;regex&gt;)</pre>
@@ -90,7 +90,7 @@ You may see a negative value being returned if an error occurred, the list below
 <br><b>-6</b> - Memory could not be allocated
 <br><b>-7</b> - Memory could not be allocated (specific to retrieving capturing groups)
 <br><b>-8</b> - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)
-<br><b>-14</b> - MIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="..\identifiers\regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
+<br><b>-14</b> - MIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="../identifiers/regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
 <br><b>-21</b> - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 <br><b>-26</b> - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
@@ -105,7 +105,7 @@ Below is an example of a regular expression, using <b>name</b> as the optional <
 
 <br><b>Note:</b> $regml is a list of all captures across all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
 <pre class ="code">//noop $regex(name, teasat, /([es])(a)/g) | echo -a $regml(name, 0) : $regml(name, 1) -- $regml(name, 2) -- $regml(name,3) -- $regml(name,4)</pre>would display "4 : e -- a -- s -- a "
-You can now access the Nth captured group for a given match number with <a href="..\identifiers\regmlex.html">$regmlex</a>.
+You can now access the Nth captured group for a given match number with <a href="../identifiers/regmlex.html">$regmlex</a>.
 
 <H4>$regmlex</H4>
 <pre class ="code">$regmlex([name],M,N)</pre>
@@ -171,13 +171,13 @@ The way mIRC evaluates those markers is special, it is important at this point t
 <br>Process [ ] and [[ ]].
 <br>separate parameters, evaluate the 'input' and the 'regex' parameters.
 <br>Perform the regex match.
-<br>Tokenize <a href="..\identifiers\1-.html">$1-</a> according to the number of markers used in the 'subtext' parameters.
+<br>Tokenize <a href="../identifiers/1-.html">$1-</a> according to the number of markers used in the 'subtext' parameters.
 <br>Replaces any markers used in the subtext with their corresponding <b>$N</b> identifiers's values.
-<br>Evaluate the '''subtext''' parameter (one or more times, if /g is used).
+<br>Evaluate the <b>subtext</b> parameter (one or more times, if /g is used).
 <br>Performs the substitutions and returns the result.
 <br>
 <br>
-mIRC internally uses <a href="..\identifiers\1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the <b>subtext</b> parameter (it is restored after).
+mIRC internally uses <a href="../identifiers/1-.html">$1-</a> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the <b>subtext</b> parameter (it is restored after).
 <p>
 The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
 <p>
@@ -195,9 +195,9 @@ An example of this is shown below:
 <pre class ="code">$regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)</pre>
 Here we have a break-down of the results of this regex:
 <br>The <b>\6</b> doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
-<br>When '<b>a</b>' is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is '''f'''
+<br>When '<b>a</b>' is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is <b>f</b>
 <br>When '<b>b</b>' is matched, <b>\n</b> is <b>2</b>, <b>$1</b> is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is <b>g</b>
-<br>And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, '''$null''' is used.
+<br>And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, <b>$null</b> is used.
 
 <H4>Nested calls</H4>
 Nested <b>$regsubex</b> calls are possible, but caution must be taken with markers.
@@ -272,10 +272,10 @@ The difference is that you now have a pair of bracket, which are processed first
 <br><b>Note:</b> the more you are nesting, the more you need to get mIRC to see the correct things, which easily gets ugly, calling an alias in the subtext to do the replacement is recommended.
 
 <H4>/filter</H4>
-<a href="..\commands\filter.html">/filter</a> supports the <b>-g</b> switch, which uses a regular expression. It is important to note that the back-reference value cannot be obtained using <b>$regml</b> if a custom alias is used as the output (<b>-k</b>). In order to be able to use <b>$regml</b>, <b>$regex</b> would need to be called.
+<a href="../commands/filter.html">/filter</a> supports the <b>-g</b> switch, which uses a regular expression. It is important to note that the back-reference value cannot be obtained using <b>$regml</b> if a custom alias is used as the output (<b>-k</b>). In order to be able to use <b>$regml</b>, <b>$regex</b> would need to be called.
 
 <H4>$hfind</H4>
-<a href="..\identifiers\hfind.html">$hfind</a> can be used along with <b>regex</b>. However, <b>$hfind</b> does not support the custom <b>S</b> modifier.
+<a href="../identifiers/hfind.html">$hfind</a> can be used along with <b>regex</b>. However, <b>$hfind</b> does not support the custom <b>S</b> modifier.
 
 <H4>/write, $read, $fline, etc</H4>
 These, and many more, are various places where regular expression can be used.

@@ -42,7 +42,7 @@ As we said before, a delimiter is a single character used to specify the boundar
 
 <p>You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the <a href="aliases.html">aliases tutorial</a>. The number of tokens in $N is stored in $0.
 
-<p>It is important to note that you can also populate the $N identifiers via the <a href="..\commands\tokenize.html">/tokenize</a> command.
+<p>It is important to note that you can also populate the $N identifiers via the <a href="../commands/tokenize.html">/tokenize</a> command.
 
 <H4>Adding/Inserting/Replace tokens to a list</H4>
 
@@ -136,7 +136,7 @@ var %result = $matchtok(&lt;list&gt;, &lt;substring&gt;, &lt;Nth_pos&gt;, &lt;co
 var %result = $wildtok(&lt;list&gt;, &lt;wildstring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;)
 ;to get the Nth token
 var %tok = $gettok(&lt;list&gt;, &lt;N&gt;, &lt;code_point&gt;)</pre>
-$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports <a href="..\other\wildcard.html">wildcard</a> characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
+$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports <a href="../other/wildcard.html">wildcard</a> characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
 <pre class ="code">//echo -a $findtok(a a b c d, a, 0, 32)
 2
 //echo -a $matchtok(this is an example, e, 1, 32)

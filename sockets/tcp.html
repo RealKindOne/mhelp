@@ -12,7 +12,7 @@ Now that you have some familiarity with the different types of sockets we can go
 Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to (http://www.youtube.com) YouTube and get the title of the page and the view count.
 
 <H4>Creating a Connection</H4>
-Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="..\commands\sockopen.html">/sockopen</a> command:
+Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="../commands/sockopen.html">/sockopen</a> command:
 
 <pre class ="code">sockopen &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
@@ -24,7 +24,7 @@ I am sure you are very familiar with the padlock icon next to the URL in your br
 <pre class ="code">sockopen -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</pre>
 
 <H4>IPv4 vs. IPv6 Sockets</H4>
-The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check <a href="..\other\ipv6.html">this link</a> for more information about IPv6.
+The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check <a href="../other/ipv6.html">this link</a> for more information about IPv6.
 
 <H4>Connection Example</H4>
 
@@ -63,19 +63,19 @@ In this example I thought we would do something different. Providing a YouTube l
 }</pre>
 
 <H4>The Socket Mark</H4>
-In the example above we introduced another command, the <a href="..\commands\sockmark.html">/sockmark</a> command. The <a href="..\commands\sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="..\identifiers\sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+In the example above we introduced another command, the <a href="../commands/sockmark.html">/sockmark</a> command. The <a href="../commands/sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="../identifiers/sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
 <pre class ="code">sockmark &lt;handle&gt; &lt;value&gt;
 ; The following will clear the mark:
 sockmark &lt;handle&gt;</pre>
 
-The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A <a href="..\other\wildcard.html">wildcard</a> pattern can be used in the handle parameter to set the value of multiple sockets at once.
+The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A <a href="../other/wildcard.html">wildcard</a> pattern can be used in the handle parameter to set the value of multiple sockets at once.
 
 <pre class ="code">; Our socket mark value:
 $sock(&lt;handle&gt;).mark</pre>
 
 <H4>Transmitting a Request After a Successful Connection</H4>
-When a successful connection to the remote end-point has been established, the <a href="..\events\on_sockopen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
+When a successful connection to the remote end-point has been established, the <a href="../events/on_sockopen.html">On_SockOpen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
 <p>
 <b>Note:</b> If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more information.
 <p>
@@ -84,7 +84,7 @@ The typical syntax for the on sockopen event is:
   ;Your requests goes here
 }</pre>
 
-As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="..\commands\sockwrite.html">/sockwrite</a> command. The sockwrite command has the following syntax:
+As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="../commands/sockwrite.html">/sockwrite</a> command. The sockwrite command has the following syntax:
 
 <pre class ="code">
 sockwrite [-tn] &lt;name&gt; &lt;text|%var|&binvar&gt;
@@ -130,7 +130,7 @@ Understanding this concept is important to understanding how to send data correc
 
 Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
 <p>
-In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="..\events\on_sockwrite.html">here</a>.
+In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="../events/on_sockwrite.html">here</a>.
 
 
 <H4>Sending Data Example</H4>
@@ -226,7 +226,7 @@ Host: www.example.com
 The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
 
 <H4>Reading Incoming Data</H4>
-Once the server receives your request, it will send the response back to you. This will trigger the <a href="..\events\on_sockread.html">On_SockRead</a> event. The basic syntax of the on sockread event is:
+Once the server receives your request, it will send the response back to you. This will trigger the <a href="../events/on_sockread.html">On_SockRead</a> event. The basic syntax of the on sockread event is:
 
 <pre class ="code">on *:sockread:&lt;handle&gt;: {
    ;Your code goes here
@@ -236,7 +236,7 @@ The on sockread will most likely be the hardest and longest part of your code. W
 <p>
 When it comes to HTTP, the data you will receive from the server will contain a header followed by a blank line which will be followed by the content of the page. The content of the page will look identical to that text you find when you right click on a web page and click on view source code.
 <p>
-Reading data that has been sent from the server is done with the <a href="..\commands\sockread.html">/sockread</a> command. That command is powerful because it allows you to read the data in a lot of ways, with HTTP, you'll likely want to get the data line by line.
+Reading data that has been sent from the server is done with the <a href="../commands/sockread.html">/sockread</a> command. That command is powerful because it allows you to read the data in a lot of ways, with HTTP, you'll likely want to get the data line by line.
 <p>
 To read a single line from the socket, we use the /sockread command that way:
 

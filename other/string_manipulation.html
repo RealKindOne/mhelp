@@ -12,12 +12,12 @@ Since everything is a string in mSL, just assigning it to a variable is enough.
 
 <pre class ="code">var %x = This is an example string.</pre>
 
-We often want to get the length of such string. The <a href="..\identifiers\len.html">$len</a> identifier can be used to get that.
+We often want to get the length of such string. The <a href="../identifiers/len.html">$len</a> identifier can be used to get that.
 
 <pre class ="code">//echo -a $len(apples and oranges)
 18</pre>
 
-It is often desired to join two strings together. Such operation is called a <b>string concatenation</b>. The <a href="..\identifiers\_plus.html">$+</a> operator can be used to concatenate two string together. For example:
+It is often desired to join two strings together. Such operation is called a <b>string concatenation</b>. The <a href="../identifiers/_plus.html">$+</a> operator can be used to concatenate two string together. For example:
 
 <pre class ="code">//echo -a A $+ B
 AB</pre>
@@ -36,20 +36,20 @@ The output after executing the above code (/hello) is "Hello World!"
 A substring is a string that is part of a longer string. There are a number of built-in identifiers that can be used to retrieve a smaller portion of the original string.
 
 <H4>$left() and $right()</H4>
-The first two identifiers you should be familiar with are the <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
+The first two identifiers you should be familiar with are the <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
 
 <pre class ="code">$left(&lt;string&gt;, &lt;length&gt;)
 $right(&lt;string&gt;, &lt;length&gt;)</pre>
 
-$left always return text starting from the very left side while <a href="..\identifiers\right.html">$right</a> always return text starting from the right side.
+$left always return text starting from the very left side while <a href="../identifiers/right.html">$right</a> always return text starting from the right side.
 
-If the length specified is a positive number, <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> will return up to that many characters from their respective sides. For example:
+If the length specified is a positive number, <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> will return up to that many characters from their respective sides. For example:
 
 <pre class ="code">//echo -a $left(abcdefg, 4) $right(abcdefg, 4)
 ;Left: |abcd|efg
 ;Right: abc|defg|</pre>
 
-If the length specified is a negative number, <a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> return the entire text minus that many characters from their respective sides. For example:
+If the length specified is a negative number, <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> return the entire text minus that many characters from their respective sides. For example:
 
 <pre class ="code">//echo -a $left(abcdefg, -4) $right(abcdefg, -4)
 ;Left: |abc|defg
@@ -64,7 +64,7 @@ This gets the five left-most characters ("Hello") and the five right-most charac
 <pre class ="code">Hello World!</pre>
 
 <H4>$mid()</H4>
-<a href="..\identifiers\left.html">$left</a> and <a href="..\identifiers\right.html">$right</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the <a href="..\identifiers\mid.html">$mid</a>() identifier is a more powerful alternative. <a href="..\identifiers\mid.html">$mid</a>() has the following syntax:
+<a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the <a href="../identifiers/mid.html">$mid</a>() identifier is a more powerful alternative. <a href="../identifiers/mid.html">$mid</a>() has the following syntax:
 
 <pre class ="code">$mid(&lt;string&gt;, &lt;start&gt;)
 $mid(&lt;string&gt;, &lt;start&gt;, &lt;length&gt;)</pre>
@@ -79,7 +79,7 @@ Start is the start of the substring from the left. A negative value indicates a 
 Will output "won't work".
 
 <H4>Case Transformation</H4>
-The <a href="..\identifiers\islower.html">$islower</a>  and <a href="..\identifiers\isupper.html">$isupper</a>  identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="..\identifiers\true.html">$true</a> ), or else they return <a href="..\identifiers\false.html">$false</a> . The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
+The <a href="../identifiers/islower.html">$islower</a>  and <a href="../identifiers/isupper.html">$isupper</a>  identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="../identifiers/true.html">$true</a> ), or else they return <a href="../identifiers/false.html">$false</a> . The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
 
 <pre class ="code">
 alias case_example {
@@ -101,7 +101,7 @@ some random line! = $false $true
 </pre>
 
 <H4>$lower() and $upper()</H4>
-The <a href="..\identifiers\lower.html">$lower</a>() and <a href="..\identifiers\upper.html">$upper</a>() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
+The <a href="../identifiers/lower.html">$lower</a>() and <a href="../identifiers/upper.html">$upper</a>() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
 
 <pre class ="code">
 //echo -a $upper(HeLlO tHeRe)
@@ -121,9 +121,9 @@ There are a number of identifiers that can be used to search for a substring wit
 <pre class ="code">$pos(&lt;string&gt;, &lt;substring&gt;)
 $pos(&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;)</pre>
 
-The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, <a href="..\identifiers\pos.html">$pos</a> will return the total number of substring found within the string.
+The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, <a href="../identifiers/pos.html">$pos</a> will return the total number of substring found within the string.
 
-<br><b>Note:</b><a href="..\identifiers\poscs.html">$poscs</a> is a case-sensitive version of <a href="..\identifiers\pos.html">$pos</a>; it has the same syntax.
+<br><b>Note:</b><a href="../identifiers/poscs.html">$poscs</a> is a case-sensitive version of <a href="../identifiers/pos.html">$pos</a>; it has the same syntax.
 
 If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
 
@@ -135,12 +135,12 @@ Multiple substrings can be counted at once. Here is a simple example:
 
 Which will print "2".
 
-<br><b>Note:</b><a href="..\identifiers\countcs.html">$countcs</a> is a case-sensitive version of <a href="..\identifiers\count.html">$count</a>; it has the same syntax.
+<br><b>Note:</b><a href="../identifiers/countcs.html">$countcs</a> is a case-sensitive version of <a href="../identifiers/count.html">$count</a>; it has the same syntax.
 
 <H4>Substring Replacement and Removal</H4>
 
 <H4>Replacement</H4>
-There are two built-in string replacement identifiers, <a href="..\identifiers\replace.html">$replace</a> and <a href="..\identifiers\replacex.html">$replacex</a>. The major difference between the two is that the later one will not apply replacement to any of the replaced strings.
+There are two built-in string replacement identifiers, <a href="../identifiers/replace.html">$replace</a> and <a href="../identifiers/replacex.html">$replacex</a>. The major difference between the two is that the later one will not apply replacement to any of the replaced strings.
 
 It should be noted that both will replace ALL occurrences of a substring within a string, not just the 1st encountered.
 
@@ -177,7 +177,7 @@ which will output (in this case to the status window [-s]):
 
 $replacex will provide the same in this case.
 
-<br><b>Note:</b> <a href="..\identifiers\replacecs.html">$replacecs</a> / <a href="..\identifiers\replacexcs.html">$replacexcs</a> are case-sensitive versions of <a href="..\identifiers\replace.html">$replace</a> / <a href="..\identifiers\replacex.html">$replacex</a> ; it has the same syntax.
+<br><b>Note:</b> <a href="../identifiers/replacecs.html">$replacecs</a> / <a href="../identifiers/replacexcs.html">$replacexcs</a> are case-sensitive versions of <a href="../identifiers/replace.html">$replace</a> / <a href="../identifiers/replacex.html">$replacex</a> ; it has the same syntax.
 
 <H4>Substring Removal</H4>
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
@@ -194,7 +194,7 @@ Produces:
 
 <H4>Miscellaneous Identifiers</H4>
 
-Two more identifiers you should be aware of are <a href="..\identifiers\str.html">$str</a>() and <a href="..\identifiers\strip.html">$strip</a>().
+Two more identifiers you should be aware of are <a href="../identifiers/str.html">$str</a>() and <a href="../identifiers/strip.html">$strip</a>().
 
 <H4>$str()</H4>
 $str returns the same exact string repeated N amount of times. The syntax is:

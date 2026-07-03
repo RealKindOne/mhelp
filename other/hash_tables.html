@@ -45,7 +45,7 @@ hmake &lt;table_name&gt; &lt;buckets&gt;
 ;hmake also have an -s switch which prints debug info
 </pre>
 
-If you don't specify the number of buckets (or "slots"), the default is used, which is 101. If you do specify the number of buckets from 1-10000, for any number greater than 1 which is not prime, mIRC increases the number of buckets to be the next greater prime from 3-10007. Which is why the default 100 uses 101 bucket. Assuming that you are going to look up a specific item by name using <a href="..\identifiers\hget.html">$hget</a>, then generally speaking the number of buckets should be decided based on the following equation:
+If you don't specify the number of buckets (or "slots"), the default is used, which is 101. If you do specify the number of buckets from 1-10000, for any number greater than 1 which is not prime, mIRC increases the number of buckets to be the next greater prime from 3-10007. Which is why the default 100 uses 101 bucket. Assuming that you are going to look up a specific item by name using <a href="../identifiers/hget.html">$hget</a>, then generally speaking the number of buckets should be decided based on the following equation:
 
 <math>
   \text{buckets} = \frac{\text{number of items that will be used}}{0.78}
@@ -151,7 +151,7 @@ $hget(&lt;table_name&gt;, &lt;Nth&gt;).item
 $hget(&lt;table_name&gt;, &lt;Nth&gt;).data
 </pre>
 
-<br><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
+<br><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
 
 An example of looping over every value in our Colors table will look like this:
 
@@ -185,7 +185,7 @@ To delete pairs from the table, you need to use the /hdel command. Its syntax is
 hdel -w &lt;table_name&gt; &lt;wild_item&gt;
 ;hdel has a -s switch which is the same as /hadd's</pre>
 
-If the -w switch is used, a <a href="..\other\wildcard.html">wildcard</a> pattern for the item can be specified to delete multiple items at once. If we go back to our example:
+If the -w switch is used, a <a href="../other/wildcard.html">wildcard</a> pattern for the item can be specified to delete multiple items at once. If we go back to our example:
 
 <pre class = "code">/hdel -s colors Lisa</pre>
 Will leave our table looking like this:
@@ -272,7 +272,7 @@ To complete destroy a table and all its values, you can use the hfree command:
 /hfree -w &lt;*wild*table*&gt;
 ;hfree has a -s switch which shows the action taken, as the other hashtable commands have</pre>
 
-With the -w switch you can specify a <a href="..\other\wildcard.html">wildcard</a> pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
+With the -w switch you can specify a <a href="../other/wildcard.html">wildcard</a> pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
 
 <H4>Searching for a Item and value pair</H4>
 The $hfind identifier can be used to search the table for a particular pair.
@@ -293,17 +293,17 @@ If you specify 0 for Nth Item, the total number of matches will be returned inst
 
 Which will return "Mary". because Mary appeared before Gary in the iteration list of items. Prior to v7.53 it returned "Gary" because that name appeared first in the iteration list.
 
-<b>Note1:</b> Using a non-hashed method for finding an item or data using <a href="..\identifiers\hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="..\identifiers\hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="..\identifiers\hget.html">$hget</a> using its item name.
+<b>Note1:</b> Using a non-hashed method for finding an item or data using <a href="../identifiers/hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="../identifiers/hget.html">$hget</a> using its item name.
 
-<b>Note2:</b> Use of <a href="..\identifiers\hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="..\identifiers\hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="..\identifiers\hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="..\identifiers\hget.html">$hget</a>.
+<b>Note2:</b> Use of <a href="../identifiers/hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="../identifiers/hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="../identifiers/hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="../identifiers/hget.html">$hget</a>.
 
 <H4>Technical Explanation</H4>
 mIRC's hash tables are implemented as follows.
 
 <p>When you create a hash table, it is created with a defined number of "slots" (or "buckets").
-<p>When you add an item to the table using <a href="..\commands\hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
-<p>When you look up an item by name using <a href="..\identifiers\hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
-<p>When you get an item by position using <a href="..\identifiers\hget.html">$hget</a>(table,position), or use $hfind to search data or search using <a href="..\other\wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
+<p>When you add an item to the table using <a href="../commands/hadd.html">/hadd</a>, a hash algorithm calculates a bucket number based on the item name. Each bucket holds a linked-list of items whose names map to that bucket number, with each new item being added to the list of items in that bucket.
+<p>When you look up an item by name using <a href="../identifiers/hget.html">$hget</a>, then the same hash algorithm is used to locate the bucket it will be stored under and then the linked-list in that bucket is searched sequentially for the item. The purpose of hashing is to perform this kind of lookup on potentially large tables with faster performance. If a table has 101 buckets each containing 10 items, it is much faster to search within the 10 items than to search within all 1010 items.
+<p>When you get an item by position using <a href="../identifiers/hget.html">$hget</a>(table,position), or use $hfind to search data or search using <a href="../other/wildcard.html">wildcard</a> or regular expressions, then the hash algorithm cannot be used to identify the correct bucket, and instead mIRC has to iterate across part or all of the hash table to count or to find the record you want.
 
 <p>If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
 
@@ -344,7 +344,7 @@ Using the student birthday example for simplicity and relating it to hash tables
 <P>
 <b>HOWEVER...</b>
 <P>
-Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using <a href="..\identifiers\hget.html">$hget</a>(table,n), or if you want to use <a href="..\identifiers\hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
+Not all hash table look-ups are able to use the hash to calculate the correct bucket - only look-ups by item name. If you want to access hash table entries by position using <a href="../identifiers/hget.html">$hget</a>(table,n), or if you want to use <a href="../identifiers/hfind.html">$hfind</a>, then mIRC is going to have to iterate over a significant proportion (or all) of a hash table regardless of the number of buckets that you define. Indeed, if you are never going to look-up by item-name, you might as well save memory and use a single bucket.
 <P>
 <b>Summary:</b> If you are doing only lookup by position or are using $hfind, then you should use a bucket size of 1 to save memory and avoid the small overhead of iterating over empty buckets.
 <P>
@@ -466,15 +466,15 @@ The FNV1a hash is performed against the upper-case string of the hash name, allo
 That means that it's possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
 <P>
 <H4>See Also</H4>
-<a href="..\commands\hmake.html">/hmake</a><br>
-<a href="..\commands\hfree.html">/hfree</a><br>
-<a href="..\commands\hload.html">/hload</a><br>
-<a href="..\commands\hsave.html">/hsave</a><br>
-<a href="..\commands\hadd.html">/hadd</a><br>
-<a href="..\commands\hdel.html">/hdel</a><br>
-<a href="..\commands\hinc.html">/hinc</a><br>
-<a href="..\commands\hdec.html">/hdec</a><br>
-<a href="..\identifiers\hget.html">$hget</a><br>
-<a href="..\identifiers\hfind.html">$hfind</a><br>
+<a href="../commands/hmake.html">/hmake</a><br>
+<a href="../commands/hfree.html">/hfree</a><br>
+<a href="../commands/hload.html">/hload</a><br>
+<a href="../commands/hsave.html">/hsave</a><br>
+<a href="../commands/hadd.html">/hadd</a><br>
+<a href="../commands/hdel.html">/hdel</a><br>
+<a href="../commands/hinc.html">/hinc</a><br>
+<a href="../commands/hdec.html">/hdec</a><br>
+<a href="../identifiers/hget.html">$hget</a><br>
+<a href="../identifiers/hfind.html">$hfind</a><br>
 </body>
 </html>

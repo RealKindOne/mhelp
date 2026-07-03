@@ -11,8 +11,8 @@
 This tutorial will try to summarize for you what commands are problematic, how to detect it, and how to fix it.
 <br>
 An eval injection vulnerability consists of two things:
-* A script that evaluates a code (via a vulnerable command/ident)
-* User input that is not properly validated
+<br>* A script that evaluates a code (via a vulnerable command/ident)
+<br>* User input that is not properly validated
 <br>
 Injections happen because of a simple side effect of the main rules definiting the syntaxes/semantics of the language.
 <br>
@@ -22,7 +22,7 @@ For a command, the interesting rule used by the parser to make it working is to 
 <pre class ="code">
 echo -a $me
 </pre>
-Here <a href="..\identifiers\me.html">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="..\identifiers\me.html">$me</a> is passed as the second parameter to the /echo command.
+Here <a href="../identifiers/me.html">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="../identifiers/me.html">$me</a> is passed as the second parameter to the /echo command.
 
 <H4>Nested command</H4>
 
@@ -43,17 +43,18 @@ Because of this, you must pass a new command to be executed after the delay to t
 <pre class ="code">
 //.timer 1 1 echo -a $day
 </pre>
-Which will execute "echo -a &lt;value of <a href="..\identifiers\day.html">$day</a>&gt;" one time, after waiting 1 second.
+Which will execute "echo -a &lt;value of <a href="../identifiers/day.html">$day</a>&gt;" one time, after waiting 1 second.
 
-What happens here is that the parameters passed to the /timer command are evaluated once as we saw, so <a href="..\identifiers\day.html">$day</a> gets evaluated once, producing the current day.
+What happens here is that the parameters passed to the /timer command are evaluated once as we saw, so <a href="../identifiers/day.html">$day</a> gets evaluated once, producing the current day.
 
-The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="..\identifiers\day.html">$day</a>'s value&gt;"
+The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="../identifiers/day.html">$day</a>'s value&gt;"
 
-When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="..\identifiers\day.html">$day</a> can only return a day of the week. If <a href="..\identifiers\day.html">$day</a> is Monday, evaluating the plain text Monday will always produce Monday.
+When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="../identifiers/day.html">$day</a> can only return a day of the week. If <a href="../identifiers/day.html">$day</a> is Monday, evaluating the plain text Monday will always produce Monday.
 
 But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
-<pre class ="code">on *:TEXT:!reminder & *:#:{
+<pre class ="code">
+on *:TEXT:!reminder & *:#:{
  if ($2 !isnum) {
     notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
@@ -103,17 +104,17 @@ Let's take a look at what happens now:
 
 And Mike now can't do anything harmful.
 
-/timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
+/timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="../identifiers/decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="../identifiers/decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
-The command associated with the timer now becomes <code><a href="..\commands\notice.html">/notice</a> Mike [Reminder] <a href="..\identifiers\decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="..\identifiers\decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="..\identifiers\decode.html">$decode</a>, when evaluated once by <a href="..\commands\notice.html">/notice</a>, will produce the correct result (the original input of Mike).
+The command associated with the timer now becomes <code><a href="../commands/notice.html">/notice</a> Mike [Reminder] <a href="../identifiers/decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="../identifiers/decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="../identifiers/decode.html">$decode</a>, when evaluated once by <a href="../commands/notice.html">/notice</a>, will produce the correct result (the original input of Mike).
 
-Now you don't need to do that for any <a href="..\commands\timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
+Now you don't need to do that for any <a href="../commands/timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
 <br><b>Note:</b> Since mIRC 7.44, an $unsafe identifier has been added which behaves just like $safe (the name was changed to unsafe to avoid misleading new users), delaying the execution of one level.
 
 ===== $chan/# =====
 
-You may think <a href="..\identifiers\chan.html">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="..\identifiers\chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
+You may think <a href="../identifiers/chan.html">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="../identifiers/chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
 
 The reason for this is mIRC allows prefixing an identifier with the pound sign to make mIRC prefixes (if needed) the evaluated string by the pound symbol. For example:
 
@@ -123,7 +124,7 @@ This will produce the following result:
 
 <pre class ="code">#A #B</pre>
 
-So what does that have to do with <a href="..\identifiers\chan.html">$chan</a> and timers? Everything!
+So what does that have to do with <a href="../identifiers/chan.html">$chan</a> and timers? Everything!
 
 Consider the following bot's code:
 
@@ -147,20 +148,20 @@ Everything works just fine under normal conditions. But Mike knows better than t
 * Rejoined channel #$($bot_pass)
 -Bot- Hello Mike, Welcome to foo_bar_42</pre>
 
-Because <a href="..\identifiers\chan.html">$chan</a> (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
+Because <a href="../identifiers/chan.html">$chan</a> (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
 
-You might want to watch out for <a href="..\identifiers\nick.html">$nick</a> as well, some servers allow nicknames to have the '$' character.
+You might want to watch out for <a href="../identifiers/nick.html">$nick</a> as well, some servers allow nicknames to have the '$' character.
 
 <H4>/scon and /scid</H4>
-Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="..\commands\timer.html">/timer</a> command, any unknown content must be escaped somehow.
+Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="../commands/timer.html">/timer</a> command, any unknown content must be escaped somehow.
 
-Though, unlike <a href="..\commands\timer.html">/timer</a>, the <a href="..\commands\scid.html">/scid</a> and <a href="..\commands\scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
+Though, unlike <a href="../commands/timer.html">/timer</a>, the <a href="../commands/scid.html">/scid</a> and <a href="../commands/scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
 
 <pre class ="code">on *:TEXT:!global *:#:{
   scon -at1 amsg [AMSG] $1-
 }</pre>
 
-The script is designed to do a global amsg (i.e. perform an <a href="..\commands\amsg.html">/amsg</a> on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of <a href="..\commands\scon.html">/scon</a> triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
+The script is designed to do a global amsg (i.e. perform an <a href="../commands/amsg.html">/amsg</a> on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of <a href="../commands/scon.html">/scon</a> triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
 
 * $safe solution:
 
@@ -185,24 +186,26 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 <H4>/flash</H4>
 
-Though /flash is the only command doing it for now, more command might do this in the future. <a href="..\commands\flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="..\commands\flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
+Though /flash is the only command doing it for now, more command might do this in the future. <a href="../commands/flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="../commands/flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
 
 <pre class ="code">on *:TEXT:!testflash:#:/flash $ $+ me</pre>
 
-So $ $+ me evaluates to "<a href="..\identifiers\me.html">$me</a>" by <a href="..\commands\flash.html">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
+So $ $+ me evaluates to "<a href="../identifiers/me.html">$me</a>" by <a href="../commands/flash.html">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
 
 The $safe solution must be used there.
 
 <H4>Injection via $identifiers</H4>
 
 <H4>$readini() and $read()</H4>
-If you have visited #mSL on swiftirc, and you had some code that used <a href="..\identifiers\read.html">$read</a> or <a href="..\identifiers\readini.html">$readini</a> without the n switch you would most likely had people yelling at you to always use it. But why? The reason is:
+If you have visited #mSL on swiftirc, and you had some code that used <a href="../identifiers/read.html">$read</a> or <a href="../identifiers/readini.html">$readini</a> without the n switch you would most likely had people yelling at you to always use it. But why? The reason is:
+<br>
 
- '''By default BOTH $read() and $readini() treat the text in the file as code!'''
-
+<b>By default BOTH $read() and $readini() treat the text in the file as code!</b>
+<br>
 So what are some of its consequences? Consider the following greet script:
 
-<pre class ="code">on *:TEXT:!setgreet*:#:{
+<pre class ="code">
+on *:TEXT:!setgreet*:#:{
   if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
@@ -211,7 +214,8 @@ on !*:join:#:{
   if ($readini(greets.ini, greet, $nick)) {
     msg $chan [[ $+ $nick $+ ] $v1
   }
-}</pre>
+}
+</pre>
 
 Let's see what happens:
 
@@ -227,15 +231,18 @@ Let's see what happens:
 -Bot- [Greet] Greet Saved.
 /hop
 * Rejoined channel #foobar
-* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
+* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)
+</pre>
 
-In this example Mike used the fact that <a href="..\identifiers\findfile.html">$findfile</a> can execute a command when it finds a matching file. It should be clear how dangerous this can be.
+In this example Mike used the fact that <a href="../identifiers/findfile.html">$findfile</a> can execute a command when it finds a matching file. It should be clear how dangerous this can be.
 
-So how do we fix it? Using the '''n''' option!
+So how do we fix it? Using the <b>n</b> option!
 
-<pre class ="code">$read(... , n, ...)
+<pre class ="code">
+$read(... , n, ...)
 ;and
-$readini(..., n, ...)</pre>
+$readini(..., n, ...)
+</pre>
 
 Our new code would look like this:
 
@@ -264,7 +271,7 @@ if ($1 == 1) return item : echo -ag &gt; $!!me
 
 <a name="calc"></a>
 <H4>$calc()</H4>
-ALL unknown (in advance) input to <a href="..\identifiers\calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
+ALL unknown (in advance) input to <a href="../identifiers/calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
 
 <pre class ="code">//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)</pre>
 
@@ -272,7 +279,7 @@ Which will produce the following result:
 <pre class = "code">
  %x = 12345
 </pre>
-<b>Surprise!</b> We bet you did not expect that to happen. (This is actually a side effect of <a href="..\identifiers\calc.html">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
+<b>Surprise!</b> We bet you did not expect that to happen. (This is actually a side effect of <a href="../identifiers/calc.html">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.)
 <br>
 <br>
 Now let's take a look at a more practical example:
@@ -289,18 +296,20 @@ on *:TEXT:!calc *:#:{
 }</pre>
 
 Like most people, this user has an on connect event to register his user and a simple !calc script.
-
+<p>
 Let's see what Mike can do to him:
 
-<pre class ="code">&lt;Mike&gt; !calc 3*5+55
+<pre class ="code">
+&lt;Mike&gt; !calc 3*5+55
 &lt;Wiz126&gt; [Calc] 3*5+55 = 70
 &lt;Mike&gt; !calc %password
-&lt;Wiz126&gt; [Calc] %password = 123456</pre>
+&lt;Wiz126&gt; [Calc] %password = 123456
+</pre>
 
 It's clear how Mike was able to get the value of a pretty important variable.
-
+<br>
 It's important to note that EVEN if %password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it's a big chunk of it.
-
+<br>
 A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and %variables:
 
 <pre class ="code">
@@ -319,7 +328,7 @@ This is not really an exploit, but is a way for someone to disguise their malici
 </pre>
 
 Pasting the above command into an editbox echoes 'hello world' to the active window in red text. However it won't work if the square braces are removed, because the command beginning with % halts the editbox command, but doesn't halt the same thing in a remote script.
-
+<br>
 Something similar can be done with $decode, but it only works if $decode(string) is placed somewhere which allows its contents to be evaluated/executed, which includes the $iif bug, placing into a timer's command line, inside square braces, etc. Below shows how the decode string is created, but the echo command is NOT executed by $decode, but by the fact that the decoded string is placed into the timer's command string. If the "timer 1 1" had not been there, this would have executed the echo command if it were inside a remote script, but would not have executed in the editbox simply because the editbox doesn't execute commands beginning with % or $.
 
 <pre class ="code">
@@ -340,12 +349,12 @@ This category relates to identifiers who have a 'command parm' or a 'callback al
 There are currently a few bugs in mIRC that allow for mSL injection, most in a round-a-bout fashion
 
 <H4>$iif( (cond) /cmd, true, false )</H4>
-Due to the way mIRC handles <a href="..\identifiers\iif.html">$iif</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
+Due to the way mIRC handles <a href="../identifiers/iif.html">$iif</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
 
 <pre class ="code">//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)</pre>
 
-The above will echo "See what I mean <a href="..\commands\return.html">/!return 1</a>", and neither the truthy or falsey statements are returned nor is the outer echo statement executed.
-This is happening because internally, <a href="..\identifiers\iif.html">$iif</a> is calling the /if construct in the following way:
+The above will echo "See what I mean <a href="../commands/return.html">/!return 1</a>", and neither the truthy or falsey statements are returned nor is the outer echo statement executed.
+This is happening because internally, <a href="../identifiers/iif.html">$iif</a> is calling the /if construct in the following way:
 <pre class ="code"> //if (condition) !return 1 | !return 0</pre>
 which gives:
 <pre class ="code"> //if ( (1) echo -a See what I mean) !return 1 | !return 0</pre>
@@ -396,7 +405,7 @@ This creates a file without a filetype, where the filename itself is not visible
 Restricting DCC Get filetypes.
 <br>
 You should view the contents of your downloads folder with suspicion if you don't know from whom you received the file. If you disable filetype blocking, you should do it temporarily, by using the "turn ignore back on in xx minutes" feature, which causes the 'disable' choice to revert back to the prior 'accept only' or 'ignore only' setting.<br>
-
+<br>
 While you can either configure Options/DCC/Ignore as 'ignore only' to specify a list of filetypes to be blocked, or as 'accept only' to specify a list of the only filetypes accepted, 'ignore only' requires updating the list as new executable filetypes need to be added. It's probably better to use 'accept only', since this allows you to manage the list of the only filetypes which are accepted. You should block all executable filetypes, without expecting to be able to inspect the download folder for suspicious items.
 
 <pre class ="code">
@@ -418,15 +427,15 @@ IRC servers accept strings containing $crlf $lf or $cr and will execute text fol
 //msg #channel message $crlf mode #home +o Mallory
 </pre>
 When the server  receives this message from mIRC, it uses the $crlf to split this into 2 commands. The first command displays the message to #channel, and the 2nd command tells the server to give @op status in channel #home to Mallory. If you do not have permissions in #home to give @ops, or if a nick Mallory is not in that channel, nothing happens. But if both are true, then you have just given op status to Mallory.
-
+<br>
 This method can only tell the server to execute commands recognized by the server. It does not know any mIRC-only /commands or $identifiers, and the 2nd command is executed even if the 1st command is invalid, such as #channel not existing. This means echoing such a string is no danger, because /echo will not send any string to a server, and it will not execute them either.
-
+<br>
 This exploit cannot be achieved by responding to an on TEXT command, because the server cannot display a message to a channel which contains an embedded $cr and/or $lf.
-
+<br>
 However, this exploit can take advantage of scripts which send text to channels which can contain them. Examples could include the above examples of an evaluated command inside a $decode string, or can be accomplished by a script which messages the title/description or other content from a webpage that the attacker controls. Another method can be 'now playing' scripts which message text to channel describing information about the mp3 song that is either beginning or ending. While it's common for fields like $sound(filename.mp3).comment to contain $cr's, they generally are not displayed in channel messages. However, it's also possible for Album or Title to also contain them.
-
+<br>
 In addition to executing commands to give @op privileges to someone, the malicious commands could include things like making you drop your NickServ account at some ircd's. Also, they can induce you to execute commands which have a future effect, such as adding a nick to a ChanServ access list, or a command to add Mallory's certificate fingerprint to your NickServ account, which would allow them to take channel actions in the future, or to login your NickServ account any time in the future, even if you change your NickServ password. While those would almost certainly trigger a confirmation message from ChanServ or NickServ, those messages often go into the status window, and would often be unseen, especially if they happened while your keyboard is unattended.
-
+<br>
 To defend against such an exploit, any command sent to the server (not only a channel message) containing text that could come from a source which contains line-ending characters should be sanitized to remove/disable them.
 
 <pre class ="code">

@@ -102,7 +102,7 @@ unset %variable
 unset %var1 %var2 %var3
 </pre>
 
-The /unset command supports <a href="..\other\wildcard.html">wildcard</a> characters for each of the variable, to be able to unset multiple variables. For example:
+The /unset command supports <a href="../other/wildcard.html">wildcard</a> characters for each of the variable, to be able to unset multiple variables. For example:
 
 <pre class ="code">
 alias unsetWildExample {
@@ -120,7 +120,7 @@ alias unsetWildExample {
   unset %example*
 }</pre>
 
-You can also unset all of the variables using the <a href="..\commands\unsetall.html">/unsetall</a> command.
+You can also unset all of the variables using the <a href="../commands/unsetall.html">/unsetall</a> command.
 <P>
 <span style="color: #9E1010;"><b>Caution:</b></span> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
 
@@ -174,7 +174,7 @@ For Example:
 <H4>Others Commands</H4>
 mIRC has two additional commands that can be used to easily increase and decrease the value of a numerical variable.
 <P>
-The <a href="..\commands\dec.html">/dec</a> command allows you to decrease the value of a variable by 1 or by a given value if specified:
+The <a href="../commands/dec.html">/dec</a> command allows you to decrease the value of a variable by 1 or by a given value if specified:
 
 <pre class ="code">dec %var [value]</pre>
 
@@ -187,7 +187,7 @@ For Example:
   echo -a %g
 }</pre>
 
-The <a href="..\commands\inc.html">/inc</a> command allows you to increase the value of a variable by 1 or by a given value if specified:
+The <a href="../commands/inc.html">/inc</a> command allows you to increase the value of a variable by 1 or by a given value if specified:
 
 
 <pre class ="code">inc %var [value]</pre>
@@ -241,11 +241,13 @@ The static part is ''color.'', which is never going to change, and the dynamic p
 <br>
 Retrieving values from static variables is pretty straightforward. Let's assume you have a variable called ''%myvar'' and it's value is '''abc''', you can get this value simply by referring to the variable outright:
 
-<pre class ="code">alias showVar {
+<pre class ="code">
+alias showVar {
   echo -a Here is the value of % $+ myvar: %myvar
-}</pre>
+}
+</pre>
 
-Simply put, this will echo the following to the active window where you typed the ''/showVar'' command:
+Simply put, this will echo the following to the active window where you typed the <b>/showVar</b> command:
 
 <pre class ="code">Here is the value of %myvar: abc</pre>
 
@@ -317,7 +319,7 @@ What this does is create a bunch of static variables, each with ascending-ordere
 
 2. Using $eval
 
-You can also get the value of a dynamic variable by using <a href="..\identifiers\eval.html">$eval</a>.
+You can also get the value of a dynamic variable by using <a href="../identifiers/eval.html">$eval</a>.
 
 $eval allows you to force an expression to evaluate more than once, a bit like the brackets [ ], but brackets are meant to alter the order of evaluation of a line, which itself can have its own drawbacks.
 

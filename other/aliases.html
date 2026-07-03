@@ -23,7 +23,7 @@ If we called an alias called "example" like this:
 
 $1 in the alias would be returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
 <p>
-The exact rules on how $N work is identical to the how they work with the <a href="token.html#tokenize">/tokenize command</a>. More information about $1- <a href="..\identifiers\1-.html">here</a>.
+The exact rules on how $N work is identical to the how they work with the <a href="token.html#tokenize">/tokenize command</a>. More information about $1- <a href="../identifiers/1-.html">here</a>.
 
 <H4>Aliases Tab</H4>
 
@@ -40,7 +40,7 @@ If you do a command call to one of your alias, you can prefix it with a dot '.' 
 <p>
 This can be used to create a debug mode in your script which would display a log message only if $show is set.
 <p>
-<b>Note:</b> $show is a global value across all scripts, silencing a custom aliases command call makes all the command call in that alias be silenced too, with no way to un-silence them (see second example in the <a href="..\identifiers\show.html">$show</a> page)
+<b>Note:</b> $show is a global value across all scripts, silencing a custom aliases command call makes all the command call in that alias be silenced too, with no way to un-silence them (see second example in the <a href="../identifiers/show.html">$show</a> page)
 
 <p>
 If you create an alias with the same name of a built-in command and call your alias as a command, it means that any other script which is trying to use the built-in command now will be calling your alias instead.
@@ -50,7 +50,7 @@ To prevent this, you can prefix the command call with '!', which will force mIRC
 <H4>Identifier Call Prefixes</H4>
 <b>$$ special construct (required value)</b><br>
 <br>
-You can use <a href="..\identifiers\_sigil.html">$$</a> to stop a routine if the value returned by the identifier is empty ($null), typically, this allows to quickly stops if a parameter is missing.
+You can use <a href="../identifiers/_sigil.html">$$</a> to stop a routine if the value returned by the identifier is empty ($null), typically, this allows to quickly stops if a parameter is missing.
 <br><br>
 <b>/ and . prefix (custom call)</b><br>
 <br>
@@ -59,7 +59,7 @@ By default, an identifier call to an alias of the same name as of a built-in ide
 <br><br>
 <b>~ prefix (built-in call)</b><br>
 <br>
-In essence, such a call to an identifier will only look at built-in identifiers, custom aliases won't be searched for. You can find more information about it <a href="..\identifiers\_tilde.html">here</a>
+In essence, such a call to an identifier will only look at built-in identifiers, custom aliases won't be searched for. You can find more information about it <a href="../identifiers/_tilde.html">here</a>
 <br><br>
 <b>! prefix (delay evaluation)</b><br>
 <br>
@@ -110,7 +110,7 @@ echo -a $me
 ;This identifier requires that we pass it some arguments:
 echo -a $calc(1 + 1)</pre>
 
-Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the <a href="..\commands\return.html">/return</a> keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
+Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the <a href="../commands/return.html">/return</a> keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
 
 <pre class ="code">alias example {
   return hello there!
@@ -341,14 +341,14 @@ The order used by mIRC to locate your alias is as follow:
 
 <H4>See also</H4>
 
-<a href="..\identifiers\isalias.html">$isalias</a><br>
-<a href="..\identifiers\script.html">$script</a><br>
-<a href="..\identifiers\scriptline.html">$scriptline</a><br>
-<a href="..\identifiers\result.html">$result</a><br>
-<a href="..\commands\return.html">/return</a><br>
-<a href="..\commands\returnex.html">/returnex</a><br>
-<a href="..\identifiers\color.html">$color</a><br>
-<a href="..\commands\echo.html">/echo</a><br>
-<a href="..\identifiers\v1.html">$v1</a><br>
+<a href="../identifiers/isalias.html">$isalias</a><br>
+<a href="../identifiers/script.html">$script</a><br>
+<a href="../identifiers/scriptline.html">$scriptline</a><br>
+<a href="../identifiers/result.html">$result</a><br>
+<a href="../commands/return.html">/return</a><br>
+<a href="../commands/returnex.html">/returnex</a><br>
+<a href="../identifiers/color.html">$color</a><br>
+<a href="../commands/echo.html">/echo</a><br>
+<a href="../identifiers/v1.html">$v1</a><br>
 </body>
 </html>
