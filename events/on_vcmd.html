@@ -17,10 +17,10 @@ The <b>on VCMD</b> event triggers when the Speech recognition software matches a
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;*|#|?|@&gt;</b> - The location from which you want to listen for spoken word.
-<br><span style="margin-left: 20px;"><b>#</b> - Channel windows.
-<br><span style="margin-left: 20px;"><b>?</b> - Private messages/query windows.
-<br><span style="margin-left: 20px;"><b>@</b> - <a href="..\other\custom_windows.html">Custom window</a>
-<br><span style="margin-left: 20px;"><b>*</b> - All window types.
+<br><span style="margin-left: 20px;"><b>#</b></span> - Channel windows.
+<br><span style="margin-left: 20px;"><b>?</b></span> - Private messages/query windows.
+<br><span style="margin-left: 20px;"><b>@</b></span> - <a href="..\other\custom_windows.html">Custom window</a>
+<br><span style="margin-left: 20px;"><b>*</b></span> - All window types.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
 
@@ -32,7 +32,7 @@ alias vctest {
  vcadd connect Dalnet, connect Efnet, connect Undernet, connect IRCnet
  vcadd Part Channel, Disconnect, List Commands, Moo Cow
 }
-
+&nbsp;
 on 1:vcmd:connect*:*:server $2
 on 1:vcmd:part channel:*:if ($active ischan) part $active
 on 1:vcmd:disconnect:*:quit

@@ -16,11 +16,11 @@ Much like the <a href="on_close.html">On_Close</a> event, the <b>on OPEN</b> eve
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;?|@|=|!|*&gt;</b> - The window type that the event should trigger for:
-<br><span style="margin-left: 20px;"><b>?</b> - Private messages/query windows.
-<br><span style="margin-left: 20px;"><b>@</b> - <a href="..\other\custom_windows.html">Custom window</a>
-<br><span style="margin-left: 20px;"><b>=</b> - DCC Chat windows.
-<br><span style="margin-left: 20px;"><b>!</b> - DCC Fileserv windows.
-<br><span style="margin-left: 20px;"><b>*</b> - All window types.
+<br><span style="margin-left: 20px;"><b>?</b></span> - Private messages/query windows.
+<br><span style="margin-left: 20px;"><b>@</b></span> - <a href="..\other\custom_windows.html">Custom window</a>
+<br><span style="margin-left: 20px;"><b>=</b></span> - DCC Chat windows.
+<br><span style="margin-left: 20px;"><b>!</b></span> - DCC Fileserv windows.
+<br><span style="margin-left: 20px;"><b>*</b></span> - All window types.
 
 <br><b>&lt;matchtext&gt;</b> - The text that should be matched. Can be a <a href="..\other\wildcard.html">wildcard</a>. Specifically for this event, this text will most-likely be from a private message query window opening up. The reason is that this will allow interaction with the text, during the event of a query window opening, immediately, rather than waiting for an <a href="on_text.html">On_Text</a> event to trigger.
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event listener's criteria is met.
@@ -32,8 +32,8 @@ TODO
 <pre class ="code">; When a query window opens, recognize if
 ; the user has typed the !yourserver command, which will
 ; relay to the user the current server for the mIRC client
-
-on *:OPEN:?:!yourserver:msg $nick Current IRC Server: $server $+ .</pre>
+on *:OPEN:?:!yourserver:msg $nick Current IRC Server: $server $+ .
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

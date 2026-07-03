@@ -23,9 +23,9 @@ The <b>on SERV</b> event, much like the <a href="on_chat.html">On_Chat</a> event
 <H4>Example</H4>
 <pre class ="code">; This event waits for any user on a DCC Chat to use the
 ; command !time and then relays back to them the current time
-
+&nbsp;
 on *:SERV:!time:msg =$nick The current time is: hh:nntt</pre>
-
+&nbsp;
 In the above example, the <b>msg</b> is not simply followed by the <a href="..\identifiers\nick.html">$nick</a> identifier. Instead, the <a href="..\identifiers\_nick.html">=$nick</a> identifier has been used. This special identifier tells mIRC that the event should not simply send a private message to the user, but rather it should message the user's DCC Chat window, if there is one.
 <br>
 <br>

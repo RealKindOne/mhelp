@@ -21,19 +21,19 @@ The <b>on NICK</b> event triggers when a user is on the same channel as you, and
 <H4>Example</H4>
 Echo the nickname change, and disregard mIRC's default nick change message:
 <pre class ="code">on ^*:NICK: {
-  echo $comchan($newnick,1) * $nick |==> $newnick
-
+  echo $comchan($newnick,1) * $nick |==&gt; $newnick
+&nbsp;
   ; Halt the default mIRC message
   haltdef
 }</pre>
 
 The results of the above example resemble the following:
-<pre class ="code">* Mr_SOCKS |==> noLaundry</pre>
+<pre class ="code">* Mr_SOCKS |==&gt; noLaundry</pre>
 
 Echo to the channel when the local nickname is changed, and halt mIRC's default message:
 <pre class ="code">on ME:^*:NICK: {
-  echo $comchan($newnick,1) You are now ==> $newnick
-
+  echo $comchan($newnick,1) You are now ==&gt; $newnick
+&nbsp;
   ; Halt the default mIRC message
   haltdef
 }</pre>
@@ -43,7 +43,7 @@ The example above should have an output resembling the following:
 
 <pre class ="code">
 Because on NICK is not associated with # or $chan, to show a nick change message in all channels you share with that nick, you can use $comchan. You can simulate mIRC's default Nick Change message in channels with:
-
+&nbsp;
 on ^*:NICK:{
   var %i $comchan($newnick,0)
   while (%i) {

@@ -13,14 +13,14 @@ The <b>on CLOSE</b> event triggers within mIRC when a specific window type is cl
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="..\other\access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;*&gt;&lt;?&gt;&lt;#[,#]&gt;</b> - The place, or places where the event listens, you can specify specific name of window, separate them by comma.
-<br><span style="margin-left: 20px;"><b>*</b> - Any query/channel window.
-<br><span style="margin-left: 20px;"><b>?</b> - Any query windows.
-<br><span style="margin-left: 20px;"><b>#</b> - Any channel window.
-<br><span style="margin-left: 20px;"><b>=</b> - Any DCC chat.
-<br><span style="margin-left: 20px;"><b>!</b> - Any DCC server.
-<br><span style="margin-left: 20px;"><b>@</b> - Any custom window.
-<br><span style="margin-left: 20px;"><b>#chan</b> - Only in #chan window.
-<br><span style="margin-left: 20px;"><b>#chan,#chan2</b> - Only in #chan and #chan2 window.
+<br><span style="margin-left: 20px;"><b>*</b></span> - Any query/channel window.
+<br><span style="margin-left: 20px;"><b>?</b></span> - Any query windows.
+<br><span style="margin-left: 20px;"><b>#</b></span> - Any channel window.
+<br><span style="margin-left: 20px;"><b>=</b></span> - Any DCC chat.
+<br><span style="margin-left: 20px;"><b>!</b></span> - Any DCC server.
+<br><span style="margin-left: 20px;"><b>@</b></span> - Any custom window.
+<br><span style="margin-left: 20px;"><b>#chan</b></span> - Only in #chan window.
+<br><span style="margin-left: 20px;"><b>#chan,#chan2</b></span> - Only in #chan and #chan2 window.
 
 <br><b>&lt;commands&gt;</b> - The commands to be performed when the event triggers
 
@@ -28,24 +28,28 @@ The <b>on CLOSE</b> event triggers within mIRC when a specific window type is cl
 <a href="..\identifiers\target.html">$target</a> is filled with the name of the window related to the event.
 
 <H4>Example</H4>
-<pre class ="code">; When Channel window are closed, print a message to
+<pre class ="code">
+; When Channel window are closed, print a message to
 ; the "Status Window".
+on *:CLOSE:#: { echo -sg Closed $target window. }
+</pre>
 
-on *:CLOSE:#: { echo -sg Closed $target window. }</pre>
-
-<pre class ="code">; When DCC Chats are closed, send a notice to
+<pre class ="code">
+; When DCC Chats are closed, send a notice to
 ; the person.
+on *:CLOSE:=:notice $nick Hey, thank you so much for the chat!
+</pre>
 
-on *:CLOSE:=:notice $nick Hey, thank you so much for the chat!</pre>
-
-<pre class ="code">; When any window is closed, echo the window name
+<pre class ="code">
+; When any window is closed, echo the window name
 ; to a custom @windowWatcher window. If that window doesn't exist,
 ; create it first.
-
+&nbsp;
 on *:CLOSE:*: {
   $iif(!$window(@windowWatcher),window @windowWatcher)
   echo @windowWatcher Window Closed: $target $+ .
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)
