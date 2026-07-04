@@ -33,22 +33,40 @@ Run ```"C:\Program Files (x86)\HTML Help Workshop\hhc.exe" C:\path\to\mhelp.hhp`
 
 ## Compiling (mdBook)
 
-mdBook - https://rust-lang.github.io/mdBook/ Is used to compile a browser version.
+mdBook - https://rust-lang.github.io/mdBook/ Is used to compile a browser version. This gives a much better user experience.
 
-This is a WORK IN PROGRESS
+This is a WORK IN PROGRESS!
+
+The html files are designed specifically for the CHM help file. They require extensive modification.
+
+The ```compile.sh``` file copies the existing html files into a different folder and converts various parts of the html code into markdown.
+
+You will need to re-run the ```compile.sh``` for each time you change a html file.
+
+```
+cd mdbook
+chmod 777 compile.sh
+./compile.sh
+mdbook build
+```
+
 
 ## Editing
 
 The HTML Help Workshop program is very primitive and buggy. You would be better off using a different text editor.
 
-The HTML 'pre' code for scripting examples must be on different lines. Having html code and mIRC scripting code will cause formatting issues for mdBook.
+The HTML 'pre' code for scripting examples must be on different lines.
+
+Having html code and mIRC scripting code on the same line will cause serious formatting issues for mdBook.
 
 ```
+<!-- The line below must be the only thing on that line! -->
 <pre class = "code">
 alias example {
   echo -a example
 }
 </pre>
+<!-- The line above must be the only thing on that line! -->
 ```
 
 
