@@ -28,21 +28,21 @@ None
 
 <H4>Examples</H4>
 
-<pre class ="code">
+<pre class = "code">
 echo -a A $+ B $+ C
 </pre>
 
 Will result in:
   ABC
 
-<pre class ="code">
+<pre class = "code">
 var %x = A, %y = B
 echo -a %x $+ %y $+ $day
 </pre>
 
 Will print (depending on the day of the week) "ABMonday" -- Same example with $+():
 
-<pre class ="code">
+<pre class = "code">
 var %x = A, %y = B
 echo -a $+(%x, %y, $day)
 </pre>

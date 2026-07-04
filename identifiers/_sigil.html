@@ -11,7 +11,7 @@ $$ is not executing a /halt or is not entirely equivalent to /halt, it's effecti
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $$identifier
 </pre>
 
@@ -24,13 +24,13 @@ None
 
 <H4>Notes & Examples</H4>
 Halts the echo unless the active window is a channel:
-<pre class ="code">
+<pre class = "code">
 //echo -a $$chan test
 </pre>
 
 Starting from two $ onward, for example $$$, it returns the literal string "$$" or "$$$" in this case
 
-<pre class ="code">
+<pre class = "code">
 //tokenize 32 parm1 parm2 parm3 | echo 3 -a $ $$ | echo 4 -a $$3 | echo 5 -a $$3a,b
 </pre>
 

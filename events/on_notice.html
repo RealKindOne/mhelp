@@ -40,7 +40,7 @@ on *:NOTICE:thesecretcommand:?:{
 
 
 Op or deop a user with an <a href="../other/access_levels.html">access level</a> of 5 on the channel they specify:
-<pre class ="code">
+<pre class = "code">
 on 5:NOTICE:*op #*:?:{
   if ($istok(op dop,$1,32)) {
     if ($me !ison $2) { .notice $nick I am not on that channel. }
@@ -52,7 +52,7 @@ on 5:NOTICE:*op #*:?:{
 
 
 Automatically identify to most NickServ services if your current nickname is <b>TheUsualNick</b>:
-<pre class ="code">
+<pre class = "code">
 on *:NOTICE:This nickname is registered*:TheUsualNick:{
   if ($nick == NickServ) { ns identify M`/p@SsW0r|) }
 }

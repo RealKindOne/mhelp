@@ -19,7 +19,7 @@ More information <a href="../other/injection.html">here</a>.
 <br>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $calc(operations)
 </pre>
 The <b>$calc</b> identifier adheres to mathematical standards set forth by the PE(MD)(AS) order of operations, but also includes Floor Divide and Modulo. Therefore, a combination of brackets and parentheses can be used in order to manipulate the order of operations or to make a mix of operators easier to view.
@@ -57,53 +57,63 @@ Finally the + and - groups groups are added/subtracted together from left-to-rig
 
 <H4>Example</H4>
 Echo a simple addition calculation to the active window:
-<pre class ="code">//echo -a $calc(3 + 5)</pre>
+<pre class = "code">
+//echo -a $calc(3 + 5)
+</pre>
 
 Echo a manipulated order of operations calculation to the active window:
-<pre class ="code">//echo -a $calc(3 * 4 * (3 + 5)))</pre>
+<pre class = "code">
+//echo -a $calc(3 * 4 * (3 + 5)))
+</pre>
 Note that the extra closing parenthesis doesn't cause an error, but best practice is to avoid this, because future versions may not be as forgiving.
 
 Echo the remainder of the calculation, by invoking the modulus operator, to the active window:
-<pre class ="code">//echo -a $calc(10 % 3)</pre>
+<pre class = "code">
+//echo -a $calc(10 % 3)
+</pre>
 
 Create a simple alias to take in two parameters, then raise the first to the power of the: second, and return the value
-<pre class ="code">alias power {
+<pre class = "code">
+alias power {
 
   ; Make sure both inputs are numbers
   if (($1 isnum) && ($2 isnum)) {
     return $calc($1 ^ $2)
   }
-}</pre>
+}
+</pre>
 
 The above <b>$power</b> alias can now be used like so:
-<pre class ="code">//echo -a $power(5,2)</pre>
+<pre class = "code">
+//echo -a $power(5,2)
+</pre>
 
 The result of the above command would be:
 25
 
 
 Modulus of N1/N2 is often seen as a number 0 through (N2 less 1), but that applies only to integers. It's the remainder (not the fraction) when dividing the numerator by the denominator.
-<pre class ="code">
+<pre class = "code">
 //var %x -10 , %y 3.14 | echo -a $calc(%x - %y * $int($calc( %x / %y))) vs $calc(%x % %y)
 * Shows -0.58 vs -0.58
 </pre>
 Order of Operation PEMDAS means Multiplication and Division and Floor Divide and Modulo are applied at the same time, as do Addition and subtraction together. It does not mean doing all multiplications before any divisions, nor doing all additions before doing any subtractions.
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( 2 / 4 * 5 )
 </pre>
 yields 2.5 because it goes left-to-right performing multiplies and divides. It divides 2/4 to obtain 0.5 before multiplying by 5, not multipling 4*5 before dividing that into 2.
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( 2 - 3 + 5 )
 </pre>
 yields 4 because it goes left-to-right performing adds and subtracts. It subtracts 3 from 2 = -1, then adds 5.
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( 0-2^8*3-1 ) vs $calc( -2^8*3-1 ) calc like $calc( (-2)^8*3-1 )
 </pre>
 produce 2 different answers because the presence of the 0 changes the meaning of the hyphen. In the 1st example it's -2 to the 8th power which is +256. That's then multiplied by 3, before having 1 subtracted from it. In the 2nd example, it starts by taking 2 to the 8th power, then multiplying by 3 to obtain the 2nd term 768. Then it starts with zero, subtracts the 768, then subtracts another 1.
 
 Any formula where any term reaches the undefined value returns zero for the entire result, and does not simply treating the individual operation's result as zero then continue operating.
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( 2 + ((-1) ^ .5) + 2 ) or $calc(2 + (1/0) + 2 ) are both zero
 </pre>
 
@@ -112,32 +122,32 @@ Integers outside the range -2^53 through +2^53 lose precision. Some of those 53 
 <br>
 <br>
 Both return: 9007199254740992
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc(9007199254740992 + 1) and $calc(9007199254740993)
 </pre>
 Return: 4294967296.000032
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc(4294967296.000031)
 </pre>
 Return: 9007199254740992 vs 900719925474099.25
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc(9007199254740993) vs $calc(900719925474099.3)
 </pre>
 
 $calc has reduced accuracy for larger integers, and even lower accuracy for fractions of smaller numbers. This inaccuracy is often reflected in other identifiers which use same stored values used by $calc.
 <br>
 Even numbers much smaller than 2^53 can return inaccurate results in their fraction, if the number to the left of the decimal is at least as large as 2^33:
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( 8589934592 + .999999) => 8589934592.999998
 </pre>
 if() can sometimes return inaccurate results for values larger than 2^53. For example, this executes as if $true:
-<pre class ="code">
+<pre class = "code">
 //if (18014398509481984 == 18014398509481985) echo match
 </pre>
 The 'doubles' math also applies to the if() statement, where it can accurately discern whether 2^53 is greater than 2^53-1, but considers 2^53 to be the same as 1+2^53.<br/>
 
 $calc rounds output to 6 decimals, with trailing zeroes dropped.
-<pre class ="code">
+<pre class = "code">
 //echo -a $pi vs $calc($pi)
 </pre>
 It can operate on terms who have more than 6 places, but the value with more than 6 decimal places is then rounded to 6:
@@ -157,7 +167,7 @@ In the first example, it causes everything after the $+ to be ignored, as if $+ 
 //echo -a $calc( 5 ^ $+ + .1)
 
 When the $+ is inside additional parenthesis, the entire result is zero:
-<pre class ="code">
+<pre class = "code">
 //echo -a s $calc( 123 + ( 1 $+ 23 ) )
 </pre>
 
@@ -165,7 +175,7 @@ You should use $+() instead of $+ inside the $calc string.
 <br>
 <br>
 Results: 7 vs 7000 vs 7000
-<pre class ="code">
+<pre class = "code">
 //var %a 7 | echo -a $calc( %a $+ 000 ) vs $calc(%a * 1000) vs $calc( $+(7,000) )
 </pre>
 

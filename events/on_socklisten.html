@@ -34,7 +34,7 @@ You should be checking for $sockerr before accepting the connection to see if an
 
 <H4>Example</H4>
 
-<pre class ="code">
+<pre class = "code">
 on *:socklisten:name:{
   if (!$sockerr) sockaccept myprefix $+ $ticks
   else {

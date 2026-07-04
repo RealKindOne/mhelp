@@ -36,7 +36,7 @@ So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consu
 <h4>Outside evaluation bracket</h4>
 Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b>, they both behave as <b>$+</b>, at least there's no known case where <b>$+</b> and <b>$++</b> behave differently, but the legacy syntax stops at both as mentioned above:<br>
 
-<pre class ="code">
+<pre class = "code">
 //write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt <br>
 </pre>
 

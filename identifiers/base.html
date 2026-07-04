@@ -9,7 +9,7 @@ The <b>$base</b> identifier converts numbers between different number bases, or 
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $base(&lt;N&gt;,&lt;InBase&gt;,&lt;OutBase&gt;[,Zero-pad][,Precision])
 </pre>
 
@@ -36,15 +36,15 @@ None
 <H4>Example</H4>
 Without changing number base, can use $base to left-zero-pad and/or truncate (not round) fractions to fewer digits:
 returns: 000123.45
-<pre class ="code">
+<pre class = "code">
 //echo -a $base(123.456,10,10,6,2)
 </pre>
 Converts the color rgb number index 8 from decimal to hexadecimal, zero padded to 6 digits.<br>
 Default Output is 00FFFF not FFFF00 because mIRC stores colors as GBR not RGB.
-<pre class ="code">
+<pre class = "code">
 //var %n $color(8) | echo -a %n $base(%n,10,16,6)
 </pre>
-<pre class ="code">
+<pre class = "code">
 //var %n $pi  | echo -a %n $base(%n,10,16,0,12) $base($calc(%n * 16^6),10,16,6,12)
 ; returns: 3.14159265358979323846 3.243F7 3243F6A.8885A
 ; precision of output is input rounded to 6 fraction digits
@@ -59,31 +59,31 @@ Default Output is 00FFFF not FFFF00 because mIRC stores colors as GBR not RGB.
 </pre>
 
 You should not attempt to input numbers greater than decimal 2^53 prior to v7.72. For N=1+2^n, this shows that even though $base failed to convert back to the original number starting with N=55, $calc failed to create an odd-numbered number at N=53. But starting v7.72 the $base output is accurate as long as the input is too:
-<pre class ="code">
+<pre class = "code">
 //if ($version >= 7.72) bigfloat on | var %i 1 | while (%i isnum 1-64) { var %n $calc(1+2^%i ) | echo -a %i %n $base(%n,10,16) $base($base(%n,10,16),16,10) | inc %i }
 </pre>
 $base allows invalid letters to be used in the input, assigning them values as they have in Base 36.
-<pre class ="code">
+<pre class = "code">
 //echo -a $base(mIRC,10,10) is same as $calc(22*1000 + 18*100 + 27*10+ 12*1)
 </pre>
 The exception to the above is skipping the 0x prefix for hexadecimal notation. Converting from base-16 to base10 results in 255 for both 0xFF and FF. The 0x or 0X prefix is ignored only when tranlating to base16. (Prior to v7.53 it was ignored in every base except 36):
-<pre class ="code">
+<pre class = "code">
 //var %i 2 , %a , %value F | while (%i isnum 2-36) { var %a %a $+(base,%i,=,$base(0x $+ %value,%i,10),vs,$base(%value,%i,10)) | inc %i } | echo -a %a
 </pre>
 Prior to v7.53, if using base 34 or 35 where X is a valid character, you must prepend the from-value with 00 to prevent 0x from being stripped:<br>
 Returns: 15 vs 1170
-<pre class ="code">
+<pre class = "code">
 //if ($version &lt; 7.53) { var %value 0xF | echo -a $base(%value,35,10) vs $base(00 $+ %value,35,10) }
 </pre>
 
 
 To store the 128 hexadecimal digits of the sha512 hash digest in fewer digits, you can't use $base to accurately translate more than 13 digits at a time, until v7.72.
-<pre class ="code">
+<pre class = "code">
 //var %digits 13 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
 //var %digits  9 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
 </pre>
 These show that base36 requires 10.05 digits to store 13 hex digits, or 6.96 digits to store 9 hex digits. Rounding up, this means both methods shrink the strings by the same 4 digits. (13->11 vs 9->7) It's more efficient to translate the string 9 digits at a time into 14 groups of 9, then translate the remaining 2 digits separately, for a total length of 14*7+2=100:
-<pre class ="code">
+<pre class = "code">
 alias short_hash {
   var %long $sha512($1) , %short , %hash %long | while ($len(%hash) >= 9) {
     var %temp $right(%hash,9) , %hash $left(%hash,-9) , %short $base(%temp,16,36,7) $+ %short
@@ -103,12 +103,12 @@ shortened 128 d8022f2060ad6efd297ab73dcc5355c9b214054b0d1776a136a669d26a7d3b14f7
 <br>
 <br>
 But beginning v7.72 the above is not needed as the accurate results are obtained from both:
-<pre class ="code">
+<pre class = "code">
 //echo -a $base($base($sha1(abc),16,10),10,16) is A9993E364706816ABA3E25717850C26C9CD0D89D
 //echo -a $base($sha1(abc),16,36) is JT72FO5T4YOBF0QUGWUCZBWJ07MAX7H
 </pre>
 starting v7.72 the accuracy for large integers is always enabled by default, but precision for fractions is only enabled if in bigfloat mode:
-<pre class ="code">
+<pre class = "code">
 //var -s %var.bx 10000000000000000000000000001 | echo -a $base(%var.bx,10,10)
 result: 10000000000000000000000000001
 //var -s %var.bf 0.10000000000000000000000000001 | echo -a $base(%var.bf,10,10)

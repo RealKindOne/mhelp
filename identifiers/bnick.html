@@ -19,24 +19,26 @@ None
 
 <H4>Example</H4>
 Message any channel when a user has been banned:
-<pre class ="code">
+<pre class = "code">
 on *:BAN:#: {
   ; We use this check to make sure the $bnick identifier
   ; has been filled, that way there are no unforeseen issues.
   if ($bnick) {
     msg # Looks like $bnick has been banned.
   }
-}</pre>
+}
+</pre>
 
 Message any channel when a user has been unbanned
-<pre class ="code">
+<pre class = "code">
 on *:UNBAN:#: {
   ; We use this check to make sure the $bnick identifier
   ; has been filled, that way there are no unforeseen issues.
   if ($bnick) {
     msg # Awesome! $bnick is now unbanned :)
   }
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)

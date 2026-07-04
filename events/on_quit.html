@@ -31,7 +31,7 @@ on ^*:QUIT:{
 </pre>
 
 Because on QUIT is not associated with # or $chan, to show a quit message in all channels you share with that nick, you can use $comchan. You can simulate mIRC's default Quit message in channels with
-<pre class ="code">
+<pre class = "code">
 on ^*:QUIT:{
   var %i $comchan($nick,0)
   while (%i) {

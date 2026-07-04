@@ -9,7 +9,7 @@ The <b>$~</b> isn't an identifier but <b>~</b> is an identifier prefix, it allow
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $~identifiername()
 </pre>
 
@@ -29,7 +29,7 @@ As a result, the identifier warning message is not triggered and the script not 
 This can effectively be used to check for existence of a built-in identifier, be it if you want to do something once a future version has the identifier, or if you want to support older mirc version not having a built-in identifier.<br>
 This has recently proven to be useful to write mIRC/Adiirc compatible script.
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $~rands(1,6) vs $rands(1,6)
 if ($~rands(1,1) == 1) { echo -sg this version support $!rands }
 </pre>
@@ -38,7 +38,7 @@ However, recently it was figured out that $~ have a purpose that makes more sens
 Because such identifier have a global scope, they have a value inside an alias if that alias is called from the event's scope.
 So consider for example a script that's going to be shared on different mIRC configuration/install/machine:
 
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:*:#:process_message $1-
 on *:input:#:processs_message $1-
 alias process_message {
@@ -50,7 +50,7 @@ which is typical, if you load this script into a mIRC which has a custom alias n
 
 Another thing to consider is the spacing, if the $~identifier call is not a built-in and you have some spacing, consider:
 
-<pre class ="code">
+<pre class = "code">
 echo -ag $~nonbuilt-in( $me )
 ;displays "yournickname )"
 </pre>
@@ -58,7 +58,7 @@ in this case only the part up to the space is evaluated as $null, the rest of th
 
 This means that to correctly check if an identifier is supported, you must not use space:
 
-<pre class ="code">
+<pre class = "code">
 if ($~rands(1,1) == 1) { echo -sg this version support $!rands } // correct
 if ($~rands(1, 1) == 1) { echo -sg this version support $!rands } // incorrect
 </pre>

@@ -40,7 +40,7 @@ You should be checking for error with $sockerr before reading data, here is a li
 
 <H4>Example</H4>
 
-<pre class ="code">
+<pre class = "code">
 on *:udpread:name:{
   if ($sockerr) { echo -s An error occurred while trying to read data: $sock($sockname).wsmsg | return }
   else {

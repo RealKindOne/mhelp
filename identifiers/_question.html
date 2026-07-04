@@ -11,7 +11,7 @@ The <b>$?</b> identifier can be used to ask for user-input
 <b>Note:</b> This identifier use the old format (legacy syntax) to pass parameter and is deprecated, it has been replaced with <a href="input.html">$input</a>.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $?[*!N#]="text"
 </pre>
 Displays an input box (dialog) to get user-input. The text parameter is optional, if not specified, it default to "Enter reply:"
@@ -40,13 +40,13 @@ $? can be used without the '=' sign as long as you either don't pass a text para
 
 In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $?"message with multiple words" $?!"test"
 </pre>
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; Echoes whatever the user types into the input field to the active window.
 alias testme {
   echo -a $?="Type something for me"

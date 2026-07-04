@@ -9,7 +9,7 @@
 The <b>$beta</b> identifier returns the beta portion of the version number if you're running a beta. Otherwise returns $null string.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $beta
 </pre>
 
@@ -21,16 +21,16 @@ None
 
 <H4>Example</H4>
 
-<pre class ="code">
+<pre class = "code">
 //echo -a version is $version $+ $iif($beta,. $+ $beta)
 </pre>
 
 When someone on forum is having trouble with their mIRC acting incorrectly, it's often part of the info string they're requested to paste in reply:
-<pre class ="code">
+<pre class = "code">
 //echo -a $os $version $beta $md5($mircexe,2) $file($mircexe).sig $alias(0) $script(0) $dll(0) $com(0)
 </pre>
 Prevent a script from running on a beta version:
-<pre class ="code">
+<pre class = "code">
 on *:start:{
   if ($beta) {
     echo -as WARNING: Beta version of mIRC detected. Not running script.

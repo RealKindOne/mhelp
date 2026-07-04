@@ -9,7 +9,7 @@
 The <b>$cb()</b> identifier allows mIRC to return the contents of the Windows Clipboard (text).
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $cb(N,[u],[%var|&binvar])[.property]
 </pre>
 
@@ -24,10 +24,13 @@ $cb(N,[u],[%var|&binvar])[.property]
 <H4>Example</H4>
 
 Echo the total number of clipboard entries to the active window:
-<pre class ="code">//echo -a $cb(0)</pre>
+<pre class = "code">
+//echo -a $cb(0)
+</pre>
 
 Create a custom alias that will open a custom window "@myWindow", and then echo all clipboard line contents to it:
-<pre class ="code">; Use: /cblist
+<pre class = "code">
+; Use: /cblist
 alias cblist {
 
   ; Open the window, and clear it just in case it was already opened
@@ -44,7 +47,8 @@ alias cblist {
     inc %i
   }
   echo @myWindow Clipboard contents finished!
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)

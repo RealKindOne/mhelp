@@ -30,14 +30,14 @@ The on text event support the common IRC related local identifiers.
 
 <H4>Example</H4>
 
-<pre class ="code">
+<pre class = "code">
 ; Let %chan equal #mSL,#help,#support
 on *:TEXT:!hi:%chan:{
   notice $nick Hello!
 }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; use local identifier $channels to work
 alias -l channels { return #mSL,#help,#support }
 on *:TEXT:!hi:$($channels):{

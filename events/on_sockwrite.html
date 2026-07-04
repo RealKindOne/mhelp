@@ -32,13 +32,13 @@ It is possible that the data hasn't been sent successfully, especially with UDP,
 What if you are making a server and you want to close the socket of a client, but you want to warn that client that you are going to close the socket?
 
 You could easily be tempted to use the easy:
-<pre class ="code">
+<pre class = "code">
 /sockwrite -n socket QUIT
 /sockclose socket
 </pre>
 But this isn't going to work as expected, it might work, it might not work, here is a proper method:
 
-<pre class ="code">
+<pre class = "code">
 sockwrite -n socket QUIT
 set %closesocket 1
 ...
@@ -62,7 +62,7 @@ We are naturally not using a single line otherwise our limit would be of the lin
 <br>
 The limit of the sending buffer being 16384, that's our maximum. A nice method is to write the content to be sent to a file and then to use <a href="../other/file_handling.html">file handling</a>. After <a href="../commands/fopen.html">/fopen</a>'ing the file, use <a href="../identifiers/fread.html">$fread</a>(&lt;name&gt;,&lt;N&gt;,&lt;&binvar&gt;) which will fill &lt;&binvar&gt; with N bytes from the current pointer in the file, you can set N here to 16384 to get the fastest sending.
 
-<pre class ="code">
+<pre class = "code">
 ;When you are about to send
 var %f content.txt
 .fopen handle $qt(%f)

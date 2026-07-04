@@ -10,7 +10,7 @@ The <b>$atan2</b> identifier returns the arctangent of the ration of two numbers
 $atan2 support scientific notation in O and A parameter, you can use the letter 'e' to express *10^,  $atan2(1e5,5).deg = $atan2($calc(1*10^5),5).deg
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $atan2(&lt;O&gt;,&lt;A&gt;)[.deg]
 </pre>
 
@@ -24,10 +24,11 @@ $atan2(&lt;O&gt;,&lt;A&gt;)[.deg]
 <H4>Example</H4>
 
 Returns: In right triangle where opposite side is length 3 and adjacent side is length 4 - angle is 36.869898 degrees
-<pre class ="code">//var %opposite 3, %adjacent 4 | echo -a In right triangle where opposite side is length %opposite and adjacent side is length %adjacent - angle is $atan2( %opposite , %adjacent ).deg degrees
+<pre class = "code">
+//var %opposite 3, %adjacent 4 | echo -a In right triangle where opposite side is length %opposite and adjacent side is length %adjacent - angle is $atan2( %opposite , %adjacent ).deg degrees
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 //var %opposite 4 | var %adjacent 3 | echo -a except for rounding $atan2(%opposite,%adjacent).deg is the same as $atan( $calc( %opposite / %adjacent ) ).deg
 ; ATAN2 accepts the side lengths while ATAN accepts the tangent ratio of those sides
 </pre>

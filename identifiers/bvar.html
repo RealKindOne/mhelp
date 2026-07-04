@@ -11,7 +11,7 @@ The <b>$bvar</b> identifier returns the contents of a binary variable. Default i
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $bvar(&binvar, [ N [ ,M] ] )[.property]
 </pre>
 
@@ -31,10 +31,11 @@ $bvar(&binvar, [ N [ ,M] ] )[.property]
 <br><b>Note:</b> word/nword/long/nlong return non-byte values ONLY when M is not used and N is a positive integer without a hyphen, and do not return a series of numbers from a lengthy variable. They return the value from the 2 or 4 bytes beginning at the Nth byte, and returns $null if there are not the needed 2 or 4 bytes to completely fill the word/long.
 
 <H4>Example</H4>
-<pre class ="code">//bset &abc 1 12 34 56 78 | echo -a $iif($bvar(&abc),$v1 exists) $iif($bvar(&xyz),$v1 exists) / $bvar(&abc) / $bvar(&xyz)
+<pre class = "code">
+//bset &abc 1 12 34 56 78 | echo -a $iif($bvar(&abc),$v1 exists) $iif($bvar(&xyz),$v1 exists) / $bvar(&abc) / $bvar(&xyz)
   &abc exists / &abc /</pre>
 
-<pre class ="code">
+<pre class = "code">
 //bset -ta &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,1-).text
   99 104 108 111 233 32 47 32 99 104 108 111 195 168 // chlo&#232; / chlo&#232;
 //bset -t  &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,1-).text
@@ -45,7 +46,7 @@ $bvar(&binvar, [ N [ ,M] ] )[.property]
   99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // lo&#232;
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 Note: showing base-16 values to better visualize the little-endian/big-endian byte changes
 //bset &abc 1 231 32 33 34 35 36 37 38 | var %word = $bvar(&abc,1).word , %nword = $bvar(&abc,1).nword , %long = $bvar(&abc,1).long | var %nlong $bvar(&abc,1).nlong | echo -a in hex: word $base(%word,10,16) nword $base(%nword,10,16) long $base(%long,10,16) nlong $base(%nlong,10,16)
   in hex: word 20E7 nword E720 long 222120E7 nlong E7202122

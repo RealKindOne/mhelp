@@ -8,7 +8,7 @@
 The <b>$argon2</b> identifier calculates the Argon2 key derivation function for password hashing. Argon2 is a modern, memory-hard KDF designed to resist GPU and ASIC attacks.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $argon2(text|&binary, salt|&binary, hash, length, iterations, parallelism, memcost, [opts])
 </pre>
 
@@ -27,7 +27,9 @@ None
 
 <H4>Example</H4>
 Echo the Argon2id hash of a password with salt:
-<pre class ="code">//var %x = $argon2(myPassword,mySaltHere,2id,32,3,4,512) | echo -ag %x </pre>
+<pre class = "code">
+//var %x = $argon2(myPassword,mySaltHere,2id,32,3,4,512) | echo -ag %x
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.83 (12 Nov 2025)

@@ -31,7 +31,7 @@ on *:START:{
 
 
 Create a <a href="../other/hash_tables.html">Hash Table</a> named <b>ircpoints</b> and load data from a file named <b>ircpoints.hsh</b> into the table if the file exists:
-<pre class ="code">
+<pre class = "code">
 on *:START:{
   if (!$hget(ircpoints)) { hmake ircpoints }
   if ($file(ircpoints.hsh).longfn) { hload ircpoints $v1 }

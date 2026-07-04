@@ -30,13 +30,13 @@ on &lt;level&gt;:PARSELINE:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;
 on *:PARSELINE:out:PRIVMSG *Hello:echo -a $parseline
 </pre>
 will <b>not</b> be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
-<pre class ="code">
+<pre class = "code">
 on *:PARSELINE:out:PRIVMSG *Hello?:echo -a $parseline
 on *:PARSELINE:out:PRIVMSG *Hello*:echo -a $parseline
 </pre>
 
 <b>Note 2:</b> The ":" character is used quite frequently as a separator in IRC raw messages, but it is also used as a separator in mSL's on statements. You can either use a placeholder for a single character (?) or multiple characters (*) or you can use a calculated match text or a regular expression for the ":" e.g.
-<pre class ="code">
+<pre class = "code">
 on *:PARSELINE:out:PRIVMSG *Hello?:echo -a $parseline
 on *:PARSELINE:out:PRIVMSG & ?Hello?:echo -a $parseline
 on *:PARSELINE:out:$(PRIVMSG & :Hello?):echo -a $parseline
@@ -49,7 +49,7 @@ on $*:PARSELINE:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 
 Inside this event, you can use:
 <br><b>Note:</b>For <b>out</b> lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
-<pre class ="code">
+<pre class = "code">
 var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)
 </pre>

@@ -8,7 +8,7 @@
 The <b>$address()</b> identifier returns the address of the specified nickname in the given type.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $address(&lt;nick&gt;,&lt;type&gt;)
 </pre>
 <b>Note:</b> $address() returns $null string if the <a href="ial.html">$ial</a> doesn't contain the address for this nick.
@@ -44,7 +44,7 @@ Masks are case-insensitive and assigned by the internet provider, but IRC server
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a $address(nick,2)
 </pre>
 
@@ -56,7 +56,7 @@ The identd-enabled and identd-disabled Type-3 address masks of 10-character User
 <p>
 This alias returns a slight alteration of $address(nick,3) which matches both identd/non-identd nicks, and limits false matches of other UserID's. It can be called like: //echo -a $address3alt(nick)
 
-<pre class ="code">
+<pre class = "code">
 address3alt {
   var %user $gettok($gettok($address($1,5),1,64),2,33)
   if (~* iswm %user) { var %user * $+ $mid(%user,2) $+ $iif($len(%user) isnum 10-,*) }

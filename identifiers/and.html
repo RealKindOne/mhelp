@@ -10,7 +10,7 @@ The <b>$and</b> identifier returns the AND operation of two numbers. The numbers
 The AND operation returns a 1 when both matching binary bits are 1, otherwise returns 0
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $and(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 
@@ -23,14 +23,16 @@ See <a href="xor.html">$xor</a> for description of handling out-of-range and neg
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $and(14,27)
+<pre class = "code">
+//echo -a $and(14,27)
 ; returns 10
 ; 14 is 00001110 when converted to binary
 ; 27 is 00011011 when converted to binary
 ; AND   00001010 which is 10 when converted back to decimal
 </pre>
 
-<pre class ="code">//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($and(%n1,%n2),10,2,8) -> $and(%n1,%n2)
+<pre class = "code">
+//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($and(%n1,%n2),10,2,8) -> $and(%n1,%n2)
 returns:
 00001110
 00011011

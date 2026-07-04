@@ -8,7 +8,7 @@
 The <b>$appactive</b> identifier returns <a href="true.html">$true</a> or <a href="false.html">$false</a> depending on whether mIRC is the active window or not.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $appactive
 </pre>
 <h4>Parameters</h4>
@@ -17,14 +17,16 @@ None
 <H4>Example</H4>
 Let's say you have a listening event, just to make mIRC beep if someone uses your name in a channel. We call these notifications, as well as highlights. Well, if mIRC is the currently active window, these sounds can be either annoying or meaningless. Therefore, we would set up the listener to check the <b>$appactive</b> identifier to make sure mIRC is not active before sending out the audible notification.
 
-<pre class ="code">on *:TEXT:$($+(*,$me,*)):#: {
+<pre class = "code">
+on *:TEXT:$($+(*,$me,*)):#: {
   ; Make sure mIRC is not the active application
   if (!$appactive) {
 
     ; Execute 5 beeps at 200 millisecond intervals
     beep 5 200
   }
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

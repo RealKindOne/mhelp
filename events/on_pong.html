@@ -29,7 +29,7 @@ on *:PONG: {
 }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 You can Trigger the on PONG event with:
 //raw ping $ctime X
 
@@ -37,7 +37,7 @@ If X is $null or $server, the displayed reply will be:
 * PONG from YourServerName: sent_ctime_value
 </pre>
 When the on PONG event sees the reply, it can use $calc($ctime - $2) to find the number of seconds between PINGing the server and receiving the reply. If X is a valid Server Name different than the $server you are connected to, the reply substitutes your nick in place of the ctime value. A replacement of mIRC's display is:
-<pre class ="code">
+<pre class = "code">
 on ^*:PONG:{ echo -ctgs info * PONG from $1 $+ : $2 | haltdef }
 </pre>
 

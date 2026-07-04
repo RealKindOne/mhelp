@@ -8,7 +8,7 @@
 The<b>$chan()</b> can be used to get information regarding a specific channel that is open.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $chan(@wid/#/N)[.property]
 </pre>
 
@@ -38,7 +38,8 @@ $chan(@wid/#/N)[.property]
 <H4>Example</H4>
 
 Create an alias that opens a custom window which loads some basic information about the active channel:
-<pre class ="code">alias getDetails {
+<pre class = "code">
+alias getDetails {
   if ($active ischan) {
   var %c = $active
     window @getDetails 350 350 650 200
@@ -51,10 +52,11 @@ Create an alias that opens a custom window which loads some basic information ab
     echo @getDetails $crlf $crlf
     echo @getDetails Key: $iif($chan(%c).key,$v1,No key set)
   }
-}</pre>
+}
+</pre>
 
 This alias can now be executed using the following command in a channel command-line:
-<pre class ="code">
+<pre class = "code">
 /getDetails
 </pre>
 <br>

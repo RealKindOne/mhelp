@@ -8,7 +8,7 @@
 The <b>$caller</b> identifier returns a value which indicates the context in which your routine has been called.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $caller
 </pre>
 
@@ -44,31 +44,43 @@ None
 Activex: edit the echo in the alias cbthread in <a href="comcall.html">$comcall</a> page to include $caller
 
 Command & Identifier: execute /A or //noop $A
-<pre class ="code">alias A B
-alias B echo -ag $caller</pre>
+<pre class = "code">
+alias A B
+alias B echo -ag $caller
+</pre>
 
 Editbox:
 execute: /A
 or
 execute: //echo -a $caller
-<pre class ="code">alias A echo -ag $caller</pre>
+<pre class = "code">
+alias A echo -ag $caller
+</pre>
 
 Event: execute /dns test
-<pre class ="code">on *:dns:echo -a $caller</pre>
+<pre class = "code">
+on *:dns:echo -a $caller
+</pre>
 
 Funckey: hit shift + f11 on your keyboad:
-<pre class ="code">alias s11 echo -a caller</pre>
+<pre class = "code">
+alias s11 echo -a caller
+</pre>
 
-Menu: right click in a channel
-<pre class ="code">menu channel {
+Menu: right click in a channel:
+<pre class = "code">
+menu channel {
   $caller displays in menu label text as other:echo -a $caller displays here as menu
-}</pre>
+}
+</pre>
 
 play: execute in a connected status window //play -as A $mircini | .timer 1 2 play off
-<pre class ="code">alias A echo -sg $caller</pre>
+<pre class = "code">
+alias A echo -sg $caller
+</pre>
 
 Timer: type in editbox:
-<pre class ="code">
+<pre class = "code">
 /timer 1 1 echo -a $caller
 or
 //timer 1 1 echo -a $ $+ caller
