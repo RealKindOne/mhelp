@@ -8,7 +8,7 @@
 The <b>/remove</b> command can be used to delete a file permanently or sends it to the recycle bin. The filename cannot be a wildcard pattern. This command prints "* Removed '&lt;filename&gt;'", to avoid that message, use the dot prefix (i.e. use /.remove).
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /remove -b &lt;filename&gt;
 </pre>
 
@@ -22,15 +22,15 @@ The <b>/remove</b> command can be used to delete a file permanently or sends it 
 
 <H4>Example</H4>
 Create and write to a file:
-<pre class ="code">
+<pre class = "code">
 /write foo.txt Hello There
 </pre>
 Remove the file:
-<pre class ="code">
+<pre class = "code">
 /remove foo.txt
 </pre>
 Delete a filename containing space from downloads subfolder:
-<pre class ="code">
+<pre class = "code">
 //.remove $qt(downloads\test filename.txt)
 </pre>
 

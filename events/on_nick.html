@@ -32,7 +32,7 @@ on ^*:NICK: {
 </pre>
 
 The results of the above example resemble the following:
-<pre class ="code">
+<pre class = "code">
 * Mr_SOCKS |==&gt; noLaundry
 </pre>
 
@@ -47,12 +47,12 @@ on ME:^*:NICK: {
 </pre>
 
 The example above should have an output resembling the following:
-<pre class ="code">
+<pre class = "code">
 You are now ==> whoMe
 </pre>
 
 Because on NICK is not associated with # or $chan, to show a nick change message in all channels you share with that nick, you can use $comchan. You can simulate mIRC's default Nick Change message in channels with:
-<pre class ="code">
+<pre class = "code">
 on ^*:NICK:{
   var %i $comchan($newnick,0)
   while (%i) {

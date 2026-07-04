@@ -8,7 +8,7 @@
 The <b>/updatenl</b> command can be used with the on quit/kick/part events to update the IAL and the channel nicknames list right away, otherwise, these are updated when the scripts finish.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /updatenl
 </pre>
 
@@ -22,7 +22,7 @@ None
 
 Let's suppose only A, B and C are in the channel #example. Suddenly, B parts.
 <br>If we have this event, only triggering when $nick == $me (using the <a href="../other/access_levels.html#exclamation">! prefix</a>.)
-<pre class ="code">
+<pre class = "code">
 on !*:part:#example:{
   echo -a $nick($chan,0)
 }
@@ -30,7 +30,7 @@ on !*:part:#example:{
 Can you guess the value of $nick($chan,0)? It will be 3, because the update are made after.
 <br>
 Now we change the event to:
-<pre class ="code">
+<pre class = "code">
 on !*:part:#example:{
   echo -a $nick($chan,0)
   updatenl

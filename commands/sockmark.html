@@ -14,7 +14,7 @@ The <b>/sockmark</b> command assigns temporary data to a socket to be referenced
 The [temp data] is limited to (4,141 - [length of &lt;sock_name&gt;]) characters. I.e. with a socket named "x", you can store up to 4140 characters.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /sockmark &lt;name&gt; [temp data]
 /sockmark &lt;wild_name&gt; [temp data]
 </pre>
@@ -30,7 +30,7 @@ None
 <H4>Example</H4>
 The example below is a demonstration of how you would use it. It does not actually function.
 
-<pre class ="code">
+<pre class = "code">
 ; Non-functioning example, shows practical usage only
 on $*:TEXT:/^!foo (\S+)$/Si:#:{
   ; if ( .. validate input .. ) {

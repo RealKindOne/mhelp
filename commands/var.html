@@ -15,13 +15,13 @@ The var command can perform one math operation via one of the arithmetic operato
 
 <H4>Set Evaluation Routine</H4>
 Internally, the var command simply breaks down the line (by commas) and passes the arguments to /set. The set command has its own evaluation routine which lets you dynamically concatenate additional values onto the variable name before the assignment takes place.
-<pre class ="code">
+<pre class = "code">
 //var -s % $+ $ctime ABC
 </pre>
 Will create a variable like %1209425041 with the value of 'ABC'; Similarly this can be used with $nick and $chan in on events.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /var [-sgnip] &lt;%var&gt; [[= ]value]
 /var [-sg] &lt;%var&gt; &lt;number&gt; &lt;+ | - | * | / | %&gt; &lt;number&gt;
 /var [-sg] &lt;%var&gt; [= ]&lt;number&gt; &lt;+ | - | * | / | % | &&gt; &lt;number&gt;
@@ -56,7 +56,7 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <b>Note:</b> if your [value] ends with a literal space separated comma, mIRC will see it as a new variable assignment even if no '%' is found, you need to use two commas to produce one in this case: //var %a test ,,
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; Factorial
 ; 10! = $factorial(10) = 3628800
 alias factorial {
@@ -69,12 +69,12 @@ alias factorial {
 }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; -s can be used to debug scripts, showing variables being set to their values. The message displays to the active window if typed in editbox, or Status Window if in an alias/event:
 //var -s %a test
 returns: * Set %a to test
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; -g sets global as if you used /set instead of /var:
 //unset %a %a | var -g %a global | echo -a $var(%a,1).local $var(%a,1).value | .timer 1 0 echo 5 -a timer sees % $+ a
 returns:
@@ -82,7 +82,7 @@ $false global
 timer sees global
 
 </pre>
-<pre class ="code">
+<pre class = "code">
 var defaults to using math operations if there are 3 tokens separated by spaces, and the 1st and 3rd are numbers, and the 2nd token is any of the 6 operators listed above:
 //var %a 1 + 2 | echo -a %a
 returns: 3
@@ -104,7 +104,7 @@ Prevent math operation with -n switch
 //var %a 1 + 1 | var -n %b 1 + 1 | echo -a %a vs %b
 returns: 2 vs 1 + 1
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; -i causes /var to act only if local var does not exist, even if it is $null. "/var %a" does not unset the local var, it sets it to $null:
 //set %a Global | var -i %a Local1 | echo -a Value1: %a | var -i %a Local2 | echo -a Value2: %a | var %a | echo -a Value3: %a | var -i %a Local3 | echo -a Value4: %a | echo -a $var(%a,1).local / $var(%a,1).value vs $var(%a,2).local / $var(%a,2).value
 returns:
@@ -115,7 +115,7 @@ Value4:
 </pre>
 By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set)
 The -p changes /var and /set to allow these values:
-<pre class ="code">
+<pre class = "code">
 //var -p %a "" | var -p %b test $+ $chr(32)  | echo -a %a vs $len(%b)
 returns: "" vs 5
 //var    %a "" | var    %b test $+ $chr(32)  | echo -a %a vs $len(%b)
@@ -125,7 +125,7 @@ returns: vs 4
 returns: 1 + 1
 </pre>
 The = is no longer required, and is a difference in behavior between /set and /var, though it makes it easier to make a local var beginning with the = symbol:
-<pre class ="code">
+<pre class = "code">
 //set %a = testa | set %b = = testb | echo -a 1. %a vs %b
 //var %a = testa | var %b = = testb | echo -a 2. %a vs %b
 Return:
@@ -135,7 +135,7 @@ Return:
 By default, /var and /set do not allow value to be a pair of double quotes nor to end with a single space (multiple spaces can be set)
 <p>
 The -p changes /var and /set to allow these values:
-<pre class ="code">
+<pre class = "code">
 //var -p %a "" | var -p %b test $+ $chr(32)  | echo -a 1. %a vs $len(%b)
 //var    %a "" | var    %b test $+ $chr(32)  | echo -a 2. %a vs $len(%b)
 Return:

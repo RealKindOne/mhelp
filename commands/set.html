@@ -9,7 +9,7 @@ The <b>/set</b> command can be used to replace the value of an existing variable
 Set evaluation routine
 
 The set command has its own evaluation routine which lets you dynamically concatenate additional values onto the variable name before the assignment takes place.
-<pre class ="code">
+<pre class = "code">
 //set -ls % $+ $ctime ABC
 </pre>
 Will create a variable like %1209425041 with the value of 'ABC'; Similarly this can be used with $nick and $chan in on events.
@@ -17,7 +17,7 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br><b>Note:</b> /set will fail to evaluate your variable if you have dynamic parameters before the name, read more <a href="../other/variables.html#quirks">here</a>.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /set [-gisuNzneplk] &lt;%var&gt; [value]
 /set [-gisuNznelk] &lt;%var&gt; &lt;number&gt; &lt;+ | - | * | / | % | ^ | &&gt; &lt;number&gt;
 </pre>
@@ -42,7 +42,7 @@ Will create a variable like %1209425041 with the value of 'ABC'; Similarly this 
 <br><b>&lt;number&gt;</b> - Any arbitrary numerical value, can be a floating point number.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; /countDown
 Alias countDown {
   ; set some value
@@ -54,7 +54,7 @@ Alias countDown {
 }
 </pre>
 Will output:
-<pre class ="code">
+<pre class = "code">
 Countdown:
 -
 * Set &lt;%var&gt; to 3
@@ -67,7 +67,7 @@ Countdown:
 -
 </pre>
 The -u0 switch can be used to create a variable with global scope that will get unset at the end of the script processing. This can be very helpful at times.
-<pre class ="code">
+<pre class = "code">
 Alias example {
   set -u0 %x A
   bb
@@ -80,7 +80,7 @@ alias bb {
 }
 </pre>
 A simple !seen script that uses /set special evaluation routine to create dynamic variables:
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!seen &:#mIRC:{
   ; check if the variable is set
   if ($var(seen. $+ $2)) {

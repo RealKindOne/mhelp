@@ -18,7 +18,8 @@ By default:
 
 The real number of bytes read by /sockread can be retrieved using <a href="../identifiers/sockbr.html">$sockbr</a>.
 
-<H4>Synopsis</H4><pre class ="code">
+<H4>Synopsis</H4>
+<pre class = "code">
 /sockread [-fn] &lt;&lt;%var&gt;|&binvar&gt;
 /sockread [numbytes] &lt;&lt;%var&gt;|&binvar&gt;
 </pre>
@@ -60,7 +61,7 @@ There are two mistakes:
 * Trying to match the reference as you are reading. Consider the following code
 
 
-<pre class ="code">
+<pre class = "code">
 on *:sockread:name:{
  var %a
  sockread -f %a
@@ -76,7 +77,7 @@ If the received buffer is filled with a few bytes and ends up being "this is my 
 
 So you might think here "let's not use -f then":
 
-<pre class ="code">
+<pre class = "code">
 on *:sockread:name:{
  var %a
  sockread %a
@@ -87,7 +88,7 @@ on *:sockread:name:{
 </pre>
 And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="../events/on_sockclose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="../identifiers/sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
 
-<pre class ="code">
+<pre class = "code">
 alias testHTTP {
 sockclose testHTTP
 sockopen testHTTP mirc.com 80
@@ -127,7 +128,7 @@ issue because you are basically reading the buffer as fast as mIRC fills it (or 
 
 This is the same as above but once you found the reference with the script, you want to grab the next line:
 
-<pre class ="code">
+<pre class = "code">
 on *:sockread:name:{
  var %a
  sockread %a
@@ -142,7 +143,7 @@ on *:sockread:name:{
 
 The same issue can happen, you cannot make sure there is a terminated line in the receive buffer. People mainly uses that because it avoids saving the state for the next time the event re-triggers, indeed the correct way to read the next line once you found the reference is to try reading a terminated line using /sockread &lt;%var&gt; (or to use your own buffer and check when you have a new line, just like above) but you need to save the state if you can't find the next line currently:
 
-<pre class ="code">
+<pre class = "code">
 on *:sockread:name:{
  var %a
  sockread %a
@@ -172,7 +173,7 @@ We also saw how this non terminated line in the received buffer wouldn't make mI
 
 One solution which doesn't involve more than that, is to read that line from the on sockclose event, indeed you are sure on sockread read the previous line, so inside on sockclose, you should get only that last non terminated line, this time we use the -f switch to force the read:
 
-<pre class ="code">
+<pre class = "code">
 on *:sockclose:name:{
   if (!$sockerr) {
    var %a
@@ -196,7 +197,7 @@ Here is an example which will read and echo to the status window what is sent by
 
 <br><b>Note3:</b> Using SSL, the on sockread event might not be triggered though it should, you must read the rest in the on sockclose event (has been fixed since mIRC 7.36).
 
-<pre class ="code">
+<pre class = "code">
 on *:SOCKREAD:mySocket:{
   var %a
   if ($sockerr &gt; 0) { return }
@@ -212,7 +213,7 @@ on *:SOCKREAD:mySocket:{
 
 If you ever worked with HTTP 1.1, you know that it can send data in chunk, here is a way to write the real content to a file:
 
-<pre class ="code">
+<pre class = "code">
 on *:sockopen:socket:{
   ... your request...
   sockmark $sockname 0

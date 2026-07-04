@@ -25,12 +25,12 @@ on &lt;level&gt;:CONNECT:&lt;commands&gt;
 
 <H4>Example</H4>
 Echo the server and network names to the active window:
-<pre class ="code">
+<pre class = "code">
 on *:CONNECT:echo -a Server: $server -- Network: $network
 </pre>
 
 If a successful connection is made to an IRC server, the above code will display something similar to the below example:
-<pre class ="code">
+<pre class = "code">
 Server: chicago.il.us.undernet.org -- Network: UnderNet
 </pre>
 
@@ -43,12 +43,12 @@ on *:CONNECT:join #myChannel
 </pre>
 
 Apply usermode +g for all network:
-<pre class ="code">
+<pre class = "code">
 on *:CONNECT:mode $me +g
 </pre>
 
 Apply usermode +g on one network and usermode +R on another:
-<pre class ="code">
+<pre class = "code">
 on *:CONNECT:{
   if ($network == example) { mode $me +g }
   if ($network == foobar) { mode $me +R }

@@ -8,7 +8,7 @@
 The <b>/signal</b> command is used to send a signal to all loaded script, if one of them has a matching <a href="../events/on_signal.html">On_Signal</a> event, it triggers. Signals are a simple way of triggering signal events in multiple scripts at the same time.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /signal [-n] &lt;name&gt; [parameters]
 </pre>
 
@@ -21,11 +21,11 @@ The <b>/signal</b> command is used to send a signal to all loaded script, if one
 
 <H4>Example</H4>
 Let's check out an example of a signal command below:
-<pre class ="code">
+<pre class = "code">
 /signal mysignal Signal information!
 </pre>
 Once you've executed this command, it will send a <b>signal</b> named <b>mysignal</b> to all scripts in your mIRC remotes. Any script files that have signal event listening for that signal will trigger, and perform whatever tasks they have been set to perform.
-<pre class ="code">
+<pre class = "code">
 on *:SIGNAL:mysignal:echo -s rcvd: $signal : $1-
 </pre>
 
@@ -58,7 +58,7 @@ This is where a signal can truly shine, and next we are going to show you how :)
 First, what should we name our signal? How about *delayAutoJoin*? That works, and it identifies the purpose of the signal. Next, which script should perform the */signal* command, the auto join, or the auto identifier? Well, just remember that we don't want to join channels until the auto identifier has completed. In this case, we can ascertain that the auto identifier should be the one to trigger the command, the auto join should listen for the signal.
 
 Let's go to our auto identifier and setup our script:
-<pre class ="code">
+<pre class = "code">
 on *:NOTICE:*This nickname is registered*:?:{
   ; Check to make sure NickServ issued this notice,
   ; and then identify our nickname with our password
@@ -72,14 +72,14 @@ Alright, so what have we done? This event listens for NickServ to send you a not
 <br><b>Note:</b> For the most part, most NickServ requests like this are defaulted for cross-platform compatibility. Using this example is most-likely fine, but do some research for your own NickServ's requests to properly utilize the above event.
 
 Next, let's check for when NickServ acknowledges that we've properly been identified by letting us know our vHost is now applied:
-<pre class ="code">
+<pre class = "code">
 on *:NOTICE:*Your vhost*activated*:?: {
   ; Send the delayAutoJoin signal to all listening scripts
   signal delayAutoJoin
 }
 </pre>
 This event waits for the NickServ notice letting us know our vHost has been activated, and then sends a signal with the name *delayAutoJoin* to all currently loaded scripts. The auto identifier portion of our example is finished. Now we will move on to the auto join, where we will create our signal listener, and perform the auto join function. Remember, this portion of code belongs in the auto join, not the auto identifier:
-<pre class ="code">
+<pre class = "code">
 on *:SIGNAL:delayAutoJoin: {
   join #mychannel
 }

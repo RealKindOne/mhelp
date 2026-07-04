@@ -20,24 +20,25 @@ Dialog Components are individual <a href="dialog.html">dialogs</a> elements that
 <tr>
 <td>
 <div class="center">
-<a href="#Button" title="#Button">
+<a href="#Button" title="#Button"></a>
 <img src="../images/dialog_button_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Check" title="#Check">
+<a href="#Check" title="#Check"></a>
 <img src="../images/dialog_check_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Toggle" title="#Toggle">
+<a href="#Toggle" title="#Toggle"></a>
 <img src="../images/dialog_toggle_example.png">
 </div>
 </td>
 <td>
-<div class="center"><a href="#Text" title="#Text">
+<div class="center">
+<a href="#Text" title="#Text"></a>
 <img src="../images/dialog_text_example.png">
 </div>
 </td>
@@ -51,25 +52,25 @@ Dialog Components are individual <a href="dialog.html">dialogs</a> elements that
 <tr>
 <td>
 <div class="center">
-<a href="#Group_Box" title="#Group Box">
+<a href="#Group_Box" title="#Group Box"></a>
 <img src="../images/dialog_group_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Icon" title="#Icon">
+<a href="#Icon" title="#Icon"></a>
 <img src="../images/dialog_image_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Edit" title="#Edit">
+<a href="#Edit" title="#Edit"></a>
   <img src="../images/dialog_text_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Scroll" title="#Scroll">
+<a href="#Scroll" title="#Scroll"></a>
 <img src="../images/dialog_scroll_example.png">
 </div>
 </td>
@@ -83,22 +84,26 @@ Dialog Components are individual <a href="dialog.html">dialogs</a> elements that
 <tr>
 <td>
 <div class="center">
-<a href="#Link" title="#Link"><img src="../images/dialog_link_example.png">
+<a href="#Link" title="#Link"></a>
+<img src="../images/dialog_link_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Menu" title="#Menu"><img src="../images/dialog_menu_example.png">
+<a href="#Menu" title="#Menu"></a>
+<img src="../images/dialog_menu_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Radio" title="#Radio"><img src="../images/dialog_radio_example.png">
+<a href="#Radio" title="#Radio"></a>
+<img src="../images/dialog_radio_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Tab" title="#Tab"><img src="../images/dialog_tab_example.png">
+<a href="#Tab" title="#Tab"></a>
+<img src="../images/dialog_tab_example.png">
 </div>
 </td></tr>
 <tr style="color: rgba(0,0,0,.65);">
@@ -108,13 +113,13 @@ Dialog Components are individual <a href="dialog.html">dialogs</a> elements that
 <tr>
 <td>
 <div class="center">
-<a href="#List" title="#List">
+<a href="#List" title="#List"></a>
 <img src="../images/dialog_list_example.png">
 </div>
 </td>
 <td>
 <div class="center">
-<a href="#Combo" title="#Combo">
+<a href="#Combo" title="#Combo"></a>
 <img src="../images/dialog_combo_example.png">
 </div>
 </td>
@@ -129,7 +134,9 @@ Dialog Components are individual <a href="dialog.html">dialogs</a> elements that
 The button control is a user interface control that responds to click events.
 
 <H4>Synopsis</H4>
-<pre class ="code">button "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+button "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 <b>default</b> - Sets the button to be the default button. This causes the button to be selected upon dialog creation.
@@ -158,7 +165,7 @@ The button control is a user interface control that responds to click events.
 <br>
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 Without any property, return the text (caption) of the button, same as the .text  property
@@ -176,7 +183,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -193,7 +201,8 @@ dialog Example {
 ; event
 on *:dialog:example:sclick:1-4:{
   echo -a $did($dname, $did).text is clicked.
-}</pre>
+}
+</pre>
 
 <div style="display: block; text-align: center;"><img src="../images/dialog_button_example.png"></div>
 
@@ -204,7 +213,9 @@ on *:dialog:example:sclick:1-4:{
 The checkbox control is a user interface element that permits the user to select or deselect an option. The checkbox control is a combination of a check box and a label. The mIRC check control has three states: Checked, Unchecked, and Indeterminate.
 
 <H4>Synopsis</H4>
-<pre class ="code">check "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+check "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -239,7 +250,7 @@ The checkbox control is a user interface element that permits the user to select
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 
@@ -260,7 +271,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -286,20 +298,23 @@ on *:dialog:example:sclick:1-3:{
 alias -l dstate {
   var %s UnChecked Checked Indeterminate
   return $gettok(%s, $calc($did($dname, $did).state + 1), 32)
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_check_example.png"></div>
 
 
 <!-- --------------------------------------------------------------------- -->
 
-<a name="Text"></a>
+<a name="Text"></a><
 <H2>Text</H2>
 
 <H4>Styles</H4>
 A text is simply a GUI label component with text designed for displaying information with no user input. By default, the text will wrap to the next line if needed.
 
 <H4>Synopsis</H4>
-<pre class ="code">text "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+text "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -329,7 +344,7 @@ A text is simply a GUI label component with text designed for displaying informa
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 Without any property, return the text (caption) of the text control, same as the .text property
@@ -347,7 +362,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -360,7 +376,8 @@ dialog Example {
   text "This is a simple label.", 2, 4 30 40 15
   text "I am right-aligned.", 3, 4 50 40 15, right
   button "Done", 4, 50 30 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_label_example.png"></div>
 
 
@@ -374,7 +391,9 @@ This is a static control with a group box frame and an optional title that shows
 If you want to e.g. enable / disable them together, you need to do that programmatically.
 
 <H4>Synopsis</H4>
-<pre class ="code">box "&lt;title&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+box "&lt;title&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -405,7 +424,7 @@ If you want to e.g. enable / disable them together, you need to do that programm
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 Without any property, return the text (caption) of the box, same as the .text  property
@@ -421,7 +440,8 @@ Properties:
 <H4>Events</H4>This control has no events.
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -433,7 +453,8 @@ dialog Example {
   box "A Settings", 1, 4 4 80 40
   box "B Settings", 2, 4 50 80 40
   button "Done", 4, 40 100 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_group_example.png"></div>
 
 
@@ -446,7 +467,7 @@ An icon control is a simple container that holds images and icons.
 <br><b>Note:</b> You cannot make an empty icon control, you must give a filename.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 icon &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;filename&gt;[, &lt;index&gt;]], &lt;style&gt;
 </pre>
 
@@ -482,7 +503,7 @@ icon &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;filename
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 
@@ -502,7 +523,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -515,7 +537,8 @@ dialog Example {
   icon 1, 10 10 80 80, "C:\Users\Public\Pictures\Sample Pictures\Penguins.jpg", actual
 
   button "Done", 7, 10 95 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_image_example.png"></div>
 
 <!-- --------------------------------------------------------------------- -->
@@ -525,7 +548,9 @@ dialog Example {
 The edit control can behave as a normal text box as well as a rich text control.
 
 <H4>Synopsis</H4>
-<pre class ="code">edit "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+edit "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -571,7 +596,7 @@ The edit control can behave as a normal text box as well as a rich text control.
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 </pre>
 Without any property, return the text (caption) of the editbox, same as the .text  property
@@ -596,7 +621,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -611,7 +637,8 @@ dialog Example {
   edit "Right", 3, 10 70 80 20, right
 
   button "Done", 7, 10 95 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_text_example.png"></div>
 
 
@@ -622,7 +649,9 @@ dialog Example {
 A scrollbar is a simple dialog component that can be used to scroll something. A scrollbar operates within a given range.
 
 <H4>Synopsis</H4>
-<pre class ="code">scroll "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;</pre>
+<pre class = "code">
+scroll "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
+</pre>
 
 <H4>Styles</H4>
 
@@ -651,7 +680,7 @@ A scrollbar is a simple dialog component that can be used to scroll something. A
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
 
@@ -668,7 +697,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -685,7 +715,8 @@ dialog Example {
 }
 on *:dialog:example:scroll:2:{
   did -ra example 1 $did(example, 2).sel $+ %
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_scroll_example.png"></div>
 
 
@@ -698,7 +729,9 @@ A link control, just like a label, is a static control with the additional behav
 To make the link actually open the web page, you need to code an on DIALOG SCLICK event.
 
 <H4>Synopsis</H4>
-<pre class ="code">link "text", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+link "text", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -726,7 +759,9 @@ To make the link actually open the web page, you need to code an on DIALOG SCLIC
 <b>$did</b>
 <br>
 
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
+</pre>
 
 Without any property, return the text (caption) of the link, same as the .text  property
 
@@ -743,7 +778,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -756,7 +792,8 @@ dialog Example {
   button "Done", 4, 50 30 40 12, ok
 }
 ; click event
-on *:dialog:example:sclick:1: url -a $did(example,$did)</pre>
+on *:dialog:example:sclick:1: url -a $did(example,$did)
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_link_example.png"></div>
 
 <!-- --------------------------------------------------------------------- -->
@@ -766,9 +803,11 @@ on *:dialog:example:sclick:1: url -a $did(example,$did)</pre>
 A menu control that allows a hierarchical organization of elements called menu items.
 
 <H4>Synopsis</H4>
-<pre class ="code">menu "&lt;text&gt;", &lt;menuid&gt; [, &lt;menuid&gt;]
+<pre class = "code">
+menu "&lt;text&gt;", &lt;menuid&gt; [, &lt;menuid&gt;]
 item "&lt;text&gt;", &lt;id [, &lt;menuid&gt;]
-item break, &lt;id [, &lt;menuid&gt;]</pre>
+item break, &lt;id [, &lt;menuid&gt;]
+</pre>
 
 <br><b>Note:</b> Menu items can nest under other menus by simply specifying their parent menu ID.
 
@@ -801,7 +840,8 @@ This element has no available styles.
 No $did support for a menu or an item.
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -830,7 +870,8 @@ dialog Example {
   item "Some Item6", 43, 4
 
   button "Done", 7, 10 95 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_menu_example.png"></div>
 
 
@@ -841,7 +882,9 @@ dialog Example {
 Radio buttons are a group of controls that can be configured to only allow the user to choose one of a predefined set of options.
 
 <H4>Synopsis</H4>
-<pre class ="code">radio "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt; [group]]</pre>
+<pre class = "code">
+radio "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt; [group]]
+</pre>
 
 <H4>Styles</H4>
 
@@ -895,7 +938,8 @@ Properties:
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -923,7 +967,8 @@ dialog Example {
   radio "Blue", 11, 46 55 20 10, push
   radio "Other", 12, 67 55 20 10, push
   button "Done", 13, 40 68 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_radio_example.png"></div>
 
 
@@ -936,8 +981,10 @@ A tab control is a container component capable of holding all of the other compo
 <br><b>Note:</b> You cannot have more than one tab control per dialog with mIRC
 
 <H4>Synopsis</H4>
-<pre class ="code">tab "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
-tab "&lt;text&gt;", &lt;id&gt;, &lt;style&gt;</pre>
+<pre class = "code">
+tab "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;, &lt;style&gt;
+tab "&lt;text&gt;", &lt;id&gt;, &lt;style&gt;
+</pre>
 
 The first tab definition in the synopsis specifies the main tab control and its size, the other definition adds an item to the tab
 
@@ -990,7 +1037,8 @@ You can use $dialog(&lt;name&gt;).tab to know which tab is currently selected, r
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -1009,7 +1057,8 @@ dialog Example {
   button "333", 6, 20 30 40 40, tab 3
 
   button "Done", 7, 10 95 40 12, ok
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_tab_example.png"></div>
 
 <!-- --------------------------------------------------------------------- -->
@@ -1019,7 +1068,9 @@ dialog Example {
 The list control provides a way to display a list of items.
 
 <H4>Synopsis</H4>
-<pre class ="code">list &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+list &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -1086,7 +1137,8 @@ Without any properties, returns the text of the Nth line in the list, same as th
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -1112,7 +1164,8 @@ on 1:dialog:example:init:*: {
   did -a example 3 Item A
   did -a example 3 Item B
   did -a example 3 Item C
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_list_example.png"></div>
 
 
@@ -1123,7 +1176,9 @@ on 1:dialog:example:init:*: {
 The combo control provides a way to choose an item from a selection of items in either a list, or from a drop-down fashion selection box.
 
 <H4>Synopsis</H4>
-<pre class ="code">combo &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]</pre>
+<pre class = "code">
+combo &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt;]
+</pre>
 
 <H4>Styles</H4>
 
@@ -1159,7 +1214,8 @@ The combo control provides a way to choose an item from a selection of items in 
 
 <b>$did</b>
 <br>
-<pre class ="code">
+<pre class = "code">
+
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 </pre>
 
@@ -1181,7 +1237,8 @@ Without any properties, returns the text of the Nth line in the list, same as th
 
 
 <H4>Example</H4>
-<pre class ="code">; init alias
+<pre class = "code">
+; init alias
 alias example {
   dialog -m example example
 }
@@ -1203,7 +1260,8 @@ on 1:dialog:example:init:*: {
   did -a example 2 Item A
   did -a example 2 Item B
   did -a example 2 Item C
-}</pre>
+}
+</pre>
 <div style="display: block; text-align: center;"><img src="../images/dialog_combo_example.png"></div>
 
 </body>

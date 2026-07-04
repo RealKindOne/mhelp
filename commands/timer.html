@@ -19,7 +19,7 @@ More information <a href="../other/injection.html">here</a>.
 <br>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /timers [off]
 /timer[n|name] [off]
 /timer[n|name] [-cdeomhipPrzN] [time] &lt;repetitions&gt; &lt;interval&gt; &lt;code&gt;
@@ -65,13 +65,13 @@ More information <a href="../other/injection.html">here</a>.
 You can check the <a href="../other/injection.html">injection</a> page to learn more about /timer's double evaluation issues.
 
 /timer also has a special evaluation routine which checks for variable assignment (except /var), for example:
-<pre class ="code">
+<pre class = "code">
 //timer -ho 1 0 set -s %test 5 $(|) unset -s %test
 </pre>
 Works correctly: /timer does not evaluate the variable %test both times as it recognize the assignment.
 
 However this behavior is too intrusive, it is not possible to properly check for variable assigment:
-<pre class ="code">
+<pre class = "code">
 //var -s %a inc,%b somevalue | timer -ho 1 0 echo -s %a %b
 </pre>
 here the variable %b's value disappear completely
@@ -79,13 +79,13 @@ here the variable %b's value disappear completely
 <H4>Example</H4>
 If you want the command to work 1 time through 10 seconds, then:
 
-<pre class ="code">
+<pre class = "code">
 //timer 1 10 echo -a This command worked with a delay of 10 seconds
 </pre>
 
 You can pass the name of an alias that should to work in 10 seconds:
 
-<pre class ="code">
+<pre class = "code">
 //timer 1 10 test_timer
 
 alias test_timer {
@@ -96,7 +96,8 @@ alias test_timer {
 
 Below is a simple count down timer that uses a call-back alias once per second:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   ; start cou
   var %reps = 5
 
@@ -108,11 +109,12 @@ Below is a simple count down timer that uses a call-back alias once per second:
 }
 alias -l count-down {
   echo -a Count: $timer($ltimer).reps
-}</pre>
+}
+</pre>
 
 The above code will generate the following output:
 
-<pre class ="code">
+<pre class = "code">
 Count: 5
 Count: 4
 Count: 3
@@ -123,20 +125,24 @@ Count: 0
 
 A more basic example of a message being delayed for 3 seconds:
 
-<pre class ="code">on *:TEXT:!foo:#foo:{
+<pre class = "code">
+on *:TEXT:!foo:#foo:{
   ; delay the message for 3 seconds
   timer 1 3 msg #foo Bar!
-}</pre>
+}
+</pre>
 
 A repetition of '0' can also be used to mean an repeat forever:
 
-<pre class ="code">alias cur_time {
+<pre class = "code">
+alias cur_time {
   timer 0 1 echo -s $!time(hh:nn:ss)
-}</pre>
+}
+</pre>
 
 Ending timers by using 'off' parameter, you can also end timers using wildcards.
 
-<pre class ="code">
+<pre class = "code">
 alias test_timers {
   ; /test_timers
 

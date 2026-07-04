@@ -8,7 +8,7 @@
 The <b>/sockopen</b> command initiates a connection to the specified addresses and port; a named address can be substituted for an IP address (which will get resolved to an IP address eventually). On success, the on sockopen event should get executed.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /sockopen [-de[swap]tn46] [bindip] &lt;name&gt; &lt;address&gt; &lt;port&gt;
 </pre>
 
@@ -31,7 +31,7 @@ The <b>/sockopen</b> command initiates a connection to the specified addresses a
 <br><b>&lt;port&gt;</b> - Port of the end point.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 Alias irc_connect {
   ; Initiate a connection with "irc.swiftirc.net" on port 6669, Secured connection
   sockopen -e IRC irc.swiftirc.net +6697

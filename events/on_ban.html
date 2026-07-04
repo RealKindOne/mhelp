@@ -29,7 +29,7 @@ on &lt;level&gt;:BAN:&lt;#[,#]&gt;:&lt;commands&gt;
 
 You can compare the levels of the banner and the banned by prefixing the line with &lt;, &gt;, &lt;=, =&gt;, &lt;&gt; (different than), or =, in the following way:
 
-<pre class ="code">
+<pre class = "code">
 on >=2:BAN:#mIRC:/msg $chan $nick banned $banmask (legal)
 on 1:BAN:#mIRC:/msg $chan $nick banned $banmask (illegal)
 </pre>
@@ -41,13 +41,13 @@ Otherwise, it defaults to the second on BAN line which indicates that it is an i
 Remember that $banmask is usually a <a href="../other/wildcard.html">wildcard</a> string which means that it will match both wildcard and non-wildcard user strings in your remote users section.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; This ban event listens for a ban
 ; on all channels, and responds by messaging the channel.
 on *:BAN:#:msg # Looks like the address $banmask has just been added to this channel's ban list.
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; This example will watch for a ban on two
 ; specific channels: #myChannel and #myOtherChannel. When a ban is
 ; noticed, the script will also attempt to find out if a $bnick was set.

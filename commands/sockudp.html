@@ -10,7 +10,7 @@ The <b>/sockudp</b> command allows you to send data to a specific address at a s
 <br><b>Note:</b> if /sockudp fails, it sets <a href="../identifiers/sock.html">$sock</a> to the error value, and trigger on sockwrite with <a href="../identifiers/sockerr.html">$sockerr</a> set etc.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /sockudp -bntkduz [bindip] &lt;name&gt; [port] &lt;ipaddress&gt; &lt;port&gt; [numbytes] [text|&lt;%var&gt;|&binvar]
 </pre>
 
@@ -33,7 +33,7 @@ The <b>/sockudp</b> command allows you to send data to a specific address at a s
 <br><b>[text|&lt;%var&gt;|&binvar]</b> - If specified, the message you want to send, can be a binary variable. You don't want to specify that parameter if you create a server.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 alias gettime {
   ; Set a NULL byte binary variable.
   bset &null 1 0

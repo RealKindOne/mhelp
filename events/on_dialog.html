@@ -41,7 +41,7 @@ on &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}
 
 <H4>Example</H4>
 Here we will create an alias that launches a dialog. This dialog has a <b>mouse</b> event listener that will track mouse movements in the dialog, and write them to specific dialog components:
-<pre class ="code">
+<pre class = "code">
 ; To use this example, simply type: /mouseListener
 alias mouseListener dialog - $+ $iif($dialog(mouseListener),v,m) mouseListener mouseListener
 dialog -l mouseListener {
@@ -73,7 +73,7 @@ Once the demo has begun, the mouse event will now listen. When the mouse begins 
 Clicking the ''Close'' button will close the dialog and halt event listening.
 
 Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="../other/aliases.html">alias</a> called <b>/whatEvents</b> which will open up the local <a href="../dialog/dialog.html">$didreg</a> <b>whatEvents</b>:
-<pre class ="code">
+<pre class = "code">
 alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
   title "Events? What Events?"

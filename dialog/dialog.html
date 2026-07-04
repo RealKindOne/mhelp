@@ -29,7 +29,7 @@ Modeless dialog can be opened indefinitely and does not halt the script executio
 
 You can create a modeless dialog using the <a href="../commands/dialog.html">/dialog</a> command with the -m switch, there are others switch that can be used at creation time and after the creation of the dialog to change various states.
 
-<pre class ="code">
+<pre class = "code">
 /dialog -m &lt;name&gt; &lt;table&gt;
 </pre>
 
@@ -40,7 +40,7 @@ You can create a modeless dialog using the <a href="../commands/dialog.html">/di
 <H4>Modal dialog</H4>
 
 You can create a modal dialog using the <a href="../identifiers/dialog.html">$dialog</a> identifier with the following syntax:
-<pre class ="code">
+<pre class = "code">
 $dialog(name,table[,parent])
 </pre>
 <br>name - The name used to reference the instance of the dialog
@@ -58,28 +58,30 @@ $dialog(name,table[,parent])
 
 Custom dialogs are created by defining a dialog table, the content of that table represents the look of the dialog, the controls etc, a table is defined by using the &lt;dialog&gt; keyword:
 
-<pre class ="code">dialog -l &lt;name&gt; {
-    title        "title"
-    icon         filename, index
-    size         x y w h
-    option       type                                   (pixels, dbu, map, notheme, disable)
-    text         "text", id, x y w h, style             (right, center, nowrap)
-    edit         "text", id, x y w h, style             (right, center, multi, pass, read, return, hsbar, vsbar, autohs, autovs, limit N, rich)
-    button       "text", id, x y w h, style             (default, ok, cancel, flat, multi)
-    check        "text", id, x y w h, style             (left, push, 3state)
-    radio        "text", id, x y w h, style             (left, push)
-    box          "text", id, x y w h, style
-    scroll       "text", id, x y w h, style             (top left bottom right horizontal range N N)
-    list         id, x y w h, style                     (sort, extsel, multsel, size, vsbar, hsbar, check, radio)
-    combo        id, x y w h, style                     (sort, edit, drop, size, vsbar, hsbar)
-    icon         id, x y w h, filename, index, style    (noborder top left bottom right small large actual)
-    link         "text", id, x y w h
-    tab          "text", id, x y w h
-    tab          "text", id
-    menu         "text", menuid [, menuid]
-    item         "text", id [, menuid]
-    item         break, id [, menuid]
-}</pre>
+<pre class = "code">
+dialog -l &lt;name&gt; {
+  title        "title"
+  icon         filename, index
+  size         x y w h
+  option       type                                   (pixels, dbu, map, notheme, disable)
+  text         "text", id, x y w h, style             (right, center, nowrap)
+  edit         "text", id, x y w h, style             (right, center, multi, pass, read, return, hsbar, vsbar, autohs, autovs, limit N, rich)
+  button       "text", id, x y w h, style             (default, ok, cancel, flat, multi)
+  check        "text", id, x y w h, style             (left, push, 3state)
+  radio        "text", id, x y w h, style             (left, push)
+  box          "text", id, x y w h, style
+  scroll       "text", id, x y w h, style             (top left bottom right horizontal range N N)
+  list         id, x y w h, style                     (sort, extsel, multsel, size, vsbar, hsbar, check, radio)
+  combo        id, x y w h, style                     (sort, edit, drop, size, vsbar, hsbar)
+  icon         id, x y w h, filename, index, style    (noborder top left bottom right small large actual)
+  link         "text", id, x y w h
+  tab          "text", id, x y w h
+  tab          "text", id
+  menu         "text", menuid [, menuid]
+  item         "text", id [, menuid]
+  item         break, id [, menuid]
+}
+</pre>
 
 The <b>-l</b> switch makes the table local, only that script file can open it.<br>
 <b>&lt;name&gt;</b> is the name of table which will be used to create an instance of that dialog<br><br>
@@ -98,9 +100,10 @@ Others elements are used to create controls, see the <a href="dialog_components.
 Remember that once the dialog is created, mIRC does not allow you to resize the controls in the dialog. You can use variable and identifiers inside the dialog table to create dialog control with dynamic size
 You can also use a variable name as a style for any control, the variable is set (global variable) with the value of that control when the dialog is closed:
 
-<pre class ="code">
+<pre class = "code">
 ;use a variable to define the width and an identifier to define the height of the dialog, when the dialog is closed, %myedit will contain the content of the editbox.
-edit "", 2, 10 10 %dialog_width $dialog_height, autohs %myedit</pre>
+edit "", 2, 10 10 %dialog_width $dialog_height, autohs %myedit
+</pre>
 
 <H4>Mnemonic</H4>
 
@@ -110,25 +113,26 @@ The "text" parameter of controls showing text can include the '&' character to c
 
 For example, the following menu definition reproduces the File menu of the mIRC Editor dialog:
 
-<pre class ="code">dialog test {
-    title "mIRC"
-    size -1 -1 110 100
-    option dbu
-    menu "&File", 60
-    item "&New", 70
-    menu "&Load", 80, 60
-    item "&Script", 90
-    item break, 100
-    item "&Users", 110
-    item "&Variables", 120
-    item "&Unload", 130, 60
-    item break, 140
-    item "&Save", 150
-    item "&Save As...", 160
-    item "Save &All", 170
-    item break, 180
-    item "Save && &exit", 190, ok
-    item "&Cancel", 200, cancel
+<pre class = "code">
+dialog test {
+  title "mIRC"
+  size -1 -1 110 100
+  option dbu
+  menu "&File", 60
+  item "&New", 70
+  menu "&Load", 80, 60
+  item "&Script", 90
+  item break, 100
+  item "&Users", 110
+  item "&Variables", 120
+  item "&Unload", 130, 60
+  item break, 140
+  item "&Save", 150
+  item "&Save As...", 160
+  item "Save &All", 170
+  item break, 180
+  item "Save && &exit", 190, ok
+  item "&Cancel", 200, cancel
 }
 </pre>
 

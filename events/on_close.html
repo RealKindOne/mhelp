@@ -30,19 +30,19 @@ on &lt;level&gt;:CLOSE:&lt;?|#|@|=|!|*&gt;:&lt;commands&gt;
 <a href="../identifiers/target.html">$target</a> is filled with the name of the window related to the event.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; When Channel window are closed, print a message to
 ; the "Status Window".
 on *:CLOSE:#: { echo -sg Closed $target window. }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; When DCC Chats are closed, send a notice to
 ; the person.
 on *:CLOSE:=:notice $nick Hey, thank you so much for the chat!
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; When any window is closed, echo the window name
 ; to a custom @windowWatcher window. If that window doesn't exist,
 ; create it first.

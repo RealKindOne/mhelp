@@ -8,7 +8,7 @@
 The <b>/window</b> command can be used to create <a href="../other/custom_windows.html">Custom Windows</a> and <a href="../other/picture_windows.html">Picture Windows</a> (using the -p switch), or to manipulate an existing custom or channel window.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /window [-abBcCdDe[N]fg[N]hHij[N]k[N]l[N]mMn[N]oprRsSuvw[N]xyz] [-tN,..,N] [+bdeflLnstx] &lt;@name&gt; [x y [w h]] [/command] [popup.txt/@popup] [font [size]] [iconfile [N]]
 </pre>
 
@@ -91,7 +91,7 @@ Mostly applicable to Desktop windows:
 
 <H4>Example</H4>
 Picture window
-<pre class ="code">
+<pre class = "code">
 Alias Example1 {
   ;Create a desktop + picture window, Coordinates: (250,250), size 300x300
   window -dep @Example 250 250 300 300
@@ -103,7 +103,7 @@ Alias Example1 {
 </pre>
 
 Custom window with side listbox
-<pre class ="code">
+<pre class = "code">
 Alias Example2 {
   ; Create a desktop, Coordinates: (100,100), size 500x350
   ; Side listbox (width: 15 characters)
@@ -127,7 +127,7 @@ Alias Example2 {
 }
 </pre>
 Making unique window name from $nick while avoiding the 3 protected window names:
-<pre class ="code">
+<pre class = "code">
 //window -ek @ $+ $nick $+ $iif($istok(mdi desktop mirc,$nick,32),$ctime)
 </pre>
 

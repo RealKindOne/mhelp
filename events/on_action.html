@@ -30,14 +30,14 @@ The on action event support the common IRC related local identifiers.
 
 <H4>Example</H4>
 Listens for if anyone uses the word "slap" anywhere in an action inside of any channel:
-<pre class ="code">
+<pre class = "code">
 on *:ACTION:* slap *:#:msg # $nick $+ ! Why would you slap anyone?!?!?
 </pre>
 
 The above code listens for the action event, looks for if the user used the word "slap" in any channel, and then responds accordingly.
 <br>
 Listen for any action inside of a private message and responds:
-<pre class ="code">
+<pre class = "code">
 on *:ACTION:*:?:msg $nick Well, I have no idea why I'm responding to this automatically, $nick $+ . You said: $1-
 </pre>
 

@@ -16,7 +16,7 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 <b>Note:</b> If the queue is empty, (first /sockwrite ever for example), you can send more than that limit and it will be sent as chunk of the send queue limit or less.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /sockwrite -abnt &lt;name&gt; [numbytes] &lt;text|&lt;%var&gt;|&binvar&gt;
 </pre>
 
@@ -34,7 +34,7 @@ mIRC will queue your request up to 16384 bytes, you must check how many bytes is
 <br><b>Note:</b> if /sockwrite fails, <a href="../identifiers/sockerr.html">$sockerr</a> is set as well as <a href="../identifiers/sock.html">$sock().wserr</a> and <a href="../identifiers/sock.html">$sock().wsmsg</a> inside the <a href="../events/on_sockwrite.html">On_SockWrite</a>  event.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 See the page for the <a href="../events/on_sockwrite.html">On_SockWrite</a>  event for more information and examples about /sockwrite
 </pre>
 

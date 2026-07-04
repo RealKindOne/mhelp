@@ -30,7 +30,7 @@ More information <a href="../other/injection.html">here</a>.
 <br><b>8</b> = Disconnected
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /scon -rsat&lt;type&gt; [Nth] [command]
 </pre>
 
@@ -53,7 +53,7 @@ More information <a href="../other/injection.html">here</a>.
 
 A simple example of using /scon to send a command to all connected connections.
 
-<pre class ="code">
+<pre class = "code">
 /*
 ** Global amsg - performs an amsg on all the
 ** the actives connections you are on.
@@ -71,7 +71,7 @@ alias gamsg {
 }
 </pre>
 Print all the channels you are on from every connection you have:
-<pre class ="code">
+<pre class = "code">
 alias listChans {
   var %x = 1
   while ($scon(%x)) {
