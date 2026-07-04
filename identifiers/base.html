@@ -49,11 +49,11 @@ Default Output is 00FFFF not FFFF00 because mIRC stores colors as GBR not RGB.
 ; returns: 3.14159265358979323846 3.243F7 3243F6A.8885A
 ; precision of output is input rounded to 6 fraction digits
 //echo -a $base(1.0000005,10,10) returns 1.000001
-&nbsp;
+
 //var %n $crc(abc,0) | echo -a %n $base(%n,16,36,7)
 ; Converts 8-digit hexadecimal
 ; Base 36 extends the hexadecimal alphabet so the characters G-Z have decimal values 16-35
-&nbsp;
+
 //var %n $str(F,9) | echo -a converts 9-digit hex number %n to 7-digit base-36 $base(%n,16,36,7)
 ; returns: converts 9-digit hex number FFFFFFFFF to 7-digit base-36 VKHSVLR
 </pre>

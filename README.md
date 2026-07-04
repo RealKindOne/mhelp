@@ -33,7 +33,7 @@ Run ```"C:\Program Files (x86)\HTML Help Workshop\hhc.exe" C:\path\to\mhelp.hhp`
 
 ## Compiling (mdBook)
 
-mdBOOK - https://rust-lang.github.io/mdBook/ Is used to compile a browser version.
+mdBook - https://rust-lang.github.io/mdBook/ Is used to compile a browser version.
 
 This is a WORK IN PROGRESS
 
@@ -41,16 +41,14 @@ This is a WORK IN PROGRESS
 
 The HTML Help Workshop program is very primitive and buggy. You would be better off using a different text editor.
 
-Examples CANNOT have blanks lines. You must use '&nbsp;'. 
+The HTML 'pre' code for scripting examples must be on different lines. Having html code and mIRC scripting code will cause formatting issues for mdBook.
 
 ```
-alias test { 
-  ; The empty line below causes issues with mdBook formatting.
-  ; You MUST use the html '&nbsp;' or the program thinks the closing
-  ; pre/code is AFTER the 'See Also'
-
-  echo foobar
+<pre class = "code">
+alias example {
+  echo -a example
 }
+</pre>
 ```
 
 

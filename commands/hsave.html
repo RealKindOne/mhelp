@@ -35,21 +35,21 @@ The <b>/hsave</b> command is used to save a hash table to a file. Overwrite exis
 <pre class ="code">
 //hfree -w test | hadd -m test itemname 12345 | hadd test itemB 67890 | hsave -s test file name.dat
 * hash table is written to disk to filename "file" and name.dat is ignored. A filename containing a space must be enclosed in double quotes or use $qt(hash table file name)
-&nbsp;
+
 //hfree -w test | hadd -m test itemname &#233;12345 | hadd test itemB 67890 | hsave -sb test test.dat | bread test.dat 0 $file(test.dat).size &binvar | echo -a $bvar(&binvar,1-)
 Result: 8 0 105 116 101 109 110 97 109 101 7 0 195 169 49 50 51 52 53 5 0 105 116 101 109 66 5 0 54 55 56 57 48
 8 0 = Length of Item name
 105 116 101 109 110 97 109 101 = Item "itemname"
 7 0 = Length of item value
 195 169 49 50 51 52 53 = 7 byte UTF-8 encoding of &#233;12345
-&nbsp;
+
 //hfree -w test | hadd -m test itemname 12345 | hadd test itemB 67890 | hsave -n test test.dat | hfree -w test2 | hload -m test2 test.dat | echo -a item 1 is $hget(test2,1).item containing $hget(test2,$hget(test2,1).item)
 Result: item 1 is 12345 containing 67890
 * Table saved using -n switch incorrectly loaded without using /hload's -n switch, causing the 1st data value to be handled as if it's an item name and the 2nd line to be the data value matching the item named by the 1st line of the file.
-&nbsp;
+
 //hfree -w test | hadd -m test itemA 12345 | hinc -z test itemB 67890 | hadd -u30 test itemC value3 | hsave -u test test.dat | var %i 1 , %tot $lines(test.dat) | while (%i &lt;= %tot) { echo -a line %i is $read(test.dat,nt,%i)  | inc %i }
 * The disk file contains 6 lines (3 pairs) for the 3 items because hsave used the -u switch. If the -u switch is deleted, the 2nd and 3rd item are not written to disk because they have a non-zero property for $hget(table-name,item-name).unset
-&nbsp;
+
 Note: this alias will fail if any file larger than 65535 and you change /hsave to use -b instead of -B
 alias hashtable_dir {
   btrunc test.dat 0

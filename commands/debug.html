@@ -49,17 +49,17 @@ Disable debug:
 ; The line can be 'piped' through an alias on its way to the log file.
 ; From editbox: /debug -i Log.txt $console
 ; From script: /debug -i Log.txt $!console
-&nbsp;
+
 Alias console {
   ; split by spaces
   tokenize 32 $1-
-&nbsp;
+
   ; open window if not already opened
   if (!$window(Console)) window -e @Console
-&nbsp;
+
   if (&lt;- == $1) aline -p 9 @Console &gt;&gt; $2-
   else aline -p 4 @Console &lt;&lt; $2-
-&nbsp;
+
   ; return the line back to mIRC's log
   return $1-
 }

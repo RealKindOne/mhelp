@@ -2,7 +2,7 @@
 <body>
 <LINK REL="stylesheet" type="text/css" HREF="../default.css">
 <head><title>$$</title></head>
-<h1>$$</H1>
+<H1>$$</H1>
 <br>
 <br>
 The <b>$$</b> is a construct which allows you to halt the script if the identifier returns $null (it doesn't return a value). If used correctly it's a very short and simple way to halt a routine if a parameter is $null.
@@ -24,11 +24,15 @@ None
 
 <H4>Notes & Examples</H4>
 Halts the echo unless the active window is a channel:
-<pre class ="code">//echo -a $$chan test</pre>
+<pre class ="code">
+//echo -a $$chan test
+</pre>
 
 Starting from two $ onward, for example $$$, it returns the literal string "$$" or "$$$" in this case
 
-<pre class ="code">//tokenize 32 parm1 parm2 parm3 | echo 3 -a $ $$ | echo 4 -a $$3 | echo 5 -a $$3a,b</pre>
+<pre class ="code">
+//tokenize 32 parm1 parm2 parm3 | echo 3 -a $ $$ | echo 4 -a $$3 | echo 5 -a $$3a,b
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v2.8c (26 Mar 1995)

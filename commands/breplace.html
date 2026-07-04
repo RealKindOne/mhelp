@@ -36,10 +36,10 @@ None
 Alias Example {
   ; Create a binary variable set it to "Hello World"
   bset -t &Example 1 Hello World
-  &nbsp;
+
   ; Replace e (ASCII value 101) with 3 (ASCII value 51)
   breplace &Example 101 51
-  &nbsp;
+
   ; Echo our new string
   echo -a $bvar(&Example,1,$bvar(&Example,0)).text
 }

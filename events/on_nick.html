@@ -25,7 +25,7 @@ Echo the nickname change, and disregard mIRC's default nick change message:
 <pre class = "code">
 on ^*:NICK: {
   echo $comchan($newnick,1) * $nick |==&gt; $newnick
-&nbsp;
+
   ; Halt the default mIRC message
   haltdef
 }
@@ -40,7 +40,7 @@ Echo to the channel when the local nickname is changed, and halt mIRC's default 
 <pre class = "code">
 on ME:^*:NICK: {
   echo $comchan($newnick,1) You are now ==&gt; $newnick
-&nbsp;
+
   ; Halt the default mIRC message
   haltdef
 }

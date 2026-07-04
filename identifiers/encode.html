@@ -12,7 +12,7 @@ The <b>$encode</b> identifier allows you to encode literal text, or text in <a h
 <pre class ="code">
 ; encoding only
 $encode(text/%var/&binvar [, btumavxy] [, N] )
-&nbsp;
+
 ; encryption
 $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 </pre>
@@ -194,7 +194,7 @@ generated randomly, the only way to identify which of the 2 aliases
 was used to encrypt the message is whether the mimed string's length
 is 8N or 8N+1.
 */
-&nbsp;
+
 alias fake_secret_chat2 { if (!$chan) return
   ; //hadd -m secret_chat $network $+ ##maroon Change this Shared Secret
   noop $regex(foo,$chan($chan).topic,salt:(\S+) ) | var %chan.salt $regml(foo,1)

@@ -48,13 +48,13 @@ A basic usage for a hash table.
 alias abbr_setup {
   ;create the table
   hmake abbr 1000
-&nbsp;
+
   ; populate the table
   hadd abbr lol laughing out load
   hadd abbr omg oh my gosh
   hadd abbr lmao laughing my a?? off
   hadd abbr brb be right back
-&nbsp;
+
   ; ...
 }
 ; get the abbreviation
@@ -72,18 +72,18 @@ Because a hash table of 1 buck is the same as a linked list, we can easily imple
 alias stack_example {
   ; create a linked-list
   hmake stack 1
-&nbsp;
+
   ; push items
   push stack AAA
   push stack BBB
   push stack CCC
   push stack DDD
-&nbsp;
+
   ; pop everything
   while ($pop(stack)) {
     echo -a poped: $v1
   }
-&nbsp;
+
   ; delete linked-list
   hfree stack
 }
@@ -91,7 +91,7 @@ alias push {
   ; keep a counter so we keep a unique key each time
   if (!$hget($1,0).item) hadd $1 counter 1
   else hadd $1 counter $calc($hget($1, counter).data + 1)
-&nbsp;
+
   ; make it the first item
   hadd $1 key. $+ $hget($1, counter).data $2
 }

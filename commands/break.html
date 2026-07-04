@@ -24,14 +24,14 @@ None
 Assume we have the following global variables:
 %foo = foobar
 %bar = example
-&nbsp;
+
 $isValue(testing) -> $false
 $isValue(foobar) -> %foo
 */
 Alias isValue {
   ; Declare a counter variable and a returning variable
   var %count 1, %found $false
-&nbsp;
+
   ; Loop through all the variables
   while (%count &lt;= $var(*)) {
     /*

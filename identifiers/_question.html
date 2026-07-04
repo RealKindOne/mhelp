@@ -40,24 +40,26 @@ $? can be used without the '=' sign as long as you either don't pass a text para
 
 In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 
-<pre class ="code">//echo -a $?"message with multiple words" $?!"test"</pre>
+<pre class ="code">
+//echo -a $?"message with multiple words" $?!"test"
+</pre>
 This line cause parsing issue, here $?!"test" is evaluated before, mIRC seems to get lost as to which quote is closing which quote, and end up evaluating more than it should
 
 <H4>Example</H4>
 <pre class ="code">
-;Echoes whatever the user types into the input field to the active window.
+; Echoes whatever the user types into the input field to the active window.
 alias testme {
   echo -a $?="Type something for me"
 }
-;use password field
+; use password field
 alias testme {
   echo -a $?*="Enter Password:"
 }
-;use yes/no button
+; use yes/no button
 alias testme {
   echo -a $?!="Do you like chocolate?"
 }
-;will ask you to type something because $3 is not set
+; will ask you to type something because $3 is not set
 alias testme {
   tokenize 32 A B
   echo -a $?3

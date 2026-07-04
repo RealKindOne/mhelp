@@ -302,6 +302,7 @@
     - [X]()
       - [/xyzzy](commands/xyzzy.md)
 - [Identifiers](identifiers.md)
+    - [\*]()
       - [$1-](identifiers/1-.md)
       - [$&](identifiers/_ampersand.md)
       - [$!](identifiers/_exclamation.md)

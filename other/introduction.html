@@ -467,11 +467,11 @@ When you start with an empty script file, you're on the top level, meaning you c
 <H4><span style="color: #9E1010;">Wrong Example</span></H4>
 <pre class ="code">
 alias first {
-&nbsp;
+
 alias second {
-&nbsp;
+
 }
-&nbsp;
+
 }
 </pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
 
@@ -480,10 +480,10 @@ alias second {
 <H4><span style="color: #256B22;">Good Examples</span></H4>
 <pre class ="code">
 alias first {
-&nbsp;
+
 }
 alias second {
-&nbsp;
+
 }
 </pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 

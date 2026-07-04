@@ -41,16 +41,16 @@ A simple line separator between two lines:
 alias example {
   ; create our example window
   window -de @example -1 -1 400 400
-&nbsp;
+
   ; print a simple line
   aline @example Line A.
-&nbsp;
+
   ; add a line separator
   linesep @example
-&nbsp;
+
   ; print another simple line
   aline @example Line B.
-&nbsp;
+
   ; The following /linesep command does nothing because the
   ; last line is already the line separator character.
   //echo -a $readini($mircini,text,linesep) | /linesep -a

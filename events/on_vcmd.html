@@ -34,7 +34,7 @@ alias vctest {
  vcadd connect Dalnet, connect Efnet, connect Undernet, connect IRCnet
  vcadd Part Channel, Disconnect, List Commands, Moo Cow
 }
-&nbsp;
+
 on 1:vcmd:connect*:*:server $2
 on 1:vcmd:part channel:*:if ($active ischan) part $active
 on 1:vcmd:disconnect:*:quit
