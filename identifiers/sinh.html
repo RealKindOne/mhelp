@@ -8,7 +8,8 @@
 The <b>$sinh</b> identifier returns the hyperbolic sine (hypersine) of an angle of N radians.
 
 <H4>Synopsis</H4>
-<pre class ="code">$sinh(&lt;N&gt;)[.deg]
+<pre class = "code">
+$sinh(&lt;N&gt;)[.deg]
 </pre>
 
 <H4>Parameters</H4>
@@ -21,12 +22,19 @@ You can use the letter 'e' or 'd' as *10^N, $sinh(5e6) = $sinh($calc(5*10^6))
 
 <H4>Example</H4>
 
-<pre class ="code">//echo -a There are 2x pi radians in a circle, so a radian is $calc(360 / (2*$pi) ) degrees
+<pre class = "code">
+//echo -a There are 2x pi radians in a circle, so a radian is $calc(360 / (2*$pi) ) degrees
 //var %e 2.718281 | var %angle $calc( 30 * $pi / 180)   | echo -a $sinh(%angle) same as $calc( ((%e ^ %angle) - (%e ^ (0 - %angle) )) /2 )
 //var %angle 30 | echo -a $sinh(%angle).deg same as $sinh( $calc( %angle * $pi / 180) ) except for rounding
 </pre>
 
-Unlike <a href="sin.html">$sin</a>, <pre class ="code">$sinh(N degrees).deg</pre> is not the same as <pre class ="code">$sinh( N + 360 degrees).deg</pre>
+Unlike <a href="sin.html">$sin</a>,
+<pre class = "code">
+$sinh(N degrees).deg</pre>
+is not the same as
+<pre class = "code">
+$sinh( N + 360 degrees).deg
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.33 (27 May 2014)

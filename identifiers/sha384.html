@@ -56,10 +56,14 @@ mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha384, if 
 <H4>Error Messages</H4>
 Note that $sha384 differs from $crc in that it generates error for non-existent files instead of returning hash of $null string. Also, hex string returned by $sha384 is lowercase while $crc returns uppercase hex.
 
-<pre class = "code">* Error accessing file: $sha384</pre>
+<pre class = "code">
+* Error accessing file: $sha384
+</pre>
 Either file does not exist, or file permissions don't allow the file to be read. i.e. $sha384(non-existent-file,2) or $sha384(c:\hiberfil.sys,2)
 
-<pre class = "code">* Invalid parameters: $sha384</pre>
+<pre class = "code">
+* Invalid parameters: $sha384
+</pre>
 Either using a zero-length/non-existent binary variable or specifying an N outside the 0-2 valid range.
 
 Both above errors halt execution of the script

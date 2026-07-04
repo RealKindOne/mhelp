@@ -8,7 +8,7 @@
 The <b>$scid</b> allows you to get the server id for a connection, or specific details regarding the properties of a certain connection id.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $scid(N)[.property]
 </pre>
 
@@ -20,13 +20,19 @@ $scid(N)[.property]
 
 <H4>Example</H4>
 Echo the total number of connections to the active window
-<pre class ="code">//echo -a $scid(0)</pre>
+<pre class = "code">
+//echo -a $scid(0)
+</pre>
 
 Use the optional identifier-supported property to echo the server name of connection ID 39 to the active window
-<pre class ="code">//echo -a $scid(39).server</pre>
+<pre class = "code">
+//echo -a $scid(39).server
+</pre>
 
 Use the optional identifier-supported property to echo the network name of connection ID 39 to the active window
-<pre class ="code">//echo -a $scid(39).network</pre>
+<pre class = "code">
+//echo -a $scid(39).network
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)

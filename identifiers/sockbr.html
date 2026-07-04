@@ -8,7 +8,7 @@
 The <b>$sockbr</b> identifier returns the number of bytes read from the last /sockread command done for that socket.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $sockbr
 </pre>
 
@@ -19,14 +19,16 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">on *:sockread:name:{
+<pre class = "code">
+on *:sockread:name:{
   if ($sockerr) return
   var %a
   ;sockread %a reads one line, or nothing
   ;we check if we read anything before comparing
   if (!$sockbr) return
   if (%a == something) echo -a ok
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

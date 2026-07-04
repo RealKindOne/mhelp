@@ -9,7 +9,7 @@ The <b>$rgb</b> identifier converts between R,G,B vs color-number, or returns sy
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $rgb(&lt;R,G,B&gt; | &lt;N&gt; | &lt;SystemColorName&gt; )
 </pre>
 
@@ -35,7 +35,7 @@ $rgb(&lt;R,G,B&gt; | &lt;N&gt; | &lt;SystemColorName&gt; )
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a The RGB color number for #7 (olive) is $color(7) with R,G,B values $rgb($color(7))
 ; The RGB color number for #7 (olive) is 32764 with R,G,B values 252,127,0
 //echo -a $color(7) converted to hex is $base($color(7),10,16,6) which shows mIRC's RGB color number is actually combined as B,G,R
@@ -43,7 +43,7 @@ None
 </pre>
 
 ; If you want to get the RGB number for color Goldenrod, which is RGB color #DAA520, you can use $rgb to convert the 3 RGB 0-255 numbers into the single 24-bit decimal number
-<pre class ="code">
+<pre class = "code">
 //var %c DAA520 | echo -a       $base($left(%c,2),16,10,2)   $base($mid(%c,3,2),16,10,2)   $base($right(%c,2),16,10,2)
 //var %c DAA520 | echo -a $rgb( $base($left(%c,2),16,10,2) , $base($mid(%c,3,2),16,10,2) , $base($right(%c,2),16,10,2) )
 ; converts 218,165,32 into 2139610 by using $calc(32*65536 + 165*256 + 218*1 )
@@ -51,7 +51,7 @@ None
 
 ;RGB can also return the 24-bit RGB decimal number for system color names:
 
-<pre class ="code">
+<pre class = "code">
 //var %i 1 | var %list face shadow hilight 3dlight frame text | while (%i isnum 1-6) { var %n $gettok(%list,%i,32) | echo -a system color for %n is $rgb(%n) or $rgb( $rgb(%n) ) | inc %i }
 </pre>
 

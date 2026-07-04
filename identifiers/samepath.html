@@ -9,7 +9,7 @@ The <b>$samepath</b> identifier evaluates whether the pair of [path\]filenames r
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $samepath(&lt;string1&gt;,&lt;string2&gt;)
 </pre>
 
@@ -20,7 +20,7 @@ $samepath(&lt;string1&gt;,&lt;string2&gt;)
 You can use relative path for both parameters.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a This returns $true $samepath( $mircexe , $nopath($mircexe) )
 //echo -a This very likely returns $true $samepath( c:\program files\ , c:\progra~1\ )
 //echo -a Returns $true if at least 1 subfolder: $samepath( $finddir($mircdir,*,1,1) , $remove($finddir($mircdir,*,1,1),$mircdir) )

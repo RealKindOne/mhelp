@@ -8,7 +8,7 @@
 The <b>$strip</b> identifier removes colors and/or other control-code formatting from text.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $strip(&lt;text&gt;[,burcimoe])
 </pre>
 
@@ -33,7 +33,7 @@ Note from the above that the control-code entered at the keyboard is not always 
 
 <H4>Example</H4>
 Two consecutive ^B's used within a bad word does not alter the display, but prevents a match against the badword list unless $strip is first used on the text
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:*:#channelname:{
   var %i $CheckForBadWords($strip($1-))
   ; Using Strip to find 'bad words' that could have been disguised by colors and control-codes

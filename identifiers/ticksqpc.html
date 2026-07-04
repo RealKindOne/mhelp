@@ -12,7 +12,7 @@ The $ticksqpc allows scripts to detect the passage of milliseconds of time more 
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $ticksqpc
 </pre>
 
@@ -27,7 +27,7 @@ When benchmarking this script using $ticks, it returns either 0 or 16 for 'time1
 
 * /timer 10 1 example
 
-<pre class ="code">
+<pre class = "code">
 ; time how long it takes to execute an empty loop 10,000 times.
 Alias example {
   var %i 500 , %ticks $ticks    | while (%i) { dec %i } | echo -a time1: $calc($ticks    - %ticks)
@@ -45,13 +45,13 @@ However, the $ticksqpc value is perfectly fine for benchmarking scripts with the
 <p>
 For fine-tuning benchmarks which have very short intervals, you should make the script wait until the time value has incremented before using that as the start-time. This first example counts how many times the while() loops within a millisecond. However, it will return results which fluctuate wildly because your command could have begun near the beginning or ending of that millisecond interval.
 
-<pre class ="code">
+<pre class = "code">
 //var %count 0 , %t $ticksqpc | while (%t == $ticksqpc) inc %count | echo -a loops: %count
 </pre>
 
 For a more accurate benchmark, you should use the above as a way to begin the milliseconds interval before then beginning your 'true' benchmark time. Note how this next variant has an occasional hiccup, but most of the time it returns a number in a very narrow range:
 
-<pre class ="code">
+<pre class = "code">
 //var %t $ticksqpc | while (%t == $ticksqpc) noop | var %t $ticksqpc , %count 0 | while (%t == $ticksqpc) inc %count | echo -a loops: %count
 </pre>
 

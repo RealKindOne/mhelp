@@ -19,13 +19,17 @@ None
 
 <h4>How it works</h4>
 Understanding how <b>$*</b> works is pretty simple, so consider the following:
-<pre class ="code">var %list a b c d,%a 1
+<pre class = "code">
+var %list a b c d,%a 1
 while ($gettok(%list,%a,32) != $null) {
     echo -a $v1
     inc %a
-}</pre>
+}
+</pre>
 This can be written as:
-<pre class ="code">tokenize 32 a b c d | echo -a $*</pre>
+<pre class = "code">
+tokenize 32 a b c d | echo -a $*
+</pre>
 The above is much smaller, and a lot faster. Pretty cool, isn't it?
 
 <h4>Notes & Quirks</h4>
@@ -34,13 +38,18 @@ Why was the <b>$*</b> identifier removed from the help file in the first place? 
 <br>
 mIRC takes the command <b>$*</b> appears in, and replaces all of the occurrences in the line by a special marker: <b>`~$*:</b> An example of how this is accomplished is shown below:
 
-<pre class ="code">//tokenize 32 abcd | echo -a $left($*,1) $+ $chr(3) $+ $mid($*,2)</pre>
+<pre class = "code">
+//tokenize 32 abcd | echo -a $left($*,1) $+ $chr(3) $+ $mid($*,2)
+</pre>
 
 So if <b>$1</b> is not $null, <b>$*</b> returns the value of the marker. If <b>$1</b> is $null, <b>$*</b> will make the command it appears in do nothing but the rest of the script is processed:
-<pre class ="code">//echo -a $mid($*,2) -- ok | echo -ag ??</pre>
+<pre class = "code">
+//echo -a $mid($*,2) -- ok | echo -ag ??</pre>
 
 Further examining the code, it is easy to understand why the above returns such a value:
-<pre class ="code">//tokenize 32 abcd | echo -a $mid($*,2)</pre>
+<pre class = "code">
+//tokenize 32 abcd | echo -a $mid($*,2)
+</pre>
 
 Why isn't this returning bcd? Because of the usage of the special marker <b>`~$*</b>, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
 <br>
@@ -49,7 +58,9 @@ Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>
 However, after an operation like $mid in this example, that marker cannot be found. Basically, it cannot be guaranteed that the correct value of the marker inside an identifier can be found later for replacement of that marker. <br>
 
 There is a workaround for the above issue, and that is by using a command which double evaluates, such as <a href="../commands/timer.html">/timer</a>, but <a href="../commands/scid.html">/scid</a> or <a href="../commands/scon.html">/scon</a> is typically used because they involve less resources:
-<pre class ="code">//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)</pre>
+<pre class = "code">
+//tokenize 32 abcd | scon -r echo -a $!mid( $* ,2)
+</pre>
 <br>
 mIRC replaces <b>$*</b> by the marker, but scon has an extra evaluation system which fits perfectly. The <b>$*</b> mechanism is enabled on scon, and mIRC stores the command of the <b>$*</b> as <b>scon -r echo -a $!mid( `~$* ,2)</b>
 
@@ -63,12 +74,16 @@ Another issue is that you cannot call $* more than once in the same scope; the c
 Simply retokenize after using <b>$*</b>.
 However, note that $* will remember the number of token it already went through, <b>$*</b> will only start from the previous number of tokens + 1, look at this example:
 
-<pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 4 5 6 7 8 | echo -a $* | echo -a here</pre>
+<pre class = "code">
+//tokenize 32 1 2 3 | echo -a $* | tokenize 32 4 5 6 7 8 | echo -a $* | echo -a here
+</pre>
 
 The first three tokens of the second tokenize, <b>4 5 6</b>, are dummy tokens which are passed to fill in the gap. <b>$*</b> is actually starting from the 4th token.<br>
 If you are dealing with dynamic parameter and want to use $* again in the same scope, you can use <b>$str(AT,$0) $+</b> as the dummy tokens, where A is a non token character, and where T is a token character, that indeed makes sure the correct number of dummy tokens is used:
 
-<pre class ="code">//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here</pre>
+<pre class = "code">
+//tokenize 32 1 2 3 | echo -a $* | tokenize 32 $str(A $chr(32),$0) $+ 7 8 | echo -a $* | echo -a here
+</pre>
 
 <br><b>Note:</b> This workaround works even inside a loop, but a better workaround is to call an alias and to execute the new <b>$*</b> in there, the previous tokens will be cleared and it is faster.
 

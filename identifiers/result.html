@@ -8,7 +8,7 @@
 The <b>$result</b> identifier returns the value passed to the last <a href="../commands/return.html">/return</a> (or <a href="../commands/returnex.html">/returnex</a>) command only if the alias was called as a command (as of 7.51, may be extended to any aliases call in the future).
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $result
 </pre>
 
@@ -19,14 +19,15 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 alias test {
   return 5
 }
 alias testing {
   test
   echo -a $result
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.52 (06 Jul 1996)

@@ -8,7 +8,7 @@
 The <b>$tan</b> identifier returns the tangent of an angle of N radians.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $tan(&lt;N&gt;)[.deg]
 </pre>
 
@@ -21,13 +21,13 @@ $tan(&lt;N&gt;)[.deg]
 <H4>Example</H4>
 
 Tangent is the ratio of the Opposite Side / Adjacent Side of a right triangle, so in a right triangle from the position of an angle of 30 degrees, the length of the Opposite side is .57735 as long as the Adjacent side. As with <a href="calc.html">$calc</a>, the returned fraction is limited to 6 decimal places.
-<pre class ="code">
+<pre class = "code">
 //echo -a There are 2x pi radians in a circle, so a radian is $calc(360 / (2*$pi) ) degrees
 //var %i 30 | echo -a $tan(%i).deg is the same as $tan( $calc(%i * $pi / 180) ) except for rounding
 </pre>
 
 $tan accepts numbers larger than 1 rotation of a circle, as if the angle loops past the origin and continues. Assuming you are using the .deg property, angles above 360 degrees return the same result of the angle modulo 360.
-<pre class ="code">
+<pre class = "code">
 //var %i 400 | echo -a $tan(%i).deg is the same as $tan( $calc(%i % 360) ).deg
 </pre>
 

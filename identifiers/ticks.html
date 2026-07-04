@@ -13,7 +13,7 @@ The $ticks identifier is used to retrieves the current system uptime in millisec
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $ticks
 </pre>
 
@@ -24,7 +24,7 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; time how long it takes to execute an empty loop 10,000 times.
 Alias example {
   var %ticks = $ticks, %x = 10000
@@ -37,12 +37,12 @@ Alias example {
 
 As an example of the limited precision of $ticks, you can see from the following command that during an interval of 1000 milliseconds where the current $ticks result is continually added to a tokenized list, that it does not create a list of 1000 items, but instead creates a list of approximately 65 numbers which are generally separated by around 15-16.
 
-<pre class ="code">
+<pre class = "code">
 //var %end $ticks + 1000 , %list | while ($ticks &lt; %end) var %list $addtok(%list,$ticks,32) | echo -a $numtok(%list,32) items: %list
 </pre>
 
 This means that scripts which use $ticks to create a unique name for a timer or a COM call can easily fail. If you need a fast way to create a unique string, you can use something like:
-<pre class ="code">
+<pre class = "code">
 alias unique { hinc -m unique sequential | return $hget(unique,sequential) }
 </pre>
 

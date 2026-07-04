@@ -11,7 +11,7 @@ $sockerr is not a local identifier only set inside event, it is set after any /s
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $sockerr
 </pre>
 
@@ -55,10 +55,12 @@ Remember that using a /sock* command will change the $sockerr value, so these er
 <b>Note2:</b> These codes were taken from http://www.xise.nl/mirc/wiki/doku.php/doku.php?id=sockerr
 
 <H4>Example</H4>
-<pre class ="code">on *:sockread:name:{
+<pre class = "code">
+on *:sockread:name:{
   if ($sockerr) return
   …
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

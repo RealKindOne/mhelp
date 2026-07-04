@@ -8,7 +8,7 @@
 The <b>$str</b> identifier duplicates the specified text string n times.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $str(&lt;text&gt;,&lt;N&gt;)
 </pre>
 
@@ -23,7 +23,7 @@ Returns $null if N is $null or is not greater than or equal to 1.
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a $str(Yes,3)
 ; returns: YesYesYes
 //echo -a $str(Yes $+ $chr(32) ,3)
@@ -32,13 +32,13 @@ None
 
 Identifier makes it easier to replicate long strings, or strings of variable lengths.
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $str(=+ ,39) $+ =
 //echo -a %Title
 //echo -a $str($chr(45),$len(%Title))
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; Initialize a 20-token comma-separated array
 //set %values $str(0 $+ $chr(44),19) $+ 0
 </pre>

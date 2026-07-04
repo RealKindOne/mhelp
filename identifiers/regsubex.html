@@ -14,7 +14,7 @@ The <b>$regsubex</b> identifier performs a regular expression match and then sub
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $regsubex([name],input,regex,subtext,%var|&binvar)
 </pre>
 
@@ -38,33 +38,35 @@ Markers:
 None
 
 <H4>Example</H4>
-<pre class ="code">//var %a | echo -a $regsubex(abcd,/([a-z])/g,-\n \1-)</pre>
+<pre class = "code">
+//var %a | echo -a $regsubex(abcd,/([a-z])/g,-\n \1-)
+</pre>
 
 Note how the 1st example below returns the string in red because the input is not altered when there were no matches. However because the 2nd example found at least 1 match, the result excludes any control codes stripped by the /S modifier flag.
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $regsubex(foo,$chr(3) $+ 4test,/(z)/gS,x)
 //echo -a $regsubex(foo,$chr(3) $+ 4test,/(.)/gS,x)
 </pre>
 $regsubex does not return a numeric indicator of whether or not there was a match, it simply returns the input string altered by 0 or more matches, though it also does fill the named capture groups seen by $regml and $regmlex.
 <br>
 Example of translating hex strings into the base10 format needed by /bset
-<pre class ="code">
+<pre class = "code">
 //var -s %string $sha256(abc) , %pattern /([0-9a-fA-F]{2})\s*/g , %bytevals $regsubex(foo,%string,%pattern,$base(\t,16,10) $+ $chr(32)) | bset -c &binvar 1 %bytevals | echo -a $bvar(&binvar,1-)
 </pre>
 Example of creating a list of the 94 text characters from codepoints 33-126. Note how this is only used for creating the \n token where it increments from the range 1-94, and since there were no capture groups the \t will always be null regardless if there were any matches, and the \t can be removed without changing the result:
-<pre class ="code">
+<pre class = "code">
 //echo -a $regsubex(foo,$str(x,94),/x/g,\t $chr($calc(32+ \n)))
 </pre>
 result: !"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 <br>
 Example of using $regsubex to create a series of 32 byte values. Then assuming there is 256 bits of entropy in the input, uses $regsubex to create a 256-bit key in hex format. Note that the 2nd method is probably preferrable since it allows each of the 32 random byte values to have an effect on each bit of the key, while the 1st method causes each byte value to affect only 8 bits of the key:
-<pre class ="code">
+<pre class = "code">
 //var -s %bytevals $regsubex(foo,$str(x,32),/x/g,$rands(0,255) $+ $chr(32)) | echo -a method1: $lower($regsubex(foo,%bytevals,/(\d+)\s*/g,$base(\t,10,16,2))) | echo -a method2: $sha256(%bytevals)
 </pre>
 Example of ROT13 which replaces the a-m range + 13 as n-z, and replaces n-z with a-m. Also the english version of Atbash which replaces each alpha letter with the letter as if the alphabet was flipped backwards. Wizard was possibly created as a word originally due to being itself spelled backwards in this encoding.
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $regsubex(maroon 123 FooBar,/([a-zA-Z])/g,$chr( $calc($asc(\t) $iif(\t isin abcdefghijklm,+13,-13) ))))
 //echo -a $regsubex(maroon 456 Wizard,/([a-zA-Z])/g,$chr( $calc(91+64 + $and(32,$asc(\t)) - $asc($upper(\t)))))
 </pre>

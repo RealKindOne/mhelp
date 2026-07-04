@@ -9,7 +9,7 @@ The <b>$rands</b> identifier returns a "cryptographically secure" random integer
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $rands(number1,number2)
 $rands(char1,char2)
 </pre>
@@ -23,7 +23,7 @@ None
 <H4>Example</H4>
 See <a href="rand.html">$rand</a> for examples, as this identifier differs only in the source of the random values.
 
-<pre class ="code">
+<pre class = "code">
 //var %i 999999 , %t $ticks | while (%i) { noop | dec %i } | echo -a ms: $calc($ticks - %t)
 //var %i 999999 , %t $ticks | while (%i) { noop $rand(0,999999999) | dec %i } | echo -a ms: $calc($ticks - %t)
 //var %i 999999 , %t $ticks | while (%i) { noop $rands(0,999999999) | dec %i } | echo -a ms: $calc($ticks - %t)
