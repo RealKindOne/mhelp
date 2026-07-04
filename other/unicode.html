@@ -11,17 +11,17 @@ This page does not attempt to describe what Unicode is but rather how mIRC handl
 <H4>mIRC and Unicode</H4>
 
 Before Unicode (mIRC 7.x), mIRC supported Windows' code pages, handling various character sets used in different parts of the world. Code pages encode characters in 8 bits (1 byte): 8 bits can be used to represent 256 values. Code pages all use the first 128 values for ASCII, and then each code page adds the required characters for the language e.g. &#233; for French, although before unicode, for Japanese or Chinese language, they already needed more than 256 values and where already using special encoding, using more than one byte.
-<P>
+<p>
 Unicode provides a single character encoding which supports all languages using 1,114,112 distinct characters. Since IRC users are from all over the world, often using their own language and character set, using a single common character set is a major advantage.
-<P>
+<p>
 Applications can implement Unicode internally in a variety of different ways. mIRC v7+ uses UTF16 encoding internally using 16 bits or 2 bytes to hold each character. Earlier versions used US-ASCII, using 8 bits or 1 byte per character. There are two mains reasons for this:
-<P>
+<p>
 <li>The most frequently used characters are encoded from 0 to 65535, and with UTF16 these can be stored with only 16 bits. As a result, the mIRC code dealing with Unicode is going to be faster than UTF32.</li>
 <li>It uses less memory than UTF32.</li>
-<P>
+<p>
 Drawback: Characters over 65535 are encoded in utf16 as two 16 bits unit called surrogates but mIRC does not *support* this. <a href="../identifiers/asc.html">$asc</a> and <a href="../identifiers/chr.html">$chr</a> cannot be used with characters over 65535.
 
-<pre class ="code">
+<pre class = "code">
 //var -s %a = $chr(55384), %b = $chr(56320) | echo -a %a $+ %b -- $len(%a $+ %b)
 
  &#155648; -- 2
@@ -31,7 +31,7 @@ What happens here is that mIRC pass the two surrogates to /echo, /echos call a W
 <H4>$regsubex</H4>
 
 Whilst rendering functions will normally display characters over 65536 correctly when programmed in this way, some usages of some functions in mIRC, such as $regsubex, won't handle the surrogate as expected.
-<pre class ="code">
+<pre class = "code">
 //echo -ag $regsubex(aa,/(a)/gu,$chr($gettok(55357 56607,\n,32))) vs $replace(ab,a,$chr(55357),b,$chr(56607))
 </pre>
 For $regsubex this is because mIRC is using the 8 bits pcre api: when replacing it has to convert your 16 bits unit ($chr(55357) in the first iteration) to UTF8.
@@ -41,7 +41,7 @@ For $regsubex this is because mIRC is using the 8 bits pcre api: when replacing 
 <H4>$utfencode / $utfdecode</H4>
 You can also express those characters with their UTF8 representation using <a href="../identifiers/utfdecode.html">$utfdecode</a>, which decodes UTF8:
 
-<pre class ="code">
+<pre class = "code">
 ;you can use utf8 to form the character 65536 for example, which is four bytes in utf8 (f0 90 80 80):
 //var -s %a $utfdecode($chr($base(f0,16,10)) $+ $chr($base(90,16,10)) $+ $chr($base(80,16,10)) $+ $chr($base(80,16,10)))
 
@@ -50,7 +50,7 @@ You can also express those characters with their UTF8 representation using <a hr
 
 $utfencode can be used to encode text to utf8:
 
-<pre class ="code">
+<pre class = "code">
 //var -s %a $utfencode(&#232;)
 
 &#193;&#34;
@@ -60,7 +60,7 @@ $utfencode can be used to encode text to utf8:
 The scripting language still somewhat support code pages, you can decode text to utf8 while the bytes in the text are interpreted in the given code page.
 
 Each code page has a number (Gdi charset):
-<pre class ="code">
+<pre class = "code">
 * 000 - ANSI_CHARSET
 * 001 - DEFAULT_CHARSET
 * 002 - SYMBOL_CHARSET
@@ -82,11 +82,11 @@ Each code page has a number (Gdi charset):
 * 255 - OEM_CHARSET
 </pre>
 <br><b>Note:</b> GDI charsets 1 and 255 are system dependent and are therefore expected to return different results across different machines. Values not on the table are treated as a reference to DEFAULT_CHARSET, equivalent to using C = 1.
-<P>
+<p>
 For example, if you want to get the text (FROM GREEK TO UTF8), which used the ISO-8859-7 (GREEK) encoding for Greek letters, in utf8, you need to encode that to utf8, interpreting the bytes as per in the GREEK code page, and then to decode that to utf8: $utfdecode($utfencode(text,161))
-<P>
+<p>
 If you want to send the text in GREEK over IRC, mIRC will encode the bytes internally so you must encode the text in utf8, and then decode to utf8, interpreting the bytes as per in the GREEK code page: /raw -n privmsg #chan $utfdecode($utfencode(text),161)
-<P>
+<p>
 It must be noted that some commands and identifiers will encode your text to utf8, changing the integrity of your input.
 Each character is represented as 16 bits internally, the array of character is not an array of byte, it's an array of 16 bit (two bytes).
 But let's take a look at "/msg #chan &#233;".
@@ -103,24 +103,24 @@ And this is happening pretty much everywhere.
 
 <H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.
-<P>
+<p>
 For example "&#212;" can be sent from another IRC client either as $chr(212) or decomposed into a capital O $chr(79) followed by a combining circumflex $chr(770).
-<P>
+<p>
 Normalization is a means of ensuring that all such characters are encoded either as the single integrated character or using modifiers in order that strings which might have a mixture of these techniques can be compared.
-<P>
+<p>
 mIRC does not support normalization of Unicode strings either explicitly OR implicitly when comparing strings.
-<P>
+<p>
 Experimentation suggests that mIRC does not normally recognize combining characters and will not display the combining character at all, which can lead to communication confusion. So a "&#212;" sent decomposed into capital O $chr(79) followed by a combining circumflex $chr(770) will be displayed as "O".
-<P>
+<p>
 To complicate things still further, some unicode characters look the same as or very similar to other completely different characters - and some of these characters are always considered unequal in strict Unicode whilst others can be converted during normalization. mIRC treats such characters as different under all circumstances.
 
 <H4>Case insensitive comparisons</H4>
 
 Without normalization, mIRC therefore fails to correctly compare unicode characters. This is not only true for the scripting language but anywhere in mIRC.
-<P>
+<p>
 For example if you set a highlight entry with unicode letter, it won't work for a lower/uppercase version of that letter, same with <a href="../commands/if.html">/if</a>'s "==" comparison operator with unicode letter:
 
-<pre class ="code">
+<pre class = "code">
 //echo o === O $iif(o === O,$true,$false) , o == O $iif(o == O,$true,$false)
 ;o === O $false , o == O $true
 ;correct
@@ -131,13 +131,13 @@ For example if you set a highlight entry with unicode letter, it won't work for 
 </pre>
 
 However, mIRC's <a href="../identifiers/upper.html">$upper</a> and <a href="../identifiers/lower.html">$lower</a> identifiers correctly convert upper and lower case unicode:
-<pre class ="code">
+<pre class = "code">
 //echo $ $+ lower(&#212;) = $lower(&#212;) , $ $+ upper(&#244;) = $upper(&#244;)
 ;$lower(&#212;) = &#244; , $upper(&#244;) = &#212;
 </pre>
 
 So case insensitive comparisons can be made by explicitly converting both sides to upper or lower case e.g. "if ($upper(%a) === $upper(%b))":
-<pre class ="code">
+<pre class = "code">
 //echo &#244; === $ $+ lower(&#212;) $iif(&#244; === $lower(&#212;),$true,$false) , &#244; == $ $+ lower(&#212;) $iif(&#244; == $lower(&#212;),$true,$false)
 ;&#244; === $lower(&#212;) $true , &#244; == $lower(&#212;) $true
 //echo &#212; === $ $+ upper(&#244;) $iif(&#212; === $upper(&#244;),$true,$false) , &#212; == $ $+ upper(&#244;) $iif(&#212; == $upper(&#244;),$true,$false)

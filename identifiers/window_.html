@@ -8,7 +8,7 @@
 The <b>$window()</b> identifier returns information about the specified window for the current connection.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $window(N/name)[.property]
 </pre>
 
@@ -57,13 +57,13 @@ $window(N/name)[.property]
 
 <H4>Example</H4>
 
-<pre class ="code">
+<pre class = "code">
 //echo -a There are $window(0) custom windows open $iif($window(1),The first custom window listed in 'window' menu is $v1)
 //echo -a Custom window @test $iif($window(@test),Does,Does Not) exist.
 //echo -a Channel named #test $iif($window(#test),is open on this .cid,is not open on this .cid but might be open on other .cid)
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 //var %i $window(0) , %list | while (%i) { var %list $window(%i).sbtext %list | dec %i } | echo -a These are the @custom windows as shown in the switchbar: %list (windows listed without @ were created using -k switch)
 //echo -a The font of the active window is: $window($active).font $window($active).fontsize $iif($window($active).fontbold,Bold) $iif($window($active).fontitalic,Italic)
 //window -ea @test | titlebar @test This text appears in the titlebar | [ $iif($window(@test).type == listbox,aline,echo) ] @test The titlebar of this window shows $window(@test).title

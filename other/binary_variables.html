@@ -76,21 +76,23 @@ If a binary variable has length N, position N is the last byte of the variable. 
 <H4>Unicode</H4>
 
 Writing unicode characters to binary variables using the -t switch causes the length of the binary variable to be longer than the length of the text string written to them. Unicode characters 128-2047 add 2 bytes to a binary variable and 2048-65535 add 3 each. When adding text to a variable you can use -ta instead of -t to avoid encoding Unicode characters 128-255 as 2 bytes, but only if the text value being added contains no Unicode characters greater than 255.
-<pre class ="code">
+<pre class = "code">
 //bset -t &var1 1 $chr(  233) | echo -a shows length is 2 -> $bvar(&var1,0)
 //bset -t &var2 1 $chr(10004) | echo -a shows length is 3 -> $bvar(&var2,0)
 //bset -ta &var3 1 $chr(  233) | echo -a shows length is 1 -> $bvar(&var3,0)
 //bset -ta &var4 1 $chr(10004) | echo -a shows length is 3 -> $bvar(&var4,0)
-//bset -ta &var5 1 $chr(233) $+ $chr(10004) | echo -a shows length is 2+3=5 -> $bvar(&var5,0)</pre>
+//bset -ta &var5 1 $chr(233) $+ $chr(10004) | echo -a shows length is 2+3=5 -> $bvar(&var5,0)
+</pre>
 
 Note: If you add $chr(233) and $chr(10004) as 2 separate -ta commands, you can add character 233 as 1 byte and add 10004 as 3 bytes. In that case the 10004 does not cause the 233 to be encoded as 2 bytes because the strings were added separately:
-<pre class ="code">
-//bset -ta &var5 1 $chr(233) | bset -ta &var5 -1 $chr(10004) | echo -a shows length is 4 -> $bvar(&var5,1-)</pre>
+<pre class = "code">
+//bset -ta &var5 1 $chr(233) | bset -ta &var5 -1 $chr(10004) | echo -a shows length is 4 -> $bvar(&var5,1-)
+</pre>
 
 <H4>Creating Binary Variables Examples</H4>
 
 Binary variables can be created using one of the /commands or $identifiers which accept a binary variable as an output parameter, or by the /bset, /bcopy, and /bwrite commands created for that purpose.
-<pre class ="code">
+<pre class = "code">
 Set &binvar to 99 byte value 0 followed by byte value 255 at position 100:
 //bset -c &binvar 100 255 | echo -a &bvar(&binvar,1-)
 Set &binvar to text contents of %variable
@@ -107,7 +109,7 @@ Read from socket to &binvar
 on *:SOCKREAD:socket: { sockread 4096 &binsockread }
 </pre>
 <H4>Modifying Binary Variables Examples</H4>
-<pre class ="code">
+<pre class = "code">
 Replace all TAB characters with spaces:
 /breplace &binvar 9 32
 Compress contents of &versions
@@ -118,15 +120,16 @@ encrypt and encode contents of &versions
 <H4>Modifying existing Binary Variables</H4>
 
 Binary variables are different than text variables in how you add values to them, and what happens when you add shorter content to an existing variable with longer content. If you add 3 bytes to position 1 of a binary variable with length of 5, the 3 added bytes replace the 3 bytes in those positions, and the values in positions 4-5 remain unless you use the -c switch:
-<pre class ="code">
-//bset -t &var 1 1234567890 | bset -t &var 1 test | echo -a shows content is test567890 -> $bvar(&var,1-)</pre>
+<pre class = "code">
+//bset -t &var 1 1234567890 | bset -t &var 1 test | echo -a shows content is test567890 -> $bvar(&var,1-)
+</pre>
 
 The above example could be a string even longer than 10 if &var previously contained a strong longer than 10. If the 1st command used -tc instead of -t, the variable content is chopped beyond the 10 bytes being added. If the 2nd command used -tc instead of -t, the content beyond the 4 bytes being added is chopped.
 
 If you bset values into a variable at position 10, the first 9 positions are undefined, depending whether the variable already existed. If the variable already existed with length 4, the bytes at positions 5-9 are filled with value 0 (not text 0 which is byte value 48). If the variable did not yet exist, bytes at positions 1-9 are filled with value 0.
 
 <H4>Binary Variables as Input Examples</H4>
-<pre class ="code">
+<pre class = "code">
 display $sha1 hash of contents of &versions
 //echo -a $sha1(&versions,1)
 write &versions to disk
@@ -142,12 +145,15 @@ However the scope of binary variables means they exist in all aliases called by 
 * Create a unique variable name to make it unlikely that another alias would use the same name for a binary variable.
 
 Pass binary variable name to alias, display $bvar output in hex instead of decimal:
-<pre class ="code">//echo -a $BvarAsHex(&binvar)
-alias BvarAsHex { return $regsubex($bvar($1,1-1000),/(\d*)/g,$base(\1,10,16,2)) }</pre>
+<pre class = "code">
+//echo -a $BvarAsHex(&binvar)
+alias BvarAsHex { return $regsubex($bvar($1,1-1000),/(\d*)/g,$base(\1,10,16,2)) }
+</pre>
 
 Create unique name to avoid destroying existing variable:
-<pre class ="code">
-//var %a $(myalias,$ticks,$ctime) | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text</pre>
+<pre class = "code">
+//var %a $(myalias,$ticks,$ctime) | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text
+</pre>
 
 See <a href="variables.html">Variables</a> in the Guide for more details on creating dynamic variable names.
 
@@ -158,22 +164,34 @@ Note: If your temporary variable is no longer needed and is lengthy, you may wis
 Because binary variables disappear as soon as your script execution ends, if you need to use your binary variable later, you will need to find a way to save it:
 
 Write to a disk file:
-<pre class ="code">//bwrite -c save.dat 0 1 &binvar</pre>
+<pre class = "code">
+//bwrite -c save.dat 0 1 &binvar
+</pre>
 
 Store in hash table:
-<pre class ="code">/hadd -smb binvar_save binvar &binvar</pre>
+<pre class = "code">
+/hadd -smb binvar_save binvar &binvar
+</pre>
 
 Note: hash tables aren't saved to disk, so you need to save that table to disk:
-<pre class ="code">/hsave -sb binvar_save savebins.dat</pre>
+<pre class = "code">
+/hsave -sb binvar_save savebins.dat
+</pre>
 ... and then reload the binary variable the next time you re-start mIRC:
-<pre class ="code">/hload -sb binvar_save savebins.dat</pre>
+<pre class = "code">
+/hload -sb binvar_save savebins.dat
+</pre>
 
 Use $encode to translate binary data to text, which can be saved to variables or written to disk.
 
-<pre class ="code">//noop $encode(&binvar,bm) | set %binvar_save $bvar(&binvar,1-).text</pre>
+<pre class = "code">
+//noop $encode(&binvar,bm) | set %binvar_save $bvar(&binvar,1-).text
+</pre>
 Note: $encode translates 3 input bytes (binary or text) into 4 text characters, so you shouldn't try to use this method on binary variables longer than approximately 3000 bytes.
 Retrieve binary content from text %variable:
-<pre class ="code">//bset -t &binvar 1 %binvar_save | noop $decode(&binvar,bm)</pre>
+<pre class = "code">
+//bset -t &binvar 1 %binvar_save | noop $decode(&binvar,bm)
+</pre>
 
 </body>
 </html>

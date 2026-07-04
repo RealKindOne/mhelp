@@ -31,25 +31,33 @@ If & is not used alone it matches the plain text '&' character
 <br>
 Be careful when using the & wildcard character inside /if (and the like: $iif, /while, /elseif) it could be interpreted as the & bitwise operator:
 
-<pre class ="code">if (test & iswm test this)</pre>
+<pre class = "code">
+if (test & iswm test this)
+</pre>
 is not true because & is used as the bitwise operator, you can use $eval() to force mIRC to read the parameter the way you want:
-<pre class ="code">if ($(test &) iswm test this)</pre>
+<pre class = "code">
+if ($(test &) iswm test this)
+</pre>
 
 If you need to use any of these special characters as plain text in an expression where they are taken as wildcard character (that is, not always the case for &), you can try to use a <a href="regex.html">regular expression</a> instead.
 <br>
 The number of function/feature of the language supporting wildcard matching is simply too high to make a list, but here are the main usage:
 <br>
 The iswm operator can be used with /if (and the like) to make a wildcard comparison:
-<pre class ="code">
+<pre class = "code">
 if (test* iswm $1-) { }
 </pre>
 While there is a "?" wildcard for 1 character, and a "*" wildcard for zero-or-more characters, there isn't a wildcard for one-or-more characters. However you can obtain the same result by combining the ? and * together. For example, if you have a string where you want to remove leading zeroes, you can do something like:
 
-<pre class ="code">//var %a 00000123 | while (0* iswm %a) var %a $mid(%a,2) | echo -a result: %a</pre>
+<pre class = "code">
+//var %a 00000123 | while (0* iswm %a) var %a $mid(%a,2) | echo -a result: %a
+</pre>
 
 And this will always ensure the string cannot begin with '0'. However, if the input is actually an integer and you do not want to reduce a string of all zeroes to the empty string, you can search for zero followed by 1 wildcard character followed by 0-or-more characters. This causes it to avoid removing a zero when that would be removing the only remaining character.
 
-<pre class ="code">//var %a 0000000 | while (0?* iswm %a) var %a $mid(%a,2) | echo -a result: %a</pre>
+<pre class = "code">
+//var %a 0000000 | while (0?* iswm %a) var %a $mid(%a,2) | echo -a result: %a
+</pre>
 
 The iswm operator matches on a case-insensitive basis, but only as far as treating the a-z and A-Z ranges the same, so $upper($chr(233)) and $lower($chr(233)) will be seen as different. If you need to see 'Test' and 'test' as different, then use the iswmcs for a case-sensitive comparison where 'z' and 'Z' are no longer seen as the same.
 

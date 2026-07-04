@@ -10,25 +10,33 @@ String manipulation is the building block of many of today's utilities and algor
 <H4>Basic String Operations</H4>
 Since everything is a string in mSL, just assigning it to a variable is enough.
 
-<pre class ="code">var %x = This is an example string.</pre>
+<pre class = "code">
+var %x = This is an example string.
+</pre>
 
 We often want to get the length of such string. The <a href="../identifiers/len.html">$len</a> identifier can be used to get that.
 
-<pre class ="code">//echo -a $len(apples and oranges)
-18</pre>
+<pre class = "code">
+//echo -a $len(apples and oranges)
+18
+</pre>
 
 It is often desired to join two strings together. Such operation is called a <b>string concatenation</b>. The <a href="../identifiers/_plus.html">$+</a> operator can be used to concatenate two string together. For example:
 
-<pre class ="code">//echo -a A $+ B
-AB</pre>
+<pre class = "code">
+//echo -a A $+ B
+AB
+</pre>
 
 It's important to note that both identifiers and variables can be substituted instead of A and B. For example:
 
-<pre class ="code">alias hello {
+<pre class = "code">
+alias hello {
   var %x = Hello World
   var %x = %x $+ !
   echo -a %x
-}</pre>
+}
+</pre>
 
 The output after executing the above code (/hello) is "Hello World!"
 
@@ -38,50 +46,64 @@ A substring is a string that is part of a longer string. There are a number of b
 <H4>$left() and $right()</H4>
 The first two identifiers you should be familiar with are the <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
 
-<pre class ="code">$left(&lt;string&gt;, &lt;length&gt;)
-$right(&lt;string&gt;, &lt;length&gt;)</pre>
+<pre class = "code">
+$left(&lt;string&gt;, &lt;length&gt;)
+$right(&lt;string&gt;, &lt;length&gt;)
+</pre>
 
 $left always return text starting from the very left side while <a href="../identifiers/right.html">$right</a> always return text starting from the right side.
 
 If the length specified is a positive number, <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> will return up to that many characters from their respective sides. For example:
 
-<pre class ="code">//echo -a $left(abcdefg, 4) $right(abcdefg, 4)
+<pre class = "code">
+//echo -a $left(abcdefg, 4) $right(abcdefg, 4)
 ;Left: |abcd|efg
-;Right: abc|defg|</pre>
+;Right: abc|defg|
+</pre>
 
 If the length specified is a negative number, <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> return the entire text minus that many characters from their respective sides. For example:
 
-<pre class ="code">//echo -a $left(abcdefg, -4) $right(abcdefg, -4)
+<pre class = "code">
+//echo -a $left(abcdefg, -4) $right(abcdefg, -4)
 ;Left: |abc|defg
-;Right: abcd|efg|</pre>
+;Right: abcd|efg|
+</pre>
 
 Here is one last example before we move on:
 
-<pre class ="code">echo -a $left(Hello There!, 5) $right(Hi World!, 6)</pre>
+<pre class = "code">
+echo -a $left(Hello There!, 5) $right(Hi World!, 6)
+</pre>
 
 This gets the five left-most characters ("Hello") and the five right-most characters ("World!"). The final output is:
 
-<pre class ="code">Hello World!</pre>
+<pre class = "code">
+Hello World!
+</pre>
 
 <H4>$mid()</H4>
 <a href="../identifiers/left.html">$left</a> and <a href="../identifiers/right.html">$right</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the <a href="../identifiers/mid.html">$mid</a>() identifier is a more powerful alternative. <a href="../identifiers/mid.html">$mid</a>() has the following syntax:
 
-<pre class ="code">$mid(&lt;string&gt;, &lt;start&gt;)
-$mid(&lt;string&gt;, &lt;start&gt;, &lt;length&gt;)</pre>
+<pre class = "code">
+$mid(&lt;string&gt;, &lt;start&gt;)
+$mid(&lt;string&gt;, &lt;start&gt;, &lt;length&gt;)
+</pre>
 
 Start is the start of the substring from the left. A negative value indicates a start from the right. In both case, an optional length can be specified. A negative length can be used to remove that many characters from the end.
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   var %str = I have not failed. I've just found 10,000 ways that won't work.
   echo -a $mid(%str, 53, 10)
-}</pre>
+}
+</pre>
 
 Will output "won't work".
 
 <H4>Case Transformation</H4>
 The <a href="../identifiers/islower.html">$islower</a>  and <a href="../identifiers/isupper.html">$isupper</a>  identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="../identifiers/true.html">$true</a> ), or else they return <a href="../identifiers/false.html">$false</a> . The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
 
-<pre class ="code">
+<pre class = "code">
 alias case_example {
   var %x = Some random line!
   echo -a %x = $isupper(%x) $islower(%x)
@@ -94,7 +116,7 @@ alias case_example {
 
 Will generate the following output:
 
-<pre class ="code">
+<pre class = "code">
 Some random line! = $false $false
 SOME RANDOM LINE! = $true $false
 some random line! = $false $true
@@ -103,14 +125,14 @@ some random line! = $false $true
 <H4>$lower() and $upper()</H4>
 The <a href="../identifiers/lower.html">$lower</a>() and <a href="../identifiers/upper.html">$upper</a>() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $upper(HeLlO tHeRe)
 //echo -a $lower(HeLlO tHeRe)
 </pre>
 
 Will produce:
 
-<pre class ="code">
+<pre class = "code">
 HELLO THERE
 hello there
 </pre>
@@ -118,8 +140,10 @@ hello there
 <H4>Searching</H4>
 There are a number of identifiers that can be used to search for a substring within a string. The first one is the $pos identifier which has the following syntax:
 
-<pre class ="code">$pos(&lt;string&gt;, &lt;substring&gt;)
-$pos(&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;)</pre>
+<pre class = "code">
+$pos(&lt;string&gt;, &lt;substring&gt;)
+$pos(&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;)
+</pre>
 
 The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, <a href="../identifiers/pos.html">$pos</a> will return the total number of substring found within the string.
 
@@ -127,11 +151,15 @@ The first variation returns the position of the first instance of the substring.
 
 If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
 
-<pre class ="code">$count(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, ...])</pre>
+<pre class = "code">
+$count(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, ...])
+</pre>
 
 Multiple substrings can be counted at once. Here is a simple example:
 
-<pre class ="code">$count(Apples and Oranges, apple, orange)</pre>
+<pre class = "code">
+$count(Apples and Oranges, apple, orange)
+</pre>
 
 Which will print "2".
 
@@ -146,34 +174,46 @@ It should be noted that both will replace ALL occurrences of a substring within 
 
 The syntax for both of them is:
 
-<pre class ="code">$replace(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])
-$replacex(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])</pre>
+<pre class = "code">
+$replace(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])
+$replacex(&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...])
+</pre>
 
 Let's start off with a small example:
 
-<pre class ="code">echo -a $replace(Hello World!, world, there)</pre>
+<pre class = "code">
+echo -a $replace(Hello World!, world, there)
+</pre>
 
 Which will print "Hello there!". Below is a simple example. Note the difference between $replace and $replacex.
 
-<pre class ="code">alias rep {
+<pre class = "code">
+alias rep {
   var %str = 1 2 3 4
   ; Each replacement will replace the previous one
   echo -a $replace(%str, 1, 2, 2, 3, 3, 4, 4 , 5)
   ; Exclusive replacements
   echo -a $replacex(%str, 1, 2, 2, 3, 3, 4, 4, 5)
-}</pre>
+}
+</pre>
 
 Executing /rep will produce the following results:
 
-<pre class ="code">5 5 5 5
-2 3 4 5</pre>
+<pre class = "code">
+5 5 5 5
+2 3 4 5
+</pre>
 
 An example of replacing ALL occurrences can be seen in:
 
-<pre class ="code">//echo -s $replace(This is a test of the replace function, $chr(32), .)</pre>
+<pre class = "code">
+//echo -s $replace(This is a test of the replace function, $chr(32), .)
+</pre>
 
 which will output (in this case to the status window [-s]):
-<pre class ="code">This.is.a.test.of.the.replace.function</pre>
+<pre class = "code">
+This.is.a.test.of.the.replace.function
+</pre>
 
 $replacex will provide the same in this case.
 
@@ -182,15 +222,21 @@ $replacex will provide the same in this case.
 <H4>Substring Removal</H4>
 $remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
 
-<pre class ="code">$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, &lt;substring3@&gt;, ...])</pre>
+<pre class = "code">
+$remove(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, &lt;substring3@&gt;, ...])
+</pre>
 
 A small example is:
 
-<pre class ="code">//echo -a $remove(aa bb cc dd ee aa bb cc dd ee, bb, dd)</pre>
+<pre class = "code">
+//echo -a $remove(aa bb cc dd ee aa bb cc dd ee, bb, dd)
+</pre>
 
 Produces:
 
-<pre class ="code">aa cc ee aa cc ee</pre>
+<pre class = "code">
+aa cc ee aa cc ee
+</pre>
 
 <H4>Miscellaneous Identifiers</H4>
 
@@ -199,24 +245,32 @@ Two more identifiers you should be aware of are <a href="../identifiers/str.html
 <H4>$str()</H4>
 $str returns the same exact string repeated N amount of times. The syntax is:
 
-<pre class ="code">$str(&lt;string&gt;, &lt;N&gt;)</pre>
+<pre class = "code">
+$str(&lt;string&gt;, &lt;N&gt;)
+</pre>
 
 For example:
 
-<pre class ="code">//echo -a $str(Example, 10)</pre>
+<pre class = "code">
+//echo -a $str(Example, 10)
+</pre>
 
 Produces:
 
-<pre class ="code">ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
+<pre class = "code">
+ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample
+</pre>
 
 <H4>$strip()</H4>
 The $strip identifier can remove control codes from a string. The syntax for it is:
 
-<pre class ="code">;Removes all control codes (bold/underline/italics/color/reverse)
+<pre class = "code">
+;Removes all control codes (bold/underline/italics/color/reverse)
 $strip(&lt;string&gt;)
 ;Removes any combination of control codes
-$strip(&lt;string&gt;, buricmoe)</pre>
-<pre class ="code">
+$strip(&lt;string&gt;, buricmoe)
+</pre>
+<pre class = "code">
 * b = bold
 * u = underline
 * r = reverse
@@ -228,8 +282,10 @@ $strip(&lt;string&gt;, buricmoe)</pre>
 <H4>Using Token Manipulation</H4>
 Whilst the <a href="token.html">token manipulation</a> functionality is designed to be used for maintaining lists of delimited tokens, they can also be used for string manipulation. For example, extracting a channel from a string can be done with:
 
-<pre class ="code">//echo -a # $+ $gettok($gettok(Why not join #superheros now?,2,35),1,32)
-#superheros</pre>
+<pre class = "code">
+//echo -a # $+ $gettok($gettok(Why not join #superheros now?,2,35),1,32)
+#superheros
+</pre>
 
 </body>
 </html>

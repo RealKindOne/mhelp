@@ -8,7 +8,7 @@
 The <b>$toolbar()</b> identifier returns <b>1</b> if the toolbar is enabled in mIRC, <b>0</b> otherwise. It also returns information about the items on the toolbar.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $toolbar(name|N)[.property]
 </pre>
 
@@ -30,7 +30,7 @@ $toolbar(name|N)[.property]
 <br><b>.alpha</b> - Returns TODO
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a the toolbar is $iif($toolbar,On,Off) and contains $toolbar(0) items
 //var %i 0 | while (%i &lt; $toolbar(0)) { echo -a %i : $toolbar(%i).name : $toolbar(%i).tip | inc %i }
 </pre>

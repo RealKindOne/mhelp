@@ -8,7 +8,7 @@
 The <b>$xor</b> identifier returns the binary XOR of 2 numbers.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $xor(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 
@@ -25,7 +25,7 @@ None
 XOR is "Exclusive OR" comparison of a pair of bits. For each bit position it returns 0 if BOTH or NEITHER bits are 1, and returns 1 if exactly 1 of the pair is a 1-bit. In effect, every 1-bit in the 2nd number toggles the 0/1 state of the corresponding bit of the 1st number<br>
 
 Returns 28:
-<pre class ="code">
+<pre class = "code">
 //echo -a $xor(21,9)
 </pre>
 
@@ -43,7 +43,8 @@ Create a 3rd row, where each column's 0 or 1 value is the XOR of the bit pair di
 <br>
 Convert the 3rd row from binary to base 10.
 
-<pre class ="code">//echo -a $base(21,10,2,8) | echo -a $base(9,10,2,8) | echo -a $str(-,8) | echo -a $base($xor(21,9),10,2,8)
+<pre class = "code">
+//echo -a $base(21,10,2,8) | echo -a $base(9,10,2,8) | echo -a $str(-,8) | echo -a $base($xor(21,9),10,2,8)
 ; returns:
 00010101
 00001001
@@ -57,27 +58,27 @@ $xor then returns the answer in base 10. Depending on which bits have changed to
 <br>
 <br>
 Return 28:
-<pre class ="code">
+<pre class = "code">
 //echo -a $base(00011100,2,10)
 </pre>
 
 Return 4294967295 because -1 was translated to 4294967295 in a preliminary step. Then, the XOR of all numbers in the valid range against 0 is the same number:
-<pre class ="code">
+<pre class = "code">
 //echo -a $xor(-1,0)
 </pre>
 
 Returns 0. Both numbers were outside valid range, so both were replaced with 2^32-1, and XOR of the same number against itself is always zero.
-<pre class ="code">
+<pre class = "code">
 //echo -a $xor(4444444444,5555555555)
 </pre>
 
 Goes to label only if exactly 1 of the 2 variables is 1
-<pre class ="code">
+<pre class = "code">
 //var %a $and(%a,1) | var %b $and(%b,1) | if ($xor(%a,%b)) goto label
 </pre>
 
 Result is 1, because both fractions are ignored.
-<pre class ="code">
+<pre class = "code">
 //echo -a $xor($pi,2.777777)
 
 //echo -a $xor(1,2) = 3 and $xor(-1,-2) is same as $xor(4294967295,4294967294)

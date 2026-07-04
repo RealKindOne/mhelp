@@ -24,12 +24,14 @@ An if statement executes a block of code only if the condition is true. So what 
 
 The basic syntax for an if statement is:
 
-<pre class = "code">if (condition) {
+<pre class = "code">
+if (condition) {
   ;code to execute only if the condition was true
-}</pre>
+}
+</pre>
 
 A typical conditional statement consists of two operands and an operator. An operand is an entity on which an operation is performed. Take for example the following conditional statement:
-<pre class ="code">
+<pre class = "code">
 2 > 3
 </pre>
 
@@ -50,20 +52,24 @@ mIRC provides the following types of operators:
 
 Take a look at the following example. In this alias we take a percentage in decimal format and return it in a human readable way. We also want a negative percent to be enclosed by a pair of parentheses.
 
-<pre class = "code">Alias percent {
+<pre class = "code">
+Alias percent {
   ;is the percent negative?
   if ($1 &lt; 0) {
     return ( $+ $calc($1 * 100) $+ % $+ )
   }
   return $calc($1 * -100) $+ %
-}</pre>
+}
+</pre>
 
 sample output:
 
-<pre class ="code">//echo -a $percent(-.33)
+<pre class = "code">
+//echo -a $percent(-.33)
 (33%)
 //echo -a $percent(.94)
-94%</pre>
+94%
+</pre>
 
 In the example above, we used an if statement to check if the user input ($1) was less than zero so we could handle it differently than a positive decimal number. When the if statement evaluates to true, the code inside its body, enclosed by a pair of curly brackets, get executed, in our case it also made it return the value to the calling routine, effectively preventing the other statement from ever getting executed.
 
@@ -79,7 +85,8 @@ if (condition) {
 }
 else {
   ;code to execute only if the condition was false
-}</pre>
+}
+</pre>
 
 In the example below, we assign the appropriate time of day to the "%time" variable. We then displayed the result to the screen. We used an if statement to check if the time (just the hours) is less than 10. If true, set %time to day, else, set %time to morning. Depending on the time of day for you, the result will be "Good morning!" or "Good day!".
 
@@ -92,7 +99,8 @@ Alias greet {
     var %time = morning
   }
   echo -a Good %time $+ !
-}</pre>
+}
+</pre>
 
 <H4>ElseIf</H4>
 
@@ -100,7 +108,8 @@ I am sure at this point you are already thinking what If you had more than one c
 
 The basic syntax is:
 
-<pre class = "code">if (condition) {
+<pre class = "code">
+if (condition) {
   ;do something if the condition was true
 }
 elseif (condition) {
@@ -108,11 +117,13 @@ elseif (condition) {
 }
 else {
   ;do something if both the if and the elseif were false
-}</pre>
+}
+</pre>
 
 How would that look in a real scenario? Remember our time of day script? What if we wanted to check if its noon or night as well?. Lets write it down:
 
-<pre class = "code">Alias greet {
+<pre class = "code">
+Alias greet {
   var %hours = $time(H)
   if (%hours &lt; 10) {
     var %time = morning
@@ -130,25 +141,32 @@ How would that look in a real scenario? Remember our time of day script? What if
     var %time = day
   }
   echo -a Good %time $+ !
-}</pre>
+}
+</pre>
 
 <H4>Reference of parameters</H4>
 
 mIRC provides two identifiers to retrieve the first or second parameter of the conditional statement. Please note, the identifiers will return the first and second parameter of the last condition following short-circuit evaluation guidelines.
 
-<pre class = "code">$v1 and $v2</pre>
+<pre class = "code">
+$v1 and $v2
+</pre>
 
 For example:
 
-<pre class = "code">Alias ifExample {
+<pre class = "code">
+Alias ifExample {
   if (4 &lt; 5) {
     echo -a yes, $v1 is less than $v2
   }
-}</pre>
+}
+</pre>
 
 Will have the following output:
 
-<pre class ="code">yes, 4 is less than 5</pre>
+<pre class = "code">
+yes, 4 is less than 5
+</pre>
 
 <H4>$IIF Identifier</H4>
 
@@ -156,32 +174,40 @@ $IIF, inline if, is a built in identifier that evaluates a condition, similar to
 
 Syntax:
 
-<pre class = "code">$iif(condition, &lt;code for true&gt;)
+<pre class = "code">
+$iif(condition, &lt;code for true&gt;)
 
 ;or
 
-$iif(condition, &lt;code for true&gt;, &lt;code for false&gt;)</pre>
+$iif(condition, &lt;code for true&gt;, &lt;code for false&gt;)
+</pre>
 
 <br><b>Note:</b> Unlike a normal identifier, only the true or only the false part of the identifier gets evaluated depending on the condition.
 
 <H4>$iif example</H4>
 
-<pre class = "code">Alias Example {
+<pre class = "code">
+Alias Example {
   echo -a $iif($calc(1 + 1) == 2,1+1 Equals 2)
   echo -a $iif(2 == 5,I Guess 2 Does Equals 5 After All,Nope 2 != 5)
-}</pre>
+}
+</pre>
 
 The code above generates the following output:
 
-<pre class ="code">1+1 Equals 2
-Nope 2 != 5</pre>
+<pre class = "code">
+1+1 Equals 2
+Nope 2 != 5
+</pre>
 
 A common usage for an inline if is to decide where to send a reply of a command. For example on some networks ! means a channel message while . means a notice.
-<pre class = "code">on $*:TEXT:/^([!.])example$/Si:#:{
+<pre class = "code">
+on $*:TEXT:/^([!.])example$/Si:#:{
   var %send = $iif($regml(1) == ., notice $nick, msg $chan)
   %send This is an example
   %send This is another line!
-}</pre>
+}
+</pre>
 
 </body>
 </html>

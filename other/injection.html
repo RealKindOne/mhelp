@@ -19,7 +19,7 @@ Injections happen because of a simple side effect of the main rules definiting t
 <H4>Injection via commands</H4>F
 
 For a command, the interesting rule used by the parser to make it working is to evaluate $identifiers and %variables once before passing their value to the command:
-<pre class ="code">
+<pre class = "code">
 echo -a $me
 </pre>
 Here <a href="../identifiers/me.html">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="../identifiers/me.html">$me</a> is passed as the second parameter to the /echo command.
@@ -40,7 +40,7 @@ Perhaps the most problematic command of them all is the /timer command. The /tim
 
 Because of this, you must pass a new command to be executed after the delay to the timer command:
 
-<pre class ="code">
+<pre class = "code">
 //.timer 1 1 echo -a $day
 </pre>
 Which will execute "echo -a &lt;value of <a href="../identifiers/day.html">$day</a>&gt;" one time, after waiting 1 second.
@@ -53,19 +53,22 @@ When the timer fires, its command (a new command) is executed and therefore all 
 
 But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!reminder & *:#:{
  if ($2 !isnum) {
     notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
   }
   .timer 1 $2 notice $nick [Reminder] $3- (Set $2 seconds ago)
-}</pre>
+}
+</pre>
 
 When the correct input is provided, this script works wonderfully. For example:
 
-<pre class ="code">&lt;Mike&gt; !reminder 18000 jill's birthday tomorrow!
--Bot- [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)</pre>
+<pre class = "code">
+&lt;Mike&gt; !reminder 18000 jill's birthday tomorrow!
+-Bot- [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)
+</pre>
 
 Indeed, /timer evaluated the parameter once: $2 is evaluated to 18000 and $3- to "jill's birthday tomorrow!"
 
@@ -73,9 +76,11 @@ The associated command of the timer is correctly <code>notice Mike [Reminder] ji
 
 Although this script might seem simple, let's take a look at what happens when someone provides incorrect or even malicious input as in this case:
 
-<pre class ="code">&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
+<pre class = "code">
+&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
 -Bot- [Reminder] . (Set 0 seconds ago)
-* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
+* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)
+</pre>
 
 This is an msl injection attack. Let's take a deeper look into what has happened:
 
@@ -85,22 +90,28 @@ So now, the associated command of the timer becomes <code>.notice Mike [Reminder
 
 Clearly, you can see how the timer command can be extremely dangerous. The unfortunate part is that there is no clean way of solving this problem. The only way to prevent this from happening is to encode the problematic parameters so that when they get evaluated, they produce something which needs one more evaluation to produce the correct value. We usually do that by encoding the parameters using based64 encoding. Below is an alias to perform this:
 
-<pre class ="code">alias safe return $!decode( $encode($1-, m) ,m)</pre>
+<pre class = "code">
+alias safe return $!decode( $encode($1-, m) ,m)
+</pre>
 
 The spacing is very important. Our new !reminder script now looks like this:
 
-<pre class ="code">on *:TEXT:!reminder & *:#:{
+<pre class = "code">
+on *:TEXT:!reminder & *:#:{
   if ($2 !isnum) {
     notice $nick [Reminder] Syntax Error: !reminder &lt;seconds&gt; &lt;message&gt;
     return
   }
   .timer 1 $2 notice $nick [Reminder] $safe($3-) (Set $safe($2) seconds ago)
-}</pre>
+}
+</pre>
 
 Let's take a look at what happens now:
 
-<pre class ="code">&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
--Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)</pre>
+<pre class = "code">
+&lt;Mike&gt; !reminder 0 . | ns drop nick | quit hacked!
+-Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)
+</pre>
 
 And Mike now can't do anything harmful.
 
@@ -118,17 +129,22 @@ You may think <a href="../identifiers/chan.html">$chan</a> can't be evaluated in
 
 The reason for this is mIRC allows prefixing an identifier with the pound sign to make mIRC prefixes (if needed) the evaluated string by the pound symbol. For example:
 
-<pre class ="code">//tokenize 32 A #B | echo -a #$1 #$2</pre>
+<pre class = "code">
+//tokenize 32 A #B | echo -a #$1 #$2
+</pre>
 
 This will produce the following result:
 
-<pre class ="code">#A #B</pre>
+<pre class = "code">
+#A #B
+</pre>
 
 So what does that have to do with <a href="../identifiers/chan.html">$chan</a> and timers? Everything!
 
 Consider the following bot's code:
 
-<pre class ="code">alias bot_pass return foo_bar_42
+<pre class = "code">
+alias bot_pass return foo_bar_42
 on *:connect:{
   autojoin -d5
   ns id $bot_pass
@@ -136,17 +152,20 @@ on *:connect:{
 on *:invite:#:join #
 on !*:join:#:{
   timer 1 2 notice $nick Hello $nick $+ , Welcome to # $+ !
-}</pre>
+}
+</pre>
 
 Everything works just fine under normal conditions. But Mike knows better than to test things under normal conditions:
 
-<pre class ="code">* Now talking in #$($bot_pass)
+<pre class = "code">
+* Now talking in #$($bot_pass)
 /invite foobar #$($bot_pass)
 * Bot joined #$($bot_pass)
 /hop #$($bot_pass)
 * Attempting to rejoin channel #$($bot_pass)
 * Rejoined channel #$($bot_pass)
--Bot- Hello Mike, Welcome to foo_bar_42</pre>
+-Bot- Hello Mike, Welcome to foo_bar_42
+</pre>
 
 Because <a href="../identifiers/chan.html">$chan</a> (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
 
@@ -157,24 +176,30 @@ Both of these commands were created to evaluate/execute code on a given connecti
 
 Though, unlike <a href="../commands/timer.html">/timer</a>, the <a href="../commands/scid.html">/scid</a> and <a href="../commands/scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
 
-<pre class ="code">on *:TEXT:!global *:#:{
+<pre class = "code">
+on *:TEXT:!global *:#:{
   scon -at1 amsg [AMSG] $1-
-}</pre>
+}
+</pre>
 
 The script is designed to do a global amsg (i.e. perform an <a href="../commands/amsg.html">/amsg</a> on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of <a href="../commands/scon.html">/scon</a> triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
 
 * $safe solution:
 
-<pre class ="code">on *:TEXT:!global *:#:{
+<pre class = "code">
+on *:TEXT:!global *:#:{
   scon -at1 amsg [AMSG] $safe($1-)
-}</pre>
+}
+</pre>
 
 * Local variable solution:
 
-<pre class ="code">on *:TEXT:!global *:#:{
+<pre class = "code">
+on *:TEXT:!global *:#:{
   var %a $1-
   scon -at1 amsg [AMSG] % $+ a
-}</pre>
+}
+</pre>
 
 The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated correctly to produce the user's message.
 
@@ -188,7 +213,9 @@ The associated command becomes <code>amsg [AMSG] %a</code> and %a is evaluated c
 
 Though /flash is the only command doing it for now, more command might do this in the future. <a href="../commands/flash.html">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="../commands/flash.html">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
 
-<pre class ="code">on *:TEXT:!testflash:#:/flash $ $+ me</pre>
+<pre class = "code">
+on *:TEXT:!testflash:#:/flash $ $+ me
+</pre>
 
 So $ $+ me evaluates to "<a href="../identifiers/me.html">$me</a>" by <a href="../commands/flash.html">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
 
@@ -204,7 +231,7 @@ If you have visited #mSL on swiftirc, and you had some code that used <a href=".
 <br>
 So what are some of its consequences? Consider the following greet script:
 
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!setgreet*:#:{
   if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
@@ -219,7 +246,7 @@ on !*:join:#:{
 
 Let's see what happens:
 
-<pre class ="code">
+<pre class = "code">
 &lt;Mike&gt; !setgreet
 -Bot- Syntax Error: !setgreet &lt;greet&gt;
 &lt;Mike&gt; !setgreet Two things are certain in life, death and taxes. - Benjamin Franklin
@@ -238,7 +265,7 @@ In this example Mike used the fact that <a href="../identifiers/findfile.html">$
 
 So how do we fix it? Using the <b>n</b> option!
 
-<pre class ="code">
+<pre class = "code">
 $read(... , n, ...)
 ;and
 $readini(..., n, ...)
@@ -246,7 +273,8 @@ $readini(..., n, ...)
 
 Our new code would look like this:
 
-<pre class ="code">on *:TEXT:!setgreet*:#:{
+<pre class = "code">
+on *:TEXT:!setgreet*:#:{
   if (!$2-) { notice $nick Syntax Error: !setgreet &lt;greet&gt; | return }
   writeini greets.ini greet $nick $2-
   notice $nick [Greet] Greet Saved.
@@ -255,25 +283,30 @@ on !*:join:#:{
   if ($readini(greets.ini, n, greet, $nick)) {
     msg $chan [[ $+ $nick $+ ] $v1
   }
-}</pre>
+}
+</pre>
 
 <H4>$submenu</H4>
 
 The value returned by the alias called by $submenu is evaluated a second time, again, $safe and similar methods are your friend:
 
-<pre class ="code">menu menubar {
+<pre class = "code">
+menu menubar {
   double evaluation
   .$submenu($testsm($1))
 }
 alias testsm {
 if ($1 == 1) return item : echo -ag &gt; $!!me
-}</pre>
+}
+</pre>
 
 <a name="calc"></a>
 <H4>$calc()</H4>
 ALL unknown (in advance) input to <a href="../identifiers/calc.html">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a %variable. Consider the following code:
 
-<pre class ="code">//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)</pre>
+<pre class = "code">
+//var %x = 12345 | tokenize 32 % $+ x | echo -a $1 = $calc($1)
+</pre>
 
 Which will produce the following result:
 <pre class = "code">
@@ -284,7 +317,8 @@ Which will produce the following result:
 <br>
 Now let's take a look at a more practical example:
 
-<pre class ="code">; Assume %password is set to 123456
+<pre class = "code">
+; Assume %password is set to 123456
 on *:connect:{
   autojoin -d5
   if ($network == UnderNet) {
@@ -293,13 +327,14 @@ on *:connect:{
 }
 on *:TEXT:!calc *:#:{
   msg $nick [Calc] $2- = $calc($2-)
-}</pre>
+}
+</pre>
 
 Like most people, this user has an on connect event to register his user and a simple !calc script.
 <p>
 Let's see what Mike can do to him:
 
-<pre class ="code">
+<pre class = "code">
 &lt;Mike&gt; !calc 3*5+55
 &lt;Wiz126&gt; [Calc] 3*5+55 = 70
 &lt;Mike&gt; !calc %password
@@ -312,18 +347,19 @@ It's important to note that EVEN if %password was set to "1234rosebud". The $cal
 <br>
 A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and %variables:
 
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!calc *:#:{
   if (!$regex($2-,/\$\S+|%\S+/)) {
     msg $nick [Calc] $2- = $calc($2-)
   }
-}</pre>
+}
+</pre>
 
 <H4>$decode</H4>
 
 This is not really an exploit, but is a way for someone to disguise their malicious command. It can't be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it's a command which begins with a % or a $, but that behavior does not extend to remote scripts.
 
-<pre class ="code">
+<pre class = "code">
 //var %cmd echo | [ %cmd ] 4 -a hello world
 </pre>
 
@@ -331,7 +367,7 @@ Pasting the above command into an editbox echoes 'hello world' to the active win
 <br>
 Something similar can be done with $decode, but it only works if $decode(string) is placed somewhere which allows its contents to be evaluated/executed, which includes the $iif bug, placing into a timer's command line, inside square braces, etc. Below shows how the decode string is created, but the echo command is NOT executed by $decode, but by the fact that the decoded string is placed into the timer's command string. If the "timer 1 1" had not been there, this would have executed the echo command if it were inside a remote script, but would not have executed in the editbox simply because the editbox doesn't execute commands beginning with % or $.
 
-<pre class ="code">
+<pre class = "code">
 //var -s %a $remove($encode(echo 4 -a hello world,m),=) | timer 1 1 $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m)
 </pre>
 
@@ -339,7 +375,7 @@ Something similar can be done with $decode, but it only works if $decode(string)
 
 This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It's harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it's just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
 
-<pre class ="code">
+<pre class = "code">
 //noop $findfile(.,*,1, $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m) )
 //noop $findfile(.,*,1, $+(echo 4 -a hello world) )
 //noop $findfile(.,*,1, echo 4 -a hello world )
@@ -351,13 +387,19 @@ There are currently a few bugs in mIRC that allow for mSL injection, most in a r
 <H4>$iif( (cond) /cmd, true, false )</H4>
 Due to the way mIRC handles <a href="../identifiers/iif.html">$iif</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
 
-<pre class ="code">//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)</pre>
+<pre class = "code">
+//echo -a $iif( (1) echo -a See what I mean, truthy, falsey)
+</pre>
 
 The above will echo "See what I mean <a href="../commands/return.html">/!return 1</a>", and neither the truthy or falsey statements are returned nor is the outer echo statement executed.
 This is happening because internally, <a href="../identifiers/iif.html">$iif</a> is calling the /if construct in the following way:
-<pre class ="code"> //if (condition) !return 1 | !return 0</pre>
+<pre class = "code">
+//if (condition) !return 1 | !return 0
+</pre>
 which gives:
-<pre class ="code"> //if ( (1) echo -a See what I mean) !return 1 | !return 0</pre>
+<pre class = "code">
+//if ( (1) echo -a See what I mean) !return 1 | !return 0
+</pre>
 And the quirk is there, this syntax actually executes the echo command.
 
 The abuse of this is limited as the user of mIRC would either have to code the malformed $iif() statement or be tricked into issuing it from something such as the editbox. Be careful!
@@ -372,7 +414,7 @@ First, check the Options menu of your Alt+R scripts editor. It's a good idea set
 
 This halts a script when an invalid identifier name is used, rather than evaluating the identifier as $null. The error warning can alert you to a script error which can cause it to not do as you expect.
 
-<pre class ="code">
+<pre class = "code">
 alias identwarntest {
   $nosuchidentifier echo -a hello world
 }
@@ -392,13 +434,13 @@ This warns if a loaded script has changed without being changed by the scripts e
 <br>
 It's possible to have a script loaded that you don't realize.
 
-<pre class ="code">
+<pre class = "code">
 //write $chr(160) test | .reload -rs999 $chr(160)
 </pre>
 
 This creates a file without a filetype, where the filename itself is not visible in most fonts, then loads it as a remote script. All you see in the script editor's "view" menu is an extra-thick border at the bottom of the scripts list, and if you have too many scripts loaded, it's hiding inside the "more" list. This next command lists all the scripts you have loaded. If you see a line showing nothing between the double quotes or is something you don't recognize, you should investigate and possibly unload it.
 
-<pre class ="code">
+<pre class = "code">
 //var %i 1 | while ($script(%i)) { echo -a %i : $qt($nopath($script(%i))) | inc %i }
 </pre>
 
@@ -408,13 +450,13 @@ You should view the contents of your downloads folder with suspicion if you don'
 <br>
 While you can either configure Options/DCC/Ignore as 'ignore only' to specify a list of filetypes to be blocked, or as 'accept only' to specify a list of the only filetypes accepted, 'ignore only' requires updating the list as new executable filetypes need to be added. It's probably better to use 'accept only', since this allows you to manage the list of the only filetypes which are accepted. You should block all executable filetypes, without expecting to be able to inspect the download folder for suspicious items.
 
-<pre class ="code">
+<pre class = "code">
 //var %a $chr(8238) $+ piz.!wen.oediv.ezicr.exe | echo -a write %a test
 </pre>
 
 As you can see from the above command, this is a filename ending with .exe, which means it's an executable filetype. However, if your windows font is unicode-aware, and you use "/run ." to view the contents of your mirc folder, you'll see that this .exe file appears as if it's a .zip file. If someone created an .exe file containing the icon normally associated with .zip files, then renames it to this filename, and then uses DCC to send this file to you - it would appear as if it's a .zip file that's safe to click on to view the contents. This next event handler creates a log of the files you've received via DCC, and allows you to check later to see who sent an unknown file to you.
 
-<pre class ="code">
+<pre class = "code">
 on *:FILERCVD:*:{
   write getlog.txt $time(yyyy.mm.dd HH:nn:ss) $network $nick $get(-1).ip $address($nick,5) $get(-1).size file: $filename
 }
@@ -423,7 +465,7 @@ on *:FILERCVD:*:{
 <H4>Injection via server command</H4>
 
 IRC servers accept strings containing $crlf $lf or $cr and will execute text following the line-ending as a 2nd server command using whatever permissions belong to your nick at that time.
-<pre class ="code">
+<pre class = "code">
 //msg #channel message $crlf mode #home +o Mallory
 </pre>
 When the server  receives this message from mIRC, it uses the $crlf to split this into 2 commands. The first command displays the message to #channel, and the 2nd command tells the server to give @op status in channel #home to Mallory. If you do not have permissions in #home to give @ops, or if a nick Mallory is not in that channel, nothing happens. But if both are true, then you have just given op status to Mallory.
@@ -438,14 +480,14 @@ In addition to executing commands to give @op privileges to someone, the malicio
 <br>
 To defend against such an exploit, any command sent to the server (not only a channel message) containing text that could come from a source which contains line-ending characters should be sanitized to remove/disable them.
 
-<pre class ="code">
+<pre class = "code">
 $remove(string,$cr,$lf)
 </pre>
 This sanitizing would cause both strings to be combined as a single string, so if the first message is a plausible channel message, the hidden message is displayed as part of the channel message
 
 However, this is not sufficient if the first server command is able to cause damage even if combined with additional text, such as when the first command is the give-them-@ops command. The better defense is to halt the server command if the string contains a $cr and/or $lf that shouldn't be there:
 
-<pre class ="code">
+<pre class = "code">
 if ($cr isin $replace(string,$lf,$cr)) { echo -a string exploit attempt: $2 | halt }
 </pre>
 

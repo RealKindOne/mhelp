@@ -9,28 +9,28 @@
 
 <H4>User list</H4>
 The list of users and their access is stored in the "users" tab of the script editor. Only a single address is stored per line and must follow the following syntax:
-<pre class ="code">
+<pre class = "code">
  &lt;levels&gt;:&lt;address&gt; &lt;additional info&gt;
 </pre>
 
 Access levels are comma-delimited values that define the levels of the user. Although usually, the levels are numeric, you can use a name instead like "botAdmin" or "friends".
 <br>
 The &lt;additional info&gt; parameter is an optional parameter that can be used to store some additional information about the user or other useful miscellaneous data.
-<pre class ="code">
+<pre class = "code">
  10,20:some!one@example.com
  friend:dan!z@some.isp.net high school friend
 </pre>
 <H4>Adding users</H4>
 There are two commands that can be used to add a user to the access list, <a href="../commands/auser.html">/auser</a> and <a href="../commands/guser.html">/guser</a>. They follow this syntax:
 
-<pre class ="code">
+<pre class = "code">
 /auser [-a] &lt;levels&gt; &lt;name|address&gt; [info]
 /guser [-a] &lt;levels&gt; &lt;name&gt; [addressType] [info]
 </pre>
 
 Both <a href="../commands/auser.html">/auser</a> and <a href="../commands/guser.html">/guser</a> do the same thing, they add a specific user to the user list with the access levels specified (Comma delimited). The -a switch can be used to simply add additional access levels to an existing user, otherwise all the old levels gets replaced with the new ones. The fundamental difference between /auser and /guser is that <a href="../commands/guser.html">/guser</a> can be used to look up the address of a user while <a href="../commands/auser.html">/auser</a> requires you to provide it beforehand.
 
-<pre class ="code">
+<pre class = "code">
 ;Add joe (address mask type 2), access level 'friend'
 /guser friend joe 2 neighbor
 </pre>
@@ -38,12 +38,12 @@ Both <a href="../commands/auser.html">/auser</a> and <a href="../commands/guser.
 <H4>Removing users</H4>
 The <a href="../commands/ruser.html">/ruser</a> command can be used to remove a user completely from the access list or simply remove one of his levels.
 
-<pre class ="code">
+<pre class = "code">
 /ruser [levels] &lt;name|address&gt; [type]
 </pre>
 
 For example:
-<pre class ="code">
+<pre class = "code">
 /ruser madman 2
 /ruser 2,10 foobar
 </pre>
@@ -51,7 +51,7 @@ For example:
 <H4>Changing users' info</H4>
 The user info parameter can be changed at any time using the <a href="../commands/iuser.html">/iuser</a> command:
 
-<pre class ="code">
+<pre class = "code">
 /iuser &lt;name|address&gt; [info]
 </pre>
 
@@ -62,7 +62,7 @@ mIRC offers a lot of prefixes to slightly alter how the event activates.
 The * prefix is the most commonly used prefix, and allows any user to activate the event regardless of their access level.
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!time:#:{
   notice $nick the time for me is $time
 }
@@ -72,7 +72,7 @@ on *:TEXT:!time:#:{
 Numeric prefixes allow any user with an access level >= the prefix to activate the event.
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on +5:TEXT:.h:#myChan:{
   mode $chan +h $nick
 }
@@ -92,7 +92,7 @@ This prefix, coupled with <a href="../commands/halt.html">/halt</a> or <a href="
 By default, the numeric prefix means that level and any level higher can trigger that event. Using the + prefix, you can limit the event to be exactly the level specified.
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on +5:TEXT:.h:#myChan:{
   mode $chan +h $nick
 }
@@ -104,7 +104,7 @@ will only work for users with access level of exactly 5. Any user with higher ac
 The exclamation mark prefix can be used to prevent an event from being activated by you (if ($nick != $me)).
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on !1:join:#support:{
   msg $chan Hello $nick $+ , do you need help?
 }
@@ -115,7 +115,7 @@ will never get activated by you joining #support, only other people.
 The @ symbol can be used as a prefix to indicate that the event can only be activated if you are an operator in the channel. You can think of it as "if ($me isop $chan) {"
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on @10:TEXT:.op:#myChan:{
   mode $chan +o-v $nick $nick
 }
@@ -128,17 +128,21 @@ The <b>& prefix</b> can be used to prevent the event from being executed if the 
 For example, given the following two on TEXT events placed in separate files:
 <br>
 script1.mrc
-<pre class ="code">on *:TEXT:!test:?:haltdef</pre>
+<pre class = "code">
+on *:TEXT:!test:?:haltdef
+</pre>
 
 script2.mrc
-<pre class ="code">on &*:TEXT:*:?:echo -ga I triggered because $!halted == $halted $+ !</pre>
+<pre class = "code">
+on &*:TEXT:*:?:echo -ga I triggered because $!halted == $halted $+ !
+</pre>
 
 The second event will trigger upon receiving any msg sent via query except <b>!test</b>, because the first event calls the haltdef command upon receiving <b>!test</b>.
 <a name="sigal"></a>
 <H4>$ prefix</H4>
 This event prefix means the <a href="../events/matchtext.html">matchtext</a> of the event is a regular expression, the delimiter are required.
 
-<pre class ="code">
+<pre class = "code">
 on $*:TEXT:/^([!@.])test$/:#myChan:{
   msg $chan $nick triggered test with $regml(1)
 }
@@ -147,7 +151,7 @@ on $*:TEXT:/^([!@.])test$/:#myChan:{
 <H4>Named access levels</H4>
 Sometimes it's beneficial to give an access group a name instead of a numeric value. A good example is bot admins, friends, or even channel members. You can define such groups using the normal <a href="../commands/guser.html">/guser</a> and <a href="../commands/auser.html">/auser</a> commands:
 
-<pre class ="code">
+<pre class = "code">
 /guser BotAdmin Mike123 2
 /guser BotAdmin Joe73 2
 /guser BotAdmin Dave12 2
@@ -155,7 +159,7 @@ Sometimes it's beneficial to give an access group a name instead of a numeric va
 
 With that you can use the named group level in events, for example:
 
-<pre class ="code">
+<pre class = "code">
 on BotAdmin:TEXT:!example:#:{
   msg $chan Hello Bot Admin!
 }
@@ -165,7 +169,7 @@ on BotAdmin:TEXT:!example:#:{
 The 'me' prefix can be used to get an event to trigger when you meet the criteria (only if $nick == $me). The 'me' prefix is a bit special; it requires a new colon before others prefixes.
 
 For example:
-<pre class ="code">
+<pre class = "code">
 on me:*:join:#support:{
   msg $chan Hello $chan $+ , I need help!
 }

@@ -10,9 +10,11 @@ In many occasions, you may end up doing a task over and over again in a single s
 <H4>Syntax</H4>
 The basic syntax of a while loop is:
 
-<pre class ="code">while (&lt;condition&gt;) {
-  ;Code here will be executed
-}</pre>
+<pre class = "code">
+while (&lt;condition&gt;) {
+  ; Code here will be executed
+}
+</pre>
 
 Here is how the while loop works:
 
@@ -29,7 +31,8 @@ So we said the while loop will continue to iterate as long as the condition is t
 <H4>Example 1</H4>
 Take a look at the following alias:
 
-<pre class ="code">alias whileExample1 {
+<pre class = "code">
+alias whileExample1 {
   echo -a Line number: 1
   echo -a Line number: 2
   echo -a Line number: 3
@@ -40,19 +43,22 @@ Take a look at the following alias:
   echo -a Line number: 8
   echo -a Line number: 9
   echo -a Line number: 10
-}</pre>
+}
+</pre>
 
 This simple alias prints "line number: " follows by the line number, 1 to 10. This simple alias has lots of repeated code; The ideal place for a while loop.
 
 We can rewrite that alias:
 
-<pre class ="code">Alias whileExample1 {
+<pre class = "code">
+Alias whileExample1 {
   var %line = 1
   while (%line &lt;= 10) {
     echo -a Line number: %line
     inc %line
   }
-}</pre>
+}
+</pre>
 
 Using the while loop, we can repeat the echo statement as many times as we want. Let's take a look at what's going on:
 
@@ -68,7 +74,8 @@ A ''nested loop'' is a loop that is situated within the body of the other. In a 
 
 Take a look at this example:
 
-<pre class ="code">alias nestedLoopExample {
+<pre class = "code">
+alias nestedLoopExample {
   var %x = 1
   ;outer loop
   while (%x &lt;= 3) {
@@ -80,11 +87,13 @@ Take a look at this example:
     }
     inc %x
   }
-}</pre>
+}
+</pre>
 
 This code will generate the following output:
 
-<pre class ="code">1 - 1
+<pre class = "code">
+1 - 1
 1 - 2
 1 - 3
 2 - 1
@@ -92,7 +101,8 @@ This code will generate the following output:
 2 - 3
 3 - 1
 3 - 2
-3 - 3</pre>
+3 - 3
+</pre>
 
 === Jump Statements ===
 
@@ -112,30 +122,37 @@ The <a href="goto_statements.html">goto statement</a><br>
 <H4>break statement</H4>
 The ''break statement'' lets you break out of the currently executing while loop at any point.  The break statement will only break out of the while loop in which it is nested in.
 
-<pre class ="code">break</pre>
+<pre class = "code">
+break
+</pre>
 
 In the example below, we set variable "%x" to 10 and decrease it by one each time. When "%x" reaches 5, break out of the loop.
 
-<pre class ="code">alias breakDemo {
+<pre class = "code">
+alias breakDemo {
   var %x = 10
   while (%x > 0) {
     if (%x == 5) break
     echo -a %x
     dec %x
   }
-}</pre>
+}
+</pre>
 
 The output is:
 
-<pre class ="code">10
+<pre class = "code">
+10
 9
 8
 7
-6</pre>
+6
+</pre>
 
 If multiple while loops are involved, the outer loops will not be effected.
 
-<pre class ="code">alias multLoopDemo {
+<pre class = "code">
+alias multLoopDemo {
   var %x = 5
   while (%x) {
     echo -a %x
@@ -148,15 +165,18 @@ If multiple while loops are involved, the outer loops will not be effected.
 
     dec %x
   }
-}</pre>
+}
+</pre>
 
 The output is:
 
-<pre class ="code">5
+<pre class = "code">
+5
 4
 3
 2
-1</pre>
+1
+</pre>
 
 <H4>continue statement</H4>
 
@@ -164,9 +184,11 @@ A ''continue statement'' in mIRC will cause the program control to jump to the e
 
 The continue statement has the form
 
-<pre class ="code">continue</pre>
+<pre class = "code">
+continue
+</pre>
 Take a look at this example:
-  <pre class ="code">
+<pre class = "code">
 alias listEven {
   var %x = 1
   while (%x &lt; 20) {
@@ -174,13 +196,15 @@ alias listEven {
     if (%x & 1) continue
     echo -a %x
   }
-}</pre>
+}
+</pre>
 
 In the example above we created a loop to go from 0 to 20. The if statement checks if the number is odd. If true, we make it jump to the next iteration (Via the <a href="../commands/continue.html">/continue</a> command). The last statement of the loop's body is used to print the number.
 
 The output is:
 
-<pre class ="code">2
+<pre class = "code">
+2
 4
 6
 8
@@ -189,7 +213,8 @@ The output is:
 14
 16
 18
-20</pre>
+20
+</pre>
 
 Notice, the result is all the even numbers between 2 to 20. If you are wondering how did it echo 20 even though our conditional statement tells mIRC anything less than 20. We have an answer:  when %x gets to 19, the if statement will cause the /continue command to execute, as a result, the program control goes back to the conditional statement, 19 < 20, which is true. %x then gets increased by 1 to 20, which will then make it to the echo command.
 
@@ -197,24 +222,28 @@ Notice, the result is all the even numbers between 2 to 20. If you are wondering
 
 mIRC provides two identifiers to retrieve the first or second parameter of the while's conditional statement. Please note, the identifiers will return the first and second parameter of the $TRUE condition following short-circuit evaluation guidelines.
 
-<pre class ="code">$v1 and $v2</pre>
+<pre class = "code">
+$v1 and $v2
+</pre>
 
 In the example below we will count from 1 to 10 using a while loop. Variable "%a" will be set to 1, the loop will keep executing as long as %a is less than or equal to 10.
 
-<pre class ="code">alias refExample {
+<pre class = "code">
+alias refExample {
   var %a 1
   while (%a &lt;= 10) {
     echo -a Count: $v1
     inc %a
   }
-}</pre>
+}
+</pre>
 
 
 <H4>Infinite Loops</H4>
 
 An infinite loop happens when a condition always evaluates to true. Most times, its due to an error. If that's the case, you can force mIRC to break out of it using the <b>CTRL+BREAK</b> key combinations.
 Such a condition may be used on purpose, where you need to use the break statement to break out of the loop, but you can always rewrite the code otherwise to avoid this type of condition
-<pre class ="code">
+<pre class = "code">
 ;returns a random nickname on a channel while excluding yourself ($me) from the list
 while (1) {
   if ($nick($chan,$r(1,$nick($chan,0))) != $me) {
@@ -248,7 +277,7 @@ c. Split the loops into smaller chunks and use .timer 0 1 to queue the next chun
 
 d. Make your while() loop more efficient by enabling it to use less overhead. If you are processing the lines in a disk file in a way which can't be accomplished using /filter -k, ensure your while (condition) itself uses fewer resources.
 
-<pre class ="code">
+<pre class = "code">
 var %i 0 | while (%line &lt;= $lines(file.txt)) { inc %i | do stuff }
 var %i 0 , %total $lines(file.txt) | while (%line &lt;= %total) { inc %i | do stuff }
 </pre>

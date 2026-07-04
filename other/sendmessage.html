@@ -10,7 +10,7 @@ The <b>SendMessage()</b> function can be used to communicate with mIRC from your
 <H4>Initializing communication</H4>
 
 The external programs that send these messages must create a mapped file with the CreateFileMapping() function: [see note below for external link]
-<pre class ="code">
+<pre class = "code">
  CreateFileMapping(
    _In_      HANDLE hFile,
    _In_opt_  LPSECURITY_ATTRIBUTES lpAttributes,
@@ -41,7 +41,7 @@ The following call to SendMessage() makes mIRC perform the commands that you spe
 
 <br><b>Note:</b> the 'command' is placed into the editbox and enter is pressed is the exact behavior, this can be used to send IRC messages by not prefixing the command with slashes, but you must prefix it with at least one slash then, if you want to execute a command.
 
-<pre class ="code">
+<pre class = "code">
 SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
 </pre>
 
@@ -61,7 +61,7 @@ This call returns 1 on success, 0 if it fails.
 <H4>Evaluating Identifiers and Variables</H4>
 
 The following call to SendMessage() makes mIRC evaluate the contents of any line that you specify:
-<pre class ="code">
+<pre class = "code">
 SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
 </pre>
 <br><b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.
@@ -78,7 +78,7 @@ This call returns 1 on success, 0 if it fails.
 If during a remote event, such as on TEXT, your script calls a DLL which then uses SendMessage() to execute a command or evaluate an identifier, you can tell SendMessage() to execute in the context of that remote event.
 <br>
 During a remote event, a <a href="../identifiers/eventid.html">$eventid</a> identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
-<pre class ="code">
+<pre class = "code">
 SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
 </pre>
 
@@ -106,7 +106,7 @@ If cMethod is or'd with the value 16, this will make SendMessage() return more u
 1 alone means that a script error occurred, 16 and 32 can only happen if you use $eventid in SendMessage() in the context of a remote event but the script from which it was called no longer exist.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 #include &lt;stdio.h&gt;
 #include &lt;windows.h&gt;
 #define WM_MCOMMAND WM_USER + 200

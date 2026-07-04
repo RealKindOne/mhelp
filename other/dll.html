@@ -10,7 +10,7 @@ mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) de
 <br><b>Note:</b>  mIRC also supports calling <a href="com.html">COM</a> objects, for calling non-standard DLLs.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
  /dll &lt;filename&gt; &lt;procname&gt; [data]
  /dll -u &lt;filename&gt;
  $dll(&lt;filename&gt;, &lt;procname&gt;, [data])
@@ -32,11 +32,15 @@ mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) de
 
 Because mIRC wasn't unicode before, the exported functions used to be the following function prototype:
 
-<pre class ="code">int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);</pre>
+<pre class = "code">
+int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);
+</pre>
 
 With mIRC being unicode, the new prototype is:
 
-<pre class ="code">int __stdcall funcName(HWND mWnd, HWND aWnd, TCHAR *data, TCHAR *parms, BOOL show, BOOL nopause);</pre>
+<pre class = "code">
+int __stdcall funcName(HWND mWnd, HWND aWnd, TCHAR *data, TCHAR *parms, BOOL show, BOOL nopause);
+</pre>
 
 <br><b>mWnd</b> - The handle of the main mIRC window.
 <br><b>aWnd</b> - The handle of the window in which the command is being issued, this might not be the currently active window if the command is being called by a remote script.
@@ -58,7 +62,9 @@ If you are making a C++ dll, you need to use the extern "C" directive on all the
 
 The interesting difference is that C linkage does not use "mangling" when exporting your function, an operation which rename your functions with additional information to help the linking process.
 
-<pre class ="code">extern "C" int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);</pre>
+<pre class = "code">
+extern "C" int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);
+</pre>
 
 However, the __stdcall standard convention implies a mangling operation which extern "C" does not override.
 
@@ -87,7 +93,7 @@ You had to use the function below, called by mIRC when it loads your dll, and se
 
 Things changed since it's typically more useful to keep the dll loaded, now mIRC keeps the dll loaded by default with mKeep defaulting to True, and you can set it to False to unload the dll.
 
-<pre class ="code">
+<pre class = "code">
 void __stdcall LoadDll(LOADINFO*);
 
 typedef struct {
@@ -112,7 +118,7 @@ typedef struct {
 mIRC will automatically unload a DLL if it is not used for ten minutes, or when mIRC exits.
 
 You can define an UnloadDll() routine in your DLL which mIRC will call when unloading a DLL to allow it to clean up:
-<pre class ="code">
+<pre class = "code">
 int __stdcall UnloadDll(int mTimeout);
 </pre>
 The mTimeout value can be:
@@ -129,7 +135,7 @@ This example use a non-unicode project. We don't use a .def file but a #pragma c
 
 We use the LoadDll and UnloadDll routine to start/stop a communication with mIRC using SendMessage().
 
-<pre class ="code">
+<pre class = "code">
 #include &lt;cstdio&gt;
 #include &lt;windows.h&gt;
 #define WM_MCOMMAND WM_USER + 200
@@ -224,20 +230,20 @@ extern "C" int __stdcall  UnloadDll(int mTimeout) {
 </pre>
 
 Use $dll(yourdll.dll,simple_example,) which will return "simple string".
-<P>
+<p>
 Use $dll(yourdll.dll,average_example,) or '/dll yourdll.dll average_example', this will execute "/echo -a &#232;" in mIRC 7.x, because the project is not unicode, the two bytes &#193;&#168; are sent as ascii, mIRC 7.x will correctly decode that as utf8. On mIRC 6.x (you would need to remove the mUnicode to mBytes variable in the LOADINFO structure), this would display the two bytes.
-<P>
+<p>
 If you set the mUnicode variable to TRUE on mIRC 7.x in the LoadDll function and if you set your project to use unicode (in visual studio: project properties > configuration properties > general > character set), this would correctly show the two bytes as well.
-<P>
+<p>
 Use $dll(yourdll.dll,more_example,) or '/dll yourdll.dll more_example' ;this will fill $1- from data with the value from parms and execute the final "//echo -a test".
-<P>
+<p>
 Use $dll(yourdll.dll,from_event,$eventid) inside an event where $nick exists, this will use SendMessage() to evaluate $nick from the event context and fill data with that value, returned by $dll.
-<P>
+<p>
 Use $dll(yourdll.dll,usingSM,) which will use SendMessage() to execute a command in mIRC, it will also evaluate a line of code and return the result in $dll().
 
 <H4>Example 2 : Using GNU GCC on Windows (C) </H4>
 
-<pre class ="code">
+<pre class = "code">
 //To compile, use:
 //gcc -c -O3 reverse.c ; gcc -shared --export-all-symbols -o reverse.dll -O3 reverse.o
 //reverse.c content:

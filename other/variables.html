@@ -16,13 +16,13 @@ There are two kinds of variables: local and global. <b>Scope</b> refers to the v
 Local Variables are given local scope. They are created for the duration of the routine that created them and they can only be accessed from within that routine. Once the routine is finished, the variable is deleted. A routine represents an alias, an event, a menu, or when you execute code with two /slash from the editbox.
 <p>
 <b>Note:</b> Local variables can be seen from the execution of /scon or /scid:
-<pre class ="code">
+<pre class = "code">
 //var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
 </pre>
 
 Syntax:
 
-<pre class ="code">
+<pre class = "code">
 ; single variable
 var %temp = value
 ; multiple variables
@@ -35,24 +35,28 @@ Local variables are good for temporary things like string manipulations and math
 <p>
 Below is a simple addition alias that uses two local variables:
 
-<pre class ="code">alias add {
+<pre class = "code">
+alias add {
   var %number1 = $1, %number2 = $2
   echo -a %number1 + %number2 = $calc(%number1 + %number2)
-}</pre>
+}
+</pre>
 
 An example usage of the script above is: /add 1 3 which will output: 1 + 3 = 4. Once the add alias has finished executing, both "%number1" and "%number2" are destroyed. Remember, these local variables cannot be called upon outside of their code blocks.
 
 <span style="color: #9E1010;"><b>Incorrect use</b> of local variables:</span>
-<pre class ="code">
+<pre class = "code">
 alias wrong {
   var %myvar = 3
   wronger
 }
 alias wronger {
   echo -a %myvar
-}</pre>
+}
+</pre>
 
-If you were to execute the above by typing <b>/wrong</b>, you would get the following error: <pre class ="code">
+If you were to execute the above by typing <b>/wrong</b>, you would get the following error:
+<pre class = "code">
 * /echo: insufficient parameters
 </pre>
 This is because the local variable, in this case <b>%myvar</b>, has been stored within the <b>wrong</b> alias code block, and is, therefore, unavailable to the <b>/wronger</b> alias that has been called.
@@ -63,14 +67,17 @@ A global variable is a variable that is accessible from every alias or event. Th
 
 Syntax:
 
-<pre class ="code">;create variable
-set %var value</pre>
+<pre class = "code">
+;create variable
+set %var value
+</pre>
 
 <b>Note:</b> The /set command does not use the = operator.
 <p>
 Because the /set command can only set a single variable at a time, you can use the /var command in conjunction with -g switch to set multiple global variables.
 
-<pre class ="code">;multiple variables
+<pre class = "code">
+;multiple variables
 var -g %var = foo, %var2 = bar, %var3 = foobar
 </pre>
 
@@ -83,7 +90,9 @@ You can use set -u0 to create a variable that can be seen by any routine (global
 <H4>The equal sign '='</H4>
 
 Although it's not required in /var since 6.21, the equal sign can be used to assign a value to a variable without actually using a command:
-<pre class ="code">%var = value</pre>
+<pre class = "code">
+%var = value
+</pre>
 If %var is local, this will change the local variable.<br>
 If %var is global, it will naturally change the global variable.<br>
 If %var doesn't exist, it will create a global variable.<br>
@@ -94,7 +103,7 @@ If you have already set a variable you can unset it at any time during using the
 
 <H4>Syntax:</H4>
 
-<pre class ="code">
+<pre class = "code">
 ; unset a single variable
 unset %variable
 
@@ -104,7 +113,7 @@ unset %var1 %var2 %var3
 
 The /unset command supports <a href="../other/wildcard.html">wildcard</a> characters for each of the variable, to be able to unset multiple variables. For example:
 
-<pre class ="code">
+<pre class = "code">
 alias unsetWildExample {
   set %exampleHello hello there
   set %exampleHey another var
@@ -118,17 +127,19 @@ alias unsetWildExample {
 
   ;unset all of them
   unset %example*
-}</pre>
+}
+</pre>
 
 You can also unset all of the variables using the <a href="../commands/unsetall.html">/unsetall</a> command.
-<P>
+<p>
 <span style="color: #9E1010;"><b>Caution:</b></span> This will permanently delete all of your variables! You cannot recover them once you have performed this command, so be careful.
 
 <H4>$null values</H4>
 
 If a variable is referred to but does not exist, it returns the value $null. Likewise, a variable without any data stored in it returns $null as well.
 
-<pre class ="code">alias nullExample {
+<pre class = "code">
+alias nullExample {
   ; make sure our variable doesn't exist
   unset %example1
   if (%example1 == $null) {
@@ -139,28 +150,32 @@ If a variable is referred to but does not exist, it returns the value $null. Lik
   if (%example2 == $null) {
     echo -a % $+ example2 is also null!
   }
-}</pre>
+}
+</pre>
 
 Upon executing ''/nullExample'', you will notice that mIRC will echo the following to the active window:
 
-<pre class ="code">%example1 is null!
-%example2 is also null!</pre>
+<pre class = "code">
+%example1 is null!
+%example2 is also null!
+</pre>
 
 <a name="math_operations"></a>
 <H4>Math Operations</H4>
 You can do one math operation with variable when setting a value.
-<P>
+<p>
 The operators supported are: <b>+</b> <b>-</b> <b>/</b> <b>*</b> <b>%</b> <b>^</b> where <b>%</b> is the modulus and <b>^</b> is power.
-<P>
+<p>
 You must use a space around all 3 parameters and you must provide correct values, numbers can be float.
-<P>
+<p>
 If you don't respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
-<P>
+<p>
 It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is &gt;= 2^31, the result is zero. If 1 input is valid and the other is &lt; -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 &lt;= n &lt; 2^32, var can output negative numbers.
 
 For Example:
 
-<pre class ="code">alias mathExample {
+<pre class = "code">
+alias mathExample {
   ;10
   var %a = 5 + 5
   ;9
@@ -169,36 +184,45 @@ For Example:
   var %c = %b * %a
   ;print it to the screen
   echo -a %c
-}</pre>
+}
+</pre>
 
 <H4>Others Commands</H4>
 mIRC has two additional commands that can be used to easily increase and decrease the value of a numerical variable.
-<P>
+<p>
 The <a href="../commands/dec.html">/dec</a> command allows you to decrease the value of a variable by 1 or by a given value if specified:
 
-<pre class ="code">dec %var [value]</pre>
+<pre class = "code">
+dec %var [value]
+</pre>
 
 For Example:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   var %g = 10
   dec %g
   ;9
   echo -a %g
-}</pre>
+}
+</pre>
 
 The <a href="../commands/inc.html">/inc</a> command allows you to increase the value of a variable by 1 or by a given value if specified:
 
 
-<pre class ="code">inc %var [value]</pre>
+<pre class = "code">
+inc %var [value]
+</pre>
 
 For Example:
 
-<pre class ="code">on *:ACTION:$(slaps $me $+ *):#mSL:{
+<pre class = "code">
+on *:ACTION:$(slaps $me $+ *):#mSL:{
   ;increase the variable by 1
   inc %slaps
   msg $chan I have seen %slaps slaps!
-}</pre>
+}
+</pre>
 
 <H4>Dynamic Variable Names</H4>
 
@@ -208,7 +232,7 @@ In many occasions you may need to save individualized data (data for a particula
 
 The basic syntax to set a dynamic variable is:
 
-<pre class ="code">
+<pre class = "code">
 set %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
 ; or (use var -g to make them global variables)
 var %&lt;static_part&gt; $+ &lt;dynamic_part&gt;
@@ -220,22 +244,31 @@ Although you can omit the static part out, its strongly discouraged because vari
 
 Let's take a look at an example:
 
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!setColor *:#:{
   ; Save their favorite color
   set %color. $+ $nick $2
   notice $nick Your favorite color $qt($2) was saved!
-}</pre>
+}
+</pre>
 
 Let's take a closer look at the variable assignment statement:
 
-<pre class ="code">set %color. $+ $nick $2</pre>
+<pre class = "code">
+set %color. $+ $nick $2
+</pre>
 
 The static part is ''color.'', which is never going to change, and the dynamic part is ''$nick''. Let's assume someone by the name John types ''!setColor blue''; this is what happens:
 
-<br>1. mIRC evaluates the identifier $nick to "John" and $2 to blue<br><pre class ="code">set %color. $+ John blue</pre>
+<br>1. mIRC evaluates the identifier $nick to "John" and $2 to blue<br>
+<pre class = "code">
+set %color. $+ John blue
+</pre>
 <br>
-<br>2. mIRC will then append "John" to "%color." Before executing the /set command, thus the final variable looks like this:<br><pre class ="code">%color.John blue</pre>
+<br>2. mIRC will then append "John" to "%color." Before executing the /set command, thus the final variable looks like this:<br>
+<pre class = "code">
+%color.John blue
+</pre>
 
 <H4>Retrieving Values</H4>
 
@@ -244,7 +277,7 @@ The static part is ''color.'', which is never going to change, and the dynamic p
 <br>
 Retrieving values from static variables is pretty straightforward. Let's assume you have a variable called ''%myvar'' and it's value is '''abc''', you can get this value simply by referring to the variable outright:
 
-<pre class ="code">
+<pre class = "code">
 alias showVar {
   echo -a Here is the value of % $+ myvar: %myvar
 }
@@ -252,7 +285,9 @@ alias showVar {
 
 Simply put, this will echo the following to the active window where you typed the <b>/showVar</b> command:
 
-<pre class ="code">Here is the value of %myvar: abc</pre>
+<pre class = "code">
+Here is the value of %myvar: abc
+</pre>
 
 
 <b>Dynamic Variables</b>
@@ -262,11 +297,14 @@ Retrieving a value from a dynamic variable is a little bit more complicated. The
 
 1. Using Bracket evaluation [ ]
 
-<pre class ="code">%&lt;static&gt; [ $+ [ &lt;dynamic&gt; ] ]</pre>
+<pre class = "code">
+%&lt;static&gt; [ $+ [ &lt;dynamic&gt; ] ]
+</pre>
 
 This is the <a href="eval_brackets.html">evaluation_brackets</a> method. They allow us to force mIRC to evaluate part of a statement before anything else. Take a look at the rest of the myColor script:
 
-<pre class ="code">on *:TEXT:!favColor *:#:{
+<pre class = "code">
+on *:TEXT:!favColor *:#:{
   var %color = %color. [ $+ [ $2 ] ]
   if (%color != $null) {
     notice $nick $2's favorite color is %color $+ .
@@ -274,20 +312,26 @@ This is the <a href="eval_brackets.html">evaluation_brackets</a> method. They al
   else {
     notice $nick $2 doesn't have a favorite color set yet.
   }
-}</pre>
+}
+</pre>
 
 In the example above, we retrieved the color from the dynamic variable and set it to a local variable called ''%color'' for use in the rest of the script. Let's take a closer look at the retrieval statement:
 
-<pre class ="code">var %color = %color. [ $+ [ $2 ] ]</pre>
+<pre class = "code">
+var %color = %color. [ $+ [ $2 ] ]
+</pre>
 
 When you first glance at this statement, it might look a bit confusing, but in fact it is pretty straightforward. Let us continue with John's example and assume someone else typed ''!favColor John'':
 
-#The first thing mIRC will evaluate is the innermost evaluation brackets <b>[ ]</b>, in this case its ''$2'', which will evaluate to ''John''.<br><pre class ="code">%color. [ $+ John ]</pre>
+#The first thing mIRC will evaluate is the innermost evaluation brackets <b>[ ]</b>, in this case its ''$2'', which will evaluate to ''John''.<br>
+<pre class = "code">
+%color. [ $+ John ]
+</pre>
 #mIRC will then evaluate the outer evaluation bracket "$+ John".<br>%color.John
 
 Here is another example:
 
-<pre class ="code">
+<pre class = "code">
 alias varExample {
   var %array.1 = Item A
   var %array.2 = Item B
@@ -304,16 +348,18 @@ alias varExample {
 
 The above code will echo the following:
 
-<pre class ="code">1 = Item A
+<pre class = "code">
+1 = Item A
 2 = Item B
 3 = Item C
 4 = Item D
-5 = Item E</pre>
+5 = Item E
+</pre>
 
 What this does is create a bunch of static variables, each with ascending-ordered numerical digits. You will notice we used the evaluation brackets around the variable counter, ''%x''. This allows mIRC to evaluate the variable, and attach it to the static portion of ''%array.''. Basically, during run-time, whatever the ''%x'' variable's value is will be automatically appended to ''%array.''.
 
 <br><b>Note:</b> If you have multiple dynamic variable to add together, you need to add another pair of $+ [ ... ] for each element or use [ [ $var(%var,1) ] ] :
-<pre class ="code">
+<pre class = "code">
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 ] ] ]
   %static [ $+ [ %dynamic1 $+ [ %dynamic2 $+ [ %dynamic3 ] ] ] ]
   [ [ $var(static. $+ %dynamic1 $+ %dynamic2,1) ] ]
@@ -326,10 +372,18 @@ You can also get the value of a dynamic variable by using <a href="../identifier
 
 $eval allows you to force an expression to evaluate more than once, a bit like the brackets [ ], but brackets are meant to alter the order of evaluation of a line, which itself can have its own drawbacks.
 
-<pre class ="code">$eval($+(%,&lt;static&gt;,&lt;dynamic&gt;),2)</pre>From our earlier example:
-<pre class ="code">var %color = %color. [ $+ [ $2 ] ]</pre>
+<pre class = "code">
+$eval($+(%,&lt;static&gt;,&lt;dynamic&gt;),2)
+</pre>
+From our earlier example:
+<pre class = "code">
+var %color = %color. [ $+ [ $2 ] ]
+</pre>
 is the same as
-<pre class ="code">var %color = $eval($+(%,color.,$2),2)</pre>$+(%,color.,$2) will produce the plain text "%color.John", and that is then evaluated a second time (the 2 in $eval(,2)) to produce the value of the variable just like usual. Note that with the brackets method, you also get a double evaluation, but they happen at a different levels.
+<pre class = "code">
+var %color = $eval($+(%,color.,$2),2)
+</pre>
+$+(%,color.,$2) will produce the plain text "%color.John", and that is then evaluated a second time (the 2 in $eval(,2)) to produce the value of the variable just like usual. Note that with the brackets method, you also get a double evaluation, but they happen at a different levels.
 
 This method is easier to read/handle than the bracket, you can simply get the plain text variable you want with $+(), and then you evaluate that twice to get the content of the variable, this method is recommended, but note that it's a bit slower than the bracket.
 
@@ -345,7 +399,10 @@ Indeed if //echo %var would display its content, it's because %var is evaluated 
 <H4>Quirks in /var</H4>
 
 If most commands cannot preserve spaces, /var can preserve spaces in all situations except if you provide a single trailing space:
-<pre class ="code">//var -s %a $+($chr(32),a,$chr(32),$chr(32),b,$chr(32),$chr(32)),%b $+($chr(32),a,$chr(32),$chr(32),b,$chr(32)) | echo -a $len(%a) $len(%b)</pre>which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it's a single trailing space), you can use the new -p switch to fix this.
+<pre class = "code">
+//var -s %a $+($chr(32),a,$chr(32),$chr(32),b,$chr(32),$chr(32)),%b $+($chr(32),a,$chr(32),$chr(32),b,$chr(32)) | echo -a $len(%a) $len(%b)
+</pre>
+which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it's a single trailing space), you can use the new -p switch to fix this.
 <p>
 /var is calling /set for every assignment, but every assignment in /var must start with a %
 <pre class = "code">
@@ -386,8 +443,11 @@ is not doing the trick.
 </pre>
 
 works correctly, however /set also allow dynamic switches, this leads to a new quirk for /set:
-
-<pre class ="code">//var %var 1 | set -u $+ %var %setting</pre>should set %setting but won't, you can use % $+ setting to workaround this issue.
+2
+<pre class = "code">
+//var %var 1 | set -u $+ %var %setting
+</pre>
+should set %setting but won't, you can use % $+ setting to workaround this issue.
 
 <H4>Quirks in /unset</H4>
 
@@ -396,11 +456,15 @@ works correctly, however /set also allow dynamic switches, this leads to a new q
 //var %ab 1,%i 1 | unset -s $var(%ab*,%i) | echo -ag nope | unset -s $var(%ab*,$(%i))
 </pre>
 /unset suffers from an evaluation problem, a common problem is using the same logic as /set, for example:
-<pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b</pre>
+<pre class = "code">
+//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b
+</pre>
 You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it won't, mIRC won't evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
 <p>
 To workaround this problem, you must use evaluation brackets to force the evaluation:
-<pre class ="code">//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ [ %b ]</pre>
+<pre class = "code">
+//var -s %a a,%b b,%ab,%a%b | unset -s %a $+ [ %b ]
+</pre>
 
 Another issue also occurs with variable inside identifier:
 <pre class = "code">

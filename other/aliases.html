@@ -17,9 +17,11 @@ Inside your alias, you can access the Nth parameter with $N, so $1 for the first
 <p>
 If we called an alias called "example" like this:
 
-<pre class ="code">/example A B C D
+<pre class = "code">
+/example A B C D
 ; or
-... $example(A, B, C, D)</pre>
+... $example(A, B, C, D)
+</pre>
 
 $1 in the alias would be returning 'A', $2 returning 'B', $3 returning 'C', and $4 returning 'D'. The total number of tokens available can be retrieved via the $0 identifiers. In this case $0 will return 4.
 <p>
@@ -29,9 +31,11 @@ The exact rules on how $N work is identical to the how they work with the <a hre
 
 The aliases tab is designed specifically for aliases only. Note that because it can only be used for aliases, the "alias" prefix must be left out:
 
-<pre class ="code">aliasName {
+<pre class = "code">
+aliasName {
   ; statements
-}</pre>
+}
+</pre>
 
 <br><b>Note:</b>Aliases from the aliases tab can freely call aliases from the remote tab and vice versa.
 
@@ -79,21 +83,25 @@ $+
 
 A command usually does not return any value, but instead, it processes the arguments it's given. In a command, every argument is separated by a space. $0 will contain the total number of arguments passed to that alias. $N (where N is a number 1 to $0) will contain the arguments. For example:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   echo -a $0 arguments passed
   echo -a The first 3 arguments are:
   echo -a Arg1 = $1
   echo -a Arg2 = $2
   echo -a Arg3 = $3
-}</pre>
+}
+</pre>
 
 We can run the code using the follow statement:
 
-<pre class ="code">/example A B C D</pre>
+<pre class = "code">
+/example A B C D
+</pre>
 
 This will produce the following result:
 
-<pre class ="code">
+<pre class = "code">
 4 arguments passed
 The first 3 arguments are:
 Arg1 = A
@@ -105,32 +113,40 @@ Arg3 = C
 
 Generally, an identifier is a value-returning alias. This means we pass some arguments to that alias and we expect it to return something in return. Identifiers are prefixed with the dollar symbol ($). An identifier may or may not need arguments to be passed to it. If the identifier requires that some arguments be passed to it, the arguments must be in a parenthesis, comma delimited.
 
-<pre class ="code">;This identifier does not need any arguments
+<pre class = "code">
+;This identifier does not need any arguments
 echo -a $me
 ;This identifier requires that we pass it some arguments:
-echo -a $calc(1 + 1)</pre>
+echo -a $calc(1 + 1)
+</pre>
 
 Unlike a command, arguments are now comma delimited. As a result, passing a single argument with spaces is possible. In addition, since identifiers require that some value be returned back, we use the <a href="../commands/return.html">/return</a> keyword to return some value. The /return command allows the calling routine to continue on using the value returned. Below is an example:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   return hello there!
-}</pre>
+}
+</pre>
 
 we can call that identifier using like this:
 
-<pre class ="code">//echo -a $example</pre>
+<pre class = "code">
+//echo -a $example
+</pre>
 This will print:
 
-<pre class ="code">hello there!</pre>
+<pre class = "code">
+hello there!
+</pre>
 
 By default, 'return' strips leading/trailing/consecutive spaces from the result before returning it. Consider the following aliases:
-<pre class ="code">
+<pre class = "code">
 alias example_result   return   $str($chr(32),2) $+ a $+ $str($chr(32),2) $+ a $+ $str($chr(32),2)
 alias example_resultex returnex $str($chr(32),2) $+ a $+ $str($chr(32),2) $+ a $+ $str($chr(32),2)
 </pre>
 
 'return' removes the extra spaces, while returnex preserves them, as shown by:
-<pre class ="code">
+<pre class = "code">
 //echo -a $replace($example_result  ,$chr(32),.)
 output: a.a
 //echo -a $replace($example_resultex,$chr(32),.)
@@ -142,36 +158,44 @@ output: ..a..a..
 Properties are a unique feature to identifiers with arguments. They allow you to pass one more additional remark to the alias. That remark can be retrieved from within the alias using the <b>$prop</b> identifier. Properties are usually a way to manipulate the arguments we pass to the alias.
 <p>
 Consider this basic alias that returns some quantity of degrees in radians:
-<pre class ="code">; converts degrees to radians
+<pre class = "code">
+; converts degrees to radians
 alias convert {
   return $calc($1 * $pi / 180)
-}</pre>
+}
+</pre>
 
 For example:
 
-<pre class ="code">//echo -a $convert(1)
+<pre class = "code">
+//echo -a $convert(1)
 0.017453
 //echo -a $convert(15.5)
-0.270526</pre>
+0.270526
+</pre>
 
 We can add two properties to make it convert from degrees to radians and and vice versa.
 
-<pre class ="code">; converts degrees to radians
+<pre class = "code">
+; converts degrees to radians
 alias convert {
   if ($prop == deg2rad) return $calc($1 * $pi / 180)
   if ($prop == rad2deg) return $calc($1 * 180 / $pi)
   ; invalid property
   return 0
-}</pre>
+}
+</pre>
 
 For example:
 
-<pre class ="code">//echo -a $convert(10).deg2rad
+<pre class = "code">
+//echo -a $convert(10).deg2rad
 0.174533
 //echo -a $convert(0.174533).rad2deg
 10.000004
 //echo -a $convert($convert(15.5).deg2rad).rad2deg
-15.499998</pre>
+15.499998
+</pre>
 
 <H4>Aliases as Both an identifier and command</H4>
 
@@ -179,7 +203,8 @@ Although most aliases do only serve as identifiers or commands, it is possible t
 <p>
 Consider the following alias, logfind. Logfind finds the first matching line from the log for the active window. If it's called as an identifier, we will return the matching line. If it's called as a command, we will print it instead:
 
-<pre class ="code">; Finds the first matching line from the log for the active window
+<pre class = "code">
+; Finds the first matching line from the log for the active window
 alias logfind {
   ; find the log file
   var %logfile $window($active).logfile
@@ -188,17 +213,22 @@ alias logfind {
   if ($isid) return %match
   ; print it if it was a command
   echo -agc info * Logfind Match: %match
-}</pre>
+}
+</pre>
 
 We can call that alias as an identifier, for example:
 
-<pre class ="code">//echo -a $logfind(*kicked*)
-[12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))</pre>
+<pre class = "code">
+//echo -a $logfind(*kicked*)
+[12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))
+</pre>
 
 We can also call it as a command:
 
-<pre class ="code">/logfind *kicked*
-* Logfind Match: [12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))</pre>
+<pre class = "code">
+/logfind *kicked*
+* Logfind Match: [12:33] * Foo was kicked by *.example.com (Flooding (Limit is 12 lines per 10 seconds))
+</pre>
 
 Also note that when an alias is called as a /my_alias command it inherits the $parms string as existing in the parent alias, but when called as $my_alias identifier the $parms string is set to $null.
 
@@ -206,7 +236,7 @@ Also note that when an alias is called as a /my_alias command it inherits the $p
 
 You can intercept any script's use of a built-in command, as long as they have not used the ! prefix to force execution of the built-in command without searching all the aliases for a match. For example, here's something to trap echo commands and remove colors, bold, etc from the displayed string:
 
-<pre class ="code">
+<pre class = "code">
 alias echo {
   if ($1 isnum 0-) var %text $strip($2-)
   else             var %text $strip($1-)
@@ -222,7 +252,7 @@ Incorrect trapping of built-in commands is one source of bugs that can be easy t
 <p>
 Something else which might need to be preserved is the state of $v1 and $v2. Consider the following while the above 'alias echo' is trapping the:
 
-<pre class ="code">
+<pre class = "code">
 //if (var1 != var2) echo -a $ $+ v1 is $v1 and $ $+ v2 is $v2 | echo test | !echo and now $ $+ v1 is $v1 and $ $+ v2 is $v2
 output:
 $v1 is var1 and $v2 is var2
@@ -232,7 +262,7 @@ and now $v1 is test and $v2 is 0-
 
 Note how the first echo interprets $v1 and $v2 before sending to the alias echo, so the values are not altered. But now see how the identical message has been altered by the if() statement within alias echo, due to $v1 and $v2 created in one alias being seen in the editbox or another alias. In case this can be an interference for the calling scripts, you can save the $v1 and $v2 values before altering them, then restore them afterwards:
 
-<pre class ="code">
+<pre class = "code">
 alias echo {
   var -p %v1 $v1 , %v2 $v2
   if ($1 isnum 0-) var %text $strip($2-)
@@ -252,41 +282,51 @@ One choice for your script is to override the background while setting text colo
 <p>
 Another choice is to use echo's -c switch to set the color which that user has assigned in their Alt+K dialog. For example, if your alias wishes to mimic a blue error message similar to those from built-in mIRC commands:
 
-<pre class ="code">/echo -ac info this displays in the same color as mIRC error messages</pre>
+<pre class = "code">
+/echo -ac info this displays in the same color as mIRC error messages
+</pre>
 
 <H4>Additional alias features:</H4>
 
 Regardless of whether or not an alias was called as a command or as an identifier, if it used the /return command to return back, you can get that value using the '''$result''' identifier.
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   foo
   echo -a $result
 }
 alias foo {
   return result!
-}</pre>
+}
+</pre>
 
 Output:
 
-<pre class ="code">/example
-result!</pre>
+<pre class = "code">
+/example
+result!
+</pre>
 
 In addition, aliases can be coded to work in verbose mode or not. If the command was prefixed with the dot (.) symbol, $show will return $false, otherwise it will $true. For example:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   if ($show) {
     ;Indicate we are doing something
     echo -a we are doing something
     ;Show more debug information.
   }
   ;do something
-}</pre>
+}
+</pre>
 
 Output:
 
-<pre class ="code">/example
+<pre class = "code">
+/example
 we are doing something
-/.example</pre>
+/.example
+</pre>
 
 <br><b>Note:</b>/echo -q is a built-in alternative to doing that, the echo will be displayed or not depending on the value of $show.
 
@@ -297,7 +337,8 @@ Aliases can be used to redefine function keys and shortcuts by simply renaming t
 
 For Example:
 
-<pre class ="code">alias SF1 {
+<pre class = "code">
+alias SF1 {
   echo -a Shift+F1 was pressed!
 }
 alias cF4 { echo -sg cF4 executed prevents ctrl+F4 closing active window! }
@@ -310,20 +351,24 @@ alias sF9 { echo -sg shift+F9 executed - skipping currently playing sound file! 
 
 By default, every alias is public. This means any script from any file is able to call that alias (even from the editbox). An alias can be made local by using the -l switch. A local alias is only visible to local scripts - scripts that are in the same file as the alias itself. This is especially useful when your aliases have common names and you don't want to cause conflicts when distributing your script to other people.
 
-<pre class ="code">Alias -l &lt;name&gt; {
+<pre class = "code">
+Alias -l &lt;name&gt; {
   ;code
-}</pre>
+}
+</pre>
 
 <H4>Exposing private and public functionality</H4>
 
 It's possible to allow more functionality for local aliases and hide that from outside scripts.
 
-<pre class ="code">alias -l example {
+<pre class = "code">
+alias -l example {
   echo -a Local code called me!
 }
 alias example {
   echo -a Non-local script called me!
-}</pre>
+}
+</pre>
 
 If some code local to that script file calls example, the local alias will execute. If some other code outside of this script file calls it the second alias will execute instead. Note that the local alias must be on top, or else the other aliases inside that script will see only the non-local alias above it.
 

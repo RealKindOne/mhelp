@@ -32,12 +32,13 @@ We refer to statements by prefixing them with a slash character '/'.
 
 For example, the following two are the same:<br><br>
 <b>Piping</b>
-<pre class ="code">
+<pre class = "code">
 statement 1 | statement 2 | statement 3 | statement 4
 </pre>
 <br>
 <b>Non-piping -- Multiline</b>
-<pre class ="code">statement 1
+<pre class = "code">
+statement 1
 statement 2
 statement 3
 statement 4
@@ -105,12 +106,12 @@ You can override built-in commands by defining an alias with the same name as of
 <p>
 
 They have the following format:
-<pre class ="code">
+<pre class = "code">
 alias [-l] &lt;name&gt; &lt;statements&gt;
 </pre>
 If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above, and you can optionally make the alias "local" by using another space separated -l parameter, indicating that the alias can only be accessed from a routine inside this script file, the alias won't be available from the editbox or a different script file.<br>
 
-<pre class ="code">
+<pre class = "code">
 alias fun echo Scripting | echo Is | echo Fun!
 </pre>
 
@@ -122,7 +123,7 @@ alias fun echo Scripting | echo Is | echo Fun!
 To call on our alias ''fun'', all we have to do is use its name as a command, either from a routine in the script editor, or from any mIRC's editboxes.
 <p>
 To execute the alias from the editbox, you must prefix it with a '/' character (or two), but slashes are not required in the script editor.
-<pre class ="code">
+<pre class = "code">
 /fun
 </pre>
 That should print our text:<br><br>
@@ -144,42 +145,53 @@ However, using { } allows you to separate your statements using newline instead 
 <p>
 We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
 
-<pre class ="code">alias test echo -a test</pre>
+<pre class = "code">
+alias test echo -a test
+</pre>
 is equivalent to
-<pre class ="code">alias test { echo -a test }</pre>
+<pre class = "code">
+alias test { echo -a test }
+</pre>
 the same way
-<pre class ="code">alias test echo -a test | echo -a test1</pre>
+<pre class = "code">
+alias test echo -a test | echo -a test1
+</pre>
 is equivalent to
-<pre class ="code">alias test { echo -a test | echo -a test1 }</pre>
+<pre class = "code">
+alias test { echo -a test | echo -a test1 }
+</pre>
 which is also equivalent to
-<pre class ="code">
+<pre class = "code">
 alias test {
   echo -a test | echo -a test1
 }
 </pre>
  and to
-<pre class ="code">
+<pre class = "code">
 alias test { echo -a test |
   echo -a test1 }
 </pre>
   and to
-<pre class ="code">
+<pre class = "code">
 alias test { echo -a test
   echo -a test1
-}</pre>
+}
+</pre>
 With conditional statement, the { goes after the condition:
-<pre class ="code">
+<pre class = "code">
 alias fun if (1 == 1) echo Scripting | if (2 == 3) echo Is | echo = | echo Fun!
 </pre>
 In the example above, the statement 'echo Scripting' belongs to the if (1 == 1) statement. The same is true for 'echo Is' belonging to 'if (2 == 3)', which, however, will not be echoed because the condition 2 == 3 is not true.<br>
-Overall, the above example will echo: 
-<pre class ="code">Scripting = Fun!</pre>
+Overall, the above example will echo:
+<pre class = "code">
+Scripting = Fun!
+</pre>
 This is equivalent to:
-<pre class ="code">
+<pre class = "code">
 alias fun { if (1 == 1) { echo Scripting } | if (2 == 3) { echo Is } | echo = | echo Fun! }
 </pre>
 and to<br>
-<pre class ="code">
+<pre class = "code">
 alias fun {
   if (1 == 1) { echo Scripting }
   if (2 == 3) { echo Is }
@@ -197,7 +209,7 @@ A few notes about the language limitations:
 <br><br>
 One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character on its left.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
-<pre class ="code">
+<pre class = "code">
 alias example { echo hello! }
 alias example {
   echo hello!
@@ -205,14 +217,20 @@ alias example {
 </pre>
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
-<pre class ="code">alias example{echo hello! }</pre>
+<pre class = "code">
+alias example{echo hello! }
+</pre>
 The opening bracket is touching "example" and "echo".
-<pre class ="code">alias example { echo hello!}</pre>
+<pre class = "code">
+alias example { echo hello!}
+</pre>
 The closing bracket is touching the "hello!".
-<pre class ="code">alias example
+<pre class = "code">
+alias example
 {
   echo hello!
-}</pre>
+}
+</pre>
 The opening bracket must be on the same line as the "alias" keyword.
 
 
@@ -226,32 +244,55 @@ All identifiers starts with dollar symbol sigil '$'.<br>
 Generally speaking, identifiers are performing an operation, much like commands, but they return a value, this value can then be used.<br>
 Identifiers can take parameters as well as one single property.
 Without any parameter nor any property, the basic syntax is:
-<pre class ="code">$name</pre> where name is the name of the identifier.
+<pre class = "code">
+$name
+</pre>
+where name is the name of the identifier.
 If they take parameters, they use the ( and ) and a comma to separate arguments, much like other programming language:
-<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)</pre>
+<pre class = "code">
+$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)
+</pre>
 If they take a property, you must use the form with parameters (so with () parenthesis) even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a property name:
-<pre class ="code">$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property</pre><br>
+<pre class = "code">
+$name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property
+</pre>
+<br>
 
 If we want to print out our current nickname, we would use the following code ($me is a built-in identifier returning your nickname):
 
-<pre class ="code">//echo -a $me</pre><br>
+<pre class = "code">
+//echo -a $me
+</pre>
+<br>
 
 So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it doesn't need to be, it's plain, static, text.<br>
 But $me is evaluated and "$me" in the line is replaced by the value returned by $me. Then, all parameters have been evaluated and the echo command is executed with two parameters, -a and the value returned by $me.<br><br>
 mIRC provides a lot of built-in identifiers and you can create your own as well with aliases:
-<pre class ="code">alias fun return having fun? $1 -- $4-5 $3 $0 $2</pre><br>
+<pre class = "code">
+alias fun return having fun? $1 -- $4-5 $3 $0 $2
+</pre>
+<br>
 You can use the /return command to return data from your aliases for when you are calling it as an identifier.<br>
 To handle the parameters passed to your alias, regardless if you called it as a command or an identifier, you can use the identifier $N where N is the Nth parameter, with $0 being the total number of parameters. Now you can use $fun to call your alias as an identifier:
-<pre class ="code">//echo -a $fun(a,b,c,d,e)</pre> will display "having fun? a -- d e c 5 b".<br><br>
+<pre class = "code">
+//echo -a $fun(a,b,c,d,e)
+</pre>
+will display "having fun? a -- d e c 5 b".<br><br>
 Parameters of $identifiers are evaluated as well, from left to right, in order, and you can nest $identifiers with their parameters:<br>
-<pre class ="code">//echo -a $+(my nickname,$chr(61),$me)</pre> would display "my nickname=yournickhere".<br>
+<pre class = "code">
+//echo -a $+(my nickname,$chr(61),$me)
+</pre>
+would display "my nickname=yournickhere".<br>
 Some built-in $identifier are a bit special and will, on purpose, not evaluate some of their parameter (typically the last one), they will evaluate it later as the identifier is executing.<br>
 When you call an alias as an identifier, you cannot get this non evaluation of some of your parameter, they are always evaluated.<br>
 If you create an alias of the same name as of an existing built-in identifier, unlike command, mIRC does not call your alias by default, you can prefix your $identifier call with a dot '.' or a slash '/' to force mIRC to call your alias: $/me (if you try that on a non built-in name, the / is included as the name of the identifier to call and it fails).<br>
 If you need to use an identifier as plain text you can prefix it with the '!' character: $!5 returns "$5".<br>
 
 %variables works exactly the same way as $identifier with no parameter (and no property) but they return a value that a script specifically set, which is the simplest way to store data:
-<pre class ="code">//var %a 5 | echo -a %a</pre>would display '5'.<br><br>
+<pre class = "code">
+//var %a 5 | echo -a %a
+</pre>
+would display '5'.<br><br>
 
 If you execute statements from editboxes, in order for the $identifiers, %variables, pipe '|' statements separator and { } grouping to work properly, you must prefix the first statement with two slashes. A single slash will make mIRC execute the first statement only without evaluating anything, everything on the line after the first word is plaintext.
 
@@ -265,11 +306,13 @@ Alias name can be pretty much anything, they can't contain spaces obviously but 
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="../identifiers/rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
 
-<pre class ="code">$rand(&lt;low&gt;, &lt;high&gt;)</pre>
+<pre class = "code">
+$rand(&lt;low&gt;, &lt;high&gt;)
+</pre>
 
 Given both low bound and high bound number values, $rand will return a random number in between, and including, the two numbers. For example:
 
-<pre class ="code">
+<pre class = "code">
 alias random {
   echo The dice rolled on the floor .... $rand(1, 6)
 }
@@ -288,19 +331,21 @@ If your statements aren't inside an alias, the other thing they can used with ar
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
 Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
 All events follow this format except two:<br>
-<pre class ="code">on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;</pre>
+<pre class = "code">
+on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;
+</pre>
 "on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
 After that you have the parameters of the events, you can get parameters to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
 Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
 
 
 Then you have the CTCP event, it has a similar format as the above and takes two parameters:<br>
-<pre class ="code">
+<pre class = "code">
 ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;
 </pre>
 
 The last events type are menu events:
-<pre class ="code">
+<pre class = "code">
 menu &lt;window&gt; {
   &lt;statements&gt;
 }
@@ -323,12 +368,17 @@ It first evaluate the statement, by resolving $identifier and %variable, from le
 The first word is then the name of the command to call and the rest are the parameter of the command.
 <p>
 What it means is that parameters passed to commands cannot contain spaces:
-<pre>//echo -ag A B</pre>
+<pre class = "code">
+//echo -ag A B
+</pre>
 if A were representing a string of the form "C D", then it would make B the third parameter of the command instead of the second parameter, and commands rely on parameters number being always the same:
-<pre>alias myfunction echo -ag reading line $2 from file $1 on folder C:\
-</pre>Suppose myfunction is an alias made to read a line number in a file on disk and you call the alias with <b>/myfunction test.txt 3</b> to read line 3 from C:\test.txt, this would work, $1 is test.txt and $2 is 3.<br>
+<pre class = "code">
+alias myfunction echo -ag reading line $2 from file $1 on folder C:\
+</pre>
+Suppose myfunction is an alias made to read a line number in a file on disk and you call the alias with <b>/myfunction test.txt 3</b> to read line 3 from C:\test.txt, this would work, $1 is test.txt and $2 is 3.<br>
 But when scripting, parameters of functions are most often than not dynamic parameters compared to static value:
-<pre>alias myfunction1 return $findfile(C:\,*,1)
+<pre class = "code">
+alias myfunction1 return $findfile(C:\,*,1)
 </pre>
 $findfile is a built-in identifier, here it returns the first file found on C:\<br>
 <b>//myfunction $myfunction1 3</b><br>
@@ -344,7 +394,7 @@ Finally, it's also great if only one of the parameter can be a string and this i
 Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
 So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
 For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
-<pre class ="code">
+<pre class = "code">
 alias difflength {
 if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
@@ -355,7 +405,7 @@ Most built-in identifiers evaluate their parameter from left to right (property 
 When you create an alias, if you call it as an identifier, all parameters are evaluated.<br>
 When we create such identifier to perform some operation but don't want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
 It is valid to not use the /noop command:
-<pre class ="code">
+<pre class = "code">
 alias difflength {
 if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
@@ -387,14 +437,14 @@ Comments are normal, readable text that can be placed inside of your script, and
 <H4>Single-line Comments</H4>
 The most basic comment is the single-line comment, which has the following syntax:
 
-<pre class ="code">
+<pre class = "code">
 ; This is single-line comment.
 </pre>
 
 Note on how the comment begins with a semicolon and ends at the end of the line; anything on this line is now ignored.
 
 Here is another basic example of a single-line comment:
-<pre class ="code">
+<pre class = "code">
 alias fun {
   ; print "Scripting"
   echo Scripting
@@ -412,7 +462,7 @@ alias fun {
 <H4>Multi-line Comments</H4>
 The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> & <b>*/</b> characters. The syntax for a multi-line comment is:
 
-<pre class ="code">
+<pre class = "code">
 if (/* iswm $1) /
 /* This is
   a multi-line
@@ -429,7 +479,7 @@ A few notes about the language limitations:
 <br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn't indented if there's a closing brace on that line.
 
 <H4><span style="color: #256B22;">Right Examples</span></H4>
-<pre class ="code">
+<pre class = "code">
 /* testing
    out
    a multi-line
@@ -437,7 +487,7 @@ A few notes about the language limitations:
 */
 </pre>
 or
-<pre class ="code">
+<pre class = "code">
 /*
    testing
    out
@@ -450,12 +500,16 @@ the lines are spaced out and the closing parameters are by themselves. These are
 examples of proper multi-line comment blocks.
 
 <H4><span style="color: #9E1010;">Wrong Examples</span></H4>
-<pre class ="code">/* testing
-   test */</pre>
+<pre class = "code">
+/* testing
+   test */
+</pre>
 The */ is not on a line of Its own.
 <br>
 
-<pre class ="code">/* comment */</pre>
+<pre class = "code">
+/* comment */
+</pre>
 The */ is not on a line of Its own.
 
 <H4>Multiple aliases/events</H4>
@@ -465,7 +519,7 @@ You can have multiple aliases/events in one single file but you cannot define an
 When you start with an empty script file, you're on the top level, meaning you can add an alias there. Inside that alias, you're not on the top level, you're inside the alias, which can be seen as the level depth '1'. So if you want to add more aliases, always do so on the top level:<br>
 
 <H4><span style="color: #9E1010;">Wrong Example</span></H4>
-<pre class ="code">
+<pre class = "code">
 alias first {
 
 alias second {
@@ -473,19 +527,21 @@ alias second {
 }
 
 }
-</pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
+</pre>
+There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
 
 <br><br><b>Note:</b> these aliases are empty for the sake of the example.
 
 <H4><span style="color: #256B22;">Good Examples</span></H4>
-<pre class ="code">
+<pre class = "code">
 alias first {
 
 }
 alias second {
 
 }
-</pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
+</pre>
+This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
 
 
 <H3>Colors:</H3>
@@ -495,9 +551,11 @@ Just like you can add colors when you talk by typing CTRL+K on your keyboard, an
 <b>Note:</b> The color character (ascii 3) is visually hidden this document. You will see the character when pasting the examples in mIRC or a text editor.
 <br>
 <br>
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   echo -a 3This 4is 6a 10cool 15example1.
-}</pre>
+}
+</pre>
 
 <img src="../images/color_example.png"><br><br>
 
@@ -505,18 +563,22 @@ Will produce:
 
  <span style="color: #009300;">This</span> <span style="color: #FF0000;">is</span> <span style="color: #9C009C;">a</span> <span style="color: #009393;">cool</span> <span style="color: #D2D2D2;">example</span><span style="color: #009300;">.</span>
 
-<pre class ="code">//echo -a The number 042 is even.</pre>
+<pre class = "code">
+//echo -a The number 042 is even.
+</pre>
 
 Will produce the following result:
-<pre class ="code">
+<pre class = "code">
  The number  is even.
 </pre>
 Notice that the number is not showing. That's because it was considered part of the color number '42'. Color index 42 is a shade of yellow, so if the 2nd color code had not been used to reset the colors, the remainder of the line would show in the index 42's shade of yellow instead of showing in red. Prefixing the color value with a zero will fix this issue:
 
-<pre class ="code">//echo -a The number 042 is even.</pre>
+<pre class = "code">
+//echo -a The number 042 is even.
+</pre>
 
 Will produce the following result:
-<pre class ="code">
+<pre class = "code">
  The number <span style="color: #FF0000;">2</span> is even.
 </pre>
 

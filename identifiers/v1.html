@@ -8,7 +8,7 @@
 The <b>$v1</b> identifier returns the value of the left-hand operand of the most recently executed conditional statement. This identifier is equivalent to the deprecated <a href="ifmatch.html">$ifmatch</a> identifier.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $v1
 </pre>
 
@@ -22,14 +22,15 @@ None
 <H4>Example</H4>
 
 This will echo 1 for $v1 instead of "a" because $test is evaluated before $v1, so the $iif is the last statement made when $v1 evaluates.
-<pre class ="code">
+<pre class = "code">
 alias test return $iif($1 == 1,1,2)
 alias testing if (a != b) echo -a $test(1) $v1
 </pre>
 
 
 List the names of any hash tables currently in use upon calling an alias <b>/hlist</b>:
-<pre class ="code">alias hlist {
+<pre class = "code">
+alias hlist {
   if (!$hget(0)) { echo -qgaec i * No hash tables in use }
   else {
     var %i 1
@@ -38,10 +39,13 @@ List the names of any hash tables currently in use upon calling an alias <b>/hli
     }
   }
   echo -qgaec i End of /hlist.
-}</pre>
+}
+</pre>
 
 Check if two random numbers between 1 and 5 are equivalent, and echo the matching numbers if so:
-<pre class ="code">//echo -ga $iif($rand(1,5) == $rand(1,5),Yes! $v1 == $v2,No! $v1 != $v2) $+ !</pre>
+<pre class = "code">
+//echo -ga $iif($rand(1,5) == $rand(1,5),Yes! $v1 == $v2,No! $v1 != $v2) $+ !
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.16 (07 Jul 2004)

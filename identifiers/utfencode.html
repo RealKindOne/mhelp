@@ -8,7 +8,7 @@
 The <b>$utfencode</b> identifier returns text encoded to utf8.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $utfencode(text,gdi)
 </pre>
 
@@ -43,7 +43,8 @@ Note: GDI charsets 1 and 255 are system dependent and are therefore expected to 
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $utfencode(&#233;)
+<pre class = "code">
+//echo -a $utfencode(&#233;)
 
 ; Code point 195 in GREEK_CHARSET is looked up and found to have been assigned the abstract character named GREEK CAPITAL LETTER GAMMA.
 ; Unicode's code page is referenced and GREEK CAPITAL LETTER GAMMA is located at code point 915 (U+0393 or $chr(915) in mIRC).

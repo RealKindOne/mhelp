@@ -63,7 +63,8 @@ mIRC supports the following arithmetic operators:
 
 They can be used in conjunction with the <a href="../commands/var.html">/var</a> or <a href="../commands/set.html">/set</a> commands as well as using the <a href="../identifiers/calc.html">$calc</a> Identifier. One special feature of the <a href="../identifiers/calc.html">$calc</a> identifier over the <a href="../commands/var.html">/var</a> and <a href="../commands/set.html">/set</a> commands is that it supports combination of operators as well as parenthesis to be able to change the order of operations.
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   var %x = 5
   ;5 * 5 = 25
   %x = %x * 5
@@ -76,7 +77,8 @@ They can be used in conjunction with the <a href="../commands/var.html">/var</a>
   ;25 + 7 - 2 = 30
   %x = $calc(%x + %y - 2)
   echo -a %x
-}</pre>
+}
+</pre>
 
 <a name="math_compare"></a>
 <H4>Math Comparison Operators</H4>
@@ -146,7 +148,8 @@ Math Comparison operators allow you to compare two values:
 
 <H4>Example</H4>
 
-<pre class ="code">alias example2 {
+<pre class = "code">
+alias example2 {
   ;true (3 a multiple of 9)
   if (3 // 9) echo yes!
   ;false
@@ -156,7 +159,8 @@ Math Comparison operators allow you to compare two values:
   ;00000000 = 0
   ;true, we used the '!' to negate the operator
   if (10 !& 4) echo yes
-}</pre>
+}
+</pre>
 
 <a name="string_compare"></a>
 <H4>String Comparison Operators</H4>
@@ -221,7 +225,8 @@ mIRC provides a set of operators that can be used to compare two strings. The tw
 </table>
 
 <H4>Example</H4>
-<pre class ="code">alias example3 {
+<pre class = "code">
+alias example3 {
   var %x = Hello!
   if (?ell?? iswm %x) echo true
   ;false, because of '!'
@@ -229,7 +234,8 @@ mIRC provides a set of operators that can be used to compare two strings. The tw
   %x = 5
   if (%x isnum 1-10) echo true
   if (%x isnum)  echo true
-}</pre>
+}
+</pre>
 
 <H4>Lexicographical String Comparison Operators</H4>
 
@@ -307,11 +313,15 @@ A lexicographical comparison is a comparison generally used to sort words alphab
 In an if statement, you are allowed to have more than one condition. Each condition has to be connected to the other using a logical operator. There are two logical operators: || meaning OR and && meaning AND.
 
 <H4>Example</H4>
-<pre class ="code">if ((%x &lt; 0) || (%x &gt; 10)) {</pre>
+<pre class = "code">
+if ((%x &lt; 0) || (%x &gt; 10)) {
+</pre>
 
 In the if statement above, %x has to be less than 0 OR greater than 10 to make the if statement be true.
 
-<pre class ="code">if ((%input isupper) && ($len(%input) &lt; 10)) {</pre>
+<pre class = "code">
+if ((%input isupper) && ($len(%input) &lt; 10)) {
+</pre>
 
 The if statement above will only be true if %a contains only upper case letters and its total length is less than 10.
 
@@ -380,14 +390,16 @@ mIRC also provides a set of commands to involve IRC channels:
 <br><b>Note:</b> the operator ishelp is the same as the operator ishop, and the operator isvo is the same as the operator isvoice
 
 <H4>Example</H4>
-<pre class ="code">alias example4 {
+<pre class = "code">
+alias example4 {
   ;am I on #mIRC
   if (#mIRC ischan) echo yes
   ;is that ban on #mSL's internal ban list?
   if (*!*@example.com isban #offTopic) echo yes
   ;am I an OP on #mIRC?
   if ($me isop #mIRC) echo yes
-}</pre>
+}
+</pre>
 
 <a name="list_operations"></a>
 <H4>List-related Operators</H4>
@@ -434,14 +446,16 @@ mIRC has 5 additional operators to check mIRC internal lists:
 <br><b>Note:</b> the operator isauto is the same as the operator isaop.
 
 <H4>Example</H4>
-<pre class ="code">Alias example5 {
+<pre class = "code">
+Alias example5 {
   ;is the host in the auto-op list
   if (dave101!*@* isaop) echo yes
 
   ;assume we have ignore all ctcps: /ignore -tw *!*@*
   ;check if *!*@* in the ignore list for CTCPs:
   if (*!*@* isignore ctcp) echo yes
-}</pre>
+}
+</pre>
 
 </body>
 </html>

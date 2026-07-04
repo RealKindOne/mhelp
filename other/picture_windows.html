@@ -9,24 +9,24 @@ The <b>Picture Windows</b> in mIRC are a special type of <a href="custom_windows
 
 <H4>Creating a picture window</H4>
 Picture windows can be created via the <a href="../commands/window.html">/window</a> command in combination with the -p switch which creates a bitmap.
-<P>
+<p>
 <b>Note:</b> -p only creates the bitmap, the size used in /window will by default set the window's size, to sets the size of the bitmap, you need to use the -f switch, which will automatically resize the size of the window for you.
-<P>
+<p>
 <b>Note1:</b> One way to get a window size bigger than your actual maximum screen resolution is to open the window once using the switches +Lt and then to call /window -f again with the actual width and height.
-<P>
+<p>
 A simple example:
-<pre class ="code">
+<pre class = "code">
 //window -dep @example -1 -1 500 400
 </pre>
 
 will create a desktop picture window named <code>@example</code> with an editbox and a size of 500x400, the actual size of the bitmap is not 500*400, it will be close, you can check its size with:
-<pre class ="code">
+<pre class = "code">
 //echo -a $window(@example).bw $window(@example).bh
 </pre>
 
 A better example would be:
 
-<pre class ="code">
+<pre class = "code">
 //window -dfep @example -1 -1 500 400
 </pre>
 
@@ -66,7 +66,7 @@ Once you have made all your draws and are ready to paint the changes, any call t
 
 Here is a simple alias using all of the command above except /drawsave and /drawpic:
 
-<pre class ="code">
+<pre class = "code">
 alias picwin_example {
   window -dpfB @test -1 -1 300 300
   ; Draw a red dot (rgb = 255), size = 5, x y = 50 50
@@ -115,7 +115,7 @@ Mouse events can be defined in a <a href="custom_windows.html#custom_windows_men
 You can catch keyboard input using the <a href="../events/on_keydown.html">On_KeyDown</a> and <a href="../events/on_keyup.html">On_KeyUp</a> events, which triggers when a key is pressed and released respectively.
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 on &lt;level&gt;:&lt;keydown|keyup&gt;:&lt;@window&gt;:&lt;keys&gt;:&lt;command&gt;
 </pre>
 &lt;keys&gt; can be a comma separated list of key, which are nothing more than number, representing a key, <a href="../identifiers/keyval.html">$keyval</a> returns the key code while <a href="../identifiers/keychar.html">$keychar</a> returns the actual character of the key. <a href="../identifiers/keyrpt.html">$keyrpt</a> returns $true if the event is triggering because the key is being held down (on keydown only).
@@ -127,7 +127,7 @@ The <a href="../identifiers/mouse.html">$mouse</a> identifier doesn't take any p
 <H4>Indirect events</H4>
 
 Using $mouse.key, you get a value which when using the AND operator, yield useful information:
-<pre class ="code">
+<pre class = "code">
 if ($mouse.key & 1) is true if the left mouse button is pressed.
 if ($mouse.key & 2) is true if the control key is pressed.
 if ($mouse.key & 4) is true if the shift key is pressed.
@@ -145,7 +145,7 @@ Others useful properties:
 <H4>The <a href="../identifiers/click.html">$click</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $click(@window,N)
 </pre>
 mIRC store a history of x,y value when you click on a window, $click() returns the Nth x,y click.
@@ -153,7 +153,7 @@ mIRC store a history of x,y value when you click on a window, $click() returns t
 <H4>The <a href="../identifiers/inellipse.html">$inellipse</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $inellipse(x,y,x,y,w,h)
 </pre>
 Returns $true if the first point x y is inside the ellipse specified by the 'x y w h' parameters, and $false if it is not.
@@ -161,7 +161,7 @@ Returns $true if the first point x y is inside the ellipse specified by the 'x y
 <H4>The <a href="../identifiers/inrect.html">$inrect</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $inrect(x,y,x,y,w,h)
 </pre>
 Returns $true if the first point x y is inside the rectangle specified by the 'x y w h' parameters, and $false if it is not.
@@ -169,7 +169,7 @@ Returns $true if the first point x y is inside the rectangle specified by the 'x
 <H4>The <a href="../identifiers/inroundrect.html">$inroundrect</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $inroundrect(x,y,x,y,w,h,w,h)
 </pre>
 Returns $true if the first point x y is inside the rounded rectangle specified by the 'x y w h' parameters, where the extra 'w h' parameters represent the value used in /drawrect to get the rounded corner, and $false if it is not.
@@ -177,7 +177,7 @@ Returns $true if the first point x y is inside the rounded rectangle specified b
 <H4>The <a href="../identifiers/inpoly.html">$inpoly</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $inpoly(x,y,x1,y1,x2,y2,...)
 </pre>
 Returns $true if the first point x y is inside the polygon defined by the specified points 'x1 y1 x2 y2 ...' parameters, and $false if it is not.
@@ -185,7 +185,7 @@ Returns $true if the first point x y is inside the polygon defined by the specif
 <H4>The <a href="../identifiers/onpoly.html">$onpoly</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $onpoly(n1,n2,x1,y1,x2,y2,x3,y3,...)
 </pre>
 Returns $true if two polygon overlap, $false otherwise. The first n1 and n2 parameters represent the number of points in the first and in the second polygon respectively. The rest of the parameters are the x,y points used for each polygon.
@@ -193,7 +193,7 @@ Returns $true if two polygon overlap, $false otherwise. The first n1 and n2 para
 <H4>The <a href="../identifiers/rgb.html">$rgb</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $rgb(R,G,B), $rgb(N)
 </pre>
 $rgb(R,G,B) returns the RGB value formed with the specified Red, Green and Blue values.
@@ -203,7 +203,7 @@ $rgb(N) return the R,G,B format used to form the specified RGB color value.
 <H4>The <a href="../identifiers/getdot.html">$getdot</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $getdot(@window,x,y)
 </pre>
 Returns the RGB value of the pixel at the specified coordinate in the specified window.
@@ -211,7 +211,7 @@ Returns the RGB value of the pixel at the specified coordinate in the specified 
 <H4>The <a href="../identifiers/height.html">$height</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $height(@text,fontname,fontsize)
 </pre>
 Returns height of text in pixels for the specified font.
@@ -219,7 +219,7 @@ Returns height of text in pixels for the specified font.
 <H4>The <a href="../identifiers/width.html">$width</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $width(text,fontname,fontsize,B,C)
 </pre>
 Returns width of text in pixels for the specified font, B can be non zero for a bold font, C can be non zero if you want control codes to be processed.
@@ -227,7 +227,7 @@ Returns width of text in pixels for the specified font, B can be non zero for a 
 <H4>The <a href="../identifiers/window.html">$window</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $window, $window(&lt;@&lt;name|wid&gt;|N&gt;,N)
 </pre>
 <b>$window</b> itself returns the name of the window which was just left in the <b>leave</b> mouse event in a menu definition.
@@ -238,7 +238,7 @@ As far as picture window are concerned, $window() has only one couple of propert
 <H4>The <a href="../identifiers/pic.html">$pic</a> identifier</H4>
 
 Synopsis:
-<pre class ="code">
+<pre class = "code">
 $pic(filename).[height|width|size]
 </pre>
 Can returns the size, width and height of a .bmp, .jpg or .png file

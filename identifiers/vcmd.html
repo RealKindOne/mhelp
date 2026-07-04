@@ -8,7 +8,7 @@
 The <b>$vcmd</b> identifier is used to retrieve commands in the voice command list.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $vcmd(N)
 </pre>
 
@@ -20,13 +20,19 @@ None
 
 <H4>Example</H4>
 Echo the total amount of voice commands to the active window:
-<pre class ="code">//echo -a $vcmd(0)</pre>
+<pre class = "code">
+//echo -a $vcmd(0)
+</pre>
 
 Echo the 3rd command in the voice command list to the active window:
-<pre class ="code">//echo -a $vcmd(3)</pre>
+<pre class = "code">
+//echo -a $vcmd(3)
+</pre>
 
 Echo the entire list of voice commands to the active window:
-<pre class ="code">//var %i = 1 | while (%i &lt;= $vcmd(0)) { echo -a $vcmd(%i) | inc %i }</pre>
+<pre class = "code">
+//var %i = 1 | while (%i &lt;= $vcmd(0)) { echo -a $vcmd(%i) | inc %i }
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.0 (03 Feb 2002)

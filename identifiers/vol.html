@@ -8,7 +8,7 @@
 The <b>$vol</b> identifier can be used to retrieve the current volume, from the Windows audio control, for the specified sound type parameter.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $vol(wave | midi | song | master)[.property]
 </pre>
 
@@ -23,10 +23,14 @@ $vol(wave | midi | song | master)[.property]
 
 <H4>Example</H4>
 Echo the mute status for mp3 files to the active window:
-<pre class ="code">//echo -a $vol(song).mute</pre>
+<pre class = "code">
+//echo -a $vol(song).mute
+</pre>
 
 Echo the current master system volume to the active window:
-<pre class ="code">//echo -a $vol(master)</pre>
+<pre class = "code">
+//echo -a $vol(master)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)

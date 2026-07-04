@@ -20,23 +20,31 @@ A custom window has the ability to contain the following 3 components:
 <H4>Creating a window</H4>
 Before you can do anything with a window, you must actually create it. All windows must have a name, their name must also start with the '@' symbol. The name can be anything as long as it doesn't contain spaces. Use the <a href="../commands/window.html">/window</a> command to create a window:
 
-<pre class ="code">/window @&lt;WindowName&gt; [x y [w h]]</pre>
+<pre class = "code">
+/window @&lt;WindowName&gt; [x y [w h]]
+</pre>
 
 This will create a blank window containing only the chatbox. If you'd like to add the editbox you'd need to use the -e switch. Placing a number after the switch allows you to define what kind of editbox to be used: 0 - single line, 1 - multi-line editbox, 2 - auto editbox, 3 - default. A window can also be made to be detached from the main window using the -d switch.
 
-<pre class ="code">/window -e[N] @&lt;WindowName&gt; [x y [w h]]</pre>
+<pre class = "code">
+/window -e[N] @&lt;WindowName&gt; [x y [w h]]
+</pre>
 
 A size-listbox can also be added to the window using the -l switch. Adding a number after the 'l' will define the width (in characters) of the listbox.
 
-<pre class ="code">/window -l[N] @&lt;WindowName&gt; [x y [w h]]</pre>
+<pre class = "code">
+/window -l[N] @&lt;WindowName&gt; [x y [w h]]
+</pre>
 
 For example:
 
-<pre class ="code">alias example {
+<pre class = "code">
+alias example {
   ; -d desktop window, -e editbox, (3 = auto), -l = side-editbox (20-char width)
   ; position (200,200) size 500x350
   window -de3l20 @example 200 200 500 350
-}</pre>
+}
+</pre>
 
 The code above will create a desktop window with an editbox and a side-listbox.
 
@@ -44,42 +52,46 @@ The code above will create a desktop window with an editbox and a side-listbox.
 The following commands can be used to add, modify, delete, insert, or replace the lines in the chatbox or the side-listbox:
 
 <br><b>Add a line</b> - This command will simply add a line of text to the end of the window. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line.
-<pre class ="code">
+<pre class = "code">
 /aline [-ni] [color] &lt;@name&gt; &lt;text&gt;
 </pre>
 
 <br><b>Delete a line</b> - This command is used to delete the Nth line from the window. The N2 line can be specified to give a range of line ex: 4-7 will delete line 4, 5, 6, and 7.
-<pre class ="code">
+<pre class = "code">
 /dline [color] &lt;@name&gt; &lt;N[-N2]&gt;
 </pre>
 
 <br><b>Insert a line</b> - This command allows you to add a line of text after the Nth line. The [color] is the color number for the line. The -n switch can be used to prevent from adding duplicates. The -i indents the line.
-<pre class ="code">
+<pre class = "code">
 /iline [-ni] [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;
 </pre>
 
 <br><b>Replace a line</b> - This command is used to replace the Nth line of a window with another line. The [color] is the color number for the line.
-<pre class ="code">
+<pre class = "code">
 /rline [color] &lt;@name&gt; &lt;N&gt; &lt;text&gt;
 </pre>
 
 <br><b>Change color of a line</b> - This command is used to change the color of the Nth line with the new [color]. The -m switch can be used to associate nickname color in side-listbox with the nickname in the chatbox. The -r switch can be used to reset the color back to default.
-<pre class ="code">
+<pre class = "code">
 /cline [-rm] [color] &lt;@name&gt; &lt;N&gt;
 </pre>
 
 <br><b>Select a line</b> - This command is used to select the Nth line of window. The -p switch can be used to force the line of text to be wrapped if it's too long to fit on one line. -h highlights the window's icon (only if its minimized). -a can be used to add this line to the current selection and -s can be used to clear the current selection and select just this line.
-<pre class ="code">
+<pre class = "code">
 /sline [color] &lt;@name&gt; &lt;N&gt;
 </pre>
 
 <H4>Customizing the window</H4>
 The titlebar command can be used to change the window's title.
 
-<pre class ="code">/titlebar @window &lt;text&gt;</pre>
+<pre class = "code">
+/titlebar @window &lt;text&gt;
+</pre>
 <b>Please Note:</b> this will not change the actual @window name, only its title. To change the actual window's name, use the rewin command:
 
-<pre class ="code">/renwin &lt;@oldname&gt; &lt;@newname&gt; [topic]</pre>
+<pre class = "code">
+/renwin &lt;@oldname&gt; &lt;@newname&gt; [topic]
+</pre>
 
 <a name="custom_windows_menu"></a>
 <H4>Custom Window's Menu</H4>
@@ -92,13 +104,15 @@ You can also create a customized right click menu for the window, this can be do
 
 The first option is using a popup file. This method is very much like the popups tab in the script editor. In the code below we will assume you are going with option 2, writing it in the remote section. If you choose to go with a popup file, you will need to omit the "menu" keyword from your code. The basic syntax is:
 
-<pre class ="code">menu @windowName {
+<pre class = "code">
+menu @windowName {
   &lt;event&gt;: {
     ;/commands
   }
   ;or
   &lt;event&gt;: /commands
-}</pre>
+}
+</pre>
 
 There are 8 possible built-in events; however, only 3 of them pertain to regular custom windows (the rest can only be used in a <a href="picture_windows.html#mouse_event">Picture window</a>.
 
@@ -110,24 +124,28 @@ In addition to built-in events, you can also add your own custom menu items.
 
 <br><b>Note:</b> if you have built-in mouse events as well as custom menu items, the built-in events MUST be placed above the custom menu items. The basic syntax for the menu items is:
 
-<pre class ="code">menu @windowName {
+<pre class = "code">
+menu @windowName {
   item: {
     ;/commands
   }
   ;or
   item: /commands
-}</pre>
+}
+</pre>
 
 Sub menus and sub items are possible by prefixing the sub menu item with a period. Additional periods will indicate sub-sub menus. For example:
 
-<pre class ="code">menu @example {
+<pre class = "code">
+menu @example {
   menu
   .sub_item: echo -a sub item clicked!
   .sub_item2
   ..sub__sub_item: echo -a sub sub item clicked!
   .sub: echo -a another item!
   item2: echo -a main item 2.
-}</pre>
+}
+</pre>
 
 will generate the following menu:
 <center>
@@ -139,7 +157,9 @@ There are a number of identifiers that can be used to retrieved information from
 
 The $window identifier can be used to retrieve window-specific information:
 
-<pre class ="code">$window(@name | N )[.property]</pre>
+<pre class = "code">
+$window(@name | N )[.property]
+</pre>
 
 Some of $window's more helpful properties are:
 <br>
@@ -160,19 +180,25 @@ Some of $window's more helpful properties are:
 <H4>Retrieving Text</H4>
 You can retrieve a line of text from a custom window using the $line identifier:
 
-<pre class ="code">$line(@windowName, N, T)</pre>
+<pre class = "code">
+$line(@windowName, N, T)
+</pre>
 
 $lines returns the Nth line of text from a window. If N = 0, $lines returns the total number of lines in the window. If T = 1, the side-listbox will be used instead of the chatbox (default is 0).
-<P>
+<p>
 You can also search the window for a line wild-matching a specific sequence.
 
-<pre class ="code">$fline(@windowName, wildtext, N, T)</pre>
+<pre class = "code">
+$fline(@windowName, wildtext, N, T)
+</pre>
 
 This will return the Nth line wild-matching a specific wildtext sequence. If T = 1, the side-listbox will be used instead of the chatbox (default is 0).
-<P>
+<p>
 If a listbox is used, you can use the $sline identifier to retrieve the Nth selected text.
 
-<pre class ="code">$sline(@windowName, N)[.ln]</pre>
+<pre class = "code">
+$sline(@windowName, N)[.ln]
+</pre>
 
 If N = 0, the total number of selected lines is returned. If the .ln property is used, the line number will be returned instead of the actual text.
 

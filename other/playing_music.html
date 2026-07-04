@@ -27,7 +27,9 @@ mIRC supports the following media formats: <b>.wma,.mp3,.wav,.mid,.ogg</b>
 Multiple file formats can be played at the same time. However, you <b>cannot</b> play multiple files, of the same format, at the same time. For instance, you can play a <b>.wav</b> file at the same time as an <b>.mp3</b> file, but you cannot play a <b>.wav</b> file and another <b>.wav</b> file at the same time. The second <b>.wav</b> file will take precedence if you're not queuing the file: the first <b>.wav</b> file will be stopped and the second one then played. Make sure to keep in mind what has been said regarding the formats <b>.mp3,.wma & .ogg</b>; they are all treated the same with the <a href="../commands/splay.html">/splay</a> command, so only one of those types may play at a time.
 
 <H4>Synopsis</H4>
-<pre class ="code">/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]</pre>
+<pre class = "code">
+/splay -cwmpq [filename | stop | pause | resume | seek | skip] [pos]
+</pre>
 
 <H4>Switches</H4>
 <b>-wmp</b> - Indicates that the feature (only Stop or Skip features may be used with these flags) will be done on the specified media format that is currently playing.
@@ -57,7 +59,9 @@ After the music is playing, you have a few options available for manipulating th
 You can control the volume of your system (and, therefore, of the music played in mIRC) with the /vol command.
 
 <H4>Synopsis</H4>
-<pre class ="code">/vol -wmpvuN [volume]</pre>
+<pre class = "code">
+/vol -wmpvuN [volume]
+</pre>
 
 <H4>Switches</H4>
 <b>-w</b> - Changes the volume for WAV files only.
@@ -75,7 +79,7 @@ The <b>on MP3END, on WAVEEND & on MIDIEND</b> events will trigger for the <b>.mp
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 on &lt;level&gt;:mp3end|midiend|waveend|songend:&lt;commands&gt;
 </pre>
 
@@ -97,7 +101,7 @@ $vol(&lt;wave | midi | song | master&gt;) - Returns a number between 0 and 65535
 * $sound(&lt;filename&gt;) - Returns either the directory for that file type, as above, or information about the sound file. Currently, only mp3 files are supported.
 <br><b>Properties:</b> .album, .title, .artist, .year, .comment, .genre, .track, .length, .version, .bitrate, .vbr, .sample, .mode, .copyright, .private, .crc, .id3, .tag, .tags
 ** Return the corresponding value, the above properties always return the id3v1 values of the mp3 file. If you want to retrieve the id3v2 values, you can use the .tag and .tags properties:
-<pre class ="code">
+<pre class = "code">
 alias showtags {
  if ($1- == $null) { echo 2 -e * /showtags: please specify filename, eg. /showtags file.mp3 | halt }
  echo 1 id3: $sound($1-).id3
@@ -112,35 +116,35 @@ alias showtags {
 
 <H4>Example</H4>
 Play the mp3 file, if an mp3 file is already playing, it is stopped before:
-<pre class ="code">
+<pre class = "code">
 /splay C:\Directory_To_Music_File\MusicFile.mp3
 </pre>
 Play a mp3 file at a specific point (1500 milliseconds from the beginning):
-<pre class ="code">
+<pre class = "code">
 /splay C:\My Music\file.mp3 1500
 </pre>
 Stop the wave file that is currently playing, if any:
-<pre class ="code">
+<pre class = "code">
 /splay -w stop
 </pre>
 Stop the wave file and the mp3/wma/ogg file that are currently playing, if any:
-<pre class ="code">
+<pre class = "code">
 /splay -wp stop
 </pre>
 Seek the mp3 file that is playing, won't work on MIDI or WAVE so -p is not required:
-<pre class ="code">
+<pre class = "code">
 /splay seek 1000
 </pre>
 Skip the song currently playing for the wave format:
-<pre class ="code">
+<pre class = "code">
 /splay -w skip
 </pre>
 Set the master volume to 32200:
-<pre class ="code">
+<pre class = "code">
 /vol -v 32200
 </pre>
 Warn if song finish while having no sound on the master volume:
-<pre class ="code">
+<pre class = "code">
 on *:songend:if ($vol(master) == 0) || ($vol(master).mute) echo -s * You should turn up the volume!
 </pre>
 

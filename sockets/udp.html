@@ -12,8 +12,10 @@ Recall that UDP is a connectionless protocol service. Because of this there are 
 <H4>Sending A Packet</H4>
 The /sockudp command allows you to send data to a specific address at a specific port destination. The syntax is:
 
-<pre class ="code">; Sending some data
-/sockudp [-kb] &lt;handle&gt; &lt;ipaddress&gt; &lt;port&gt; [numbytes] text|%var|&bvar]</pre>
+<pre class = "code">
+; Sending some data
+/sockudp [-kb] &lt;handle&gt; &lt;ipaddress&gt; &lt;port&gt; [numbytes] text|%var|&bvar]
+</pre>
 
 By default, /sockudp sends the entire data specified. The -b switch can be used to limit the amount of bytes sent.
 
@@ -22,17 +24,21 @@ If you are expecting some data back, the -k switch can be used to force the UDP 
 <H4>Listening for Incoming Data</H4>
 If you are expecting data back (I.E. if you specified the -k switch) you can listen for incoming data via the on udpread event.
 
-<pre class ="code">on *:udpread:&lt;handle&gt;:{
+<pre class = "code">
+on *:udpread:&lt;handle&gt;:{
    ; your code goes here
-}</pre>
+}
+</pre>
 
 <H4>Socket Failure and More Data Sending</H4>
 
 The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger <a href="../identifiers/sockerr.html">$sockerr</a> set to a non-zero value.
 
-<pre class ="code">on *:sockwrite:&lt;handle&gt;:{
+<pre class = "code">
+on *:sockwrite:&lt;handle&gt;:{
    ; your code goes here
-}</pre>
+}
+</pre>
 
 <H4>Example</H4>
 
@@ -41,10 +47,10 @@ The on sockwrite event can be used to write additional data when the previous da
 <br>
 This example will use the Time Protocol to display the current time. The Time Protocol is a very simple network protocol that provides site-independent, machine readable date and time. The protocol is defined in RFC 868.
 
-From RFC 868:
+From RFC 868:<br>
 
-<pre class ="code">When used via UDP the time service works as follows:
-
+When used via UDP the time service works as follows:
+<pre class = "code">
  S: Listen on port 37 (45 octal).
  U: Send an empty datagram to port 37.
  S: Receive the empty datagram.
@@ -54,26 +60,32 @@ From RFC 868:
  The server listens for a datagram on port 37. When a datagram
  arrives, the server returns a datagram containing the 32-bit time
  value. If the server is unable to determine the time at its site, it
- should discard the arriving datagram and make no reply.</pre>
+ should discard the arriving datagram and make no reply.
+</pre>
 
 From the instructions above you can see that the first thing we have to do is send an empty datagram to their server. On port 37. &null will hold our NULL byte.
 
-<pre class ="code">alias getTime {
+<pre class = "code">
+alias getTime {
   ; NULL byte
   bset &null 1 0
   ; Time.nist.gov = 132.163.96.4
   sockudp -k getTime 132.163.96.4 37 &null
-}</pre>
+}
+</pre>
 
 Let's add a single line of code to print if an error occurred
 
-<pre class ="code">on *:sockwrite:getTime:{
+<pre class = "code">
+on *:sockwrite:getTime:{
   if ($sockerr) echo -a /getTime: Error: $sock($sockname).wserr - $sock($sockname).wsmsg
-}</pre>
+}
+</pre>
 
 Now, all we have to do is sit and wait for the datagram response. Remember that since UDP is connectionless protocol, its header is much smaller, thus much faster (Ideal for a time protocol).
 
-<pre class ="code">on *:udpRead:getTime: {
+<pre class = "code">
+on *:udpRead:getTime: {
    ; read the reply
    sockread -f &time
 
@@ -86,13 +98,15 @@ Now, all we have to do is sit and wait for the datagram response. Remember that 
    ; print it and close the socket
    echo -a our 32-bit time value: %bin
    sockclose $sockname
-}</pre>
+}
+</pre>
 
 Let's make sense of this 32bit time value, shall we?
-
+<br>
 Once again, from the RFC 868:
 
-<pre class ="code">The Time
+<pre class = "code">
+The Time
 
  The time is the number of seconds since 00:00 (midnight) 1 January 1900
  GMT, such that the time 1 is 12:00:01 am on 1 January 1900 GMT; this
@@ -104,11 +118,13 @@ Once again, from the RFC 868:
  2,398,291,200 corresponds to 00:00 1 Jan 1976 GMT,
  2,524,521,600 corresponds to 00:00 1 Jan 1980 GMT,
  2,629,584,000 corresponds to 00:00 1 May 1983 GMT,
- and -1,297,728,000 corresponds to 00:00 17 Nov 1858 GMT.</pre>
+ and -1,297,728,000 corresponds to 00:00 17 Nov 1858 GMT.
+</pre>
 
 Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can just do $calc(%time - 2208988800) to get the current Unix time. Now all we got to do is use $asctime to format it nicely.
 
-<pre class ="code">on *:udpRead:getTime: {
+<pre class = "code">
+on *:udpRead:getTime: {
   ; read the reply
   sockread -f &time
   var %time $bvar(&time,1,$bvar(&time,0))
@@ -122,7 +138,8 @@ Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can jus
   ; print the time and close the socket
   echo -a Current Time/Date: $asctime($calc(%time - 2208988800), yyyy-mm-dd hh:nn:ss TT)
   sockclose $sockname
-}</pre>
+}
+</pre>
 <br>
 <br>
 <b>QOTD Protocol</b>
@@ -132,21 +149,25 @@ In this example we will use an interesting protocol, the Quote Of The Day, RFC 8
 
 Send a request:
 
-<pre class ="code">alias getQOTD {
+<pre class = "code">
+alias getQOTD {
   ; NULL byte
   bset &null 1 0
   ; Dns resolved quotes4all.net to 85.25.143.214
   sockudp -k getQOTD 85.25.143.214 17 &null
-}</pre>
+}
+</pre>
 
 Now wait for the quote:
 
-<pre class ="code">on *:udpRead:QOTD: {
+<pre class = "code">
+on *:udpRead:QOTD: {
    var %Quote
    sockread -f %Quote
    echo -ea %Quote
    sockclose $sockname
-}</pre>
+}
+</pre>
 
 </body>
 </html>
