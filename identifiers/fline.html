@@ -11,7 +11,7 @@ The <b>$fline</b> identifier returns the number of the Nth line matching the exp
 <b>Note:</b> $fline strips lines from control code before matching
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $fline(win,expr,N,T,S)[.property]
 </pre>
 
@@ -28,7 +28,9 @@ Note: if you need S but not T, you must pass T as 0
 <b>.text</b> - Return the line matched rather than the line number.
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $fline($chan(1),*mirc*)</pre>
+<pre class = "code">
+//echo -a $fline($chan(1),*mirc*)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)

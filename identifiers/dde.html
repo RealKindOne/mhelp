@@ -19,7 +19,7 @@ More information <a href="../other/injection.html">here</a>.
 <br>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $dde(name, topic, item, delay)
 </pre>
 
@@ -40,11 +40,15 @@ None
 <b>Note:</b> If the value returned by $dde() is too long for mIRC to handle, $dde returns a value of plain text "$error".
 <br>
 <b>Note2:</b> $dde supports one of the old syntax for some identifiers, evaluating '$dde name topic item' works (use 0 if no item, seems to be required sometimes), there's even a -dN switch for the delay:
-<pre class ="code">//echo -a $dde mirc server 0</pre>
+<pre class = "code">
+//echo -a $dde mirc server 0
+</pre>
 should return the $server value you are connected to.
 
 <H4>Example</H4>
-<pre class ="code">//echo My other mIRC is $dde(mirc, connected) to $dde(mirc, server)</pre>
+<pre class = "code">
+//echo My other mIRC is $dde(mirc, connected) to $dde(mirc, server)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.9 (28 Dec 1995)

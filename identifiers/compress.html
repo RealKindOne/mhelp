@@ -8,7 +8,7 @@
 The <b>$compress</b> identifier performs compression of a disk file or binary variable.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $compress( &lt;filename | BinaryVariable&gt; ,[b][lN][mN] )
 </pre>
 
@@ -35,7 +35,7 @@ Reminder that decompress works without being informed of the lN compression leve
 <br>
 Returns 1 if it compressed the file, or 0 if it did not. It will repeatedly process the same file and return 1, even if the attempt to compress an already compressed file slightly increases the filesize. 0 can indicate there's no-such-file, the file wasn't already compressed, or a failure to decompress corrupted data.
 
-<pre class ="code">
+<pre class = "code">
 //noop | $compress(versions.txt) | echo -a test
 //bset -t &snip 1 $read($mircini,ntw,*16777215*) | echo 4 -a / $bvar(&snip,1-) |      $compress(&snip,b) | echo 5 -a \ $bvar(&snip,1-)
 //bset -t &snip 1 $read($mircini,ntw,*16777215*) | echo 4 -a / $bvar(&snip,1-) | noop $compress(&snip,b) | echo 5 -a \ $bvar(&snip,1-)
@@ -43,7 +43,7 @@ Returns 1 if it compressed the file, or 0 if it did not. It will repeatedly proc
 
 In the above example, the first 2 lines are incorrect usage, and fail to alter the filename or binary variable, nor do they display the following echo. You must use $compress an argument to something else, which should be done in order to determine success or failure.
 
-<pre class ="code">
+<pre class = "code">
 alias compress-then-send {
   if (!$comchan($1,1)) { echo 5 -a no shared channels with nick $1 | return }
   if (!$isfile($2-)) { echo 5 -a filename does not exist: $2- | return }

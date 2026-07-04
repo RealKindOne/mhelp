@@ -8,7 +8,7 @@
 The <b>$editbox</b> identifier is used to get the contents of editboxes in any mIRC window that contains an editbox.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $editbox(window[,N])[.property]
 </pre>
 
@@ -22,10 +22,14 @@ $editbox(window[,N])[.property]
 
 <H4>Example</H4>
 Echo the contents of the status window:
-<pre class ="code">//echo -a $editbox(Status Window)</pre>
+<pre class = "code">
+//echo -a $editbox(Status Window)
+</pre>
 
 Echo the start and end locations of selected text in the status window editbox:
-<pre class ="code">//echo -a Selection start: $editbox(Status Window).selstart --- Selection end: $editbox(Status Window).selend</pre>
+<pre class = "code">
+//echo -a Selection start: $editbox(Status Window).selstart --- Selection end: $editbox(Status Window).selend
+</pre>
 
 
 

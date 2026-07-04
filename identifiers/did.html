@@ -11,7 +11,7 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 <H4>Synopsis</H4>
 
 <b>Note:</b> Inside the on dialog event, you can omit the whole dialog &lt;name&gt; parameter:
-<pre class ="code">
+<pre class = "code">
  $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
  $did(&lt;id&gt;,[N])[.property]
 </pre>
@@ -42,7 +42,7 @@ The <b>$did</b> identifier allows you to get the settings and values of controls
 
 <H4>Example</H4>
 This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="../commands/alias.html">/alias</a> called <b>/whatEvents</b> which will open up the local <a href="../dialog/dialog.html">Dialogs</a> ''whatEvents'':
-<pre class ="code">
+<pre class = "code">
 alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents
 dialog -l whatEvents {
   title "Events? What Events?"
@@ -67,10 +67,11 @@ on *:DIALOG:whatEvents:*:*: {
   did -ra $dname 4 $did
   did -ra $dname 6 $iif($did == 0,NA,$iif($did($did),$v1,$iif($did($did).sel,$v1,$iif($did($did) == 0,0,NA))
   did -ra $dname 10 $did(9).state
-}</pre>
+}
+</pre>
 
 Once saved into a script file inside of the mIRC remotes, the above example can be executed by typing the following command:
-<pre class ="code">
+<pre class = "code">
 /whatEvents
 </pre>
 Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.

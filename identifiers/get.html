@@ -8,7 +8,7 @@
 The <b>$get</b> identifier can be used to gather various details regarding open "/dcc get" windows, even if the transfers completed.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $get(N/nick[,N])[.property]
 </pre>
 
@@ -43,13 +43,17 @@ When sender changes nick, the $get is still associated with the old nick unless 
 
 <H4>Example</H4>
 Echo the total percent completed of the 3rd transfer:
-<pre class ="code">//echo -a $get(3).pc</pre>
+<pre class = "code">
+//echo -a $get(3).pc
+</pre>
 
 Echo the total number of transfers:
-<pre class ="code">//echo -a $get(0)</pre>
+<pre class = "code">
+//echo -a $get(0)
+</pre>
 
 Summary of open "/dcc get" windows:
-<pre class ="code">
+<pre class = "code">
 //var %i 1 | while ( %i isnum 1- $get(0) ) { echo -a %i nick: $get(%i) file: $get(%i).file size: $get(%i).size status: $get(%i).status | inc %i }
 </pre>
 

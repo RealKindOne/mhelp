@@ -12,7 +12,7 @@ The <b>$file</b> identifier can be used in two ways:
 <br><b>$file="title" dir</b> this is an old, deprecated syntax, display the select file dialog, use <a href="sfile.html">$sfile</a> instead.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $file(filename)[.property]
 $file="title" dir
 </pre>
@@ -73,10 +73,14 @@ See: https://msdn.microsoft.com/en-us/library/windows/desktop/ms646997(v=vs.85).
 
 <H4>Example</H4>
 Tells you some information about mIRC's executable.
-<pre class ="code">//echo -a $mircexe is $bytes($file($mircexe),3).suf and was installed on $asctime($file($mircexe).ctime)</pre>
+<pre class = "code">
+//echo -a $mircexe is $bytes($file($mircexe),3).suf and was installed on $asctime($file($mircexe).ctime)
+</pre>
 
 Some more information about mIRC's executable.
-<pre class ="code">//echo -a My copy of mIRC appears to be $iif($file($mircexe).sig == ok,valid.,hacked!)</pre>
+<pre class = "code">
+//echo -a My copy of mIRC appears to be $iif($file($mircexe).sig == ok,valid.,hacked!)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)

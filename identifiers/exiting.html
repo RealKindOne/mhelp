@@ -8,7 +8,8 @@
 The <b>$exiting</b> identifier returns whether mIRC is exiting, not exiting, or if it is restarting. The identifier is filled with 1, 0, and 2, respectively.
 
 <H4>Synopsis</H4>
-<pre class ="code">$exiting</pre>
+<pre class = "code">
+$exiting</pre>
 
 <H4>Returns</H4>
 <b>0</b> - mIRC is not exiting
@@ -23,8 +24,10 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">; Check in an on exit event if mIRC is exiting
-on *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)</pre>
+<pre class = "code">
+; Check in an on exit event if mIRC is exiting
+on *:EXIT:echo -a mIRC is $iif($exiting,$iif($exiting == 1,exiting,restarting),not exiting)
+</pre>
 
 The above example will return the proper condition for whether or not mIRC is exiting. An example output is below:
 mIRC is not exiting

@@ -9,7 +9,7 @@ The <b>$envvar</b> identifier returns the names of Windows environment variables
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $envvar(&lt;name|N&gt;)[.property]
 </pre>
 
@@ -24,11 +24,11 @@ $envvar(&lt;name|N&gt;)[.property]
 Same as with <a href="timer.html">$timer(N)</a>, If there's an environment variable named 3, $envvar(3).value returns the value of the 3rd variable not the value of the variable named 3.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a There are $envvar(0) environment variables, on the $envvar(username) account
 </pre>
 List of all environment variables:
-<pre class ="code">
+<pre class = "code">
 //var %i 1 | while (%i isnum 1- $envvar(0) ) { echo -a %i $envvar(%i) $chr(22) $envvar(%i).value $chr(15) | inc %i }
 </pre>
 

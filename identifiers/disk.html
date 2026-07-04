@@ -8,7 +8,7 @@
 The <b>$disk</b> identifier returns information about hard disks.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $disk(N/path)[.property]
 </pre>
 
@@ -29,11 +29,17 @@ Without a property, returns $true if drive exists, otherwise $false.
 
 <H4>Example</H4>
 Echo total number of drives:
-<pre class ="code">//echo -a $disk(0)</pre>
+<pre class = "code">
+//echo -a $disk(0)
+</pre>
 Echo type of drive for "C:\":
-<pre class ="code">//echo -a $disk(C:\).type</pre>
+<pre class = "code">
+//echo -a $disk(C:\).type
+</pre>
 Echo $true if C:\ drive exists, otherwise $false:
-<pre class ="code">//echo -a $disk(C:\)</pre>
+<pre class = "code">
+//echo -a $disk(C:\)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)

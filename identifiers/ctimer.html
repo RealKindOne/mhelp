@@ -8,7 +8,7 @@
 The <b>$ctimer</b> identifier returns the name of the <a href="../commands/timer.html">/timer</a>, if any, that triggered a certain script.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $ctimer
 </pre>
 
@@ -17,9 +17,11 @@ None
 
 <H4>Example</H4>
 Create an alias that fires off a timer to perform a command, and have the command echo the name of the timer that executed it:
-<pre class ="code">; Use /testCtimer
+<pre class = "code">
+; Use /testCtimer
 alias testCtimer { .timermyTimer 1 1 testCtimerGO }
-alias -l testCtimerGO { echo -a The timer name was: $ctimer }</pre>
+alias -l testCtimerGO { echo -a The timer name was: $ctimer }
+</pre>
 
 <b>Result</b>
 <br>

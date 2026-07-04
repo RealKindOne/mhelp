@@ -8,7 +8,7 @@
 The <b>$crc64</b> calculates the 64-bit checksum of a text, <a href="../other/binary_variables.html">binary_variables</a>, or file. Hash is 64-bits, shown as 16 upper-case hexadecimal characters.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $crc64(plaintext|&binaryvar|filename[,N])
 </pre>
 
@@ -30,25 +30,25 @@ If the N parameter isn't used, the default 2 is used (which is different than $s
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; Echo the $crc hash of plain text string ''abc'' to the active window:
 ; The DATA is case-sensitive, so hash of "abc" is different than hash of "ABC"
 //echo -a abc $crc64(abc,0) / ABC $crc64(ABC,0)
 result: abc 2CD8094A1A277627 / ABC AFA18655D86CC8D8
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; Calculate the CRC-64 hash of the 256 bytes from $chr(0) through $chr(255):
 //var %i 0 | while (%i isnum 0-255) { bset &ascii $calc(1+%i) %i | inc %i } | echo -a $bvar(&ascii,1-) | echo -a $crc64(&ascii,1) should be 72414B2F65DB3AB0 | write -c ascii.dat | bwrite ascii.dat 0 256 &ascii
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 ; display the same CRC of filename ascii.dat as the above binary variable &ascii
 //echo -a filesize $file(ascii.dat).size $crc64(ascii.dat) is the same as $crc64(ascii.dat,2) because default N is 2
 </pre>
 
 Returns 0000000000000000 if filename does not exist:
-<pre class ="code">
+<pre class = "code">
 //echo -a $crc64(no_such_file.txt,2)
 </pre>
 Suggested Uses:
@@ -69,7 +69,7 @@ The advantage of CRC-64 over CRC-32 is that the longer checksum means there is a
 While you can use $base to translate the 32-bit output from $crc into a base10 number valid for $calc, the $crc64 output is too long for the 53-bit accuracy in $calc. If you need to feed the $crc64 output to $calc, you should do as you would do for the output from $sha1, where you use $left $right or $mid to take no more than 13 hex digits as input for $base.
 <br>
 Here's something demonstrating how similar strings can have similar-yet-not-matching CRC-64's. In the following example, it finds strings where 'test ' followed by a 6-digit number produces a CRC-64 ending with an arbitrarily chosen group of 3 digits. For that specific group of strings, if you insert 'foobar ' in front of those strings, the new hashes will all have the same final 3 digits as each other. If you change the wildcard match from *ACE to ACE* where you look for checksums with similar beginnings, the strings having 'foobar ' inserted will all have hashes whose first 3 digits (instead of final 3) match each other. If you substituted $md5 or one of the SHA* hashes, this behavior would not be there.
-<pre class ="code">
+<pre class = "code">
 //var %i 99999 | while (%i) { if (*ace iswm $crc64(test $base(%i,10,10,6),0)) echo -a $v2 vs $crc64(foobar test $base(%i,10,10,6),0) %i | dec %i }
 </pre>
 

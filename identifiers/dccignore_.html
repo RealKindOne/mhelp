@@ -9,7 +9,7 @@
 The <b>$dccignore()</b> identifier identifier can be used to retrieve certain DCC ignore file type options, also from within the DCC ignore options window.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $dccignore[(N/filename)]
 </pre>
 
@@ -22,13 +22,19 @@ None
 
 <H4>Example</H4>
 Echo to the active window the total number of DCC ignore list items:
-<pre class ="code">//echo -a $dccignore(0)</pre>
+<pre class = "code">
+//echo -a $dccignore(0)
+</pre>
 
 Echo to the active window if "*.exe" is in the DCC ignore list:
-<pre class ="code">//echo -a $dccignore(*.exe)</pre>
+<pre class = "code">
+//echo -a $dccignore(*.exe)
+</pre>
 
 Echo to the active window the last item in the DCC ignore list:
-<pre class ="code">//echo -a $dccignore($dccignore(0))</pre>
+<pre class = "code">
+//echo -a $dccignore($dccignore(0))
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.61 (23 Sep 1999)

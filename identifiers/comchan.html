@@ -8,7 +8,7 @@
 The <b>$comchan</b> identifier is used to return the common channels that both the local mIRC client, and a remote user, share.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $comchan(nick,N)[.property]
 </pre>
 
@@ -25,10 +25,14 @@ $comchan(nick,N)[.property]
 
 <H4>Example</H4>
 Echo the common channels of the local client, and a remote user nicknamed "myFriend":
-<pre class ="code">//echo -a $comchan(myFriend,0)</pre>
+<pre class = "code">
+//echo -a $comchan(myFriend,0)
+</pre>
 
 Echo the common channels of the local client, and a remote user nicknamed "myFriend", and if the local client is opped on the first match:
-<pre class ="code">//echo -a Total common channels: $comchan(myFriend,0) --- Is opped on $comchan(myFriend,1) $+ : $comchan(myFriend,1).op</pre>
+<pre class = "code">
+//echo -a Total common channels: $comchan(myFriend,0) --- Is opped on $comchan(myFriend,1) $+ : $comchan(myFriend,1).op
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.0 (02 Apr 1997)
