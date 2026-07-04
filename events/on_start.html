@@ -9,7 +9,9 @@ The <b>on START</b> event triggers either when mIRC is started, or a script file
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:START:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:START:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -20,10 +22,12 @@ TODO
 
 <H4>Example</H4>
 Add a pre-typed command to connect to certain networks upon pressing enter to the editbox:
-<pre class ="code">on *:START:{
+<pre class = "code">
+on *:START:{
   var %c $chr(124) server -m
   editbox -a //server irc.swiftirc.net %c irc.dal.net %c irc.efnet.org
-}</pre>
+}
+</pre>
 
 
 Create a <a href="../other/hash_tables.html">Hash Table</a> named <b>ircpoints</b> and load data from a file named <b>ircpoints.hsh</b> into the table if the file exists:

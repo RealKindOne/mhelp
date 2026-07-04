@@ -11,7 +11,9 @@ This event fills the <a href="../identifiers/chan.html">$chan</a>, <a href="../i
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:KICK:&lt;#[,#]&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -28,16 +30,21 @@ This event fills the <a href="../identifiers/chan.html">$chan</a>, <a href="../i
 
 <H4>Example</H4>
 If local mIRC client is kicked, automatically rejoin the channel:
-<pre class ="code">on ME:*:KICK:#:join #</pre>
+<pre class = "code">
+on ME:*:KICK:#:join #
+</pre>
 
 Send a notice to a kicked user with information about the kick:
-<pre class ="code">on *:KICK:#: {
+<pre class = "code">
+on *:KICK:#: {
   .notice $knick You were kicked from $chan by $nick for the following reason: $iif($1-,$1-,No reason given)
 }
 </pre>
 
 The following is an example of the above code:
-<pre class ="code">You were kicked from #BreakingBad by WalterWhite for the following reason: Stop mass-highlighting!</pre>
+<pre class ="code">
+You were kicked from #BreakingBad by WalterWhite for the following reason: Stop mass-highlighting!
+</pre>
 
 <H4>Compatibility</H4>
 TODO

@@ -8,7 +8,9 @@
 The <b>on QUIT</b> event is triggered when a user quits/disconnects from the IRC network while on the same channel as the local mIRC client.
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:QUIT:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:QUIT:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -21,10 +23,12 @@ The <b>on QUIT</b> event is triggered when a user quits/disconnects from the IRC
 
 <H4>Example</H4>
 When a user disconnects, stop mIRC's default message and, instead, echo to the active window a custom message:
-<pre class ="code">on ^*:QUIT:{
+<pre class = "code">
+on ^*:QUIT:{
   echo -a * $nick just disconnected from $network
   haltdef
-}</pre>
+}
+</pre>
 
 Because on QUIT is not associated with # or $chan, to show a quit message in all channels you share with that nick, you can use $comchan. You can simulate mIRC's default Quit message in channels with
 <pre class ="code">

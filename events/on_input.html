@@ -9,7 +9,9 @@ The <b>on INPUT</b> event triggers when text is entered into an mIRC editbox, th
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:INPUT:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:INPUT:&lt;*#?=!@&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -25,17 +27,21 @@ The <b>on INPUT</b> event triggers when text is entered into an mIRC editbox, th
 <H4>Local Identifiers</H4>
 <a href="../identifiers/ctrlenter.html">$ctrlenter</a> - Returns $true if CTRL+Enter was pressed.
 
-
+<!-- TODO -->
 <H4>Example</H4>
 If ''^scripts'' is entered into an editbox, echo the total amount of loaded scripts to the active window:
-<pre class ="code">on *:INPUT:*: {
+<pre class = "code">
+on *:INPUT:*: {
   if ($1 == ^scripts) {
     echo -a There are $script(0) script(s) loaded.
     haltdef
   }
-}</pre>
+}
+</pre>
 The results would look something like this:
-<pre class ="code">There are 9 total script(s) loaded.</pre>
+<pre class ="code">
+  There are 9 total script(s) loaded.
+</pre>
 
 The example above makes use of the <a href="../commands/haltdef.html">/haltdef</a> command, which prevents mIRC from performing the default operation for this event. If there were no <a href="../commands/haltdef.html">/haltdef</a> there, mIRC would carry out the first command which was to echo the details to the active window, but then it would also either send the message to the active chat, or channel, or provide an error stating you are not currently on a channel.
 

@@ -9,7 +9,9 @@ The <b>on NOTICE</b> event is triggered when mIRC receives a notice from a clien
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:NOTICE:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:NOTICE:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -28,11 +30,13 @@ TODO
 
 <H4>Example</H4>
 Give a person "500 points" for sending a secret command:
-<pre class ="code">on *:NOTICE:thesecretcommand:?:{
+<pre class = "code">
+on *:NOTICE:thesecretcommand:?:{
   .notice $nick Congratulations! You have entered the secret command!
   .notice $nick Please accept these free 500 points...
   hinc -m $+(points.,$network) $wildsite 500
-}</pre>
+}
+</pre>
 
 
 Op or deop a user with an <a href="../other/access_levels.html">access level</a> of 5 on the channel they specify:
@@ -43,7 +47,8 @@ on 5:NOTICE:*op #*:?:{
     elseif ($me !isop $2) { .notice $nick I am not opped in that channel. }
     else mode $2 $iif($1 == op,+o,-o) $nick
   }
-}</pre>
+}
+</pre>
 
 
 Automatically identify to most NickServ services if your current nickname is <b>TheUsualNick</b>:

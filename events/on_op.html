@@ -11,7 +11,9 @@ This event also fills the <a href="../identifiers/opnick.html">$opnick</a> ident
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:OP:&lt;#[,#]&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -30,7 +32,9 @@ This event also fills the <a href="../identifiers/opnick.html">$opnick</a> ident
 
 <H4>Example</H4>
 Acknowledge when a user has been elevated to a channel operator:
-<pre class ="code">on *:OP:#:msg # Congratulations, $opnick $+ ! $nick has made you a channel operator!</pre>
+<pre class = "code">
+on *:OP:#:msg # Congratulations, $opnick $+ ! $nick has made you a channel operator!
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v3.2 (02 May 1995)

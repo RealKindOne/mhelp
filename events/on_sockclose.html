@@ -9,7 +9,9 @@ The <b>on SOCKCLOSE</b> event triggers when a <a href="../sockets/sockets.html#m
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:SOCKCLOSE:&lt;name&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:SOCKCLOSE:&lt;name&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -26,10 +28,12 @@ The reason a socket is closed could be because of an error, rather than because 
 
 <H4>Example</H4>
 When the socket closes, echo that the socket has closed and some details about it to the active window:
-<pre class ="code">on *:SOCKCLOSE:*: {
+<pre class = "code">
+on *:SOCKCLOSE:*: {
   if (!$sockerr) echo -ag ::=> $sockname Connection to $sock($sockname).ip on port $sock($sockname).port closed by the remote host!
   else echo -ag ::=> An error occurred with the socket $sock($sockname).wsmsg
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

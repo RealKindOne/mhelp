@@ -9,7 +9,9 @@ The <b>on PONG</b> event is triggered when the server replies with a PONG after 
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:PONG:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:PONG:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -20,10 +22,12 @@ None
 
 <H4>Example</H4>
 Halt mIRC's default display, and echo the pong message to the active window:
-<pre class ="code">on *:PONG: {
+<pre class = "code">
+on *:PONG: {
   echo -a Server PONG: $1-
   haltdef
-}</pre>
+}
+</pre>
 
 <pre class ="code">
 You can Trigger the on PONG event with:

@@ -9,7 +9,9 @@ The <b>on TEXT</b> event is a mIRC event that triggers when a remote user (I.E. 
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:TEXT:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:TEXT:&lt;matchtext&gt;:&lt;target&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -32,14 +34,16 @@ The on text event support the common IRC related local identifiers.
 ; Let %chan equal #mSL,#help,#support
 on *:TEXT:!hi:%chan:{
   notice $nick Hello!
-}</pre>
+}
+</pre>
 
 <pre class ="code">
 ; use local identifier $channels to work
 alias -l channels { return #mSL,#help,#support }
 on *:TEXT:!hi:$($channels):{
   notice $nick Hello!
-}</pre>
+}
+</pre>
 
 
 <H4>Compatibility</H4>

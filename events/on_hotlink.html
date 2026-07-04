@@ -12,7 +12,9 @@ Therefore any commands executed in the event must be as quick, efficient, and sm
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:HOTLINK:&lt;matchtext&gt;:&lt;*#?=!@&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:HOTLINK:&lt;matchtext&gt;:&lt;*#?=!@&gt;:&lt;commands&gt;
+</pre>
 
 You can use <a href="../commands/return.html">/return</a> to enable hotlink over the current word and you can <a href="../commands/halt.html">/halt</a> to disable hotlink and allows default processing.
 
@@ -39,7 +41,9 @@ TODO
 
 <H4>Example</H4>
 Monitor all windows for the a word matching '*hoverme*' and echo to the active window the word that was hovered:
-<pre class ="code">on *:HOTLINK:*hoverme*:*:echo -a $1 was just hovered!</pre>
+<pre class = "code">
+on *:HOTLINK:*hoverme*:*:echo -a $1 was just hovered!
+</pre>
 
 <H4>Old on hotlink handling</H4>
 

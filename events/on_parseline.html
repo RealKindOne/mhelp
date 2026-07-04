@@ -17,18 +17,23 @@ Because PARSELINE will be called for every matching line, care should be taken t
 
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:PARSELINE:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:PARSELINE:in|out|*:&lt;matchtext&gt;:&lt;commands&gt;
+</pre>
 
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
 <br><b>&lt;matchtext&gt;</b> - The corresponding <a href="matchtext.html">matchtext</a> for the event to trigger.
 
 <H4>Notes</H4>
 <b>Note 1:</b> For <b>out</b> lines, the text you are matching against has a $LF as the last character that you need to account for in your match text. e.g.
-<pre class ="code">on *:PARSELINE:out:PRIVMSG *Hello:echo -a $parseline</pre>
+<pre class = "code">
+on *:PARSELINE:out:PRIVMSG *Hello:echo -a $parseline
+</pre>
 will <b>not</b> be triggered when you type "Hello" in a channel or query window. Instead you will need something like:
 <pre class ="code">
 on *:PARSELINE:out:PRIVMSG *Hello?:echo -a $parseline
-on *:PARSELINE:out:PRIVMSG *Hello*:echo -a $parseline</pre>
+on *:PARSELINE:out:PRIVMSG *Hello*:echo -a $parseline
+</pre>
 
 <b>Note 2:</b> The ":" character is used quite frequently as a separator in IRC raw messages, but it is also used as a separator in mSL's on statements. You can either use a placeholder for a single character (?) or multiple characters (*) or you can use a calculated match text or a regular expression for the ":" e.g.
 <pre class ="code">
@@ -44,8 +49,10 @@ on $*:PARSELINE:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 
 Inside this event, you can use:
 <br><b>Note:</b>For <b>out</b> lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
-<pre class ="code">var %pl $parseline
-if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)</pre>
+<pre class ="code">
+var %pl $parseline
+if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)
+</pre>
 
 <H4><a href="../identifiers/parseutf.html">$parseutf</a></H4>
 

@@ -8,7 +8,9 @@
 The <b>on BAN</b> event is triggered whenever a user on a channel has been banned.
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:BAN:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:BAN:&lt;#[,#]&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -50,7 +52,8 @@ on *:BAN:#:msg # Looks like the address $banmask has just been added to this cha
 ; specific channels: #myChannel and #myOtherChannel. When a ban is
 ; noticed, the script will also attempt to find out if a $bnick was set.
 ; If it was not, it will use it, otherwise it will use $banmask.
-on *:BAN:#myChannel,#myOtherChannel:msg # Wow, so $iif($bnick,$bnick just got in trouble,$banmask was just added to the channel's ban list) $+ .</pre>
+on *:BAN:#myChannel,#myOtherChannel:msg # Wow, so $iif($bnick,$bnick just got in trouble,$banmask was just added to the channel's ban list) $+ .
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.5 (30 Jun 1996)

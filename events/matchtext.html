@@ -34,56 +34,70 @@ For Example:
 <H4>The basic text pattern</H4>
 The most basic on text event is the normal <a href="../other/wildcard.html">wildcard</a><br> pattern:
 
-<pre class ="code">on *:text:!help:#:{
+<pre class = "code">
+on *:text:!help:#:{
   notice $nick For Help just state your question and pastebin any relevant code.
-}</pre>
+}
+</pre>
 
 Sometimes we want to get the user's input. We can use the & to match a single word (in this case it will be a name, although it doesn't matter)
 
-<pre class ="code">on *:text:!color &:?:{
+<pre class = "code">
+on *:text:!color &:?:{
   var %color = $gettok(white black red blue brown yellow orange green, $rand(1, 8), 32)
   msg $chan $2's random color is: %color $+ .
-}</pre>
+}
+</pre>
 
 <H4>RegEx text pattern</H4>
 The matchtext parameter can also be a Regular Expression Pattern by using the <a href="../other/access_levels.html#sigal">$ event prefix</a>.
 
 Example:
 
-<pre class ="code">on $*:text:/^!test$/i:#:{
+<pre class = "code">
+on $*:text:/^!test$/i:#:{
   msg $chan Test Worked!
-}</pre>
+}
+</pre>
 
 <H4>Dynamic text pattern</H4>
 Text matched patterns can also be dynamic, for example your name at the time of the execution ($me), a variable or time. In order for mIRC to know to evaluate the expression, it must be enclosed by the $() identifier.
 
 Example:
 
-<pre class ="code">on *:text:$(*slaps $me $+ *):#:{
+<pre class = "code">
+on *:text:$(*slaps $me $+ *):#:{
   describe $chan Slaps $nick with dried-up sandwich!
-}</pre>
+}
+</pre>
 
 Or
 
-<pre class ="code">on *:text:$(!example * $+ %match $+ *):#:{
+<pre class = "code">
+on *:text:$(!example * $+ %match $+ *):#:{
   describe $chan This is an example, $+ $nick $+ !
-}</pre>
+}
+</pre>
 
 If the entire match text pattern contains a SINGLE variable, the $() is not required, this technique can also be used for any other parameter of an event.
 <br>
 <br>
 Example:
 
-<pre class ="code">;Assume %text is set to !cool
+<pre class ="code">
+; Assume %text is set to !cool
 on *:text:%text:#:{
   msg $chan I am the coolest!
-}</pre>
+}
+</pre>
 
 It is also possible to use regular expressions with dynamic match text.
 
-<pre class ="code">on $*:text:$(/^!slaps $me $+ /Si):#:{
+<pre class = "code">
+on $*:text:$(/^!slaps $me $+ /Si):#:{
   describe $chan Slaps $nick with dried-up sandwich!
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 TODO

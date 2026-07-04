@@ -9,7 +9,9 @@ The <b>on PING</b> event is triggered when the server sends you a PING to see if
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:PING:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:PING:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -20,13 +22,17 @@ TODO
 
 <H4>Example</H4>
 Halt mIRC's default display, and echo the ping message to the active window:
-<pre class ="code">on *:PING: {
+<pre class = "code">
+on *:PING: {
   echo -a Server PING: $1-
   haltdef
-}</pre>
+}
+</pre>
 
 You can mimic mIRC's default display with:
-<pre class ="code">on ^*:PING:{ echo -ctgs info2 Ping? Pong! | haltdef }</pre>
+<pre class = "code">
+on ^*:PING:{ echo -ctgs info2 Ping? Pong! | haltdef }
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (03 Jun 1999)

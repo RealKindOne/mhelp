@@ -8,7 +8,9 @@
 The <b>on WALLOPS</b> event triggers when an IRC Operator issues a network-wide important notice.
 
 <H4>Synopsis</H4>
-<pre class ="code">on &lt;level&gt;:WALLOPS:&lt;matchtext&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:WALLOPS:&lt;matchtext&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <br><b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -21,10 +23,12 @@ The <b>on WALLOPS</b> event triggers when an IRC Operator issues a network-wide 
 
 <H4>Example</H4>
 Echo to the active window the current date/time, the IRC operator's name who sent the WALLOP, the WALLOP message, and prevent the default response:
-<pre class ="code">on ^*:WALLOPS:*: {
+<pre class = "code">
+on ^*:WALLOPS:*: {
   echo -a [[ $asctime ]] ==> WALLOP From $nick :: Message:
   haltdef
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v4.6 (07 Sep 1996)

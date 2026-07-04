@@ -8,7 +8,9 @@
 The <b>on TOPIC</b> event triggers in a channel when the topic is changed.
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:TOPIC:&lt;#[,#]&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -24,12 +26,16 @@ The <b>on TOPIC</b> event triggers in a channel when the topic is changed.
 
 <H4>Example</H4>
 Send an action to a channel when the topic is changed:
-<pre class ="code">on *:TOPIC:#:action $chan approves of this new topic!</pre>
+<pre class = "code">
+on *:TOPIC:#:action $chan approves of this new topic!
+</pre>
 
-<pre class ="code">on *:TOPIC:#:action $chan approves of this new topic!
+<pre class = "code">
+on *:TOPIC:#:action $chan approves of this new topic!
 echo 4 $chan topic for # set by $nick to ' $+ $eventparms $+ '
 </pre>
-Note: # and $chan are interchangeable. $parms or $eventparms preserve leading/trailing/consecutive spaces. Otherwise can use $1-
+TODO
+<b>Note:</b> # and $chan are interchangeable. $parms or $eventparms preserve leading/trailing/consecutive spaces. Otherwise can use $1-
 
 <H4>Compatibility</H4>
 Added: mIRC v5.7 (02 Feb 2000)

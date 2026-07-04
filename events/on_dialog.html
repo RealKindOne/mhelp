@@ -9,7 +9,9 @@ The <b>on DIALOG</b> event listens for events which take place inside of custom 
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}</pre>
+<pre class = "code">
+on &lt;level&gt;:DIALOG:&lt;name&gt;:&lt;event&gt;:&lt;id&gt;:{}
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -56,12 +58,15 @@ dialog -l mouseListener {
 on *:DIALOG:mouseListener:mouse:*: {
   did -ra $dname 3 $mouse.x
   did -ra $dname 5 $mouse.y
-}</pre>
+}
+</pre>
 
 In the example above, we have created an <a href="../other/aliases.html">alias</a>, <b>/mouseListener</b>, to handle a local <a href="../dialog/dialog.html">$didreg</a>, which cannot be seen outside of the scope of whatever script file it is saved to. This will help make sure no other dialogs collide with this dialog and its events.
 
 This example can be triggered by typing the following command:
-<pre class ="code">/mouseListener</pre>
+<pre class = "code">
+/mouseListener
+</pre>
 
 Once the demo has begun, the mouse event will now listen. When the mouse begins moving around inside of the dialog, the X and Y positions of the mouse are represented inside of the ''text'' components of ID 3, and 5, respectively.
 
@@ -93,10 +98,13 @@ on *:DIALOG:whatEvents:*:*: {
   did -ra $dname 4 $did
   did -ra $dname 6 $iif($did == 0,NA,$iif($did($did),$v1,$iif($did($did).sel,$v1,$iif($did($did) == 0,0,NA))
   did -ra $dname 10 $did(9).state
-}</pre>
+}
+</pre>
 
 Once saved into a script file inside of the mIRC remotes, the above example can be executed by typing the following command:
-<pre class ="code">/whatEvents</pre>
+<pre class = "code">
+/whatEvents
+</pre>
 
 Almost all events are accounted for. The dialog properly tracks mouse movements, the ID of the elements being altered/used, and any other sorts of attainable event information.
 

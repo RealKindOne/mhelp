@@ -9,7 +9,9 @@ The <b>on KEYUP</b> event is triggered when a key has been pressed, but subseque
 
 
 <H4>Synopsis</H4>
-<pre class = "code">on &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;</pre>
+<pre class = "code">
+on &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;
+</pre>
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
@@ -17,7 +19,9 @@ The <b>on KEYUP</b> event is triggered when a key has been pressed, but subseque
 <br><b>&lt;@&gt;</b> - The <a href="../other/custom_windows.html">custom window</a> where this event should listen. Can be <b>@</b> for all windows.
 
 <br><b>&lt;keycodes&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
-<pre class ="code">on *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval</pre>
+<pre class = "code">
+on *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval
+</pre>
 
 
 <H4>Local Identifiers</H4>
@@ -27,17 +31,21 @@ The <b>on KEYUP</b> event is triggered when a key has been pressed, but subseque
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="../other/picture_windows.html">picture window</a> which listens for key releases and displays the key value released, and the key character released:
-<pre class ="code">alias keyUpTest {
+<pre class = "code">
+alias keyUpTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 83
 }
 on *:KEYUP:@myWindow:*: {
   clear @myWindow
   drawtext @myWindow 1 3 3 Keycode value: $iif($keyval,$v1,NA)
   drawtext @myWindow 1 3 25 character: $iif($keychar,$v1,NA)
-}</pre>
+}
+</pre>
 
 The following command can now be typed into any mIRC command prompt:
-<pre class ="code">/keyUpTest</pre>
+<pre class = "code">
+/keyUpTest
+</pre>
 
 Below is an image reflecting what this example will look like:
 
