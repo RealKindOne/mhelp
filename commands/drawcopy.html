@@ -29,14 +29,14 @@ The <b>/drawcopy</b> command copies part of a picture to a different position in
 <br>
 TODO
 <br>
--@win has a bitmap area of 16*16 pixels containing this picture: [[File:Drawpic&copy_negative.png]]
-
+-@win has a bitmap area of 16*16 pixels containing this picture: <img src="../images/copy_negative1.png">
+<p>
 -@win1 has a bitmap area of 48*16 pixels
-
--If you copy the whole @win over @win1 at coordinate **16**,0 you would get (drawcopy @win 0 0 @win1 16 0): [[File:Drawpic&copy_negative1.png]]
-
--Now we use a negative width of -16 to flip horizontally the bitmap (drawcopy @win 0 0 16 16 @win1 16 0 -16 16): [[File:Drawpic&copy_negative2.png]]
-
+<p>
+-If you copy the whole @win over @win1 at coordinate **16**,0 you would get (drawcopy @win 0 0 @win1 16 0): <img src="../images/copy_negative2.png">
+<p>
+-Now we use a negative width of -16 to flip horizontally the bitmap (drawcopy @win 0 0 16 16 @win1 16 0 -16 16): <img src="../images/copy_negative3.png">
+<p>
 One issue: the flipped bitmap is drawn at x + 1 instead of x, you have to draw at x - 1 or y - 1 when you flip.
 
 <H4>Example</H4>
