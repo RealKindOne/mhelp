@@ -42,7 +42,8 @@ Echo a large number with comma format to the active window
 
 Echo a byte value of GB to the active window with the suffix
 <pre class = "code">
-//echo -a $bytes(10000000000,g).suf</pre>
+//echo -a $bytes(10000000000,g).suf
+</pre>
 
 When $bytes formats the number without being forced to use a specific suffix, it defaults to choosing a suffix which allows it to be presented as a number having no more than 3 numbers to the left of the decimal, and limits the fraction as no more than 2 digits. It doesn't display the suffix unless the .suf property is used. If the '3' switch is used, the display is modified so that the digits of the fraction also count as part of the 3 numbers, which can result in the fraction being shortened or even eliminated in order to limit the combined digit total to 3. The number is shortened into units of 1024's not 1000's.
 <br>

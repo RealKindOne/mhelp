@@ -79,10 +79,12 @@ The RFC does not restrict timestep other than being an integer in the range [0,2
 * Digits that changes daily at 9am local clock:
 <pre class = "code">
 //var -s %interval $int($calc(($ctime -9*3600)  // 86400))
-</pre>* Digits that changes daily at 9am UTC:
+</pre>
+* Digits that changes daily at 9am UTC:
 <pre class = "code">
 //var -s %interval $int($calc(($ctime -$timezone -$daylight -9*3600)  // 86400))
-</pre>* Digits that changes weekly on Tuesday at 6pm UTC (where Sunday=0 Tuesday=2 Saturday=6 and 6pm is the 18th hour):
+</pre>
+* Digits that changes weekly on Tuesday at 6pm UTC (where Sunday=0 Tuesday=2 Saturday=6 and 6pm is the 18th hour):
 <pre class = "code">
 //var -s %interval $int($calc(($ctime +86400*4 -$timezone -$daylight -86400*2 -18*3600)  // 604800)) | echo -a password for week %interval is $totp(secret,%interval,sha256,9,1)
 </pre>

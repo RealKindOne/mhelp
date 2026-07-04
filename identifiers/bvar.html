@@ -33,7 +33,8 @@ $bvar(&binvar, [ N [ ,M] ] )[.property]
 <H4>Example</H4>
 <pre class = "code">
 //bset &abc 1 12 34 56 78 | echo -a $iif($bvar(&abc),$v1 exists) $iif($bvar(&xyz),$v1 exists) / $bvar(&abc) / $bvar(&xyz)
-  &abc exists / &abc /</pre>
+  &abc exists / &abc /
+</pre>
 
 <pre class = "code">
 //bset -ta &var 1 chlo $+ $chr(232) / $utfencode(chlo $+ $chr(232) )  | echo -a $bvar(&var,1-) // $bvar(&var,1-).text

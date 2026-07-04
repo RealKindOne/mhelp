@@ -16,7 +16,8 @@ You can use $0 to return the total number of words or the total number of parame
 You can append text to $1, $2 etc without using <a href="_plus.html">$+</a>, as long as your text does not contain a digit, for example:
 <pre class = "code">
 //tokenize 32 Khaled | echo -a $1's skills are impressive!
-</pre>If your attached text contains a number, mIRC skips every character in your text up to the last number and use the remaining text.
+</pre>
+If your attached text contains a number, mIRC skips every character in your text up to the last number and use the remaining text.
 <br><b>Note:</b> if the value of $1 is $null, then $null is returned, instead of the text itself
 <pre class = "code">
 //tokenize 32 Khaled xyz parm3 | echo -a $1foo2bar vs $1 $+ foo123bar and $1$2 vs $1 $+ $2 and $3test and $1-x2 but $5test is null
