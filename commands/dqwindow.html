@@ -9,7 +9,7 @@ mIRC's DQ (dedicated query) window system is a feature that conveniently redirec
 
 You can determine if the DQ Window is on or off with this alias:
 
-<pre class ="code">
+<pre class = "code">
 alias is_dqwindow {
   saveini
   return $iif($gettok($readini($mircini, n, options, n0), 22, 44), $true, $false)
@@ -17,7 +17,7 @@ alias is_dqwindow {
 </pre>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /dqwindow [on|off|show|hide|min]
 </pre>
 
@@ -35,15 +35,15 @@ None
 
 <H4>Example</H4>
 Display dqwindow status:
-<pre class ="code">
+<pre class = "code">
 /dqwindow
 </pre>
 Enable dqwindow:
-<pre class ="code">
+<pre class = "code">
 /dqwindow on
 </pre>
 Disable dqwindow:
-<pre class ="code">
+<pre class = "code">
 /dqwindow off
 </pre>
 

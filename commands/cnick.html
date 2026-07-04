@@ -8,7 +8,7 @@
 The <b>/cnick</b> command allows you to modify items from the address book's nick color list.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /cnick -rfaniovpylNmNsN [nick[!user@host]] [color] [modes] [levels]
 /cnick &lt;on/off&gt;
 </pre>
@@ -37,23 +37,23 @@ The <b>/cnick</b> command allows you to modify items from the address book's nic
 
 <H4>Example</H4>
 Display cnick status:
-<pre class ="code">
+<pre class = "code">
 /cnick
 </pre>
 Enable cnick:
-<pre class ="code">
+<pre class = "code">
 /cnick on
 </pre>
 Disable cnick:
-<pre class ="code">
+<pre class = "code">
 /cnick off
 </pre>
 Add color 5 for all Operators:
-<pre class ="code">
+<pre class = "code">
 /cnick * 5 @
 </pre>
 Add color 3 for all half-op:
-<pre class ="code">
+<pre class = "code">
 /cnick * 3 %
 </pre>
 
@@ -77,7 +77,7 @@ Add color 3 for all half-op:
 
 <p>Dummy rule for autocolor $nick($chan,$1).color :</p>
 
-<pre class ="code">
+<pre class = "code">
 //var %color $nick($chan,$1).color | !.cnick -m2s $+ $calc(1+$cnick(0)) ;dummycolor $+ %color %color @ | !.color background $color(background)
 </pre>
 <p>This creates a menu item that shows you the color being used by that nick, and you can add a dummy rule to your nick colors list which uses that color - by simply right-clicking on a nick that you can't read because that color does not contrast against the background, and choosing this command. Note that it contains the command to reset the background to the existing background color, because that's necessary to force the autocolors to reset based on the new palette that has 1 fewer colors in it.</p>

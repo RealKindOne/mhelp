@@ -10,7 +10,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 <b>Note:</b> Important fact to remember about binary variables is that they are not limited to the local scope of the alias but instead they remain set until processing is complete. Thus it's possible to use the same binary variable within multiple aliases if they call each other during the same script execution.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /bset [-c] &lt;&bvar&gt; &lt;pos&gt; &lt;asciivalue&gt; [asciivalue ... asciivalue]
 /bset -t[ac] &lt;&bvar&gt; &lt;pos&gt; &lt;string&gt;
 /bset -z &lt;&bvar&gt;
@@ -30,7 +30,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 <br><b>&lt;string&gt;</b> - The string to be written. The length of string or number of values is limited only by the 4150 character line length for the entire command including 'bset'.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 Alias Example {
   ; Create a binary variable set it to "This is fun!"
   bset -t &Example 1 This is fun!
@@ -42,7 +42,7 @@ Alias Example {
 
 Binary variables have the advantage that they can be accessed from anywhere during the script execution.
 
-<pre class ="code">
+<pre class = "code">
 Alias Example {
   ; Create a binary variable
   bset -t &Example 1 Hello There Bob.
@@ -59,7 +59,7 @@ Alias cc {
 }
 </pre>
 This example shows how the variable gets zero-padded if &lt;pos&gt; is outside the size of the variable:
-<pre class ="code">
+<pre class = "code">
 Alias Example {
   ; put 'd' as the 5th byte in &var
   bset &var 5 100
@@ -91,7 +91,7 @@ Alias Example {
   ; the string "test" does not print because it starts at byte 2 and stops at position 6 when encountering the ASCII 0
 }
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; create variable with UTF-8 encoding:
 //bset -t &var 1 $chr(233) | echo -a $bvar(&var,1-)
 ; returns: 195 169
@@ -105,12 +105,12 @@ Alias Example {
 </pre>
 Binary variables are not limited to 4150 length. To fill a 7mb binary variable with all $chr(0)'s sets the last byte as 0, and allows zero-filling the prior bytes with 0x00's:
 
-<pre class ="code">
+<pre class = "code">
 //bset &var 7654321 0 | echo -a Length of variable is $bvar(&var,0)
 </pre>
  To fill a 7mb variable with non-zeroes, it's more efficient to lengthen with /bcopy but bset can set long variables by repeatedly appending bytes. Max length of binary string can depend on your system resources:
 
-<pre class ="code">
+<pre class = "code">
 /fill_with_ones 7654321
 
 alias fill_with_ones {
@@ -125,7 +125,7 @@ alias fill_with_ones {
 
 Prior to 7.69, zero length &binvar had to be created with kludge workarounds like:
 
-<pre class ="code">
+<pre class = "code">
 //noop $regsubex(foo,$null,,,&var)
 //bset -t &var 1 A | noop $decode(&var,bm)
 
@@ -135,7 +135,7 @@ Prior to 7.69, zero length &binvar had to be created with kludge workarounds lik
 
 
 Because bset is a /command instead of $identifier, it cannot directly write leading/trailing/multiple spaces within variable strings into a binary variable. To accomplish this, you must do it indirectly. This alias shows 3 ways of trying to set a variable containing spaces. The red line shows that using /bset to set a string removes leading/trailing/multiple spaces. The green line shows how to preserve the spaces by adding the bytes of the string 1 at a time. The maroon line shows a much faster way to place long text strings into the binary variable.
-<pre class ="code">
+<pre class = "code">
 alias fake_bset-t {
   var -s &lt;%var&gt; $+($chr(32),$chr(233),$str($chr(32),2),x,$str($chr(32),2))
   bset -t &bin1 1 &lt;%var&gt;
@@ -153,11 +153,11 @@ alias fake_bset-t {
 }
 </pre>
 If you change the "bset -t &bin2" into bset -ta &bin2" the green method mimics "bset -ta" by storing the $chr(233) as the 233 byte instead of UTF8-encoding it as the 2 bytes 195 169. The last brown method works only if you can identify a character in the 1-127 ASCII range which is guaranteed to not be present in the variable. To accomplish "bset -ta" with the $regsubex method, it'll need to call another alias to handle the different handling of codepoints above 255. (The above method can use either $regsub or $regsubex but below can't use $regsub) Because binary variables exist across all aliases for the duration that your alias or event is executing, you need to make sure to not destroy a binary variable in whichever script calls your alias. You can either pass the variable name as one of the parameters or have the alias create a unique binary variable name based on $ctime and/or $ticks. You can make a unique variable name like:
-<pre class ="code">
+<pre class = "code">
 //var %a dummy $+ $ticks $+ $ctime | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text
 </pre>
 Instead, this alias passes "&dummy" as a parameter, and the alias uses that variable name for its own use. The display from running /fake_bset-ta shows that - unlike /var - the binary variables exist outside an alias where they are set or changed. The last 3 of 6 bytes are from $chr(10004) which UTF8-encodes as a 3 byte string.
-<pre class ="code">
+<pre class = "code">
 alias fake-bset-ta-sub {
   if ($asc($2) &lt; 256) return $v1
   bset -ta $1 1 $2

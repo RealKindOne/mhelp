@@ -8,7 +8,7 @@
 The <b>/clipboard</b> command copies text to the clipboard.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /clipboard [-an] [text]
 </pre>
 
@@ -23,21 +23,21 @@ The <b>/clipboard</b> command copies text to the clipboard.
 
 <H4>Example</H4>
 Clear the clipboard and put "Hello world!" in it:
-<pre class ="code">
+<pre class = "code">
 /clipboard Hello World!
 </pre>
 Put "abcd" into clipboard then append "efgh" and carriage return:
-<pre class ="code">
+<pre class = "code">
 //clipboard abcd | clipboard -an efgh | echo -a $cb(0).len / $cb(1).len / $cb(1)
 ; returns: 10 / 8 / abcdefgh
 ; (The difference between length of $cb(0) and $cb(1) is the $crlf.
 </pre>
 Clear clipboard contents:
-<pre class ="code">
+<pre class = "code">
 /clipboard
 </pre>
 Append $crlf to end of current clipboard contents:
-<pre class ="code">
+<pre class = "code">
 /clipboard -an
 </pre>
 

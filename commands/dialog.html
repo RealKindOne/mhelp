@@ -8,7 +8,7 @@
 The <b>/dialog</b> command is used to create a dialog using a given table. The name is what the script/you will use to refer to the table. The standard dialog created using the /dialog command can be used to create model or modeless dialogs. Modeless it does not return a value when the dialog closes. As a result it does not halt the mIRC scripting engine, letting other script to keep processing. Dialogs can be kept open for as you want.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /dialog -mhbpardievon &lt;name&gt; [table]
 /dialog -kcx &lt;name&gt;
 /dilaog -g &lt;name&gt; &lt;newName&gt;
@@ -69,7 +69,7 @@ Change:
 <br><b>[text]</b> - Text.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 Dialog Example1 {
   title "This is Example 1"
   size -1 -1 172 129
@@ -95,19 +95,19 @@ Dialog Example1 {
 </pre>
 
 
-<pre class ="code">
+<pre class = "code">
 ; Modeless, Desktop
 /dialog -md Example1 Example1
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; Change the title of the dialog
 /dialog -t Example1 This is Example 2!
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; Rename the dialog
 /dialog -g Example1 Example3
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; Close the dialog, don't trigger any event
 /dialog -x Example3
 </pre>

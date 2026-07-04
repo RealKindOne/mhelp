@@ -10,7 +10,7 @@ The <b>/bcopy</b> command can be used to copy any amount of bytes from one varia
 If the number of bytes to copy is -1, all bytes available will be copied over to the destination variable. If the destination position is -1, the bytes will be appended.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /bcopy [-zc] &lt;&dest_binvar&gt; &lt;dest_pos&gt; &lt;src_&binvar&gt; &lt;src_pos&gt; &lt;numBytes&gt;
 </pre>
 
@@ -26,7 +26,7 @@ If the number of bytes to copy is -1, all bytes available will be copied over to
 <br><b>&lt;numBytes&gt;</b> - Number of bytes to copy beginning at &lt;src_pos&gt; (or -1 for everything beginning at &lt;src_pos&gt;).
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 Alias Example {
   ; Create a binary variable 'example' and assign it some text
   bset -t &example 1 This is a cool test!
@@ -50,7 +50,7 @@ This is a
 cool test!
 */
 </pre>
-<pre class ="code">
+<pre class = "code">
 ;while these variables exist:
 //bset &to 1 11 22 33 44 55 66 | bset &from 1 77 88 99 123
 and &to contains "11 22 33 44 55 66" and &to contains "77 88 99 123"
@@ -94,7 +94,7 @@ bcopy -c &to 3 &to 3 1
 ; truncates a variable to length 3
 </pre>
 Binary variables can be longer than the length which can be displayed on a mIRC line. This alias creates a 7mb variable containing all $chr(1) bytes:
-<pre class ="code">
+<pre class = "code">
 ; /fill_with_ones 7654321
 alias fill_with_ones {
   if ($1 !isnum 1-) return

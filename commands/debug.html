@@ -8,7 +8,7 @@
 The <b>/debug</b> command outputs raw server messages to a file or a custom window  Incoming messages are prefixed with "&lt;-" and outgoing messages are prefixed with "-&gt;".
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /debug [-cinptrNoN] [color] [on | off | @window | filename] [identifier]
 </pre>
 
@@ -30,22 +30,22 @@ The <b>/debug</b> command outputs raw server messages to a file or a custom wind
 
 <H4>Example</H4>
 Display debug status:
-<pre class ="code">
+<pre class = "code">
 /debug
 </pre>
 Enable debug:
-<pre class ="code">
+<pre class = "code">
 /debug on
 </pre>
 Disable debug:
-<pre class ="code">
+<pre class = "code">
 /debug off
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; Opens @raw debug window (wrap text+
 //debug -p @Raw
 </pre>
-<pre class ="code">
+<pre class = "code">
 ; The line can be 'piped' through an alias on its way to the log file.
 ; From editbox: /debug -i Log.txt $console
 ; From script: /debug -i Log.txt $!console
@@ -66,7 +66,7 @@ Alias console {
 </pre>
 
 
-<pre class ="code">
+<pre class = "code">
 ; This alias opens a debug window shared by all networks.
 ; Outbound lines in red, inbound lines in green.
 ; Note the identifier is listed on command line instead of calling an alias.

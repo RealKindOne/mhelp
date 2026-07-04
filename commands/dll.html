@@ -8,7 +8,7 @@
 The <b>/dll</b> command can be used to call an exported function from a DLL with the specified parameters.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /dll &lt;libName.dll&gt; &lt;funcName&gt; [data]
 /dll -m &lt;callback&gt; &lt;libName.dll&gt; &lt;funcName&gt; [data]
 /dll -u &lt;libName.dll&gt;
@@ -35,22 +35,32 @@ Look at the <a href="../other/dll.html">DLL</a> article to see how to use a dll 
 
 
 Silently fails if $dll(1) contains a space:
-<pre class ="code">//if ($dll(1)) dll -u $dll(1)</pre>
+<pre class = "code">
+//if ($dll(1)) dll -u $dll(1)
+</pre>
 Works whether or not $dll(1) contains a space:
-<pre class ="code">//if ($dll(1)) dll -u $qt($dll(1))</pre>
+<pre class = "code">
+//if ($dll(1)) dll -u $qt($dll(1))
+</pre>
 
 If $dll(1) is $mircdir $+ subdir\foo.dll and $dll(2) is $mircdir $+ foo.dll
 "/dll -u foo.dll" matches the 1st index matching $nopath(foo.dll), so it removes subdir\foo.dll unless that were loaded last. But "/dll -u $qt($dll(2))" removes the foo.dll not located in the subdir.
 
-<pre class ="code">//dll foo.dll no_such_function | echo -a test</pre>
+<pre class = "code">
+//dll foo.dll no_such_function | echo -a test
+</pre>
 If foo.dll does not exist, the script halts with an error, and the echo does not display. If foo.dll does exist but the function does not exist, /dll displays an error to status window, but the script continues executing the echo. It also loads foo.dll even if the function doesn't exist, and remains loaded in memory if the .dll's initialization routine sets mKeep=$true. See the $dll article for keeping the .dll loaded after execution, and for keeping the .dll past 10 minutes of idle time.
 
 While $dll(foo,function,) returns a 3rd parameter even if it's $null, "/dll foo.dll" does not require parm3.
 
 Using
-<pre class ="code">/dll file.dll function string</pre>
+<pre class = "code">
+/dll file.dll function string
+</pre>
 used for loading a dll is roughly equivalent to
-<pre class ="code">noop $dll(file.dll,function,string)</pre>
+<pre class = "code">
+noop $dll(file.dll,function,string)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.6 (23 Sep 1999)

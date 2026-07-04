@@ -8,7 +8,7 @@
 The <b>/echo</b> command prints text to the specified window. This command does not send anything to the server; text is only shown in the window.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /echo [color-number] [-deghi[N]tsaqlbfnmr] [window] &lt;text&gt;
 /echo -c[deghi[N]tsaqlbfnmr] &lt;color-name&gt; [window] &lt;text&gt;
 </pre>
@@ -54,12 +54,12 @@ Other switches:
 <H4>Example</H4>
 1: Hello world
 
-<pre class ="code">
+<pre class = "code">
 /echo -a Hello World!
 </pre>
 
 2: A loop prints a few lines
-<pre class ="code">
+<pre class = "code">
 ; This is example line 5.
 ; This is example line 4.
 ; This is example line 3.
@@ -74,19 +74,19 @@ alias example {
 }
 </pre>
 3: Timestamps
-<pre class ="code">
+<pre class = "code">
 echo #test This line never has a timestamp
 echo -t #test This line has a timestamp only if timestamping is enabled within #test
 echo #test $timestamp This line always has a timestamp
 </pre>
 4: Colours
-<pre class ="code">
+<pre class = "code">
 //echo 4 -at abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to color 4 (red)
 //echo -act ctcp abc $chr(22) def $chr(15) The timestamp and this text following the Ctrl-O revert to "ctcp" color ( $+ $color(ctcp) $+ )
 //echo -at $chr(3) $+ 04 $+ abc $chr(22) def $chr(15) The timestamp and this text appear as "normal" color ( $+ $color(normal) $+ )
 </pre>
 5: Switchbar/treebar colors
-<pre class ="code">
+<pre class = "code">
 ; See mirc-options/display
 ; The 1st line causes the switchbar to change to the "event" color.
 ; The 2nd line -m causes the switchbar to change to the "messages" color, overriding the default EVENT color.
@@ -100,7 +100,7 @@ on ^*:JOIN:#:{
   haltdef
 }
 </pre>
-<pre class ="code">
+<pre class = "code">
 /echo -m @window test
 /echo -m #channel test
 ; has the same effect as:
@@ -113,17 +113,17 @@ on ^*:JOIN:#:{
 The echo command modifies &lt;text&gt; by hiding duplicate spaces and non-printable characters including $chr(9) tab:<br>
 Returns: 8 abc def<br>
 Where the duplicate space is not displayed.
-<pre class ="code">
+<pre class = "code">
 //var %a abc $+ $chr(32) $+ $chr(32) $+ def | echo -a $len(%a) %a
 </pre>
-<pre class ="code">
+<pre class = "code">
 //var %a abc $chr(9) def | echo -a $len(%a) %a
 ; returns: 9 abc def
 ; ... where there are 2 spaces appearing next to each other because they were not consecutive prior to the non-printable tab being hidden.
 ; All 6 letters are displayed on the same line because $crlf is non-printable:
 //var %a $+(abc,$crlf,def) | echo -a %a
 </pre>
-<pre class ="code">
+<pre class = "code">
 Echo a blank line because it contains only non-printable characters:
 //echo -a $crlf
 </pre>

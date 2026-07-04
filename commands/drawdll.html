@@ -8,7 +8,7 @@
 The <b>/drawdll</b> command that allows a script to pass the active memory HDC and HBITMAP handle for a @window to a custom DLL, which can then draw directly to it.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /drawdll -n &lt;@window&gt; &lt;dllname&gt; &lt;procname&gt; [data]
 </pre>
 
@@ -20,7 +20,7 @@ TODO
 
 <H4>Example</H4>
 Draws a small black dot in the top left of the window:
-<pre class ="code">
+<pre class = "code">
 alias test {
   window -p @test 100 100 200 200
   drawdll @test M:\mIRC\DLL\dll.dll draw
