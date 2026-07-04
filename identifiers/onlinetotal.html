@@ -10,7 +10,7 @@ The <b>$onlinetotal</b> identifier returns the total number of seconds in the Ti
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $onlinetotal
 </pre>
 
@@ -22,10 +22,12 @@ None
 
 <H4>Example</H4>
 Echo the total number of seconds mIRC has been connected:
-<pre class ="code">//echo -a $onlinetotal</pre>
+<pre class = "code">
+//echo -a $onlinetotal
+</pre>
 
 Message a channel when someone types "!uptime":
-<pre class ="code">
+<pre class = "code">
 on *:text:!uptime:#example:{
   msg $chan My grand total connection time has been $onlinetotal seconds.
   msg $chan My current connection time has been $onlineserver seconds.

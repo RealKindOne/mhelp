@@ -12,7 +12,7 @@ The <b>$maddress()</b> identifier return the address that was matched for the ev
 <b>Note:</b> This feature is deprecated and has been replaced with <a href="ulist.html">$ulist</a>.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $maddress(&lt;address&gt;,[L,&lt;N&gt;]).[property]
 </pre>
 
@@ -26,7 +26,9 @@ $maddress(&lt;address&gt;,[L,&lt;N&gt;]).[property]
 
 <H4>Example</H4>
 To get the address from the event:
-<pre class ="code">on *:TEXT:*:#:echo -a $maddress</pre>
+<pre class = "code">
+on *:TEXT:*:#:echo -a $maddress
+</pre>
 
 And for the user list: //echo -a $maddress(*,1)
 

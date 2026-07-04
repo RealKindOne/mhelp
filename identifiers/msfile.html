@@ -9,7 +9,7 @@ The <b>$msfile</b> identifier opens dialog to select 1 or more files.
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $msfile(&lt;path&gt; [,title [,OpenButtonText] ] ) Opens dialog to choose 1 or multiple files. Returns N where 0 or greater is the count of returned filenames. N=-1 if error, such as one of the selected items being folder c:\windows\fonts\
 $msfile(N)	After dialog closes, for N>=1 returns the Nth selected filename. For N=0 returns the count of returned filenames.
 </pre>
@@ -35,7 +35,9 @@ None
 <b>Note:</b> $sfstate and $msfile(N) are shared by $sfile and $sdir and $msfile(dir). These values are accessible by any script or from the editbox until the next time any of these 3 commands are used, when these identifiers are replaced by the new results. (Using $msfile(N) does not reset $sfstate) (Using $sdir or $sfile always causes $msfile(N>=1) to be $null. $sfile causes $msfile(0) to be either 0 or 1 depending on whether it selected a file, $sdir always sets $msfile(0) to 0 and blacks $msfile(1).)
 
 <H4>Example</H4>
-<pre class ="code">//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i &lt; $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) &lt;- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }</pre>
+<pre class = "code">
+//echo -ag $msfile($sysdir(profile),This shows in Titlebar,OpEn) sfstate = $sfstate | var %i 0 , %tot 0 | echo -ag sfstate $sfstate | while (%i &lt; $msfile(0)) { inc %i | inc %tot $len($nopath($msfile(%i))) | echo -ag $calc(%i + %tot) &lt;- this number probably won't go above 1000-1024 bytes / %i / $msfile(%i) }
+</pre>
 <br>
 <br>
 The 2nd parameter puts your optional string in the titlebar. The 3rd optional parameter alters the label on the 'Open' button.
@@ -69,10 +71,14 @@ The selection window has 'mIRC" at the top of the treebar, which you can use to 
 The values of $sfstate, $msfile(0), and any selected filenames in $msfile(N) will remain in those values until the next time any of the 3 identifiers are used, $sfile(dir) or $sdir(dir) or $msfile(dir)
 <br>
 <br>
-<pre class ="code">//echo -a $msfile( $sysdir(profile)  ) / $sfstate / $msfile(0) / $msfile(1)</pre>
+<pre class = "code">
+//echo -a $msfile( $sysdir(profile)  ) / $sfstate / $msfile(0) / $msfile(1)
+</pre>
 This shows the files and folders in your profile folder. Even though $finddir(c:\users\lefty\,*,0,1,echo -a $1-) lists both "Documents" and "My Documents" aliases to the same folder, the select window shows  "My Documents" but not "Documents". You can use $sysdir(profile) $+ Documents as your starting folder even though it's not shown by the parent folder.
 
-<pre class ="code">//echo -a $msfile( $sysdir(profile) $+ My Documents\ ) / $sfstate / $msfile(0) / $msfile(1)</pre>
+<pre class = "code">
+//echo -a $msfile( $sysdir(profile) $+ My Documents\ ) / $sfstate / $msfile(0) / $msfile(1)
+</pre>
 This displays an error message and forces you to begin selecting files in $mircdir
 
 <H4>Compatibility</H4>

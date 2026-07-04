@@ -8,7 +8,7 @@
 The <b>$or</b> identifier returns the binary OR of 2 numbers.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $or(&lt;N1&gt;,&lt;N2&gt;)
 </pre>
 
@@ -20,13 +20,15 @@ None
 
 <H4>Example</H4>
 Return 31:
-<pre class ="code">
+<pre class = "code">
 //echo -a $or(14,27)
 </pre>
 
 Bits which are both 0 return 0, otherwise the bit is 1
 
-<pre class ="code">//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($or(%n1,%n2),10,2,8)</pre>
+<pre class = "code">
+//var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($or(%n1,%n2),10,2,8)
+</pre>
 returns:<br>
 00001110<br>
 00011011<br>

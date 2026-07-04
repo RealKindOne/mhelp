@@ -9,7 +9,7 @@ The <b>$max</b> identifier returns the maximum from a list of tokens. $min and $
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $max(&lt;space delimited tokens&gt;)
 $max(&lt;comma,delimited,tokens&gt;)
 </pre>
@@ -24,15 +24,21 @@ $max(&lt;comma,delimited,tokens&gt;)
 
 <H4>Example</H4>
 
-<pre class ="code">//echo -a $max(11 2 3 5 8 13) $max(11,2,3,5,8,13)</pre>
+<pre class = "code">
+//echo -a $max(11 2 3 5 8 13) $max(11,2,3,5,8,13)
+</pre>
 
-<pre class ="code">//echo -a $max(c C).text vs $max(c C).textcs</pre>
+<pre class = "code">
+//echo -a $max(c C).text vs $max(c C).textcs
+</pre>
 
 Returns "c vs C" because, as case-insensitive text, 'C' and 'c' are the same, so the leftmost of the pair is returned.
 
 Numeric sorting rules recognize exponential, so $man(1e2 1d2) handles both of them as 100.
 
-<pre class ="code">//echo -a $max( 1:black 02:blue 14:grey 3:green 13:magenta 5:maroon 6:purple 04:red 7:tan 8:yellow 0:white)</pre>
+<pre class = "code">
+//echo -a $max( 1:black 02:blue 14:grey 3:green 13:magenta 5:maroon 6:purple 04:red 7:tan 8:yellow 0:white)
+</pre>
 result: 0:white
 
 

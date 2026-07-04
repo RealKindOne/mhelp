@@ -9,12 +9,13 @@
 The <b>$parseline</b> identifier returns the line involved in the <a href="../events/on_parseline.html">On_parseline</a>event.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $parseline
 </pre>
 <br>
 <b>Note:</b> For "out" lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
-<pre class ="code">var %pl $parseline
+<pre class = "code">
+var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)
 </pre>
 
@@ -25,7 +26,9 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">on *:parseline:*:*:echo -a $parseline</pre>
+<pre class = "code">
+on *:parseline:*:*:echo -a $parseline
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.42 (17 Jul 2015)

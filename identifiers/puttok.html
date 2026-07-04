@@ -9,7 +9,7 @@ The <b>$puttok</b> identifier replaces the Nth $asc(C)-delimited token in a list
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $puttok(&lt;list&gt;,&lt;Token Data&gt;,&lt;N&gt;,&lt;C&gt;)
 </pre>
 
@@ -26,16 +26,21 @@ If N is negative, returns tokens relative to the end. -1 is the last token, -2 i
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $puttok(a-b-c-d-e-f,TEST,3,46))
+<pre class = "code">
+//echo -a $puttok(a-b-c-d-e-f,TEST,3,46))
 ; returns a-b-TEST-d-e-f</pre>
 
 Shows the unchanged path with the filename changed to TEST.TXT:
 
-<pre class ="code">//echo -a $puttok($mircexe,TEST.TXT,-1,92))</pre>
+<pre class = "code">
+//echo -a $puttok($mircexe,TEST.TXT,-1,92))
+</pre>
 
-<pre class ="code">//echo -a $puttok(x11xx33X44x55x66x,TEST,3,120)
+<pre class = "code">
+//echo -a $puttok(x11xx33X44x55x66x,TEST,3,120)
 ; returns 11x33X44xTESTx66
-; because leading/trailing/duplicate delimiters are removed before evaluating &lt;LIST&gt;. $chr(120) is lower-case x so the capital X is not a delimiter.</pre>
+; because leading/trailing/duplicate delimiters are removed before evaluating &lt;LIST&gt;. $chr(120) is lower-case x so the capital X is not a delimiter.
+</pre>
 
 <br><b>Note:</b>Unlike CSV format, if C=44 to delimit with commas, double-quotes around filename containing a comma does not allow the entire filename to be a single token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s).
 

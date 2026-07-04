@@ -11,7 +11,7 @@ The <b>$mouse</b> identifier returns information about the mouse and its buttons
 This identifier almost uniquely takes no parameter but has properties (<a href="insong.html">$insong</a> and the like also have this), it is not possible to use such syntax for custom identifier, $myalias.prop would just call the alias named "$myalias.prop"
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $mouse[.property]
 </pre>
 
@@ -45,7 +45,8 @@ None
 <br>if ($mouse.key & 16384) echo left alt key is pressed.
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $mouse.x</pre>
+<pre class = "code">
+//echo -a $mouse.x</pre>
 
 <H4>Notes</H4>
 Pressing any of the Ctrl or Alt or Shift keys causes 2 of the above masks to be non-zero, so pressing the right-shift enables both the 4 and 64 bit masks. You can check if the right-shift IS pressed and the left-shift is NOT pressed, by checking whether $and($mouse.key,$calc(4096+64)) == 64

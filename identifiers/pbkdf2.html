@@ -8,7 +8,7 @@
 The <b>$pbkdf2</b> identifier calculates the PBKDF2 (Password-Based Key Derivation Function 2) for password hashing. PBKDF2 applies a pseudorandom function to the input password along with a salt and repeats the process many times.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $pbkdf2(text|&binary, salt|&binary, hash, length, iterations, [opts])
 </pre>
 
@@ -26,13 +26,19 @@ None
 
 <H4>Example</H4>
 Echo the PBKDF2-SHA256 hash of a password with salt:
-<pre class ="code">//echo -a $pbkdf2(myPassword, mySalt, sha256, 32, 100000)</pre>
+<pre class = "code">
+//echo -a $pbkdf2(myPassword, mySalt, sha256, 32, 100000)
+</pre>
 
 Using binary variables for password and salt:
-<pre class ="code">//bset -ta &pass 1 myPassword | bset -ta &salt 1 mySalt | echo -a $pbkdf2(&pass, &salt, sha256, 32, 100000, b)</pre>
+<pre class = "code">
+//bset -ta &pass 1 myPassword | bset -ta &salt 1 mySalt | echo -a $pbkdf2(&pass, &salt, sha256, 32, 100000, b)
+</pre>
 
 Generate a 64-byte key with SHA512:
-<pre class ="code">//echo -a $pbkdf2(SecretPassword, RandomSalt123, sha512, 64, 50000)</pre>
+<pre class = "code">
+//echo -a $pbkdf2(SecretPassword, RandomSalt123, sha512, 64, 50000)
+</pre>
 
 <H4>Recommended Parameters</H4>
 For modern applications:<br>

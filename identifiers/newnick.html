@@ -9,7 +9,7 @@
 The <b>$newnick</b> identifier is filled when the <a href="../events/on_nick.html">On_Nick</a> event is triggered on a channel when either a remote user changes their nickname on a channel, or the local mIRC client has changed its nickname.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $newnick
 </pre>
 
@@ -18,7 +18,7 @@ None
 
 <H4>Example</H4>
 Echo to the channel when the your nickname is changed, and halt mIRC's default message:
-<pre class ="code">
+<pre class = "code">
 on ME:^*:NICK: {
   echo $chan You are now ==&gt; $newnick
   ; Halt the default mIRC message
@@ -27,7 +27,7 @@ on ME:^*:NICK: {
 </pre>
 
 The example above should have an output resembling the following:
-<pre class ="code">
+<pre class = "code">
 You are now ==&gt; whoMe
 </pre>
 

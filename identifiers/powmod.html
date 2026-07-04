@@ -12,7 +12,7 @@ For integers (B,E,M) the remainder of B^E modulo M is a result that is a non-neg
 <br>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $powmod(B,E,M)
 * Note: Unlike the % percent operator in $calc the result cannot be negative. If 'B' is negative, the result is calculated after casting 'B' to positive by adding 1-or-more multiple of the M modulus, so (-1,2,11) is the same as (10,2,11).
 * If the exponent E is negative, the result of (B,-E,M) is obtained from ($modinv(B,M),+E,M), so $powmod(B,-1,M) is the same as $modinv(B,M)
@@ -32,7 +32,7 @@ $powmod(B,E,M)
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //var -s %x $rand(3,2026) , %A $powmod(2,%x,2027) , %y $rand(3,2026) , %B $powmod(2,%y,2027) | echo -a $powmod(%A,%y,2027) = $powmod(%B,%x,2027)
 </pre>
 

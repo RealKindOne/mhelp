@@ -8,7 +8,7 @@
 The <b>$numtok</b> identifier returns the number of $asc(C)-delimited token in a list.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $numtok(&lt;list&gt;,&lt;C&gt;)
 </pre>
 
@@ -23,22 +23,22 @@ None
 Echo to the active window, the number of tokens delimited by the $chr(45) hyphen:
 <br>
 Returns 5:
-<pre class ="code">
+<pre class = "code">
 //echo -a $numtok(a-b-c-d-e,45)
 </pre>
 
 Returns 4 because $chr(120) is lower-case x:
-<pre class ="code">
+<pre class = "code">
 //echo -a $numtok(1x2x3x4,120)
 </pre>
 
 Also returns 4 because duplicate, leading, and trailing delimiters are stripped before $numtok processes the LIST:
-<pre class ="code">
+<pre class = "code">
 //echo -a $numtok(x1xxxx2x3x4x,120)
 </pre>
 
 Returns 3 because the C token is case-sensitive, so capital X isn't a delimiter:
-<pre class ="code">
+<pre class = "code">
 //echo -a $numtok(1x2X3x4,120)
 </pre>
 
