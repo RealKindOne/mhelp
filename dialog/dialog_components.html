@@ -162,13 +162,14 @@ button "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&
 <br><b>-a</b> - Adds to the button's text (caption)
 
 <br>
-<br>
+
 <b>$did</b>
 <br>
+
 <pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
 </pre>
-Without any property, return the text (caption) of the button, same as the .text  property
+Without any property, return the text (caption) of the button, same as the .text property
 
 Properties:
 <br><b>.text</b> - Returns the text of the button (caption)
@@ -305,7 +306,7 @@ alias -l dstate {
 
 <!-- --------------------------------------------------------------------- -->
 
-<a name="Text"></a><
+<a name="Text"></a>
 <H2>Text</H2>
 
 <H4>Styles</H4>
@@ -437,7 +438,7 @@ Properties:
 <br><b>.visible</b> - Returns $true if the box is visible, otherwise $false
 <br><b>.enabled</b> - Returns $true if the box is enabled, otherwise $false
 
-<H4>Events</H4>This control has no events.
+<H4>Events</H4> This control has no events.
 
 <H4>Example</H4>
 <pre class = "code">
@@ -918,8 +919,10 @@ radio "&lt;text&gt;", &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&g
 
 <b>$did</b>
 <br>
-
+<br>
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
+</pre>
 
 Without any property, returns the text (caption) of the radio, same as the .text property
 
@@ -927,7 +930,7 @@ Properties:
 
 <br><b>.text</b> - Returns the text (caption) of the radio line or Nth line
 <br><b>.len</b> - Returns the length of the text of the radio (caption)
-* .state - returns the state of the radio, 0 = unchecked, 1 = checked
+<br><b>.state</b> - returns the state of the radio, 0 = unchecked, 1 = checked
 <br><b>.next</b> - Returns the id of the next control in order of tab keypress
 <br><b>.prev</b> - Returns the id of the previous control in order of tab keypress
 <br><b>.visible</b> - Returns $true if the radio is visible, otherwise $false
@@ -1014,9 +1017,9 @@ To add a control to a tab item, specify the "tab &lt;id&gt;" style for the contr
 
 <b>$did</b>
 <br>
-
+<pre class ="code">
 $did(&lt;name&gt;,&lt;id&gt;)[.property]
-
+</pre>
 Without any property, returns the text (caption) of the radio, same as the .text property
 
 Properties:
@@ -1098,37 +1101,38 @@ list &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&gt
 <br><b>-h</b> - Hides the list
 <br><b>-c</b> - Selects the Nth line in the list: /did -c &lt;name&gt; &lt;id&gt; &lt;line&gt;
 <br><b>-u</b> - Unselects the Nth line in the list
-* -k - keeps the selection of others lines when selecting/unselecting
-* -s - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as checked
-* -l - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as unchecked
+<br><b>-k</b> - keeps the selection of others lines when selecting/unselecting
+<br><b>-s</b> - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as checked
+<br><b>-l</b> - if you used the 'check' or 'radio' style, mark the check/radio of the Nth line as unchecked
 <br><b>-r</b> - Clears the list
 <br><b>-a</b> - adds a line to the end of the list
 <br><b>-d</b> - Deletes the Nth line in the list
 <br><b>-i</b> - Inserts a line at Nth line position in the list
 <br><b>-o</b> - overwrites the Nth line with the next text in the list
-* -z - resets the width of the horizontal scrollbar in the list
+<br><b>-z</b> - resets the width of the horizontal scrollbar in the list
 
 <br>
 <br>
 
 <b>$did</b>
 <br>
-
+<pre class = "code">
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
+</pre>
 
 Without any properties, returns the text of the Nth line in the list, same as the .text property.
 
-<br><b>.text </b> - Returns the Nth line in the list
-<br><b>.len </b> - Returns the length of the Nth line in the list
-<br><b>.lines </b> - Returns the number of lines in the list
-<br><b>.sel </b> - Returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
-<br><b>.seltext </b> - Returns the first selected line in the list
-<br><b>.next </b> - Returns the id of the next control in tab key order
-<br><b>.prev </b> - Returns the id of the previous control in tab key order
-<br><b>.visible </b> - Returns $true if the list is visible, otherwise $false
-<br><b>.enabled </b> - Returns $true if the list is enabled, otherwise $false
-<br><b>.csel </b> - If the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
-<br><b>.cstate </b> - If the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
+<br><b>.text</b> - Returns the Nth line in the list
+<br><b>.len</b> - Returns the length of the Nth line in the list
+<br><b>.lines</b> - Returns the number of lines in the list
+<br><b>.sel</b> - Returns the line number of the Nth line selected line in the list, if N = 0, returns the total number of selected line
+<br><b>.seltext</b> - Returns the first selected line in the list
+<br><b>.next</b> - Returns the id of the next control in tab key order
+<br><b>.prev</b> - Returns the id of the previous control in tab key order
+<br><b>.visible</b> - Returns $true if the list is visible, otherwise $false
+<br><b>.enabled</b> - Returns $true if the list is enabled, otherwise $false
+<br><b>.csel</b> - If the 'radio' or 'check' style is used, returns the line number of the Nth checked line in the list, if N = 0, returns the total number of checked line
+<br><b>.cstate</b> - If the 'radio' or 'check' style is used, returns the state of the check/radio control of the Nth line in the list 1 = checked, 0 = unchecked
 
 <H4>Events</H4>
 <br><b>mouse</b> - Triggers when a mouse moves the list control.
@@ -1215,7 +1219,6 @@ combo &lt;id&gt;, &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;[, &lt;style&g
 <b>$did</b>
 <br>
 <pre class = "code">
-
 $did(&lt;name&gt;,&lt;id&gt;,[N])[.property]
 </pre>
 
