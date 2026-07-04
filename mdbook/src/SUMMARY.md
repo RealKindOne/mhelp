@@ -310,7 +310,7 @@
       - [$+](identifiers/_plus.md)
       - [$++](identifiers/_plusplus.md)
       - [$?](identifiers/_question.md)
-      - [$_sigil](identifiers/_sigil.md)
+      - [$$](identifiers/_sigil.md)
       - [$~](identifiers/_tilde.md)
       - [$\*](identifiers/star.md)
     - [A]()
