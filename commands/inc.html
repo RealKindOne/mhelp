@@ -10,7 +10,7 @@ The <b>/inc</b> command increases the numeric value of a variable by a given val
 <br><b>Note:</b> /inc always keeps the unset time if there is one for the current variable, as though there was a -k switch from <a href="set.html">/set</a>, there's no switch to prevent this behavior and unset the time while setting the value.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /inc [-scrzeuN] &lt;%var&gt; [value]
 </pre>
 
@@ -31,7 +31,7 @@ Global variables only:
 <br><b>[value]</b> - Optional numeric value to increase the variable by. Default is 1 if [value] not used.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 Alias Example {
   ;Create a local variable and set it to 5
   var %x 5
@@ -43,7 +43,7 @@ Alias Example {
 </pre>
 
 <br><b>Note:</b> if script or timer execution lasts longer than 1 second, -c and -z can skip increments or decrements:
-<pre class ="code">
+<pre class = "code">
 //set %i 10 | inc -z %i | timertest 5 1 echo -a $!timer(test).reps $!asctime i= $eval(%i,0) $(|) var $eval(%j,0) 99999 $(|) while ( $eval(%j,0) ) $chr(123) var $eval(%k,0) $!rand(1,999) $(|) dec $eval(%j,0) $chr(125) | echo -a com: $timer(test).com | timer
 
 //var %i 1 | inc %i 0 | echo -a this did not change i= %i | var %j $null | inc %i | echo -a this changed by 1 because [value] is null i= %i

@@ -12,16 +12,16 @@ The line separator can be changed by going into the options dialog (Alt+O) -> Ot
 If your goal is to simply enclose your text with a pair of line separator:
 
 Note that:
-<pre class ="code">
+<pre class = "code">
 //linesep @x | echo @x Example Line. | linesep @x
 </pre>
 Is equivalent to:
-<pre class ="code">
+<pre class = "code">
 //echo -e @x Example Line.
 </pre>
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /linesep [ @window | #channel | query | -s | -a ]
 </pre>
 <br><b>Note:</b> default is -a if no parameter is used.
@@ -37,7 +37,7 @@ Is equivalent to:
 
 <H4>Example</H4>
 A simple line separator between two lines:
-<pre class ="code">
+<pre class = "code">
 alias example {
   ; create our example window
   window -de @example -1 -1 400 400

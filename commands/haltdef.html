@@ -9,7 +9,7 @@ The <b>/haltdef</b> command halts the default processing of an event. When mIRC 
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /haltdef
 </pre>
 
@@ -23,7 +23,7 @@ None
 
 
 With '^' prefix on event:
-<pre class ="code">
+<pre class = "code">
 on ^*:op:#mIRC:{
   haltdef
   echo -t #mIRC OP : $opnick by $nick
@@ -31,7 +31,7 @@ on ^*:op:#mIRC:{
 </pre>
 
 And without '^' prefix:
-<pre class ="code">
+<pre class = "code">
 raw 312:*: {
   haltdef
   echo -at $2 using $3 - ( $+ $4- $+ )

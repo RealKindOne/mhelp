@@ -8,7 +8,7 @@
 The <b>/hdel</b> command deletes an item/data-value pair from an existing hash table.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /hdel [-sw] &lt;table&gt; &lt;item&gt;
 </pre>
 
@@ -21,7 +21,7 @@ The <b>/hdel</b> command deletes an item/data-value pair from an existing hash t
 <br><b>&lt;item&gt;</b> - The item-name associated with a value to delete. Can be a <a href="../other/wildcard.html">wildcard</a> when using -w switch.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 alias hdel_example {
   ; add items
   hadd -m example academic a
@@ -42,7 +42,7 @@ alias hdel_example {
   hfree example
 }
 </pre>
-<pre class ="code">
+<pre class = "code">
 //hfree -sw test | hadd -m1 test item1 | hadd test item* | echo -a 1st item is $hget(test,1).item | hdel -w test item* | echo  -a there are $hget(test,0).item items remaining
 * Demonstrates that an item can be created and deleted containing an asterisk. If the -w switch is deleted, only 1 of the 2 items is deleted because of an exact item-name match with "item*".
 <br>

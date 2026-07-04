@@ -8,7 +8,7 @@
 The <b>/hinc</b> command increases the value of a hashtable item by [num]. If the optional number value is not specified, the default increment value is 1. It uses the same syntax as /hadd except -b's &binvar is the [num] parameter not the destination.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /hinc [-m[N]szuN] &lt;table&gt; &lt;item&gt; [num]
 /hinc -b[m[N]szuN] &lt;table&gt; &lt;item&gt; &lt;&bvar&gt;
 </pre>
@@ -29,7 +29,7 @@ The <b>/hinc</b> command increases the value of a hashtable item by [num]. If th
 <br><b>&lt;&bvar&gt;</b> - The binary variable containing the value by which to decrease the 'item'.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 alias example {
   ;create the table
   hmake -s example
@@ -61,7 +61,7 @@ alias example {
 }
 </pre>
 A counter example:
-<pre class ="code">
+<pre class = "code">
 alias countup {
   ;adds the item up with a value of 0 to the table count
   hadd -m count up 0
@@ -81,7 +81,7 @@ alias countup {
   hfree -s count
 }
 </pre>
-<pre class ="code">
+<pre class = "code">
 //hfree -sw test | hinc -sm test foo 5 | echo -a item foo has value $hget(test,foo)
 Result: 5
 * If the item does not exist, /hinc behaves as if the item exists with a value of zero.

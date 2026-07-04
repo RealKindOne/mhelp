@@ -8,7 +8,7 @@
 The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If the optional number value is not specified, the default increment value is 1. It uses the same syntax as /hadd except -b's &binvar is the [num] parameter not the destination.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /hdec [-m[N]szuN] &lt;table&gt; &lt;item&gt; [num]
 /hdec -b[m[N]szuN] &lt;table&gt; &lt;item&gt; &lt;&bvar&gt;
 </pre>
@@ -32,7 +32,7 @@ The <b>/hdec</b> command decreases the value of a hashtable item by [num]. If th
 <br><b>Note:</b> For more examples see the <a href="hinc.html">/hinc</a> page. /hdec is the same as /hinc except for decrementing by [num] instead of incrementing.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 alias countdown {
   ; adds the item down with a value of 10 to the table count
   hadd -m count down 10

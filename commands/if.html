@@ -8,7 +8,7 @@
 The <a href="../other/conditional_statements.html">condition statement</a> is a built-in construct capable of comparing a value and executing a set of commands based on the result of that condition. The if statement is used in conjunction with the <a href="else.html">/else</a> statement and the <a href="elseif.html">/elseif</a> statement to jump to certain blocks of code depending on the result of the conditional statement that was executed. The if statements supports the <a href="../other/operations.html">operations</a>.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 if (&lt;condition&gt;) &lt;statement&gt;
 if (&lt;condition&gt;) { &lt;statements&gt; }
 </pre>
@@ -21,7 +21,7 @@ None
 
 <H4>Example</H4>
 Below is a simple example of checking for at least five arguments before proceeding:
-<pre class ="code">
+<pre class = "code">
 alias example {
   if ($0 &lt; 5) {
     echo -atc info * /example: You must provide at least 5 arguments!
@@ -32,11 +32,11 @@ alias example {
 }
 </pre>
 Executing "/example a b c d" will result in:
-<pre class ="code">
+<pre class = "code">
 * /example: You must provide at least 5 arguments!
 </pre>
 While, executing "/example a b c d f" will result in:
-<pre class ="code">
+<pre class = "code">
 works!
 </pre>
 

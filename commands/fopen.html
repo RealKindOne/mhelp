@@ -12,7 +12,7 @@ The <b>/fopen</b> command opens &lt;filename&gt; and assigns it a handle. The fi
 If -x is not used, the file that is opened is also in shared read/write, meaning that an external application (a second mIRC) can also open the file at the same time, read and write to it, affecting the content of the file you're using.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /fopen [-nox] &lt;handle&gt; &lt;filename&gt;
 </pre>
 
@@ -30,7 +30,7 @@ If -x is not used, the file that is opened is also in shared read/write, meaning
 
 A simple example that prints one line to a new file:
 
-<pre class ="code">
+<pre class = "code">
 ; simple fopen example
 alias fopen_example {
   .fopen -n h hello.txt
@@ -48,7 +48,7 @@ alias fopen_example {
 }
 </pre>
 A script that prints all the permutations of there-characters to a file.
-<pre class ="code">
+<pre class = "code">
 ; print permutations [aaa]-[zzz]
 alias perm_example {
   .fopen -n h example.txt

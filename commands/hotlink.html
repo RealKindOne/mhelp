@@ -8,7 +8,7 @@
 The <b>/hotlink</b> command can be used to override the default popups menu when right clicking a word and triggering the <a href="../events/on_hotlink.html">On_HotLink</a> event.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /hotlink -md [@menu]
 </pre>
 
@@ -22,7 +22,7 @@ The <b>/hotlink</b> command can be used to override the default popups menu when
 <H4>Example</H4>
 
 Add a right click menu item to look up commands and identifiers in the help file on mouse hover of /command and $identifier.
-<pre class ="code">
+<pre class = "code">
 menu @helppop {
   Lookup Help $1:!help $remove($1, $chr(40), $chr(41))
 }
@@ -33,7 +33,7 @@ on $*:hotlink:/^[/$]\S+/:*:{
 }
 </pre>
 Override mIRC's default popups for nickname and replace them with... mIRC's default popups! (useless but that's to show /hotlink -d, this isn't handling /return or halt to show the hand)
-<pre class ="code">
+<pre class = "code">
 on *:hotlink:*:*:{
   if ($hotlink(event) $hotlink(match).type == rclick nick) {
     ;no @menu with -d

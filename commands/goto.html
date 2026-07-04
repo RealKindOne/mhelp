@@ -9,7 +9,8 @@ The <b>/goto</b> command allows you to jump to another part of the code. The got
 
 <br><b>Note:</b> A goto cannot jump to a label that was skipped earlier in the code.
 
-<H4>Synopsis</H4><pre class ="code">
+<H4>Synopsis</H4>
+<pre class = "code">
 :&lt;label&gt;
 /goto &lt;label&gt;
 </pre>
@@ -21,7 +22,7 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 ; /is_even &lt;1-9&gt;
 ;
 ; Example: /is_even 2
@@ -41,7 +42,7 @@ alias is_even {
 }
 </pre>
 Note that skipped labels cannot be jumped into.
-<pre class ="code">
+<pre class = "code">
 ; This example shows that a goto point not being parsed
 ; previously by mIRC cannot be reached.
 ;
@@ -53,7 +54,7 @@ alias testing_goto {
 </pre>
 
 The script above will produce the following error:
-<pre class ="code">
+<pre class = "code">
 * /goto: 'test' not found (line 3, scriptfile.mrc)
 </pre>
 

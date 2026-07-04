@@ -8,7 +8,7 @@
 The <b>/msg</b> command sends a message to a specific channel or person. Many networks support multi-target messages - mIRC will not display the message in all the targets like it would with individual messages.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /msg [-sxnd] &lt;nick|channel&gt; &lt;message&gt;
 </pre>
 
@@ -23,13 +23,14 @@ The <b>/msg</b> command sends a message to a specific channel or person. Many ne
 <br><b>&lt;message&gt;</b> - The message to be sent.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 on *:TEXT:!moo:#:{
   ; Message the channel moos back
   msg $chan moos back
-}</pre>
+}
+</pre>
 
-<pre class ="code">
+<pre class = "code">
 /* Example 2
 */
 on ^*:open:?:{
@@ -41,7 +42,9 @@ on ^*:open:?:{
 </pre>
 
 Using the equals sign to send "SomeUser" a message via DCC/FSERVE Chat
-<pre class ="code">//msg =SomeUser Hey there, this is going to your open DCC/FSERVE Chat window, instead!</pre>
+<pre class = "code">
+//msg =SomeUser Hey there, this is going to your open DCC/FSERVE Chat window, instead!
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v2.1a (28 Feb 1995)

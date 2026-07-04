@@ -8,7 +8,7 @@
 The <b>/fseek</b> command sets the read/write pointer to the specified position in the file, position starts at 0.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /fseek -nlwrp &lt;name&gt; &lt;position|N|matchtext&gt;
 </pre>
 
@@ -26,7 +26,7 @@ The <b>/fseek</b> command sets the read/write pointer to the specified position 
 <br><b>Note:</b> if /fseek is not successful (can't find a match with -w or -r, can't find the Nth line with -l etc), it will set the read/write pointer to the end of the file. $fopen().err is not set, but $fopen().eof is.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 /fseek myfile 42
 /fseek -l myfile 12
 /fseek -n

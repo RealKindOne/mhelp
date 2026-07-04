@@ -10,7 +10,7 @@ The <b>/load</b> command can be used to load any type of existing file of the ty
 <br> Note that unlike the <a href="reload.html">/reload</a> command, /load will trigger the <a href="../events/on_load.html">On_Load</a> and <a href="../events/on_start.html">On_Start</a> events.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /load -a[N] &lt;filename&gt;
 /load -p&lt;scqnm&gt; &lt;filename&gt;
 /load -r&lt;uvs[N]&gt; &lt;filename&gt;
@@ -40,7 +40,7 @@ The <b>/load</b> command can be used to load any type of existing file of the ty
 <H4>Example</H4>
 Load three remote script files.
 
-<pre class ="code">
+<pre class = "code">
 alias load_remote {
   load -rs foo.mrc
   load -rs bar.mrc
@@ -48,15 +48,15 @@ alias load_remote {
 }
 </pre>
 Loads script file into the 2nd position of the 'view' menu in Alt+R editor. If it's already loaded, moves the file to that position. If contains on LOAD or on START event handler, this triggers the Initialization Warning and/or performs the event handler.
-<pre class ="code">
+<pre class = "code">
 /load -rs2 foobar.mrc
 </pre>
 Loads aliases file into the 1st position of the 'view' menu in Alt+D editor. If it's already loaded, moves the file to that position.
-<pre class ="code">
+<pre class = "code">
 /load -a1 C:\Foldername\aliases.mrc
 </pre>
 Load a variables and a users file:
-<pre class ="code">
+<pre class = "code">
 alias load_vars_and_users {
   load -ru users2.ini
   load -rv vars2.ini

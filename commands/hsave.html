@@ -8,7 +8,7 @@
 The <b>/hsave</b> command is used to save a hash table to a file. Overwrite existing file if it already exists.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 /hsave -Bbnusa &lt;name&gt; &lt;filename&gt;
 /hsave -inusa &lt;name&gt; &lt;filename&gt; [section]
 </pre>
@@ -32,7 +32,7 @@ The <b>/hsave</b> command is used to save a hash table to a file. Overwrite exis
 <br><b>[section]</b> - If -i is used, you can optionally specify the section of the ini file. Default section is hashtable.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //hfree -w test | hadd -m test itemname 12345 | hadd test itemB 67890 | hsave -s test file name.dat
 * hash table is written to disk to filename "file" and name.dat is ignored. A filename containing a space must be enclosed in double quotes or use $qt(hash table file name)
 
