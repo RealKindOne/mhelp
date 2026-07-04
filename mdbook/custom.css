@@ -1,0 +1,24 @@
+:root {
+    --content-max-width: 1200px;
+}
+
+/* Increased specificity ensures this overrides the default theme */
+.content main .content {
+    margin-inline-start: 100px;
+}
+
+code {
+    font-family: var(--mono-font) !important;
+    font-size: var(--code-font-size);
+    direction: ltr !important;
+    display: block;
+    max-width: 1000px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+pre > .buttons {
+    top: 0px;
+    left: -40px;
+    right: 0px;
+}
