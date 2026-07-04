@@ -22,7 +22,7 @@ More information <a href="../other/injection.html">here</a>.
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $hfind(name/N, text, N, M, @window | command)[.data]
 </pre>
 
@@ -42,7 +42,7 @@ $hfind(name/N, text, N, M, @window | command)[.data]
 <b>.data</b> - Instead of looking for matches against item, matches against data, but the item name is still returned.
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //hadd -m test test test | echo -a $hfind(test,test,1) | hfree test
 //hadd -m test test test | hadd -m test test test1 | echo -a $hfind(test,test*,0,w) | hfree test
 //hadd -m test t*t | echo -a $hfind(test,this is a test,0,W) | hfree test

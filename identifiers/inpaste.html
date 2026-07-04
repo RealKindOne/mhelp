@@ -15,7 +15,7 @@ The <b>$inpaste</b> identifier returns $true if a user triggered the <a href="..
 *Note: If you paste text into the editbox which doesn't trigger the INPUT event, pressing &lt;enter&gt; later messaging the pasted text to #channel does not set $inpaste to $true.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $inpaste
 </pre>
 
@@ -26,7 +26,7 @@ None
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 on *:INPUT:*:{
   if ( ($istok(/ $comchar,$left($strip($1),1),32)) && (!$ctrlenter) && ($inpaste)) {
     echo -g Preventing this pasted /command from being executed: $1-
@@ -35,11 +35,11 @@ on *:INPUT:*:{
 }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 on *:PARSELINE:out:*:{ echo -s debug $scriptline $event : $inpaste is $true only if this line was triggered by pasting from the clipboard : $parseline }
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 if ($inpaste) echo -a INPUT event triggered by paste from clipboard
 elseif ($ctrlenter) echo -a INPUT event triggered by pressing &lt;enter&gt; and CTRL keys together
 else echo -a INPUT event triggered by pressing &lt;enter&gt;

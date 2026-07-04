@@ -8,7 +8,7 @@
 The <b>$hget</b> identifier returns information about hash tables.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $hget(name/N) - Returns the name if the hash table exist or Nth name
 $hget(name/N, item, [&binvar]) - Returns the data associated with the item
 </pre>
@@ -23,7 +23,9 @@ $hget(name/N, item, [&binvar]) - Returns the data associated with the item
 <br><b>.data</b> - Returns the contents of the hash table item.
 
 <H4>Example</H4>
-<pre class ="code">//hadd -m test test test | echo -a $hget(test,test) | hfree test</pre>
+<pre class = "code">
+//hadd -m test test test | echo -a $hget(test,test) | hfree test
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.8 (05 Sep 2000)

@@ -11,7 +11,7 @@ The <b>$isnum</b> identifier returns $true if text is a number, otherwise return
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $isnum(text,[sd],[I,J])
 </pre>
 
@@ -26,9 +26,13 @@ None
 
 <H4>Example</H4>
 Return <a href="true.html">$true</a>:
-<pre class ="code">//echo -a $isnum(564)</pre>
+<pre class = "code">
+//echo -a $isnum(564)
+</pre>
 Return <a href="false.html">$false</a> because not all the characters are digits:
-<pre class ="code">//echo -a $isnum(abcdefG)</pre>
+<pre class = "code">
+//echo -a $isnum(abcdefG)
+</pre>
 
 Result: $false vs $true (using a sign requires 's')
 <pre class = "code">

@@ -8,7 +8,7 @@
 The <b>$keyrpt</b> is filled during an <a href="../events/on_keydown.html">On_KeyDown</a>, or an <a href="../events/on_keyup.html">On_KeyUp</a> event inside of a <a href="../other/custom_windows.html">custom window</a>, it returns $true if the key is held down, $false otherwise..
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $keyrpt
 </pre>
 
@@ -17,7 +17,8 @@ None
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="../other/picture_windows.html">picture window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
-<pre class ="code">alias keyDownTest {
+<pre class = "code">
+alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
 on *:KEYDOWN:@myWindow:*: {
@@ -25,7 +26,8 @@ on *:KEYDOWN:@myWindow:*: {
   drawtext @myWindow 1 3 3 Key value: $iif($keyval,$v1,NA)
   drawtext @myWindow 1 3 25 Key character: $iif($keychar,$v1,NA)
   drawtext @myWindow 1 3 47 @myWindow Repeating: $keyrpt
-}</pre>
+}
+</pre>
 
 The following command can now be typed into any mIRC command prompt:
 /keyDownTest

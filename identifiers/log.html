@@ -9,7 +9,7 @@
 The <b>$log</b> identifier returns the natural (base e) logarithm of a number. You are limited to 6 numbers after the decimal by default. You can use /bigfloat and get 30 numbers after the decimal.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $log(N)
 </pre>
 
@@ -21,28 +21,28 @@ None
 
 <H4>Example</H4>
 Returns: 2.302585
-<pre class ="code">
+<pre class = "code">
 //echo -a $log(10)
 </pre>
 
 Use bigfloat:
 <br>
 Returns: 2.302585092994045684017991454684
-<pre class ="code">
+<pre class = "code">
 //bigfloat on | echo -a $log(10)
 </pre>
 
 You can use $log to find the base-X logarithm for any value N:
 <br>
 Returns: 3.560878
-<pre class ="code">
+<pre class = "code">
 //echo -a base-3 logrithm of 50 is $calc($log(50) / $log(3))
 </pre>
 
 You can use $round():
 <br>
 Returns: 8.000001 -- Rounded: 8
-<pre class ="code">
+<pre class = "code">
 //echo -a $calc( $log(256) / $log(2) ) -- Rounded: $round($calc( $log(256) / $log(2)),0)
 </pre>
 

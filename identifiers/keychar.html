@@ -18,7 +18,7 @@ To get the resulting character, one should use the <a href="../events/on_char.ht
 To sum up, checking $keychar inside <a href="../events/on_keydown.html">On_KeyDown</a> and <a href="../events/on_keyup.html">On_KeyUp</a> is incorrect and won't work for any language/keyboard, those two events are to be used to look for keypresses only with $keyval, use $keychar inside <a href="../events/on_char.html">On_Char</a> only, to get characters.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $keychar
 </pre>
 
@@ -30,7 +30,8 @@ None
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="../other/picture_windows.html">Picture Window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
-<pre class ="code">alias keyDownTest {
+<pre class = "code">
+alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
 on *:KEYDOWN:@myWindow:*: {
@@ -40,10 +41,11 @@ on *:KEYDOWN:@myWindow:*: {
 }
 on *:CHAR:@mywindow:*:{
   drawtext @myWindow 1 3 25 Key character: $keychar
-}</pre>
+}
+</pre>
 
 The following command can now be typed into any mIRC command prompt
-<pre class ="code">
+<pre class = "code">
 /keyDownTest
 </pre>
 

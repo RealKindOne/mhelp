@@ -11,7 +11,7 @@ The <b>$ifmatch</b> return the first part of the last conditional statement made
 <b>Note:</b> This feature is deprecated and has been replaced with <a href="v1.html">$v1</a>.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $ifmatch
 </pre>
 
@@ -22,14 +22,15 @@ None
 None
 
 Just like $v1 $v2 and $ifmatch2, this identifier return the value from the very last statement made:
-<pre class ="code">
+<pre class = "code">
 alias test return $iif($1 == 1,1,2)
 alis testing if (a != b) echo -a $test(1) $ifmatch
 </pre>
 This will echo 1 for $ifmatch because $test is evaluated before $ifmatch, so the $iif is the last statement made when $ifmatch evaluates.
 
 <H4>Example</H4>
-<pre class ="code">//if (a != b) echo -a $ifmatch</pre>
+<pre class = "code">
+//if (a != b) echo -a $ifmatch</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)

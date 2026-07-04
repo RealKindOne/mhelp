@@ -9,7 +9,7 @@ The <b>$gettok</b> identifier returns the Nth $asc(C)-delimited token from a lis
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $gettok(&lt;LIST&gt;,&lt;N&gt;,&lt;C&gt;)
 </pre>
 
@@ -33,27 +33,27 @@ None
 <H4>Example</H4>
 
 Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
-<pre class ="code">
+<pre class = "code">
 ; returns b
 //echo -a $gettok(a-b-c-d-e,2,45)
 </pre>
 
 $chr(32) is the space character. Echo the current month to the active window:
-<pre class ="code">
+<pre class = "code">
 //echo -a The current month is $gettok($asctime,2,32)
 </pre>
 
 This returns "Mon Tue" because the space between %x %y becomes the 2nd delimiter:
-<pre class ="code">
+<pre class = "code">
 //var %x Sun Mon | var %y Tue Wed Thu Fri Sat | echo -a $gettok(%x %y,2-3,32)
 </pre>
 $chr(58) is the colon, $chr(92) is the backslash:
-<pre class ="code">
+<pre class = "code">
 //echo -a This $gettok($mircexe,-1,92) is installed on the $gettok($mircexe,1,58) drive letter in a program folder named $gettok($mircexe,-2,92)
 //var %i $gettok($mircexe,0,92) | echo -a $gettok($mircexe,1- $+ $calc(%i -1) ,92) is mIRC's path without the ending backslash
 </pre>
 
-<pre class ="code">
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2-4,46)
 ; returns Mon.Tue.Wed (including the delimiter period between the returned tokens
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,3-,46)

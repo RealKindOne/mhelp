@@ -8,7 +8,7 @@
 The <b>$leftwin</b> identifier is an identifier that works for mouse events in custom picture windows. Whenever the mouse leaves a picture window, <b>$leftwin</b> return the name of the window you just left, usually used in the leave menu event.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $leftwin
 </pre>
 
@@ -20,12 +20,14 @@ None
 
 <H4>Example</H4>
 Custom script that listens for the mouse leaving <b>@tester</b>
-<pre class ="code">alias testscript {
+<pre class = "code">
+alias testscript {
   $iif($window(@tester),clear @tester,window -p @tester)
 }
 menu @tester {
   leave:clear @tester | drawtext @tester 1 15 15 Mouse left window $leftwin
-}</pre>
+}
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.5 (08 Jan 1999)

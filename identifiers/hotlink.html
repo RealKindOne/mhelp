@@ -8,7 +8,7 @@
 The <b>$hotlink</b> identifier returns information about what triggered the <a href="../events/on_hotlink.html">On_HotLink</a> event.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $hotlink(item)
 </pre>
 
@@ -26,7 +26,9 @@ $hotlink(item)
 <br><b>.type</b> - Used only with "match" item, returns the type of match, can be "nick", "channel", "url" and "other".
 
 <H4>Example</H4>
-<pre class ="code">on *:hotlink:*:*:echo -a $hotlink(match)</pre>
+<pre class = "code">
+on *:hotlink:*:*:echo -a $hotlink(match)
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v7.23 (19 Mar 2012)

@@ -9,7 +9,7 @@ The <b>$gmt()</b> identifier return the current GMT time value in <a href="ctime
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $gmt(date[,format])
 </pre>
 
@@ -21,7 +21,7 @@ $gmt(date[,format])
 None
 
 <H4>Example</H4>
-<pre class ="code">
+<pre class = "code">
 //echo -a $gmt($ctime) is the same as $asctime($calc($ctime + $timezone  ) )
 //echo -a Current GMT is $gmt($ctime, ddd dd mmmm yyyy hh:nn:sstt)
 </pre>
@@ -29,11 +29,11 @@ None
 * Beginning v7.56, changes made to $gmt are:<br>
 1. The z|zz|zzz format strings now return the string for GMT zone instead of the user's zone.<br/>
 2. Fixed bug where $gmt(number) handled all dates as if they were during the same $daylight zone as the current date, resulting in different output for $gmt(0), for most people, when script is run in January vs June.
-<pre class ="code">
+<pre class = "code">
 //echo -a $gmt($calc(0+$iif($version isnum 7.56-,0,$daylight))) is Thu Jan 01 00:00:00 1970
 </pre>
 3. New API recognizes larger date range. N can now be numbers which resolve to 1 second after midnight at the beginning of year 1601, through 1 second prior midnight at the end of the last day of year 9999. Returns $null of N is outside that range.
-<pre class ="code">
+<pre class = "code">
 //echo -a $gmt($calc(0-86400*365.25*369+86400*3.25+1))) is Mon Jan 01 00:00:01 1601
 //echo -a $gmt($calc(0+86400*365.25*(9999-1970)+86400*304.75-1))) is Fri Dec 31 23:59:59 9999
 valid range is -11644473599 through +253402300799

@@ -8,7 +8,7 @@
 The <b>$knick</b> identifier refers to the nickname of a user who has been kicked from a channel. This can also be the local mIRC client nickname if an [[On me - mIRC|ON ME]] TODO kick event is being monitored.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $knick
 </pre>
 
@@ -20,7 +20,8 @@ None
 
 <H4>Example</H4>
 Send a notice to a kicked user with information about the kick:
-<pre class ="code">ON *:KICK:#: {
+<pre class = "code">
+ON *:KICK:#: {
   .notice $knick You were kicked from $chan by $nick for the following reason: $iif($1-,$1-,No reason given)
 }
 </pre>

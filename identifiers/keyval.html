@@ -11,7 +11,7 @@ The <b>$keyval</b> identifier returns the key code of the key being pressed insi
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $keyval
 </pre>
 
@@ -20,7 +20,8 @@ None
 
 <H4>Example</H4>
 Create an alias that launches a custom, <a href="../other/picture_windows.html">picture window</a> which listens for key presses and displays the key value pressed, the key character pressed, and if it is repeating:
-<pre class ="code">alias keyDownTest {
+<pre class = "code">
+alias keyDownTest {
   window -p $+ $iif($window(@myWindow),ra) @myWindow 550 300 250 105
 }
 on *:KEYDOWN:@myWindow:*: {
@@ -34,7 +35,7 @@ on *:CHAR:@myWindow:*: {
 </pre>
 
 The following command can now be typed into any mIRC command prompt:
-<pre class ="code">
+<pre class = "code">
 /keyDownTest
 </pre>
 Below is an image reflecting what this example will look like:

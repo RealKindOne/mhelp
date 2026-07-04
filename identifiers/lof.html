@@ -8,7 +8,7 @@
 The <b>$lof(filename)</b> identifier returns the bytes size information about the specified file, same as <a href="file.html">$file</a>().size identifier.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $lof(filename)
 </pre>
 
@@ -21,13 +21,18 @@ None
 <H4>Example</H4>
 
 Return the bytes size of the mirc.exe file that you already using:
-<pre class ="code">//echo -a $lof($mircexe)</pre>
+<pre class = "code">
+//echo -a $lof($mircexe)
+</pre>
 
 Return the bytes size (e.g: 14056) of the mirc.ini file that you already using:
-<pre class ="code">//echo -a $lof(mirc.ini)</pre>
+<pre class = "code">
+//echo -a $lof(mirc.ini)
+</pre>
 
 Return the original size (e.g: 14KB) of the mirc.ini file that you already using:
-<pre class ="code">//echo -a $bytes($lof($mircini)).suf</pre>
+<pre class = "code">
+//echo -a $bytes($lof($mircini)).suf</pre>
 
 
 <H4>Compatibility</H4>

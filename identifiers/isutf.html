@@ -9,7 +9,7 @@ The <b>$isutf</b> identifier returns the status of the text where 0 = not utf8 (
 
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $isutf(text)
 </pre>
 
@@ -20,15 +20,19 @@ $isutf(text)
 None
 
 <H4>Example</H4>
-<pre class ="code">//echo -a $isutf(&#233;) $isutf($utfencode(&#233;)) $isutf(plain)</pre>
+<pre class = "code">
+//echo -a $isutf(&#233;) $isutf($utfencode(&#233;)) $isutf(plain)
+</pre>
 
 Note how this indicates whether the text contains the UTF8 codepoints of a UTF8 sequence, not whether the input is a UTF8 string, which all %strings in a unicode-aware client should be, which is why the next command returns "0 2".
 
-<pre class ="code">//echo -a $isutf($chr(233)) vs $isutf($chr(195) $+ $chr(169))</pre>
+<pre class = "code">
+//echo -a $isutf($chr(233)) vs $isutf($chr(195) $+ $chr(169))
+</pre>
 
 If you need to test if a &binvar contains a UTF8 string, you can take advantage of the $regsubex feature where it can output a string into a binvar. If the input is $bvar(&var1,1-).text, you can test whether &var2 is created as an exact replica. Note how $isutf returns 0 for both binvars. On the other hand, the isbinvarutf alias returns 2 for &v1 which contains a UTF8 byte sequence, but returns 0 for &v2 because the cloned UTF8 output from $regsubex was not the same bytes as the original. Note that there's a limit to how long of a binvar can be tested using this method, because $regsubex only permits the $2 string to contain more than approximately $maxlenl *bytes* even when that string has fewer than 4000 UTF8 *characters*.
 
-<pre class ="code">
+<pre class = "code">
 //bset &v1 1 195 169 | bset &v2 1 233 | var -s %a1 $bvar(&v1,1-).text , %a2 $bvar(&v2,1-).text | echo -a $isutf(%a1) $isutf(%a2) vs $isbinvarutf(&v1) $isbinvarutf(&v2)
 
 alias isbinvarutf {

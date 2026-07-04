@@ -8,7 +8,7 @@
 The <b>$lactive</b> identifier will return the full name of the last window that was active.
 
 <H4>Synopsis</H4>
-<pre class ="code">
+<pre class = "code">
 $lactive
 </pre>
 
@@ -20,12 +20,13 @@ None
 
 <H4>Example</H4>
 Echo the value of $lactive to the active window:
-<pre class ="code">
+<pre class = "code">
 //echo -a $lactive
 </pre>
 Listen for an active window change, then echo the last active window:
-<pre class ="code">
-on *:ACTIVE:*:echo -a * Active window is now $active $+ . Previous active window was $lactive</pre>
+<pre class = "code">
+on *:ACTIVE:*:echo -a * Active window is now $active $+ . Previous active window was $lactive
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v5.9 (26 Apr 2001)
