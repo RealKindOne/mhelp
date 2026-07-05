@@ -29,12 +29,13 @@ Bits which are both 0 return 0, otherwise the bit is 1
 <pre class = "code">
 //var %n1 14 | var %n2 27 | echo -a $base(%n1,10,2,8) | echo -a $base(%n2,10,2,8) | echo -a $str(-,8) | echo -a $base($or(%n1,%n2),10,2,8)
 </pre>
-returns:<br>
-00001110<br>
-00011011<br>
---------<br>
-00011111<br>
-<br>
+Returns:
+<pre class = "code">
+00001110
+00011011
+--------
+00011111
+</pre>
 $or returns the answer as a decimal number, so the answer 31 is the decimal representation of binary 11111.
 
 <H4>Compatibility</H4>

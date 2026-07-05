@@ -37,13 +37,13 @@ Shows the unchanged path with the filename changed to TEST.TXT:
 //echo -a $puttok($mircexe,TEST.TXT,-1,92))
 </pre>
 
+Returns 11x33X44xTESTx66 <br>
+because leading/trailing/duplicate delimiters are removed before evaluating &lt;LIST&gt;. $chr(120) is lower-case x so the capital X is not a delimiter.
 <pre class = "code">
 //echo -a $puttok(x11xx33X44x55x66x,TEST,3,120)
-; returns 11x33X44xTESTx66
-; because leading/trailing/duplicate delimiters are removed before evaluating &lt;LIST&gt;. $chr(120) is lower-case x so the capital X is not a delimiter.
 </pre>
 
-<br><b>Note:</b>Unlike CSV format, if C=44 to delimit with commas, double-quotes around filename containing a comma does not allow the entire filename to be a single token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s).
+<b>Note:</b> Unlike CSV format, if C=44 to delimit with commas, double-quotes around filename containing a comma does not allow the entire filename to be a single token. If you want $filename to be a token in a comma-delimited list of tokens, you should use <a href="replace.html">$replace</a> to change the comma in the filename into another character that cannot appear in the filename before adding as a token, then use <a href="replace.html">$replace</a> on the extracted token to restore any comma(s).
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (13 Dec 1997)

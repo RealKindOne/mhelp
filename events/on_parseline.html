@@ -47,8 +47,8 @@ on $*:PARSELINE:out:/^PRIVMSG [^ ]+ :Hello./:echo -a $parseline
 
 <H4><a href="../commands/parseline.html">/parseline</a></H4>
 
-Inside this event, you can use:
-<br><b>Note:</b>For <b>out</b> lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
+Inside this event, you can use:<br>
+<b>Note:</b> For <b>out</b> lines, $parseline is terminated with a $LF character that is not visible when viewed in mIRC. You may wish to remove this with:
 <pre class = "code">
 var %pl $parseline
 if ($asc($right(%pl,1)) == 10) %pl = $right(%pl,-1)

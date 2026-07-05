@@ -16,7 +16,7 @@ An eval injection vulnerability consists of two things:
 <br>
 Injections happen because of a simple side effect of the main rules definiting the syntaxes/semantics of the language.
 <br>
-<H4>Injection via commands</H4>F
+<H4>Injection via commands</H4>
 
 For a command, the interesting rule used by the parser to make it working is to evaluate $identifiers and %variables once before passing their value to the command:
 <pre class = "code">
@@ -123,7 +123,7 @@ Now you don't need to do that for any <a href="../commands/timer.html">/timer</a
 
 <br><b>Note:</b> Since mIRC 7.44, an $unsafe identifier has been added which behaves just like $safe (the name was changed to unsafe to avoid misleading new users), delaying the execution of one level.
 
-===== $chan/# =====
+<h3>$chan/#</h3>
 
 You may think <a href="../identifiers/chan.html">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="../identifiers/chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
 

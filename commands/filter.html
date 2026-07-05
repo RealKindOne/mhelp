@@ -19,7 +19,7 @@ You can restrict the source to a range of line numbers, and you can sort the out
 <H4>Switches</H4>
 
 <b>Source/Destination switches</b>
-<br>
+
 <br>
 Source and destination switches are (in theory) only needed if either the source or destination is ambiguous, but it is recommended that you always explicitly define both source and destination. The first use of these indicates the source, the second indicates the destination. As long as you're using a @window as your input or output and the other part of the input/output pair is a filename that does not begin with "@" then the -fw switches are not needed. They are needed with -s and -d to indicate which are input/output. Can use the window-id as an alias for the @custom window name. @test can be replaced by $+(@,$window(@test).wid)
 
@@ -33,9 +33,11 @@ Source and destination switches are (in theory) only needed if either the source
 <br><b>-o</b> - Destination is a custom dialog control [dialog id].
 
 <br>
-<br>
+
 <b>Other switches</b>
+
 <br>
+
 <br><b>-r</b> - Specifies the range of lines n to n2 for filtering.
 <br><b>-t</b> - Switch sorts the output based on [c s], column C using character S as the columns separator.
 <br><b>-e</b> - Used with -t, specifies a descending sort.

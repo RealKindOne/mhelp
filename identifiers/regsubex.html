@@ -6,8 +6,8 @@
 <br>
 <br>
 The <b>$regsubex</b> identifier performs a regular expression match and then substitute/replace, just like $regsub, but it allows for markers in the replacement and return the substitutions immediatly by default, more information about regex in mIRC (and especially on $regsubex) <a href="../other/regex.html">regex</a>.
-
 <br>
+
 <br><b>Note</b>: All the matches are made before the replacements, the total number of matches as well as any capture of any match can be accessed in the replacement with <a href="regmlex.html">$regmlex</a>
 
 <br><b>Note2</b>: $regsubex returns the original input if there is no match found, if the /S modifier is used, the control code from the original input will not be returned.
@@ -58,8 +58,10 @@ Example of creating a list of the 94 text characters from codepoints 33-126. Not
 <pre class = "code">
 //echo -a $regsubex(foo,$str(x,94),/x/g,\t $chr($calc(32+ \n)))
 </pre>
-result: !"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
-<br>
+result: 
+<pre class = "code">
+!"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+</pre>
 Example of using $regsubex to create a series of 32 byte values. Then assuming there is 256 bits of entropy in the input, uses $regsubex to create a 256-bit key in hex format. Note that the 2nd method is probably preferrable since it allows each of the 32 random byte values to have an effect on each bit of the key, while the 1st method causes each byte value to affect only 8 bits of the key:
 <pre class = "code">
 //var -s %bytevals $regsubex(foo,$str(x,32),/x/g,$rands(0,255) $+ $chr(32)) | echo -a method1: $lower($regsubex(foo,%bytevals,/(\d+)\s*/g,$base(\t,10,16,2))) | echo -a method2: $sha256(%bytevals)

@@ -23,16 +23,19 @@ None
 <H4>Example</H4>
 Does not affect double-quotes within the text, only adds a double-quote to the start/end of TEXT if a double-quote is not already present.
 
+<br>
+Returns path\filename of your mirc.ini with double-quotes around it. <br>
+No change in 2nd line because quotes already present
+
 <pre class = "code">
 //var %ini $qt($mircini) | echo -a %ini | echo -a $qt(%ini)
-; returns path\filename of your mirc.ini with double-quotes around it.
-; no change in 2nd line because quotes already present
 </pre>
 
+Returns: """Test""String" <br>
+No change to internal quotes, no alteration of string start because at least 1 quote already present, only added missing quote to end of string.
+<pre class = "code">
 //echo -a $qt("""Test""String)
-; returns: """Test""String"
-; No change to internal quotes, no alteration of string start because at least 1 quote already present, only added missing quote to end of string.
-
+</pre>
 
 <H4>Compatibility</H4>
 Added: mIRC v6.17 (17 Feb 2006)

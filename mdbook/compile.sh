@@ -27,6 +27,9 @@ process_dir() {
     # converted from markdown -> html correctly.
     sed -i -z 's|</H1>\n<br>\n<br>\n|</H1>\n<br>\n\n|g' *.md
 
+    # Fix warning.
+    sed -i -z 's|<br>\n<center>|<br>\n\n<center>|g' *.md
+
     # Convert code blocks to markdown.
     # The opening <pre...> and closing </pre> MUST be
     # on their own separate lines.
@@ -53,6 +56,7 @@ process_dir() {
         -e 's|</head>||g' \
         -e 's|<p>||g' \
         -e 's|</p>||g' \
+        -e '/warning.png/d' \
         *.md
 
     # Convert <a> links to Markdown

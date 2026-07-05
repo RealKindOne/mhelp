@@ -35,16 +35,23 @@ Show the download folder as a relative location only if it's a subfolder of $mir
 //echo -a $remove($getdir,$mircdir)
 </pre>
 
+Case-insensitive remove all 'a' from 'aAabcdaaA' <br>
+Returns: bcd
 <pre class = "code">
-Case-insensitive remove all 'a' from 'aAabcdaaA'
 //echo -a $remove(aAabcdaaA,a)
-returns: bcd
-Case-insensitive remove string 'ac' from 'AaCcX'
-//echo -a $remove(AaCcX,ac)
+</pre>
+Case-insensitive remove string 'ac' from 'AaCcX' <br>
 returns: AcX
+<pre class = "code">
+//echo -a $remove(AaCcX,ac)
+</pre>
+
 The first match was at positions 2-3, and no matches were beyond.
+<pre class = "code">
 //echo -a $remove(AaCcX,ac,ac)
+</pre>
 ... uses string altered by 1st parameter when removing 2nd parameter string. Is equivalent to:
+<pre class = "code">
 //echo -a $remove( $remove(AaCcX,ac) , ac)
 </pre>
 
