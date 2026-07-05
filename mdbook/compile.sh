@@ -14,6 +14,9 @@ cp ../other/*.html src/other/
 cp ../images/* src/images/
 cp ../dialog/*.html src/dialog/
 cp ../sockets/*.html src/sockets/
+cp ../commands.html src/other/
+cp ../identifiers.html src/other/
+cp ../events.html src/other/
 
 # Function to process one directory
 process_dir() {
@@ -85,3 +88,7 @@ process_dir "events"
 process_dir "other"
 process_dir "dialog"
 process_dir "sockets"
+
+mv src/other/commands.md src/
+mv src/other/identifiers.md src/
+mv src/other/events.md src/
