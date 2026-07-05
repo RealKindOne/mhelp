@@ -4,6 +4,8 @@
 
 # This script converts various parts of the HTML files into markdown.
 
+# This can be improves, but it is 'good enough' for now.
+
 # Copy all source files and images
 cp ../identifiers/*.html src/identifiers/
 cp ../commands/*.html src/commands/
@@ -25,7 +27,11 @@ process_dir() {
 
     # Fix <br> spacing at top or command/identifier/etc is
     # converted from markdown -> html correctly.
-    sed -i -z 's|</H1>\n<br>\n<br>\n|</H1>\n<br>\n\n|g' *.md
+    sed -i -z 's|</H1>\n<br>\n<br>\n|</H1>\n\n|g' *.md
+
+    # This tries to get most of them... sort of.
+    # Replace "\n<br><b>" with "  \n<b>"
+    sed -i -z -E 's/([^\n]*)\n(<br><b>)/\1  \n<b>/g' *.md
 
     # Fix warning.
     sed -i -z 's|<br>\n<center>|<br>\n\n<center>|g' *.md
@@ -48,12 +54,12 @@ process_dir() {
         -e 's|</H4>||g' \
         -e '/default.css/d' \
         -e '/<title>/d' \
-        -e 's|<html>||g' \
-        -e 's|</html>||g' \
-        -e 's|<body>||g' \
-        -e 's|</body>||g' \
-        -e 's|<head>||g' \
-        -e 's|</head>||g' \
+        -e '/<html>/d' \
+        -e '/<\/html>/d' \
+        -e '/<body>/d' \
+        -e '/<\/body>/d' \
+        -e '/<head>/d' \
+        -e '/<\/head>/d' \
         -e 's|<p>||g' \
         -e 's|</p>||g' \
         -e '/warning.png/d' \
@@ -63,7 +69,12 @@ process_dir() {
     sed -i -E 's|<a href="([^"]*)">([^<]*)</a>|[\2](\1)|g' *.md
     # Replace the &lt; and &gt; inside the code...
     sed -i '/^```/,/^```/ { s/&lt;/</g; s/&gt;/>/g; }' *.md
+    # Remove these...
+    sed -z -i 's/\.html)<br>\n\[/\.html)  \n\[/g' *.md
+    # Remove last line one.
+    sed -z -i 's/\.html)<br>/\.html)  /g' *.md
 
+    sed -z -i 's|<br>||g' *.md
     cd ../..
 }
 
