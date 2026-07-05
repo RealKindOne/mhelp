@@ -22,3 +22,10 @@ pre > .buttons {
     left: -40px;
     right: 0px;
 }
+
+.nav-chapters {
+    top: 50px;
+    margin: 10px;
+    width: 90px;
+    height: 90px;
+}
