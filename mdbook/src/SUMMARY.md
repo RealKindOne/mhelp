@@ -962,6 +962,7 @@
       - [on_waveend](events/on_waveend.md)
 - [Access Levels](other/access_levels.md)
 - [Aliases](other/aliases.md)
+- [BigFloat](other/bigfloat.md)
 - [Binary Variables](other/binary_variables.md)
 - [Color](other/color.md)
 - [COM](other/com.md)

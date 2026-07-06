@@ -152,21 +152,26 @@ $calc rounds output to 6 decimals, with trailing zeroes dropped.
 //echo -a $pi vs $calc($pi)
 </pre>
 It can operate on terms who have more than 6 places, but the value with more than 6 decimal places is then rounded to 6:
+<pre class = "code">
 //var %x 0.1111111 , %y 6 |  echo -a $calc(%x * %y)) vs $calc($calc(%x) * %y) is 0.666667 vs 0.666666
+</pre>
 
 //echo -a $calc( 123 + 1abc + 2def )
 $calc stops processing when it encounters non-numerics, so this undocumented feature has often been used to strip text labels attached to a number:
+<pre class = "code">
 //var %a $md5(abc) | echo -a %a vs $calc(%a) returns 900150983cd24fb0d6963f7d28e17f72 vs 900150983
-
 //echo -a $calc( number + text ) returns number
 //echo -a $calc( text + number ) returns 0
 //var %a | echo -a $calc($1) vs $calc(%a) vs $calc($null) all evaluate to 0 when %var or $identifier is null
-
+</pre>
 You can use [ ] to force evaluation out of the normal order, but $calc has problems handling $+ as shown by:
+<pre class = "code">
 //echo -a $calc( 123 + 1 $+ 23 + 456 ) vs $calc( 123 + ( 1 $+ 23 ) ) vs $calc( 123 + $+ + 456 )
+</pre>
 In the first example, it causes everything after the $+ to be ignored, as if $+ is a text string with no special meaning except when preceded and followed by operators.
+<pre class = "code">
 //echo -a $calc( 5 ^ $+ + .1)
-
+</pre>
 When the $+ is inside additional parenthesis, the entire result is zero:
 <pre class = "code">
 //echo -a s $calc( 123 + ( 1 $+ 23 ) )
@@ -200,43 +205,44 @@ See also the $calc section at <a href="../other/injection.html#calc">$calc</a>
 Added: mIRC v5.1 (28 Aug 1997)
 
 <H4>Notes</H4>
-None
+TODO - BigFloat Example
 
 <H4>See also</H4>
-<a href="base.html">$base</a><br>
+<a href="../other/bigfloat.html">BigFloat</a><br>
 <a href="abs.html">$abs</a><br>
-<a href="int.html">$int</a><br>
-<a href="ceil.html">$ceil</a><br>
-<a href="floor.html">$floor</a><br>
-<a href="round.html">$round</a><br>
-<a href="and.html">$and</a><br>
-<a href="not.html">$not</a><br>
-<a href="or.html">$or</a><br>
-<a href="xor.html">$xor</a><br>
-<a href="sqrt.html">$sqrt</a><br>
-<a href="pi.html">$pi</a><br>
-<a href="rand.html">$rand</a><br>
-<a href="log.html">$log</a><br>
-<a href="log10.html">$log10</a><br>
-<a href="sin.html">$sin</a><br>
-<a href="asin.html">$asin</a><br>
-<a href="sinh.html">$sinh</a><br>
-<a href="cos.html">$cos</a><br>
 <a href="acos.html">$acos</a><br>
-<a href="cosh.html">$cosh</a><br>
-<a href="tan.html">$tan</a><br>
+<a href="and.html">$and</a><br>
+<a href="asin.html">$asin</a><br>
 <a href="atan.html">$atan</a><br>
 <a href="atan2.html">$atan2</a><br>
-<a href="tanh.html">$tanh</a><br>
-<a href="biton.html">$biton</a><br>
+<a href="base.html">$base</a><br>
 <a href="bitoff.html">$bitoff</a><br>
-<a href="isbit.html">$isbit</a><br>
+<a href="biton.html">$biton</a><br>
+<a href="ceil.html">$ceil</a><br>
+<a href="cos.html">$cos</a><br>
+<a href="cosh.html">$cosh</a><br>
+<a href="floor.html">$floor</a><br>
 <a href="hypot.html">$hypot</a><br>
-<a href="intersect.html">$intersect</a><br>
-<a href="inrect.html">$inrect</a><br>
-<a href="inroundrect.html">$inroundrect</a><br>
 <a href="inellipse.html">$inellipse</a><br>
 <a href="inpoly.html">$inpoly</a><br>
+<a href="inrect.html">$inrect</a><br>
+<a href="inroundrect.html">$inroundrect</a><br>
+<a href="int.html">$int</a><br>
+<a href="intersect.html">$intersect</a><br>
+<a href="isbit.html">$isbit</a><br>
+<a href="log.html">$log</a><br>
+<a href="log10.html">$log10</a><br>
+<a href="not.html">$not</a><br>
 <a href="onpoly.html">$onpoly</a><br>
+<a href="or.html">$or</a><br>
+<a href="pi.html">$pi</a><br>
+<a href="rand.html">$rand</a><br>
+<a href="round.html">$round</a><br>
+<a href="sin.html">$sin</a><br>
+<a href="sinh.html">$sinh</a><br>
+<a href="sqrt.html">$sqrt</a><br>
+<a href="tan.html">$tan</a><br>
+<a href="tanh.html">$tanh</a><br>
+<a href="xor.html">$xor</a><br>
 </body>
 </html>

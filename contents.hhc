@@ -54,6 +54,10 @@
 		<param name="Local" value="other\picture_windows.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BigFloat">
+		<param name="Local" value="other\bigfloat.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="COM">
 		<param name="Local" value="other\com.html">
 		</OBJECT>
