@@ -96,7 +96,8 @@ Either using a zero-length/non-existent binary variable or specifying an N where
 
 Both above errors halt execution of the script
 <br><br>
-Note: even though an sha1 hash collision has been found between 2 different strings, it continues to be considered adequate in some situations, especially when used by $hmac as its hash function. The collision was possible in a scheme where they finding 2 strings having a matching hash regardless of that value, but it still remains out of reach of creating collisions against a specific sha1 hash. sha1 continues to be widely used in Google Authenticator TOTP where sha1 is used inside HMAC. It continues to be used by github to detect changes in documents, where any collision would result in keeping the existing older file and discarding the new file having the matching sha1 hash.
+
+<b>Note:</b> Even though an sha1 hash collision has been found between 2 different strings, it continues to be considered adequate in some situations, especially when used by $hmac as its hash function. The collision was possible in a scheme where they finding 2 strings having a matching hash regardless of that value, but it still remains out of reach of creating collisions against a specific sha1 hash. sha1 continues to be widely used in Google Authenticator TOTP where sha1 is used inside HMAC. It continues to be used by github to detect changes in documents, where any collision would result in keeping the existing older file and discarding the new file having the matching sha1 hash.
 
 <H4>Compatibility</H4>
 Added: mIRC v6.3 (16 Aug 2007)

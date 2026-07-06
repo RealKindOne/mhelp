@@ -23,14 +23,17 @@ Returns $null if N is $null or is not greater than or equal to 1.
 None
 
 <H4>Example</H4>
+Returns: YesYesYes
 <pre class = "code">
 //echo -a $str(Yes,3)
-; returns: YesYesYes
-//echo -a $str(Yes $+ $chr(32) ,3)
-; returns: Yes Yes Yes
 </pre>
 
-Identifier makes it easier to replicate long strings, or strings of variable lengths.
+Returns: Yes Yes Yes
+<pre class = "code">
+//echo -a $str(Yes $+ $chr(32) ,3)
+</pre>
+
+Identifier makes it easier to replicate long strings, or strings of variable lengths:
 
 <pre class = "code">
 //echo -a $str(=+ ,39) $+ =
@@ -38,8 +41,8 @@ Identifier makes it easier to replicate long strings, or strings of variable len
 //echo -a $str($chr(45),$len(%Title))
 </pre>
 
+Initialize a 20-token comma-separated array:
 <pre class = "code">
-; Initialize a 20-token comma-separated array
 //set %values $str(0 $+ $chr(44),19) $+ 0
 </pre>
 

@@ -62,9 +62,13 @@ $bytes is not intended to handle extremely huge numbers, since the greatest suff
 <pre class = "code">
 //var -s %a.bf $calc(2^127 + $pi), %int $gettok(%a.bf,1,46), %frac $gettok(%a.bf,2,46) | echo -a $bytes(%a.bf,b) | echo -a $regsubex(%int,/([0-9])(?=([0-9]{3})+$)/g,\1 $+ $chr(44)) $+ $iif(%frac != $null,. $+ %frac)
 </pre>
-result:<br>
+
+Result:
+<pre class = "code">
 170,141,183,460,469,230,000,000,000,000,000,000,000<br>
 170,141,183,460,469,231,731,687,303,715,884,105,731.14159265358979323846264338328
+</pre>
+
 <H4>Compatibility</H4>
 Added: mIRC v5.71 (07 May 2000)
 <br>

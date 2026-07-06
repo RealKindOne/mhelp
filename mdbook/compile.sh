@@ -28,6 +28,9 @@ process_dir() {
         mv "$file" "${file%.html}.md"
     done
 
+    # Remove coment lines first. These are littered everywhere.
+    sed -i -e '/<!--/d' *.md
+
     # Fix <br> spacing at top or command/identifier/etc is
     # converted from markdown -> html correctly.
     sed -i -z 's|</H1>\n<br>\n<br>\n|</H1>\n\n|g' *.md
@@ -72,12 +75,20 @@ process_dir() {
     sed -i -E 's|<a href="([^"]*)">([^<]*)</a>|[\2](\1)|g' *.md
     # Replace the &lt; and &gt; inside the code...
     sed -i '/^```/,/^```/ { s/&lt;/</g; s/&gt;/>/g; }' *.md
-    # Remove these...
+    # Remove these from the URLs.
     sed -z -i 's/\.html)<br>\n\[/\.html)  \n\[/g' *.md
     # Remove last line one.
     sed -z -i 's/\.html)<br>/\.html)  /g' *.md
 
-    sed -z -i 's|<br>||g' *.md
+    sed -i -z 's|\n<br><span |  \n<br><span |g' *.md
+    # $dqwindow
+    sed -i -z 's|\n<br>\$|  \n$|g' *.md
+    # $mouse
+    sed -i -z 's|\n<br>\i|  \ni|g' *.md
+    #sed -i '/<br><span / s/$/  /' *.md
+    sed -z -i 's|<br>  ||g' *.md
+    sed -i 's/<br><span/<span/g' *.md
+    sed -i ':a;N;$!ba;s/\\\n/\\\\\n/g' *.md
     cd ../..
 }
 

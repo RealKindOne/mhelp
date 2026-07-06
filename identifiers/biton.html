@@ -25,18 +25,18 @@ None
 ; returns 14
 </pre>
 
-<br>Here's how the answer was calculated:
-<br># Convert base-10 N to binary.
-<br># Count 3 from the right
-<br># that bit is set to 1.
-<br># Return the possibly altered number
-
+Here's how the answer was calculated:
+<br>1. Convert base-10 N to binary.
+<br>2. Count 3 from the right
+<br>3. that bit is set to 1.
+<br>4. Return the possibly altered number
+<pre class = "code">
 //var %n 10 | echo -a $base(%n,10,2,32) | echo -a $str(-,24) $+ 87654321 | echo -a $base($biton(%n,3),10,2,32) $base(1110,2,10)
 ; returns:
 00000000000000000000000000001010
 ------------------------87654321
 00000000000000000000000000001110 14
-
+</pre>
 
 Using $biton and $bitoff, you can store several variables as bits within a single variable, instead of creating a separate variable for each.<br>
 The /window switch -wN uses bit settings, with default 3 if N not used.

@@ -26,9 +26,9 @@ $base(&lt;N&gt;,&lt;InBase&gt;,&lt;OutBase&gt;[,Zero-pad][,Precision])
 <p>
 <b>Note:</b> All 36 inbases accept all 36 characters of the base36 alphabet, so $base(ZZ,2,10) = 35*2+35=105.
 <p>
-<b>Note:</b>Prefix 0x or 0X is stripped from N for base 16. (Prior to v7.53 only base36 did not strip the 0x. To prevent this, such as in base 34-35 where X is a valid character, it was necesary to prefix inputs with 00.)
+<b>Note:</b> Prefix 0x or 0X is stripped from N for base 16. (Prior to v7.53 only base36 did not strip the 0x. To prevent this, such as in base 34-35 where X is a valid character, it was necesary to prefix inputs with 00.)
 <p>
-<b>Note:</b>Base 32 is NOT the same as the base32 encoding method used by $encode(). $base assigns the values 0-31 to characters 0-9 and A-V, while the Base32 encoding method assigns values 0-31 to A-Z and 2-7 then stores them differently.
+<b>Note:</b> Base 32 is NOT the same as the base32 encoding method used by $encode(). $base assigns the values 0-31 to characters 0-9 and A-V, while the Base32 encoding method assigns values 0-31 to A-Z and 2-7 then stores them differently.
 
 <H4>Properties</H4>
 None

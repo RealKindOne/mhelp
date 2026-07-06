@@ -73,9 +73,10 @@ Example of ROT13 which replaces the a-m range + 13 as n-z, and replaces n-z with
 //echo -a $regsubex(maroon 456 Wizard,/([a-zA-Z])/g,$chr( $calc(91+64 + $and(32,$asc(\t)) - $asc($upper(\t)))))
 </pre>
 results:
+<pre class = "code">
 znebba 123 SbbOne
 nzillm 456 Draziw
-
+</pre>
 <H4>Compatibility</H4>
 Added: mIRC v6.17 (17 Feb 2006)
 
