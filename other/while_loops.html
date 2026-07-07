@@ -23,7 +23,7 @@ Here is how the while loop works:
 #The entire process starts all over again. Going back to step 1.
 #If the statement was false.<br>No code inside the while loop is executed and the script skips right down to any code below it.
 
-=== true conditions ===
+<H3>true conditions</H3>
 So we said the while loop will continue to iterate as long as the condition is true. But what exactly does that mean? In mSL, a condition is true if the outcome of the condition is NOT 0, <a href="../identifiers/null.html">$null</a>, or <a href="../identifiers/false.html">$false</a>. For example let %x be 5, if the condition is while <a href="../identifiers/calc.html">$calc</a>(%x - 5)) {, since 5-5 is 0, the while loop's condition is false, thus it will not execute any code inside it.
 
 <br><b>Note:</b> If you are using an operator, for example while (0 == 0) {, the operator is going to define if the condition is true or not, 0 being equal to 0, this condition is true.
@@ -104,7 +104,7 @@ This code will generate the following output:
 3 - 3
 </pre>
 
-=== Jump Statements ===
+<H3>Jump Statements</H3>
 
 Jump statements are used to perform an immediate transfer of control. Using jump statements, you can effectively break out of the current loop, jump to the beginning of the current, or transfer program control to another part of the program.
 

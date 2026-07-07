@@ -16,7 +16,12 @@ $sorttok(&lt;list&gt;,C[,nrca])
 <H4>Parameters</H4>
 <b>&lt;list&gt;</b> - The list of tokens (can be empty which causes output to also be $null)
 <br><b>&lt;C&gt;</b> - The ascii number (or code point) of the character separating the tokens
-<br><b>ncra</b> - Default is alphabetical sort (ASCII order or codepoint order) if none of 'anc' are used, n = numeric sort; c = channel prefix sort; r = reverse; a = alpha-then-numerics sort
+<br><b>ncra</b> - Default is alphabetical sort '<b>a</b>' (ASCII order or codepoint order) if none are used.
+<br><span style="margin-left: 20px;"><b>n</b></span> - Numeric sort
+<br><span style="margin-left: 20px;"><b>c</b></span> - Channel prefix sort
+<br><span style="margin-left: 20px;"><b>r</b></span> - Reverse
+<br><span style="margin-left: 20px;"><b>a</b></span> - Alphanumeric
+
 <p>
 Note: Since there is no switch letter for the default sort order, if your script needs to have the sort order in a variable that could possibly be $null, you can put an invalid switch into the 3rd parm to prevent a $null 3rd parm returning the null string: $sorttok(%list,32,- %sort_method)
 <p>
@@ -100,9 +105,11 @@ prefix: ~&@%+ network: Rizon sort: ~owner &protectedop @op %halfop +voice [nick]
 </pre>
 
 Another example of the default ASCII sort vs 'a' alpha-then-numeric. It includes the CRC32 of each sorted string, which allows you to edit the creation of %a to see how various sort orders may or may not change the original order:
-
+<pre class = "code">
 //var %a test TEST 2:foo 2:bar 1 2 11 1:test 0 -0 +0 BAR bar FOO !test -1 @test @@x @!x @1 0 , %sort $sorttok(%a,32) , %sortn $sorttok(%a,32,n) , %sorta $sorttok(%a,32,a) , %sortc $sorttok(%a,32,c) | echo -a %a :original | .timer 1 1 echo -a $crc(%a,0) .%a:original order | echo 4 -a %sort :default | .timer 1 2 echo 4 -a $crc(%sort,0) .%sort:'default' = codepoint order then original order among case-insensitive matches | echo 3 -a %sortn :'n' | .timer 1 3 echo 3 -a $crc(%sortn,0) .%sortn :n=sort by $ $+ int(token), non-numerics among all '0' values in original order | echo 4 -a %sorta :'a' | .timer 1 4 echo 4 -a $crc(%sorta,0) .%sorta:a= non-numeric in 'default' sort, then numerics in 'n' sort | echo -a %sortc :'c' | .timer 1 5 echo -a $crc(%sortc,0) .%sortc:c='default' except only-1st-char has $prefix inserted at front
+</pre>
 result:
+<pre class = "code">
 test TEST 2:foo 2:bar 1 2 11 1:test 0 -0 +0 BAR bar FOO !test -1 @test @@x @!x @1 0 :original
 !test +0 -0 -1 0 0 1 11 1:test 2 2:bar 2:foo @!x @1 @@x @test BAR bar FOO test TEST :default
 -1 test TEST 0 -0 +0 BAR bar FOO !test @test @@x @!x @1 0 1 1:test 2:foo 2:bar 2 11 :'n'
@@ -113,6 +120,7 @@ D42C1323 .%a:original order
 EE450764 .%sortn :n=sort by 0 non-numerics among all '0' values in original order
 1A803382 .%sorta:a= non-numeric in 'default' sort, then numerics in 'n' sort
 C75D4DEA .%sortc:c='default' except only-1st-char has @%+ inserted at front
+</pre>
 
 <!-- TODO wtf? -->
 

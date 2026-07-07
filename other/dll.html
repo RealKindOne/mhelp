@@ -159,48 +159,48 @@ LPSTR str;
 extern "C" int __stdcall simple_example(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
         //we fill data with a simple string we want to return
-	strcpy(data,"simple string");
-	//we return 3 indicating $dll should return the value we copied in 'data'
-	return 3;
+        strcpy(data,"simple string");
+        //we return 3 indicating $dll should return the value we copied in 'data'
+        return 3;
 }
 
 extern "C" int __stdcall average_example(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
         //we fill data with a command we want mirc to execute
-	strcpy(data,"/echo -a &#193;&#168;");
-	//we return 2 indicating mIRC should execute the command in 'data'.
-	return 2;
+        strcpy(data,"/echo -a &#193;&#168;");
+        //we return 2 indicating mIRC should execute the command in 'data'.
+        return 2;
 }
 
 extern "C" int __stdcall more_example(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
         //we fill data with a command we want mirc to execute
-	strcpy(data,"/echo -a $1-");
-       	strcpy(parms,"test");
-	//we return 2 indicating mIRC should execute the command in 'data', and set $1- to parms.
-	return 2;
+        strcpy(data,"/echo -a $1-");
+               strcpy(parms,"test");
+        //we return 2 indicating mIRC should execute the command in 'data', and set $1- to parms.
+        return 2;
 }
 
 extern "C" int __stdcall from_event(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
 
         strcpy(str,"$nick");
-	SendMessage(mWnd, WM_MEVALUATE, MAKEWPARAM(0, atoi(data)), 0);
+        SendMessage(mWnd, WM_MEVALUATE, MAKEWPARAM(0, atoi(data)), 0);
         strcpy(data,str);
-	return 3;
+        return 3;
 }
 
 extern "C" int __stdcall usingSM(HWND mWnd, HWND aWnd, CHAR *data, char *parms, BOOL show, BOOL nopause)
 {
-	//send //echo -s Hello world to mIRC
-	strcpy(str,"//echo -a Hello world");
-	SendMessage(mWnd, WM_MCOMMAND, 1 , 0);
-	//Ask mIRC to evaluate and send back the result
-	strcpy(str,"m $+ $upper(irc)");
-	SendMessage(mWnd, WM_MEVALUATE, 0, 0);
-	//Copy the result of "m $+ $upper(irc)" into data and we return 3 indicating $dll returns what 'data' contains
-	strcpy(data,str);
-	return 3;
+        //send //echo -s Hello world to mIRC
+        strcpy(str,"//echo -a Hello world");
+        SendMessage(mWnd, WM_MCOMMAND, 1 , 0);
+        //Ask mIRC to evaluate and send back the result
+        strcpy(str,"m $+ $upper(irc)");
+        SendMessage(mWnd, WM_MEVALUATE, 0, 0);
+        //Copy the result of "m $+ $upper(irc)" into data and we return 3 indicating $dll returns what 'data' contains
+        strcpy(data,str);
+        return 3;
 }
 
  typedef struct {
@@ -213,19 +213,19 @@ extern "C" int __stdcall usingSM(HWND mWnd, HWND aWnd, CHAR *data, char *parms, 
  } LOADINFO;
 
 extern "C" void __stdcall LoadDll(LOADINFO *load) {
-	file = CreateFileMapping(INVALID_HANDLE_VALUE,NULL,PAGE_READWRITE,0,4096, "mIRC");
-	str = (LPSTR) MapViewOfFile(file, FILE_MAP_ALL_ACCESS, 0, 0, 0);
-	//after MapViewOfFile(), 'str' is where you write to but also is the result of each call with WM_MEVALUATE:
+        file = CreateFileMapping(INVALID_HANDLE_VALUE,NULL,PAGE_READWRITE,0,4096, "mIRC");
+        str = (LPSTR) MapViewOfFile(file, FILE_MAP_ALL_ACCESS, 0, 0, 0);
+        //after MapViewOfFile(), 'str' is where you write to but also is the result of each call with WM_MEVALUATE:
  }
 
 extern "C" int __stdcall  UnloadDll(int mTimeout) {
-	//if dll is unloaded because mIRC exit or dll -u is used, we clean up, otherwise we prevent the unloading by returning 0.
-	if (mTimeout != 1)
+        //if dll is unloaded because mIRC exit or dll -u is used, we clean up, otherwise we prevent the unloading by returning 0.
+        if (mTimeout != 1)
         {
         UnmapViewOfFile(str);
         CloseHandle(file);
         }
-	return 0;
+        return 0;
 }
 </pre>
 

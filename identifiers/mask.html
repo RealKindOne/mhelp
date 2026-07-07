@@ -15,20 +15,8 @@ $mask(address,type)
 
 <H4>Parameters</H4>
 <b>address</b> - The address you want the mask of.
-<br><b>type</b> - The type of address, a positive integer between 1-19:
-<!-- chm does not care about the '*', markdown does -->
-<pre class = "code">
-0: *!user@host
-1: *!*user@host
-2: *!*@host
-3: *!*user@*.host
-4: *!*@*.host
-5: nick!user@host
-6: nick!*user@host
-7: nick!*@host
-8: nick!*user@*.host
-9: nick!*@*.host
-</pre>
+<br><b>type</b> - The <a href="../other/type.html">type</a> of address.
+
 <br>
 Type 10-19 are same as types 0-9 except asterisks in host are expanded to the text they replaced, then all numbers are replaced by question marks.
 <br>

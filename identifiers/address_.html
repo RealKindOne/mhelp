@@ -15,22 +15,8 @@ $address(&lt;nick&gt;,&lt;type&gt;)
 
 <H4>Parameters</H4>
 <b>&lt;nick&gt;</b> - The nickname you want the address of.
-<br><b>N</b> - The type of address, a positive integer between 1-19.
+<br><b>[type]</b> - Address <a href="../other/type.html">type</a> to be used.
 
-<!-- //.parseline -qit :nick!user@host JOIN $active Testing :testing 1 2 3 -->
-<!-- //var %x 0 | while (%x &lt; 10) { echo -ag * %x $+ : $address(nick,%x) | inc %x }  -->
-<pre class = "code">
-0: *!user@host
-1: *!*user@host
-2: *!*@host
-3: *!*user@host
-4: *!*@host
-5: nick!user@host
-6: nick!*user@host
-7: nick!*@host
-8: nick!*user@host
-9: nick!*@host
-</pre>
 Type 10-19 are same as types 0-9 except asterisks in host are expanded to the text they replaced, then all numbers are replaced by question marks.<br>
 
 Masks are case-insensitive and assigned by the internet provider, but IRC servers often provide user mode +x to help disguise them.

@@ -19,14 +19,10 @@ If & is not used alone it matches the plain text '&' character
 <br>
 <br><b>Note:</b> It also doesn't match $chr(32) if used to match a whole word, see below
 <br>
-"test &" matches "test this" or "test that"
-<br>
-"test &his" matches only "test &his"
-<br>
-"test thi&" matches only "test thi&"
-<br>
-"test th&s" matches only "test th&s"
-<br>
+"test &" matches "test this" or "test that"<br>
+"test &his" matches only "test &his"<br>
+"test thi&" matches only "test thi&"<br>
+"test th&s" matches only "test th&s"<br>
 "test &" doesn't match "test $chr(32)" (consider $chr(32) to be evaluated here)
 <br>
 Be careful when using the & wildcard character inside /if (and the like: $iif, /while, /elseif) it could be interpreted as the & bitwise operator:

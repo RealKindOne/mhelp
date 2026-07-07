@@ -44,7 +44,7 @@ statement 3
 statement 4
 </pre>
 
-<h3>Commands statements</h3>
+<H3>Commands statements</H3>
 Most statements are called "commands". Commands are performing some operations without returning data to you. mIRC provides a lot of built-in commands to accomplish various tasks.
 <p>
 After a command's name follows the parameters for that command, if any, and they must be spaces separated.
@@ -56,7 +56,7 @@ mIRC scripting does not use quoted strings, ever, for parameters. Some commands 
 Some built-in commands result in a verbose message displayed in a window, you can prevent that verbove message from being displayed by prefixing the command with a dot '.', this is called silencing a command (/.echo)
 <p>
 
-<h3>Other statements</h3>
+<H3>Other statements</H3>
 If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
 <p>
 If such statement is not literal in the code, it will be executed as a command.
@@ -68,7 +68,7 @@ One exception is the /var statement, which does not split parameters on spaces e
 They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.
 <p>
 
-<h3>Routine</h3>
+<H3>Routine</H3>
 Statements can be executed from the editbox (more about that later) but if you're not executing code from mIRC's editbox, your statements must be part of a routine.
 <p>
 There are two main routines, aliases (your own custom functions) and events (pre-made aliases for you with extras).
@@ -94,7 +94,7 @@ Remote are the type of file which can contain both events and aliases at the sam
 <p>
 Users is for managing access level, while Variables is for storing global variables, only one file can be loaded for both of them.
 
-<h3>Aliases</h3>
+<H3>Aliases</H3>
 
 Aliases have a name by which we can refer to them and are used to store a list of statement to execute, they usually are used to describe any piece of code that can be reused, but they are also used just as an entry point to start your script.
 <p>
@@ -115,7 +115,7 @@ If you use a remote file, you must prefix it with the <b>alias</b> keyword, spac
 alias fun echo Scripting | echo Is | echo Fun!
 </pre>
 
-<h3>Remote tab vs Aliases tab</h3>
+<H3>Remote tab vs Aliases tab</H3>
 <br>
 <img src="../images/fun_alias_remote.png">
 <img src="../images/fun_alias_alias.png">
@@ -129,7 +129,7 @@ To execute the alias from the editbox, you must prefix it with a '/' character (
 That should print our text:<br><br>
 <img src="../images/hello_edit.png"><br><br>
 
-<h3>{ } and group of statements</h3>
+<H3>{ } and group of statements</H3>
 <a href="conditional_statements.html">Conditional statements</a> allow you to create branches and loops, where statements only get executed based on a condition.<br>
 This means that after a conditional statement, you have a group of one or more statements associated to the condition.
 <p>
@@ -201,9 +201,9 @@ alias fun {
 </pre>
 This should help you understand how { } brackets are used.<br><br>
 
-A few notes about the language limitations:
+A few notes about the language limitations:<br>
 
-<br><br><span style="color: #DB0000;">The opening bracket " <b>{</b></span> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
+<br><span style="color: #DB0000;">The opening bracket " <b>{</b></span> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
 <br><span style="color: #DB0000;">The opening bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
 <br><span style="color: #DB0000;">The closing bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
 <br><br>
@@ -323,7 +323,7 @@ Here is what we got when we called out /random alias a few times:
 <br><br><img src="../images/random_example.png"><br><br>
 The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
 
-<h3>$+</h3>
+<H3>$+</H3>
 An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it which we used earlier, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
 <h4>Events</h4>

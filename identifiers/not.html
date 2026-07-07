@@ -39,13 +39,13 @@ $not returns the binary NOT of &lt;N&gt;. It returns 0 if the bit is 1, and retu
 11111111111111111111111111111010
 </pre>
 
+Returns: 4294967290 is the signed representation of -6 so 5 is the same as 5
 <pre class = "code">
 //var %n1 4294967290 | var %n2 -6 | echo -a %n1 is the signed representation of %n2 so $not(%n1) is the same as $not(%n2)
-; returns: 4294967290 is the signed representation of -6 so 5 is the same as 5
 </pre>
 
+mIRC doesn't have the $neg function, but if it did, $not(N) would be $neg(N) less 1.
 <pre class = "code">
-; mIRC doesn't have the $neg function, but if it did, $not(N) would be $neg(N) less 1.
 //var %n 5 | echo -a $not(%n) is the same as $calc( -%n -1) so NOT of each is the same: $not($not(%n)) is the same as $not($calc( -%n -1))
 </pre>
 
