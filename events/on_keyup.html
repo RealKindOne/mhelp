@@ -15,9 +15,7 @@ on &lt;level&gt;:KEYUP:&lt;@&gt;:&lt;keycode,...,keycodeN&gt;:&lt;commands&gt;
 
 <H4>Parameters</H4>
 <b>&lt;level&gt;</b> - The corresponding <a href="../other/access_levels.html">access levels</a> for the event to trigger.
-
 <br><b>&lt;@&gt;</b> - The <a href="../other/custom_windows.html">custom window</a> where this event should listen. Can be <b>@</b> for all windows.
-
 <br><b>&lt;keycodes&gt;</b> - The specific key, or keys to listen for. Can specify multiple keys, such as:
 <pre class = "code">
 on *:KEYUP:@myWindow:38,42,55,78:echo -a $keyval
