@@ -64,51 +64,52 @@ Object's <b>Members</b> are all the methods and properties that are provided by 
 The invocation method is the way the invocation should be applied. Some members of the object require that they just be called, others might return a value. Sometimes we might need to set some kind of a property by either a value or by reference. Below is a list of possible methods:
 <br>
 <br>
+
 <table>
 <tr>
-<th> Value </th>
-<th> Method
-</th></tr>
+<th>Value</th>
+<th>Method</th>
+</tr>
+<!-- | --- | --- | -->
 <tr>
-<td> 1 </td>
-<td> Call a member of an object
-</td></tr>
+<td>1</td>
+<td>Call a member of an object</td>
+</tr>
 <tr>
-<td> 2 </td>
-<td> Return a value
-</td></tr>
+<td>2</td>
+<td>Return a value</td>
+</tr>
 <tr>
-<td> 3 </td>
-<td> (1+2) Call a member and return a value *
-</td></tr>
+<td>3</td>
+<td>(1+2) Call a member and return a value *</td>
+</tr>
 <tr>
-<td> 4 </td>
-<td> Set a property
-</td></tr>
+<td>4</td>
+<td>Set a property</td>
+</tr>
 <tr>
-<td> 5 </td>
-<td> (1+4) Set a property with a member call *
-</td></tr>
+<td>5</td>
+<td>(1+4) Set a property with a member call *</td>
+</tr>
 <tr>
-<td> 6 </td>
-<td> (2+4) Set a property and return a value *
-</td></tr>
+<td>6</td>
+<td>(2+4) Set a property and return a value *</td>
+</tr>
 <tr>
-<td> 7 </td>
-<td> (1+2+4) Set a property and return a value with a member call *
-</td></tr>
+<td>7</td>
+<td>(1+2+4) Set a property and return a value with a member call *</td>
+</tr>
 <tr>
-<td> 8 </td>
-<td> Set a property by reference
-</td></tr>
+<td>8</td>
+<td>Set a property by reference</td>
+</tr>
 <tr>
-<td> 9 </td>
-<td> (1+8) Set a property by reference with a member call *
-</td></tr>
+<td>9</td>
+<td>(1+8) Set a property by reference with a member call *</td>
+</tr>
 <tr>
-<td> 10 </td>
-<td> (2+8) Set a property by reference and return a value *
-</td>
+<td>10</td>
+<td>(2+8) Set a property by reference and return a value *</td>
 </tr>
 </table>
 <br>
@@ -118,104 +119,107 @@ These methods with an * are the result of a combination of multiple methods usin
 Unlike mSL, COM objects must have a data type for every value. For example, if we want to invoke a method that takes an integer value, we have to use the int data type. Below is a list of possible variable data types.
 <br>
 <br>
+
 <table>
 <tr>
-<th> Type </th>
-<th> Description </th>
-<th> Values
-</th></tr>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+<!-- | --- | --- | --- | -->
 <tr>
-<td>i1 </td>
-<td> single byte signed integer </td>
-<td> -128 to 127
-</td></tr>
+<td>i1</td>
+<td>single byte signed integer</td>
+<td>-128 to 127</td>
+</tr>
 <tr>
-<td>ui1 </td>
-<td> single byte unsigned integer </td>
-<td> 0 to 255
-</td></tr>
+<td>ui1</td>
+<td>single byte unsigned integer</td>
+<td>0 to 255</td>
+</tr>
 <tr>
-<td>i2 </td>
-<td> two byte signed integer </td>
-<td> -32768 to 32767
-</td></tr>
+<td>i2</td>
+<td>two byte signed integer</td>
+<td>-32768 to 32767</td>
+</tr>
 <tr>
-<td>ui2 </td>
-<td> two byte unsigned integer </td>
-<td> 0 to 65535
-</td></tr>
+<td>ui2</td>
+<td>two byte unsigned integer</td>
+<td>0 to 65535</td>
+</tr>
 <tr>
-<td>i4 </td>
-<td> four byte signed integer </td>
-<td> +/- 2147483647
-</td></tr>
+<td>i4</td>
+<td>four byte signed integer</td>
+<td>+/- 2147483647</td>
+</tr>
 <tr>
-<td>ui4 </td>
-<td> Holds unsigned 32-bit (4-byte) integers </td>
-<td> 0 through 4,294,967,295
-</td></tr>
+<td>ui4</td>
+<td>Holds unsigned 32-bit (4-byte) integers</td>
+<td>0 through 4,294,967,295</td>
+</tr>
 <tr>
-<td>int </td>
-<td> integer </td>
-<td> -2147483648 to 2147483647
-</td></tr>
+<td>int</td>
+<td>integer</td>
+<td>-2147483648 to 2147483647</td>
+</tr>
 <tr>
-<td>uint </td>
-<td> unsigned integer </td>
-<td> 0 to 4294967295
-</td></tr>
+<td>uint</td>
+<td>unsigned integer</td>
+<td>0 to 4294967295</td>
+</tr>
 <tr>
-<td>r4 </td>
-<td> real, 4-byte floating point number </td>
-<td> 1.17549435E-38 to 3.40282347E+38
-</td></tr>
+<td>r4</td>
+<td>real, 4-byte floating point number</td>
+<td>1.17549435E-38 to 3.40282347E+38</td>
+</tr>
 <tr>
-<td>r8 </td>
-<td> double real, 8-byte floating point number </td>
-<td> 2.2250738585072014E-308 - 1.7976931348623157E+308
-</td></tr>
+<td>r8</td>
+<td>double real, 8-byte floating point number</td>
+<td>2.2250738585072014E-308 - 1.7976931348623157E+308</td>
+</tr>
 <tr>
-<td>cy </td>
-<td> eight byte curreny number </td>
-<td> -922337203685477.5625 to 922337203685477.5625
-</td></tr>
+<td>cy</td>
+<td>eight byte curreny number</td>
+<td>-922337203685477.5625 to 922337203685477.5625</td>
+</tr>
 <tr>
-<td>date </td>
-<td> contains date and time, stored as an 8-byte floating-point number </td>
-<td> +/-79,228,162,514,264,337,593,543,950,335
-</td></tr>
+<td>date</td>
+<td>contains date and time, stored as an 8-byte floating-point number</td>
+<td>+/-79,228,162,514,264,337,593,543,950,335</td>
+</tr>
 <tr>
-<td>decimal </td>
-<td> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. </td>
-<td> +/-79,228,162,514,264,337,593,543,950,335
-</td></tr>
+<td>decimal</td>
+<td>Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers.</td>
+<td>+/-79,228,162,514,264,337,593,543,950,335</td>
+</tr>
 <tr>
-<td>bool </td>
-<td> contain any string or numeric representation.
-</td></tr>
+<td>bool</td>
+<td>contain any string or numeric representation.</td>
+</tr>
 <tr>
-<td>bstr </td>
-<td> null-terminated unicode character string value. </td>
-<td> A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
-</td></tr>
+<td>bstr</td>
+<td>null-terminated unicode character string value.</td>
+<td>A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.</td>
+</tr>
 <tr>
-<td>variant </td>
-<td>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
-</td></tr>
+<td>variant</td>
+<td>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5</td>
+</tr>
 <tr>
-<td>dispatch </td>
-<td>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
-</td></tr>
+<td>dispatch</td>
+<td> This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).</td>
+</tr>
 <tr>
-<td>unknown </td>
-<td> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
-</td></tr>
+<td>unknown</td>
+<td>This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).</td>
+</tr>
 <tr>
-<td>error </td>
-<td> This data type indicates a 32-bit error code (DBTYPE_ERROR)
-</td>
+<td>error</td>
+<td>This data type indicates a 32-bit error code (DBTYPE_ERROR)</td>
 </tr>
 </table>
+
+
 <br>
 <br>
 
@@ -423,33 +427,35 @@ Returns something like:
 The <a href="../identifiers/com.html">$com</a> identifier has a few other useful properties:
 <br>
 <br>
+
 <table>
 <tr>
-<th> Property </th>
-<th> Description
-</th></tr>
+<th>Property </th>
+<th>Description</th>
+</tr>
+<!-- | --- | --- | -->
 <tr>
 <td>argerr</td>
-<td> the argument that have caused the error
-</td></tr>
+<td>the argument that have caused the error</td>
+</tr>
 <tr>
 <td>error</td>
-<td> error value, when applicable
-</td></tr>
+<td>error value, when applicable</td>
+</tr>
 <tr>
 <td>errortext</td>
-<td> error description
-</td></tr>
+<td>error description</td>
+</tr>
 <tr>
 <td>progid</td>
-<td> object&#39;s name
-</td></tr>
+<td>object&#39;s name</td>
+</tr>
 <tr>
-<td>dispatch/unknown </td>
-<td> return <a href="../identifiers/true.html">$true</a> or <a href="../identifiers/null.html">$null</a> if a pointer to this object exists
-</td>
+<td>dispatch/unknown</td>
+<td>return <a href="../identifiers/true.html">$true</a> or <a href="../identifiers/null.html">$null</a> if a pointer to this object exists</td>
 </tr>
 </table>
+
 <br>
 <br>
 

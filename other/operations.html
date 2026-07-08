@@ -26,6 +26,7 @@ mIRC supports the following arithmetic operators:
 <th>Operator</th>
 <th>Syntax</th>
 </tr>
+<!-- | --- | --- | -->
 <tr>
 <td>Addition</td>
 <td>a + b</td>
@@ -85,64 +86,56 @@ alias example {
 Math Comparison operators allow you to compare two values:
 
 <table>
-  <tr>
-    <th>Syntax</th>
-    <th>Name</th>
-    <th>Result</th>
-  </tr>
+<tr>
+<th>Syntax</th>
+<th>Name</th>
+<th>Result</th>
+</tr>
+<!-- | --- | --- | --- | -->
 <tr>
 <td>%x == %y</td>
-<td> Equal</td>
-<td> True, if %x is equal to %y.
-</td>
+<td>Equal</td>
+<td>True, if %x is equal to %y.</td>
 </tr>
 <tr>
 <td>%x != %y</td>
-<td> Not equal</td>
-<td> True, if %x is not equal to %y.
-</td>
+<td>Not equal</td>
+<td>True, if %x is not equal to %y.</td>
 </tr>
 <tr>
 <td>%x &lt; %y</td>
-<td> Less than</td>
-<td> True, if %x is strictly less than %y.
-</td>
+<td>Less than</td>
+<td>True, if %x is strictly less than %y.</td>
 </tr>
 <tr>
 <td>%x &gt; %y</td>
-<td> Greater than</td>
-<td> True, if %x is strictly greater than %y.
-</td>
+<td>Greater than</td>
+<td>True, if %x is strictly greater than %y.</td>
 </tr>
 <tr>
 <td>%x &lt;= %y</td>
-<td> Less than or equal to</td>
-<td> True, if %x is less than or equal to %y.
-</td>
+<td>Less than or equal to</td>
+<td>True, if %x is less than or equal to %y.</td>
 </tr>
 <tr>
 <td>%x &gt;= %y</td>
-<td> Greater than or equal to</td>
-<td> True, if %x is greater than or equal to %y.
-</td>
+<td>Greater than or equal to</td>
+<td>True, if %x is greater than or equal to %y.</td>
 </tr>
 <tr>
 <td>%x // %y</td>
-<td> Multiple Of (Divides)</td>
-<td> True, if %x divides %y.
-</td>
+<td>Multiple Of (Divides)</td>
+<td>True, if %x divides %y.</td>
 </tr>
 <tr>
 <td>%x \\ %y</td>
-<td> Not Multiple Of (Not Divides)</td>
-<td> True, if %x does not divides %y.
-</td>
+<td>Not Multiple Of (Not Divides)</td>
+<td>True, if %x does not divides %y.</td>
 </tr>
 <tr>
 <td>%x & %y</td>
-<td> Bitwise And</td>
-<td> True, if (bit representation of) %x AND %y is a none zero.
-</td>
+<td>Bitwise And</td>
+<td>True, if (bit representation of) %x AND %y is a none zero.</td>
 </tr>
 </table>
 
@@ -172,6 +165,7 @@ mIRC provides a set of operators that can be used to compare two strings. The tw
 <th>Name</th>
 <th>Result</th>
 </tr>
+<!-- | --- | --- | --- | -->
 <tr>
 <td>%x isin %y</td>
 <td>Is In</td>
@@ -242,71 +236,73 @@ alias example3 {
 A lexicographical comparison is a comparison generally used to sort words alphabetically in dictionaries and indexes. If both strings are equal but one is shorter than the other, the shorter string is lexicographically less than the longer one.
 
 <table>
-<tbody><tr>
-<th> Syntax </th>
-<th> Name </th>
-<th> Result
-</th></tr>
 <tr>
-<td>a == b </td>
-<td> Case insensitive character comparison </td>
-<td> True, if character a is equal to character b, case insensitive.
-</td></tr>
+<th>Syntax</th>
+<th>Name</th>
+<th>Result</th>
+</tr>
+<!-- | --- | --- | --- | -->
 <tr>
-<td>a === b </td>
-<td> Case sensitive character comparison </td>
-<td> True, if character a is equal to character b, case sensitive.
-</td></tr>
+<td>a == b</td>
+<td>Case insensitive character comparison</td>
+<td>True, if character a is equal to character b, case insensitive.</td>
+</tr>
 <tr>
-<td>a != b<br/>a !== b </td>
-<td> Case insensitive character comparison </td>
-<td> True, if character a is not equal to character b, case insensitive.
-</td></tr>
+<td>a === b</td>
+<td>Case sensitive character comparison</td>
+<td>True, if character a is equal to character b, case sensitive.</td>
+</tr>
 <tr>
-<td>a !=== b </td>
-<td> Case sensitive character comparison </td>
-<td> True, if character a is not equal to character b, case sensitive.
-</td></tr>
+<td>a != b<br/>a !== b</td>
+<td>Case insensitive character comparison</td>
+<td>True, if character a is not equal to character b, case insensitive.</td>
+</tr>
 <tr>
-<td>str1 == str2 </td>
-<td> Case insensitive String comparison </td>
-<td> True, if str1 equals str2 in a case insensitive manner.
-</td></tr>
+<td>a !=== b</td>
+<td>Case sensitive character comparison</td>
+<td>True, if character a is not equal to character b, case sensitive.</td>
+</tr>
 <tr>
-<td>str1 === str2 </td>
-<td> Case sensitive String comparison </td>
-<td> True, if str1 equals str2 in a case sensitive manner.
-</td></tr>
+<td>str1 == str2</td>
+<td>Case insensitive String comparison</td>
+<td>True, if str1 equals str2 in a case insensitive manner.</td>
+</tr>
 <tr>
-<td>str1 != str2<br/>str1 !== str2 </td>
-<td> Case insensitive String comparison </td>
-<td> True, if str1 does not equal str2 in a case insensitive manner.
-</td></tr>
+<td>str1 === str2</td>
+<td>Case sensitive String comparison</td>
+<td>True, if str1 equals str2 in a case sensitive manner.</td>
+</tr>
 <tr>
-<td>str1 !=== str2 </td>
-<td> Case sensitive String comparison </td>
-<td> True, if str1 does not equal str2 in a case sensitive manner.
-</td></tr>
+<td>str1 != str2<br/>str1 !== str2</td>
+<td>Case insensitive String comparison</td>
+<td>True, if str1 does not equal str2 in a case insensitive manner.</td>
+</tr>
 <tr>
-<td>a &lt; b </td>
-<td> Lexicographically Less Than </td>
-<td> True, if the <a href="../identifiers/asc.html">$asc</a> (a) comes before <a href="../identifiers/asc.html">$asc</a>(b)
-</td></tr>
+<td>str1 !=== str2</td>
+<td>Case sensitive String comparison</td>
+<td>True, if str1 does not equal str2 in a case sensitive manner.</td>
+</tr>
 <tr>
-<td>a &gt; b </td>
-<td> Lexicographically Greater Than </td>
-<td> True, if the $asc(a) comes after $asc(b)
-</td></tr>
+<td>a &lt; b</td>
+<td>Lexicographically Less Than</td>
+<td>True, if the <a href="../identifiers/asc.html">$asc</a> (a) comes before <a href="../identifiers/asc.html">$asc</a>(b)</td>
+</tr>
 <tr>
-<td>str1 &lt; str2 </td>
-<td> Lexicographically Less Than </td>
-<td> True, if str1 comes before str2
-</td></tr>
+<td>a &gt; b</td>
+<td>Lexicographically Greater Than</td>
+<td>True, if the $asc(a) comes after $asc(b)</td>
+</tr>
 <tr>
-<td>str1 &gt; str2 </td>
-<td> Lexicographically Greater Than </td>
-<td> True, if str1 comes after str2
-</td></tr></tbody></table>
+<td>str1 &lt; str2</td>
+<td>Lexicographically Less Than</td>
+<td>True, if str1 comes before str2</td>
+</tr>
+<tr>
+<td>str1 &gt; str2</td>
+<td>Lexicographically Greater Than</td>
+<td>True, if str1 comes after str2</td>
+</tr>
+</table>
 
 
 <H4>Logical Operators</H4>
@@ -335,55 +331,55 @@ mIRC also provides a set of commands to involve IRC channels:
 
 <table>
 <tr>
-<th> Syntax </th>
-<th> Name </th>
-<th> Result
-</th></tr>
+<th>Syntax</th>
+<th>Name</th>
+<th>Result</th>
+</tr>
+<!-- | --- | --- | --- | -->
 <tr>
-<td>%x ison %y </td>
-<td> Is On </td>
-<td> True, if nick %x is on channel %y.
-</td></tr>
+<td>%x ison %y</td>
+<td>Is On</td>
+<td>True, if nick %x is on channel %y.</td>
+</tr>
 <tr>
-<td>%x isop %y </td>
-<td> Is an Operator </td>
-<td> True, if nick %x is an operators on channel %y.
-</td></tr>
+<td>%x isop %y</td>
+<td>Is an Operator</td>
+<td>True, if nick %x is an operators on channel %y.</td>
+</tr>
 <tr>
-<td>%x isowner %y </td>
-<td> Is an Owner </td>
-<td> True, if nick %x is an owner on channel %y.
-</td></tr>
+<td>%x isowner %y</td>
+<td>Is an Owner</td>
+<td>True, if nick %x is an owner on channel %y.</td>
+</tr>
 <tr>
-<td>%x ishop %y </td>
-<td> Is a Halfop </td>
-<td> True, if nick %x is a halfop on channel %y.
-</td></tr>
+<td>%x ishop %y</td>
+<td>Is a Halfop</td>
+<td>True, if nick %x is a halfop on channel %y.</td>
+</tr>
 <tr>
-<td>%x isvoice %y </td>
-<td> Is a Voice </td>
-<td> True, if nick %x is a voice on channel %y (isvo operator also supported).
-</td></tr>
+<td>%x isvoice %y</td>
+<td>Is a Voice</td>
+<td>True, if nick %x is a voice on channel %y (isvo operator also supported).</td>
+</tr>
 <tr>
-<td>%x isreg %y </td>
-<td> Is a Regular </td>
-<td> True, if nick %x is a regular user on channel %y.
-</td></tr>
+<td>%x isreg %y</td>
+<td>Is a Regular</td>
+<td>True, if nick %x is a regular user on channel %y.</td>
+</tr>
 <tr>
-<td>%x ischan </td>
-<td> Is a Channel </td>
-<td> True, if channel %x is a channel you are on and if the %x channel window is still open (doesn&#39;t matter if you are connected or not).
-</td></tr>
+<td>%x ischan</td>
+<td>Is a Channel</td>
+<td>True, if channel %x is a channel you are on and if the %x channel window is still open (doesn&#39;t matter if you are connected or not).</td>
+</tr>
 <tr>
-<td>%x isban %y </td>
-<td> Is a ban </td>
-<td> True, if ban address %x is a ban on channel %y. (taken from IBL)
-</td></tr>
+<td>%x isban %y</td>
+<td>Is a ban</td>
+<td>True, if ban address %x is a ban on channel %y. (taken from IBL)</td>
+</tr>
 <tr>
-<td>%x isquiet %y </td>
-<td> Is a quiet ban </td>
-<td> True, if ban address %x is a quiet ban on channel %y. (taken from IQL)
-</td>
+<td>%x isquiet %y</td>
+<td>Is a quiet ban</td>
+<td>True, if ban address %x is a quiet ban on channel %y. (taken from IQL)</td>
 </tr>
 </table>
 
@@ -411,31 +407,27 @@ mIRC has 5 additional operators to check mIRC internal lists:
 <th>Name</th>
 <th>Result</th>
 </tr>
-
+<!-- | --- | --- | --- | -->
 <tr>
 <td>%x isaop<br>%x isaop %y</td>
 <td>In Auto-Op List<br>In Auto-Op List For Chan</td>
 <td>True, if host %x is in the auto-op list.<br>True, if host %x is in the auto-op list for channel %y.</td>
 </tr>
-
 <tr>
 <td>%x isavoice<br>%x isavoice %y</td>
 <td>In Auto-Voice List<br>In Auto-Voice List For Chan</td>
 <td>True, if host %x is in the auto-voice list.<br> True, if host %x is in the auto-voice list for channel %y.</td>
 </tr>
-
 <tr>
 <td>%x isignore<br>%x isignore %y</td>
 <td>In Ignore List<br>In Ignore List For Type</td>
 <td>True, if host %x is in the ignore list.<br>True, if host %x is in the ignore list for type %y.</td>
 </tr>
-
 <tr>
 <td>%x isprotect<br>%x isprotect %y</td>
 <td>In Protect List<br>In Protect List For Chan</td>
 <td>True, if host %x is in the protect list.<br>True, if host %x is in the protect list for channel %y.</td>
 </tr>
-
 <tr>
 <td>%x isnotify</td>
 <td>In Notify List</td>

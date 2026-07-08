@@ -28,19 +28,45 @@ process_dir() {
         mv "$file" "${file%.html}.md"
     done
 
-    # Remove coment lines first. These are littered everywhere.
-    sed -i -e '/<!--/d' *.md
-
+    # This must run first.
+    #
     # Fix <br> spacing at top or command/identifier/etc is
     # converted from markdown -> html correctly.
     sed -i -z 's|</H1>\n<br>\n<br>\n|</H1>\n\n|g' *.md
+
+    # Sed out basic stuff not needed.
+    sed -i \
+        -e '/<html>/d' \
+        -e '/<\/html>/d' \
+        -e '/<body>/d' \
+        -e '/<\/body>/d' \
+        -e '/default.css/d' \
+        -e 's|<p>||g' \
+        -e 's|</p>||g' \
+        -e 's|<H1>|# |g' \
+        -e 's|</H1>||g' \
+        -e 's|<H2>|## |g' \
+        -e 's|</H2>||g' \
+        -e 's|<H3>|### |g' \
+        -e 's|</H3>||g' \
+        -e 's|<H4>|#### |g' \
+        -e 's|</H4>||g' \
+        -e '/<title>/d' *.md
+
+    sed -i '/mdBook remove/d' *.md
+
+    # Images
+    sed -i -r 's|<img src="([^"]+)">|![\1](\1)|g' *.md
 
     # This tries to get most of them... sort of.
     # Replace "\n<br><b>" with "  \n<b>"
     sed -i -z -E 's/([^\n]*)\n(<br><b>)/\1  \n<b>/g' *.md
 
-    # Fix warning.
-    sed -i -z 's|<br>\n<center>|<br>\n\n<center>|g' *.md
+    sed -i -z 's|<b>\*</b>|**\\\***|g' *.md
+
+    sed -i \
+        -e 's|<b>|**|g' \
+        -e 's|</b>|**|g' *.md
 
     # Convert code blocks to markdown.
     # The opening <pre...> and closing </pre> MUST be
@@ -49,27 +75,7 @@ process_dir() {
     sed -i 's|<pre class = "code">|```|g' *.md
     sed -i 's|</pre>|```|g' *.md
 
-    # Bold, headers, and HTML tags removal
-    sed -i \
-        -e 's|<b>\*</b>|**\\\***|g' \
-        -e 's|<b>|**|g' \
-        -e 's|</b>|**|g' \
-        -e 's|<H1>|# |g' \
-        -e 's|</H1>||g' \
-        -e 's|<H4>|#### |g' \
-        -e 's|</H4>||g' \
-        -e '/default.css/d' \
-        -e '/<title>/d' \
-        -e '/<html>/d' \
-        -e '/<\/html>/d' \
-        -e '/<body>/d' \
-        -e '/<\/body>/d' \
-        -e '/<head>/d' \
-        -e '/<\/head>/d' \
-        -e 's|<p>||g' \
-        -e 's|</p>||g' \
-        -e '/warning.png/d' \
-        *.md
+    sed -i -z 's|injection.html).\n</center>\n\n<br>|injection.html).|g' *.md
 
     # Convert <a> links to Markdown
     sed -i -E 's|<a href="([^"]*)">([^<]*)</a>|[\2](\1)|g' *.md
@@ -80,15 +86,10 @@ process_dir() {
     # Remove last line one.
     sed -z -i 's/\.html)<br>/\.html)  /g' *.md
 
-    sed -i -z 's|\n<br><span |  \n<br><span |g' *.md
     # $dqwindow
     sed -i -z 's|\n<br>\$|  \n$|g' *.md
     # $mouse
     sed -i -z 's|\n<br>\i|  \ni|g' *.md
-    #sed -i '/<br><span / s/$/  /' *.md
-    sed -z -i 's|<br>  ||g' *.md
-    sed -i 's/<br><span/<span/g' *.md
-    sed -i ':a;N;$!ba;s/\\\n/\\\\\n/g' *.md
     cd ../..
 }
 
@@ -103,3 +104,159 @@ process_dir "sockets"
 mv src/other/commands.md src/
 mv src/other/identifiers.md src/
 mv src/other/events.md src/
+
+# Convert htmk <table> to  markdown version
+sed -i 's|<table style="[^"]*">|<table>|g' \
+   src/identifiers/asctime.md \
+   src/other/hash_tables.md \
+   src/commands/timestamp.md
+
+sed -i -z 's|<table>||g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|<tr>||g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</tr>||g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</th>\n<th>| \| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</td>\n<td>| \| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|<th>|\| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</td>\n\n\n<td>| \|\n\| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</th>\n\n\n| \| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's| <td>|\n\| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</td>\n|\n|g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|</th>\n\n<!-- | \|\n|g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's| -->\n\n<td>|\n\| |g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+sed -i -z 's|\n\n</table>| \|\n|g' \
+   src/other/com.md \
+   src/other/hash_tables.md \
+   src/other/operations.md \
+   src/identifiers/asctime.md \
+   src/identifiers/codepage.md \
+   src/identifiers/com.md \
+   src/other/hash_tables.md \
+   src/identifiers/comcall.md \
+   src/identifiers/input.md \
+   src/commands/timestamp.md
+
+sed -i 's|&#233;|é|g' src/commands/quote.md
+
+
+
+# EOF
