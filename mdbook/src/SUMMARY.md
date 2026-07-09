@@ -559,7 +559,6 @@
       - [$isid](identifiers/isid.md)
       - [$islower](identifiers/islower.md)
       - [$isnum](identifiers/isnum.md)
-      - [$isnumber](identifiers/isnumber.md)
       - [$istok](identifiers/istok.md)
       - [$istokcs](identifiers/istokcs.md)
       - [$isupper](identifiers/isupper.md)

@@ -994,10 +994,6 @@
 		<param name="Local" value="identifiers\isnum.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="$isnumber">
-		<param name="Local" value="identifiers\isnumber.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$istok">
 		<param name="Local" value="identifiers\istok.html">
 		</OBJECT>
