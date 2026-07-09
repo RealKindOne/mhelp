@@ -85,9 +85,9 @@ Let's take a look at /write, /write is a powerful tool which allows you to write
 
 A simple "/write filename.txt line" involves the following file handling operations:
 
-<br><b>/fopen</b> - opens the file
-<br><b>/fseek</b> - goes to the end of the file
-<br><b>/fwrite</b> - writes to the file
+<br><b>/fopen</b> - Opens the file
+<br><b>/fseek</b> - Goes to the end of the file
+<br><b>/fwrite</b> - Writes to the file
 <br><b>/fclose</b> - Closes the file
 
 So, executing /write twice involves 8 file handling operations; the more you have to write, the more operations you create. If you do /write three times, the 12 operations can be reduced to 5:

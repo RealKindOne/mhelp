@@ -4,7 +4,14 @@
 
 mdbook/book/*
 mdbook/src/commands/*.md
-mdbook/src/identifiers/*.md
+mdbook/src/dialog/*.md
 mdbook/src/events/*.md
-mdbook/src/other/*.md
+mdbook/src/identifiers/*.md
 mdbook/src/images/*
+mdbook/src/other/*.md
+mdbook/src/sockets/*.md
+
+mdbook/src/commands.md
+mdbook/src/events.md
+mdbook/src/identifiers.md
+

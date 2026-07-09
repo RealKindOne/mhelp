@@ -56,7 +56,7 @@ process_dir() {
     sed -i '/mdBook remove/d' *.md
 
     # Images
-    sed -i -r 's|<img src="([^"]+)">|![\1](\1)|g' *.md
+    #sed -i -r 's|<img src="([^"]+)">|![\1](\1)|g' *.md
 
     # This tries to get most of them... sort of.
     # Replace "\n<br><b>" with "  \n<b>"
@@ -106,7 +106,7 @@ mv src/other/identifiers.md src/
 mv src/other/events.md src/
 
 # Convert htmk <table> to  markdown version
-sed -i 's|<table style="[^"]*">|<table>|g' \
+sed -i 's|<table style = "[^"]*">|<table>|g' \
    src/identifiers/asctime.md \
    src/other/hash_tables.md \
    src/commands/timestamp.md
@@ -257,6 +257,6 @@ sed -i -z 's|\n\n</table>| \|\n|g' \
 
 sed -i 's|&#233;|é|g' src/commands/quote.md
 
-
-
+# The closing <b>/*</b> must be on the ...
+sed -i 's|\*\*\*/\*\*|\*\*\\\*/\*\*|g' src/other/introduction.md
 # EOF

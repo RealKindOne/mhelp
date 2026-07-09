@@ -36,6 +36,7 @@ For example, the following two are the same:<br><br>
 statement 1 | statement 2 | statement 3 | statement 4
 </pre>
 <br>
+
 <b>Non-piping -- Multiline</b>
 <pre class = "code">
 statement 1
@@ -203,9 +204,9 @@ This should help you understand how { } brackets are used.<br><br>
 
 A few notes about the language limitations:<br>
 
-<br><span style="color: #DB0000;">The opening bracket " <b>{</b></span> " <b>must</b> be on the same first line of the alias/event/conditional statement</span>
-<br><span style="color: #DB0000;">The opening bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
-<br><span style="color: #DB0000;">The closing bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).</span>
+<br><span style="color: #DB0000;">The opening bracket " <b>{</b> " <b>must</b></span> be on the same first line of the alias/event/conditional statement.
+<br><span style="color: #DB0000;">The opening bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).
+<br><span style="color: #DB0000;">The closing bracket <b>must not</b></span> touch anything (space on its left, and space or newline on the right).
 <br><br>
 One exception to the above is that for events, the opening bracket will sometimes be touching a ':' character on its left.
 <H4><span style="color: #256B22;">Right Examples</span></H4>
@@ -263,7 +264,6 @@ If we want to print out our current nickname, we would use the following code ($
 <pre class = "code">
 //echo -a $me
 </pre>
-<br>
 
 So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it doesn't need to be, it's plain, static, text.<br>
 But $me is evaluated and "$me" in the line is replaced by the value returned by $me. Then, all parameters have been evaluated and the echo command is executed with two parameters, -a and the value returned by $me.<br><br>
@@ -271,7 +271,7 @@ mIRC provides a lot of built-in identifiers and you can create your own as well 
 <pre class = "code">
 alias fun return having fun? $1 -- $4-5 $3 $0 $2
 </pre>
-<br>
+
 You can use the /return command to return data from your aliases for when you are calling it as an identifier.<br>
 To handle the parameters passed to your alias, regardless if you called it as a command or an identifier, you can use the identifier $N where N is the Nth parameter, with $0 being the total number of parameters. Now you can use $fun to call your alias as an identifier:
 <pre class = "code">
@@ -457,7 +457,7 @@ alias fun {
 
 <br><img src="../images/fun_comment.png"><br>
 
-<br><b>Note: </b>The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
+<br><b>Note:</b> The command REM can be used interchangeably with the semicolon. Do not try to comment out a single statement out of multiple statement separated by a pipe.
 
 <H4>Multi-line Comments</H4>
 The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> & <b>*/</b> characters. The syntax for a multi-line comment is:
@@ -474,8 +474,8 @@ Your text must go between the /* and the */ in order for it to be treated as a c
 A few notes about the language limitations:
 <br>
 <br>
-<br><span style="color: #DB0000;">Text may touch the opening <b>/*</b> on the right; however, <b>/*</b> must start the line</span>
-<br><span style="color: #DB0000;">The closing <b>*/</b> must be on a line of its own</span>
+<br><span style="color: #DB0000;">Text may touch the opening <b>/*</b> on the right; however, <b>/*</b> must start the line.</span>
+<br><span style="color: #DB0000;">The closing <b>*/</b> must be on a line of its own.</span>
 <br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn't indented if there's a closing brace on that line.
 
 <H4><span style="color: #256B22;">Right Examples</span></H4>
@@ -549,8 +549,6 @@ Just like you can add colors when you talk by typing CTRL+K on your keyboard, an
 <br>
 <br>
 <b>Note:</b> The color character (ascii 3) is visually hidden this document. You will see the character when pasting the examples in mIRC or a text editor.
-<br>
-<br>
 <pre class = "code">
 alias example {
   echo -a 3This 4is 6a 10cool 15example1.
