@@ -105,7 +105,7 @@ mv src/other/commands.md src/
 mv src/other/identifiers.md src/
 mv src/other/events.md src/
 
-# Convert htmk <table> to  markdown version
+# Convert html <table> to  markdown version
 sed -i 's|<table style = "[^"]*">|<table>|g' \
    src/identifiers/asctime.md \
    src/other/hash_tables.md \
@@ -259,4 +259,15 @@ sed -i 's|&#233;|é|g' src/commands/quote.md
 
 # The closing <b>/*</b> must be on the ...
 sed -i 's|\*\*\*/\*\*|\*\*\\\*/\*\*|g' src/other/introduction.md
+
+# $ulist() page
+sed -i 's/\$ulist(\*!\*@Example\.com)\.info/\\$ulist(\\\*!\\\*@Example\.com)\.info/g' src/commands/iuser.md
+
+# Escape "*!*" ...
+sed -i 's|\*!\*|\\\*!\\\*|g' \
+   src/identifiers/wildsite.md \
+   src/other/local_identifiers.md
+
+
+
 # EOF
