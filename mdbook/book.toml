@@ -1,6 +1,6 @@
 [book]
 authors = ["RealKindOne"]
-title = "mIRC help" 
+title = "mIRC help"
 language = "en"
 
 [output.html]
@@ -11,4 +11,4 @@ additional-css = ["custom.css"]
 enable = true
 level = 0
 
-#[preprocessor.lint]
+[preprocessor.lint]

@@ -95,7 +95,7 @@ List of commands and identifiers can be found in ```commands.html``` and ```iden
 
 ## Contact
 
-irc.libera.chat ##mirc 
+irc.libera.chat ##mirc
 
 irc.swiftirc.net #msl / #mircscripting
 

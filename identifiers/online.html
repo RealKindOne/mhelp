@@ -31,7 +31,7 @@ Message a channel when someone types "!uptime":
 on *:text:!uptime:#example:{
   msg $chan My grand total connection time has been $online seconds.
   msg $chan My current connection time has been $onlineserver seconds.
-  ; /!\ Always use 'n' for $readini()  /!\ 
+  ; /!\ Always use 'n' for $readini()  /!\
   msg $chan The total was reset at: $readini($mircini,n,text,lastreset)
 }
 </pre>
