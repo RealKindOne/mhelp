@@ -214,7 +214,7 @@ $1 $2 $3 $4
 </pre>
 And now mIRC evaluates that for each match and use it as a replacement.
 
-<br><b>Note:</b> If the form <b>\N</b> is used in the subtext, where N is a positive number greater-than or equal to 1 (such as <b>\1</b>), and there is no such back-reference number in the pattern, mIRC will use the value of '''$regml(\n + N - 1)'''.
+<br><b>Note:</b> If the form <b>\N</b> is used in the subtext, where N is a positive number greater-than or equal to 1 (such as <b>\1</b>), and there is no such back-reference number in the pattern, mIRC will use the value of <b>$regml(\n + N - 1)</b>.
 
 An example of this is shown below:
 <pre class = "code">
@@ -240,7 +240,7 @@ In the above example, the outer <b>$regsubex</b> will make the regex match, then
 <pre class = "code">
 $regsubex(\t,/(.)/g,$upper(\t))
 </pre>
-All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
+All occurrences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
 <p>
 The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer <b>$regsubex</b> context.
 <p>

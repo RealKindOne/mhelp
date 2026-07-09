@@ -90,9 +90,9 @@ The above <b>$power</b> alias can now be used like so:
 </pre>
 
 The result of the above command would be:
+<pre class = "code">
 25
-
-
+</pre>
 Modulus of N1/N2 is often seen as a number 0 through (N2 less 1), but that applies only to integers. It's the remainder (not the fraction) when dividing the numerator by the denominator.
 <pre class = "code">
 //var %x -10 , %y 3.14 | echo -a $calc(%x - %y * $int($calc( %x / %y))) vs $calc(%x % %y)
@@ -103,15 +103,15 @@ Order of Operation PEMDAS means Multiplication and Division and Floor Divide and
 <pre class = "code">
 //echo -a $calc( 2 / 4 * 5 )
 </pre>
-yields 2.5 because it goes left-to-right performing multiplies and divides. It divides 2/4 to obtain 0.5 before multiplying by 5, not multipling 4*5 before dividing that into 2.
+Yields 2.5 because it goes left-to-right performing multiplies and divides. It divides 2/4 to obtain 0.5 before multiplying by 5, not multiplying 4*5 before dividing that into 2.
 <pre class = "code">
 //echo -a $calc( 2 - 3 + 5 )
 </pre>
-yields 4 because it goes left-to-right performing adds and subtracts. It subtracts 3 from 2 = -1, then adds 5.
+Yields 4 because it goes left-to-right performing adds and subtracts. It subtracts 3 from 2 = -1, then adds 5.
 <pre class = "code">
 //echo -a $calc( 0-2^8*3-1 ) vs $calc( -2^8*3-1 ) calc like $calc( (-2)^8*3-1 )
 </pre>
-produce 2 different answers because the presence of the 0 changes the meaning of the hyphen. In the 1st example it's -2 to the 8th power which is +256. That's then multiplied by 3, before having 1 subtracted from it. In the 2nd example, it starts by taking 2 to the 8th power, then multiplying by 3 to obtain the 2nd term 768. Then it starts with zero, subtracts the 768, then subtracts another 1.
+Produce 2 different answers because the presence of the 0 changes the meaning of the hyphen. In the 1st example it's -2 to the 8th power which is +256. That's then multiplied by 3, before having 1 subtracted from it. In the 2nd example, it starts by taking 2 to the 8th power, then multiplying by 3 to obtain the 2nd term 768. Then it starts with zero, subtracts the 768, then subtracts another 1.
 
 Any formula where any term reaches the undefined value returns zero for the entire result, and does not simply treating the individual operation's result as zero then continue operating.
 <pre class = "code">

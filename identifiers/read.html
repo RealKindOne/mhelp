@@ -91,7 +91,7 @@ matches: Same, except begins scanning at line 200.
 
 Uses matchtext containing spaces:
 <pre class = "code">
-//echo -a $read(versions.txt,nts,3.Changed udpate) line: $readn
+//echo -a $read(versions.txt,nts,3.Changed update) line: $readn
 </pre>
 
 Returns $null because that is the full content of the matching line, so there is no remainder-of-line to return. But $readn indicates there was a match.

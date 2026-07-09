@@ -5,7 +5,7 @@
 <H1>$regsubex</H1>
 <br>
 <br>
-The <b>$regsubex</b> identifier performs a regular expression match and then substitute/replace, just like $regsub, but it allows for markers in the replacement and return the substitutions immediatly by default, more information about regex in mIRC (and especially on $regsubex) <a href="../other/regex.html">regex</a>.
+The <b>$regsubex</b> identifier performs a regular expression match and then substitute/replace, just like $regsub, but it allows for markers in the replacement and return the substitutions immediately by default, more information about regex in mIRC (and especially on $regsubex) <a href="../other/regex.html">regex</a>.
 <br>
 
 <br><b>Note</b>: All the matches are made before the replacements, the total number of matches as well as any capture of any match can be accessed in the replacement with <a href="regmlex.html">$regmlex</a>
@@ -66,7 +66,7 @@ Example of using $regsubex to create a series of 32 byte values. Then assuming t
 <pre class = "code">
 //var -s %bytevals $regsubex(foo,$str(x,32),/x/g,$rands(0,255) $+ $chr(32)) | echo -a method1: $lower($regsubex(foo,%bytevals,/(\d+)\s*/g,$base(\t,10,16,2))) | echo -a method2: $sha256(%bytevals)
 </pre>
-Example of ROT13 which replaces the a-m range + 13 as n-z, and replaces n-z with a-m. Also the english version of Atbash which replaces each alpha letter with the letter as if the alphabet was flipped backwards. Wizard was possibly created as a word originally due to being itself spelled backwards in this encoding.
+Example of ROT13 which replaces the a-m range + 13 as n-z, and replaces n-z with a-m. Also the English version of Atbash which replaces each alpha letter with the letter as if the alphabet was flipped backwards. Wizard was possibly created as a word originally due to being itself spelled backwards in this encoding.
 
 <pre class = "code">
 //echo -a $regsubex(maroon 123 FooBar,/([a-zA-Z])/g,$chr( $calc($asc(\t) $iif(\t isin abcdefghijklm,+13,-13) ))))

@@ -66,7 +66,7 @@ $base allows invalid letters to be used in the input, assigning them values as t
 <pre class = "code">
 //echo -a $base(mIRC,10,10) is same as $calc(22*1000 + 18*100 + 27*10+ 12*1)
 </pre>
-The exception to the above is skipping the 0x prefix for hexadecimal notation. Converting from base-16 to base10 results in 255 for both 0xFF and FF. The 0x or 0X prefix is ignored only when tranlating to base16. (Prior to v7.53 it was ignored in every base except 36):
+The exception to the above is skipping the 0x prefix for hexadecimal notation. Converting from base-16 to base10 results in 255 for both 0xFF and FF. The 0x or 0X prefix is ignored only when translating to base16. (Prior to v7.53 it was ignored in every base except 36):
 <pre class = "code">
 //var %i 2 , %a , %value F | while (%i isnum 2-36) { var %a %a $+(base,%i,=,$base(0x $+ %value,%i,10),vs,$base(%value,%i,10)) | inc %i } | echo -a %a
 </pre>

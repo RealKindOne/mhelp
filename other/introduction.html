@@ -391,7 +391,7 @@ This design for command is based on the IRC command format originally, more or l
 So, basically commands calls are great for functions which don't require parameter or when parameters are known not to be a string, or when the string itself is more or less limited by the context/purpose of that command.<br>
 Finally, it's also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can't contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
 
-Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
+Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefully and accordingly for no good reason<br>
 So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
 For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
 <pre class = "code">

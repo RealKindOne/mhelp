@@ -57,7 +57,7 @@ Creates item named "countdown" with the value 123.45 then decrements it by 1 eac
 //hadd -z test countdown 123.45 | .timerX 5 1 echo 4 -a value $!hget(test,countdown) unsets in $!hget(test,countdown).unset
 </pre>
 
-Same as above, except -u3 causes the item to unset 3 seconds in the future before it decements to zero.
+Same as above, except -u3 causes the item to unset 3 seconds in the future before it decreases to zero.
 <pre class = "code">
 //hadd -zu3 test countdown 123.45 | .timerX 5 1 echo 4 -a value $!hget(test,countdown) unsets in $!hget(test,countdown).unset
 </pre>
