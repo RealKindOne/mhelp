@@ -838,6 +838,10 @@
 		<param name="Local" value="identifiers\ialchan.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$ialmark">
+		<param name="Local" value="identifiers\ialmark.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$ibl">
 		<param name="Local" value="identifiers\ibl.html">
 		</OBJECT>
@@ -1706,6 +1710,10 @@
 		<param name="Local" value="identifiers\sfile.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$sfstate">
+		<param name="Local" value="identifiers\sfstate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$sha1">
 		<param name="Local" value="identifiers\sha1.html">
 		</OBJECT>
@@ -2110,16 +2118,8 @@
 		<param name="Local" value="commands\action.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="/action">
-		<param name="Local" value="commands\action.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/add">
 		<param name="Local" value="commands\add.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="/ajinvite">
-		<param name="Local" value="commands\ajinvite.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/ajinvite">
@@ -2248,6 +2248,18 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/close">
 		<param name="Local" value="commands\close.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/closechats">
+		<param name="Local" value="commands\closechats.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/closedccs">
+		<param name="Local" value="commands\closedccs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="/closefserves">
+		<param name="Local" value="commands\closefserves.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="/closemsg">

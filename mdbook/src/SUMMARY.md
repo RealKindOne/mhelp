@@ -866,6 +866,8 @@
     - [C]()
       - [On Char](events/on_char.md)
       - [On Chat](events/on_chat.md)
+      - [On Chatclose](events/on_chatclose.md)
+      - [On Chatopen](events/on_chatopen.md)
       - [On Close](events/on_close.md)
       - [On Connect](events/on_connect.md)
       - [On Connectfail](events/on_connectfail.md)
