@@ -3312,335 +3312,335 @@
 		<param name="Local" value="index.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_action">
+		<param name="Name" value="on Action">
 		<param name="Local" value="events\on_action.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_active">
+		<param name="Name" value="on Active">
 		<param name="Local" value="events\on_active.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_agent">
+		<param name="Name" value="on Agent">
 		<param name="Local" value="events\on_agent.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_appactive">
+		<param name="Name" value="on Appactive">
 		<param name="Local" value="events\on_appactive.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_ban">
+		<param name="Name" value="on Ban">
 		<param name="Local" value="events\on_ban.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_char">
+		<param name="Name" value="on Char">
 		<param name="Local" value="events\on_char.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_chat">
+		<param name="Name" value="on Chat">
 		<param name="Local" value="events\on_chat.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_chatclose">
+		<param name="Name" value="on Chatclose">
 		<param name="Local" value="events\on_chatclose.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_chatopen">
+		<param name="Name" value="on Chatopen">
 		<param name="Local" value="events\on_chatopen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_close">
+		<param name="Name" value="on Close">
 		<param name="Local" value="events\on_close.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_connect">
+		<param name="Name" value="on Connect">
 		<param name="Local" value="events\on_connect.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_connectfail">
+		<param name="Name" value="on Connectfail">
 		<param name="Local" value="events\on_connectfail.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_ctcpreply">
+		<param name="Name" value="on Ctcpreply">
 		<param name="Local" value="events\on_ctcpreply.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_dccserver">
+		<param name="Name" value="on Dccserver">
 		<param name="Local" value="events\on_dccserver.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_dehelp">
+		<param name="Name" value="on Dehelp">
 		<param name="Local" value="events\on_dehelp.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_deop">
+		<param name="Name" value="on Deop">
 		<param name="Local" value="events\on_deop.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_deowner">
+		<param name="Name" value="on Deowner">
 		<param name="Local" value="events\on_deowner.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_devoice">
+		<param name="Name" value="on Devoice">
 		<param name="Local" value="events\on_devoice.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_dialog">
+		<param name="Name" value="on Dialog">
 		<param name="Local" value="events\on_dialog.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_disconnect">
+		<param name="Name" value="on Disconnect">
 		<param name="Local" value="events\on_disconnect.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_dns">
+		<param name="Name" value="on Dns">
 		<param name="Local" value="events\on_dns.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_error">
+		<param name="Name" value="on Error">
 		<param name="Local" value="events\on_error.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_exit">
+		<param name="Name" value="on Exit">
 		<param name="Local" value="events\on_exit.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_filercvd">
+		<param name="Name" value="on Filercvd">
 		<param name="Local" value="events\on_filercvd.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_filesent">
+		<param name="Name" value="on Filesent">
 		<param name="Local" value="events\on_filesent.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_getfail">
+		<param name="Name" value="on Getfail">
 		<param name="Local" value="events\on_getfail.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_help">
+		<param name="Name" value="on Help">
 		<param name="Local" value="events\on_help.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_hotlink">
+		<param name="Name" value="on Hotlink">
 		<param name="Local" value="events\on_hotlink.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_input">
+		<param name="Name" value="on Input">
 		<param name="Local" value="events\on_input.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_invite">
+		<param name="Name" value="on Invite">
 		<param name="Local" value="events\on_invite.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_join">
+		<param name="Name" value="on Join">
 		<param name="Local" value="events\on_join.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_keydown">
+		<param name="Name" value="on Keydown">
 		<param name="Local" value="events\on_keydown.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_keyup">
+		<param name="Name" value="on Keyup">
 		<param name="Local" value="events\on_keyup.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_kick">
+		<param name="Name" value="on Kick">
 		<param name="Local" value="events\on_kick.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_load">
+		<param name="Name" value="on Load">
 		<param name="Local" value="events\on_load.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_logon">
+		<param name="Name" value="on Logon">
 		<param name="Local" value="events\on_logon.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_midiend">
+		<param name="Name" value="on Midiend">
 		<param name="Local" value="events\on_midiend.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_mode">
+		<param name="Name" value="on Mode">
 		<param name="Local" value="events\on_mode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_mp3end">
+		<param name="Name" value="on Mp3end">
 		<param name="Local" value="events\on_mp3end.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_nick">
+		<param name="Name" value="on Nick">
 		<param name="Local" value="events\on_nick.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_nosound">
+		<param name="Name" value="on Nosound">
 		<param name="Local" value="events\on_nosound.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_notice">
+		<param name="Name" value="on Notice">
 		<param name="Local" value="events\on_notice.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_notify">
+		<param name="Name" value="on Notify">
 		<param name="Local" value="events\on_notify.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_op">
+		<param name="Name" value="on Op">
 		<param name="Local" value="events\on_op.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_open">
+		<param name="Name" value="on Open">
 		<param name="Local" value="events\on_open.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_owner">
+		<param name="Name" value="on Owner">
 		<param name="Local" value="events\on_owner.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_parseline">
+		<param name="Name" value="on Parseline">
 		<param name="Local" value="events\on_parseline.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_part">
+		<param name="Name" value="on Part">
 		<param name="Local" value="events\on_part.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_ping">
+		<param name="Name" value="on Ping">
 		<param name="Local" value="events\on_ping.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_playend">
+		<param name="Name" value="on Playend">
 		<param name="Local" value="events\on_playend.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_pong">
+		<param name="Name" value="on Pong">
 		<param name="Local" value="events\on_pong.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_queryclose">
+		<param name="Name" value="on Queryclose">
 		<param name="Local" value="events\on_queryclose.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_queryopen">
+		<param name="Name" value="on Queryopen">
 		<param name="Local" value="events\on_queryopen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_quit">
+		<param name="Name" value="on Quit">
 		<param name="Local" value="events\on_quit.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_rawmode">
+		<param name="Name" value="on Rawmode">
 		<param name="Local" value="events\on_rawmode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_sendfail">
+		<param name="Name" value="on Sendfail">
 		<param name="Local" value="events\on_sendfail.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_serv">
+		<param name="Name" value="on Serv">
 		<param name="Local" value="events\on_serv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_servclose">
+		<param name="Name" value="on Servclose">
 		<param name="Local" value="events\on_servclose.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_servermode">
+		<param name="Name" value="on Servermode">
 		<param name="Local" value="events\on_servermode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_serverop">
+		<param name="Name" value="on Serverop">
 		<param name="Local" value="events\on_serverop.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_servopen">
+		<param name="Name" value="on Servopen">
 		<param name="Local" value="events\on_servopen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_signal">
+		<param name="Name" value="on Signal">
 		<param name="Local" value="events\on_signal.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_snotice">
+		<param name="Name" value="on Snotice">
 		<param name="Local" value="events\on_snotice.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_sockclose">
+		<param name="Name" value="on Sockclose">
 		<param name="Local" value="events\on_sockclose.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_socklisten">
+		<param name="Name" value="on Socklisten">
 		<param name="Local" value="events\on_socklisten.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_sockopen">
+		<param name="Name" value="on Sockopen">
 		<param name="Local" value="events\on_sockopen.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_sockread">
+		<param name="Name" value="on Sockread">
 		<param name="Local" value="events\on_sockread.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_sockwrite">
+		<param name="Name" value="on Sockwrite">
 		<param name="Local" value="events\on_sockwrite.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_songend">
+		<param name="Name" value="on Songend">
 		<param name="Local" value="events\on_songend.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_start">
+		<param name="Name" value="on Start">
 		<param name="Local" value="events\on_start.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_tabcomp">
+		<param name="Name" value="on Tabcomp">
 		<param name="Local" value="events\on_tabcomp.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_text">
+		<param name="Name" value="on Text">
 		<param name="Local" value="events\on_text.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_topic">
+		<param name="Name" value="on Topic">
 		<param name="Local" value="events\on_topic.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_udpread">
+		<param name="Name" value="on Udpread">
 		<param name="Local" value="events\on_udpread.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_udpwrite">
+		<param name="Name" value="on Udpwrite">
 		<param name="Local" value="events\on_udpwrite.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_unban">
+		<param name="Name" value="on Unban">
 		<param name="Local" value="events\on_unban.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_unload">
+		<param name="Name" value="on Unload">
 		<param name="Local" value="events\on_unload.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_unotify">
+		<param name="Name" value="on Unotify">
 		<param name="Local" value="events\on_unotify.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_usermode">
+		<param name="Name" value="on Usermode">
 		<param name="Local" value="events\on_usermode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_vcmd">
+		<param name="Name" value="on Vcmd">
 		<param name="Local" value="events\on_vcmd.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_voice">
+		<param name="Name" value="on Voice">
 		<param name="Local" value="events\on_voice.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_wallops">
+		<param name="Name" value="on Wallops">
 		<param name="Local" value="events\on_wallops.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="on_waveend">
+		<param name="Name" value="on Waveend">
 		<param name="Local" value="events\on_waveend.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
