@@ -138,9 +138,9 @@ Aliases and events are also entities which associate one or more statements to t
 <p>
 If the context allow it, you can omit using the pair of spaced out { } around the statements:
 <p>
--For aliases and events, this is when you put all of the statements associated to the alias/event into a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.
+For aliases and events, this is when you put all of the statements associated to the alias/event into a single line using pipe to separate the statements (we just did it above for the fun alias). This is because the single line ensures that all statements belong to the alias/event.
 <p>
--For conditional statement, that's when only a single statement is associated to the condition.
+For conditional statement, that's when only a single statement is associated to the condition.
 <p>
 However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.
 <p>
@@ -299,9 +299,9 @@ If you execute statements from editboxes, in order for the $identifiers, %variab
 <h4>Alias name restriction</h4>
 Alias name can be pretty much anything, they can not contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:
 <p>
--aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
+Aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
 <p>
--digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you would not be able to use $1.
+Digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you would not be able to use $1.
 
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="../identifiers/rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:

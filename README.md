@@ -72,13 +72,23 @@ alias example {
 
 ## Adding new commands, identifiers or other stuff
 
-You need to add the file into: index.hhk, mhelp.hhp.
+CHM:
+
+Add files into: index.hhk, mhelp.hhp.
 
 Command: commands.html
 
 Identifiers: identifiers.html
 
 Events: events.html
+
+
+mdBook:
+
+Add files into: mdbook/SUMMARY.md
+
+
+--- 
 
 Some identifiers like $highlight can be used with and without parentheses. They get separate pages. The one with the parentheses gets a trailing '_'.
 
