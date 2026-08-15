@@ -55,13 +55,13 @@ Echo to the active screen the following decoded text, using the Mime type:
 <H4>Decoding Quirks</H4>
 Because base64/mime decodes from 4 text to 3 bytes, and base32 decodes from 8 text to 5 bytes, there can be strings where adding an additional digit to the encoding string does not result in longer output, due to each base64 digit representing 6 bits and base32 digits representing 5.
 
-<p>As with most decoders, even though encoders fill unused bit positions with '0' bits, $decode ignores if they are not 0's. For example, every encoded string created by $encode which uses '=' has at least 1 unused encoding bit that wasn't needed to encode the input byte string, which is why the mime encodings ending with '==' only ever have the final mime character being any of 'AQgw'.
+<p>As with most decoders, even though encoders fill unused bit positions with '0' bits, $decode ignores if they are not 0's. For example, every encoded string created by $encode which uses '=' has at least 1 unused encoding bit that was not needed to encode the input byte string, which is why the mime encodings ending with '==' only ever have the final mime character being any of 'AQgw'.
 
 <p>So, if creating a string containing random base64 or base32 characters, if the length is such that $encode would have added '=' padding, there will be multiple characters in the final position who are treated as if the same when the string is decoded.
 <pre class = "code">
 //echo -a $decode(YmJiYmE,m) $decode(YmJiYmF,m) $decode(YmJiYmG,m) $decode(YmJiYmH,m) $decode(YmJiYmI,m) -&gt; bbbba bbbba bbbba bbbba bbbbb
 </pre>
-Though decode does not currently require the presence of the '=' padding so it could correctly decode the string, some past versions might, and it won't harm anything to append a '=' to the encoded string to be certain.
+Though decode does not currently require the presence of the '=' padding so it could correctly decode the string, some past versions might, and it will not harm anything to append a '=' to the encoded string to be certain.
 
 <p>Base32's decoder is designed to support Google Authenticator format, which means that it ignores spaces padding, but also ignores hyphens, and accepts the 018 digits as if they were mistakes intending to be the base32 symbols O L B:
 
@@ -104,14 +104,14 @@ The same thing happens in reverse, where a message was created using the 'ir' sw
 $decode also ignores the content of the salt parameter if it detects the 'Salted__' label, and instead uses the bytes it finds there.
 //var -s %encrypt $encode(message,mcs,key,abcdefgh) , %decrypt $decode(%encrypt,mcs,key,12345678)
 </pre>
-While this is intended to help users who don't use the correct syntax, it does not permit ciphertext to be perfectly decrypted when correct syntax is used. Using the 'ci' switches without using 'r' results in encrypting using a user-defined literal IV but does not increase the filesize by 16 bytes in order to attach it as a header. In the rare cases where this results in encrypting a message so that the first 8 bytes of the actual ciphertext matches either of the 'Salted__' or 'RandomIV' labels, $decode again ignores the user switches and decides that the 1st block of the ciphertext must be a label instead, and then it uses the 2nd block of ciphertext as if it were either a salt or IV string, then begins decryption as of the 3rd 8-byte chunk of the message, resulting in either correct decryption for the message excluding the 1st 16 bytes, or having the output garbled due to using ciphertext as a salt in order to arrive at a completely wrong salted-key and salted-IV.
+While this is intended to help users who do not use the correct syntax, it does not permit ciphertext to be perfectly decrypted when correct syntax is used. Using the 'ci' switches without using 'r' results in encrypting using a user-defined literal IV but does not increase the filesize by 16 bytes in order to attach it as a header. In the rare cases where this results in encrypting a message so that the first 8 bytes of the actual ciphertext matches either of the 'Salted__' or 'RandomIV' labels, $decode again ignores the user switches and decides that the 1st block of the ciphertext must be a label instead, and then it uses the 2nd block of ciphertext as if it were either a salt or IV string, then begins decryption as of the 3rd 8-byte chunk of the message, resulting in either correct decryption for the message excluding the 1st 16 bytes, or having the output garbled due to using ciphertext as a salt in order to arrive at a completely wrong salted-key and salted-IV.
 <br>
 This next command encrypts the message using a literal key and a literal IV without storing the IV into the message header. Because the 1st 8 bytes of the ciphertext matches the 'RandomIV' label, the 1st 16 bytes of the decrypted string is missing:
 <pre class = "code">
-//var -sp %switches mcli , %key key encrypts 1st block of ciphertext as 'RandomIV', %iv 122 228 210 234 175 127 205 30 , %iv $regsubex(%iv,/(\d+) ?/g,$chr(\t)) , %original This isn't shownButThisIs , %enc $encode(%original,%switches,%key,%iv) | bset -t &v 1 %enc | echo -a $decode(&v,bm) 1st 8 bytes of ciphertext: $bvar(&v,1-8).text | echo 3 -a original:msg: %original | echo 4 -a decrypted as: $decode(%enc,%switches,%key,%iv)
+//var -sp %switches mcli , %key key encrypts 1st block of ciphertext as 'RandomIV', %iv 122 228 210 234 175 127 205 30 , %iv $regsubex(%iv,/(\d+) ?/g,$chr(\t)) , %original This is not shownButThisIs , %enc $encode(%original,%switches,%key,%iv) | bset -t &v 1 %enc | echo -a $decode(&v,bm) 1st 8 bytes of ciphertext: $bvar(&v,1-8).text | echo 3 -a original:msg: %original | echo 4 -a decrypted as: $decode(%enc,%switches,%key,%iv)
 result:
 1st 8 bytes of ciphertext: RandomIV
-original msg: This isn't shownButThisIs
+original msg: This is not shownButThisIs
 decrypted as: ButThisIs
 </pre>
 In the next example, the same $encode switches for encrypting using a literal IV and literal key results in ciphertext whose 1st 8 bytes matches the 'Salted__' label. This makes $decode ignore the 'li' switches being used, and ignores the content of the IV parameter. Instead, it combines the key parameter with bytes 9-16 of the ciphertext as if that's a salt, causing $decode to generate the completely wrong salted key used for decryption, resulting in completely garbled output.
@@ -123,7 +123,7 @@ result:
 original::::: Garbled Decryption Of 3rd Block and later
 decrypted as: ?¦h�Û_Z.4Kò?Ñ�H)O?R´?R?i®´¹:&#212;w
 </pre>
-Solution: If you use syntax which results in an encrypted file which doesn't have either of the 2 headers-with-labels, either the encryptor needs to reverse the mime layer to check if the ciphertext happens to begin with bytes which match either of the label strings then try encrypting again with a different IV, or else the decryptor must always remove the mime layer in order to insert a fake header if such a situation happens.
+Solution: If you use syntax which results in an encrypted file which does not have either of the 2 headers-with-labels, either the encryptor needs to reverse the mime layer to check if the ciphertext happens to begin with bytes which match either of the label strings then try encrypting again with a different IV, or else the decryptor must always remove the mime layer in order to insert a fake header if such a situation happens.
 <br>
 You can avoid doing that most of the time by checking to see if the base64 string begins with the first 10 base64 symbols that are the encoding of the 2 labels.
 <br>

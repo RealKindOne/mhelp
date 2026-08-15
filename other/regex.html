@@ -124,7 +124,7 @@ $regmlex([name],M,N)
 </pre>
 
 
-As stated above for $regml, when /g is used, $regml can be inconvenient: you cannot get all the captured group for a given match number for sure when you don't know about the pattern or input string in advance, this identifier allows you to retrieve these captured groups (backreferences). M is the Mth match and N is the Nth capturing group, N default to 1 if not specified. It supports the same properties as $regml.
+As stated above for $regml, when /g is used, $regml can be inconvenient: you cannot get all the captured group for a given match number for sure when you do not know about the pattern or input string in advance, this identifier allows you to retrieve these captured groups (backreferences). M is the Mth match and N is the Nth capturing group, N default to 1 if not specified. It supports the same properties as $regml.
 
 
 <H4>$regsub</H4>
@@ -221,7 +221,7 @@ An example of this is shown below:
 $regsubex(abcdefgij,/([a-z])/g,&lt;\6&gt;)
 </pre>
 Here we have a break-down of the results of this regex:
-<br>The <b>\6</b> doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
+<br>The <b>\6</b> does not mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)
 <br>When '<b>a</b>' is matched, <b>\n</b> is <b>1</b>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with ''$regml(1 + 6 -1) = $regml(6)'', which is <b>f</b>
 <br>When '<b>b</b>' is matched, <b>\n</b> is <b>2</b>, <b>$1</b> is then filled with ''$regml(2 + 6 - 1) = $regml(7)'', which is <b>g</b>
 <br>And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, <b>$null</b> is used.
@@ -229,7 +229,7 @@ Here we have a break-down of the results of this regex:
 <H4>Nested calls</H4>
 Nested <b>$regsubex</b> calls are possible, but caution must be taken with markers.
 
-First of all, if you use the /g modifier in either the outer or the inner $regsubex call and you need to use the different backreferences made in either of them, you must give a name to either one or both of them, otherwise, the call of the inner $regsubex will overwrite the backreferences of the outer $regsubex (if you don't use a name, mIRC use a default name, which would be the same here).
+First of all, if you use the /g modifier in either the outer or the inner $regsubex call and you need to use the different backreferences made in either of them, you must give a name to either one or both of them, otherwise, the call of the inner $regsubex will overwrite the backreferences of the outer $regsubex (if you do not use a name, mIRC use a default name, which would be the same here).
 
 When mIRC replaces the markers, it will do so on the whole subtext parameter, consider:
 <pre class = "code">
@@ -240,7 +240,7 @@ In the above example, the outer <b>$regsubex</b> will make the regex match, then
 <pre class = "code">
 $regsubex(\t,/(.)/g,$upper(\t))
 </pre>
-All occurrences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
+All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code will not work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
 <p>
 The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer <b>$regsubex</b> context.
 <p>
@@ -295,7 +295,7 @@ However remember that the subtext is not evaluated before the regex match is don
 $regsubex(cd,/(.)/g,$upper( $+ $2 $+ )))
 </pre>
 
-As you can see, mIRC adds the <b>$+</b> if the markers have text surrounding them, that's why you don't need to space them out like identifiers.
+As you can see, mIRC adds the <b>$+</b> if the markers have text surrounding them, that's why you do not need to space them out like identifiers.
 You might understand why it's failing at this point: $2 has no value in this example because no marker are used in this inner $regsubex's subtext parameter, so $2 is $null.
 
 So how do you use the value of the marker of the outer $regsubex inside the subtext of the inner $regsubex?

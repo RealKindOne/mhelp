@@ -27,9 +27,9 @@ result: Khaledbar vs Khaledfoo123bar and Khaled vs Khaledxyz and parm3test and K
 <H4>Range</H4>
 
 $1- Returns the full line/parameters because '-' is actually used to set a range.
-
+<p>
 By adding a number after the '-' character, you can get multiple consecutive word/parameter, $1-2 returns from the first word/parameter to the second word/parameter.
-
+<p>
 So $1- means from the first word/parameter to the last/parameter, aka from the first word onward and $3- is from the third word/parameter onward.
 
 
@@ -45,11 +45,18 @@ None
 
 When using certain <a href="../other/token.html">Tokens function</a> such as <a href="gettok.html">$gettok</a>, you can sometimes use a range for the N parameter, in this case you can specify a range too, but with an extra feature, both number can be negative.
 
-Negative numbers means that mIRC looks from the end instead of the start:
+Negative numbers means that mIRC looks from the end instead of the start:<br>
+Returns B, the first word starting from the end:
 <pre class = "code">
-$gettok(A B C D E F,-1,32) returns B, the first word starting from the end
-$gettok(A B C D E F,-2-,32) returns E F, from the second word starting from the end, and then the last '-' means 'onward' as usual
-$gettok(A B C D E F,-2--5,32) returns B C D E, from the second word starting from the end, to the 5th word, starting from the end
+$gettok(A B C D E F,-1,32)
+</pre>
+Returns E F, from the second word starting from the end, and then the last '-' means 'onward' as usual:
+<pre class = "code">
+$gettok(A B C D E F,-2-,32)
+</pre>
+Returns B C D E, from the second word starting from the end, to the 5th:
+<pre class = "code">
+$gettok(A B C D E F,-2--5,32)
 </pre>
 
 <H4>Example</H4>
@@ -92,7 +99,7 @@ Note: even though $parms preserves consecutive spaces, a /command like /dcc send
 <pre class = "code">
 In a popups menu, $1 $2 etc reference the 1st, 2nd, etc nicks highlighted in a window (top to bottom), with $0 being the total number of highlighted nicks. Because this example uses $$2- it does nothing unless there are at least 2 nicks highlighted. (Using double dollar with an identifier halts the script execution if the identifier returns null
 
-TroutSlap2!:me slaps $$1- around a bit with a GMO trout. And don't rest easy $$2- I'm coming for you too!
+TroutSlap2!:me slaps $$1- around a bit with a GMO trout. And do not rest easy $$2- I'm coming for you too!
 </pre>
 
 
@@ -102,7 +109,7 @@ In Options/mouse/drop, there are default entries for drag/drop of filenames from
 //var %a nick "test $chr(32) filename.wav" | var -s %a2 $remove($mid(%a,$calc(1+$pos(%a,$chr(32)))),"),$chr(32),$chr(160)
 </pre>
 
-Because $ has special meaning in regex, $1 in the replacement term must be evaluated with [ ] or placed in a variable, as even $eval($1,2) won't work:
+Because $ has special meaning in regex, $1 in the replacement term must be evaluated with [ ] or placed in a variable, as even $eval($1,2) will not work:
 <pre class = "code">
 //tokenize 32 foo bar | var %a $1 | echo -a $regsubex(foo bar,( $+ $1 $+ ),new $qt( [ $1 ] ) )
 //tokenize 32 foo bar | var %a $1 | echo -a $regsubex(foo bar,( $+ $1 $+ ),new $qt(%a) )

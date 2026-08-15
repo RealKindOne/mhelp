@@ -5,7 +5,7 @@
 <H1>$hash</H1>
 <br>
 <br>
-The <b>$hash</b> identifier calculates a simple hash of the supplied text. The hash is shown as an integer in the range from 0 to 2^N-1 where N is the number of bits ranging from 2-32. Except for compatibility with legacy scripts, you should probably avoid using this hash for reasons explained in the Notes section. It's possible that $hash() was once the method used by /hadd to put an item into one of the hash table's "buckets", but that was not the case at the point when it was changed to use 'modified FNV-1A'. Alternate solutions are suggested below.
+The <b>$hash</b> identifier calculates a simple hash of the supplied text. The hash is shown as an integer in the range from 0 to 2^N-1 where N is the number of bits ranging from 2-32. Except for compatibility with legacy scripts, you should probably avoid using this hash for reasons explained in the Notes section. It is possible that $hash() was once the method used by /hadd to put an item into one of the hash table's "buckets", but that was not the case at the point when it was changed to use 'modified FNV-1A'. Alternate solutions are suggested below.
 
 
 <H4>Synopsis</H4>
@@ -15,7 +15,7 @@ $hash(&lt;text&gt;,&lt;N&gt;)
 
 <H4>Parameters</H4>
 <b>text</b> - Text string or %variable to be hashed.
-<br><b>B</b> - Bit length for the returned hash. $hash returns $null if B is a number outside the range 2-32, and returns the original string if the B parameter isn't used. Returned hash is an integer in the range 0 to 2^B -1.
+<br><b>B</b> - Bit length for the returned hash. $hash returns $null if B is a number outside the range 2-32, and returns the original string if the B parameter is not used. Returned hash is an integer in the range 0 to 2^B -1.
 
 <H4>Properties</H4>
 None
@@ -59,7 +59,7 @@ Here, 3 bits changed in the input changes only 1 bit of the output:
 returns: 4952B000 vs 4952B100
 </pre>
 
-* 4. It's easy to create duplicate hashes from different inputs:
+* 4. It is easy to create duplicate hashes from different inputs:
 
 <pre class = "code">
 //echo -a $base($hash(ABCDEF,32),10,16) / $base($hash(ABDDEE,32),10,16)
@@ -99,7 +99,7 @@ alias sha1hash {
 returns: 9AB6235ED89DF vs D2F9CD20CA42B
 </pre>
 
-The above borrows code from $hotp which uses the final digit of the hash to determine which digits within the SHA* hash are used. This next variant is faster, because it doesn't calculate the offset, and it also uses the faster MD5. Because of the 2^53 accuracy limit for $calc, this allows the hash to be up to 52 bits instead of the 32 bits for $hash, and you can easily substitute any of the SHA* identifiers in place of $md5.
+The above borrows code from $hotp which uses the final digit of the hash to determine which digits within the SHA* hash are used. This next variant is faster, because it does not calculate the offset, and it also uses the faster MD5. Because of the 2^53 accuracy limit for $calc, this allows the hash to be up to 52 bits instead of the 32 bits for $hash, and you can easily substitute any of the SHA* identifiers in place of $md5.
 
 <pre class = "code">
 alias md5hash { return $calc( $base($right($md5($1),13),16,10) % (2^$iif($$2 isnum 1-52,$gettok($2,1,46),32)) )
@@ -185,7 +185,7 @@ If you edit the fakehash alias to use the above $crchash alias instead of $hash,
 bits: 4 #randoms: 10000 stringlen: 8 input range a-z distribution: 624 618 617 627 610 638 624 626 602 635 612 650 632 600 627 658
 </pre>
 
-$crc is not of cryptographic quality, but at least it has a good distribution, and hash functions don't always need a 1-way feature, they just need to be fast. A good distribution is not proof of a good hash, since even a repeating pattern of 1-through-10 has that.
+$crc is not of cryptographic quality, but at least it has a good distribution, and hash functions do not always need a 1-way feature, they just need to be fast. A good distribution is not proof of a good hash, since even a repeating pattern of 1-through-10 has that.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.4 (23 Jun 1998)

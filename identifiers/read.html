@@ -49,7 +49,7 @@ Return a random line from versions.txt even if it is $null:
 //echo -a prev line read was $readn - $read(versions.txt,nt) is line $readn
 </pre>
 
-If you don't use the 'n' switch, and if $read(quotes.txt) randomly chooses the line created by the following command, it will evaluate the identifiers using their current values:
+If you do not use the 'n' switch, and if $read(quotes.txt) randomly chooses the line created by the following command, it will evaluate the identifiers using their current values:
 <pre class = "code">
 //write quotes.txt Banned from $ $+ network until $ $+ gmt($ $+ calc($ $+ ctime +86400*7)) GMT
 </pre>
@@ -69,7 +69,7 @@ Returns If s/r/w switches not used and 3rd parameter is used without being a num
 //echo -a $read(versions.txt,nt,invalid)
 </pre>
 
-Returns Contents of line#3. Because the 'n' switch wasn't used, evaluates any $identifiers and %variables instead of returning strings beginning with "$" or "%".
+Returns Contents of line#3. Because the 'n' switch was not used, evaluates any $identifiers and %variables instead of returning strings beginning with "$" or "%".
 <pre class = "code">
 //echo -a $read(file.txt,t,3)
 </pre>
@@ -91,7 +91,7 @@ matches: Same, except begins scanning at line 200.
 
 Uses matchtext containing spaces:
 <pre class = "code">
-//echo -a $read(versions.txt,nts,3.Changed update) line: $readn
+//echo -a $read(versions.txt,nts,3.Changed udpate) line: $readn
 </pre>
 
 Returns $null because that is the full content of the matching line, so there is no remainder-of-line to return. But $readn indicates there was a match.
@@ -173,7 +173,7 @@ Quirk: if the numeric line 1 is greater than the number of lines, and $read atte
 </pre>
 
 
-Quirk: where line1 is numeric. line 0 is supposed to return the number, but that doesn't happen when 'n' switch is used by itself.
+Quirk: where line1 is numeric. line 0 is supposed to return the number, but that does not happen when 'n' switch is used by itself.
 <pre class = "code">
 //write -c test.dat 40 | write test.dat test2 | echo -a with n: $read(test.dat,n,0) and readn= $readn without n: $read(test.dat,0) and readn= $readn
 </pre>

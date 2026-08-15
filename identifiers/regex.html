@@ -26,7 +26,7 @@ None
 //echo -a $regex(abcd,/[a-z]/g)
 </pre>
 
-If the result is 0 then there were no matches. However it's possible that a syntax error in your pattern causes a negative result, so before using the $regex() result in an if() statement, either be sure to check that you didn't create a pattern subject to a negative result, such as $regex(string,[), or change...
+If the result is 0 then there were no matches. However it's possible that a syntax error in your pattern causes a negative result, so before using the $regex() result in an if() statement, either be sure to check that you did not create a pattern subject to a negative result, such as $regex(string,[), or change...
 
 <pre class = "code">
 from
@@ -53,15 +53,15 @@ mIRC remembers the most recent 50 named searches, and the names are shared betwe
 <pre class = "code">
 //echo -a $regex(foo,foo,/^(.*)$/g) . $regex(Foo,Foo,/^(.*)$/g) $regml(foo,1) $regml(Foo,1) $regex(name1,name1string,/^(.*)$/g) | var %i 2 | while (%i isnum 1-100) { noop $regex(name $+ %i,z,/^(.)$/) | echo -ag %i $regml(foo,1) $regml(Foo,1) $regml(name1,1) | if ($regml(name1,0)) inc %i | else break } | if (!$regml(name1,0)) echo -ag name1 overwritten on $ord(%i) regex call
 </pre>
-If you have a custom alias using a regex search, and the alias is intended to be called from scripts written by you and by others, it's good practice to use a name pattern which is unlikely to be used by other scripts who need to use the result later without worry that it can be overwritten by something else. One methodology is to always use 'foo' with a regex call for which you don't care for the result after your custom alias returns its result. This avoids trampling over results which another script needs to remember later, and avoids creating multiple names which can push the caller script's name off the list.
+If you have a custom alias using a regex search, and the alias is intended to be called from scripts written by you and by others, it's good practice to use a name pattern which is unlikely to be used by other scripts who need to use the result later without worry that it can be overwritten by something else. One methodology is to always use 'foo' with a regex call for which you do not care for the result after your custom alias returns its result. This avoids trampling over results which another script needs to remember later, and avoids creating multiple names which can push the caller script's name off the list.
 
-One efficiency with regex identifiers is to avoid using /g or creating capture groups when you don't need them. If you want to know whether or not a string contains at least 1 'a', don't use /g to count them all. If you want to count how many 'a' or 'b' are within the string, there's 2 ways to do it, note how the 2nd method does not create the 8 capture groups:
+One efficiency with regex identifiers is to avoid using /g or creating capture groups when you do not need them. If you want to know whether or not a string contains at least 1 'a', do not use /g to count them all. If you want to count how many 'a' or 'b' are within the string, there's 2 ways to do it, note how the 2nd method does not create the 8 capture groups:
 
 <pre class = "code">
 //echo -a $regex(foo,abbadabba,  /(a|b)/g) captures: $regml(foo,0)
 //echo -a $regex(foo,abbadabba,/(?:a|b)/g) captures: $regml(foo,0)
 </pre>
-Spaces are treated differently inside regex patterns than outside them. In normal identifiers, leading or trailing spaces are ignored, like how the spaces aren't counted in $len( abc ). However part of the regex syntax requires it to treat all spaces as literal, but only if it's within the pattern. Note how the space within the pattern causes the 1st result to be zero, but the /x modifier causes literal spaces in the pattern to be stripped.
+Spaces are treated differently inside regex patterns than outside them. In normal identifiers, leading or trailing spaces are ignored, like how the spaces are not counted in $len( abc ). However part of the regex syntax requires it to treat all spaces as literal, but only if it's within the pattern. Note how the space within the pattern causes the 1st result to be zero, but the /x modifier causes literal spaces in the pattern to be stripped.
 <pre class = "code">
 //echo -a $regex(foo,abbadabba,/ (?:a|b)/g)  captures: $regml(foo,0)
 //echo -a $regex(foo,abbadabba,/ (?:a|b)/gx) captures: $regml(foo,0)

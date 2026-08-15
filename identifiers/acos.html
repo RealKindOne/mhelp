@@ -35,7 +35,7 @@ Returns: 60 degrees / cosine 0.5 / acos 60
 //var %i 60 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
 </pre>
 
-Returns: 44.999982 instead of 45 because the $cos fraction is limited to 6 places though note that as of 7.76, bigfloat also doesn't return 45, just more decimal 44.999999999999999999999999999988
+Returns: 44.999982 instead of 45 because the $cos fraction is limited to 6 places though note that as of 7.76, bigfloat also does not return 45, just more decimal 44.999999999999999999999999999988
 <pre class = "code">
 //var %i 45 | echo -a %i degrees / cosine $cos(%i).deg / acos $acos( $cos(%i).deg ).deg
 </pre>

@@ -32,9 +32,9 @@ None
 
 <H4>Example</H4>
 
-Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:
+Echo to the active window, the 2nd token as delimited by the $chr(45) hyphen:<br>
+Returns b:
 <pre class = "code">
-; returns b
 //echo -a $gettok(a-b-c-d-e,2,45)
 </pre>
 
@@ -53,33 +53,47 @@ $chr(58) is the colon, $chr(92) is the backslash:
 //var %i $gettok($mircexe,0,92) | echo -a $gettok($mircexe,1- $+ $calc(%i -1) ,92) is mIRC's path without the ending backslash
 </pre>
 
+Returns Mon.Tue.Wed (including the delimiter period between the returned tokens:
 <pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2-4,46)
-; returns Mon.Tue.Wed (including the delimiter period between the returned tokens
+</pre>
+Returns all tokens beginning with the 3rd: Tue.Wed.Thu.Fri.Sat:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,3-,46)
-; returns all tokens beginning with the 3rd: Tue.Wed.Thu.Fri.Sat
-
+</pre>
+Returns 33 because $chr(120) is lower-case x:
+<pre class = "code">
 //echo -a $gettok(11x22x33x44,3,120)
-; returns 33 because $chr(120) is lower-case x
+</pre>
+Returns 33 because duplicate, leading, and trailing delimiters are stripped before $gettok processes the TEXT:
+<pre class = "code">
 //echo -a $gettok(x11xxxx22x33x44x,3,120)
-; also returns 33 because duplicate, leading, and trailing delimiters are stripped before $gettok processes the TEXT
+</pre>
+Returns 44 because the C token is case-sensitive, so capital X is not a delimiter:
+<pre class = "code">
 //echo -a $gettok(11x22X33x44,3,120)
-; returns 44 because the C token is case-sensitive, so capital X isn't a delimiter
-
-$gettok allows the range numbers to be negative
+</pre>
+$gettok allows the range numbers to be negative.<br>
+Returns the 4th-from-last through 2nd-from-last tokens:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-4- $+ -2,46)
-; returns the 4th-from-last through 2nd-from-last tokens
+</pre>
+Returns the last 2 tokens:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-2-,46)
-; returns the last 2 tokens
+</pre>
+Returns 2nd token through 2nd-from-last token:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,2- $+ -2,46)
-; returns 2nd token through 2nd-from-last token
-
-
-$gettok puts range numbers in the correct order before evaluating them.
+</pre>
+$gettok puts range numbers in the correct order before evaluating them.<br>
+Returns same results as if range 3-4 were used:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,4-3,46)
-; returns same results as if range 3-4 were used
+</pre>
+Returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list:
+<pre class = "code">
 //echo -a $gettok(Sun.Mon.Tue.Wed.Thu.Fri.Sat,-4-3,46)
-; returns 4th-from-last token thru the 3rd token regardless whether the 3rd token is the earlier or later token in the list.
 </pre>
 
 <H4>Compatibility</H4>

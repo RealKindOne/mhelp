@@ -46,7 +46,7 @@ hmake &lt;table_name&gt; &lt;buckets&gt;
 ;hmake also have an -s switch which prints debug info
 </pre>
 
-If you don't specify the number of buckets (or "slots"), the default is used, which is 101. If you do specify the number of buckets from 1-10000, for any number greater than 1 which is not prime, mIRC increases the number of buckets to be the next greater prime from 3-10007. Which is why the default 100 uses 101 bucket. Assuming that you are going to look up a specific item by name using <a href="../identifiers/hget.html">$hget</a>, then generally speaking the number of buckets should be decided based on the following equation:
+If you do not specify the number of buckets (or "slots"), the default is used, which is 101. If you do specify the number of buckets from 1-10000, for any number greater than 1 which is not prime, mIRC increases the number of buckets to be the next greater prime from 3-10007. Which is why the default 100 uses 101 bucket. Assuming that you are going to look up a specific item by name using <a href="../identifiers/hget.html">$hget</a>, then generally speaking the number of buckets should be decided based on the following equation:
 
 <math>
   \text{buckets} = \frac{\text{number of items that will be used}}{0.78}
@@ -70,7 +70,7 @@ or
 hadd -b &lt;table_name&gt; &lt;item&gt; &lt;&bvar&gt;
 An item can be added to the table with null data:
 hadd &lt;table_name&gt; &lt;item&gt;
-If it's possible the table is not yet created, use the -m switch, which creates the table if it doesn't exist
+If it's possible the table is not yet created, use the -m switch, which creates the table if it does not exist
 hadd -m &lt;table_name&gt; &lt;item&gt;
 </pre>
 
@@ -338,7 +338,7 @@ mIRC's hash tables are implemented as follows.
 <p>If your hash table has a small number of buckets compared to the number of item records, then each bucket will have a large number of item records:
 
 <p>* For a lookup of an existing item, on average mIRC will have to iterate over 50% of the bucket entries before locating the one you want
-<p>* If you try to find a non-existent item, mIRC will need to iterate over the whole bucket list before determining that the item doesn't exist.
+<p>* If you try to find a non-existent item, mIRC will need to iterate over the whole bucket list before determining that the item does not exist.
 
 <p>As you might imagine, mIRC iterating over a large number of hash table entries to find the item needed is CPU intensive and mIRC might start to feel unresponsive.
 
@@ -368,7 +368,7 @@ Returning to hash tables and buckets, the equivalent formula for a table with M 
 \frac{N!}{(N-M)! * N^M}
 </pre>
 
-Using the student birthday example for simplicity and relating it to hash tables and buckets, if we turn it on its head then we can say that if we have a hash table holding 23 entries, and we want to have a probability that each entry has its own bucket > 50%, then we need to have more than 365 buckets. <b>I bet you weren't expecting that!!</b> Fortunately the performance overhead of iterating over a relatively short linked-list is also small, and equally fortunately a bucket only uses 4-bytes (which is very small indeed compared to the size of a table entry, which consists of the item name and the data and the overhead of storing these and linking them into a list). Indeed mIRC's maximum bucket size is 10,007, requiring c. 40KB of memory - which in today's PCs with several GB of memory is relatively small.
+Using the student birthday example for simplicity and relating it to hash tables and buckets, if we turn it on its head then we can say that if we have a hash table holding 23 entries, and we want to have a probability that each entry has its own bucket > 50%, then we need to have more than 365 buckets. <b>I bet you were not expecting that!!</b> Fortunately the performance overhead of iterating over a relatively short linked-list is also small, and equally fortunately a bucket only uses 4-bytes (which is very small indeed compared to the size of a table entry, which consists of the item name and the data and the overhead of storing these and linking them into a list). Indeed mIRC's maximum bucket size is 10,007, requiring c. 40KB of memory - which in today's PCs with several GB of memory is relatively small.
 <p>
 <b>Summary:</b> If you are doing any lookups by item name on a frequent basis on a large table, then you should use the largest sensible bucket size to avoid mIRC iterating over long linked-lists when doing these lookups.
 <p>
@@ -452,7 +452,7 @@ alias fnv1a-32-mod-alt {
   if (h isin $2) return $base(%hash,10,16,8) | return %hash
 } ; by maroon 2018
 ; If not for the 2^52 limit, the MUL could have been $calc((%hash * 16777619) % 4294967296)
-; because the bits of the product above 2^32 aren't needed. $fnv1a-32-mod-alt(string,[h]) h=hash as hex
+; because the bits of the product above 2^32 are not needed. $fnv1a-32-mod-alt(string,[h]) h=hash as hex
 ; is identical to original FNV1a except adding the following operations after the string is hashed, and in handling of codepoints 256+.
 ;  hash += hash &lt;&lt;13; (same as hash * 8193)
 ;  hash ^= hash &gt;&gt;7;
@@ -486,9 +486,9 @@ alias bucket_sort2 {
 }
 </pre>
 
-This /bucket_sort2 alias uses the above FNV1a-32-mod-alt alias to calculate the bucket each item was assigned. It wasn't until the 23rd item name until an item was assigned to a bucket that wasn't already empty.
+This /bucket_sort2 alias uses the above FNV1a-32-mod-alt alias to calculate the bucket each item was assigned. It was not until the 23rd item name until an item was assigned to a bucket that was not already empty.
 <p>
-For v7.53, this displays the items with a bucket number that sequentially increases. For earlier versions, the bucket number displayed is in a jumbled order because this is not the algorithm used in those versions. It's possible that future mIRC versions will use a different algorithm or use FNV1a in a different manner, so you should not count on items being assigned to the same buckets in past or future mIRC versions.
+For v7.53, this displays the items with a bucket number that sequentially increases. For earlier versions, the bucket number displayed is in a jumbled order because this is not the algorithm used in those versions. It is possible that future mIRC versions will use a different algorithm or use FNV1a in a different manner, so you should not count on items being assigned to the same buckets in past or future mIRC versions.
 <p>
 And even if item names are assigned to the same bucket, the iteration order can list them differently. Note that Item9 and Item23 are both assigned to bucket 13 of 101, and they're listed in table1 in reverse order than their creation order. However it appears that once an item has been deleted from a bucket, future items added to that bucket may not always be be listed in reverse creation order. For example, the 2 comment lines delete Item9 and Item23, but differ in the order those item names are created again. If you remove the semi-colon from 1 of the 2 comment lines, the order lists Item9 before Item23, regardless which semi-colon you remove. Notice above how the "Gary" and "Mary" example using $hfind to find the 1st match could return a different item name, depending which one appeared first in the iteration list, which can vary depending on several factors.
 <p>

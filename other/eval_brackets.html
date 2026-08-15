@@ -202,7 +202,7 @@ I was called!
 Hi!
 </pre>
 
-<b>Note:</b> The graph below was made as though [ [ [ [ [ $!!exe ] ] ] ] ] with fives 5 '!' on $exe instead of two, but for technical reason 3 or more '!' can't be rendered for now.
+<b>Note:</b> The graph below was made as though [ [ [ [ [ $!!exe ] ] ] ] ] with fives 5 '!' on $exe instead of two, but for technical reason 3 or more '!' can not be rendered for now.
 
 <div style="display: block; text-align: center;"><img src="../images/eval6.png"></div>
 
@@ -247,7 +247,7 @@ a David
 </pre>
 
 <H4>$+ Special behaviors</H4>
-Inside evaluation brackets, the $+ concatenation construct (unlike $+(), $+ itself is not an identifier, it doesn't return a value)  exhibits some special behavior.
+Inside evaluation brackets, the $+ concatenation construct (unlike $+(), $+ itself is not an identifier, it does not return a value)  exhibits some special behavior.
 
 <H4>[ A $+ B ] Format</H4>
 The rule about [ A $+ B ] is:
@@ -392,7 +392,7 @@ Which will prints:
 The interpreter is able to handle the commas and braces as part of the code.
 
 <H4>Non spaced out [ ]</H4>
-If you don't space out the [ ], they will be interpreted when the identifier evaluate each parameter:
+If you do not space out the [ ], they will be interpreted when the identifier evaluate each parameter:
 <pre class = "code">
  alias changev1to2 if (2) noop
  alias changev1to3 echo -a param: $1 | if (3) noop
@@ -442,7 +442,7 @@ Note that without a complete pair, a single bracket is not treated as anything s
 //echo -a [[ [[ example! ] ]
 </pre>
 
-It's a good time to also note that escaped evaluation brackets are not exactly the same as using $chr(91) and $chr(93). The escaped evaluation brackets happen at the same phase of evaluation as the actual evaluation bracket processing. Consider the following example:
+It is a good time to also note that escaped evaluation brackets are not exactly the same as using $chr(91) and $chr(93). The escaped evaluation brackets happen at the same phase of evaluation as the actual evaluation bracket processing. Consider the following example:
 
 <pre class = "code">
 //echo -a $mid( [[ [[ example! ]] ]] , 1) =>  $mid( $chr(91) example! $chr(93) , 1)

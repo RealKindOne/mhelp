@@ -21,7 +21,7 @@ None
 <H4>Example</H4>
 <pre class = "code">
 ; When any window is closed, echo the window name
-; to a custom @windowWatcher window. If that window doesn't exist,
+; to a custom @windowWatcher window. If that window does not exist,
 ; create it first.
 on *:CLOSE:*: {
   $iif(!$window(@windowWatcher),window @windowWatcher)

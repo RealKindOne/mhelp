@@ -7,7 +7,7 @@
 <br>
 The <b>$findfile</b> identifier searches the specified directory (and optionally its subdirectories) for the Nth filename matching the <a href="../other/wildcard.html">wildcard</a> file specification and returns the full path and filename if it is found.
 
-<br><b>Note:</b> You can stop the $findfile search using /halt inside the command parameter, /halt won't halt the script execution in this case.
+<br><b>Note:</b> You can stop the $findfile search using /halt inside the command parameter, /halt will not halt the script execution in this case.
 
 <br>                                                          <!-- mdBook remove -->
 <br>                                                          <!-- mdBook remove -->
@@ -54,7 +54,7 @@ Note: Returned string can contain multiple consecutive spaces if the file/folder
 </pre>
 
 <pre class = "code">
-//echo -a Versions.txt $iif($findfile($mircdir,versions.txt,1,1),is,isn't) in the same folder as $nopath($mircini)
+//echo -a Versions.txt $iif($findfile($mircdir,versions.txt,1,1),is,is not) in the same folder as $nopath($mircini)
 
 //echo -a $findfile( $sysdir(profile),*.html,0,999,echo -s $iif($!isfile($1), There are multiple consecutive spaces in the folder\filename $1-))
   Multiple consecutive spaces in folder/file names can cause $file($1-).size to either fail to see an existing file or incorrectly see a similarly named filename without the extra spaces.

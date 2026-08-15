@@ -32,7 +32,7 @@ on $*:hotlink:/^[/$]\S+/:*:{
   }
 }
 </pre>
-Override mIRC's default popups for nickname and replace them with... mIRC's default popups! (useless but that's to show /hotlink -d, this isn't handling /return or halt to show the hand)
+Override mIRC's default popups for nickname and replace them with... mIRC's default popups! (useless but that's to show /hotlink -d, this is not handling /return or halt to show the hand)
 <pre class = "code">
 on *:hotlink:*:*:{
   if ($hotlink(event) $hotlink(match).type == rclick nick) {

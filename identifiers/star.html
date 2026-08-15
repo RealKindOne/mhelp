@@ -8,7 +8,7 @@
 <b>$*</b> is a construct, not an identifier, it allows you to iterate over all of the tokens contained within <a href="1-.html">$1-</a> The way this works is much like a while loop. <br>
 It has been omitted from the help file since while loops were introduced, especially because the behavior of <b>$*</b> is quirky in some places.
 <br>
-It's extremely powerful because it is much faster than using a while loop on a list of tokens.
+It is extremely powerful because it is much faster than using a while loop on a list of tokens.
 
 <H4>Synopsis</H4>
 <pre class = "code">
@@ -33,7 +33,7 @@ This can be written as:
 <pre class = "code">
 tokenize 32 a b c d | echo -a $*
 </pre>
-The above is much smaller, and a lot faster. Pretty cool, isn't it?
+The above is much smaller, and a lot faster. Pretty cool, is not it?
 
 <h4>Notes & Quirks</h4>
 
@@ -55,7 +55,7 @@ Further examining the code, it is easy to understand why the above returns such 
 //tokenize 32 abcd | echo -a $mid($*,2)
 </pre>
 
-Why isn't this returning bcd? Because of the usage of the special marker <b>`~$*</b>, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
+Why is not this returning bcd? Because of the usage of the special marker <b>`~$*</b>, mIRC has stored the command as actually <b>echo -a $mid(`~$*,2)</b>.
 <br>
 Then, for each token (here only <b>$1 == abcd</b>), mIRC evaluates the line. <b>$mid(`~$*,2)</b> becomes <b>~$*</b>, and then mIRC replaces the marker by the token and executes the echo command.
 <br>

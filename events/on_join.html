@@ -7,7 +7,7 @@
 <br>
 The <b>on JOIN</b> event triggers when the mIRC client, or a remote user, joins a channel.
 
-<br><b>Note:</b> When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you won't be opped inside the on join event, and should use on OP event instead.
+<br><b>Note:</b> When you join a channel yourself, $nick($chan,0) is always 1 inside the on join event because mIRC has to send /names to get the nickname; if you want to undertake some processing once the channel user list is complete, then use RAW 366 which indicates the end of the user list. Similarly, if you're an operator on the channel, you will not be opped inside the on join event, and should use on OP event instead.
 
 
 <H4>Synopsis</H4>

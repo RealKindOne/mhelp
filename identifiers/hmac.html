@@ -22,7 +22,7 @@ Due to algorithm design:
 <br>Output is a hash digest that's the same length as the digest for the hash parameter (default sha1)
 <br>If key length is longer than hash block length (128 bytes for sha512/384 64 bytes for md5/sha1/sha256), key shortened to be the binary hash digest of the key.
 <br>HMAC is designed for non-binary keys. Shorter keys are padded with 0x00's to 'hash's block length', so keys differing by the number of trailing 0x00's are identical.
-<br>Because HMAC uses 2 nested hashes using 2 modified copies of the key, usage as an authentication hash is not vulnerable to the length extension attack against auth_hash=$sha512(secret $+ message), and using hash=md5 isn't as vulnerable to the other weaknesses in md5.
+<br>Because HMAC uses 2 nested hashes using 2 modified copies of the key, usage as an authentication hash is not vulnerable to the length extension attack against auth_hash=$sha512(secret $+ message), and using hash=md5 is not as vulnerable to the other weaknesses in md5.
 
 <H4>Properties</H4>
 None
@@ -45,7 +45,7 @@ Keyless hmac of each file in the $mircdir folder:
 </pre>
 
 <H4>Warning</H4>
-From v7.54 back through at least v6.35, $hmac corrupts the &binvar if the length is 128+ and a multiple of 64 and contains at least 1 byte that isn't 0x00. This also affects using the $sha1 identifier against &binvar too. It returns the correct HMAC hash of the input &binvar in spite of destroying it.
+From v7.54 back through at least v6.35, $hmac corrupts the &binvar if the length is 128+ and a multiple of 64 and contains at least 1 byte that is not 0x00. This also affects using the $sha1 identifier against &binvar too. It returns the correct HMAC hash of the input &binvar in spite of destroying it.
 <pre class = "code">
 //bset &v 128 1 | noop $hmac(&v,key,sha1,1) | echo -a $bvar(&v,1-)
 </pre>
@@ -53,7 +53,7 @@ Through v7.53, $hmac using hash method sha512 or sha384 and a key whose length i
 <pre class = "code">
 //echo -a $hmac(message,$str(z,65),sha512)
 </pre>
-Should be:
+Should be: 
 <pre class = "code">
 9268b9d645082fc13c54f4590883961ab2adf80b169614d4eb90fe5a645f7d4aed13b9e3151623a7fb0ef2480182879ed7d530f1d169d352ad311054ef4d14f1
 </pre>

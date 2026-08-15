@@ -36,9 +36,9 @@ This identifier fills the <a href="_exclamation.html">$!</a> identifier with the
 
 The $? identifier has some parsing issues, it has been replaced by <a href="input.html">$input</a> to overcome these issues:<br>
 
-If you don't pass the ending quote with the text parameter while passing a starting quote, the script is halted. <br>
+If you do not pass the ending quote with the text parameter while passing a starting quote, the script is halted. <br>
 
-$? can be used without the '=' sign as long as you either don't pass a text parameter, or that this parameter contain a balanced number of quotes, $? $?"test" $?"test words" are all valid usages.<br>
+$? can be used without the '=' sign as long as you either do not pass a text parameter, or that this parameter contain a balanced number of quotes, $? $?"test" $?"test words" are all valid usages.<br>
 
 In fact, mIRC start looking for a valid parameter when you start the first quote, regardless of if you used '=' or not, $?ignored"this is the message" will actually ignore the part before the first quote<br>
 

@@ -5,7 +5,7 @@
 <H1>$comcall</H1>
 <br>
 <br>
-The <b>$comcall</b> identifier calls a member of an open COM connection with the specified method and parameter, it is multithreaded and won't halt the script, an alias is called once the call returns.
+The <b>$comcall</b> identifier calls a member of an open COM connection with the specified method and parameter, it is multithreaded and will not halt the script, an alias is called once the call returns.
 <p>
 If $comcall() fails when calling an object and $com() does not, this means that the object is not compatible with the threading model of mIRC, so $com() must be used. You can check the $comerr value in the alias to determine if a $comcall() failed or not.
 

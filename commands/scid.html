@@ -61,7 +61,7 @@ alias gamsg {
     halt
   }
   ; all active connections
-  ; if you don't use $unsafe, $1- is evaluated twice, watch out!
+  ; if you do not use $unsafe, $1- is evaluated twice, watch out!
   scid -at1 amsg $unsafe($1-)
 }
 </pre>

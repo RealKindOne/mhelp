@@ -5,7 +5,7 @@
 <H1>TCP Sockets</H1>
 <br>
 <br>
-mIRC has built-in support for TCP Sockets. This tutorial is the TCP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one.
+mIRC has built-in support for TCP Sockets. This tutorial is the TCP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you have not read that, please do so first before moving on to this one.
 <p>
 Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
 <p>
@@ -73,7 +73,7 @@ alias YouTube {
 </pre>
 
 <H4>The Socket Mark</H4>
-In the example above we introduced another command, the <a href="../commands/sockmark.html">/sockmark</a> command. The <a href="../commands/sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="../identifiers/sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+In the example above we introduced another command, the <a href="../commands/sockmark.html">/sockmark</a> command. The <a href="../commands/sockmark.html">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="../identifiers/sock.html">$sock()</a>.mark identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you do not need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
 
 <pre class = "code">
 sockmark &lt;handle&gt; &lt;value&gt;
@@ -111,7 +111,7 @@ sockwrite -b[tn] &lt;name&gt; &lt;numbytes&gt; &lt;text|%var|&binvar&gt;
 By default, all space-delimited tokens that begin with the '&' symbol are treated as binary variables. The -t switch can be used to make the /sockwrite command treat it all as plain text instead.
 
 <H4>The Sockwrite -n Switch and $crlf</H4>
-Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line doesn't already ends with a $crlf.
+Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line does not already ends with a $crlf.
 
 Consider the following piece of code:
 
@@ -152,7 +152,7 @@ Understanding this concept is important to understanding how to send data correc
 
 <H4>/sockwrite's limit</H4>
 
-Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
+Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it will not produce an error and will work.
 <p>
 In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="../events/on_sockwrite.html">here</a>.
 
@@ -254,7 +254,7 @@ GET /folder/file.html HTTP/1.1
 
 This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
 <p>
-<b>Note:</b> For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
+<b>Note:</b> For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It is best to follow that rule as well.
 <br>
 Next is the Host header:
 <pre class = "code">
@@ -283,7 +283,7 @@ To read a single line from the socket, we use the /sockread command that way:
 sockread &lt;%var&gt;
 </pre>
 
-That sockread command actually reads up to a $crlf. This is important to know because many web pages don't end with a $crlf which means the last line won't be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
+That sockread command actually reads up to a $crlf. This is important to know because many web pages do not end with a $crlf which means the last line will not be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
 <p>
 <b>Note:</b>If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand.
 <p>
@@ -329,7 +329,7 @@ Will print the following result:
 Keep this alias safe. Trust me, this tiny alias will become one of your most precious possessions.
 
 <H4>Error Handling</H4>
-Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
+Errors happen! It is a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
 <p>
 Remember, inside the on sockopen event, $sockerr allows you to know if the connection was successful or not.
 <p>

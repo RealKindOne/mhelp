@@ -25,7 +25,7 @@ $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 <br><b>m</b> - Target should be encoded using Mime (base64) (favored; has shortest output)
 <br><b>a</b> - Target should be encoded using Base32
 <br><b>v</b> - Target should be encoded using Z85
-<br><b>N</b> - Integer Reference index for the Nth chunk (can't use without at least 1 switch)
+<br><b>N</b> - Integer Reference index for the Nth chunk (can not use without at least 1 switch)
 <br><b>y</b> - Punycode-encodes text with the ADA IDNA library using IDNA2008 and UTS46
 
 <br>
@@ -42,7 +42,7 @@ $encode(text/%var/&binvar, celsirznpbtumav, key[, salt/iv if s|i used] [,N] )
 <br><b>v</b> Z85 variant of Base85 encodes 4 bytes into 5 printable characters.
 <br>* If N parameter is present, N=0 returns the number of chunks in the output, N >= 1 returns the Nth encoded chunk of the output or $null if N is greater than the N=0 value. N allows handling encoded output output of &binary strings too long to fit within %variables or mIRC's maximum line length.
 <br>* except for the final possibly partial length, N Chunks contain 60 encoding characters, except for base32 which contains 72, and except for '<b>u</b>' which inserts a length byte in front of each chunk. This feature was added prior to UTF8 support, so it's possible for this feature to split the encoding of UTF8 codepoints across 2 chunks.
-<br>* $decode is currently able to decode mime/UUencode encoded strings without the "`" or "=" padding added by $encode, but don't count on pre-v7.53 or other applications accepting them for all cases for all encoding types.
+<br>* $decode is currently able to decode mime/UUencode encoded strings without the "`" or "=" padding added by $encode, but do not count on pre-v7.53 or other applications accepting them for all cases for all encoding types.
 <br>* This version of Base32 is different than the base32 used in $totp and $hotp. Base32 uses a 32-item alphabet consisting of upper-case A-Z and the numbers 2-7. However, in addition to accepting base32 as case-insensitive, $decode also accepts these invalid numbers the same as if valid characters were used: Number 1 as if the letter L, Number 8 as if the letter B.
 <pre class = "code">
 //var -s %a $encode(PWETA,a) | echo -a $decode(%a,a) vs $decode($replace(%a,8,b,1,l),a) vs $decode($lower(%a),a)
@@ -66,7 +66,7 @@ Random IV/Salt created in the absence of Parameter#4 can contain 0x00 bytes in a
 <br>
 <b>Notes:</b>
 <p>Using the '<b>v</b>' Z85 encoding added in v7.73 has the advantage that it encodes the Blowfish binary into shorter strings than mime, due to encoding 4 binary as 5 text instead of encoding 3 binary as 4 text. For example, a ciphertext of 336 bytes which encodes as length 448 using '<b>m</b>' mime would encode as length 420 using '<b>v</b>' Z85, and would have a better chance of fitting within the fixed limit of an IRC message. However, because the Z85 alphabet contains characters such as $ % # etc, you must be careful to avoid using it in contexts where it could be double-evaluated in places such as a timer command string other other places described in <a href="../other/injection.html">injection</a>
-<p><b>N</b> chunk parameter uses the same rules as non-encryption. It's an optional extra parameter past those required by the presence of other switches ('ec' require Parm3 &lt;key&gt;, 'c(s|i)' also require Parm4 &lt;salt|iv&gt;)
+<p><b>N</b> chunk parameter uses the same rules as non-encryption. It is an optional extra parameter past those required by the presence of other switches ('ec' require Parm3 &lt;key&gt;, 'c(s|i)' also require Parm4 &lt;salt|iv&gt;)
 <p><b>e</b> ECB mode is invalid syntax with switches 's|i|r'. In ECB mode, same key always encrypts identical groups of 8 plaintext bytes into the same 8 ciphertext bytes. Key is always literal UTF-8 'key' parameter of 0-72 bytes, except 'l' switch limits literal ECB key to 56.
 <p><b>c</b> default random salt allows same key to create different session-key:IV each time salt differs. If 8-byte random salt is randomly distributed across all 2^64 values, would require more than 2^32 messages before 50% probability of any 2 matching 'salt' values.
 <p>Salt/IV parameter is silently truncated to 8 bytes, and uses 0x00 byte padding to length 8 if shorter. Parameter#4 is interpreted in ANSI mode, where ASCII 128-255 are not UTF-8 encoded into byte-pairs and codepoint &gt; 255 are invalid.
@@ -226,7 +226,7 @@ alias fake_secret_chat2 { if (!$chan) return
 }
 </pre>
 
-If using pre-v7.56 random salt, or if using 'ir|s' switches to create user-defined Salt's or IV's, you SHOULD use the $randsalt alias to salt strings from the entire valid text range of codepoints 1-255. This increases the possible combinations to as high as 255^8, which is the 96.9% of valid 8-byte strings which don't contain the 0x00 byte. This makes it much less likely where the birthday paradox produces messages with identical salt/iv's.
+If using pre-v7.56 random salt, or if using 'ir|s' switches to create user-defined Salt's or IV's, you SHOULD use the $randsalt alias to salt strings from the entire valid text range of codepoints 1-255. This increases the possible combinations to as high as 255^8, which is the 96.9% of valid 8-byte strings which do not contain the 0x00 byte. This makes it much less likely where the birthday paradox produces messages with identical salt/iv's.
 
 <pre class = "code">
 alias randsalt returnex $regsubex($str(x,8),/x/g,$chr($rands(1,255)))
@@ -244,7 +244,7 @@ returnex $regsubex(foo,%a,/(\d+)\s*/g,$chr(\t))
 //var -s %iv $regsubex($str(x,8),/x/g,$rand(a,z)) , %msg $encode(BitFlipping Example,mci,key,$upper(%iv)) | echo -a $decode(%msg,mci,key,$lower(%iv))
 result: bITfLIPPing Example
 </pre>
-Solution: If worried about this, you should avoid using the '<b>i</b>' and/or '<b>r</b>' switches, and always use either a random or user-defined salt. Using a 'salt' would then hash key_parameter+salt into binary_56_byte_hashed_key+hash_derived_IV, which shields the IV from someone who doesn't know the key. If they tried to bit-flip the salt, the generated encryption key and IV would be completely different, and the message would decrypt to garbage. Another way would be to include 8 garbage bytes preceding the actual message. The garbage bytes would be thrown away and only bytes 9+ of the decoded message are used.<br/>
+Solution: If worried about this, you should avoid using the '<b>i</b>' and/or '<b>r</b>' switches, and always use either a random or user-defined salt. Using a 'salt' would then hash key_parameter+salt into binary_56_byte_hashed_key+hash_derived_IV, which shields the IV from someone who does not know the key. If they tried to bit-flip the salt, the generated encryption key and IV would be completely different, and the message would decrypt to garbage. Another way would be to include 8 garbage bytes preceding the actual message. The garbage bytes would be thrown away and only bytes 9+ of the decoded message are used.<br/>
 
 Note: If using v7.52-7.55, beware of non-literal key parameter silently chopped to 56 bytes. The following examples always produce identical output in those versions each time the command is repeated, demonstrating silent ignore of key beyond byte 56.
 <pre class = "code">
@@ -279,7 +279,7 @@ Your script must check to verify that %key is not null, or possibly halt the scr
 //bset -t &v 8 0 | while ($bvar(&v,0) == 8) { bset -tc &v 1 $str(.,$rand(1,7)) $+ $chr($calc(64*$rand(3,1023))) } | echo -a original: = $bvar(&v,1-) $bvar(&v,1-).text | noop $encode(&v,bmcz,key) $decode(&v,bmcz,key) | echo 4 -a decrypted = $bvar(&v,1-) $bvar(&v,1-).text
 </pre>
 <p>
-<b>NOTE</b> Your key should be long enough to make it difficult for someone to brute-force guess it. You can't count on the guesser using a mIRC script which contains overhead which slows down the guessing. Beginning v7.56, you can use a longer key parameter up to 612 bytes, and 7.72 increases to 2148 bytes, and that string will be hashed to generate the key, instead of the hashing looking at only the 1st 56 bytes of the key parameter. When using '<b>r</b>' without 'l', the key parameter is hashed in a way which does not generate more than 2^128 possible keys. The hash is derived using the $md5 function, so $encode(string,mcir,%key,iv) generates identical encryption passwords from all %key which have matching MD5 hash.
+<b>NOTE</b> Your key should be long enough to make it difficult for someone to brute-force guess it. You can not count on the guesser using a mIRC script which contains overhead which slows down the guessing. Beginning v7.56, you can use a longer key parameter up to 612 bytes, and 7.72 increases to 2148 bytes, and that string will be hashed to generate the key, instead of the hashing looking at only the 1st 56 bytes of the key parameter. When using '<b>r</b>' without 'l', the key parameter is hashed in a way which does not generate more than 2^128 possible keys. The hash is derived using the $md5 function, so $encode(string,mcir,%key,iv) generates identical encryption passwords from all %key which have matching MD5 hash.
 <p>
 When using a salted key (<b>c</b> without '<b>r</b>' or '<b>i</b>' switches) the hash method has some 448-bit keys which can never be generated from every salt string, but all possible long key parameter strings against a fixed salt can generate well over 2^400 different encryption keys.<br/>
 <p>

@@ -111,14 +111,14 @@ After catching an error with :error, you must check for an error by checking $er
 <br>
 If you want to keep going with the code, use /reseterror as soon as possible, this reset the error (and therefore $error's value), mIRC leaves the error state and you can safely execute anything you want.
 <br>
-If you don't use /reseterror, you can also use /return to tell mIRC to look for a different :error label in previous routines.
-If you don't use /reseterror or /return you must be careful:
-mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can't do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
+If you do not use /reseterror, you can also use /return to tell mIRC to look for a different :error label in previous routines.
+If you do not use /reseterror or /return you must be careful:
+mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can not do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
 
 <pre class = "code">
 /*  EXAMPLE 1
     This typical example shows that after reaching :error and without using /reseterror, /echo itself works, but see the next example, a lot of simple operation might be done there.
-    Since we don't halt or reset the error, mIRC will display both our echo and its own error for $rand.
+    Since we do not halt or reset the error, mIRC will display both our echo and its own error for $rand.
  */
 Alias Example {
   echo -a $rand(1,)
@@ -128,7 +128,7 @@ Alias Example {
 }
 /* EXAMPLE 2
    In this case, we try to execute /echo again after a /if error, but on $regsubex, for some reasons, that $regsubex gets mIRC to silently halts while inside a routine.
-   You should get the first echo 'ok' and an echo '> $str(ab,2000)' is expected, but you shouldn't see it.
+   You should get the first echo 'ok' and an echo '> $str(ab,2000)' is expected, but you should not see it.
    Use /reseterror first and it works as expected.
 */
 alias testgoto {
@@ -140,7 +140,7 @@ alias testgoto {
 Although this example might look a little confusing, bear with me:
 Calling alias /Foo will echo what alias FooBar returns.
 Alias foobar will return what alias bar returns.
-Because alias bar errors out (since $mid is missing a few parameters), mIRC will look for an :error label in alias Bar but won't find any.
+Because alias bar errors out (since $mid is missing a few parameters), mIRC will look for an :error label in alias Bar but will not find any.
 So it will look in the previous routine, the alias FooBar. an :error label is found in the alias FooBar.
 It is executed, echoing Error followed by the error message and returning 1000 to alias foo.
 The /reseterror command effectively prevents mIRC from halting the script and allows it to finish executing.

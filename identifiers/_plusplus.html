@@ -34,7 +34,7 @@ This is where <b>$++</b> would cause $read to stop and read from file c:\test.tx
 on mIRC 4.5 both " $+ $read test.txt $+ " and " $+ $read test.Txt $++ " will result in the line being read from the file being enclosed in quotes, and both crashes right after that.<br>
 If the changelog for mIRC 4.1 was saying that it was now possible to quote a line with <b>$++</b>, the changelog of mIRC 4.5 was now saying that bracket evaluation should be used, no more mention of <b>$++</b>, just regular <b>$+</b>:<br>
 <i>/notice $nick " $+ [ $read [ -s + [ $parm1 ] ] c:\text\note.txt ] $+ "</i><br>
-After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming <b>$+</b> or <b>$++</b> so it wasn't possible to read from a dynamically built filename until <b>$read()</b> was added.<br>
+After 4.5 they both behave correctly with the result being quoted line. and the legacy syntax is made to stop consuming <b>$+</b> or <b>$++</b> so it was not possible to read from a dynamically built filename until <b>$read()</b> was added.<br>
 So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consuming <b>$+</b> to be able to get the concatenation done after <b>$read</b> finished, and it worked for only one version, after that it was made to behave like <b>$+</b>, with exception to inside evaluation bracket<br>
 
 <h4>Outside evaluation bracket</h4>

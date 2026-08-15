@@ -77,12 +77,12 @@ Returns: 15 vs 1170
 </pre>
 
 
-To store the 128 hexadecimal digits of the sha512 hash digest in fewer digits, you can't use $base to accurately translate more than 13 digits at a time, until v7.72.
+To store the 128 hexadecimal digits of the sha512 hash digest in fewer digits, you can not use $base to accurately translate more than 13 digits at a time, until v7.72.
 <pre class = "code">
 //var %digits 13 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
 //var %digits  9 , %from_base 16 , %to_base 36 | echo -a $calc( %digits * $log(%from_base) / $log(%to_base) )
 </pre>
-These show that base36 requires 10.05 digits to store 13 hex digits, or 6.96 digits to store 9 hex digits. Rounding up, this means both methods shrink the strings by the same 4 digits. (13->11 vs 9->7) It's more efficient to translate the string 9 digits at a time into 14 groups of 9, then translate the remaining 2 digits separately, for a total length of 14*7+2=100:
+These show that base36 requires 10.05 digits to store 13 hex digits, or 6.96 digits to store 9 hex digits. Rounding up, this means both methods shrink the strings by the same 4 digits. (13->11 vs 9->7) It is more efficient to translate the string 9 digits at a time into 14 groups of 9, then translate the remaining 2 digits separately, for a total length of 14*7+2=100:
 <pre class = "code">
 alias short_hash {
   var %long $sha512($1) , %short , %hash %long | while ($len(%hash) >= 9) {

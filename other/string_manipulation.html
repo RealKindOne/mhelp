@@ -28,7 +28,7 @@ It is often desired to join two strings together. Such operation is called a <b>
 AB
 </pre>
 
-It's important to note that both identifiers and variables can be substituted instead of A and B. For example:
+It is important to note that both identifiers and variables can be substituted instead of A and B. For example:
 
 <pre class = "code">
 alias hello {
@@ -93,12 +93,12 @@ Start is the start of the substring from the left. A negative value indicates a 
 
 <pre class = "code">
 alias example {
-  var %str = I have not failed. I've just found 10,000 ways that won't work.
+  var %str = I have not failed. I've just found 10,000 ways that will not work.
   echo -a $mid(%str, 53, 10)
 }
 </pre>
 
-Will output "won't work".
+Will output "will not work".
 
 <H4>Case Transformation</H4>
 The <a href="../identifiers/islower.html">$islower</a>  and <a href="../identifiers/isupper.html">$isupper</a>  identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="../identifiers/true.html">$true</a> ), or else they return <a href="../identifiers/false.html">$false</a> . The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
@@ -149,7 +149,7 @@ The first variation returns the position of the first instance of the substring.
 
 <br><b>Note:</b><a href="../identifiers/poscs.html">$poscs</a> is a case-sensitive version of <a href="../identifiers/pos.html">$pos</a>; it has the same syntax.
 
-If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
+If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It is syntax is as follows:
 
 <pre class = "code">
 $count(&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, ...])

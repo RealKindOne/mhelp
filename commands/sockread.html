@@ -73,7 +73,7 @@ on *:sockread:name:{
 
 If you do that, you cannot guarantee it will work 100% of the time.
 
-If the received buffer is filled with a few bytes and ends up being "this is my ref" when on sockread triggers, the -f switch will force mirc to read that, and you won't be able to match your full line, for example here, the next time the event triggers, you might have a received buffer containing "erence:", but it might be "erence:\r\nI want that line" as well, screwing you anyway.
+If the received buffer is filled with a few bytes and ends up being "this is my ref" when on sockread triggers, the -f switch will force mirc to read that, and you will not be able to match your full line, for example here, the next time the event triggers, you might have a received buffer containing "erence:", but it might be "erence:\r\nI want that line" as well, screwing you anyway.
 
 So you might think here "let's not use -f then":
 
@@ -86,7 +86,7 @@ on *:sockread:name:{
  }
 }
 </pre>
-And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="../events/on_sockclose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line couldn't be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="../identifiers/sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
+And that, assuming what you are looking for is not on the last non terminated line (which would be missed because -f is not there, although note that you can read that last non terminated line inside the <a href="../events/on_sockclose.html">On_SockClose</a> event, should be fine. In fact, in this specific example and in general, it will work, because you are making sure %a is a full line or nothing. Well that's why it works in most situation, you are checking that %a is a specific text, which would fail if no byte were read into %a because a terminated line could not be found. However, if you are in a situation where you must check that %a is $null (usually because it read an empty $crlf line), you must check <a href="../identifiers/sockbr.html">$sockbr</a> to know if you read bytes at all, a good example of this usage is shown below, which discard the headers of HTTP (check for an empty value after /Sockread %a reads an empty $crlf line):
 
 <pre class = "code">
 alias testHTTP {
@@ -141,7 +141,7 @@ on *:sockread:name:{
 </pre>
 
 
-The same issue can happen, you cannot make sure there is a terminated line in the receive buffer. People mainly uses that because it avoids saving the state for the next time the event re-triggers, indeed the correct way to read the next line once you found the reference is to try reading a terminated line using /sockread &lt;%var&gt; (or to use your own buffer and check when you have a new line, just like above) but you need to save the state if you can't find the next line currently:
+The same issue can happen, you cannot make sure there is a terminated line in the receive buffer. People mainly uses that because it avoids saving the state for the next time the event re-triggers, indeed the correct way to read the next line once you found the reference is to try reading a terminated line using /sockread &lt;%var&gt; (or to use your own buffer and check when you have a new line, just like above) but you need to save the state if you can not find the next line currently:
 
 <pre class = "code">
 on *:sockread:name:{
@@ -165,13 +165,13 @@ on *:sockread:name:{
 <a name="last_line"></a>
 <H4>Last line not showing up</H4>
 
-Another common problem is reading the last line sent by an HTTP server, which isn't a terminated line (no $crlf or $lf).
+Another common problem is reading the last line sent by an HTTP server, which is not a terminated line (no $crlf or $lf).
 
-Indeed, if you are using /sockread &lt;%var&gt;, you're will read properly line by line but that last line won't be read by this sockread command.
+Indeed, if you are using /sockread &lt;%var&gt;, you're will read properly line by line but that last line will not be read by this sockread command.
 
-We also saw how this non terminated line in the received buffer wouldn't make mIRC re-trigger the on sockread event.
+We also saw how this non terminated line in the received buffer would not make mIRC re-trigger the on sockread event.
 
-One solution which doesn't involve more than that, is to read that line from the on sockclose event, indeed you are sure on sockread read the previous line, so inside on sockclose, you should get only that last non terminated line, this time we use the -f switch to force the read:
+One solution which does not involve more than that, is to read that line from the on sockclose event, indeed you are sure on sockread read the previous line, so inside on sockclose, you should get only that last non terminated line, this time we use the -f switch to force the read:
 
 <pre class = "code">
 on *:sockclose:name:{
@@ -191,9 +191,9 @@ If you are using HTTP 1.1 and you actually want the socket to remain open, you w
 
 Here is an example which will read and echo to the status window what is sent by a server line by line.
 
-<br><b>Note:</b> leading/consecutive and trailing spaces and non-printable characters won't be shown correctly.
+<br><b>Note:</b> Leading/consecutive and trailing spaces and non-printable characters will not be shown correctly.
 
-<br><b>Note2:</b> too long line will produce an error.
+<br><b>Note2:</b> Too long line will produce an error.
 
 <br><b>Note3:</b> Using SSL, the on sockread event might not be triggered though it should, you must read the rest in the on sockclose event (has been fixed since mIRC 7.36).
 
@@ -209,7 +209,7 @@ on *:SOCKREAD:mySocket:{
   }
 }
 </pre>
-<br><b>Note:</b> as we just saw, if the last line in the source does not end with a terminated line, it won't be read by that event.
+<br><b>Note:</b> As we just saw, if the last line in the source does not end with a terminated line, it will not be read by that event.
 
 If you ever worked with HTTP 1.1, you know that it can send data in chunk, here is a way to write the real content to a file:
 
@@ -234,7 +234,7 @@ on *:SOCKREAD:socket: {
         ; of the code will re-trigger in this case, until %bytestoread is 0)
         ; dec %bytestoread $sockbr
       }
-      ;if we don't have a chunk
+      ;if we do not have a chunk
       else {
         var %a
         sockread %a

@@ -49,9 +49,9 @@ What happens here is that the parameters passed to the /timer command are evalua
 
 The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="../identifiers/day.html">$day</a>'s value&gt;"
 
-When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="../identifiers/day.html">$day</a> can only return a day of the week. If <a href="../identifiers/day.html">$day</a> is Monday, evaluating the plain text Monday will always produce Monday.
+When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can not see the difference because <a href="../identifiers/day.html">$day</a> can only return a day of the week. If <a href="../identifiers/day.html">$day</a> is Monday, evaluating the plain text Monday will always produce Monday.
 
-But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
+But what if we did not have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
 
 <pre class = "code">
 on *:TEXT:!reminder & *:#:{
@@ -113,19 +113,19 @@ Let's take a look at what happens now:
 -Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)
 </pre>
 
-And Mike now can't do anything harmful.
+And Mike now can not do anything harmful.
 
 /timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="../identifiers/decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="../identifiers/decode.html">$decode</a><br>( MTgwMDA= ,m)</code>.
 
 The command associated with the timer now becomes <code><a href="../commands/notice.html">/notice</a> Mike [Reminder] <a href="../identifiers/decode.html">$decode</a><br>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="../identifiers/decode.html">$decode</a><br>( MTgwMDA= ,m) seconds ago)</code> and those <a href="../identifiers/decode.html">$decode</a>, when evaluated once by <a href="../commands/notice.html">/notice</a>, will produce the correct result (the original input of Mike).
 
-Now you don't need to do that for any <a href="../commands/timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
+Now you do not need to do that for any <a href="../commands/timer.html">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
 
 <br><b>Note:</b> Since mIRC 7.44, an $unsafe identifier has been added which behaves just like $safe (the name was changed to unsafe to avoid misleading new users), delaying the execution of one level.
 
 <h3>$chan/#</h3>
 
-You may think <a href="../identifiers/chan.html">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="../identifiers/chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
+You may think <a href="../identifiers/chan.html">$chan</a> can not be evaluated in an malicious way but that's not true, if the <a href="../identifiers/chan.html">$chan</a> (also #) identifier is unknown, you should encode it as well.
 
 The reason for this is mIRC allows prefixing an identifier with the pound sign to make mIRC prefixes (if needed) the evaluated string by the pound symbol. For example:
 
@@ -174,7 +174,7 @@ You might want to watch out for <a href="../identifiers/nick.html">$nick</a> as 
 <H4>/scon and /scid</H4>
 Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="../commands/timer.html">/timer</a> command, any unknown content must be escaped somehow.
 
-Though, unlike <a href="../commands/timer.html">/timer</a>, the <a href="../commands/scid.html">/scid</a> and <a href="../commands/scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
+Though, unlike <a href="../commands/timer.html">/timer</a>, the <a href="../commands/scid.html">/scid</a> and <a href="../commands/scon.html">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can not evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
 
 <pre class = "code">
 on *:TEXT:!global *:#:{
@@ -341,9 +341,9 @@ Let's see what Mike can do to him:
 &lt;Wiz126&gt; [Calc] %password = 123456
 </pre>
 
-It's clear how Mike was able to get the value of a pretty important variable.
+It is clear how Mike was able to get the value of a pretty important variable.
 <br>
-It's important to note that EVEN if %password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it's a big chunk of it.
+It is important to note that EVEN if %password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it's a big chunk of it.
 <br>
 A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and %variables:
 
@@ -357,15 +357,15 @@ on *:TEXT:!calc *:#:{
 
 <H4>$decode</H4>
 
-This is not really an exploit, but is a way for someone to disguise their malicious command. It can't be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it's a command which begins with a % or a $, but that behavior does not extend to remote scripts.
+This is not really an exploit, but is a way for someone to disguise their malicious command. It can not be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it's a command which begins with a % or a $, but that behavior does not extend to remote scripts.
 
 <pre class = "code">
 //var %cmd echo | [ %cmd ] 4 -a hello world
 </pre>
 
-Pasting the above command into an editbox echoes 'hello world' to the active window in red text. However it won't work if the square braces are removed, because the command beginning with % halts the editbox command, but doesn't halt the same thing in a remote script.
+Pasting the above command into an editbox echoes 'hello world' to the active window in red text. However it will not work if the square braces are removed, because the command beginning with % halts the editbox command, but does not halt the same thing in a remote script.
 <br>
-Something similar can be done with $decode, but it only works if $decode(string) is placed somewhere which allows its contents to be evaluated/executed, which includes the $iif bug, placing into a timer's command line, inside square braces, etc. Below shows how the decode string is created, but the echo command is NOT executed by $decode, but by the fact that the decoded string is placed into the timer's command string. If the "timer 1 1" had not been there, this would have executed the echo command if it were inside a remote script, but would not have executed in the editbox simply because the editbox doesn't execute commands beginning with % or $.
+Something similar can be done with $decode, but it only works if $decode(string) is placed somewhere which allows its contents to be evaluated/executed, which includes the $iif bug, placing into a timer's command line, inside square braces, etc. Below shows how the decode string is created, but the echo command is NOT executed by $decode, but by the fact that the decoded string is placed into the timer's command string. If the "timer 1 1" had not been there, this would have executed the echo command if it were inside a remote script, but would not have executed in the editbox simply because the editbox does not execute commands beginning with % or $.
 
 <pre class = "code">
 //var -s %a $remove($encode(echo 4 -a hello world,m),=) | timer 1 1 $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m)
@@ -373,7 +373,7 @@ Something similar can be done with $decode, but it only works if $decode(string)
 
 <H4>$findfile $finddir $hfind $dllcall etc</H4>
 
-This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It's harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it's just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
+This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It is harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it's just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
 
 <pre class = "code">
 //noop $findfile(.,*,1, $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m) )
@@ -408,7 +408,7 @@ The abuse of this is limited as the user of mIRC would either have to code the m
 
 You should inspect your mIRC settings for certain things which can be used to exploit you. If you check these things, you can help defend against some exploits which depend on a combination of factors, where just severing 1 link in the chain prevents the exploit.<br>
 
-First, check the Options menu of your Alt+R scripts editor. It's a good idea set a few options here which can prevent problems.
+First, check the Options menu of your Alt+R scripts editor. It is a good idea set a few options here which can prevent problems.
 
 # Identifier warning
 
@@ -425,20 +425,20 @@ If you do not have identifier warning, and the above identifier is the mis-typin
 <br><b>Initialization Warning</b>
 <br>
 <br>
-This warns if the /load command or the script-editor's /file/open has loaded a script containing :START" or :LOAD: events which would execute code immediately. This still doesn't defend against scripts containing :TEXT: or other events which could be triggered *later*, and doesn't defend if /reload was used instead of /load.
+This warns if the /load command or the script-editor's /file/open has loaded a script containing :START" or :LOAD: events which would execute code immediately. This still does not defend against scripts containing :TEXT: or other events which could be triggered *later*, and does not defend if /reload was used instead of /load.
 
 <br><b>Monitor File Changes</b>
 <br>
 <br>
 This warns if a loaded script has changed without being changed by the scripts editor itself. Sometimes it can be caused by your editing scripts in a 3rd party editor such as notepad, but it could also be caused by a script using /write to alter itself or a different script.
 <br>
-It's possible to have a script loaded that you don't realize.
+It is possible to have a script loaded that you do not realize.
 
 <pre class = "code">
 //write $chr(160) test | .reload -rs999 $chr(160)
 </pre>
 
-This creates a file without a filetype, where the filename itself is not visible in most fonts, then loads it as a remote script. All you see in the script editor's "view" menu is an extra-thick border at the bottom of the scripts list, and if you have too many scripts loaded, it's hiding inside the "more" list. This next command lists all the scripts you have loaded. If you see a line showing nothing between the double quotes or is something you don't recognize, you should investigate and possibly unload it.
+This creates a file without a filetype, where the filename itself is not visible in most fonts, then loads it as a remote script. All you see in the script editor's "view" menu is an extra-thick border at the bottom of the scripts list, and if you have too many scripts loaded, it's hiding inside the "more" list. This next command lists all the scripts you have loaded. If you see a line showing nothing between the double quotes or is something you do not recognize, you should investigate and possibly unload it.
 
 <pre class = "code">
 //var %i 1 | while ($script(%i)) { echo -a %i : $qt($nopath($script(%i))) | inc %i }
@@ -446,9 +446,9 @@ This creates a file without a filetype, where the filename itself is not visible
 
 Restricting DCC Get filetypes.
 <br>
-You should view the contents of your downloads folder with suspicion if you don't know from whom you received the file. If you disable filetype blocking, you should do it temporarily, by using the "turn ignore back on in xx minutes" feature, which causes the 'disable' choice to revert back to the prior 'accept only' or 'ignore only' setting.<br>
+You should view the contents of your downloads folder with suspicion if you do not know from whom you received the file. If you disable filetype blocking, you should do it temporarily, by using the "turn ignore back on in xx minutes" feature, which causes the 'disable' choice to revert back to the prior 'accept only' or 'ignore only' setting.<br>
 <br>
-While you can either configure Options/DCC/Ignore as 'ignore only' to specify a list of filetypes to be blocked, or as 'accept only' to specify a list of the only filetypes accepted, 'ignore only' requires updating the list as new executable filetypes need to be added. It's probably better to use 'accept only', since this allows you to manage the list of the only filetypes which are accepted. You should block all executable filetypes, without expecting to be able to inspect the download folder for suspicious items.
+While you can either configure Options/DCC/Ignore as 'ignore only' to specify a list of filetypes to be blocked, or as 'accept only' to specify a list of the only filetypes accepted, 'ignore only' requires updating the list as new executable filetypes need to be added. It is probably better to use 'accept only', since this allows you to manage the list of the only filetypes which are accepted. You should block all executable filetypes, without expecting to be able to inspect the download folder for suspicious items.
 
 <pre class = "code">
 //var %a $chr(8238) $+ piz.!wen.oediv.ezicr.exe | echo -a write %a test
@@ -485,7 +485,7 @@ $remove(string,$cr,$lf)
 </pre>
 This sanitizing would cause both strings to be combined as a single string, so if the first message is a plausible channel message, the hidden message is displayed as part of the channel message
 
-However, this is not sufficient if the first server command is able to cause damage even if combined with additional text, such as when the first command is the give-them-@ops command. The better defense is to halt the server command if the string contains a $cr and/or $lf that shouldn't be there:
+However, this is not sufficient if the first server command is able to cause damage even if combined with additional text, such as when the first command is the give-them-@ops command. The better defense is to halt the server command if the string contains a $cr and/or $lf that should not be there:
 
 <pre class = "code">
 if ($cr isin $replace(string,$lf,$cr)) { echo -a string exploit attempt: $2 | halt }

@@ -5,7 +5,7 @@
 <H1>UDP Sockets</H1>
 <br>
 <br>
-mIRC has built-in support for UDP Sockets. This tutorial is the UDP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one.
+mIRC has built-in support for UDP Sockets. This tutorial is the UDP Sockets continuation of the <a href="sockets.html">Sockets (Intro) tutorial</a>. If you have not read that, please do so first before moving on to this one.
 
 Recall that UDP is a connectionless protocol service. Because of this there are no on sockopen/sockread/sockclose events for the different stages like TCP. The basic idea is you send a message and quit, or you send a message and wait for response.
 
@@ -145,7 +145,7 @@ on *:udpRead:getTime: {
 <b>QOTD Protocol</b>
 <br>
 <br>
-In this example we will use an interesting protocol, the Quote Of The Day, RFC 865. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers don't have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other)
+In this example we will use an interesting protocol, the Quote Of The Day, RFC 865. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers do not have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other)
 
 Send a request:
 

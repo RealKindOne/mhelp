@@ -37,7 +37,7 @@ Also returns 4 because duplicate, leading, and trailing delimiters are stripped 
 //echo -a $numtok(x1xxxx2x3x4x,120)
 </pre>
 
-Returns 3 because the C token is case-sensitive, so capital X isn't a delimiter:
+Returns 3 because the C token is case-sensitive, so capital X is not a delimiter:
 <pre class = "code">
 //echo -a $numtok(1x2X3x4,120)
 </pre>

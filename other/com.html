@@ -463,7 +463,7 @@ The <a href="../identifiers/com.html">$com</a> identifier has a few other useful
 Currently mIRC/mSL's COM implantation has a few limitations that other languages may not encounter.
 
 <H4>COM Passing</H4>
-There is no way to pass the raw result or object from one COM instance to another. For results that mIRC can interpret, such as strings or integers, this isn't an issue(unless the result is excessively long) but for a returned object there is currently no way to pass it to another com.
+There is no way to pass the raw result or object from one COM instance to another. For results that mIRC can interpret, such as strings or integers, this is not an issue(unless the result is excessively long) but for a returned object there is currently no way to pass it to another com.
 
 <H4>COM Events</H4>
 mIRC/mSL does not support events that a COM instance may issue. The implantation works on a ask-receive programa, where mIRC requests the COM instance for data or to do something, and the instance is to return an immediate result.
@@ -496,7 +496,7 @@ Alias file_get_contents {
     echo $color(info) -est * Too few parameters: $!file_get_contents
     halt
   }
-  ;make sure it wasn't left open from last time
+  ;make sure it was not left open from last time
   if ($com(tcpCom)) .comclose $v1
   ;connect to the COM object
   .comopen tcpCom Msxml2.ServerXMLHTTP.3.0

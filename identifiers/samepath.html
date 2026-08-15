@@ -24,7 +24,7 @@ You can use relative path for both parameters.
 //echo -a This returns $true $samepath( $mircexe , $nopath($mircexe) )
 //echo -a This very likely returns $true $samepath( c:\program files\ , c:\progra~1\ )
 //echo -a Returns $true if at least 1 subfolder: $samepath( $finddir($mircdir,*,1,1) , $remove($finddir($mircdir,*,1,1),$mircdir) )
-//echo -a $true doesn't guarantee filename actually exists: $samepath( $mircdir $+ nosuchfile , nosuchfile )
+//echo -a $true does not guarantee filename actually exists: $samepath( $mircdir $+ nosuchfile , nosuchfile )
 //var %i delete_me.txt | write %i test | echo -a %i $shortfn(%i) returns $true : $samepath( %i , $shortfn(%i) )
 </pre>
 

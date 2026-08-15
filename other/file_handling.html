@@ -109,7 +109,7 @@ fclose test
 The same thing applies to reading, $read opens the file, try to match and close the file, so any consecutive call to $read means the file is opened/closed each time. If you are looking for a particular line, you can avoid multiple $read calls by searching with /fseek.
 <br>
 <br>
-Whenever you are going to use /write or $read in a loop to write/read a lot of things, if the loop isn't small and if the file isn't small, it might get slow very quickly, and you should consider using file handling.
+Whenever you are going to use /write or $read in a loop to write/read a lot of things, if the loop is not small and if the file is not small, it might get slow very quickly, and you should consider using file handling.
 
 </body>
 </html>

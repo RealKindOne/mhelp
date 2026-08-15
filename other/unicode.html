@@ -6,7 +6,7 @@
 <br>
 <br>
 
-This page does not attempt to describe what Unicode is but rather how mIRC handles it (or in some cases doesn't handle it). The technical terms are omitted on purpose.
+This page does not attempt to describe what Unicode is but rather how mIRC handles it (or in some cases does not handle it). The technical terms are omitted on purpose.
 
 <H4>mIRC and Unicode</H4>
 
@@ -30,7 +30,7 @@ What happens here is that mIRC pass the two surrogates to /echo, /echos call a W
 
 <H4>$regsubex</H4>
 
-Whilst rendering functions will normally display characters over 65536 correctly when programmed in this way, some usages of some functions in mIRC, such as $regsubex, won't handle the surrogate as expected.
+Whilst rendering functions will normally display characters over 65536 correctly when programmed in this way, some usages of some functions in mIRC, such as $regsubex, will not handle the surrogate as expected.
 <pre class = "code">
 //echo -ag $regsubex(aa,/(a)/gu,$chr($gettok(55357 56607,\n,32))) vs $replace(ab,a,$chr(55357),b,$chr(56607))
 </pre>
@@ -91,7 +91,7 @@ It must be noted that some commands and identifiers will encode your text to utf
 Each character is represented as 16 bits internally, the array of character is not an array of byte, it's an array of 16 bit (two bytes).
 But let's take a look at "/msg #chan &#233;".
 &#233; is the code point 233, which fits in one byte, but mIRC will encode your byte 233 to utf8, giving the two bytes 165 169.
-Now in this case there is little value not encoding in utf8, on IRC you usually don't really care about the integrity of your bytes.
+Now in this case there is little value not encoding in utf8, on IRC you usually do not really care about the integrity of your bytes.
 However there are others features where it's not so simple.
 $sha1(&#233;) for example can be tricky, this is going to give the hash of the two bytes.
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
@@ -99,7 +99,7 @@ And this is happening pretty much everywhere.
 <br>
 <a href="../commands/raw.html">/raw</a> -n can be used for IRC, it sends the data to the server without encoding the characters in the range 0-255 to utf8.
 <br>
-<a href="../commands/sockwrite.html">/sockwrite</a> -u can be used to the same effect, won't encode characters in the range 0-255 to utf8.
+<a href="../commands/sockwrite.html">/sockwrite</a> -u can be used to the same effect, will not encode characters in the range 0-255 to utf8.
 
 <H4>Normalization</H4>
 It is beyond the scope of this wiki page to explain Unicode normalization in detail, but you should note when e.g. comparing unicode strings that some unicode characters with accents can be encoded as a single integrated character or equally validly as an unaccented character with a modifying accent.
@@ -118,7 +118,7 @@ To complicate things still further, some unicode characters look the same as or 
 
 Without normalization, mIRC therefore fails to correctly compare unicode characters. This is not only true for the scripting language but anywhere in mIRC.
 <p>
-For example if you set a highlight entry with unicode letter, it won't work for a lower/uppercase version of that letter, same with <a href="../commands/if.html">/if</a>'s "==" comparison operator with unicode letter:
+For example if you set a highlight entry with unicode letter, it will not work for a lower/uppercase version of that letter, same with <a href="../commands/if.html">/if</a>'s "==" comparison operator with unicode letter:
 
 <pre class = "code">
 //echo o === O $iif(o === O,$true,$false) , o == O $iif(o == O,$true,$false)

@@ -15,7 +15,7 @@ On newer version of mIRC, this was fixed, <a href="../events/on_keydown.html">On
 <br>
 To get the resulting character, one should use the <a href="../events/on_char.html">On_Char</a> event. $keychar is still filled inside <a href="../events/on_keydown.html">On_KeyDown</a> and <a href="../events/on_keyup.html">On_KeyUp</a> for backward compatibility purpose. To get an idea, both events will correctly fill $keychar with the character when you press 'A', because it's one keypress corresponding to one character, but the main issue was that some keyboard/language requires you to press two keys to generate a character, sometimes mores.
 <br>
-To sum up, checking $keychar inside <a href="../events/on_keydown.html">On_KeyDown</a> and <a href="../events/on_keyup.html">On_KeyUp</a> is incorrect and won't work for any language/keyboard, those two events are to be used to look for keypresses only with $keyval, use $keychar inside <a href="../events/on_char.html">On_Char</a> only, to get characters.
+To sum up, checking $keychar inside <a href="../events/on_keydown.html">On_KeyDown</a> and <a href="../events/on_keyup.html">On_KeyUp</a> is incorrect and will not work for any language/keyboard, those two events are to be used to look for keypresses only with $keyval, use $keychar inside <a href="../events/on_char.html">On_Char</a> only, to get characters.
 
 <H4>Synopsis</H4>
 <pre class = "code">

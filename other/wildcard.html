@@ -17,13 +17,13 @@ For example the expression "t*s a *?t" matches the string "this is a text"
 <br>
 If & is not used alone it matches the plain text '&' character
 <br>
-<br><b>Note:</b> It also doesn't match $chr(32) if used to match a whole word, see below
+<br><b>Note:</b> It also does not match $chr(32) if used to match a whole word, see below
 <br>
 "test &" matches "test this" or "test that"<br>
 "test &his" matches only "test &his"<br>
 "test thi&" matches only "test thi&"<br>
 "test th&s" matches only "test th&s"<br>
-"test &" doesn't match "test $chr(32)" (consider $chr(32) to be evaluated here)
+"test &" does not match "test $chr(32)" (consider $chr(32) to be evaluated here)
 <br>
 Be careful when using the & wildcard character inside /if (and the like: $iif, /while, /elseif) it could be interpreted as the & bitwise operator:
 
@@ -43,7 +43,7 @@ The iswm operator can be used with /if (and the like) to make a wildcard compari
 <pre class = "code">
 if (test* iswm $1-) { }
 </pre>
-While there is a "?" wildcard for 1 character, and a "*" wildcard for zero-or-more characters, there isn't a wildcard for one-or-more characters. However you can obtain the same result by combining the ? and * together. For example, if you have a string where you want to remove leading zeroes, you can do something like:
+While there is a "?" wildcard for 1 character, and a "*" wildcard for zero-or-more characters, there is not a wildcard for one-or-more characters. However you can obtain the same result by combining the ? and * together. For example, if you have a string where you want to remove leading zeroes, you can do something like:
 
 <pre class = "code">
 //var %a 00000123 | while (0* iswm %a) var %a $mid(%a,2) | echo -a result: %a

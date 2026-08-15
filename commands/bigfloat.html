@@ -115,13 +115,13 @@ $true "$true -> $false" $true
 <p>Another is that for some usage this can needlessly trigger MAPM math routines which slow down your script to give it accuracy that's not needed, and can sometimes be counterproductive. For example, while your script can be tolerant of the 6 digit fraction from $calc(%a.bx / %b.bx), it may not appreciate the 30 digit fractions from $calc() when not limited by $round.
 <p>Another is that you may need to verify the actual results to see if the bigfloat output is appropriate for your script, such as how in normal doubles mode it knows that $log2(2) is 1, but in .bigfloat mode it thinks the answer is 0.999999999999999985890799396948
 
-<p>While this is named 'bigfloat' it also allows improved accuracy for extremely large 'bigintegers', though calculations can sometimes be very slow when some parameters are huge. However the speed of scripts can be affected by how well the operations can be supported by the MAPM package that is geared toward long and precise fractions, but doesn't have an optimized method for some simple things like bitwise math operations. Also, some functions like $powmod are intended for usage in bigfloat mode, and does not provide accurate math in doubles mode when some parameters are as small as sqrt(2^53). For example, (odd^positive mod even) must always be odd, but the following example returns an even-number result while in doubles mode, but the 3rd powmod being identical to the 1st powmod returns the correct result due to the 2nd powmod having been jumped into bigfloat mode due to using a varname ending with .bf
+<p>While this is named 'bigfloat' it also allows improved accuracy for extremely large 'bigintegers', though calculations can sometimes be very slow when some parameters are huge. However the speed of scripts can be affected by how well the operations can be supported by the MAPM package that is geared toward long and precise fractions, but does not have an optimized method for some simple things like bitwise math operations. Also, some functions like $powmod are intended for usage in bigfloat mode, and does not provide accurate math in doubles mode when some parameters are as small as sqrt(2^53). For example, (odd^positive mod even) must always be odd, but the following example returns an even-number result while in doubles mode, but the 3rd powmod being identical to the 1st powmod returns the correct result due to the 2nd powmod having been jumped into bigfloat mode due to using a varname ending with .bf
 
 <pre class = "code">
 //var -s %base.bf 3 , %base %base.bf , %exp 46 , %modulus 2 ^ 32 | echo -a $powmod(%base,%exp,%modulus) $bigfloat $powmod(%base.bf,%exp,%modulus) $bigfloat $powmod(%base,%exp,%modulus)
 </pre>
 
-By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accurance for some commands that need it, while skipping the slowdown for commands that don't.
+By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accurance for some commands that need it, while skipping the slowdown for commands that do not.
 
 <H4>Bitwise</H4>
 
@@ -139,11 +139,11 @@ For biginteger mode involving at least 1 negative input number, the B parm is us
 <br>
 For this example in v7.73...<br>
 a.bf is a 512-bit number<br>
-b.bf is the historical 32-bit result because the B parm isn't used<br>
+b.bf is the historical 32-bit result because the B parm is not used<br>
 c.bf is first clipped to 2^B-1 before being xor'ed by 3<br>
 d.bf uses B=96 which is rounded up to B=128, so it's first clipped to 2^128-1 before xor by 3<br>
 e.bf is same as d.bf because B=65 and B=96 are both rounded to B=128<br>
-f.bx is same as b.bf because B parm is ignored because it wasn't in .bf mode<br>
+f.bx is same as b.bf because B parm is ignored because it was not in .bf mode<br>
 g.bf used B=512 to cast -3 by +2^512 to a positive before doing the math<br>
 <pre class = "code">
 //var -s %a.bf $calc(2^256-1) , %a.bx %a.bf , %b.bf $xor(%a.bf,3) , %c.bf $xor(%a.bf,3,256) , %d.bf $xor(%a.bf,3,96) , %e.bf $xor(%a.bf,3,65) , %f.bx $xor(%a.bx,3,512) , %g.bf $xor(-3,3,512)

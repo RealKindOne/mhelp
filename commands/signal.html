@@ -13,7 +13,7 @@ The <b>/signal</b> command is used to send a signal to all loaded script, if one
 </pre>
 
 <H4>Switches</H4>
-<b>-n</b> This flag tells the */signal* command to fire immediately instead of waiting for the end of the whole current script processing, this implies nested call to signal event and also recursion can be made, though the maximum you can get is 24 iterations. If you don't provide the -n switch, mIRC waits for the end of the whole current script processing and then triggers any matching events.
+<b>-n</b> This flag tells the */signal* command to fire immediately instead of waiting for the end of the whole current script processing, this implies nested call to signal event and also recursion can be made, though the maximum you can get is 24 iterations. If you do not provide the -n switch, mIRC waits for the end of the whole current script processing and then triggers any matching events.
 
 <H4>Parameters</H4>
 <b>&lt;name&gt;</b> - The name of a signal event.
@@ -55,7 +55,7 @@ This is where a signal can truly shine, and next we are going to show you how :)
 
 <H4>Code</H4>
 
-First, what should we name our signal? How about *delayAutoJoin*? That works, and it identifies the purpose of the signal. Next, which script should perform the */signal* command, the auto join, or the auto identifier? Well, just remember that we don't want to join channels until the auto identifier has completed. In this case, we can ascertain that the auto identifier should be the one to trigger the command, the auto join should listen for the signal.
+First, what should we name our signal? How about *delayAutoJoin*? That works, and it identifies the purpose of the signal. Next, which script should perform the <b>/signal</b> command, the auto join, or the auto identifier? Well, just remember that we do not want to join channels until the auto identifier has completed. In this case, we can ascertain that the auto identifier should be the one to trigger the command, the auto join should listen for the signal.
 
 Let's go to our auto identifier and setup our script:
 <pre class = "code">

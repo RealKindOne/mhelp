@@ -61,7 +61,7 @@ v5.4 : Added .alias and .fname properties.<br>
 v7.44: Added .ftype property.
 
 <H4>Notes</H4>
-If you have an alias named "test" inside a remote file A and another alias with the same name in another remote file B, even in B is loaded after A, if you execute the alias from an alias/event/etc inside file B, it will execute your alias in file B, you may be expecting this but the author here wasn't until recently. I was thinking it would always execute the first found alias in the order of loaded file unless the alias in B is local here. $isalias behaves the same way, if you call $isalias from a remote file, it will always use the alias defined inside that remote file if it exists, this suggests that alias are always local to a remote script, the -l switch when defining alias with the alias keyword wouldn't be that useful?
+If you have an alias named "test" inside a remote file A and another alias with the same name in another remote file B, even in B is loaded after A, if you execute the alias from an alias/event/etc inside file B, it will execute your alias in file B, you may be expecting this but the author here was not until recently. I was thinking it would always execute the first found alias in the order of loaded file unless the alias in B is local here. $isalias behaves the same way, if you call $isalias from a remote file, it will always use the alias defined inside that remote file if it exists, this suggests that alias are always local to a remote script, the -l switch when defining alias with the alias keyword would not be that useful?
 
 <H4>See also</H4>
 <a href="script.html">$script</a><br>

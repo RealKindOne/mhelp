@@ -18,7 +18,7 @@ $crc(plaintext|&binaryvar|filename[,N])
 <br><b>filename</b> - A filename, used with N = 2, return the CRC-32 checksum of the content of the file.
 <br><b>N</b> Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename.
 <p>
-If the N parameter isn't used, the default 2 is used (which is different than $sha1 which has default of N=0.) Also different than $sha1, invalid N outside 0-2 range are treated as default 2 instead of creating an error.
+If the N parameter is not used, the default 2 is used (which is different than $sha1 which has default of N=0.) Also different than $sha1, invalid N outside 0-2 range are treated as default 2 instead of creating an error.
 
 <H4>Properties</H4>
 None
@@ -51,13 +51,13 @@ Returns 00000000 if filename does not exist:
 Suggested Uses:
 <br>* Quick way to compare if 2 files are identical. (First check should always be comparing file sizes.)
 <br>* Quick way to check if a file's contents have changed since stored CRC checksum was made.
-<br>* Verify downloaded file hasn't been corrupted, matches the sender's original.
+<br>* Verify downloaded file has not been corrupted, matches the sender's original.
 <br>
 <br>
-<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-32 for the contents of versions.txt (or 00000000 if the file doesn't exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br>
+<b>Note:</b> that because the default is N=2, <b>$crc(versions.txt)</b> is the CRC-32 for the contents of versions.txt (or 00000000 if the file does not exist). This differs from $sha1(versions.txt) giving the hash of the plaintext inside the parenthesis because $sha1 has default of N=0.<br>
 mIRC v7.x Unicode-encodes plaintext before providing to $crc, so v7.x and v6.x return different answers for //echo -a $crc($chr(233),0)<br>
 
-If the text doesn't have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $crc as a binary variable:
+If the text does not have Unicode code points above 255, to avoid having Unicode points 128-255 encoded to 2-byte pairs, the text must be fed to $crc as a binary variable:
 <pre class = "code">
 //var %name chlo&#233; | bset -ta &string1 1 %name | bset -t &string2 1 %name | echo -a $crc(&string1,1) / $crc(&string2,1) / $crc(%name,0)
 </pre>

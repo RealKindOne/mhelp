@@ -19,7 +19,7 @@ $sha512(text|&binary|filename,[N])
 <p>
 <b>N</b>: Optional integer 0-2, where 0 indicates data is treated as plaintext, 1 indicates a &binary variable, 2 treats data as contents of a filename
 <p>
-If the N parameter isn't used, the default 0 is used (which is different than $crc which has default of N=2.)
+If the N parameter is not used, the default 0 is used (which is different than $crc which has default of N=2.)
 
 <H4>Properties</H4>
 None
@@ -48,7 +48,7 @@ Echo the sha512 hash of the contents of the mIRC program you're running to the a
 //echo -a $sha512($mircexe,2)
 </pre>
 Note that because the default is N=0, <b>$sha512($mircexe)</b> is the sha512 hash for the plaintext text string of the drive:\path\filename for the mIRC you're running, and not the hash of the filename contents. This differs from $crc($mircexe) giving the checksum of the filename contents because $crc has default of N=2.<br>
-mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha512, if the text doesn't have code points above 255, you can avoid the utf8 encoding issue by using a binvar with the -a switch.
+mIRC v7.x Unicode-encodes bytes 128-255 to utf8 before providing to $sha512, if the text does not have code points above 255, you can avoid the utf8 encoding issue by using a binvar with the -a switch.
 <pre class = "code">
 //bset -ta &string 1 chlo&#233; | echo -a $sha512(&string,1)
 </pre>
@@ -59,12 +59,12 @@ Note that $sha512 differs from $crc in that it generates error for non-existent 
 <pre class = "code">
 * Error accessing file: $sha512
 </pre>
-Either file does not exist, or file permissions don't allow the file to be read. i.e. $sha512(non-existent-file,2) or $sha512(c:\hiberfil.sys,2)
+Either file does not exist, or file permissions do not allow the file to be read. i.e. $sha512(non-existent-file,2) or $sha512(c:\hiberfil.sys,2)
 
 <pre class = "code">
 * Invalid parameters: $sha512
 </pre>
-Either using a zero-length/non-existent binary variable or specifying an N where $int(%N) isn't 0-2.
+Either using a zero-length/non-existent binary variable or specifying an N where $int(%N) is not 0-2.
 
 Both above errors halt execution of the script
 

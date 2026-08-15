@@ -271,11 +271,11 @@ b. Where mIRC allows it, use the /command parameter for identifiers like $hfind 
 
 For example, if you use $findfile inside a while() loop handling the Nth file individually, mIRC is forced to repeat the disk search N times, while using the /command parameter inside $findfile allows performing the disk search just 1 time.
 
-Note: If you use the /command parameter, mIRC will not be able to process any other messages whilst the identifier and the /commands process and mIRC may become unresponsive for an extended period. If you don't use the /command parameter you can use the next technique to keep mIRC responsive, but at the cost of additional elapsed time to complete the search.
+Note: If you use the /command parameter, mIRC will not be able to process any other messages whilst the identifier and the /commands process and mIRC may become unresponsive for an extended period. If you do not use the /command parameter you can use the next technique to keep mIRC responsive, but at the cost of additional elapsed time to complete the search.
 
 c. Split the loops into smaller chunks and use .timer 0 1 to queue the next chunk of iterations, letting mIRC process any server messages, keystrokes and mouse clicks before running the timer.
 
-d. Make your while() loop more efficient by enabling it to use less overhead. If you are processing the lines in a disk file in a way which can't be accomplished using /filter -k, ensure your while (condition) itself uses fewer resources.
+d. Make your while() loop more efficient by enabling it to use less overhead. If you are processing the lines in a disk file in a way which can not be accomplished using /filter -k, ensure your while (condition) itself uses fewer resources.
 
 <pre class = "code">
 var %i 0 | while (%line &lt;= $lines(file.txt)) { inc %i | do stuff }

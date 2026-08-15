@@ -41,7 +41,7 @@ Echo the formatting for converting "64wks 1hr 16mins 50secs" back to seconds:
 </pre>
 Result: 38711810
 <p>
-The displayed timestring contains the time units touching their integers, so you will need to use $replace if you don't wish this:
+The displayed timestring contains the time units touching their integers, so you will need to use $replace if you do not wish this:
 <pre class = "code">
 //echo -a This computer restarted $regsubex(foo,$duration($uptime(system,3)),/([a-z]+)/g,$chr(32) $+ \t) ago!
 </pre>

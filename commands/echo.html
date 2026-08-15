@@ -41,7 +41,7 @@ Other switches:
 <br><b>-m</b> - Treats the line as an user message, colors the window button in the switchbar/treebar with the "Message" color defined in the option alt+o>Display.
 
 <H4>Parameters</H4>
-<b>[color-number]</b> - A numeric color value (0 to 99) Note: 99 is $color(listbox text) instead of $color(normal) even in #channel and Status window where background is $color(background). If $color(listbox text) is the same index as $color(background), 99 tries $color(normal) then $color(gray) searching for a color that doesn't match the background color.
+<b>[color-number]</b> - A numeric color value (0 to 99) Note: 99 is $color(listbox text) instead of $color(normal) even in #channel and Status window where background is $color(background). If $color(listbox text) is the same index as $color(background), 99 tries $color(normal) then $color(gray) searching for a color that does not match the background color.
 <br><b>&lt;color-name&gt;</b> - When the -c switch is used, the next parameter must be one of the following: action, ctcp, highlight, info, info2, invite, join, kick, mode, nick, normal, notice, notify, other, own, part, quit, topic, wallops, whois, "listbox text", gray, listbox, "treebar text", treebar Note: Quotes are needed for items which are 2 words. Note: If color for that name matches $color(background) it is displayed as $color(normal) until the color index for background is changed.
      <br>Note: If color name not in the list of recognized names, defaults to 'normal'. Note: If you later change the color index for a color name, the echoed lines change to that color.
 <br><b>[window]</b> - The target @window/#channel/query.

@@ -24,13 +24,13 @@ mIRC allows programs to make calls to various 'dynamic-link libraries (DLL's) de
 <b>&lt;filename&gt;</b> - The filename for the dll you wish to use.
 <br><b>&lt;procname&gt;</b> - The case-sensitive name of the function/procedure you wish to call.
 <br><b>[data]</b> - The optional parameters for the function/procedure, used by the procname as input and as return =2 command or =3 return string.
-<br><b>&lt;alias&gt;</b> - If you use <a href="../identifiers/dllcall.html">$dllcall</a>, it calls the function asynchronously, meaning that the code won't stop processing until the dll function finishes, $dllcall won't return a value. Instead, mIRC calls the specified &lt;alias&gt; when the function finishes.
+<br><b>&lt;alias&gt;</b> - If you use <a href="../identifiers/dllcall.html">$dllcall</a>, it calls the function asynchronously, meaning that the code will not stop processing until the dll function finishes, $dllcall will not return a value. Instead, mIRC calls the specified &lt;alias&gt; when the function finishes.
 
 <H4>Creating a Dll</H4>
 
-<br><b>Note:</b> We won't deal with how to create a dll in details, the scripter here must be familiar with dll creation already.
+<br><b>Note:</b> We will not deal with how to create a dll in details, the scripter here must be familiar with dll creation already.
 
-Because mIRC wasn't unicode before, the exported functions used to be the following function prototype:
+Because mIRC was not unicode before, the exported functions used to be the following function prototype:
 
 <pre class = "code">
 int __stdcall funcName(HWND mWnd, HWND aWnd, char *data, char *parms, BOOL show, BOOL nopause);
@@ -131,7 +131,7 @@ The mTimeout value can be:
 
 <H4>Example 1 : Using Visual studio (C++)</H4>
 
-This example use a non-unicode project. We don't use a .def file but a #pragma comment to export functions.
+This example use a non-unicode project. We do not use a .def file but a #pragma comment to export functions.
 
 We use the LoadDll and UnloadDll routine to start/stop a communication with mIRC using SendMessage().
 
@@ -142,7 +142,7 @@ We use the LoadDll and UnloadDll routine to start/stop a communication with mIRC
 #define WM_MEVALUATE WM_USER + 201
 
 //__stdcall cause mangling of the form _yourfunctionname@N where N is the number of bytes for all the parameters
-//we use #pragma to redefine the name of the exported functions, if we don't do that, you can still call the dll using the name "_youfunctionname@24" ;)
+//we use #pragma to redefine the name of the exported functions, if we do not do that, you can still call the dll using the name "_youfunctionname@24" ;)
 //the prototype of our function always takes 6 parameters, each taking 4 bytes 6*4=24
 //the prototype for LoadDll and UnloadDll takes one parameter, a structure which is 4 bytes
 #pragma comment(linker, "/EXPORT:usingSM=_usingSM@24")

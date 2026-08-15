@@ -56,7 +56,7 @@ Display all unique values returned within 100 random values:
 <pre class = "code">
 //var %i 100 | var %s | while (%i) { var %a $rand($chr(33),$chr(126)) | if (%a !isincs %s) var %s %s %a | dec %i } | echo -a $sorttokcs(%s,32)
 </pre>
-Displays frequency distribution. Random does not mean equal outcomes. It's rare for a dice to roll exactly 10K 6's in 60K rolls:
+Displays frequency distribution. Random does not mean equal outcomes. It is rare for a dice to roll exactly 10K 6's in 60K rolls:
 <pre class = "code">
 //var %i = 60000 , %low 1 , %high 6 | var %nums $str(0 $chr(32),$calc(1+%high -%low)) | var %ticks $ticks | while (%i) { var %a $rand(%low,%high) | var %t $calc(1+%a -%low) | var %b $gettok(%nums,%t,32) | inc %b | var %nums $puttok(%nums,%b,%t,32) | dec %i } | var %c 1 | var %i %low | while ($gettok(%nums,%c,32) != $null) { var %b $gettok(%nums,%c,32) | var %nums $puttok(%nums,$+(%i,:,%b),%c,32) | inc %i | inc %c } | echo -a time: $+ $calc($ticks - %ticks) $+ ms-> %nums
 </pre>

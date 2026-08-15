@@ -18,7 +18,7 @@ The <b>/bset</b> command lets you assign specific ASCII values (or text) at a sp
 
 <H4>Switches</H4>
 <b>-t</b> - Indicates a string is to be written instead of 1 or more literal ASCII values.
-<br><b>-a</b> - When used along with -t switch, don't apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters &gt; 255.
+<br><b>-a</b> - When used along with -t switch, do not apply UTF-8 encoding to characters in the range 0-255, as long as the string parameter contains no characters &gt; 255.
 <br><b>-c</b> - Fills the binary variable with the string/ASCII values and truncates anything after it.
 <br><b>-z</b> - Creates new or truncates existing &binvar at zero length.
 
@@ -152,7 +152,7 @@ alias fake_bset-t {
   echo 7 -a $bvar(&bin4,1-)
 }
 </pre>
-If you change the "bset -t &bin2" into bset -ta &bin2" the green method mimics "bset -ta" by storing the $chr(233) as the 233 byte instead of UTF8-encoding it as the 2 bytes 195 169. The last brown method works only if you can identify a character in the 1-127 ASCII range which is guaranteed to not be present in the variable. To accomplish "bset -ta" with the $regsubex method, it'll need to call another alias to handle the different handling of codepoints above 255. (The above method can use either $regsub or $regsubex but below can't use $regsub) Because binary variables exist across all aliases for the duration that your alias or event is executing, you need to make sure to not destroy a binary variable in whichever script calls your alias. You can either pass the variable name as one of the parameters or have the alias create a unique binary variable name based on $ctime and/or $ticks. You can make a unique variable name like:
+If you change the "bset -t &bin2" into bset -ta &bin2" the green method mimics "bset -ta" by storing the $chr(233) as the 233 byte instead of UTF8-encoding it as the 2 bytes 195 169. The last brown method works only if you can identify a character in the 1-127 ASCII range which is guaranteed to not be present in the variable. To accomplish "bset -ta" with the $regsubex method, it'll need to call another alias to handle the different handling of codepoints above 255. (The above method can use either $regsub or $regsubex but below can not use $regsub) Because binary variables exist across all aliases for the duration that your alias or event is executing, you need to make sure to not destroy a binary variable in whichever script calls your alias. You can either pass the variable name as one of the parameters or have the alias create a unique binary variable name based on $ctime and/or $ticks. You can make a unique variable name like:
 <pre class = "code">
 //var %a dummy $+ $ticks $+ $ctime | bset -t & $+ %a 1 test | echo -a $bvar(& $+ %a ,1-).text
 </pre>
@@ -170,7 +170,7 @@ alias fake-bset-ta {
   echo -a $bvar(&bin,0) / $bvar(&bin,1-) / last character: $bvar(&dummy,1-)
 }
 </pre>
-<br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you don't lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it's possible for a string to consist entirely of such codepoints, you couldn't safely add more than around 330 characters at a time.
+<br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you do not lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it's possible for a string to consist entirely of such codepoints, you could not safely add more than around 330 characters at a time.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)

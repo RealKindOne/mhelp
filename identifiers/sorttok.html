@@ -70,7 +70,7 @@ Note: the above NumericMax assumes the input contains ONLY numbers, because in a
 It appears that $sorttok's numeric sort evaluates each token individually the same was as evaluated by $int(). This means that in 'n' sort, non-numerics are ignored at the end of the token if the token begins with a number, though it treats 'e' or 'E' as potentially being part of a number in scientific notation. 'n' sort treats tokens 2+2 or +2*2 or 2-2 the same as '2' because that's the number prior to encountering a non-numeric. All tokens which evaluate to the same number appear to always be kept in the order they appear in the input, so $sorttok(64 64.0,32,n) and $sorttok(64.0 64,32,n) both return an unchanged string.
 
 <p>
-Leading zero and non-numerics don't affect the numeric sort order:
+Leading zero and non-numerics do not affect the numeric sort order:
 <pre class = "code">
 //echo -a $sorttok( 1:black 02:blue 14:grey 3:green 13:magenta 5:maroon 6:purple 04:red 7:tan 8:yellow 0:white ,32,n)
 </pre>

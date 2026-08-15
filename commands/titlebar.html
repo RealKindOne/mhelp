@@ -22,7 +22,7 @@ The <b>/titlebar</b> command can be used to change the titlebar of a window, eit
 <H4>Example</H4>
 <pre class = "code">
 alias refresh_win {
-  ; create a window if it doesn't exist
+  ; create a window if it does not exist
   if (!$window($1)) window $1
   ; refresh the titlebar of that window
   titlebar $1 Position: $window($1).x $window($1).y

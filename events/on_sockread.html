@@ -22,7 +22,7 @@ on &lt;level&gt;:SOCKREAD:&lt;matchtext&gt;:&lt;commands&gt;
 
 <H4>Connection State</H4>
 
-It's important to check the value of <a href="../identifiers/sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
+It is important to check the value of <a href="../identifiers/sockerr.html">$sockerr</a> to determine if any connection errors occurred and handle that case. Here is a list of possible values returned by $sockerr in the on SOCKREAD event:
 <br>
 <br><b>0</b> - Data received correctly.
 <br><b>3</b> - Error occurred on connected socket: $sock($sockname).wsmsg will contain a more specific error message.

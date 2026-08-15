@@ -38,7 +38,7 @@ There are 11 commands to draw to a picture window, all of them support the -n sw
 <p>
 Once you have made all your draws and are ready to paint the changes, any call to one of these /draw commands without the -n switch will do it (makes sense when we know not using the -n switch always paint the changes, causing flickers). You naturally want to use the simple /drawdot @mywin for that.
 
-<p><b>Note:</b> this section won't give full details about the commands, click on a command to see more information about that command.
+<p><b>Note:</b> this section will not give full details about the commands, click on a command to see more information about that command.
 <p>
 <a href="../commands/drawdot.html">/drawdot</a> can be used to draw dots at specific coordinates with a specific size and color.
 <p>
@@ -50,7 +50,7 @@ Once you have made all your draws and are ready to paint the changes, any call t
 <p>
 <a href="../commands/drawtext.html">/drawtext</a> can be used to draw text at the specified coordinate, using the specified font name and font size, it supports basic formatting via switches.
 <p>
-<a href="../commands/drawsave.html">/drawsave</a> which actually can't be used to draw to a bitmap, is used to save an area to a .bmp or .jpg file.
+<a href="../commands/drawsave.html">/drawsave</a> which actually can not be used to draw to a bitmap, is used to save an area to a .bmp or .jpg file.
 <p>
 <a href="../commands/drawscroll.html">/drawscroll</a> can be used to scroll an area inside rectangles by specific distances, you can specify more than one set of scrolling area and distances.
 <p>
@@ -76,7 +76,7 @@ alias picwin_example {
   ; Draw a non filled red rectangle, size = 8, x y w h = 25 25 75 75
   .timer 1 4 drawrect -r @test 255 8 25 25 75 75
   ; Fill the whole window with a border fill: as long as the starting pixel(0 0)'s color
-  ; isn't the border color (255), that pixel is made the filling color (rgb = 12345, green)
+  ; is not the border color (255), that pixel is made the filling color (rgb = 12345, green)
   .timer 1 6 drawfill -r @test 1234567 255 0 0
   ; Draw "test" in rgb color 65498, at coordinate 65 65, font name verdana and font size 12
   .timer 1 8 drawtext -r @test 65498 verdana 12 65 65 test
@@ -107,7 +107,7 @@ Mouse events can be defined in a <a href="custom_windows.html#custom_windows_men
 <br><b>uclick</b> - Mouse released at $mouse.x $mouse.y
 <br><b>rclick</b> - Right clicked at $mouse.x $mouse.y
 <br><b>lbclick</b> - Selected a line in the listbox, you can check $1 to get the line number of the selected line.
-<br><b>leave</b> - Mouse left the window, you can check <a href="../identifiers/leftwin.html">$leftwin</a> if the menu doesn't trigger for a static name.
+<br><b>leave</b> - Mouse left the window, you can check <a href="../identifiers/leftwin.html">$leftwin</a> if the menu does not trigger for a static name.
 <br><b>drop</b> - Mouse drag and dropped at $mouse.x $mouse.y.
 
 <H4>Keyboard Events</H4>
@@ -122,7 +122,7 @@ on &lt;level&gt;:&lt;keydown|keyup&gt;:&lt;@window&gt;:&lt;keys&gt;:&lt;command&
 
 <H4>The $mouse identifier</H4>
 
-The <a href="../identifiers/mouse.html">$mouse</a> identifier doesn't take any parameter, but has the following properties:
+The <a href="../identifiers/mouse.html">$mouse</a> identifier does not take any parameter, but has the following properties:
 
 <H4>Indirect events</H4>
 
@@ -224,7 +224,7 @@ $width(text,fontname,fontsize,B,C)
 </pre>
 Returns width of text in pixels for the specified font, B can be non zero for a bold font, C can be non zero if you want control codes to be processed.
 
-<H4>The <a href="../identifiers/window_.html">$window()</a> identifier</H4>
+<H4>The <a href="../identifiers/window.html">$window</a> identifier</H4>
 
 Synopsis:
 <pre class = "code">

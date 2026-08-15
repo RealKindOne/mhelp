@@ -17,7 +17,7 @@ Local Variables are given local scope. They are created for the duration of the 
 <p>
 <b>Note:</b> Local variables can be seen from the execution of /scon or /scid:
 <pre class = "code">
-//var %a ok | scon -r echo -a $ + %a ($1- can't be seen the same way)
+//var %a ok | scon -r echo -a $ + %a ($1- can not be seen the same way)
 </pre>
 
 Syntax:
@@ -95,7 +95,7 @@ Although it's not required in /var since 6.21, the equal sign can be used to ass
 </pre>
 If %var is local, this will change the local variable.<br>
 If %var is global, it will naturally change the global variable.<br>
-If %var doesn't exist, it will create a global variable.<br>
+If %var does not exist, it will create a global variable.<br>
 
 <H4>Unsetting Variables</H4>
 
@@ -140,7 +140,7 @@ If a variable is referred to but does not exist, it returns the value $null. Lik
 
 <pre class = "code">
 alias nullExample {
-  ; make sure our variable doesn't exist
+  ; make sure our variable does not exist
   unset %example1
   if (%example1 == $null) {
     echo -a % $+ example1 is null!
@@ -168,7 +168,7 @@ The operators supported are: <b>+</b> <b>-</b> <b>/</b> <b>*</b> <b>%</b> <b>^</
 <p>
 You must use a space around all 3 parameters and you must provide correct values, numbers can be float.
 <p>
-If you don't respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
+If you do not respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
 <p>
 It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is &gt;= 2^31, the result is zero. If 1 input is valid and the other is &lt; -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 &lt;= n &lt; 2^32, var can output negative numbers.
 
@@ -226,7 +226,7 @@ on *:ACTION:$(slaps $me $+ *):#mSL:{
 
 <H4>Dynamic Variable Names</H4>
 
-In many occasions you may need to save individualized data (data for a particular user or channel for example). Dynamic variables allow you to do just that. A dynamic variable's name usually consists of a static part (a part that doesn't change) and a dynamic part (the part that changes).
+In many occasions you may need to save individualized data (data for a particular user or channel for example). Dynamic variables allow you to do just that. A dynamic variable's name usually consists of a static part (a part that does not change) and a dynamic part (the part that changes).
 
 <H4>Setting Values</H4>
 
@@ -310,7 +310,7 @@ on *:TEXT:!favColor *:#:{
     notice $nick $2's favorite color is %color $+ .
   }
   else {
-    notice $nick $2 doesn't have a favorite color set yet.
+    notice $nick $2 does not have a favorite color set yet.
   }
 }
 </pre>
@@ -392,9 +392,9 @@ This method is easier to read/handle than the bracket, you can simply get the pl
 <a name="quirks"></a>
 <H4>Special behaviors & quirks</H4>
 
-Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC doesn't evaluate it.
+Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC does not evaluate it.
 <p>
-Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose doesn't evaluate the variable name.
+Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose does not evaluate the variable name.
 
 <H4>Quirks in /var</H4>
 
@@ -447,7 +447,7 @@ works correctly, however /set also allow dynamic switches, this leads to a new q
 <pre class = "code">
 //var %var 1 | set -u $+ %var %setting
 </pre>
-should set %setting but won't, you can use % $+ setting to workaround this issue.
+should set %setting but will not, you can use % $+ setting to workaround this issue.
 
 <H4>Quirks in /unset</H4>
 
@@ -459,7 +459,7 @@ should set %setting but won't, you can use % $+ setting to workaround this issue
 <pre class = "code">
 //var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b
 </pre>
-You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it won't, mIRC won't evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
+You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it will not, mIRC will not evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
 <p>
 To workaround this problem, you must use evaluation brackets to force the evaluation:
 <pre class = "code">
@@ -473,7 +473,7 @@ Another issue also occurs with variable inside identifier:
 This will correctly unset the variable %ab, %a is not evaluated inside $+(), you can use $() on the variable to force evaluation.
 
 <H4>Conclusion</H4>
-Variables are a great resource to have at your fingertips within mIRC! As you've seen, they are very powerful, and yet don't require too much of a headache to understand :)
+Variables are a great resource to have at your fingertips within mIRC! As you've seen, they are very powerful, and yet do not require too much of a headache to understand :)
 
 </body>
 </html>

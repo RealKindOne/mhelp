@@ -20,7 +20,7 @@ mIRC's <b>binary &variables</b> are distinguished from its text %variables by be
 Some uses for Binary Variables include:
 <br>
 <br>
-<li>Holding content which can't be placed into text %variables.</li>
+<li>Holding content which can not be placed into text %variables.</li>
 <li>Holding content too long to be placed in text variables.</li>
 <li>Displaying duplicate spaces or non-printable characters like TAB which cannot be seen in echoed strings.</li>
 
@@ -137,7 +137,7 @@ write &versions to disk
 </pre>
 <H4>'local' Binary variables</H4>
 
-When using %variables within an alias, you can take advantage of their 'local' scope to safely re-use variable names without worrying about destroying variables used by other scripts or aliases. You can use "/var %a value" in an alias to set that local variable without worrying that you will destroy that same variable name being used by the alias which called your alias, and don't need to worry if your script calls another alias which also uses that same name as a local variable.
+When using %variables within an alias, you can take advantage of their 'local' scope to safely re-use variable names without worrying about destroying variables used by other scripts or aliases. You can use "/var %a value" in an alias to set that local variable without worrying that you will destroy that same variable name being used by the alias which called your alias, and do not need to worry if your script calls another alias which also uses that same name as a local variable.
 
 However the scope of binary variables means they exist in all aliases called by each other or in the event which triggered their usage. To avoid aliases damaging the contents of each other's binary variables, if an alias needs to create binary variables, and is designed to be called by other aliases which might also be using binary variables, you must defend against destroying the binary variables used by the caller. Two ways to do this are:
 
@@ -173,7 +173,7 @@ Store in hash table:
 /hadd -smb binvar_save binvar &binvar
 </pre>
 
-Note: hash tables aren't saved to disk, so you need to save that table to disk:
+Note: hash tables are not saved to disk, so you need to save that table to disk:
 <pre class = "code">
 /hsave -sb binvar_save savebins.dat
 </pre>
@@ -187,7 +187,7 @@ Use $encode to translate binary data to text, which can be saved to variables or
 <pre class = "code">
 //noop $encode(&binvar,bm) | set %binvar_save $bvar(&binvar,1-).text
 </pre>
-Note: $encode translates 3 input bytes (binary or text) into 4 text characters, so you shouldn't try to use this method on binary variables longer than approximately 3000 bytes.
+Note: $encode translates 3 input bytes (binary or text) into 4 text characters, so you should not try to use this method on binary variables longer than approximately 3000 bytes.
 Retrieve binary content from text %variable:
 <pre class = "code">
 //bset -t &binvar 1 %binvar_save | noop $decode(&binvar,bm)

@@ -21,17 +21,30 @@ $pos(text,substring [,N] )
 None
 
 <H4>Examples</H4>
+Returns: 2 (search is case-insensitive) (Default N=1 when 3rd parameter is not used)
 <pre class = "code">
 //echo -a $pos(DEADBEEF,E)
-returns: 2 (search is case-insensitive) (Default N=1 when 3rd parameter isn't used)
+</pre>
+Returns: 6
+<pre class = "code">
 //echo -a $pos(DEADBEEF,e,2)
-returns: 6
+</pre>
+
+Returns: 3 (count of letter 'e')
+<pre class = "code">
 //echo -a $pos(DEADBEEF,e,0)
-returns: 3 (count of letter 'e')
+</pre>
+Returns: 4
+<pre class = "code">
 //echo -a $pos(deadbeef,db,1)
-returns: 4
+</pre>
+
+Returns: $null (not found)
+<pre class = "code">
 //echo -a $pos(DEADBEEF,x,0)
-returns: $null (not found)
+</pre>
+<!-- TODO -->
+<pre class = "code">
 //var %a a $chr(32) b | echo -a The string has length $len(%a) and contains $pos(%a,$chr(32),0) spaces
 //echo -a The path-less filename is $mid($mircexe, $calc(1+$pos($mircexe,\, $count($mircexe,\) ) ) )
 </pre>

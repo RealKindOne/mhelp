@@ -37,23 +37,22 @@ Item2=value
 <br><b>&lt;value&gt;</b> - The data to store for the item.
 
 <H4>Example</H4>
+Write a few items to a file:
 <pre class = "code">
-; Write a few items to a file
 /writeini abb.ini abbreviations lol Laughing Out Loud
 /writeini abb.ini abbreviations rofl Rolling On the Floor, Laughing
+</pre>
 
-/*
-abb.ini format:
-
+Creates a file:
+<pre class = "code">
 [abbreviations]
 lol=Laughing Out Loud
 rofl=Rolling On the Floor, Laughing
-*/
+</pre>
 
-; Retrieve 'lol'
+Retrieve 'lol' and print out: 'Laughing Out Loud'
+<pre class = "code">
 //echo -a $readini(abb.ini, n, abbreviations, lol)
-
-; Prints out: Laughing Out Loud
 </pre>
 
 <H4>Compatibility</H4>

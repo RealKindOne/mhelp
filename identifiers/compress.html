@@ -33,7 +33,7 @@ m3 gzip: The 1st 4 bytes in hex are: 1F 8B 08 00<br>
 
 Reminder that decompress works without being informed of the lN compression level. Files compressed with non-default m1 or m3 will fail without being informed of the compression method used to compress that file.
 <br>
-Returns 1 if it compressed the file, or 0 if it did not. It will repeatedly process the same file and return 1, even if the attempt to compress an already compressed file slightly increases the filesize. 0 can indicate there's no-such-file, the file wasn't already compressed, or a failure to decompress corrupted data.
+Returns 1 if it compressed the file, or 0 if it did not. It will repeatedly process the same file and return 1, even if the attempt to compress an already compressed file slightly increases the filesize. 0 can indicate there's no-such-file, the file was not already compressed, or a failure to decompress corrupted data.
 
 <pre class = "code">
 //noop | $compress(versions.txt) | echo -a test
@@ -54,9 +54,9 @@ alias compress-then-send {
 </pre>
 
 <br><b>Note:</b> Before making a script which automatically compresses all files before sending them and decompressing them when they finish, you should take several issues into account.
-<br>You shouldn't automatically decompress or compress files without making certain that the same file isn't also being transferred to/from someone else.
+<br>You should not automatically decompress or compress files without making certain that the same file is not also being transferred to/from someone else.
 <br>Besides <a href="../events/on_filesent.html">On_FileSent</a>, Transfers can also terminate with <a href="../events/on_sendfail.html">On_SendFail</a>, clicking to close the send window, using the <a href="../commands/close.html">/close</a> command with the -s switch, mIRC crashing, etc.
-<br>To make certain all files get safely decompressed, the script should probably work from a file listing that doesn't remove lines until the file has been determined to be decompressed.
+<br>To make certain all files get safely decompressed, the script should probably work from a file listing that does not remove lines until the file has been determined to be decompressed.
 <br>Now that $compress supports gzip compression, a script must first determine which method was used to compress the file in order to successfully decompress the file.
 
 <H4>Compatibility</H4>

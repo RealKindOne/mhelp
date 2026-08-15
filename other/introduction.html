@@ -14,7 +14,7 @@ When a script is running, it's always running in the context of an active server
 <p>
 mIRC and therefore all scripts run in a single thread environment and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.
 <p>
-To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It's also a good idea to use local aliases.
+To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It is also a good idea to use local aliases.
 <p>
 mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
@@ -58,15 +58,15 @@ Some built-in commands result in a verbose message displayed in a window, you ca
 <p>
 
 <H3>Other statements</H3>
-If a statement isn't a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
+If a statement is not a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
 <p>
 If such statement is not literal in the code, it will be executed as a command.
 <p>
 Such statement can involve more syntactic elements with their parameters and are used to control the logical flow of the code, branching, loop etc. They do not split their parameters on spaces.
 <p>
-One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it won't be executed as a command.
+One exception is the /var statement, which does not split parameters on spaces either but is not a conditional statement. If not literal in the code, /var will produce an error, it will not be executed as a command.
 <p>
-They are also referred to as commands but they are fundamentally different from commands because they don't split parameters on spaces.
+They are also referred to as commands but they are fundamentally different from commands because they do not split parameters on spaces.
 <p>
 
 <H3>Routine</H3>
@@ -110,7 +110,7 @@ They have the following format:
 <pre class = "code">
 alias [-l] &lt;name&gt; &lt;statements&gt;
 </pre>
-If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above, and you can optionally make the alias "local" by using another space separated -l parameter, indicating that the alias can only be accessed from a routine inside this script file, the alias won't be available from the editbox or a different script file.<br>
+If you use a remote file, you must prefix it with the <b>alias</b> keyword, space separated, as shown above, and you can optionally make the alias "local" by using another space separated -l parameter, indicating that the alias can only be accessed from a routine inside this script file, the alias will not be available from the editbox or a different script file.<br>
 
 <pre class = "code">
 alias fun echo Scripting | echo Is | echo Fun!
@@ -144,7 +144,7 @@ If the context allow it, you can omit using the pair of spaced out { } around th
 <p>
 However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.
 <p>
-We usually use newline for each new statement and we usually don't mix piping with newline although it's valid:
+We usually use newline for each new statement and we usually do not mix piping with newline although it's valid:
 
 <pre class = "code">
 alias test echo -a test
@@ -253,7 +253,7 @@ If they take parameters, they use the ( and ) and a comma to separate arguments,
 <pre class = "code">
 $name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...)
 </pre>
-If they take a property, you must use the form with parameters (so with () parenthesis) even if you don't pass parameters, they use a dot '.' at the end after the ')' followed by a property name:
+If they take a property, you must use the form with parameters (so with () parenthesis) even if you do not pass parameters, they use a dot '.' at the end after the ')' followed by a property name:
 <pre class = "code">
 $name(&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...).property
 </pre>
@@ -265,7 +265,7 @@ If we want to print out our current nickname, we would use the following code ($
 //echo -a $me
 </pre>
 
-So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it doesn't need to be, it's plain, static, text.<br>
+So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it does not need to be, it's plain, static, text.<br>
 But $me is evaluated and "$me" in the line is replaced by the value returned by $me. Then, all parameters have been evaluated and the echo command is executed with two parameters, -a and the value returned by $me.<br><br>
 mIRC provides a lot of built-in identifiers and you can create your own as well with aliases:
 <pre class = "code">
@@ -297,11 +297,11 @@ would display '5'.<br><br>
 If you execute statements from editboxes, in order for the $identifiers, %variables, pipe '|' statements separator and { } grouping to work properly, you must prefix the first statement with two slashes. A single slash will make mIRC execute the first statement only without evaluating anything, everything on the line after the first word is plaintext.
 
 <h4>Alias name restriction</h4>
-Alias name can be pretty much anything, they can't contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:
+Alias name can be pretty much anything, they can not contain spaces obviously but otherwise can contain any characters (except binary 0), the only restriction is on the first character, which, depending on the context in which you use the alias, can make it fail:
 <p>
 -aliases/statements/identifiers prefixes '.', '!', '~', '/', '!' will all create issues when used in their respective context, aka you have an alias named "~test" and call it as a command without any problem, but calling it as an identifier will be a problem as ~ is an identifier prefix.
 <p>
--digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you wouldn't be able to use $1.
+-digits, because mIRC has built-in identifiers $1 $2 etc for parameters in aliases and events, again you could call an alias named "1" a command with /1, but you would not be able to use $1.
 
 <H4>$rand()</H4>
 One of the most common operations we use is to generate random numbers. This is where the <a href="../identifiers/rand.html">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
@@ -327,7 +327,7 @@ The results that mIRC generates for you will be different than the ones listed a
 An example of an identifier that is a construct and not returning a value is $+, $+ is a concatenation operator, A $+ B results in AB. There is an real identifier version of it which we used earlier, $+(), which does return the concatenated value, $+(A,B,C) is ABC.
 
 <h4>Events</h4>
-If your statements aren't inside an alias, the other thing they can used with are events.<br>
+If your statements are not inside an alias, the other thing they can used with are events.<br>
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
 Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
 All events follow this format except two:<br>
@@ -336,7 +336,7 @@ on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt
 </pre>
 "on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
 After that you have the parameters of the events, you can get parameters to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
-Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can't have literal ':' in them.<br>
+Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can not have literal ':' in them.<br>
 
 
 Then you have the CTCP event, it has a similar format as the above and takes two parameters:<br>
@@ -382,28 +382,28 @@ alias myfunction1 return $findfile(C:\,*,1)
 </pre>
 $findfile is a built-in identifier, here it returns the first file found on C:\<br>
 <b>//myfunction $myfunction1 3</b><br>
-If the first file found on disk does not contain space, it will work, but if it does, $1 inside the myfunction alias won't represent the complete filename with its spaces, it will only return the first word of it.<br>
+If the first file found on disk does not contain space, it will work, but if it does, $1 inside the myfunction alias will not represent the complete filename with its spaces, it will only return the first word of it.<br>
 Which in turns makes $2 incorrect for the line number parameter 3, and you cannot tell which parameter is the line number as it will depend on how many spaces there's in the filename.
 This illustrates how literal spaces (between $myfunction1 and 3 in the command call) and spaces resulting from evaluation (of $myfunction1) are treated equally when it comes to splitting parameters.<br>
 In addition, trailing and leading spaces are trimmed and consecutive spaces are shortened to a single space when splitting parameter.<br><br>
 
 This design for command is based on the IRC command format originally, more or less, it's simple, and it will avoid formatting/syntax error when using IRC command or just sending automated messages.
-So, basically commands calls are great for functions which don't require parameter or when parameters are known not to be a string, or when the string itself is more or less limited by the context/purpose of that command.<br>
-Finally, it's also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can't contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
+So, basically commands calls are great for functions which do not require parameter or when parameters are known not to be a string, or when the string itself is more or less limited by the context/purpose of that command.<br>
+Finally, it's also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can not contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
 
-Maintaining an alias being used as a command by eventually adding new parameters to the alias when you don't know about the type of parameter in advance can be annoying as it requires editing your code carefully and accordingly for no good reason<br>
-So if you need a bit more control about your function or if you don't want to end up being blocked cause you can't add a new parameter, you will want to use $identifier call for your alias instead.
+Maintaining an alias being used as a command by eventually adding new parameters to the alias when you do not know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
+So if you need a bit more control about your function or if you do not want to end up being blocked cause you can not add a new parameter, you will want to use $identifier call for your alias instead.
 For example if you wanted to do something if the difference in length of two strings are bigger than 5 ($len() is the identifier to return the length of a string):<br>
 <pre class = "code">
 alias difflength {
 if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 5.
   }
 </pre>
-You can't just use a command call like <b>/difflength string1 string2</b> as we just saw how this would fail if any of the string contain spaces, so instead you call it as an identifier $difflength(string1,string2)<br><br>
+You can not just use a command call like <b>/difflength string1 string2</b> as we just saw how this would fail if any of the string contain spaces, so instead you call it as an identifier $difflength(string1,string2)<br><br>
 As we saw, $identifier calls separate arguments with the comma character ',' instead of spaces.<br>
 Most built-in identifiers evaluate their parameter from left to right (property included), but some are not evaluating (usually the last) a parameter on purpose.<br>
 When you create an alias, if you call it as an identifier, all parameters are evaluated.<br>
-When we create such identifier to perform some operation but don't want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
+When we create such identifier to perform some operation but do not want to do anything with the value returned by the identifier, we use the /noop command (no-operation) which will just evaluate our identifier and do nothing with the result.<br>
 It is valid to not use the /noop command:
 <pre class = "code">
 alias difflength {
@@ -418,7 +418,7 @@ Here $difflength() is evaluated as the only thing part of the statement and beca
 <p>
 But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.
 <p>
-Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and won't be separating the argument!
+Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and will not be separating the argument!
 
 <pre class = "code">
 alias giveme5 return 5
@@ -476,7 +476,7 @@ A few notes about the language limitations:
 <br>
 <br><span style="color: #DB0000;">Text may touch the opening <b>/*</b> on the right; however, <b>/*</b> must start the line.</span>
 <br><span style="color: #DB0000;">The closing <b>*/</b> must be on a line of its own.</span>
-<br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn't indented if there's a closing brace on that line.
+<br>Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line is not indented if there's a closing brace on that line.
 
 <H4><span style="color: #256B22;">Right Examples</span></H4>
 <pre class = "code">
@@ -580,7 +580,7 @@ Will produce the following result:
  The number <span style="color: #FF0000;">2</span> is even.
 </pre>
 
-<br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it won't show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
+<br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it will not show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
 
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.

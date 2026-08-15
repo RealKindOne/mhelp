@@ -45,11 +45,11 @@ alias copy Example {
 ; result: 195 169 because -t used without -a interprets as UTF8 encoding of codepoint 233
 
 //bset &v 1 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
-; result: 233 because -ta used AND data read doesn't contain codepoint 256+
+; result: 233 because -ta used AND data read does not contain codepoint 256+
 
 //bset &v 1 226 156 148 233 | bwrite -c test.dat 0 &v | bread -ta test.dat 0 9 &v2 | echo -a $bvar(&v2,1-)
 ; result: 226 156 148 195 169 because data read contains codepoint 10004
-; * If bread's offset changed from 0 to 3, result is 233 because the read portion of the line doesn't contain the codepoint above 255
+; * If bread's offset changed from 0 to 3, result is 233 because the read portion of the line does not contain the codepoint above 255
 </pre>
 <pre class = "code">
 //bread $qt($mircexe) 0 $file($mircexe).size &v | echo -a $md5(&v,1) is the same as $md5($mircexe,2) if enough memory available for binvar

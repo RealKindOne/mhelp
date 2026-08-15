@@ -11,7 +11,7 @@ The current value is 10240
 
 <H4>Line Length Limit</H4>
 
-The value of this identifier return a bit less that the real limit. The real limit is often referred to as the line length limit, it was previously 4150 (where $maxlenl would most likely have returned a safe value of 4096), it is currently 10340, 100 more than the safe limit of $maxlenl's 10240, and this is to account for the length of the command, switches etc, but note that if you come up with a total length of 100+ for your command + switches (think about /write -w"longstringhere"), you obviously won't have 8192 character left, but less.
+The value of this identifier return a bit less that the real limit. The real limit is often referred to as the line length limit, it was previously 4150 (where $maxlenl would most likely have returned a safe value of 4096), it is currently 10340, 100 more than the safe limit of $maxlenl's 10240, and this is to account for the length of the command, switches etc, but note that if you come up with a total length of 100+ for your command + switches (think about /write -w"longstringhere"), you obviously will not have 8192 character left, but less.
 <p>
 Versions History of $maxlenl and Line Length Limit:
 <br>900-ish through v6.31

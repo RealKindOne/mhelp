@@ -73,14 +73,14 @@ Add color 3 for all half-op:
 
 <p>One is to change your black background from index 1 to one of the color indices like 89 or 90 which look like black but have slightly different RGB which causes a different batch of colors to be chosen for the palette. However, be aware that this can have an adverse effect on colored strings which normally change color 1 into color 0 if the background is also index 1 - and those will no longer do the same for background 88 even if that has an identical RGB to index 1</p>
 
-<p>Another is to take advantage of the fact that colors used by other nick color rules are not chosen for the autocolor palette, so you can simply create a dummy rule that won't actually match any nicks, but the presence of this rule will prevent it being chosen for the autocolor palette. To do this, you can use the Alt+P editor to place this line into your nicklist popups menu. (If putting into a dropdown menu you probably need to prefix the label with a .period)</p>
+<p>Another is to take advantage of the fact that colors used by other nick color rules are not chosen for the autocolor palette, so you can simply create a dummy rule that will not actually match any nicks, but the presence of this rule will prevent it being chosen for the autocolor palette. To do this, you can use the Alt+P editor to place this line into your nicklist popups menu. (If putting into a dropdown menu you probably need to prefix the label with a .period)</p>
 
 <p>Dummy rule for autocolor $nick($chan,$1).color :</p>
 
 <pre class = "code">
 //var %color $nick($chan,$1).color | !.cnick -m2s $+ $calc(1+$cnick(0)) ;dummycolor $+ %color %color @ | !.color background $color(background)
 </pre>
-<p>This creates a menu item that shows you the color being used by that nick, and you can add a dummy rule to your nick colors list which uses that color - by simply right-clicking on a nick that you can't read because that color does not contrast against the background, and choosing this command. Note that it contains the command to reset the background to the existing background color, because that's necessary to force the autocolors to reset based on the new palette that has 1 fewer colors in it.</p>
+<p>This creates a menu item that shows you the color being used by that nick, and you can add a dummy rule to your nick colors list which uses that color - by simply right-clicking on a nick that you can not read because that color does not contrast against the background, and choosing this command. Note that it contains the command to reset the background to the existing background color, because that's necessary to force the autocolors to reset based on the new palette that has 1 fewer colors in it.</p>
 
 <p>If you want to use that color again, you can simply go to the Nick Colors tab of the address book and delete it.</p>
 

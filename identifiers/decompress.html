@@ -24,7 +24,7 @@ None
 
 There are patterns that often appear near the beginning, but there's no guaranteed signature to be found at the beginning of a compressed file, except the 1st character is $chr(120) small-x.
 <p>
-Returns 1 if it decompressed the file, or 0 if it did not. A file can be compressed multiple times, so a decompressed file should either not begin with small-x or return 0 from a decompress attempt. 0 can indicate there's no-such-file, the file wasn't already compressed, or a failure to decompress corrupted data.
+Returns 1 if it decompressed the file, or 0 if it did not. A file can be compressed multiple times, so a decompressed file should either not begin with small-x or return 0 from a decompress attempt. 0 can indicate there's no-such-file, the file was not already compressed, or a failure to decompress corrupted data.
 
 
 
