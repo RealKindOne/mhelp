@@ -3652,6 +3652,10 @@
 		<param name="Local" value="events\on_waveend.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Certificate">
+		<param name="Local" value="other\certificate.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="injection">
 		<param name="Local" value="other\injection.html">
 		</OBJECT>

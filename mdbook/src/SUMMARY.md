@@ -965,6 +965,7 @@
 - [Aliases](other/aliases.md)
 - [BigFloat](other/bigfloat.md)
 - [Binary Variables](other/binary_variables.md)
+- [Certificate](other/certificate.md)
 - [Color](other/color.md)
 - [COM](other/com.md)
 - [Conditional Statements](other/conditional_statements.md)
