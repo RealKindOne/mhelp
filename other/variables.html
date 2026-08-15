@@ -89,7 +89,7 @@ You can use set -u0 to create a variable that can be seen by any routine (global
 
 <H4>The equal sign '='</H4>
 
-Although it's not required in /var since 6.21, the equal sign can be used to assign a value to a variable without actually using a command:
+Although it is not required in /var since 6.21, the equal sign can be used to assign a value to a variable without actually using a command:
 <pre class = "code">
 %var = value
 </pre>
@@ -170,7 +170,7 @@ You must use a space around all 3 parameters and you must provide correct values
 <p>
 If you do not respect the format, it will set the value as plain text, use -n or -p to override this behavior when dynamic content.
 <p>
-It also supports '&' as the logical-AND operator, but it's supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is &gt;= 2^31, the result is zero. If 1 input is valid and the other is &lt; -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 &lt;= n &lt; 2^32, var can output negative numbers.
+It also supports '&' as the logical-AND operator, but it is supported differently than how $and() handles inputs. Here, the output is valid only if the inputs are valid within the signed 32-bit range. If 1 input is valid and the other is &gt;= 2^31, the result is zero. If 1 input is valid and the other is &lt; -2^31, the result is always -2^31. Unlike how $and casts negative results into an integer in the range 2^31 &lt;= n &lt; 2^32, var can output negative numbers.
 
 For Example:
 
@@ -275,7 +275,7 @@ set %color. $+ John blue
 <b>Static Variables</b>
 <br>
 <br>
-Retrieving values from static variables is pretty straightforward. Let's assume you have a variable called ''%myvar'' and it's value is <b>abc</b>, you can get this value simply by referring to the variable outright:
+Retrieving values from static variables is pretty straightforward. Let's assume you have a variable called ''%myvar'' and it is value is <b>abc</b>, you can get this value simply by referring to the variable outright:
 
 <pre class = "code">
 alias showVar {
@@ -385,7 +385,7 @@ var %color = $eval($+(%,color.,$2),2)
 </pre>
 $+(%,color.,$2) will produce the plain text "%color.John", and that is then evaluated a second time (the 2 in $eval(,2)) to produce the value of the variable just like usual. Note that with the brackets method, you also get a double evaluation, but they happen at a different levels.
 
-This method is easier to read/handle than the bracket, you can simply get the plain text variable you want with $+(), and then you evaluate that twice to get the content of the variable, this method is recommended, but note that it's a bit slower than the bracket.
+This method is easier to read/handle than the bracket, you can simply get the plain text variable you want with $+(), and then you evaluate that twice to get the content of the variable, this method is recommended, but note that it is a bit slower than the bracket.
 
 <br><b>Note:</b> $eval is often used in the simple form $()
 
@@ -394,7 +394,7 @@ This method is easier to read/handle than the bracket, you can simply get the pl
 
 Variables routines are a bit special because usually, the first argument given to a variables related command is a variable name, yet mIRC does not evaluate it.
 <p>
-Indeed if //echo %var would display its content, it's because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose does not evaluate the variable name.
+Indeed if //echo %var would display its content, it is because %var is evaluated and then passed as the parameter to the /echo command. %Variable related commands are obviously not doing that otherwise the content of the variable or $null would be passed to the command. So mIRC, on purpose does not evaluate the variable name.
 
 <H4>Quirks in /var</H4>
 
@@ -402,13 +402,13 @@ If most commands cannot preserve spaces, /var can preserve spaces in all situati
 <pre class = "code">
 //var -s %a $+($chr(32),a,$chr(32),$chr(32),b,$chr(32),$chr(32)),%b $+($chr(32),a,$chr(32),$chr(32),b,$chr(32)) | echo -a $len(%a) $len(%b)
 </pre>
-which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it's a single trailing space), you can use the new -p switch to fix this.
+which is displaying 7 5 instead of 7 6 (there is one less space at the end, which is lost because it is a single trailing space), you can use the new -p switch to fix this.
 <p>
 /var is calling /set for every assignment, but every assignment in /var must start with a %
 <pre class = "code">
 //var -s %a,$+(%,b) 1
 </pre>
-This will set the variable '%a,$+(%,b)' to the value 1, mIRC will consider your second assignment invalid and therefore it's just part of the current variable name.
+This will set the variable '%a,$+(%,b)' to the value 1, mIRC will consider your second assignment invalid and therefore it is just part of the current variable name.
 
 <pre class = "code">
 //var -s $+(%,b) 1,%a 2
@@ -459,7 +459,7 @@ should set %setting but will not, you can use % $+ setting to workaround this is
 <pre class = "code">
 //var -s %a a,%b b,%ab,%a%b | unset -s %a $+ %b
 </pre>
-You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it will not, mIRC will not evaluate %b at all, thinking it's a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
+You might expect this to evaluate %b and stick its content to plain text "%a", just like in /set etc but it will not, mIRC will not evaluate %b at all, thinking it is a separate variable name you want to unset as well, unsetting the wrong %a%b instead of %ab.
 <p>
 To workaround this problem, you must use evaluation brackets to force the evaluation:
 <pre class = "code">

@@ -127,7 +127,7 @@ Solution: If you use syntax which results in an encrypted file which does not ha
 <br>
 You can avoid doing that most of the time by checking to see if the base64 string begins with the first 10 base64 symbols that are the encoding of the 2 labels.
 <br>
-If using Blowfish encryption, it's best if you not use a version prior to v7.58 due to a series of important fixes in that and prior versions. This includes the fix of a GPF bug when $decode receives certain invalid inputs, and a fix in v7.56 where random salts containing the 0x00 byte are no longer truncated. If needing to communicate with someone using using v7.55 or earlier, both sides must create their random salt using the following alias to prevent the prior incorrect handling of salts resulting in 1/32 of messages being unable to be read in either direction.
+If using Blowfish encryption, it is best if you not use a version prior to v7.58 due to a series of important fixes in that and prior versions. This includes the fix of a GPF bug when $decode receives certain invalid inputs, and a fix in v7.56 where random salts containing the 0x00 byte are no longer truncated. If needing to communicate with someone using using v7.55 or earlier, both sides must create their random salt using the following alias to prevent the prior incorrect handling of salts resulting in 1/32 of messages being unable to be read in either direction.
 <pre class = "code">
 alias randsalt returnex $regsubex($str(x,8),/x/g,$chr($rand(1,255))))
 </pre>

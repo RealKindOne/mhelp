@@ -5,7 +5,7 @@
 <H1>Conditional Statements</H1>
 <br>
 <br>
-A <b>conditional statement</b> is a control flow construct in mIRC that can execute a set of commands only after comparing or testing a condition. A condition in mIRC has a false truth value if it's <a href="../identifiers/null.html">$null</a>, <a href="../identifiers/false.html">$false</a>, or 0.
+A <b>conditional statement</b> is a control flow construct in mIRC that can execute a set of commands only after comparing or testing a condition. A condition in mIRC has a false truth value if it is <a href="../identifiers/null.html">$null</a>, <a href="../identifiers/false.html">$false</a>, or 0.
 
 <H4>Intro</H4>
 You almost never want a script to simply do the same exact thing over and over. In many occasions, you want it to compare two things and decide what to do upon the result of that comparison. For example:
@@ -129,15 +129,15 @@ Alias greet {
     var %time = morning
   }
   elseif (%hours == 12) {
-    ;it's 12 o'clock
+    ;it is 12 o'clock
     var %time = noon
   }
   elseif (%hours &gt; 20) {
-    ;it's passed 8:00PM
+    ;it is passed 8:00PM
     var %time = night
   }
   else {
-    ;if it's 11 or 1-7PM
+    ;if it is 11 or 1-7PM
     var %time = day
   }
   echo -a Good %time $+ !

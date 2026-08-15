@@ -42,7 +42,7 @@ A single /sockread may not be enough to read the entire buffer (if you are readi
 <br>    b) you were reading into a &lt;%var&gt; and there is still a terminated line in the buffer waiting to be read.
 <br>
 <br>
-This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it's also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, <a href="sockread.html#last_line">see below</a>.
+This means you will miss the last line if it is not a terminated line and you are reading line by line only (and not in a binvar, although it is also easier to use on sockclose with binvar if you are reading line by line and facing this). You can read that line in the on sockclose event, <a href="sockread.html#last_line">see below</a>.
 <br>
 <br><b>Note:</b> (fixed since mIRC 7.36): Using SSL, on sockread might not be re-triggered as it should, <a href="../events/on_sockclose.html">On_SockClose</a> will be triggered too early with $sockerr sets to 3, you must read the receive buffer from that event
 <br>

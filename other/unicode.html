@@ -36,7 +36,7 @@ Whilst rendering functions will normally display characters over 65536 correctly
 </pre>
 For $regsubex this is because mIRC is using the 8 bits pcre api: when replacing it has to convert your 16 bits unit ($chr(55357) in the first iteration) to UTF8.
 <br>
-<br><b>Note:</b> In fact mIRC does convert the two surrogates to their utf8 representation, except that this is not really correct because surrogates are not really characters; they are just code points used to form others characters, therefore it's improper to decode those bytes to that character because the general algorithm for UTF8 can still be used, and is used by mIRC here, to encode the lone surrogate. So, when mIRC decodes what $regsubex generated, to UTF8, it recognizes the illegal sequence and simply return the characters corresponding to the byte, so you get 3 characters per surrogate.
+<br><b>Note:</b> In fact mIRC does convert the two surrogates to their utf8 representation, except that this is not really correct because surrogates are not really characters; they are just code points used to form others characters, therefore it is improper to decode those bytes to that character because the general algorithm for UTF8 can still be used, and is used by mIRC here, to encode the lone surrogate. So, when mIRC decodes what $regsubex generated, to UTF8, it recognizes the illegal sequence and simply return the characters corresponding to the byte, so you get 3 characters per surrogate.
 
 <H4>$utfencode / $utfdecode</H4>
 You can also express those characters with their UTF8 representation using <a href="../identifiers/utfdecode.html">$utfdecode</a>, which decodes UTF8:
@@ -88,11 +88,11 @@ For example, if you want to get the text (FROM GREEK TO UTF8), which used the IS
 If you want to send the text in GREEK over IRC, mIRC will encode the bytes internally so you must encode the text in utf8, and then decode to utf8, interpreting the bytes as per in the GREEK code page: /raw -n privmsg #chan $utfdecode($utfencode(text),161)
 <p>
 It must be noted that some commands and identifiers will encode your text to utf8, changing the integrity of your input.
-Each character is represented as 16 bits internally, the array of character is not an array of byte, it's an array of 16 bit (two bytes).
+Each character is represented as 16 bits internally, the array of character is not an array of byte, it is an array of 16 bit (two bytes).
 But let's take a look at "/msg #chan &#233;".
 &#233; is the code point 233, which fits in one byte, but mIRC will encode your byte 233 to utf8, giving the two bytes 165 169.
 Now in this case there is little value not encoding in utf8, on IRC you usually do not really care about the integrity of your bytes.
-However there are others features where it's not so simple.
+However there are others features where it is not so simple.
 $sha1(&#233;) for example can be tricky, this is going to give the hash of the two bytes.
 The reason this is happening is because of the conversion, the hashing algorithm works on an array of byte, so mIRC has to take your character (represented in an array of two bytes) and convert them to single bytes, that's why the utf8 conversion happens.
 And this is happening pretty much everywhere.

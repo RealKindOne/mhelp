@@ -145,7 +145,7 @@ alias queue_example {
 }
 </pre>
 
-The script above uses character with the code point of 7 as its delimiter. The script works pretty well for small values (can store as much as 200 items with an average value length of 20 characters or 20 lines with an average of 200 characters per line). Clearly one of the preconditions is that the value cannot contain any characters with a code point value of 7. This example is clearly not suitable for large queues or queues that must execute really fast. (The reason we've used code point 7 is because it's a control character that means bell signal. This makes it one of the least likely characters to be used as a value).
+The script above uses character with the code point of 7 as its delimiter. The script works pretty well for small values (can store as much as 200 items with an average value length of 20 characters or 20 lines with an average of 200 characters per line). Clearly one of the preconditions is that the value cannot contain any characters with a code point value of 7. This example is clearly not suitable for large queues or queues that must execute really fast. (The reason we've used code point 7 is because it is a control character that means bell signal. This makes it one of the least likely characters to be used as a value).
 
 <H4>Token Searching/Retrieval</H4>
 
@@ -233,7 +233,7 @@ For example
 
 <H4>Case Sensitivity</H4>
 
-None of the identifiers explained above are case sensitive. If you wish to work with a case sensitive list or tokens, it's still possible. All the identifiers have their counterpart case sensitive version. They follow the same syntax and they names are identifier with the addition of the "cs" at the end.
+None of the identifiers explained above are case sensitive. If you wish to work with a case sensitive list or tokens, it is still possible. All the identifiers have their counterpart case sensitive version. They follow the same syntax and they names are identifier with the addition of the "cs" at the end.
 <br>
 <br>
 For example:

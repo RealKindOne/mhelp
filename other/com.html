@@ -299,7 +299,7 @@ var %value = $com(&lt;hName&gt;).result
 <H4>Object dispatching</H4>
 In many cases, you might need to invoke a member on an object that is nested inside another object (sometimes that object might be nested inside another object as well). In most cases the parent object will have a member method that when called will return an instance of the child object that we could use. This operation is called dispatching. In the process we dispatch the child object onto its own COM connection with its own handle name. This will allow us to conveniently access this object's members (and perhaps access more child objects).
 
-Note: when dispatching an object, the parent object will still remain open. If not used anymore, it's recommended that you close the connection right after the dispatching occurs.
+Note: when dispatching an object, the parent object will still remain open. If not used anymore, it is recommended that you close the connection right after the dispatching occurs.
 
 Dispatching takes this general syntax:
 

@@ -81,7 +81,7 @@ $+
 
 <H4>Commands</H4>
 
-A command usually does not return any value, but instead, it processes the arguments it's given. In a command, every argument is separated by a space. $0 will contain the total number of arguments passed to that alias. $N (where N is a number 1 to $0) will contain the arguments. For example:
+A command usually does not return any value, but instead, it processes the arguments it is given. In a command, every argument is separated by a space. $0 will contain the total number of arguments passed to that alias. $N (where N is a number 1 to $0) will contain the arguments. For example:
 
 <pre class = "code">
 alias example {
@@ -201,7 +201,7 @@ For example:
 
 Although most aliases do only serve as identifiers or commands, it is possible to act as both.
 <p>
-Consider the following alias, logfind. Logfind finds the first matching line from the log for the active window. If it's called as an identifier, we will return the matching line. If it's called as a command, we will print it instead:
+Consider the following alias, logfind. Logfind finds the first matching line from the log for the active window. If it is called as an identifier, we will return the matching line. If it is called as a command, we will print it instead:
 
 <pre class = "code">
 ; Finds the first matching line from the log for the active window
@@ -380,9 +380,9 @@ The order used by mIRC to locate your alias is as follow:
 <br>* If the call is made from a script and there is an alias for that name in the script file, that alias is used (regardless if the alias is local or not)
 <br>* If none of the above is true, then the order in which you loaded the script is used. mIRC looks for the first non local alias in the order 1-or-more aliases files in the Alt+D tab of the script editor, followed by the scripts of the Alt+R tab in the order they're loaded. If you have the same alias name defined twice in the same file, the 2nd one cannot be executed.
 <br>* If none is found, then mIRC check if this is a built-in command name
-<br>* If still no match and if it was a command call, then it sends the command to the server , which sends back RAW numeric 421 if it's an invalid server command
+<br>* If still no match and if it was a command call, then it sends the command to the server , which sends back RAW numeric 421 if it is an invalid server command
 <p>
-<b>Note:</b> The command line of a timer behaves as if it's inside the script from where it was launched, it will execute aliases found in the file first.
+<b>Note:</b> The command line of a timer behaves as if it is inside the script from where it was launched, it will execute aliases found in the file first.
 
 <H4>See also</H4>
 

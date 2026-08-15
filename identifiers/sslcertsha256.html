@@ -39,7 +39,7 @@ The advantage of using SASL, instead of sending the password as a /notice to Nic
 
 There's 2 different kinds of SASL: PLAIN and External (CertFP.)
 
-If you're worried about your password being intercepted by your ISP or someone else between you and the IRC server, that's not what this is for, and you can solve that problem by using the IRC network's SSL port, commonly at ports like +6697 +7000 +7001 +7070. For all practical purposes, it's the same as sending your password to NickServ. It is still sent from mIRC without being encrypted other than the SSL connection you're using, with the only difference being that it's sent to the server immediately after the on CONNECT event, instead of being messaged to NickServ. Later I'll show how you can see the unencrypted password being sent in a @debug window.
+If you're worried about your password being intercepted by your ISP or someone else between you and the IRC server, that's not what this is for, and you can solve that problem by using the IRC network's SSL port, commonly at ports like +6697 +7000 +7001 +7070. For all practical purposes, it is the same as sending your password to NickServ. It is still sent from mIRC without being encrypted other than the SSL connection you're using, with the only difference being that it is sent to the server immediately after the on CONNECT event, instead of being messaged to NickServ. Later I'll show how you can see the unencrypted password being sent in a @debug window.
 
 If you're intimidated by the complexity of certificates, do not worry since mIRC makes it pretty simple to set up your certificate. Or, you can choose to create your own certificate yourself if you've installed OpenSSL.
 
@@ -55,13 +55,13 @@ The simpler version of SASL is PLAIN, and can be quickly setup with these steps:
 
 https://libera.chat/guides/mirc
 
-This type of SASL works by simply sending your NickServ password to the server as you're connecting, without waiting for NickServ to ask for it. If you're not connecting using an SSL port, then this sends your password across the internet without being encrypted, which could include being visible to your ISP or someone within your LAN. However it's better than sending your password to NickServ because it gets you authenticated before trying to autojoin channels who ban unidentified nicks.
+This type of SASL works by simply sending your NickServ password to the server as you're connecting, without waiting for NickServ to ask for it. If you're not connecting using an SSL port, then this sends your password across the internet without being encrypted, which could include being visible to your ISP or someone within your LAN. However it is better than sending your password to NickServ because it gets you authenticated before trying to autojoin channels who ban unidentified nicks.
 
 To use SASL PLAIN, simply edit the serverlist entry for that server, change the login method to "SASL (/CAP)", and put your password in the password box BELOW that dropdown. Click 'OK' and you're done.
 
 Here's a couple of tips for entering your password there:
 
-1. The password box only shows the bullet symbols while typing, so it's easy to make a mistake. You can type the password into an editbox or into NOTEPAD, then cut-and-paste it into this password box, so you know you got it right.
+1. The password box only shows the bullet symbols while typing, so it is easy to make a mistake. You can type the password into an editbox or into NOTEPAD, then cut-and-paste it into this password box, so you know you got it right.
 
 2. Instead of putting only the password in the box, you should instead input string1:string2 where string1 is the accountname under which you registered your NickServ account, and string2 is the password. This allows SASL to authenticate you even if you happen to join as a Guest12345 nick.
 
@@ -73,7 +73,7 @@ You can see how SASL PLAIN works if you've used the /debug command to see the ra
 *2. the server replies: AUTHENTICATE +
 *3. mIRC replies: AUTHENTICATE bWFyb29uAG1hcm9vbgBuaWNrc2VydnBhc3N3b3Jk
 
-The mime string will be different for you, and is not encrypted, it's simply encoding the string as mime because it cannot be sent as plaintext due to containing a couple of 0x00 bytes. You should NOT paste that base64 string into any channel, because it is simple for anyone to extract your password from it, by pasting the string to replace the mime into the command below.
+The mime string will be different for you, and is not encrypted, it is simply encoding the string as mime because it cannot be sent as plaintext due to containing a couple of 0x00 bytes. You should NOT paste that base64 string into any channel, because it is simple for anyone to extract your password from it, by pasting the string to replace the mime into the command below.
 
 //bset -tc &v 1 bWFyb29uAG1hcm9vbgBuaWNrc2VydnBhc3N3b3Jk | noop $decode(&v,bm) | breplace &v 0 32 | echo -a $bvar(&v,1-).text
 
@@ -135,7 +135,7 @@ If you change the name, be sure to leave the .pem alone.
 
 OpenSSL will prompt you to enter 7 kinds of personal information. It does not matter what you input, if anything. Some of these have a default string that's used if you just press &lt;enter&gt;, but you can force each item to be blank by just inputting a '.' period character.
 
-None of the information is validated for truthfulness, though it can be limited as to length. The country code does not check to see if it's a real country, but it does require it be either blank or be 2 characters. The 'common name' and 'email address' fields are probably limited to be no longer than 64.
+None of the information is validated for truthfulness, though it can be limited as to length. The country code does not check to see if it is a real country, but it does require it be either blank or be 2 characters. The 'common name' and 'email address' fields are probably limited to be no longer than 64.
 
 Just to be on the safe side, it might be a good idea to put something in one of these fields to indicate that this key is only for use with IRC, and you may want to input your nick as the 'common name'.
 
@@ -167,11 +167,11 @@ The -sha256 defines which hash is used when creating the authentication signatur
 
 (#B)
 
-This next part is optional, but it's good to take a look at an overview of your certificate, to make sure it looks like you want it to. It will also show the fingerprint, but we can avoid the need to manually type/paste that string to NickServ. The file being opened in notepad contains ONLY information about your public certificate, so this libera.txt is safe to send to someone, unlike libera.pem which also contains your private key.
+This next part is optional, but it is good to take a look at an overview of your certificate, to make sure it looks like you want it to. It will also show the fingerprint, but we can avoid the need to manually type/paste that string to NickServ. The file being opened in notepad contains ONLY information about your public certificate, so this libera.txt is safe to send to someone, unlike libera.pem which also contains your private key.
 <pre class = "code">
 //var %prog "openssl.exe" | /run cmd /k %prog x509 -in libera.pem -fingerprint -sha512 -text -out libera.txt & notepad libera.txt
 </pre>
-This should create libera.txt as a summary file of your certificate, then load it into notepad for you. The 1st line is the sha512 fingerprint, which is simply the sha512 hash of the entire certificate that's underneath the mime encoding you see there. See that near the top, just below the fingerprint, are lines labeled "Issuer:" and "Subject:". These have the identifier information you entered while creating the certificate. If there's something there that you did not put there, it's one of the defaults resulting from just pressing &lt;enter&gt; at a prompt, instead of the '.' character. If you want, you can go back and re-do the certificate until you get it right.
+This should create libera.txt as a summary file of your certificate, then load it into notepad for you. The 1st line is the sha512 fingerprint, which is simply the sha512 hash of the entire certificate that's underneath the mime encoding you see there. See that near the top, just below the fingerprint, are lines labeled "Issuer:" and "Subject:". These have the identifier information you entered while creating the certificate. If there's something there that you did not put there, it is one of the defaults resulting from just pressing &lt;enter&gt; at a prompt, instead of the '.' character. If you want, you can go back and re-do the certificate until you get it right.
 
 The reason both "Issuer:" and "Subject:" lines of information are identical is because this is a 'self signed certificate', which means it was signed by whoever has the matching private key (you), instead of being signed by a 'Certificate Authority' who has verified the identity of the person claiming to control this certificate.
 
@@ -197,7 +197,7 @@ Now "OK" your way out of the options menu, and mIRC is now using the certificate
 </pre>
 If you go back into the menu and browse for a different filename.pem, the fingerprint returned by this identifier immediately changes.
 
-This is the fingerprint that SwiftIRC wants, but is not the sha512 fingerprint that Libera.Chat needs. However it does let you confirm that you are using a certificate, since the identifier returns a blank if it's not currently using a certificate.
+This is the fingerprint that SwiftIRC wants, but is not the sha512 fingerprint that Libera.Chat needs. However it does let you confirm that you are using a certificate, since the identifier returns a blank if it is not currently using a certificate.
 
 (#F) Now you need to tell NickServ your certificate's fingerprint. It's not enough that you've loaded the certificate into mIRC, it needs to be the certificate broadcast to the IRC network at the time you connected to the server, even if you're not setup to use SASL External yet.
 
@@ -219,7 +219,7 @@ If this fails, then NickServ does not see you currently using any certificate.
 
 The only other fail should be if NickServ tells you that this fingerprint is already attached to a different account. So either you did it, someone else stole your certificate and did it, or you're about to become famous for being the 1st person to create an sha512 collision between 2 different files.
 
-If successful, you'll receive a reply showing the fingerprint added. At Libera.Chat it's the 128 digits of the certificate's sha512 fingerprint. At SwiftIRC, it's currently the shorter 64 digits of the sha256 fingerprint, which is the same value seen from the $sslcertsha256 identifier. There may be some networks still using sha1 or even md5 fingerprints. do not be confused by the certificate info in the Status Window's system menu, which is all about the SERVER's certificate, not yours.
+If successful, you'll receive a reply showing the fingerprint added. At Libera.Chat it is the 128 digits of the certificate's sha512 fingerprint. At SwiftIRC, it is currently the shorter 64 digits of the sha256 fingerprint, which is the same value seen from the $sslcertsha256 identifier. There may be some networks still using sha1 or even md5 fingerprints. do not be confused by the certificate info in the Status Window's system menu, which is all about the SERVER's certificate, not yours.
 
 (#H) Now you're almost done, you just need to configure mIRC to use SASL External the next times you connect to that server. Simply go to the serverlist and edit the serverlist entry you used when connecting to this network. At the dropdown menu for "Login Method", choose "SASL External (CAP)" and then click OK. Even though there's a password box below it, leave that alone, because that's used only for the "SASL (CAP)" aka "SASL PLAIN" method.
 
@@ -239,7 +239,7 @@ B) Click on the button "create new certificate"
 
 C) That brings up a dialog prompting you to input a few pieces of information. It does not matter what you put in it, but you may want to put your nick in one of the boxes, and maybe something to indicate that this certificate is used only for IRC. OpenSSL's interface has 3 additional pieces of information to enter when creating a certificate, and requires only 1 of the 7 items be non-blank. However, mIRC offers only 4 of the 7 items, and forces you to put something in all of them. You do not need to put real information there, it does not even check whether you've put the 2 letter code for a real country.
 
-D) When you click OK, this creates a new certificate in the same folder as mirc.ini, and the button labeled "Private key file" changes to contain the path\filename of the certificate you just now created. If you formerly were using a different certificate, it's still there, under the old filename, and you can always click on 'browse' to use the old one. Continue clicking your way out of OPTIONS to ensure mIRC remembers that you're using this certificate.
+D) When you click OK, this creates a new certificate in the same folder as mirc.ini, and the button labeled "Private key file" changes to contain the path\filename of the certificate you just now created. If you formerly were using a different certificate, it is still there, under the old filename, and you can always click on 'browse' to use the old one. Continue clicking your way out of OPTIONS to ensure mIRC remembers that you're using this certificate.
 
 E) Now go up to Step#E in the OpenSSL Method#1 instructions and continue from there.
 <H4>Compatibility</H4>

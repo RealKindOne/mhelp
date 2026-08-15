@@ -343,7 +343,7 @@ Let's see what Mike can do to him:
 
 It is clear how Mike was able to get the value of a pretty important variable.
 <br>
-It is important to note that EVEN if %password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it's a big chunk of it.
+It is important to note that EVEN if %password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it is a big chunk of it.
 <br>
 A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and %variables:
 
@@ -357,7 +357,7 @@ on *:TEXT:!calc *:#:{
 
 <H4>$decode</H4>
 
-This is not really an exploit, but is a way for someone to disguise their malicious command. It can not be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it's a command which begins with a % or a $, but that behavior does not extend to remote scripts.
+This is not really an exploit, but is a way for someone to disguise their malicious command. It can not be executed except by someone taking advantage of the $iif() bug below, or else as part of a script. When a /command is typed in a channel editbox, it will not let anything be executed if it is a command which begins with a % or a $, but that behavior does not extend to remote scripts.
 
 <pre class = "code">
 //var %cmd echo | [ %cmd ] 4 -a hello world
@@ -373,7 +373,7 @@ Something similar can be done with $decode, but it only works if $decode(string)
 
 <H4>$findfile $finddir $hfind $dllcall etc</H4>
 
-This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It is harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it's just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
+This category relates to identifiers who have a 'command parm' or a 'callback alias' where a malicious command could be placed. It is harder for $hfind and $dllcall to be exploited, because they require knowing the name of an existing hashtable or the pathname to a dll file. However, there's always at least 1 filename in the $mircdir folder, so the following /noop command can be used to execute the encoded echo command contained in $findfile's command parm. Again, the $decode command is not executing the command, it is just disguising the command that has been placed into a location which executes code placed there. The following 3 commands are doing the exact same thing, with the only difference being that $decode is hiding what the payload command actually is.
 
 <pre class = "code">
 //noop $findfile(.,*,1, $decode(ZWNobyA0IC1hIGhlbGxvIHdvcmxk,m) )
@@ -438,7 +438,7 @@ It is possible to have a script loaded that you do not realize.
 //write $chr(160) test | .reload -rs999 $chr(160)
 </pre>
 
-This creates a file without a filetype, where the filename itself is not visible in most fonts, then loads it as a remote script. All you see in the script editor's "view" menu is an extra-thick border at the bottom of the scripts list, and if you have too many scripts loaded, it's hiding inside the "more" list. This next command lists all the scripts you have loaded. If you see a line showing nothing between the double quotes or is something you do not recognize, you should investigate and possibly unload it.
+This creates a file without a filetype, where the filename itself is not visible in most fonts, then loads it as a remote script. All you see in the script editor's "view" menu is an extra-thick border at the bottom of the scripts list, and if you have too many scripts loaded, it is hiding inside the "more" list. This next command lists all the scripts you have loaded. If you see a line showing nothing between the double quotes or is something you do not recognize, you should investigate and possibly unload it.
 
 <pre class = "code">
 //var %i 1 | while ($script(%i)) { echo -a %i : $qt($nopath($script(%i))) | inc %i }
@@ -454,7 +454,7 @@ While you can either configure Options/DCC/Ignore as 'ignore only' to specify a 
 //var %a $chr(8238) $+ piz.!wen.oediv.ezicr.exe | echo -a write %a test
 </pre>
 
-As you can see from the above command, this is a filename ending with .exe, which means it's an executable filetype. However, if your windows font is unicode-aware, and you use "/run ." to view the contents of your mirc folder, you'll see that this .exe file appears as if it's a .zip file. If someone created an .exe file containing the icon normally associated with .zip files, then renames it to this filename, and then uses DCC to send this file to you - it would appear as if it's a .zip file that's safe to click on to view the contents. This next event handler creates a log of the files you've received via DCC, and allows you to check later to see who sent an unknown file to you.
+As you can see from the above command, this is a filename ending with .exe, which means it is an executable filetype. However, if your windows font is unicode-aware, and you use "/run ." to view the contents of your mirc folder, you'll see that this .exe file appears as if it is a .zip file. If someone created an .exe file containing the icon normally associated with .zip files, then renames it to this filename, and then uses DCC to send this file to you - it would appear as if it is a .zip file that's safe to click on to view the contents. This next event handler creates a log of the files you've received via DCC, and allows you to check later to see who sent an unknown file to you.
 
 <pre class = "code">
 on *:FILERCVD:*:{
@@ -474,7 +474,7 @@ This method can only tell the server to execute commands recognized by the serve
 <br>
 This exploit cannot be achieved by responding to an on TEXT command, because the server cannot display a message to a channel which contains an embedded $cr and/or $lf.
 <br>
-However, this exploit can take advantage of scripts which send text to channels which can contain them. Examples could include the above examples of an evaluated command inside a $decode string, or can be accomplished by a script which messages the title/description or other content from a webpage that the attacker controls. Another method can be 'now playing' scripts which message text to channel describing information about the mp3 song that is either beginning or ending. While it's common for fields like $sound(filename.mp3).comment to contain $cr's, they generally are not displayed in channel messages. However, it's also possible for Album or Title to also contain them.
+However, this exploit can take advantage of scripts which send text to channels which can contain them. Examples could include the above examples of an evaluated command inside a $decode string, or can be accomplished by a script which messages the title/description or other content from a webpage that the attacker controls. Another method can be 'now playing' scripts which message text to channel describing information about the mp3 song that is either beginning or ending. While it is common for fields like $sound(filename.mp3).comment to contain $cr's, they generally are not displayed in channel messages. However, it is also possible for Album or Title to also contain them.
 <br>
 In addition to executing commands to give @op privileges to someone, the malicious commands could include things like making you drop your NickServ account at some ircd's. Also, they can induce you to execute commands which have a future effect, such as adding a nick to a ChanServ access list, or a command to add Mallory's certificate fingerprint to your NickServ account, which would allow them to take channel actions in the future, or to login your NickServ account any time in the future, even if you change your NickServ password. While those would almost certainly trigger a confirmation message from ChanServ or NickServ, those messages often go into the status window, and would often be unseen, especially if they happened while your keyboard is unattended.
 <br>

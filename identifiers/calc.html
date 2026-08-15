@@ -111,7 +111,7 @@ Yields 4 because it goes left-to-right performing adds and subtracts. It subtrac
 <pre class = "code">
 //echo -a $calc( 0-2^8*3-1 ) vs $calc( -2^8*3-1 ) calc like $calc( (-2)^8*3-1 )
 </pre>
-Produce 2 different answers because the presence of the 0 changes the meaning of the hyphen. In the 1st example it's -2 to the 8th power which is +256. That's then multiplied by 3, before having 1 subtracted from it. In the 2nd example, it starts by taking 2 to the 8th power, then multiplying by 3 to obtain the 2nd term 768. Then it starts with zero, subtracts the 768, then subtracts another 1.
+Produce 2 different answers because the presence of the 0 changes the meaning of the hyphen. In the 1st example it is -2 to the 8th power which is +256. That's then multiplied by 3, before having 1 subtracted from it. In the 2nd example, it starts by taking 2 to the 8th power, then multiplying by 3 to obtain the 2nd term 768. Then it starts with zero, subtracts the 768, then subtracts another 1.
 
 Any formula where any term reaches the undefined value returns zero for the entire result, and does not simply treating the individual operation's result as zero then continue operating.
 <pre class = "code">
@@ -185,11 +185,11 @@ Results: 7 vs 7000 vs 7000
 //var %a 7 | echo -a $calc( %a $+ 000 ) vs $calc(%a * 1000) vs $calc( $+(7,000) )
 </pre>
 
-Because of the rounding of $calc output, it's not always accurate to use the $calc output as the argument inside $int() or $floor.
+Because of the rounding of $calc output, it is not always accurate to use the $calc output as the argument inside $int() or $floor.
 <pre class = "code">
 //var %i 0 | while (%i isnum 0-99) { echo -a %i : $calc( $+(%i,.9999995) ) | inc %i }
 </pre>
-In the above example, sometimes the result is rounded up to the next integer, and other times it's rounded down to having the .999999 fraction.
+In the above example, sometimes the result is rounded up to the next integer, and other times it is rounded down to having the .999999 fraction.
 <pre class = "code">
 //var -s %top 2000000 , %div %top + 1 | echo -a $calc(9 + (%top / %div) ) vs $calc(9 + (%top // %div) ) vs $calc(9 + (%top - (%top % %div)) / %div)
 </pre>

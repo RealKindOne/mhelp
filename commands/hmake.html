@@ -11,12 +11,12 @@ The <b>/hmake</b> command can be used to create a new hash table by a specific h
 A hash table is stored entirely in memory and thus it is the programmer's responsibility to save the data to a file if necessary via the <a href="hsave.html">/hsave</a> command (and load it back later via the <a href="hload.html">/hload</a> command).
 <br>
 <br>
-It is generally best to have the number of buckets be a prime number, and starting with v7.53 mIRC started forcing the buckets to be either 1 or a prime number. Prior to that, mIRC only incremented the buckets to avoid an even number. The default parameter for number of buckets is 100, with allowed values from 1 to 10000. The old behavior was to increment those to the odd 101 or 10001. Current behavior increments 2+ if it's needed to make the buckets be a prime number, so the default 100 increases to the prime 101, and 10000 max increases to the prime 10007.
+It is generally best to have the number of buckets be a prime number, and starting with v7.53 mIRC started forcing the buckets to be either 1 or a prime number. Prior to that, mIRC only incremented the buckets to avoid an even number. The default parameter for number of buckets is 100, with allowed values from 1 to 10000. The old behavior was to increment those to the odd 101 or 10001. Current behavior increments 2+ if it is needed to make the buckets be a prime number, so the default 100 increases to the prime 101, and 10000 max increases to the prime 10007.
 <br>
 <br>
 A hash table name was formerly limited to 256 significant characters - any additional characters were simply ignored. Starting with v7.53 the limit is now 612 characters. ( <a href="../identifiers/maxlens.html">$maxlens</a> 's 512+100) In mIRC, a hash table is a much faster alternative to ini and normal text files.
 <br>
-<br><b>Note:</b> For most practical purposes, if wanting to lessen the chance of more than 1 item per bucket, it's best to keep the ratio of &lt;item count&gt;:&lt;maximum capacity&gt; at 78% to maintain a good time-space tradeoff (i.e. 0.78 load factor). That means if you are planning on storing 78 items in the hash table, you should create a hash table with the size of 100 buckets. (A table of 1000 buckets is good to store up to about 780 items to maintain a maximum performance). The general equation to calculate optimal number of buckets is:
+<br><b>Note:</b> For most practical purposes, if wanting to lessen the chance of more than 1 item per bucket, it is best to keep the ratio of &lt;item count&gt;:&lt;maximum capacity&gt; at 78% to maintain a good time-space tradeoff (i.e. 0.78 load factor). That means if you are planning on storing 78 items in the hash table, you should create a hash table with the size of 100 buckets. (A table of 1000 buckets is good to store up to about 780 items to maintain a maximum performance). The general equation to calculate optimal number of buckets is:
 <br>
 <br>
 [#_of_buckets] = [#_of_keys_that_will_be_used] / 0.78
@@ -129,7 +129,7 @@ vs
 </pre>
 To use hash tables instead of variables, there are a few extra differences to be aware of.
 <br>You can receive $null from a $hget(no-such-table,item) or $hget(existing-table,no-such-item) without an error
-<br>But you cannot create an item without first making sure that the table exists. If it's possible for the table to not exist, you can use /hadd's -m or -mN switch to create the table if needed.
+<br>But you cannot create an item without first making sure that the table exists. If it is possible for the table to not exist, you can use /hadd's -m or -mN switch to create the table if needed.
 <br>You cannot use the /hmake command to create a table without making certain the table does not already exist.
 <pre class = "code">
 //if (!$hget(tablename)) hmake tablename
@@ -147,7 +147,7 @@ The equivalent to /unset is /hdel, which can accept wildcards
 </pre>
 To check for the existence of a variable, scripts currently check if $var(%NonWildcardVariablName,1) is $null. To check if the item name exists, check if $hfind(tablename,itemname) is $null.
 <br>Note that $hfind is able to do things $var() cannot do, such as finding items based on the wildcard or regex pattern of the itemnames or the data inside them.
-<br>hashtables do not have the same global vs local scope as %variables do. While it's possible to use %var inside an alias to mask the value of a same-name global variable, you cannot do this with hashtables. While a local variable can be seen only inside the alias or :EVENT: where it was created, hashtables and their items are created only with global scope.
+<br>hashtables do not have the same global vs local scope as %variables do. While it is possible to use %var inside an alias to mask the value of a same-name global variable, you cannot do this with hashtables. While a local variable can be seen only inside the alias or :EVENT: where it was created, hashtables and their items are created only with global scope.
 <br>mIRC handles saving global %variables to disk for you, but it does not do that with hashtables. If you need to save updated hashtable data for the next mIRC restart, you must use /hsave to save it to disk, then must use /hload to retrieve it after restart.
 <br>As with %variables, hashtable items can be created with similar temporary status, but does not offer the same syntax, and not all features.
 <br>Temporary item existing for 5 seconds:

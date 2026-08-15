@@ -93,7 +93,7 @@ You may see a negative value being returned if an error occurred, the list below
 <br><b>-6</b> - Memory could not be allocated
 <br><b>-7</b> - Memory could not be allocated (specific to retrieving capturing groups)
 <br><b>-8</b> - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)
-<br><b>-14</b> - MIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="../identifiers/regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
+<br><b>-14</b> - MIRC uses this value when compiling the pattern fails but it is a valid value meaning an internal error occurred as well. If this error is returned because compiling the pattern failed, <a href="../identifiers/regerrstr.html">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.
 <br><b>-21</b> - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)
 <br><b>-26</b> - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))
 
@@ -169,7 +169,7 @@ First match is on 'bc':
 <pre class = "code">
 \1 is 'b'
 \2 is 'c'
-\n is 1 because it's the first match.
+\n is 1 because it is the first match.
 \t is the current matchtext (same as $regml(\n)), which is 'b'
 \a is "b c" while \A is "bc"
 </pre>
@@ -177,7 +177,7 @@ Second match is on 'ef':
 <pre class = "code">
 \1 is 'e'
 \2 is 'f'
-\n is 2 because it's the second match.
+\n is 2 because it is the second match.
 \t is the current matchtext (same as $regml(\n)), which is 'c' and not 'e' (\n is 2), it is important to note that when you have more than one backreference and more than one match (because of the /g modifier), \t is a bit meaningless.
 \a is "e f" while \A is "ef"
 </pre>
@@ -296,7 +296,7 @@ $regsubex(cd,/(.)/g,$upper( $+ $2 $+ )))
 </pre>
 
 As you can see, mIRC adds the <b>$+</b> if the markers have text surrounding them, that's why you do not need to space them out like identifiers.
-You might understand why it's failing at this point: $2 has no value in this example because no marker are used in this inner $regsubex's subtext parameter, so $2 is $null.
+You might understand why it is failing at this point: $2 has no value in this example because no marker are used in this inner $regsubex's subtext parameter, so $2 is $null.
 
 So how do you use the value of the marker of the outer $regsubex inside the subtext of the inner $regsubex?
 

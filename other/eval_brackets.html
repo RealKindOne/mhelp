@@ -17,7 +17,7 @@ Evaluation brackets allows us to:
 Consider the following code:
 
 <pre class = "code">
-//echo -a Hello World, it's $me $+ !
+//echo -a Hello World, it is $me $+ !
 </pre>
 
 <div style="display: block; text-align: center;"><img src="../images/eval1.png"></div>
@@ -410,7 +410,7 @@ The non spaced [ $v1 ] for the third parameter of $custom, is not resolved for t
 <br>[ ] are processed for the line, the [ $v1 ] for the $changev1to3 alias is resolved, so $v1 is our current value so far: 1
 <br>the line is evaluated, $changev1to2 is evaluated and set $v1 to 2
 <br>$custom is evaluated, its first parameter $v1, is then 2
-<br>The second parameter of $custom evaluates "$changev1to3( 1 )" to $null, but it sets $v1 to 3 ('1' is our previous $v1 code, although it's no problemo here, keep in mind: it's double evaluated!)
+<br>The second parameter of $custom evaluates "$changev1to3( 1 )" to $null, but it sets $v1 to 3 ('1' is our previous $v1 code, although it is no problemo here, keep in mind: it is double evaluated!)
 <br>The third parameter of $custom evaluates: the [ ] are resolved, $v1 evaluates once (no double evaluation) to 3
 
 <b>Note:</b> the non spaced [ $v1 ] is not required to get $v1 to be 3, not using [ ] would also correctly make $v1 3 since $changev1to3 was just called, but it illustrates that the [ ] are not resolved at the same stage depending on the spacing.

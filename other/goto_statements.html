@@ -113,7 +113,7 @@ If you want to keep going with the code, use /reseterror as soon as possible, th
 <br>
 If you do not use /reseterror, you can also use /return to tell mIRC to look for a different :error label in previous routines.
 If you do not use /reseterror or /return you must be careful:
-mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can not do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
+mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it is unclear what you can do and what you can not do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it is recommended not to do anything before using /reseterror in this situation.
 
 <pre class = "code">
 /*  EXAMPLE 1

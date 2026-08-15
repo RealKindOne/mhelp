@@ -21,7 +21,7 @@ The <b>/fseek</b> command sets the read/write pointer to the specified position 
 
 <H4>Parameters</H4>
 <b>&lt;name&gt;</b> - The name of the file handle.
-<br><b>&lt;position|N|matchtex&gt;</b> - Not required if you use -n, if -l is used: a line number, if -w is used: a <a href="../other/wildcard.html">wildcard</a> expression, if -r is used: a regular expression, if no switch is used, it's the position in the file (Nth byte).
+<br><b>&lt;position|N|matchtex&gt;</b> - Not required if you use -n, if -l is used: a line number, if -w is used: a <a href="../other/wildcard.html">wildcard</a> expression, if -r is used: a regular expression, if no switch is used, it is the position in the file (Nth byte).
 
 <br><b>Note:</b> if /fseek is not successful (can not find a match with -w or -r, can not find the Nth line with -l etc), it will set the read/write pointer to the end of the file. $fopen().err is not set, but $fopen().eof is.
 

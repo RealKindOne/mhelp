@@ -91,7 +91,7 @@ In the past, by default, a DLL used to be unloaded immediately after you made th
 
 You had to use the function below, called by mIRC when it loads your dll, and set mKeep to True to keep the dll loaded (mKeep defaulted to False)
 
-Things changed since it's typically more useful to keep the dll loaded, now mIRC keeps the dll loaded by default with mKeep defaulting to True, and you can set it to False to unload the dll.
+Things changed since it is typically more useful to keep the dll loaded, now mIRC keeps the dll loaded by default with mKeep defaulting to True, and you can set it to False to unload the dll.
 
 <pre class = "code">
 void __stdcall LoadDll(LOADINFO*);

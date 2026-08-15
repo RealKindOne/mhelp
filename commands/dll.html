@@ -51,7 +51,7 @@ If $dll(1) is $mircdir $+ subdir\foo.dll and $dll(2) is $mircdir $+ foo.dll
 </pre>
 If foo.dll does not exist, the script halts with an error, and the echo does not display. If foo.dll does exist but the function does not exist, /dll displays an error to status window, but the script continues executing the echo. It also loads foo.dll even if the function does not exist, and remains loaded in memory if the .dll's initialization routine sets mKeep=$true. See the $dll article for keeping the .dll loaded after execution, and for keeping the .dll past 10 minutes of idle time.
 
-While $dll(foo,function,) returns a 3rd parameter even if it's $null, "/dll foo.dll" does not require parm3.
+While $dll(foo,function,) returns a 3rd parameter even if it is $null, "/dll foo.dll" does not require parm3.
 
 Using
 <pre class = "code">

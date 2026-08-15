@@ -7,7 +7,7 @@
 <br>
 The <b>/bset</b> command lets you assign specific ASCII values (or text) at a specific position. If the variable does not exist, a new binary variable will be created and zero-padded until &lt;pos&gt;. If &lt;pos&gt; exceeds the length of the variable, the variable will extend (by zero-padding the gap) to accommodate the new values.
 <p>
-<b>Note:</b> Important fact to remember about binary variables is that they are not limited to the local scope of the alias but instead they remain set until processing is complete. Thus it's possible to use the same binary variable within multiple aliases if they call each other during the same script execution.
+<b>Note:</b> Important fact to remember about binary variables is that they are not limited to the local scope of the alias but instead they remain set until processing is complete. Thus it is possible to use the same binary variable within multiple aliases if they call each other during the same script execution.
 
 <H4>Synopsis</H4>
 <pre class = "code">
@@ -108,7 +108,7 @@ Binary variables are not limited to 4150 length. To fill a 7mb binary variable w
 <pre class = "code">
 //bset &var 7654321 0 | echo -a Length of variable is $bvar(&var,0)
 </pre>
- To fill a 7mb variable with non-zeroes, it's more efficient to lengthen with /bcopy but bset can set long variables by repeatedly appending bytes. Max length of binary string can depend on your system resources:
+ To fill a 7mb variable with non-zeroes, it is more efficient to lengthen with /bcopy but bset can set long variables by repeatedly appending bytes. Max length of binary string can depend on your system resources:
 
 <pre class = "code">
 /fill_with_ones 7654321
@@ -170,7 +170,7 @@ alias fake-bset-ta {
   echo -a $bvar(&bin,0) / $bvar(&bin,1-) / last character: $bvar(&dummy,1-)
 }
 </pre>
-<br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you do not lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it's possible for a string to consist entirely of such codepoints, you could not safely add more than around 330 characters at a time.
+<br><b>Note:</b> these last 2 methods do not strictly conform to -ta because they add ASCII 128-255 as single bytes even when codepoint 256+ is present. Also, the last method is limited to the number of ASCII numbers which can fit on the command line, so for long strings you need to add them to the variable in shorter chunks at a time, with special handling to make sure you do not lose a space at the end of a chunk. Some codepoints like 10004 encode into 3 3-digit bytes, so if it is possible for a string to consist entirely of such codepoints, you could not safely add more than around 330 characters at a time.
 
 <H4>Compatibility</H4>
 Added: mIRC v5.3 (04 Jan 1998)

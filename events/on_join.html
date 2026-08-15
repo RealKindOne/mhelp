@@ -47,7 +47,7 @@ Who ever joins, send them a greeting:
 on *:JOIN:#:msg # Welcome to # $+ , $nick $+ !
 </pre>
 
-Override the join event to print a custom text and then tell mIRC to ignore it's own text.
+Override the join event to print a custom text and then tell mIRC to ignore it is own text.
 <pre class = "code">
 on ^*:JOIN:*:{
   echo -tcbf join $chan * $nick ( $+ $fulladdress $+ ) join $chan

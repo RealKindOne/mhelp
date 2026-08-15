@@ -30,11 +30,11 @@ $read [switches] [line#] filename
 <H4>Parameters</H4>
 <b>filename</b> The file from which text is returned
 <br><b>matchtext</b> Used with switches s w r (more information on matchtext <a href="../events/matchtext.html">here</a>)
-<br><b>N</b> Line number to read, except when using s, w, or r switches where it's the first line of the file portion to search.
+<br><b>N</b> Line number to read, except when using s, w, or r switches where it is the first line of the file portion to search.
 
 <H4>Switches</H4>
 <br><b>n</b> - Do not evaluate $identifiers contained in the returned line.
-<br><b>t</b> - Do not treat a numeric line#1 as if it's the total number of lines in the text file.
+<br><b>t</b> - Do not treat a numeric line#1 as if it is the total number of lines in the text file.
 <br><b>s</b> - Search for line beginning with &lt;matchtext&gt; and returns the remainder of the line beyond the spaces following &lt;matchtext&gt;
 <br><b>w</b> - Scan for line matching &lt;matchtext&gt; which can be a <a href="../other/wildcard.html">wildcard</a>. If not a wildcard the line must be exact match. Returns the entire contents of the matching line
 <br><b>r</b> - Indicates that &lt;matchtext&gt; is a regex pattern.
@@ -134,7 +134,7 @@ Because Line#1 is not a number, mIRC does not treat it as a line count for the f
 //write -l1 test.dat top | echo -a $read(test.dat,n) is the contents of line $readn
 </pre>
 
-Now that line#1 is the number N, returns a random line from physical line 2 through N+1 as if they're lines 1-N, so it's possible for this to return $readn 1-40 when reading from lines 2-41. As long as line 1 is the number 40, reading a random line without using the 't' switch never returns a $readn value greater than 40
+Now that line#1 is the number N, returns a random line from physical line 2 through N+1 as if they're lines 1-N, so it is possible for this to return $readn 1-40 when reading from lines 2-41. As long as line 1 is the number 40, reading a random line without using the 't' switch never returns a $readn value greater than 40
 <pre class = "code">
 //write -l1 test.dat  40 | echo -a $read(test.dat,n) is the contents of line $readn
 </pre>
@@ -193,7 +193,7 @@ For modern documented syntax:
 All searches are case-insensitive.
 <br>Line can end with $cr or $lf or $crlf or end-of-file. Does not treat $chr(26) as End-of-File-Marker. Contents of a line past $chr(0) are ignored.
 <br>If 't' switch is NOT used - if line 1 is not a number, $read functions normally. If line 1 is a number, random lines will be chosen only for the first N lines, and $readn returns 1 through N while returning the contents of actual lines 2 through N+1.
-<br>If NO switches are used,  $read(file,0) returns the contents of line 1 if it's a number, or returns $null if contents are anything else.
+<br>If NO switches are used,  $read(file,0) returns the contents of line 1 if it is a number, or returns $null if contents are anything else.
 <br>matchtext must have the presence/absence of spaces in order to match lines having/not-having those spaces, even leading/trailing/consecutive.
 <br>Undocumented legacy syntax can be used  where parameters follow the identifier without being enclosed within quotes.
 

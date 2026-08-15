@@ -154,7 +154,7 @@ Understanding this concept is important to understanding how to send data correc
 
 Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending. The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it will not produce an error and will work.
 <p>
-In a typical script using HTTP and the GET method to grab something from a website, it's unlikely that you will reach this limit but note that when using POST, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="../events/on_sockwrite.html">here</a>.
+In a typical script using HTTP and the GET method to grab something from a website, it is unlikely that you will reach this limit but note that when using POST, it is more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="../events/on_sockwrite.html">here</a>.
 
 
 <H4>Sending Data Example</H4>
@@ -233,7 +233,7 @@ on *:SockOpen:example: {
 </pre>
 
 <H4>POST vs GET?</H4>
-By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: <b>POST</b> and <b>GET</b>. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
+By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: <b>POST</b> and <b>GET</b>. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it is a POST or a GET method:
 
 <pre class = "code">
  &lt;form id="FooBar" '''method="post"''' action=""&gt;
@@ -392,7 +392,7 @@ on *:sockread:example1: {
     tokenize 32 %read
     ; get the color and remove the html tab
     echo $color(info) -a Random Color: $noHTML($5)
-    ; close the socket, it's not needed
+    ; close the socket, it is not needed
     sockclose $sockname
   }
 }
@@ -414,7 +414,7 @@ on *:sockread:YouTube: {
   else if (watch-view-count isin %x) {
     ; read the next line
     sockread %x
-    ; make sure it's a number
+    ; make sure it is a number
     ; the (*UTF8) in the expression is required for the regex engine to interpret utf8 sequences, which is what mIRC use (here for a $chr(160))
     if ($regex(%x,/(*UTF8)^ *([\d\xA0]+)/)) {
       set %view. $+ $sockname $replace($regml(1),$chr(160),$chr(32))

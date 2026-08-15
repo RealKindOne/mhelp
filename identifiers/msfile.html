@@ -75,7 +75,7 @@ The values of $sfstate, $msfile(0), and any selected filenames in $msfile(N) wil
 <pre class = "code">
 //echo -a $msfile( $sysdir(profile)  ) / $sfstate / $msfile(0) / $msfile(1)
 </pre>
-This shows the files and folders in your profile folder. Even though $finddir(c:\users\lefty\,*,0,1,echo -a $1-) lists both "Documents" and "My Documents" aliases to the same folder, the select window shows  "My Documents" but not "Documents". You can use $sysdir(profile) $+ Documents as your starting folder even though it's not shown by the parent folder.
+This shows the files and folders in your profile folder. Even though $finddir(c:\users\lefty\,*,0,1,echo -a $1-) lists both "Documents" and "My Documents" aliases to the same folder, the select window shows  "My Documents" but not "Documents". You can use $sysdir(profile) $+ Documents as your starting folder even though it is not shown by the parent folder.
 
 <pre class = "code">
 //echo -a $msfile( $sysdir(profile) $+ My Documents\ ) / $sfstate / $msfile(0) / $msfile(1)

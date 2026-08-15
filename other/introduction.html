@@ -10,18 +10,18 @@ This article focuses on the very basics of mIRC Scripting. The target audience i
 <p>
 To be able to understand this, you must be quite familiar with mIRC as an IRC client, its environment, the vocabulary of it such as a status window etc.
 <p>
-When a script is running, it's always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
+When a script is running, it is always running in the context of an active server connection, even if you're not connected, this is why mIRC always start with a status window.
 <p>
 mIRC and therefore all scripts run in a single thread environment and all scripts run in the same 'memory space', meaning that any global naming, like the name of a global variable or an alias, is shared among all scripts.
 <p>
-To avoid conflict with different scripts written by completely different people, it's good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It is also a good idea to use local aliases.
+To avoid conflict with different scripts written by completely different people, it is good practice to use long, explicit, and possibly prefixed with your own script title, names for your alias etc. It is also a good idea to use local aliases.
 <p>
 mIRC scripting has many quirks and exceptions but this introduction will focus on the cores part of what defines mIRC scripting.
 
 <H3>Statements</H3>
 Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the '|' symbol.
 <p>
-If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it's not seen as a delimiter of statements.
+If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it is not seen as a delimiter of statements.
 <p>
 The first word in a statement is always the name of the statement, what comes after are the parameters for that statement, if any.
 <p>
@@ -58,7 +58,7 @@ Some built-in commands result in a verbose message displayed in a window, you ca
 <p>
 
 <H3>Other statements</H3>
-If a statement is not a command as described above, it's a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
+If a statement is not a command as described above, it is a conditional statement: <b>/if</b>, <b>/elseif</b>, <b>/else</b> and <b>/while</b>, they must appear literally in the code to be recognized as such statement.
 <p>
 If such statement is not literal in the code, it will be executed as a command.
 <p>
@@ -101,7 +101,7 @@ Aliases have a name by which we can refer to them and are used to store a list o
 <p>
 Once an alias is defined, you can execute it (we also refer to that as calling the alias) by making using that name as the statement's name, as though it was a built-in command.
 <p>
-So, when a statement is executed as a command, if it's not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it's not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.
+So, when a statement is executed as a command, if it is not a built-in command, mIRC will look into your aliases for that name and execute your alias if found. If it is not found then mIRC will send that to the IRC server if you are connected or stop the script with an error otherwise.
 <p>
 You can override built-in commands by defining an alias with the same name as of that built-in command, and now executing that name defaults to executing your alias; in this case you can force a script to execute a statement as a built-in command instead of executing the alias by prefixing the statement with a '!' character (/!echo).
 <p>
@@ -144,7 +144,7 @@ If the context allow it, you can omit using the pair of spaced out { } around th
 <p>
 However, using { } allows you to separate your statements using newline instead of a spaced out pipe, which results in cleaner code when grouping statements together.
 <p>
-We usually use newline for each new statement and we usually do not mix piping with newline although it's valid:
+We usually use newline for each new statement and we usually do not mix piping with newline although it is valid:
 
 <pre class = "code">
 alias test echo -a test
@@ -265,7 +265,7 @@ If we want to print out our current nickname, we would use the following code ($
 //echo -a $me
 </pre>
 
-So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it does not need to be, it's plain, static, text.<br>
+So when the scripting engine runs this line of code, it will isolate the only statement in it, it will know the statement is a command and therefore evaluate all the parameter of that statement once, -a is not evaluated because it does not need to be, it is plain, static, text.<br>
 But $me is evaluated and "$me" in the line is replaced by the value returned by $me. Then, all parameters have been evaluated and the echo command is executed with two parameters, -a and the value returned by $me.<br><br>
 mIRC provides a lot of built-in identifiers and you can create your own as well with aliases:
 <pre class = "code">
@@ -361,7 +361,7 @@ Most of these events trigger with the status window set as the active window.
 
 <h4>Command vs identifier</h4>
 
-When your statement is a command, regardless of if it's a built-in command or one of your alias, mIRC always applies the same routine.
+When your statement is a command, regardless of if it is a built-in command or one of your alias, mIRC always applies the same routine.
 <p>
 It first evaluate the statement, by resolving $identifier and %variable, from left to right (parameter of identifier are also resolved from left to right) and then split the resulting line on spaces.
 <p>
@@ -387,9 +387,9 @@ Which in turns makes $2 incorrect for the line number parameter 3, and you canno
 This illustrates how literal spaces (between $myfunction1 and 3 in the command call) and spaces resulting from evaluation (of $myfunction1) are treated equally when it comes to splitting parameters.<br>
 In addition, trailing and leading spaces are trimmed and consecutive spaces are shortened to a single space when splitting parameter.<br><br>
 
-This design for command is based on the IRC command format originally, more or less, it's simple, and it will avoid formatting/syntax error when using IRC command or just sending automated messages.
+This design for command is based on the IRC command format originally, more or less, it is simple, and it will avoid formatting/syntax error when using IRC command or just sending automated messages.
 So, basically commands calls are great for functions which do not require parameter or when parameters are known not to be a string, or when the string itself is more or less limited by the context/purpose of that command.<br>
-Finally, it's also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can not contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
+Finally, it is also great if only one of the parameter can be a string and this is how most commands work: the string parameter is the last parameter while parameters which can not contain spaces are coming first. That way, once you have consumed all of the non string parameter, you know that the string starts with the next parameter and goes up to the last parameter.<br>
 
 Maintaining an alias being used as a command by eventually adding new parameters to the alias when you do not know about the type of parameter in advance can be annoying as it requires editing your code carefuly and accordingly for no good reason<br>
 So if you need a bit more control about your function or if you do not want to end up being blocked cause you can not add a new parameter, you will want to use $identifier call for your alias instead.
@@ -416,7 +416,7 @@ if ($abs($calc($len($1) - $len($2))) &gt; 5) echo -ag difference is bigger than 
 with a call $test(string1,string2).<br>
 Here $difflength() is evaluated as the only thing part of the statement and because $difflength does not return a value, the statement become empty and is ignored.
 <p>
-But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it's already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.
+But if the identifier were returning a value, then that value would become a command call with parameters if any. Building command name dynamically like that not is something that we usually do because it is already more complex and when things get complex, we tend to use identifier call, so we rather do dynamic identifier call in such case.
 <p>
 Unlike commands call, the literal comma are the only comma separating the argument, the comma which may appear from evaluation are going to be treated as plain text and will not be separating the argument!
 
@@ -580,7 +580,7 @@ Will produce the following result:
  The number <span style="color: #FF0000;">2</span> is even.
 </pre>
 
-<br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it will not show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it's usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
+<br><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font "Fixedsys Excelsior", because it shows these symbols with a small b/c/o inside a black square, though it will not show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it is usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The "No Liga" version can be downloaded here: http://www.xise.nl/mirc/fsex2p00se3.ttf
 
 <H4>Where do we go from here?</H4>
 By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.

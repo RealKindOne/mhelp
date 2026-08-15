@@ -70,7 +70,7 @@ or
 hadd -b &lt;table_name&gt; &lt;item&gt; &lt;&bvar&gt;
 An item can be added to the table with null data:
 hadd &lt;table_name&gt; &lt;item&gt;
-If it's possible the table is not yet created, use the -m switch, which creates the table if it does not exist
+If it is possible the table is not yet created, use the -m switch, which creates the table if it does not exist
 hadd -m &lt;table_name&gt; &lt;item&gt;
 </pre>
 
@@ -162,7 +162,7 @@ $hget(&lt;table_name&gt;, &lt;Nth&gt;).item
 $hget(&lt;table_name&gt;, &lt;Nth&gt;).data
 </pre>
 
-<br><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it's best to get a value using its item name.
+<br><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hget.html">$hget</a> - so the time required per lookup will increase linearly with the table size and the time for the script to iterate over the entire hash table will be proportional to the square of the table size. If it is possible to do so, then it is best to get a value using its item name.
 
 An example of looping over every value in our Colors table will look like this:
 
@@ -323,7 +323,7 @@ If you specify 0 for Nth Item, the total number of matches will be returned inst
 
 Which will return "Mary". because Mary appeared before Gary in the iteration list of items. Prior to v7.53 it returned "Gary" because that name appeared first in the iteration list.
 
-<b>Note1:</b> Using a non-hashed method for finding an item or data using <a href="../identifiers/hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it's best to get a value using <a href="../identifiers/hget.html">$hget</a> using its item name.
+<b>Note1:</b> Using a non-hashed method for finding an item or data using <a href="../identifiers/hfind.html">$hfind</a> is an inefficient way to retrieve values and items. See the explanation below for why mIRC will iterate over the hash table for every <a href="../identifiers/hfind.html">$hfind</a> - so time required per lookup will increase linearly with the table size. If it is possible to do so, then it is best to get a value using <a href="../identifiers/hget.html">$hget</a> using its item name.
 
 <b>Note2:</b> Use of <a href="../identifiers/hfind.html">$hfind</a> to find the specific records that you want is, however, still likely to result in much better performance than iterating over the hash table using <a href="../identifiers/hget.html">$hget</a>(table,n) because mIRC can execute the single <a href="../identifiers/hfind.html">$hfind</a> using compiled code rather than executing the large number of mSL statements needed to loop over the hash table using <a href="../identifiers/hget.html">$hget</a>.
 
@@ -342,7 +342,7 @@ mIRC's hash tables are implemented as follows.
 
 <p>As you might imagine, mIRC iterating over a large number of hash table entries to find the item needed is CPU intensive and mIRC might start to feel unresponsive.
 
-<p>So for look-ups by item name, the best performance will be achieved when mIRC's hashing algorithm points to a bucket with a single table entry (or failing that - a small number of entries). Worst case scenario is if your hash table has only a single bucket, then all entries are stored in a single linked-list and every look-up needs to be iterated. On the other hand, if you have a large number of bucket (much greater than the number of items in the hash table), then the likelihood is that every item will be stored in its own bucket, so the hash function will take you to a bucket with a single entry, and no iteration will be needed to find the item. 101 buckets was recommended for 79 items because it's unlikely that picking 79 random numbers in the range 1-79 would have each number chosen only 1 time, but choosing 79 random numbers in the range 1-101 is much less likely that any number would be chosen more than 1 time.
+<p>So for look-ups by item name, the best performance will be achieved when mIRC's hashing algorithm points to a bucket with a single table entry (or failing that - a small number of entries). Worst case scenario is if your hash table has only a single bucket, then all entries are stored in a single linked-list and every look-up needs to be iterated. On the other hand, if you have a large number of bucket (much greater than the number of items in the hash table), then the likelihood is that every item will be stored in its own bucket, so the hash function will take you to a bucket with a single entry, and no iteration will be needed to find the item. 101 buckets was recommended for 79 items because it is unlikely that picking 79 random numbers in the range 1-79 would have each number chosen only 1 time, but choosing 79 random numbers in the range 1-101 is much less likely that any number would be chosen more than 1 time.
 
 <p>All that said, even with a large number of buckets, you cannot guarantee that every item in the table will have a unique hash / bucket number. As an analogy, consider a class of 30 students. What is the probability that all students have birthdays on different days of the year? This is equivalent to asking whether a hash table with 365 buckets and 30 entries will have every entry using a different bucket. It turns out that in a class of 30 students there is significantly more than 50% probability that at least two students will share a birthday - indeed it only takes 23 students for the probability to be more than 50%. This seems weird - but for the mathematically inclined, the probability can be calculated by determining what the probability is that M students have all different birthdays:
 <br>
@@ -401,7 +401,7 @@ alias bucket_sort {
 }
 </pre>
 
-If you run this bucket_sort alias in all 3 versions mentioned above, the items are listed in the same way in each version. The item names are listed in descending order in table1, ascending order in table2, then back to the same descending order in table3. The reason for this preservation of order is that $hget(table,N).item is listing these items in order by bucket, then within buckets it's listing them in reverse order of creation, with the older items listed last, and the newest additions listed first. Since this example used buckets=1, everything is in the same bucket, listed in reverse order of creation.
+If you run this bucket_sort alias in all 3 versions mentioned above, the items are listed in the same way in each version. The item names are listed in descending order in table1, ascending order in table2, then back to the same descending order in table3. The reason for this preservation of order is that $hget(table,N).item is listing these items in order by bucket, then within buckets it is listing them in reverse order of creation, with the older items listed last, and the newest additions listed first. Since this example used buckets=1, everything is in the same bucket, listed in reverse order of creation.
 <p>
 When items are /hsave'd to disk, buckets=1 saves in the same $hget(table,N).item order that's the inverse of creation order. $hget(table,1).item is the first item written to disk even though in this example it was the last item created. Note that the pair of notepad windows opened are showing the items in the 2 saved files in opposite order compared to each other, even though there were no items created or deleted between the hsave's.
 <p>
@@ -494,7 +494,7 @@ And even if item names are assigned to the same bucket, the iteration order can 
 <p>
 The FNV1a hash is performed against the upper-case string of the hash name, allowing $hget and $hfind /hdel to locate items in a case-insensitive manner, and allows /hadd to avoid creating a duplicate of an existing item name. However /hadd and the hashing algorithm have different definitions of what 'upper' means. /hadd recognizes only A-Z and a-z as being case-insensitive equivalents of each other. When /hadd is asked to create an item name as each of the codepoints 1-65535, it creates 65535-26=65509 items because only the a-z vs A-Z items are considered duplicates.
 <p>
-That means that it's possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
+That means that it is possible to create 2 different item names from the outputs of $upper(SãoPaulo) and $lower(SãoPaulo) because the ã codepoint 227 is seen by /hadd as different than the codepoint 195 from $upper(ã). However the hashing algorithm hashes the $upper(item name) string which is identical for both item names, so it assigns both items to the same bucket.
 <p>
 <H4>See Also</H4>
 <a href="../commands/hmake.html">/hmake</a><br>
