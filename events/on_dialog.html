@@ -68,10 +68,10 @@ This example can be triggered by typing the following command:
 /mouseListener
 </pre>
 
-Once the demo has begun, the mouse event will now listen. When the mouse begins moving around inside of the dialog, the X and Y positions of the mouse are represented inside of the ''text'' components of ID 3, and 5, respectively.
-
-Clicking the ''Close'' button will close the dialog and halt event listening.
-
+Once the demo has begun, the mouse event will now listen. When the mouse begins moving around inside of the dialog, the X and Y positions of the mouse are represented inside of the "text" components of ID 3, and 5, respectively.
+<p>
+Clicking the "Close" button will close the dialog and halt event listening.
+<p>
 Below is another, more thorough example. This example will monitor what events are triggering, what event ID is triggering the event, and any current captions or titles of the event ID which triggered an event. Created a custom <a href="../other/aliases.html">alias</a> called <b>/whatEvents</b> which will open up the local <a href="../dialog/dialog.html">$didreg</a> <b>whatEvents</b>:
 <pre class = "code">
 alias whatEvents dialog - $+ $iif($dialog(whatEvents),v,m) whatEvents whatEvents

@@ -7,7 +7,7 @@
 <br>
 <br>
 <b>$++</b> is a very old construct, similar to <b><a href="_plus.html">$+</a></b> concatenator. <br>
-Behave the same as <b>$+</b> outside <a href="/other/eval_brackets.html">evaluation brackets [ ]</a>. Inside evaluation bracket, it is not. There is no real practical purpose to this identifier.
+Behave the same as <b>$+</b> outside <a href="../other/eval_brackets.html">evaluation brackets [ ]</a>. Inside evaluation bracket, it is not. There is no real practical purpose to this identifier.
 
 <H4>Synopsis</H4>
 <pre class = "code">
@@ -41,7 +41,7 @@ So <b>$++</b> was introduced as a way to stop the $read legacy syntax from consu
 Outside evaluation bracket, it does not matter if you use <b>$+</b> or <b>$++</b>, they both behave as <b>$+</b>, at least there's no known case where <b>$+</b> and <b>$++</b> behave differently, but the legacy syntax stops at both as mentioned above:<br>
 
 <pre class = "code">
-//write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt <br>
+//write -c test ok | write -c test.txt ok1 | echo -ag " $+ $read test $+ .txt vs " $+ $read test $++ .txt
 </pre>
 
 outputs "ok.txt vs "ok.txt showing that <b>$+</b> and <b>$++</b> both concatenated after the previous item was evaluated, both read the file test instead of test.txt
@@ -66,8 +66,13 @@ The [ A $++ ] B format is similar to A [ $++ B ] except that it will only work w
   * Break: evaluation error<br>
 
 It is worth noting that if you're using the format [ A $+ ] B which has <b>$+</b> instead of <b>$++</b> after A, which is a buggy format propagating the non evaluation of token outside the [ ] bracket, you can reset the [ ] behavior with <b>$++</b>, sort of:<br>
+<pre class = "code">
 //echo -ag [ $!!!!!!me $+ ] $!!meB $+ $!!meC $++ $!!meD $+ $!!meE<br>
-outputs $!!!me$!!meB$!!meC$meD$!!meE<br>
+</pre>
+outputs: 
+<pre class = "code">
+$!!!me$!!meB$!!meC$meD$!!meE
+</pre>
 This get $!!meD evaluated twice while $!!meE is back to evaluation 0 with the <b>$+</b>, so the carried over behavior of [ ] are still there, but <b>$++</b> force an evaluation somehow.<br>
 
 <H4>Compatibility</H4>
