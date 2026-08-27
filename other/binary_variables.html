@@ -138,11 +138,11 @@ write &versions to disk
 <H4>'local' Binary variables</H4>
 
 When using %variables within an alias, you can take advantage of their 'local' scope to safely re-use variable names without worrying about destroying variables used by other scripts or aliases. You can use "/var %a value" in an alias to set that local variable without worrying that you will destroy that same variable name being used by the alias which called your alias, and do not need to worry if your script calls another alias which also uses that same name as a local variable.
-
+<p>
 However the scope of binary variables means they exist in all aliases called by each other or in the event which triggered their usage. To avoid aliases damaging the contents of each other's binary variables, if an alias needs to create binary variables, and is designed to be called by other aliases which might also be using binary variables, you must defend against destroying the binary variables used by the caller. Two ways to do this are:
-
-* Require the caller send the name of the variable as a parameter when calling your alias
-* Create a unique variable name to make it unlikely that another alias would use the same name for a binary variable.
+<p>
+<li>Require the caller send the name of the variable as a parameter when calling your alias.</li>
+<li>Create a unique variable name to make it unlikely that another alias would use the same name for a binary variable.</li>
 
 Pass binary variable name to alias, display $bvar output in hex instead of decimal:
 <pre class = "code">
@@ -156,8 +156,8 @@ Create unique name to avoid destroying existing variable:
 </pre>
 
 See <a href="variables.html">Variables</a> in the Guide for more details on creating dynamic variable names.
-
-Note: If your temporary variable is no longer needed and is lengthy, you may wish to use /bunset to reduce memory usage if you are also creating other lengthy binary variables during that script execution. Otherwise, it will be deleted when the script execution ends.
+<p>
+<b>Note:</b> If your temporary variable is no longer needed and is lengthy, you may wish to use /bunset to reduce memory usage if you are also creating other lengthy binary variables during that script execution. Otherwise, it will be deleted when the script execution ends.
 
 <H4>Saving binary variables</H4>
 

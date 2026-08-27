@@ -6,8 +6,9 @@
 <br>
 <br>
 The <b>/bigfloat</b> command either reports whether the script is in 'bigfloat mode', or can force the script in/out of bigfloat mode, where operation of several math identifiers, commands etc are affected.
+<p>
 Most notably, the results from <a href="../identifiers/calc.html">$calc</a> are no longer limited to numbers within doubles range, fractions are no longer limited to 6 digits, and $base automatically detects if input is larger than doubles range's max.
-<br>
+<p>
 <b>Note:</b> alternatively, individual script commands are shifted into bigfloat mode as soon as they encounter a %variable name ending with '.bf', either as the variable being set, or its presence within the command string. The 'on' and 'off' mode can be silenced like .bigfloat on
 
 <H4>Synopsis</H4>
@@ -121,7 +122,7 @@ $true "$true -> $false" $true
 //var -s %base.bf 3 , %base %base.bf , %exp 46 , %modulus 2 ^ 32 | echo -a $powmod(%base,%exp,%modulus) $bigfloat $powmod(%base.bf,%exp,%modulus) $bigfloat $powmod(%base,%exp,%modulus)
 </pre>
 
-By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accurance for some commands that need it, while skipping the slowdown for commands that do not.
+By careful use of %variable.bf mixed with bigfloat on/off, you can get benefits from both systems, by obtaining accuracy for some commands that need it, while skipping the slowdown for commands that do not.
 
 <H4>Bitwise</H4>
 

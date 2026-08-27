@@ -365,7 +365,7 @@ Here both [ ] are resolved at the same time. However after [ ] are resolved, the
 //echo -a David $+( $me )
 </pre>
 And here $+() will normally evaluate $me, so doing that results in a double evaluation of the parameter, watch out.
-
+<p>
 More importantly, since the resolution of [ ] happens before the identifier itself is evaluated, it will correctly parse code that is a direct result of the evaluation brackets. Here is some code to demonstrate this behavior:
 
 <pre class = "code">

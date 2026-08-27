@@ -112,9 +112,8 @@ By default, all space-delimited tokens that begin with the '&' symbol are treate
 
 <H4>The Sockwrite -n Switch and $crlf</H4>
 Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line does not already ends with a $crlf.
-
+<p>
 Consider the following piece of code:
-
 <pre class = "code">
 sockwrite $sockname AAAAA
 sockwrite $sockname BBBBB

@@ -21,19 +21,29 @@ $atan supports scientific notation, you can use the letter 'e' in N to expressio
 <b>.deg</b> - Makes $atan return an angle in degrees instead of radians
 
 <H4>Example</H4>
+Returns: In right triangle where opposite side is 3 and adjacent is 4, angle is 36.869898 degrees
 <pre class = "code">
 //echo -a In right triangle where opposite side is 3 and adjacent is 4, angle is $atan( $calc(3/4) ).deg degrees
-; Returns: In right triangle where opposite side is 3 and adjacent is 4, angle is 36.869898 degrees
 </pre>
 
+Returns: 60 degrees / tangent 1.732051 / atan 60.000003
 <pre class = "code">
 //var %i 60 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
-; returns 60.000003 instead of 60 because the $tan fraction is limited to 6 places, though note that as of 7.76 bigfloat still does not return 60 but 60.000000000000000000000000000002
+</pre>
+
+Returns: 45 degrees / tangent 1 / atan 45
+<pre class = "code">
 //var %i 45 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
+</pre>
+
+Returns: 240 degrees / tangent 1.732051 / atan 60.000003
+<pre class = "code">
 //var %i 240 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
-; returns angle in the range of -90 - +90 degrees (-pi/2 - +pi/2 radians)
+</pre>
+
+Returns: 90 degrees / tangent 16331239353195370 / atan 90
+<pre class = "code">
 //var %i 90 | echo -a %i degrees / tangent $tan(%i).deg / atan $atan( $tan(%i).deg ).deg
-; for 90 degrees, returns a VERY BIG NUMBER instead of infinity
 </pre>
 
 <H4>Compatibility</H4>

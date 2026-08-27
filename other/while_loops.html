@@ -17,11 +17,15 @@ while (&lt;condition&gt;) {
 </pre>
 
 Here is how the while loop works:
-
-#The conditional statement is checked. $v1 and $v2 are generated according to the condition being evaluated.<br>If the statement is true, continue on to step 2.<br>If the statement is false go to step 4.
-#The code inside the while loop (inside the brackets) is executed.
-#The entire process starts all over again. Going back to step 1.
-#If the statement was false.<br>No code inside the while loop is executed and the script skips right down to any code below it.
+<p>
+<!-- TODO   Check web.archive.org for visual reference of this -->
+1. The conditional statement is checked. $v1 and $v2 are generated according to the condition being evaluated.
+<br>&nbsp;&nbsp;&nbsp; If the statement is true, continue on to step 2.
+<br>&nbsp;&nbsp;&nbsp; If the statement is false go to step 4.
+<br>2. The code inside the while loop (inside the brackets) is executed.
+<br>3. The entire process starts all over again. Going back to step 1.
+<br>4. If the statement was false.
+<br>&nbsp;&nbsp;&nbsp; No code inside the while loop is executed and the script skips right down to any code below it.
 
 <H3>true conditions</H3>
 So we said the while loop will continue to iterate as long as the condition is true. But what exactly does that mean? In mSL, a condition is true if the outcome of the condition is NOT 0, <a href="../identifiers/null.html">$null</a>, or <a href="../identifiers/false.html">$false</a>. For example let %x be 5, if the condition is while <a href="../identifiers/calc.html">$calc</a>(%x - 5)) {, since 5-5 is 0, the while loop's condition is false, thus it will not execute any code inside it.
@@ -61,19 +65,19 @@ Alias whileExample1 {
 </pre>
 
 Using the while loop, we can repeat the echo statement as many times as we want. Let's take a look at what's going on:
-
-#We create a local variable called "%line" and assign it the number 1
-#The while loop checks our conditional statement.<br>As long as "%line" is less than or equal to 10, we can enter the while loop.
-#The first statement inside the while loop will cause mIRC to print to the active window "Line number: " follows by the value of "%line".
-#The second statement inside the while loop will cause the "%line" variable to increase by 1 (if no number is specified the default is one).
-#Go back to step 2.
+<p>
+<br>1. We create a local variable called "%line" and assign it the number 1
+<br>2. The while loop checks our conditional statement. As long as "%line" is less than or equal to 10, we can enter the while loop.
+<br>3. The first statement inside the while loop will cause mIRC to print to the active window "Line number: " follows by the value of "%line".
+<br>4. The second statement inside the while loop will cause the "%line" variable to increase by 1 (if no number is specified the default is one).
+<br>5. Go back to step 2.
 
 <H4>Nested Loops</H4>
 
-A ''nested loop'' is a loop that is situated within the body of the other. In a nested loop, the first iteration of the outer loop causes the inner loop to execute. The inner loop will execute its body as long as its condition is true. Upon completion the outer loop executes again, causing the inner loop to execute again. This sequence of events will keep on executing until the outer loop is complete. There is no limit to how many loops can be nested inside each other.
+A nested loop is a loop that is situated within the body of the other. In a nested loop, the first iteration of the outer loop causes the inner loop to execute. The inner loop will execute its body as long as its condition is true. Upon completion the outer loop executes again, causing the inner loop to execute again. This sequence of events will keep on executing until the outer loop is complete. There is no limit to how many loops can be nested inside each other.
+<p>
 
 Take a look at this example:
-
 <pre class = "code">
 alias nestedLoopExample {
   var %x = 1
@@ -107,7 +111,7 @@ This code will generate the following output:
 <H3>Jump Statements</H3>
 
 Jump statements are used to perform an immediate transfer of control. Using jump statements, you can effectively break out of the current loop, jump to the beginning of the current, or transfer program control to another part of the program.
-
+<p>
 mIRC support the following types of statements:
 <br>
 <br>
@@ -120,7 +124,7 @@ The <a href="goto_statements.html">goto statement</a><br>
 <b>Note:</b> In this tutorial, we will not cover the <a href="../commands/return.html">/return</a> or the <a href="../commands/goto.html">/goto</a> commands.
 
 <H4>break statement</H4>
-The ''break statement'' lets you break out of the currently executing while loop at any point.  The break statement will only break out of the while loop in which it is nested in.
+The break statement lets you break out of the currently executing while loop at any point. The break statement will only break out of the while loop in which it is nested in.
 
 <pre class = "code">
 break
@@ -180,10 +184,10 @@ The output is:
 
 <H4>continue statement</H4>
 
-A ''continue statement'' in mIRC will cause the program control to jump to the end of the loop body. causing it to evaluate the conditional statement again skipping any subsequent code. A continue statement can only be used within a loop.
+A continue statement in mIRC will cause the program control to jump to the end of the loop body. causing it to evaluate the conditional statement again skipping any subsequent code. A continue statement can only be used within a loop.
+<p>
 
-The continue statement has the form
-
+The continue statement has the form:
 <pre class = "code">
 continue
 </pre>
@@ -200,7 +204,7 @@ alias listEven {
 </pre>
 
 In the example above we created a loop to go from 0 to 20. The if statement checks if the number is odd. If true, we make it jump to the next iteration (Via the <a href="../commands/continue.html">/continue</a> command). The last statement of the loop's body is used to print the number.
-
+<p>
 The output is:
 
 <pre class = "code">
@@ -216,7 +220,7 @@ The output is:
 20
 </pre>
 
-Notice, the result is all the even numbers between 2 to 20. If you are wondering how did it echo 20 even though our conditional statement tells mIRC anything less than 20. We have an answer:  when %x gets to 19, the if statement will cause the /continue command to execute, as a result, the program control goes back to the conditional statement, 19 < 20, which is true. %x then gets increased by 1 to 20, which will then make it to the echo command.
+Notice, the result is all the even numbers between 2 to 20. If you are wondering how did it echo 20 even though our conditional statement tells mIRC anything less than 20. We have an answer:  when %x gets to 19, the if statement will cause the /continue command to execute, as a result, the program control goes back to the conditional statement, 19 &lt; 20, which is true. %x then gets increased by 1 to 20, which will then make it to the echo command.
 
 <H4>Reference of parameters</H4>
 
@@ -243,8 +247,9 @@ alias refExample {
 
 An infinite loop happens when a condition always evaluates to true. Most times, its due to an error. If that's the case, you can force mIRC to break out of it using the <b>CTRL+BREAK</b> key combinations.
 Such a condition may be used on purpose, where you need to use the break statement to break out of the loop, but you can always rewrite the code otherwise to avoid this type of condition
+<p>
+Returns a random nickname on a channel while excluding yourself ($me) from the list:
 <pre class = "code">
-;returns a random nickname on a channel while excluding yourself ($me) from the list
 while (1) {
   if ($nick($chan,$r(1,$nick($chan,0))) != $me) {
     echo -a $v1
@@ -253,28 +258,25 @@ while (1) {
 }
 
 ; Equivalent:
-
-while ($nick($chan,$r(1,$nick($chan,0))) == $me) /
-echo -a $v1
-
+while ($nick($chan,$r(1,$nick($chan,0))) == $me) echo -a $v1
 </pre>
 
 <H4>Keeping mIRC responsive</H4>
 
 Whilst your loops are looping, mIRC is not able to process any other activities such as messages sent from the server or your own keystrokes or mouse clicks. So while loops which loop a lot of times can result in mIRC appearing to lag or be unresponsive.<br>
-
+<p>
 For these situations there are several techniques you can use to mitigate this:
-
+<p>
 a. Rather than iterating through a hash table item by item or a custom list window line by line to find what you want, use mIRC functionality to search for what you are seeking i.e. using $hfind, $fline etc.
-
+<p>
 b. Where mIRC allows it, use the /command parameter for identifiers like $hfind $fline $regsubex etc. or using /filter's -k alias, so that the identifier calls the code to process what you found rather than exiting the find, doing the processing and then re-entering the find again.
-
+<p>
 For example, if you use $findfile inside a while() loop handling the Nth file individually, mIRC is forced to repeat the disk search N times, while using the /command parameter inside $findfile allows performing the disk search just 1 time.
-
+<p>
 Note: If you use the /command parameter, mIRC will not be able to process any other messages whilst the identifier and the /commands process and mIRC may become unresponsive for an extended period. If you do not use the /command parameter you can use the next technique to keep mIRC responsive, but at the cost of additional elapsed time to complete the search.
-
+<p>
 c. Split the loops into smaller chunks and use .timer 0 1 to queue the next chunk of iterations, letting mIRC process any server messages, keystrokes and mouse clicks before running the timer.
-
+<p>
 d. Make your while() loop more efficient by enabling it to use less overhead. If you are processing the lines in a disk file in a way which can not be accomplished using /filter -k, ensure your while (condition) itself uses fewer resources.
 
 <pre class = "code">
@@ -282,8 +284,8 @@ var %i 0 | while (%line &lt;= $lines(file.txt)) { inc %i | do stuff }
 var %i 0 , %total $lines(file.txt) | while (%line &lt;= %total) { inc %i | do stuff }
 </pre>
 
-The 1st alternative will be slower due to repeatedly calculating the same thing.<br>
-
+The 1st alternative will be slower due to repeatedly calculating the same thing.
+<p>
 e. If your while loop is echoing screen output, you can speed up the loop by temporarily (or permanently) setting the /fupdate value to a higher number in the 0-100 range. If your loop is adding lines to a @window, the write is much faster if the window is hidden or minimized.
 
 </body>
