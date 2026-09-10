@@ -14,7 +14,7 @@ Editing:
 </pre>
 Connecting:
 <pre class = "code">
-/server [-46demntpfoczu] &lt;server/groupname/N&gt; [port] [password] [-l method password] [-lname name] [-lerror [0|1]] [-keytype global/local] [-key filename] [-itype global/local] [-i nick anick email name] [-encoding N] [-jn #channel pass]
+/server [-46demntpfoczu] &lt;address/group&gt; [port] [password] [-l method password] [-lname name] [-lerror [0|1]] [-keytype global/local] [-key filename] [-itype global/local] [-i nick anick email name] [-encoding N] [-jn #channel pass] [-ircv3 tokens]
 </pre>
 
 <H4>Switches</H4>
@@ -70,6 +70,7 @@ If any of the -sar switches are used:
 <br><b>-key [filename.pem]</b> - Defines the path/filename for the filename containing the public/private keys for an optional local client certificate, but does not report an error if the filename does not exist, until you actually attempt to connect using a non-existent cert.pem file. If you have a global client cert, but do not define a local cert file, "-key -keytype local" allows connecting to that server without using either a local OR the global cert, and instead behaves at that network as if no global or local client cert exist.
 <br><b>-i nick altnick email name</b> - Defines the nick/altnick/email/name fields filled into the 'logon' tab of that item in the serverlist. If the 'name' string containing a space, it must be enclosed in doublequotes. These settings are cleared if -i uses no parameters.
 <br><b>-itype [local|global]</b> - Configures whether to use the local info fields as can be defined with the -i switch, or to use the global fields listed at the top of the alt+E serverlist editor.
+<br><b>-ircv3</b> switch allows you to set no-implicit-names=[0|1] when connecting to a server. This setting remains in plae for a status window until changed. 
 <br><b>-encoding [CodePageNumber]</b> - Allows overriding the default behavior of interpreting server messages as UTF8 encoding, and instead using a codepage number for servers who use a regional codepage instead of UTF8. For example, '-encoding 857' configures that serverlist entry to use the Turkish codepage. If the codepage number is missing or is a number not recognized by your OS, the entry is set to 'Default' i.e. UTF8 encoding. Users who still use v6.35 because of using a server that does not support UTF8 'should' be able to use this setting to update to a modern mIRC version v7.69 or newer.
 <br>
 Otherwise:

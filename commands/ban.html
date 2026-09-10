@@ -9,11 +9,12 @@ The <b>/ban</b> command is used to ban someone from a specific channel using the
 
 <H4>Synopsis</H4>
 <pre class = "code">
-/ban [-kruNbeIq] [#channel] &lt;nickname|address&gt; [type] [kick message]
+/ban [-akruNbeIq] [#channel] &lt;nickname|address&gt; [type] [kick message]
 </pre>
 
 <H4>Switches</H4>
-<b>-k</b> - Bans and kicks the user.
+<b>-a</b> - Check IAL and apply EXTBAN/ACCOUNTTEXTBAN if found. If not found wildcard ban is applied.
+<br><b>-k</b> - Bans and kicks the user.
 <br><b>-r</b> - Used to remove a banned address.
 <br><b>-u</b>N - Unsets the ban in N amount of seconds.
 <br><b>-b</b> - Ban list.
