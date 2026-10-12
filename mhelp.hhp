@@ -257,6 +257,7 @@ commands\sockrename.html
 commands\sockudp.html
 commands\sockwrite.html
 commands\sound.html
+commands\spaces.html
 commands\speak.html
 commands\splay.html
 commands\sreq.html
@@ -733,6 +734,8 @@ identifiers\sockname.html
 identifiers\sorttok.html
 identifiers\sorttokcs.html
 identifiers\sound.html
+identifiers\spaces.html
+identifiers\spaces_.html
 identifiers\speak.html
 identifiers\sqrt.html
 identifiers\sreq.html
@@ -776,6 +779,7 @@ identifiers\toolbar_.html
 identifiers\topic.html
 identifiers\totp.html
 identifiers\treebar.html
+identifiers\trim.html
 identifiers\true.html
 identifiers\trust.html
 identifiers\ulevel.html

@@ -1794,6 +1794,14 @@
 		<param name="Local" value="identifiers\sound.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$spaces">
+		<param name="Local" value="identifiers\spaces.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$spaces()">
+		<param name="Local" value="identifiers\spaces_.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$speak">
 		<param name="Local" value="identifiers\speak.html">
 		</OBJECT>
@@ -1960,6 +1968,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$treebar">
 		<param name="Local" value="identifiers\treebar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$trim">
+		<param name="Local" value="identifiers\trim.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="$true">
