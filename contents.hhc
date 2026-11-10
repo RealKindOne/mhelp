@@ -34,6 +34,10 @@
 		<param name="Local" value="other\variables.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Binary Variables">
+		<param name="Local" value="other\binary_variables.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sockets">
 		<param name="Local" value="sockets\sockets.html">
 		</OBJECT>
