@@ -5,7 +5,7 @@
 <H1>$trim</H1>
 <br>
 <br>
-The <b>$trim</b> identifier that removes excess space for the left, middle or right of text.
+The <b>$trim</b> identifier that removes excess spaces from the left, middle or right of text.
 
 <H4>Synopsis</H4>
 <pre class = "code">
@@ -13,9 +13,10 @@ $trim(text,lmr)
 </pre>
 
 <H4>Parameters</H4>
-<b>l</b> - left
-<br><b>m</b> - middle
-<br><b>r</b> - right
+<b>l</b> - deletes spaces from the start of the string (leading spaces)
+<br><b>m</b> - reduces consecutives spaces to a single spaces when they are not at the start/end of the string
+<br><b>r</b> - deletes spaces from the end of the string (trailing spaces)
+Not using a parameter (default) is equivalent to using them all
 
 <H4>Properties</H4>
 None
@@ -23,14 +24,11 @@ None
 <H4>Example</H4>
 
 <pre class = "code">
-TODO
+//echo -ag $len($trim(a $chr(32) $+ $chr(32) b)) is 3 but $len($trim(a $chr(32) $+ $chr(32) b,l)) is 6
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v7.86 TODO
-
-<H4>Notes</H4>
-None
+Added: mIRC v7.86 (29 oct 2026)
 
 <H4>See also</H4>
 
