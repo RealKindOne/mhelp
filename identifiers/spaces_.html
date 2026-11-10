@@ -9,22 +9,33 @@ The <b>$spaces</b> identifier preserves spaces for the TODO - ON_INPUT event.
 
 <H4>Synopsis</H4>
 <pre class = "code">
-$spaces(command,parms)
+$spaces([echo | send | dcc],parms)
 </pre>
 
 <H4>Parameters</H4>
-
+<b>echo</b> - Echo into a window.
+<br><b>send</b> - Sent do a channel or query.
+<br><b>dcc></b> - Send to a DCC chat.
 <H4>Properties</H4>
 None
 
 <H4>Example</H4>
 
 <pre class = "code">
-TODO
+; Simple autocorrect example that uses hash tables. This preserves spaces.
+on *:input:*:{
+  var -n %temp $parms
+  var -n %temp = $regsubex(%temp,/((?<=^| )\w+)/g,$iif($hget(autocorrect,\1) != $null,$v1,\1))
+  if ($left($1,1) != /) && (!$ctrlenter) {
+    $spaces(send, PRIVMSG $target : $+ %temp)
+    $spaces(echo, -aitc own $+(<,$me,>) %temp)
+    halt
+  }
+}
 </pre>
 
 <H4>Compatibility</H4>
-Added: mIRC v7.86 TODO
+Added: mIRC v7.86 (29 Oct 2026)
 
 <H4>Notes</H4>
 None

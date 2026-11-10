@@ -575,6 +575,7 @@
       - [$lactivecid](identifiers/lactivecid.md)
       - [$lactivewid](identifiers/lactivewid.md)
       - [$langdll](identifiers/langdll.md)
+	  - [$lastecho](identifiers/lastecho.md)
       - [$lcm](identifiers/lcm.md)
       - [$left](identifiers/left.md)
       - [$leftwin](identifiers/leftwin.md)
