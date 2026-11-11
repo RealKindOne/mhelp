@@ -288,7 +288,7 @@ When you call an alias as an identifier, you cannot get this non evaluation of s
 If you create an alias of the same name as of an existing built-in identifier, unlike command, mIRC does not call your alias by default, you can prefix your $identifier call with a dot '.' or a slash '/' to force mIRC to call your alias: $/me (if you try that on a non built-in name, the / is included as the name of the identifier to call and it fails).<br>
 If you need to use an identifier as plain text you can prefix it with the '!' character: $!5 returns "$5".<br>
 
-%variables works exactly the same way as $identifier with no parameter (and no property) but they return a value that a script specifically set, which is the simplest way to store data:
+%variables works exactly the same way as $identifier with no parameter (and no property) but are prefixed with a '%' they return a value that a script specifically set, which is the simplest way to store data:
 <pre class = "code">
 //var %a 5 | echo -a %a
 </pre>
@@ -330,34 +330,56 @@ An example of an identifier that is a construct and not returning a value is $+,
 If your statements are not inside an alias, the other thing they can used with are events.<br>
 Events are basically predefined aliases which are called when something happen, such as a nickname joining a channel you're in.<br>
 Most of them also have predefined parameters which can be used to quickly filter the triggering of the event.<br>
-All events follow this format except two:<br>
+Almost all events follow this format:<br>
 <pre class = "code">
 on &lt;event_prefix&gt;&lt;access_level&gt;:&lt;event_name&gt;:&lt;parameter1&gt;:&lt;parameterN&gt;:&lt;statements&gt;
 </pre>
-"on" is literal, event prefix, access level and event name are not evaluated and must be literal.<br>
+"on" is literal, event prefixes, access levels and event names are not evaluated and must be literal.<br>
 After that you have the parameters of the events, you can get parameters to be evaluated as the event occurs by using the $() identifier around the parameters.<br>
 Some of these events format have more parameters than the others, parameters are all separated by a semi colon ':', so you can not have literal ':' in them.<br>
 
+An access level is merely just another parameter of an event used to filter the triggering of the event, it is mainly used for IRC events, you can find more informations about access levels <a href="../other/access_levels.html">here</a></body><br>
 
-Then you have the CTCP event, it has a similar format as the above and takes two parameters:<br>
+Then you have the 2 others events with almost exact syntax (only "on" changes):<br>
+  
+The ctcp event (the first word "ctcp" is literal):<br>
 <pre class = "code">
-ctcp &lt;event_prefix&gt;:ctcp:&lt;matchtext&gt;:&lt;location&gt;:&lt;statements&gt;
+ctcp &lt;event_prefix&gt;:matchtext&gt;:&lt;location&gt;:&lt;statements&gt;
 </pre>
+  
+The raw event(the first word "raw":<br>
+<pre class = "code">
+raw &lt;numeric&gt;:matchtext&gt;:&lt;statements&gt;
+</pre>
+ 
+<p>
+For all 3 events type above, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
+Most of these events trigger with the status window set as the active window.
 
-The last events type are menu events:
+The last events type are menu events:<br>
 <pre class = "code">
 menu &lt;window&gt; {
-  &lt;statements&gt;
+  &lt;items&gt;:&lt;statements&gt;
 }
 </pre>
-Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger real events.
+Menu events can be used to describe popups menu definition, which are the contextual menus you get when you right click in Windows, but they also can be used to trigger mouse events.
 <p>
-Statements in menu events are a bit different than in all other places, if they represent a popup menu, then they will follow the popup menu format, see here.
-<p>
-Otherwise, each statement must go on their own line and are split in two on the ':' character, the first part represent a known event name for menu event, while the second part represents statements to execute for that event.
-<p>
-For all 3 events type, if all conditions are met, the event 'triggers' and statements are executed the same as with an alias, the { } rules applies if you want to go multiline however, the last ':' character (or the lone : for menu event) can be omitted if you use { }.
-Most of these events trigger with the status window set as the active window.
+Statements in menu events are a bit different than in all other places, each statement must go on their own line and are split in two on the ':' character, you can use pipe to separate them on a single line.<br>
+The first part, the item, represent the value used for the menu, while the second part represents statements to execute when you click on that menu item.<br>
+You can create submenu by prefixing the item with one extra literal dot '.' character:<br>, for example
+<pre class = "code">
+menu @example {
+  menu  
+  .sub_item: echo -a sub item clicked!
+  .sub_item2
+  ..sub__sub_item: echo -a sub sub item clicked!
+  .sub: echo -a another item!
+  item2: echo -a main item 2.
+}
+</pre>You can use a dash character '-' to separate menu item with a line separator (no statement separated by a ':' is required in this case)
+  
+If the window used for the menu event is a custom a window or a picture window, you can also use menu item to trigger mouse events.<br>
+If you need to use an item value that is also a mouse event value: first define the mouse events items (can be none) and then use a line separator with a dash before defining the popups:<br>
 
 <h4>Command vs identifier</h4>
 
